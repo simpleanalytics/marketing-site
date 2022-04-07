@@ -20,3 +20,7 @@ Start the development server on http://localhost:3000
 ```bash
 npm run dev
 ```
+
+## Preview
+
+<kbd><img alt="Screenshot" src="https://user-images.githubusercontent.com/1079135/162253493-031329a4-8951-4596-b16e-f8dc2516b27e.png"></kbd>
