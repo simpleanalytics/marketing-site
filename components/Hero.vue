@@ -1,77 +1,10 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <div class="relative bg-gray-100 overflow-hidden">
+  <div class="relative bg-[#eef9ff] overflow-hidden">
     <div
-      class="hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full"
+      class="sa-background hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full"
       aria-hidden="true"
-    >
-      <div class="relative h-full max-w-7xl mx-auto">
-        <svg
-          class="absolute right-full transform translate-y-1/4 translate-x-1/4 lg:translate-x-1/2"
-          width="404"
-          height="784"
-          fill="none"
-          viewBox="0 0 404 784"
-        >
-          <defs>
-            <pattern
-              id="f210dbf6-a58d-4871-961e-36d5016a0f49"
-              x="0"
-              y="0"
-              width="20"
-              height="20"
-              patternUnits="userSpaceOnUse"
-            >
-              <rect
-                x="0"
-                y="0"
-                width="4"
-                height="4"
-                class="text-gray-200"
-                fill="currentColor"
-              />
-            </pattern>
-          </defs>
-          <rect
-            width="404"
-            height="784"
-            fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"
-          />
-        </svg>
-        <svg
-          class="absolute left-full transform -translate-y-3/4 -translate-x-1/4 md:-translate-y-1/2 lg:-translate-x-1/2"
-          width="404"
-          height="784"
-          fill="none"
-          viewBox="0 0 404 784"
-        >
-          <defs>
-            <pattern
-              id="5d0dd344-b041-4d26-bec4-8d33ea57ec9b"
-              x="0"
-              y="0"
-              width="20"
-              height="20"
-              patternUnits="userSpaceOnUse"
-            >
-              <rect
-                x="0"
-                y="0"
-                width="4"
-                height="4"
-                class="text-gray-200"
-                fill="currentColor"
-              />
-            </pattern>
-          </defs>
-          <rect
-            width="404"
-            height="784"
-            fill="url(#5d0dd344-b041-4d26-bec4-8d33ea57ec9b)"
-          />
-        </svg>
-      </div>
-    </div>
+    ></div>
 
     <div class="relative pt-6 pb-16 sm:pb-24">
       <Popover>
@@ -84,15 +17,21 @@
               class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0"
             >
               <div class="flex items-center justify-between w-full md:w-auto">
-                <a href="#">
-                  <span class="sr-only">Workflow</span>
+                <a href="/" class="flex items-center">
                   <img
-                    class="h-8 w-auto sm:h-10"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                    class="h-5 w-auto sm:h-6"
+                    src="https://assets.simpleanalytics.com/images/logos/logo-no-padding.svg"
                     alt=""
                   />
+                  <span
+                    class="sm:hidden lg:block ml-3 text-xl sm:text-2xl text-gray-600"
+                    >Simple Analytics</span
+                  >
                 </a>
-                <div class="-mr-2 flex items-center md:hidden">
+                <div
+                  class="flex items-center md:hidden"
+                  style="margin-right: 4px"
+                >
                   <PopoverButton
                     class="bg-gray-50 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500"
                   >
@@ -114,14 +53,12 @@
             <div
               class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0"
             >
-              <span class="inline-flex rounded-full shadow">
-                <a
-                  href="#"
-                  class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-full text-red-600 bg-white hover:bg-gray-50"
-                >
-                  Log in
-                </a>
-              </span>
+              <a
+                href="#"
+                class="inline-flex items-center px-4 py-2 border-2 border-red-500 text-base font-medium rounded-full text-red-500 bg-white hover:bg-gray-50"
+              >
+                Log in
+              </a>
             </div>
           </nav>
         </div>
@@ -145,7 +82,7 @@
                 <div>
                   <img
                     class="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                    src="https://assets.simpleanalytics.com/images/logos/logo-no-padding.svg"
                     alt=""
                   />
                 </div>
@@ -168,8 +105,8 @@
                 >
               </div>
               <a
-                href="#"
-                class="block w-full px-5 py-3 text-center font-medium text-red-600 bg-gray-50 hover:bg-gray-100"
+                href="/login"
+                class="block w-full px-5 py-3 text-center font-medium text-red-500 bg-gray-50 hover:bg-gray-100"
               >
                 Log in
               </a>
@@ -181,13 +118,15 @@
       <main class="mt-16 mx-auto max-w-7xl px-4 sm:mt-24">
         <div class="text-center">
           <h1
-            class="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl leading-normal sm:leading-normal"
+            class="text-4xl font-medium text-gray-600 sm:text-5xl md:text-6xl"
           >
-            <span class=" "
-              >The <span class="text-red-600">privacy-first</span></span
+            <span class="leading-snug"
+              >The <span class="text-red-500">privacy-first</span></span
             >
             {{ " " }}
-            <span class="block">Google Analytics alternative.</span>
+            <span class="block leading-snug"
+              >Google Analytics alternative.</span
+            >
           </h1>
           <p
             class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl"
@@ -200,20 +139,20 @@
             Trusted by Governments, NGOs, and Small to Mid-sized Enterprises.
           </p>
           <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-            <div class="rounded-full shadow">
+            <div class="rounded-full shadowXX">
               <a
                 href="#"
-                class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-red-500 hover:bg-red-600 md:py-4 md:text-lg md:px-10"
+                class="w-full flex items-center justify-center px-8 py-3 border-2 border-red-500 text-base font-medium rounded-full text-white bg-red-500 hover:bg-red-600 md:py-4 md:text-lg md:px-10 hover:border-red-600"
               >
-                Get started
+                Start trial now
               </a>
             </div>
-            <div class="mt-3 rounded-full shadow sm:mt-0 sm:ml-3">
+            <div class="mt-3 rounded-full shadowXX sm:mt-0 sm:ml-3">
               <a
                 href="#"
-                class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-red-500 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
+                class="w-full flex items-center justify-center px-8 py-3 border-2 border-red-500 text-base font-medium rounded-full text-red-500 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
               >
-                Live demo
+                See live demo
               </a>
             </div>
           </div>
@@ -250,3 +189,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.sa-background {
+  background-image: url("https://assets.simpleanalytics.com/images/background-shapes.svg");
+  background-position: center -150px;
+  background-size: 200%;
+  background-repeat: no-repeat;
+}
+</style>

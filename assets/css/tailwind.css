@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  --background: #f5f5f5;
+  --text: #313131;
+}
+
+html.dark {
+  --background: #20292a;
+  --text: #f8f8f8;
+}
+
+a {
+  cursor: pointer;
+}
+
+.button {
+  @apply inline-flex items-center justify-center px-4 py-2 border-2 border-red-500 text-base font-medium rounded-full text-red-500 bg-white hover:bg-gray-50 hover:text-red-600  hover:border-red-600;
+}
+.button.large {
+  @apply px-8 py-3 md:py-4 md:text-lg md:px-10;
+}
+.button.primary {
+  @apply text-white bg-red-500 hover:bg-red-600  hover:border-red-600;
+}
