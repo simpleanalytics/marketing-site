@@ -1,13 +1,16 @@
-# Nuxt 3 Minimal Starter
+# Simple Analytics marketing site
 
-We recommend to look at the [documentation](https://v3.nuxtjs.org).
+We use:
+
+- [Tailwindcss 3](https://tailwindcss.com/docs/utility-first)
+- [Nuxt.js 3](https://v3.nuxtjs.org)
 
 ## Setup
 
 Make sure to install the dependencies
 
 ```bash
-yarn install
+npm install
 ```
 
 ## Development
@@ -15,15 +18,5 @@ yarn install
 Start the development server on http://localhost:3000
 
 ```bash
-yarn dev
+npm run dev
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-yarn build
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
