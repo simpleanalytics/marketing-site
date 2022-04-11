@@ -20,7 +20,7 @@ fi
 
 echo "=> Building"
 
-# npm run build && cp ./ecosystem.config.js ./.output/server/ && cd ./.output/server/ && zip -r ../../app.zip . && cd -
+npm run build && cp ./ecosystem.config.js ./.output/server/ && cd ./.output/server/ && zip -r ../../app.zip . && cd -
 
 echo "=> Uploading server via SSH"
 
@@ -41,17 +41,18 @@ echo "=> Uploading to BunnyCDN..."
 find .output/public -type f ! -iname ".DS_Store" -print0 | while read -d $'\0' localfile
 do
   cdnfilename="${localfile/\.output\/public\//}"
+
   put_response=$(curl \
     --request PUT \
-    --url "https://storage.bunnycdn.com/sa-marketing-assets/$cdnfilename" \
+    --url "https://storage.bunnycdn.com/$bucket/$cdnfilename" \
     --header "AccessKey: $BUNNY_CDN_ACCESS_KEY" \
-    -F "file=@$localfile" \
-    -o - \
-    -s \
+    --upload-file "$localfile" \
+    --output - \
+    --silent \
     -w "%{stdout} %{http_code}"
   )
 
-  if ! [[ $put_response = *201 ]]; then
+  if ! [[ $put_response = *201* ]]; then
     echo "Failed to update $cdnfilename, got http code: $put_response"
     exit 1
   fi
