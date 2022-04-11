@@ -5,13 +5,13 @@
         <img
           v-if="image"
           :src="image"
-          class="h-44 w-44 xl:h-60 xl:w-60 rounded-full"
+          class="h-44 w-44 xl:h-50 xl:w-50 rounded-full"
           alt=""
         />
         <component
           v-else-if="logo"
           :is="logo"
-          class="h-44 w-44 xl:h-60 xl:w-60"
+          class="h-44 w-44 xl:h-50 xl:w-50"
         />
       </div>
 
@@ -29,12 +29,21 @@
         </svg>
         <blockquote class="relative">
           <div class="text-2xl leading-9 font-normal text-gray-600">
-            <p>
-              <slot></slot>
+            <p
+              class="italic"
+              :class="
+                quote.length > 300
+                  ? 'text-lg'
+                  : quote.length > 100
+                  ? 'text-xl'
+                  : 'text-2xl'
+              "
+            >
+              “{{ quote }}”
             </p>
           </div>
           <footer class="mt-8">
-            <div class="flex">
+            <div class="flex justify-center">
               <div class="flex-shrink-0 lg:hidden">
                 <img
                   v-if="image"
@@ -44,11 +53,17 @@
                 />
                 <component v-else-if="logo" :is="logo" class="h-12 w-12" />
               </div>
-              <div class="ml-4 lg:ml-0">
-                <div class="text-base text-left font-medium text-gray-600">
+              <div
+                class="flex flex-col items-center justify-center ml-4 sm:ml-0 lg:mx-a"
+              >
+                <div
+                  class="text-base text-left sm:text-center font-medium text-blue-800"
+                >
                   {{ title }}
                 </div>
-                <div class="text-base text-left font-normal text-gray-400">
+                <div
+                  class="text-base text-left sm:text-center font-normal text-blue-500"
+                >
                   {{ subtitle }}
                 </div>
               </div>
@@ -61,5 +76,5 @@
 </template>
 
 <script setup>
-const props = defineProps(["logo", "image", "title", "subtitle"]);
+const props = defineProps(["logo", "image", "quote", "title", "subtitle"]);
 </script>

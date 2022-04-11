@@ -149,7 +149,7 @@
       </div>
     </div>
 
-    <main class="max-w-3xl mx-auto px-4 text-center">
+    <main>
       <slot></slot>
     </main>
   </div>
