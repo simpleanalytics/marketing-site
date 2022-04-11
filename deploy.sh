@@ -2,6 +2,8 @@
 
 set -eu
 
+bucket="sa-marketing-assets"
+
 echo "=> Preparing deploy"
 
 if [ -f .env ]; then
@@ -18,12 +20,14 @@ fi
 
 echo "=> Building"
 
-npm run build && cp ./ecosystem.config.js ./.output/server/ && cd ./.output/server/ && zip -r ../../app.zip . && cd -
+# npm run build && cp ./ecosystem.config.js ./.output/server/ && cd ./.output/server/ && zip -r ../../app.zip . && cd -
 
-echo "=> Uploading"
+echo "=> Uploading server via SSH"
 
 current_date=$(date +"%Y-%m-%d")
 scp -q -o LogLevel=QUIET app.zip "app@simpleanalytics.com:/home/app/apps/marketing-site/$current_date-app.zip"
+
+echo "=> Minimize images"
 
 if [ -f "node_modules/imageoptim-cli/dist/imageoptim" ]; then
   node_modules/imageoptim-cli/dist/imageoptim '.output/public/**/*.png' '.output/public/**/*.jpg' '.output/public/**/*.jpeg'
@@ -57,12 +61,13 @@ echo "=> Flushing files on BunnyCDN..."
 
 find .output/public -type f ! -iname ".DS_Store" -print0 | while read -d $'\0' localfile
 do
+  cdnfilename="${localfile/\.output\/public\//}"
   flush_response=$(curl \
     --request POST \
     --header "AccessKey: $BUNNY_CDN_ACCOUNT_KEY" \
-    --url 'https://api.bunny.net/purge?url=https://sa-marketing-assets.b-cdn.net/favicon.ico' \
-    -o - \
-    -s \
+    --url "https://api.bunny.net/purge?url=https://$bucket.b-cdn.net/$cdnfilename" \
+    --output - \
+    --silent \
     -w "%{stdout} %{http_code}"
   )
 
