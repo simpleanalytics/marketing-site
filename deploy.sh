@@ -2,6 +2,8 @@
 
 set -eu
 
+echo "=> Preparing deploy"
+
 if [ -f .env ]; then
     export $(cat .env | grep -v '^#' | sed 's/\r$//' | awk '/=/ {print $1}' )
 else
@@ -14,7 +16,14 @@ if [[ -z ${BUNNY_CDN_ACCESS_KEY+x} || -z ${BUNNY_CDN_ACCOUNT_KEY+x} ]]; then
   exit 1
 fi
 
-npm run build && cp ./ecosystem.config.js ./.output/server/ && zip -r app.zip .output/server
+echo "=> Building"
+
+npm run build && cp ./ecosystem.config.js ./.output/server/ && cd ./.output/server/ && zip -r ../../app.zip . && cd -
+
+echo "=> Uploading"
+
+current_date=$(date +"%Y-%m-%d")
+scp -q -o LogLevel=QUIET app.zip "app@simpleanalytics.com:/home/app/apps/marketing-site/$current_date-app.zip"
 
 if [ -f "node_modules/imageoptim-cli/dist/imageoptim" ]; then
   node_modules/imageoptim-cli/dist/imageoptim '.output/public/**/*.png' '.output/public/**/*.jpg' '.output/public/**/*.jpeg'
@@ -23,7 +32,7 @@ else
   exit 1
 fi
 
-echo "Uploading to BunnyCDN..."
+echo "=> Uploading to BunnyCDN..."
 
 find .output/public -type f ! -iname ".DS_Store" -print0 | while read -d $'\0' localfile
 do
@@ -44,7 +53,7 @@ do
   fi
 done
 
-echo "Flushing files on BunnyCDN..."
+echo "=> Flushing files on BunnyCDN..."
 
 find .output/public -type f ! -iname ".DS_Store" -print0 | while read -d $'\0' localfile
 do
@@ -63,6 +72,5 @@ do
   fi
 done
 
-echo "Done!"
-
-# https://panel.bunny.net/api/purge/?url=https%3A%2F%2Fmarketing-assets.b-cdn.net%2Fpalettte.app.json&log=true
+echo "=> To deploy the Node.js app, run this command on the server"
+echo "cd /home/app/apps/marketing-site/ && unzip -o $current_date-app.zip && sudo service marketing-site restart && service marketing-site status"

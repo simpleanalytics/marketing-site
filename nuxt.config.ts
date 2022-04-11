@@ -8,6 +8,10 @@ export default defineNuxtConfig({
   },
   build: {
     transpile: ["@heroicons/vue"],
+    publicPath: "",
+  },
+  app: {
+    cdnURL: "https://sa-marketing-assets.b-cdn.net/",
   },
   modules: ["@nuxtjs/tailwindcss"],
   compilerOptions: {
