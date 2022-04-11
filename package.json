@@ -8,9 +8,8 @@
   "devDependencies": {
     "@headlessui/vue": "^1.5.0",
     "@heroicons/vue": "^1.0.6",
-    "nuxt3": "latest"
-  },
-  "dependencies": {
-    "@nuxtjs/tailwindcss": "^5.0.0-4"
+    "@nuxtjs/tailwindcss": "^5.0.0-4",
+    "imageoptim-cli": "^3.0.7",
+    "nuxt3": "3.0.0-27494471.1091d45"
   }
 }
