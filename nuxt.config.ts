@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     publicPath: "",
   },
   app: {
-    cdnURL: "https://sa-marketing-assets.b-cdn.net/",
+    cdnURL: "https://www-cdn.simpleanalytics.com/",
   },
   modules: ["@nuxtjs/tailwindcss"],
   compilerOptions: {

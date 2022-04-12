@@ -4,18 +4,24 @@ set -eu
 
 bucket="sa-marketing-assets"
 
-echo "=> Preparing deploy"
-
 if [ -f .env ]; then
     export $(cat .env | grep -v '^#' | sed 's/\r$//' | awk '/=/ {print $1}' )
 else
+  echo "=> Preparing deploy"
   echo "Can not find .env variables"
   exit 1
 fi
 
 if [[ -z ${BUNNY_CDN_ACCESS_KEY+x} || -z ${BUNNY_CDN_ACCOUNT_KEY+x} ]]; then
+  echo "=> Preparing deploy"
   echo "Make sure BUNNY_CDN_ACCESS_KEY and BUNNY_CDN_ACCOUNT_KEY are defined in .env"
   exit 1
+fi
+
+read -p "=> Are you sure you want to deploy to production? [y/N] " prompt
+if ! [[ $prompt == "y" ]]; then
+  echo "Aborted by you. Next time, type 'y' to confirm."
+  exit 0
 fi
 
 echo "=> Building"
