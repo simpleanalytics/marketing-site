@@ -5,7 +5,7 @@ set -eu
 bucket="sa-marketing-assets"
 
 if [ -f .env ]; then
-    export $(cat .env | grep -v '^#' | sed 's/\r$//' | awk '/=/ {print $1}' )
+    export $(grep -v '^#' .env | sed 's/\r$//' | awk '/=/ {print $1}' )
 else
   echo "=> Preparing deploy"
   echo "Can not find .env variables"
@@ -18,7 +18,7 @@ if [[ -z ${BUNNY_CDN_ACCESS_KEY+x} || -z ${BUNNY_CDN_ACCOUNT_KEY+x} ]]; then
   exit 1
 fi
 
-read -p "=> Are you sure you want to deploy to production? [y/N] " prompt
+read -r -p "=> Are you sure you want to deploy to production? [y/N] " prompt
 if ! [[ $prompt == "y" ]]; then
   echo "Aborted by you. Next time, type 'y' to confirm."
   exit 0
@@ -28,7 +28,7 @@ echo "=> Building"
 
 npm run build && cp ./ecosystem.config.js ./.output/server/ && cd ./.output/server/ && zip -r ../../app.zip . && cd -
 
-echo "=> Uploading server via SSH"
+echo "=> Uploading server part via SSH"
 
 current_date=$(date +"%Y-%m-%d")
 scp -q -o LogLevel=QUIET app.zip "app@simpleanalytics.com:/home/app/apps/marketing-site/$current_date-app.zip"
@@ -44,7 +44,7 @@ fi
 
 echo "=> Uploading to BunnyCDN..."
 
-find .output/public -type f ! -iname ".DS_Store" -print0 | while read -d $'\0' localfile
+find .output/public -type f ! -iname ".DS_Store" -print0 | while read -r -d $'\0' localfile
 do
   cdnfilename="${localfile/\.output\/public\//}"
 
@@ -66,7 +66,7 @@ done
 
 echo "=> Flushing files on BunnyCDN..."
 
-find .output/public -type f ! -iname ".DS_Store" -print0 | while read -d $'\0' localfile
+find .output/public -type f ! -iname ".DS_Store" -print0 | while read -r -d $'\0' localfile
 do
   cdnfilename="${localfile/\.output\/public\//}"
   flush_response=$(curl \
