@@ -26,7 +26,11 @@ fi
 
 echo "=> Building"
 
-npm run build && cp ./ecosystem.config.js ./.output/server/ && cd ./.output/server/ && zip -r ../../app.zip . && cd -
+rm -f app.zip \
+  && npm run build \
+  && cd ./.output/ \
+  && zip -r ../app.zip . \
+  && cd -
 
 echo "=> Uploading server part via SSH"
 
