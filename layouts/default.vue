@@ -70,13 +70,115 @@
                 </div>
               </div>
               <div class="hidden md:flex md:space-x-10">
-                <NuxtLink
-                  v-for="item in navigation"
-                  :key="item.name"
-                  :to="item.href"
-                  class="font-medium text-gray-500 hover:text-gray-900"
-                  >{{ item.name }}</NuxtLink
-                >
+                <div v-for="item in navigation" :key="item.name">
+                  <NuxtLink
+                    v-if="!item.popover"
+                    :to="item.href"
+                    class="font-medium text-gray-500 hover:text-gray-900"
+                    >{{ item.name }}</NuxtLink
+                  >
+                  <Popover class="relative z-20" v-slot="{ open }" v-else>
+                    <PopoverButton
+                      :class="[
+                        open ? 'text-gray-900' : 'text-gray-500',
+                        'group  inline-flex items-center text-base font-medium hover:text-gray-900',
+                      ]"
+                    >
+                      <span>Resources</span>
+                      <ChevronDownIcon
+                        :class="[
+                          open ? 'text-gray-600' : 'text-gray-400',
+                          'ml-2 h-5 w-5 group-hover:text-gray-500',
+                        ]"
+                        aria-hidden="true"
+                      />
+                    </PopoverButton>
+
+                    <transition
+                      enter-active-class="transition ease-out duration-200"
+                      enter-from-class="opacity-0 translate-y-1"
+                      enter-to-class="opacity-100 translate-y-0"
+                      leave-active-class="transition ease-in duration-150"
+                      leave-from-class="opacity-100 translate-y-0"
+                      leave-to-class="opacity-0 translate-y-1"
+                    >
+                      <PopoverPanel
+                        class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0"
+                      >
+                        <div
+                          class="shadow-lg ring-1 ring-blue-500 ring-opacity-30 overflow-hidden"
+                        >
+                          <div
+                            class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8"
+                          >
+                            <a
+                              v-for="item in resources"
+                              :key="item.name"
+                              :href="item.href"
+                              class="-m-3 p-3 rounded flex items-start hover:bg-blue-100 transition ease-in-out duration-150"
+                            >
+                              <component
+                                :is="item.icon"
+                                class="flex-shrink-0 h-6 w-6 text-red-500"
+                                aria-hidden="true"
+                              />
+                              <div class="ml-4">
+                                <p class="text-base font-medium text-gray-900">
+                                  {{ item.name }}
+                                </p>
+                                <p class="mt-1 text-sm text-gray-500">
+                                  {{ item.description }}
+                                </p>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="px-5 py-5 bg-blue-100 sm:px-8 sm:py-8">
+                            <div>
+                              <h3
+                                class="text-sm tracking-wide font-medium text-gray-500 uppercase"
+                              >
+                                Recent blog posts
+                              </h3>
+                              <p v-if="pending" class="mt-5 text-sm">
+                                Loading posts...
+                              </p>
+                              <p
+                                v-else-if="!recentPosts?.length"
+                                class="mt-5 text-sm"
+                              >
+                                Didn't find any posts...
+                              </p>
+                              <ul v-else role="list" class="mt-4 space-y-4">
+                                <li
+                                  v-for="post in recentPosts"
+                                  :key="post.url"
+                                  class="text-base truncate"
+                                  :title="post.excerpt"
+                                >
+                                  <a
+                                    :href="post.url"
+                                    class="font-medium text-gray-600 hover:text-gray-900 transition ease-in-out duration-150"
+                                  >
+                                    {{ post.title }}
+                                  </a>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="mt-5 text-sm">
+                              <a
+                                href="https://blog.simpleanalytics.com"
+                                class="font-medium text-red-500 hover:text-red-500 transition ease-in-out duration-150"
+                              >
+                                View all blog posts
+                                <span aria-hidden="true">&rarr;</span></a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </PopoverPanel>
+                    </transition>
+                  </Popover>
+                </div>
               </div>
               <div
                 class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0"
@@ -157,18 +259,50 @@
 
 <script setup>
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
-import { MenuIcon, XIcon } from "@heroicons/vue/outline";
+import {
+  MenuIcon,
+  XIcon,
+  BookmarkAltIcon,
+  CalendarIcon,
+  AcademicCapIcon,
+  ShieldCheckIcon,
+  TerminalIcon,
+  ScaleIcon,
+  SupportIcon,
+} from "@heroicons/vue/outline";
+import { ChevronDownIcon } from "@heroicons/vue/solid";
 import BackgroundShapes from "../components/images/BackgroundShapes.vue";
+
+const resources = [
+  {
+    name: "Documentation",
+    description: "Learn what is possible within Simple Analytics.",
+    href: "https://docs.simpleanalytics.com",
+    icon: AcademicCapIcon,
+  },
+  {
+    name: "Privacy and how we handle your data",
+    description: "Understand how we take your privacy seriously.",
+    href: "https://docs.simpleanalytics.com/what-we-collect",
+    icon: ScaleIcon,
+  },
+  {
+    name: "API & integrations",
+    description: "Find out how to integrate us with your current workflow.",
+    href: "https://docs.simpleanalytics.com/api",
+    icon: TerminalIcon,
+  },
+];
 
 const defaultDescription =
   "Simple Analytics is the privacy-first Google Analytics alternative that is 100% GDPR compliant.";
 
 const navigation = [
   { name: "Pricing", href: "/pricing" },
-  { name: "Sign up", href: "#" },
-  { name: "Resources", href: "#" },
-  { name: "Blog", href: "#" },
-  { name: "Contact", href: "#" },
+  { name: "Sign up", href: "https://simpleanalytics.com/welcome" },
+  { name: "Resources", href: "#", popover: true },
+  { name: "Blog", href: "https://blog.simpleanalytics.com" },
+  { name: "Contact", href: "https://simpleanalytics.com/contact" },
 ];
 
 const route = useRoute();
@@ -190,6 +324,11 @@ useHead({
 });
 
 const darkMode = ref(false);
+const open = ref(false);
+
+const { pending, data: recentPosts } = useLazyFetch(
+  "https://blog.simpleanalytics.com/recent-posts.json"
+);
 </script>
 
 <style scoped>
