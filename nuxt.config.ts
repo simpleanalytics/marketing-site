@@ -11,7 +11,13 @@ export default defineNuxtConfig({
     publicPath: "",
   },
   app: {
+    baseURL: "/",
+    buildAssetsDir: "/_nuxt/",
     cdnURL: "https://www-cdn.simpleanalytics.com/",
+    head: {
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1",
+    },
   },
   modules: ["@nuxtjs/tailwindcss"],
   compilerOptions: {

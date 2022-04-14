@@ -173,9 +173,10 @@ const navigation = [
 
 const route = useRoute();
 
-// This should be renamed to `useHead` in the future.
-useMeta({
-  title: computed(() => `${route.meta.title} | Simple Analytics`),
+useHead({
+  title: route.meta.title?.includes("Simple Analytics")
+    ? route.meta.title
+    : `${route.meta.title} | Simple Analytics`,
   meta: [
     {
       name: "description",

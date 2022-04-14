@@ -199,7 +199,7 @@ import DataConnections from "../components/images/DataConnections.vue";
 import ListIcon from "../components/images/ListIcon.vue";
 
 definePageMeta({
-  title: "Home",
+  title: "Simple Analytics - The privacy-first Google Analytics alternative",
   layout: false,
 });
 </script>
