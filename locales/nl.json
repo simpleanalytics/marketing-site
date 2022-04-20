@@ -1,0 +1,31 @@
+{
+  "home": {
+    "title": "Het <span class='text-red-500'>privacy-first</span><br />Google Analytics alternatief.",
+    "subtitle": "In gebruik door overheden, NGO's en van kleine tot grote bedrijven.",
+    "no_creditcard": "Geen betaalmethode nodig.",
+    "start_trial_now": "Test nu gratis",
+    "go_to_live_demo": "Ga naar de demo",
+    "see_live_demo": "Bekijk de demo"
+  },
+  "seek": {
+    "visitors": "Bezoekers",
+    "date_picker": "Periode",
+    "utm_sources": "UTM sources",
+    "pagination": "Pagina's"
+  },
+  "nav": {
+    "login": "Inloggen",
+    "pricing": "Prijzen",
+    "signup": "Aanmelden",
+    "resources": "Content",
+    "blog": "Blog",
+    "contact": "Klantenservice"
+  },
+  "testimonials": {
+    "duckduckgo": {
+      "name": "DuckDuckGo",
+      "role": "De grootste privacy vriendelijke search engine",
+      "quote": "Switching to Simple Analytics will still give you visibility into how visitors are using your website, but you'll also be respecting their right to privacy."
+    }
+  }
+}

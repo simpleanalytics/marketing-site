@@ -69,13 +69,13 @@
                   </div>
                 </div>
               </div>
-              <div class="hidden md:flex md:space-x-10">
+              <div class="hidden md:flex md:space-x-10 md:mt-2">
                 <div v-for="item in navigation" :key="item.name">
                   <NuxtLink
                     v-if="!item.popover"
                     :to="item.href"
                     class="font-medium text-gray-500 hover:text-gray-900"
-                    >{{ item.name }}</NuxtLink
+                    >{{ $t(item.translation) }}</NuxtLink
                   >
                   <Popover class="relative z-20" v-slot="{ open }" v-else>
                     <PopoverButton
@@ -179,15 +179,23 @@
                     </transition>
                   </Popover>
                 </div>
+
+                <LangSwitcher />
               </div>
               <div
                 class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0"
               >
                 <a
+                  href="https://simpleanalytics.com/welcome"
+                  class="font-medium text-gray-500 hover:text-gray-900 mx-3"
+                >
+                  {{ $t("nav.signup") }}
+                </a>
+                <a
                   href="#"
                   class="inline-flex items-center px-4 py-2 border-2 border-red-500 text-base font-medium rounded-full text-red-500 bg-white hover:bg-gray-50"
                 >
-                  Log in
+                  {{ $t("nav.login") }}
                 </a>
               </div>
             </nav>
@@ -231,14 +239,14 @@
                     :key="item.name"
                     :to="item.href"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                    >{{ item.name }}</NuxtLink
+                    >{{ $t(item.translation) }}</NuxtLink
                   >
                 </div>
                 <a
                   href="/login"
                   class="block w-full px-5 py-3 text-center font-medium text-red-500 bg-gray-50 hover:bg-gray-100"
                 >
-                  Log in
+                  {{ $t("nav.login") }}
                 </a>
               </div>
             </PopoverPanel>
@@ -298,11 +306,10 @@ const defaultDescription =
   "Simple Analytics is the privacy-first Google Analytics alternative that is 100% GDPR compliant.";
 
 const navigation = [
-  { name: "Pricing", href: "/pricing" },
-  { name: "Sign up", href: "https://simpleanalytics.com/welcome" },
-  { name: "Resources", href: "#", popover: true },
-  { name: "Blog", href: "https://blog.simpleanalytics.com" },
-  { name: "Contact", href: "https://simpleanalytics.com/contact" },
+  { translation: "nav.pricing", href: "/pricing" },
+  { translation: "nav.resources", href: "#", popover: true },
+  { translation: "nav.blog", href: "https://blog.simpleanalytics.com" },
+  { translation: "nav.contact", href: "https://simpleanalytics.com/contact" },
 ];
 
 const route = useRoute();

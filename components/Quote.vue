@@ -17,8 +17,7 @@
 
       <div class="relative lg:ml-10">
         <svg
-          class="absolute top-0 left-0 stroke-blue-300 transform -translate-x-4 -translate-y-20 h-36 w-36 opacity-50"
-          fill="none"
+          class="absolute top-0 left-0 fill-red-100 transform -translate-x-4 -translate-y-10 h-24 w-24"
           viewBox="0 0 144 144"
           aria-hidden="true"
         >

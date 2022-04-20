@@ -3,16 +3,12 @@
     <template #hero>
       <div class="text-center">
         <h1 class="text-4xl font-medium text-gray-600 sm:text-5xl md:text-6xl">
-          <span class="leading-snug"
-            >The <span class="text-red-500">privacy-first</span></span
-          >
-          {{ " " }}
-          <span class="block leading-snug">Google Analytics alternative.</span>
+          <span class="leading-snug" v-html="$t('home.title')"></span>
         </h1>
         <p
           class="mt-4 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-8 md:text-xl md:max-w-3xl"
         >
-          Trusted by governments, NGOs, and small to mid-sized enterprises.
+          {{ $t("home.subtitle") }}
         </p>
 
         <div class="flex items-center justify-center mt-6 sm:mt-10">
@@ -24,13 +20,17 @@
 
         <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-4">
           <div>
-            <a href="#" class="button large primary"> Start trial now </a>
+            <a href="#" class="button large primary">
+              {{ $t("home.start_trial_now") }}
+            </a>
             <p class="mb-8 sm:mb-0 text-xs text-gray-500 mt-2">
-              No credit card required
+              {{ $t("home.no_creditcard") }}
             </p>
           </div>
           <div class="mt-3 sm:mt-0 sm:ml-3">
-            <a href="#" class="button large"> See live demo </a>
+            <a href="#" class="button large">
+              {{ $t("home.see_live_demo") }}
+            </a>
           </div>
         </div>
       </div>
@@ -39,9 +39,9 @@
     <div class="max-w-3xl px-4 mx-auto text-center">
       <div class="max-w-2xl -mt-4 sm:-mt-14 z-10 mx-auto relative" style="">
         <div class="absolute flex items-center justify-center w-full h-full">
-          <NuxtLink href="#" class="button large shadow-xl"
-            >Go to live demo</NuxtLink
-          >
+          <NuxtLink href="#" class="button large shadow-xl">
+            {{ $t("home.go_to_live_demo") }}
+          </NuxtLink>
         </div>
 
         <div class="shadow-sm shadow-gray-200 rounded-md">
@@ -87,30 +87,39 @@
       <Quote
         class="mt-4"
         :logo="DuckDuckGoLogo"
-        title="DuckDuckGo"
-        subtitle="Biggest privacy-friendly search engine"
-        quote="Switching to Simple Analytics will still give you visibility into how
-      visitors are using your website, but you'll also be respecting their right
-      to privacy."
+        :title="$t('testimonials.duckduckgo.name')"
+        :subtitle="$t('testimonials.duckduckgo.role')"
+        :quote="$t('testimonials.duckduckgo.quote')"
       />
+    </div>
 
-      <h3
-        class="text-2xl sm:text-5xl leading-normal sm:leading-normal text-gray-600 mt-2 mb-4 sm:mt-4 sm:mb-8 font-medium"
-      >
-        The most privacy-friendly analytics online.
-      </h3>
-
-      <ul class="mx-auto w-96 text-left">
+    <div class="bg-blue-100 py-4 relative overflow-hidden pb-28">
+      <div class="max-w-3xl px-4 mx-auto text-center">
+        <h3
+          class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto text-gray-600 mt-2 mb-4 sm:mt-4 sm:mb-8 font-medium"
+        >
+          The most privacy-friendly analytics online.
+        </h3>
+      </div>
+      <ul class="mx-auto max-w-max text-left">
         <li class="flex items-center my-4">
           <ListIcon class="h-8 mr-3 shrink-0" />
           <p>
             We <span class="text-red-500">comply</span> by design with all
-            privacy policies - GDPR, PECR, CCPA and more.
+            privacy<br />policies - GDPR, PECR, CCPA and more.
           </p>
         </li>
         <li class="flex items-center my-4">
           <ListIcon class="h-8 mr-3 shrink-0" />
-          <p>We <span class="text-red-500">never track</span> anyone</p>
+          <p>
+            We <span class="text-red-500">never track</span> anyone,
+            <a
+              class="text-red-500 underline"
+              href="https://simpleanalytics.com/our-promise"
+              target="_blank"
+              >we promise<ArrowSmRightIcon class="inline ml-1 w-4 fill-red-500"
+            /></a>
+          </p>
         </li>
         <li class="flex items-center my-4">
           <ListIcon class="h-8 mr-3 shrink-0" />
@@ -125,6 +134,12 @@
         </li>
       </ul>
 
+      <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+        <BackgroundChart />
+      </div>
+    </div>
+
+    <div class="max-w-3xl px-4 mx-auto text-center">
       <Quote
         class="mt-4"
         image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=707b9c33066bf8808c934c8ab394dff6"
@@ -135,7 +150,7 @@
       />
 
       <h3
-        class="text-2xl sm:text-5xl leading-normal sm:leading-normal text-gray-600 mt-2 mb-4 sm:mt-4 sm:mb-8 font-medium"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto text-gray-600 mt-2 mb-4 sm:mt-4 sm:mb-8 font-medium"
       >
         Simple.
       </h3>
@@ -145,15 +160,69 @@
         Without cookies. Without stalking.
       </p>
 
+      <div class="mt-12 mb-8">
+        <p class="mb-2 text-sm">See it for yourself, click a button:</p>
+        <a
+          class="button tiny m-1"
+          :class="active === seek.translation ? 'primary' : ''"
+          v-for="seek in videoSeeks"
+          @click="jumpToTime(seek.start)"
+          :key="seek.translation"
+          >{{ $t(seek.translation) }}</a
+        >
+      </div>
+      <div class="my-8 mb-12 shadow-sm shadow-gray-200 rounded-md">
+        <video
+          ref="video"
+          loop=""
+          autoplay=""
+          muted=""
+          crossorigin="anonymous"
+          class="shadow-lg shadow-gray-200 rounded-md"
+          preload="auto"
+          poster="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.png"
+        >
+          <source
+            src="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.mp4"
+            type="video/mp4"
+          />
+          <source
+            src="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.webm"
+            type="video/webm"
+          />
+          <source
+            src="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.ogg"
+            type="video/ogg"
+          />
+          <source
+            src="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.wmv"
+            type="video/wmv"
+          />
+          <p>
+            Your browser doesn't support HTML5 video. Here is a
+            <a
+              href="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.mp4"
+              target="_blank"
+              rel="noopener"
+              >link to the video</a
+            >
+            instead.
+          </p>
+        </video>
+      </div>
+
       <div>
-        <a href="#" class="button">Start trial now</a>
-        <p class="mb-8 sm:mb-0 text-xs text-gray-500 mt-2">
-          Free 14-day trial. No credit card required. Cancel anytime.
+        <p><a href="#" class="button primary">Start free trial now</a></p>
+        <p class="mb-8 sm:mb-0 text-xs text-gray-500 mt-4">
+          <CheckIcon class="ml-2 w-4 inline align-text-top" /> Free 14-day trial
+          <CheckIcon class="ml-2 w-4 inline align-text-top" /> No credit card
+          required <CheckIcon class="ml-2 w-4 inline align-text-top" /> Cancel
+          anytime
         </p>
       </div>
 
       <h3
-        class="text-2xl sm:text-5xl leading-normal sm:leading-normal text-gray-600 mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto text-gray-600 mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium"
       >
         Connect <span class="text-red-500">your data</span> with your unique
         workflow.
@@ -167,7 +236,7 @@
 
     <section class="bg-gray-100 w-full">
       <div class="max-w-3xl p-8 mt-12 mx-auto text-center">
-        <DataConnections class="mx-auto my-4" style="width: 400px" />
+        <DataConnections class="mx-auto my-4 max-w-full" style="width: 400px" />
       </div>
     </section>
 
@@ -185,6 +254,42 @@
       extremely quickly, making it SEO-friendly"
       />
     </div>
+
+    <div class="max-w-3xl px-4 mx-auto text-center">
+      <h3
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto text-gray-600 mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium"
+      >
+        Event tracking without tracing individuals.
+      </h3>
+      <p class="my-4 leading-loose max-w-xl mx-auto">
+        Compare multiple campaigns by their UTM codes. Check the performance of
+        every button, click and page visit you want.
+      </p>
+      <p class="my-4 leading-loose max-w-xl mx-auto">
+        This feature is currently available in beta and is expected to be
+        released later this year.
+      </p>
+
+      <h3
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto text-gray-600 mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium"
+      >
+        Easily collaborate with your team or clients.
+      </h3>
+      <p class="my-4 leading-loose max-w-xl mx-auto">
+        Create users. Grant access to the sites you want them to see. Analyze
+        together.
+      </p>
+
+      <h3
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto text-gray-600 mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium"
+      >
+        Automate reports.
+      </h3>
+      <p class="my-4 leading-loose max-w-xl mx-auto">
+        Save time while keeping others in the loop of your results. Schedule
+        your reports to be shared automatically at any time you want.
+      </p>
+    </div>
   </NuxtLayout>
 </template>
 
@@ -197,9 +302,47 @@ import DuckDuckGoLogo from "../components/logos/DuckDuckGo.vue";
 import Quote from "../components/Quote.vue";
 import DataConnections from "../components/images/DataConnections.vue";
 import ListIcon from "../components/images/ListIcon.vue";
+import BackgroundChart from "../components/images/BackgroundChart.vue";
+
+import { ArrowSmRightIcon, CheckIcon } from "@heroicons/vue/solid";
 
 definePageMeta({
   title: "Simple Analytics - The privacy-first Google Analytics alternative",
   layout: false,
 });
+
+const video = ref(null);
+
+const jumpToTime = (time) => {
+  video._value.currentTime = time;
+  video._value.play();
+};
+
+const videoSeeks = [
+  { translation: "seek.visitors", start: 5, end: 11 },
+  { translation: "seek.date_picker", start: 11, end: 15 },
+  { translation: "seek.utm_sources", start: 19.25, end: 22.4 },
+  { translation: "seek.pagination", start: 22.4, end: 27 },
+];
+
+let active = ref(null);
+</script>
+
+<script>
+export default {
+  mounted() {
+    this.$refs.video.addEventListener("timeupdate", ({ target }) => {
+      const { currentTime } = target;
+
+      let found = null;
+
+      for (const seek of this.videoSeeks) {
+        if (currentTime > seek.start && currentTime < seek.end)
+          found = seek.translation;
+      }
+
+      this.active = found;
+    });
+  },
+};
 </script>

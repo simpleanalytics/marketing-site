@@ -20,9 +20,19 @@ export default defineNuxtConfig({
     },
   },
   modules: ["@nuxtjs/tailwindcss"],
+  buildModules: ["@intlify/nuxt3"],
   compilerOptions: {
     isCustomElement: (tag) => {
       return tag.startsWith("Nuxt");
     },
+  },
+  intlify: {
+    vueI18n: {
+      locale: "nl",
+      fallbackLocale: "en",
+      formatFallbackMessages: true,
+      locales: [{ code: "en" }, { code: "nl" }],
+    },
+    localeDir: "locales",
   },
 });

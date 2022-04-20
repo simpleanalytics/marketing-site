@@ -1,0 +1,31 @@
+{
+  "home": {
+    "title": "The <span class='text-red-500'>privacy-first</span><br />Google Analytics alternative.",
+    "subtitle": "Trusted by governments, NGOs, and small to mid-sized enterprises.",
+    "no_creditcard": "No credit card required.",
+    "start_trial_now": "Start trial now",
+    "go_to_live_demo": "Go to live demo",
+    "see_live_demo": "See live demo"
+  },
+  "seek": {
+    "visitors": "Visitors",
+    "date_picker": "Date picker",
+    "utm_sources": "UTM sources",
+    "pagination": "Pagination"
+  },
+  "nav": {
+    "login": "Log in",
+    "pricing": "Pricing",
+    "signup": "Sign up",
+    "resources": "Resources",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "testimonials": {
+    "duckduckgo": {
+      "name": "DuckDuckGo",
+      "role": "Biggest privacy-friendly search engine",
+      "quote": "Switching to Simple Analytics will still give you visibility into how visitors are using your website, but you'll also be respecting their right to privacy."
+    }
+  }
+}
