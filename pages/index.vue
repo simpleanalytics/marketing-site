@@ -18,12 +18,13 @@
           <HyundaiLogo class="h-14 mt-0 m-4 sm:m-8" />
         </div>
 
-        <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-4">
+        <div class="mt-5 max-w-lg mx-auto sm:flex sm:justify-center md:mt-4">
           <div>
             <a href="#" class="button large primary">
               {{ $t("home.start_trial_now") }}
             </a>
             <p class="mb-8 sm:mb-0 text-xs text-gray-500 mt-2">
+              <CheckIcon class="fill-green-500 w-4 inline align-text-top" />
               {{ $t("home.no_creditcard") }}
             </p>
           </div>
@@ -93,7 +94,9 @@
       />
     </div>
 
-    <div class="bg-blue-100 py-4 relative overflow-hidden pb-28">
+    <div
+      class="bg-gradient-to-t from-blue-100 py-4 relative overflow-hidden pb-28"
+    >
       <div class="max-w-3xl px-4 mx-auto text-center">
         <h3
           class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto text-gray-600 mt-2 mb-4 sm:mt-4 sm:mb-8 font-medium"
@@ -103,14 +106,14 @@
       </div>
       <ul class="mx-auto max-w-max text-left">
         <li class="flex items-center my-4">
-          <ListIcon class="h-8 mr-3 shrink-0" />
+          <ShieldCheckIcon class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500" />
           <p>
             We <span class="text-red-500">comply</span> by design with all
             privacy<br />policies - GDPR, PECR, CCPA and more.
           </p>
         </li>
         <li class="flex items-center my-4">
-          <ListIcon class="h-8 mr-3 shrink-0" />
+          <ShieldCheckIcon class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500" />
           <p>
             We <span class="text-red-500">never track</span> anyone,
             <a
@@ -122,20 +125,20 @@
           </p>
         </li>
         <li class="flex items-center my-4">
-          <ListIcon class="h-8 mr-3 shrink-0" />
+          <ShieldCheckIcon class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500" />
           <p>
             We don’t <span class="text-red-500">store</span> or
             <span class="text-red-500">sell</span> any visitor data
           </p>
         </li>
         <li class="flex items-center my-4">
-          <ListIcon class="h-8 mr-3 shrink-0" />
+          <ShieldCheckIcon class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500" />
           <p>No <span class="text-red-500">cookie banner</span> required</p>
         </li>
       </ul>
 
       <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2">
-        <BackgroundChart />
+        <BackgroundChart class="fill-blue-50 stroke-blue-500" />
       </div>
     </div>
 
@@ -166,10 +169,13 @@
           class="button tiny m-1"
           :class="active === seek.translation ? 'primary' : ''"
           v-for="seek in videoSeeks"
-          @click="jumpToTime(seek.start)"
+          @click="jumpToTime(seek)"
           :key="seek.translation"
-          >{{ $t(seek.translation) }}</a
         >
+          <PauseIcon v-if="active === seek.translation" class="w-4 mr-1" />
+          <PlayIcon v-else class="w-4 mr-1" />
+          {{ $t(seek.translation) }}
+        </a>
       </div>
       <div class="my-8 mb-12 shadow-sm shadow-gray-200 rounded-md">
         <video
@@ -214,29 +220,88 @@
       <div>
         <p><a href="#" class="button primary">Start free trial now</a></p>
         <p class="mb-8 sm:mb-0 text-xs text-gray-500 mt-4">
-          <CheckIcon class="ml-2 w-4 inline align-text-top" /> Free 14-day trial
-          <CheckIcon class="ml-2 w-4 inline align-text-top" /> No credit card
-          required <CheckIcon class="ml-2 w-4 inline align-text-top" /> Cancel
-          anytime
+          <span class="block sm:inline my-2">
+            <CheckIcon class="fill-green-500 ml-2 w-4 inline align-text-top" />
+            Free 14-day trial
+          </span>
+          <span class="block sm:inline my-2">
+            <CheckIcon class="fill-green-500 ml-2 w-4 inline align-text-top" />
+            No credit card required
+          </span>
+          <span class="block sm:inline my-2">
+            <CheckIcon class="fill-green-500 ml-2 w-4 inline align-text-top" />
+            Cancel anytime
+          </span>
         </p>
       </div>
 
       <h3
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto text-gray-600 mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto text-gray-600 mt-2 mb-4 sm:mt-24 sm:mb-8 font-medium"
       >
         Connect <span class="text-red-500">your data</span> with your unique
         workflow.
       </h3>
-      <p class="my-4 leading-loose max-w-xl mx-auto">
-        With the API and UI, you get full access to your analytics data.
-        Download data whenever you want. Export your results. Or integrate with
-        your favorite tools or data lakes. Your data is yours and stays yours.
-      </p>
     </div>
 
-    <section class="bg-gray-100 w-full">
-      <div class="max-w-3xl p-8 mt-12 mx-auto text-center">
-        <DataConnections class="mx-auto my-4 max-w-full" style="width: 400px" />
+    <section
+      class="bg-gradient-to-t from-red-50 mt-12 w-full relative overflow-hidden pb-32"
+    >
+      <div class="block md:flex md:items-center max-w-3xl mx-auto px-8">
+        <DataConnections class="max-w-full w-[350px] mr-8" />
+
+        <ul class="mx-auto max-w-max text-left mt-12 sm:mt-0">
+          <li class="flex items-center my-6">
+            <ShieldCheckIcon
+              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500"
+            />
+            <p>
+              <a
+                class="text-red-500 underline"
+                href="https://simpleanalytics.com/our-promise"
+                target="_blank"
+                >Import your data from Google Analytics
+                <ArrowSmRightIcon class="inline ml-1 w-4 fill-red-500"
+              /></a>
+            </p>
+          </li>
+          <li class="flex items-center my-6">
+            <ShieldCheckIcon
+              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500"
+            />
+            <p>
+              Use Google Tag Manager, CloudFlare,<br />or our many frontend
+              <a
+                class="text-red-500 underline"
+                href="https://docs.simpleanalytics.com/script"
+                >framework plugins
+                <ArrowSmRightIcon class="inline ml-1 w-4 fill-red-500"
+              /></a>
+            </p>
+          </li>
+          <li class="flex items-center my-6">
+            <ShieldCheckIcon
+              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500"
+            />
+            <p>
+              Export to your own systems or
+              <span class="text-red-500">data lakes</span>
+            </p>
+          </li>
+          <li class="flex items-center my-6">
+            <ShieldCheckIcon
+              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500"
+            />
+            <p>
+              Export as <span class="text-red-500">raw data</span> or aggregated
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <div
+        class="absolute bottom-0 left-1/2 transform -translate-x-1/2 scale-x-[-1]"
+      >
+        <BackgroundChart class="fill-blue-50 stroke-red-500" />
       </div>
     </section>
 
@@ -304,7 +369,14 @@ import DataConnections from "../components/images/DataConnections.vue";
 import ListIcon from "../components/images/ListIcon.vue";
 import BackgroundChart from "../components/images/BackgroundChart.vue";
 
-import { ArrowSmRightIcon, CheckIcon } from "@heroicons/vue/solid";
+import {
+  ArrowSmRightIcon,
+  CheckIcon,
+  PlayIcon,
+  PauseIcon,
+} from "@heroicons/vue/solid";
+
+import { ShieldCheckIcon } from "@heroicons/vue/outline";
 
 definePageMeta({
   title: "Simple Analytics - The privacy-first Google Analytics alternative",
@@ -313,25 +385,32 @@ definePageMeta({
 
 const video = ref(null);
 
-const jumpToTime = (time) => {
-  video._value.currentTime = time;
-  video._value.play();
-};
-
 const videoSeeks = [
   { translation: "seek.visitors", start: 5, end: 11 },
   { translation: "seek.date_picker", start: 11, end: 15 },
   { translation: "seek.utm_sources", start: 19.25, end: 22.4 },
   { translation: "seek.pagination", start: 22.4, end: 27 },
 ];
-
-let active = ref(null);
 </script>
 
 <script>
 export default {
+  data: () => {
+    return {
+      active: null,
+      lastUpdate: Date.now(),
+    };
+  },
+  methods: {
+    jumpToTime({ start, translation }) {
+      this.$refs.video.currentTime = start;
+      this.$refs.video.play();
+      this.active = translation;
+      this.lastUpdate = Date.now();
+    },
+  },
   mounted() {
-    this.$refs.video.addEventListener("timeupdate", ({ target }) => {
+    this?.$refs?.video?.addEventListener("timeupdate", ({ target }) => {
       const { currentTime } = target;
 
       let found = null;
@@ -341,7 +420,7 @@ export default {
           found = seek.translation;
       }
 
-      this.active = found;
+      if (Date.now() - this.lastUpdate > 2000) this.active = found;
     });
   },
 };
