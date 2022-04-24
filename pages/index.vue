@@ -50,6 +50,7 @@
             loop=""
             autoplay=""
             muted=""
+            playsinline=""
             crossorigin="anonymous"
             class="shadow-lg shadow-gray-200 rounded-md"
             preload="auto"
@@ -164,7 +165,16 @@
       </p>
 
       <div class="mt-12 mb-8">
-        <p class="mb-2 text-sm">See it for yourself, click a button:</p>
+        <div>
+          <p
+            class="mb-4 p-1 px-2 mx-auto inline-flex rounded-full text-xs text-sm text-gray-400 motion-safe:animate-bounce"
+            :class="showClickSeekButton ? 'visible' : 'invisible'"
+          >
+            <ChevronDoubleDownIcon class="w-3 inline-block" />
+            <span class="mx-1">See it for yourself, click a button</span>
+            <ChevronDoubleDownIcon class="w-3 inline-block" />
+          </p>
+        </div>
         <a
           class="button tiny m-1"
           :class="active === seek.translation ? 'primary' : ''"
@@ -178,43 +188,57 @@
         </a>
       </div>
       <div class="my-8 mb-12 shadow-sm shadow-gray-200 rounded-md">
-        <video
-          ref="video"
-          loop=""
-          autoplay=""
-          muted=""
-          crossorigin="anonymous"
-          class="shadow-lg shadow-gray-200 rounded-md"
-          preload="auto"
-          poster="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.png"
-        >
-          <source
-            src="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.mp4"
-            type="video/mp4"
-          />
-          <source
-            src="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.webm"
-            type="video/webm"
-          />
-          <source
-            src="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.ogg"
-            type="video/ogg"
-          />
-          <source
-            src="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.wmv"
-            type="video/wmv"
-          />
-          <p>
-            Your browser doesn't support HTML5 video. Here is a
-            <a
-              href="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.mp4"
-              target="_blank"
-              rel="noopener"
-              >link to the video</a
-            >
-            instead.
-          </p>
-        </video>
+        <div class="shadow-lg shadow-gray-200 rounded-md relative">
+          <div
+            :class="paused && active ? 'opacity-100' : 'opacity-0'"
+            class="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t from-red-500 to-red-400 rounded-md flex flex-col items-center justify-center transition-opacity pointer-events-none"
+          >
+            <p class="text-lg md:text-2xl text-white text-red-100 mb-4">
+              {{ $t("seek.presents") }}
+            </p>
+            <p v-if="active" class="text-2xl md:text-4xl text-white font-bold">
+              {{ $t(active) }}
+            </p>
+          </div>
+          <video
+            ref="video"
+            loop=""
+            autoplay=""
+            muted=""
+            class="rounded-md"
+            playsinline=""
+            crossorigin="anonymous"
+            preload="auto"
+            poster="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.png"
+          >
+            <source
+              src="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.mp4"
+              type="video/mp4"
+            />
+            <source
+              src="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.webm"
+              type="video/webm"
+            />
+            <source
+              src="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.ogg"
+              type="video/ogg"
+            />
+            <source
+              src="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.wmv"
+              type="video/wmv"
+            />
+            <p>
+              Your browser doesn't support HTML5 video. Here is a
+              <a
+                href="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.mp4"
+                target="_blank"
+                rel="noopener"
+                >link to the video</a
+              >
+              instead.
+            </p>
+          </video>
+        </div>
       </div>
 
       <div>
@@ -246,8 +270,8 @@
     <section
       class="bg-gradient-to-t from-red-50 mt-12 w-full relative overflow-hidden pb-32"
     >
-      <div class="block md:flex md:items-center max-w-3xl mx-auto px-8">
-        <DataConnections class="max-w-full w-[350px] mr-8" />
+      <div class="block md:flex md:items-center max-w-3xl mx-auto px-8 sm:px-0">
+        <DataConnections class="max-w-full mx-auto w-[350px]" />
 
         <ul class="mx-auto max-w-max text-left mt-12 sm:mt-0">
           <li class="flex items-center my-6">
@@ -376,7 +400,7 @@ import {
   PauseIcon,
 } from "@heroicons/vue/solid";
 
-import { ShieldCheckIcon } from "@heroicons/vue/outline";
+import { ShieldCheckIcon, ChevronDoubleDownIcon } from "@heroicons/vue/outline";
 
 definePageMeta({
   title: "Simple Analytics - The privacy-first Google Analytics alternative",
@@ -399,14 +423,26 @@ export default {
     return {
       active: null,
       lastUpdate: Date.now(),
+      showClickSeekButton: true,
+      paused: false,
+      timer: null,
     };
   },
   methods: {
     jumpToTime({ start, translation }) {
       this.$refs.video.currentTime = start;
-      this.$refs.video.play();
+      this.$refs.video.pause();
+      this.paused = true;
       this.active = translation;
       this.lastUpdate = Date.now();
+      this.showClickSeekButton = false;
+
+      if (this.timer) clearInterval(this.timer);
+
+      this.timer = setTimeout(() => {
+        this.paused = false;
+        this.$refs.video.play();
+      }, 1500);
     },
   },
   mounted() {

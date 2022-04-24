@@ -72,7 +72,7 @@
                   </div>
                 </div>
               </div>
-              <div class="hidden md:flex md:space-x-10 md:mt-2">
+              <div class="hidden md:flex md:space-x-6 md:mt-2">
                 <div v-for="item in navigation" :key="item.name">
                   <NuxtLink
                     v-if="!item.popover"
