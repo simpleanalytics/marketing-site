@@ -47,8 +47,8 @@
 
         <div class="shadow-sm shadow-gray-200 rounded-md">
           <video
+            ref="previewVideo"
             loop=""
-            autoplay=""
             muted=""
             playsinline=""
             crossorigin="anonymous"
@@ -201,9 +201,8 @@
             </p>
           </div>
           <video
-            ref="video"
+            ref="seekVideo"
             loop=""
-            autoplay=""
             muted=""
             class="rounded-md"
             playsinline=""
@@ -407,7 +406,8 @@ definePageMeta({
   layout: false,
 });
 
-const video = ref(null);
+const seekVideo = ref(null);
+const previewVideo = ref(null);
 
 const videoSeeks = [
   { translation: "seek.visitors", start: 5, end: 11 },
@@ -430,8 +430,8 @@ export default {
   },
   methods: {
     jumpToTime({ start, translation }) {
-      this.$refs.video.currentTime = start;
-      this.$refs.video.pause();
+      this.$refs.seekVideo.currentTime = start;
+      this.$refs.seekVideo.pause();
       this.paused = true;
       this.active = translation;
       this.lastUpdate = Date.now();
@@ -441,12 +441,17 @@ export default {
 
       this.timer = setTimeout(() => {
         this.paused = false;
-        this.$refs.video.play();
+        this.$refs.seekVideo.play();
       }, 1500);
+    },
+    isMobile() {
+      const agent = window?.navigator?.userAgent;
+      if (!agent) return false;
+      return /android|webos|iphone|mobile|opera mini/i.test(agent);
     },
   },
   mounted() {
-    this?.$refs?.video?.addEventListener("timeupdate", ({ target }) => {
+    this?.$refs?.seekVideo?.addEventListener("timeupdate", ({ target }) => {
       const { currentTime } = target;
 
       let found = null;
@@ -458,6 +463,11 @@ export default {
 
       if (Date.now() - this.lastUpdate > 2000) this.active = found;
     });
+
+    if (!this.isMobile()) {
+      this?.$refs?.previewVideo.play();
+      this?.$refs?.seekVideo.play();
+    }
   },
 };
 </script>
