@@ -11,31 +11,12 @@
           {{ $t("home.subtitle") }}
         </p>
 
-        <ClientOnly>
-          <div class="flex items-center justify-center mt-6 sm:mt-10">
-            <HavasMediaLogo class="h-14 mt-0 m-4 sm:m-8" />
-            <GovScotLogo class="h-16 mt-1 m-4 sm:m-8" />
-            <GovUKLogo class="h-16 mt-0 m-4 sm:m-8" />
-            <HyundaiLogo class="h-14 mt-0 m-4 sm:m-8" />
-          </div>
-
-          <template #fallback>
-            <div class="flex items-center justify-center mt-6 sm:mt-10">
-              <div
-                class="rounded bg-gray-200 animate-pulse w-24 h-14 mt-0 m-4 sm:m-8"
-              ></div>
-              <div
-                class="rounded bg-gray-200 animate-pulse w-20 h-16 mt-1 m-4 sm:m-8"
-              ></div>
-              <div
-                class="rounded bg-gray-200 animate-pulse w-20 h-16 mt-0 m-4 sm:m-8"
-              ></div>
-              <div
-                class="rounded bg-gray-200 animate-pulse w-24 h-14 mt-0 m-4 sm:m-8"
-              ></div>
-            </div>
-          </template>
-        </ClientOnly>
+        <div class="flex items-center justify-center mt-6 sm:mt-10">
+          <HavasMediaLogo class="h-14 mt-0 m-4 sm:m-8" />
+          <GovScotLogo class="h-16 mt-1 m-4 sm:m-8" />
+          <GovUKLogo class="h-16 mt-0 m-4 sm:m-8" />
+          <HyundaiLogo class="h-14 mt-0 m-4 sm:m-8" />
+        </div>
 
         <div class="mt-5 max-w-lg mx-auto sm:flex sm:justify-center md:mt-4">
           <div>
