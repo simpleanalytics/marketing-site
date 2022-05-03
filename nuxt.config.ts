@@ -1,9 +1,10 @@
-import { defineNuxtConfig } from "nuxt3";
+import { defineNuxtConfig } from "nuxt";
+
+const cdnURL = "https://www-cdn.simpleanalytics.com";
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   nitro: {
-    // preset: "node-server",
     timing: false,
   },
   build: {
@@ -13,11 +14,27 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/",
     buildAssetsDir: "/_nuxt/",
-    cdnURL: "https://www-cdn.simpleanalytics.com/",
+    cdnURL: cdnURL + "/",
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
     },
+  },
+  meta: {
+    link: [
+      {
+        rel: "preload",
+        href: `${cdnURL}/fonts/space-grotesk/regular.woff2`,
+        as: "font",
+        crossorigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        href: `${cdnURL}/fonts/space-grotesk/medium.woff2`,
+        as: "font",
+        crossorigin: "anonymous",
+      },
+    ],
   },
   modules: ["@nuxtjs/tailwindcss"],
   buildModules: ["@intlify/nuxt3"],
@@ -28,10 +45,9 @@ export default defineNuxtConfig({
   },
   intlify: {
     vueI18n: {
-      locale: "nl",
+      locale: "en",
       fallbackLocale: "en",
       formatFallbackMessages: true,
-      locales: [{ code: "en" }, { code: "nl" }],
     },
     localeDir: "locales",
   },
