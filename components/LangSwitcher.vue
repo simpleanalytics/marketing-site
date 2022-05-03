@@ -10,9 +10,6 @@
             alt=""
             class="flex-shrink-0 h-6 w-6"
           />
-          <!-- <span class="ml-3 block truncate">{{
-            selectLang($i18n.locale)?.code
-          }}</span> -->
         </span>
         <span
           class="ml-3 absolute inset-y-0 right-0 flex items-center pointer-events-none"
@@ -82,7 +79,10 @@ import {
 import { CheckIcon, SelectorIcon } from "@heroicons/vue/solid";
 
 import { useI18n } from "vue-i18n";
-const { availableLocales } = useI18n();
+const i18n = useI18n();
+
+const { availableLocales } = i18n;
+const localeCookie = useCookie("locale");
 
 const langs = availableLocales.map((locale) => {
   const countryCode = locale.startsWith("en") ? "US" : locale.toUpperCase();
@@ -100,4 +100,13 @@ const langs = availableLocales.map((locale) => {
 });
 
 const selectLang = (lang) => langs.filter(({ code }) => code === lang)?.[0];
+
+watch(i18n.locale, async (newLocale, oldLocale) => {
+  localeCookie.value = newLocale;
+  console.log("Switched to", newLocale);
+});
+
+if (localeCookie.value) {
+  i18n.locale.value = localeCookie.value;
+}
 </script>
