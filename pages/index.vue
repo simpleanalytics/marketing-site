@@ -11,12 +11,32 @@
           {{ $t("home.subtitle") }}
         </p>
 
-        <div class="flex items-center justify-center mt-6 sm:mt-10">
-          <HavasMediaLogo class="h-14 mt-0 m-4 sm:m-8" />
-          <GovScotLogo class="h-16 mt-1 m-4 sm:m-8" />
-          <GovUKLogo class="h-16 mt-0 m-4 sm:m-8" />
-          <HyundaiLogo class="h-14 mt-0 m-4 sm:m-8" />
-        </div>
+        <ClientOnly>
+          <div class="flex items-center justify-center mt-6 sm:mt-10">
+            <HavasMediaLogo class="h-14 mt-0 m-4 sm:m-8" />
+            <GovScotLogo class="h-16 mt-1 m-4 sm:m-8" />
+            <GovUKLogo class="h-16 mt-0 m-4 sm:m-8" />
+            <HyundaiLogo class="h-14 mt-0 m-4 sm:m-8" />
+          </div>
+
+          <template #fallback>
+            <!-- this will be rendered on server side -->
+            <div class="flex items-center justify-center mt-6 sm:mt-10">
+              <div
+                class="rounded bg-gray-200 animate-pulse w-24 h-14 mt-0 m-4 sm:m-8"
+              ></div>
+              <div
+                class="rounded bg-gray-200 animate-pulse w-20 h-16 mt-1 m-4 sm:m-8"
+              ></div>
+              <div
+                class="rounded bg-gray-200 animate-pulse w-20 h-16 mt-0 m-4 sm:m-8"
+              ></div>
+              <div
+                class="rounded bg-gray-200 animate-pulse w-24 h-14 mt-0 m-4 sm:m-8"
+              ></div>
+            </div>
+          </template>
+        </ClientOnly>
 
         <div class="mt-5 max-w-lg mx-auto sm:flex sm:justify-center md:mt-4">
           <div>
@@ -138,9 +158,11 @@
         </li>
       </ul>
 
-      <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2">
-        <BackgroundChart class="fill-blue-50 stroke-blue-500" />
-      </div>
+      <ClientOnly>
+        <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+          <BackgroundChart class="fill-blue-50 stroke-blue-500" />
+        </div>
+      </ClientOnly>
     </div>
 
     <div class="max-w-3xl px-4 mx-auto text-center">
@@ -270,7 +292,15 @@
       class="bg-gradient-to-t from-red-50 mt-12 w-full relative overflow-hidden pb-32"
     >
       <div class="block md:flex md:items-center max-w-3xl mx-auto px-8 sm:px-0">
-        <DataConnections class="max-w-full mx-auto w-[350px]" />
+        <ClientOnly>
+          <DataConnections class="max-w-full mx-auto w-[350px]" />
+
+          <template #fallback>
+            <div
+              class="max-w-full mx-auto w-[350px] h-[290px] rounded bg-gray-200 animate-pulse"
+            ></div>
+          </template>
+        </ClientOnly>
 
         <ul class="mx-auto max-w-max text-left mt-12 sm:mt-0">
           <li class="flex items-center my-6">
@@ -321,11 +351,13 @@
         </ul>
       </div>
 
-      <div
-        class="absolute bottom-0 left-1/2 transform -translate-x-1/2 scale-x-[-1]"
-      >
-        <BackgroundChart class="fill-blue-50 stroke-red-500" />
-      </div>
+      <ClientOnly>
+        <div
+          class="absolute bottom-0 left-1/2 transform -translate-x-1/2 scale-x-[-1]"
+        >
+          <BackgroundChart class="fill-blue-50 stroke-red-500" />
+        </div>
+      </ClientOnly>
     </section>
 
     <div class="max-w-3xl px-4 mx-auto text-center">
