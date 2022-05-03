@@ -91,7 +91,8 @@ module.exports = {
           fontFamily: "SpaceGrotesk",
           fontStyle: "normal",
           fontWeight,
-          src: `url("./fonts/space-grotesk/${file}") format("woff2");`,
+          fontDisplay: "swap",
+          src: `url("/fonts/space-grotesk/${file}") format("woff2");`,
         })),
       });
     }),
