@@ -53,8 +53,8 @@
             playsinline=""
             crossorigin="anonymous"
             class="shadow-lg shadow-gray-200 rounded-md"
-            preload="metadata"
-            poster="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.png"
+            preload="none"
+            poster="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.webp"
           >
             <source
               src="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.mp4"
@@ -207,8 +207,8 @@
             class="rounded-md"
             playsinline=""
             crossorigin="anonymous"
-            preload="metadata"
-            poster="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.png"
+            preload="none"
+            poster="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.webp"
           >
             <source
               src="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.mp4"
