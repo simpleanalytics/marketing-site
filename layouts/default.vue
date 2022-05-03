@@ -340,12 +340,3 @@ const { pending, data: recentPosts } = useLazyFetch(
   "https://blog.simpleanalytics.com/recent-posts.json"
 );
 </script>
-
-<style scoped>
-.sa-background-1 {
-  background-image: url("https://assets.simpleanalytics.com/images/background-shapes.svg");
-  background-position: bottom right;
-  background-size: 200%;
-  background-repeat: no-repeat;
-}
-</style>
