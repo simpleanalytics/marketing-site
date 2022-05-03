@@ -53,7 +53,7 @@
             playsinline=""
             crossorigin="anonymous"
             class="shadow-lg shadow-gray-200 rounded-md"
-            preload="auto"
+            preload="metadata"
             poster="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.png"
           >
             <source
@@ -207,7 +207,7 @@
             class="rounded-md"
             playsinline=""
             crossorigin="anonymous"
-            preload="auto"
+            preload="metadata"
             poster="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.png"
           >
             <source
