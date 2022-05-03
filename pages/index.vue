@@ -20,7 +20,6 @@
           </div>
 
           <template #fallback>
-            <!-- this will be rendered on server side -->
             <div class="flex items-center justify-center mt-6 sm:mt-10">
               <div
                 class="rounded bg-gray-200 animate-pulse w-24 h-14 mt-0 m-4 sm:m-8"
