@@ -48,6 +48,8 @@
                   <NuxtLink to="/" class="flex items-center">
                     <img
                       class="h-5 w-auto sm:h-6"
+                      width="1.25rem"
+                      height="1.25rem"
                       src="https://assets.simpleanalytics.com/images/logos/logo-no-padding.svg"
                       alt=""
                     />
