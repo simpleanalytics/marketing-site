@@ -209,7 +209,7 @@
             ref="seekVideo"
             loop=""
             muted=""
-            class="rounded-md"
+            class="rounded-md bg-red-100"
             playsinline=""
             crossorigin="anonymous"
             preload="none"
