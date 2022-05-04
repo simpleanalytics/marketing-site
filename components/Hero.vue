@@ -18,11 +18,7 @@
             >
               <div class="flex items-center justify-between w-full md:w-auto">
                 <a href="/" class="flex items-center">
-                  <img
-                    class="h-5 w-auto sm:h-6"
-                    src="https://assets.simpleanalytics.com/images/logos/logo-no-padding.svg"
-                    alt=""
-                  />
+                  <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />
                   <span
                     class="sm:hidden lg:block ml-3 text-xl sm:text-2xl text-gray-600"
                     >Simple Analytics</span
@@ -80,11 +76,7 @@
             >
               <div class="px-5 pt-4 flex items-center justify-between">
                 <div>
-                  <img
-                    class="h-8 w-auto"
-                    src="https://assets.simpleanalytics.com/images/logos/logo-no-padding.svg"
-                    alt=""
-                  />
+                  <SimpleAnalyticsIcon class="h-8 w-auto" />
                 </div>
                 <div class="-mr-2">
                   <PopoverButton
@@ -165,6 +157,7 @@
 <script>
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
 import { MenuIcon, XIcon } from "@heroicons/vue/outline";
+import SimpleAnalyticsIcon from "./images/SimpleAnalyticsIcon.vue";
 
 const navigation = [
   { name: "Pricing", href: "#" },

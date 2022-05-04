@@ -46,13 +46,7 @@
               >
                 <div class="flex items-center justify-between w-full md:w-auto">
                   <NuxtLink to="/" class="flex items-center">
-                    <img
-                      class="h-5 w-auto sm:h-6"
-                      width="1.25rem"
-                      height="1.25rem"
-                      src="https://assets.simpleanalytics.com/images/logos/logo-no-padding.svg"
-                      alt=""
-                    />
+                    <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />
                     <span
                       class="sm:hidden lg:block ml-3 text-xl sm:text-2xl text-gray-600 dark:text-gray-300"
                       >Simple Analytics</span
@@ -223,11 +217,7 @@
               >
                 <div class="px-5 pt-4 flex items-center justify-between">
                   <div>
-                    <img
-                      class="h-8 w-auto"
-                      src="https://assets.simpleanalytics.com/images/logos/logo-no-padding.svg"
-                      alt=""
-                    />
+                    <SimpleAnalyticsIcon class="h-8 w-auto" />
                   </div>
                   <div class="-mr-2">
                     <PopoverButton
@@ -285,6 +275,7 @@ import {
 } from "@heroicons/vue/outline";
 import { ChevronDownIcon } from "@heroicons/vue/solid";
 import BackgroundShapes from "../components/images/BackgroundShapes.vue";
+import SimpleAnalyticsIcon from "../components/images/SimpleAnalyticsIcon.vue";
 
 const resources = [
   {
