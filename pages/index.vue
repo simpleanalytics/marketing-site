@@ -52,8 +52,11 @@
             muted=""
             playsinline=""
             crossorigin="anonymous"
-            class="shadow-lg shadow-gray-200 rounded-md"
+            class="shadow-lg shadow-gray-200 rounded-md bg-blue-100"
             preload="none"
+            width="1400px"
+            height="1014px"
+            style="aspect-ratio: 1400 / 1014"
             poster="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.webp"
           >
             <source
@@ -210,6 +213,9 @@
             playsinline=""
             crossorigin="anonymous"
             preload="none"
+            width="1400px"
+            height="1014px"
+            style="aspect-ratio: 1400 / 1014"
             poster="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.webp"
           >
             <source
