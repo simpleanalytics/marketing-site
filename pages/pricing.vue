@@ -2,9 +2,7 @@
   <NuxtLayout name="default">
     <template #hero>
       <div class="text-center">
-        <h1 class="text-4xl font-medium text-gray-600 sm:text-5xl md:text-6xl">
-          Pricing
-        </h1>
+        <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">Pricing</h1>
       </div>
     </template>
 
@@ -22,9 +20,9 @@
                   >${{ tier.priceMonthly }}</span
                 >
                 {{ " " }}
-                <span class="text-base font-medium text-gray-500">/mo</span>
+                <span class="text-base font-medium">/mo</span>
               </p>
-              <p class="mt-4 text-sm text-gray-500">{{ tier.description }}</p>
+              <p class="mt-4 text-sm">{{ tier.description }}</p>
               <a :href="tier.href" class="mt-6 button">Buy {{ tier.name }}</a>
             </div>
 
@@ -53,7 +51,7 @@
                   class="border-t border-gray-200"
                 >
                   <th
-                    class="py-5 px-4 text-sm font-normal text-gray-500 text-left"
+                    class="py-5 px-4 text-sm font-normal text-left"
                     scope="row"
                   >
                     {{ feature.name }}
@@ -103,16 +101,13 @@
             </caption>
             <thead>
               <tr>
-                <th
-                  class="pb-4 px-6 text-sm font-medium text-gray-600 text-left"
-                  scope="col"
-                >
+                <th class="pb-4 px-6 text-sm font-medium text-left" scope="col">
                   <span class="sr-only">Feature by plan</span>
                 </th>
                 <th
                   v-for="tier in tiers"
                   :key="tier.name"
-                  class="w-1/4 pb-4 px-6 text-2xl leading-6 font-bold text-gray-600 text-center"
+                  class="w-1/4 pb-4 px-6 text-2xl leading-6 font-bold text-center"
                   scope="col"
                 >
                   {{ tier.name }}.
@@ -122,7 +117,7 @@
             <tbody>
               <tr>
                 <th
-                  class="py-8 px-6 text-sm font-medium text-gray-600 text-left align-top"
+                  class="py-8 px-6 text-sm font-medium text-left align-top"
                   scope="row"
                 >
                   <span class="sr-only">Pricing</span>
@@ -134,15 +129,13 @@
                 >
                   <div class="relative h-full table">
                     <p>
-                      <span class="text-4xl font-extrabold text-gray-600"
+                      <span class="text-4xl font-extrabold"
                         >${{ tier.priceMonthly }}</span
                       >
                       {{ " " }}
-                      <span class="text-base font-medium text-gray-500"
-                        >/mo</span
-                      >
+                      <span class="text-base font-medium">/mo</span>
                     </p>
-                    <p class="mt-4 mb-8 text-sm text-gray-500">
+                    <p class="mt-4 mb-8 text-sm">
                       {{ tier.description }}
                     </p>
                     <a :href="tier.href" class="button">Buy {{ tier.name }}</a>
@@ -161,7 +154,7 @@
                 </tr>
                 <tr v-for="feature in section.features" :key="feature.name">
                   <th
-                    class="py-5 px-6 text-sm font-normal text-gray-500 text-left"
+                    class="py-5 px-6 text-sm font-normal text-left"
                     scope="row"
                   >
                     {{ feature.name }}

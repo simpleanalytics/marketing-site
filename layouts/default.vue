@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-blue-50">
-    <Html lang="en-US" :class="{ dark: darkMode }">
+  <div class="bg-blue-50 dark:bg-gray-800">
+    <Html lang="en-US" :class="{ dark: theme === 'dark' }">
       <Head>
         <link
           rel="apple-touch-icon"
@@ -28,7 +28,7 @@
       </Head>
     </Html>
 
-    <div class="text-gray-300 bg-blue-100 relative">
+    <div class="text-gray-300 bg-blue-100 dark:bg-gray-900 relative">
       <BackgroundShapes
         class="hidden sm:block absolute w-1/3 bottom-0 right-0"
         aria-hidden="true"
@@ -47,11 +47,11 @@
                 <div class="flex items-center justify-between w-full md:w-auto">
                   <NuxtLink to="/" class="flex items-center">
                     <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />
-                    <span
-                      class="sm:hidden lg:block ml-3 text-xl sm:text-2xl text-gray-600 dark:text-gray-300"
+                    <span class="sm:hidden lg:block ml-3 text-xl sm:text-2xl"
                       >Simple Analytics</span
                     >
                   </NuxtLink>
+                  <a @click="toggleTheme()">D</a>
                   <div
                     class="flex items-center md:hidden"
                     style="margin-right: 4px"
@@ -86,7 +86,7 @@
                       <span>{{ $t("nav.resources") }}</span>
                       <ChevronDownIcon
                         :class="[
-                          open ? 'text-gray-600' : 'text-gray-400',
+                          open ? '' : 'text-gray-400',
                           'ml-2 h-5 w-5 group-hover:text-gray-500',
                         ]"
                         aria-hidden="true"
@@ -125,7 +125,7 @@
                                 <p class="text-base font-medium text-gray-900">
                                   {{ item.name }}
                                 </p>
-                                <p class="mt-1 text-sm text-gray-500">
+                                <p class="mt-1 text-sm">
                                   {{ item.description }}
                                 </p>
                               </div>
@@ -134,7 +134,7 @@
                           <div class="px-5 py-5 bg-blue-100 sm:px-8 sm:py-8">
                             <div>
                               <h3
-                                class="text-sm tracking-wide font-medium text-gray-500 uppercase"
+                                class="text-sm tracking-wide font-medium uppercase"
                               >
                                 Recent blog posts
                               </h3>
@@ -156,7 +156,7 @@
                                 >
                                   <a
                                     :href="post.url"
-                                    class="font-medium text-gray-600 hover:text-gray-900 transition ease-in-out duration-150"
+                                    class="font-medium hover:text-gray-900 transition ease-in-out duration-150"
                                   >
                                     {{ post.title }}
                                   </a>
@@ -186,14 +186,11 @@
               >
                 <a
                   href="https://simpleanalytics.com/welcome"
-                  class="font-medium text-gray-500 hover:text-gray-900 mx-3"
+                  class="font-medium hover:text-gray-900 mx-3"
                 >
                   {{ $t("nav.signup") }}
                 </a>
-                <a
-                  href="#"
-                  class="inline-flex items-center px-4 py-2 border-2 border-red-500 text-base font-medium rounded-full text-red-500 bg-white hover:bg-gray-50"
-                >
+                <a href="#" class="inline-flex items-center px-4 py-2 button">
                   {{ $t("nav.login") }}
                 </a>
               </div>
@@ -326,8 +323,29 @@ useHead({
   ],
 });
 
-const darkMode = ref(false);
+const theme = useTheme();
 const open = ref(false);
+
+if (process.client) {
+  const themeCookie = useCookie("theme");
+
+  if (!themeCookie.value) themeCookie.value = theme.value;
+
+  watch(theme, (newTheme) => {
+    themeCookie.value = newTheme;
+  });
+
+  window
+    .matchMedia?.("(prefers-color-scheme: dark)")
+    .addEventListener("change", (event) => {
+      theme.value = event.matches ? "dark" : "light";
+    });
+}
+
+const toggleTheme = () => {
+  if (theme.value === "light") theme.value = "dark";
+  else theme.value = "light";
+};
 
 const { pending, data: recentPosts } = useLazyFetch(
   "https://blog.simpleanalytics.com/recent-posts.json"

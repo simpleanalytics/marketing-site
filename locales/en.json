@@ -9,10 +9,17 @@
   },
   "seek": {
     "presents": "Simple Analytics presents",
-    "visitors": "Visitors",
+    "overview": "Website overview",
+    "key_stats": "Key stats",
     "date_picker": "Date picker",
+    "page_views": "Page views",
+    "segment": "Segmenting",
     "utm_sources": "UTM sources",
-    "pagination": "Pagination"
+    "countries": "Countries",
+    "search": "Search",
+    "tweet_viewer": "Tweet viewer",
+    "events": "Events",
+    "conversion": "Conversion"
   },
   "nav": {
     "login": "Log in",

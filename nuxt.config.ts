@@ -2,6 +2,21 @@ import { defineNuxtConfig } from "nuxt";
 
 const cdnURL = "https://www-cdn.simpleanalytics.com";
 
+const preload = [
+  {
+    rel: "preload",
+    href: `${cdnURL}/fonts/space-grotesk/regular.woff2`,
+    as: "font",
+    crossorigin: "anonymous",
+  },
+  {
+    rel: "preload",
+    href: `${cdnURL}/fonts/space-grotesk/medium.woff2`,
+    as: "font",
+    crossorigin: "anonymous",
+  },
+];
+
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   nitro: {
@@ -21,20 +36,7 @@ export default defineNuxtConfig({
     },
   },
   meta: {
-    link: [
-      {
-        rel: "preload",
-        href: `${cdnURL}/fonts/space-grotesk/regular.woff2`,
-        as: "font",
-        crossorigin: "anonymous",
-      },
-      {
-        rel: "preload",
-        href: `${cdnURL}/fonts/space-grotesk/medium.woff2`,
-        as: "font",
-        crossorigin: "anonymous",
-      },
-    ],
+    link: process.env.NODE_ENV === "production" ? preload : [],
   },
   modules: ["@nuxtjs/tailwindcss"],
   buildModules: ["@intlify/nuxt3"],

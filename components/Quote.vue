@@ -17,7 +17,7 @@
 
       <div class="relative lg:ml-10">
         <svg
-          class="absolute top-0 left-0 fill-red-100 transform -translate-x-4 -translate-y-10 h-24 w-24"
+          class="absolute top-0 left-0 fill-red-100 dark:fill-gray-700 transform -translate-x-4 -translate-y-10 h-24 w-24"
           viewBox="0 0 144 144"
           aria-hidden="true"
         >
@@ -27,7 +27,7 @@
           />
         </svg>
         <blockquote class="relative">
-          <div class="text-2xl leading-9 font-normal text-gray-600">
+          <div class="text-2xl leading-9 font-normal">
             <p
               class="italic"
               :class="

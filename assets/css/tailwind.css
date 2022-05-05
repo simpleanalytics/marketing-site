@@ -2,22 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  --background: #f5f5f5;
-  --text: #313131;
-}
-
-html.dark {
-  --background: #20292a;
-  --text: #f8f8f8;
-}
-
 a {
   cursor: pointer;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-gray-600 dark:text-gray-300;
+}
+
+p,
+li,
+a,
+th,
+td {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
 .button {
-  @apply inline-flex items-center justify-center px-4 py-2 border-2 border-red-500 text-base font-medium rounded-full text-red-500 bg-white hover:bg-gray-50 hover:text-red-600  hover:border-red-600;
+  @apply inline-flex items-center justify-center px-4 py-2 border-2 border-red-500  text-base font-medium rounded-full text-red-500 bg-white dark:bg-transparent dark:text-red-500 dark:hover:text-red-600 hover:bg-gray-50 hover:text-red-600  hover:border-red-600;
 }
 .button.tiny {
   @apply py-1 text-sm px-2;
@@ -26,5 +33,5 @@ a {
   @apply px-8 py-3 md:py-4 md:text-lg md:px-10;
 }
 .button.primary {
-  @apply text-white bg-red-500 hover:bg-red-600  hover:border-red-600;
+  @apply text-white dark:text-red-50 dark:hover:text-red-100 bg-red-500 hover:bg-red-600  hover:border-red-600;
 }

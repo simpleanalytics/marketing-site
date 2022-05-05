@@ -2,7 +2,7 @@
   <Listbox as="div" v-model="$i18n.locale">
     <div class="relative">
       <ListboxButton
-        class="relative font-medium text-gray-500 hover:text-gray-900 pl-1 pr-8 text-left cursor-default"
+        class="relative font-medium hover:text-gray-900 dark:hover:text-gray-500 pl-1 pr-6 text-left cursor-default"
       >
         <span class="flex items-center">
           <img
@@ -12,9 +12,9 @@
           />
         </span>
         <span
-          class="ml-3 absolute inset-y-0 right-0 flex items-center pointer-events-none"
+          class="ml-2 absolute inset-y-0 right-0 flex items-center pointer-events-none"
         >
-          <SelectorIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+          <ChevronDownIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
         </span>
       </ListboxButton>
 
@@ -76,7 +76,7 @@ import {
   ListboxOption,
   ListboxOptions,
 } from "@headlessui/vue";
-import { CheckIcon, SelectorIcon } from "@heroicons/vue/solid";
+import { CheckIcon, SelectorIcon, ChevronDownIcon } from "@heroicons/vue/solid";
 
 import { useI18n } from "vue-i18n";
 const i18n = useI18n();
