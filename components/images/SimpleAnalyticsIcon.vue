@@ -6,7 +6,7 @@
     height="24px"
   >
     <path
-      class="fill-red-500"
+      class="fill-red-500 dark:fill-red-600"
       d="M54 538h154v462H54zm369-276h154v738H423zM792 0h154v1000H792z"
     />
   </svg>

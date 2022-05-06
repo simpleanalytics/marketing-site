@@ -13,7 +13,10 @@
       class="fill-blue-300 dark:fill-gray-600"
       d="m61 136.3-17.6 17.5v9.6l27.4-27.1H61Z"
     />
-    <path class="fill-red-500" d="m51.3 200 60-56.6v-38.8L16 200h35.3Z" />
+    <path
+      class="fill-red-500 dark:fill-red-600"
+      d="m51.3 200 60-56.6v-38.8L16 200h35.3Z"
+    />
     <path
       class="fill-blue-700 dark:fill-gray-400"
       d="M171.8 76.4 67 181.2h49.2l55.6-55.5V76.4Zm-67.2 112.9L93.9 200h5.8l4.9-4.9v-5.8Z"

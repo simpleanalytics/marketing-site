@@ -2,11 +2,11 @@
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 200 200">
     <g clip-path="url(#a)">
       <path
-        fill="#ff4f64"
+        class="fill-red-500 dark:fill-red-600"
         d="M100 14.7a85.3 85.3 0 1 1 .2 170.6 85.3 85.3 0 0 1-.1-170.6Z"
       />
       <path
-        fill="#ff4f64"
+        class="fill-red-500 dark:fill-red-600"
         d="M100 200a100 100 0 1 0 .2-200.1 100 100 0 0 0-.1 200Zm0-8.4a91.7 91.7 0 1 1 0-183.4 91.7 91.7 0 0 1 0 183.4Z"
       />
       <path

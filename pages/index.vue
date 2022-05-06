@@ -39,13 +39,23 @@
 
     <div class="max-w-3xl px-4 mx-auto text-center">
       <div class="max-w-2xl -mt-4 sm:-mt-14 z-10 mx-auto relative" style="">
-        <div class="absolute flex items-center justify-center w-full h-full">
+        <div
+          class="absolute flex flex-col items-center justify-center w-full h-full"
+        >
           <NuxtLink
             href="#"
-            class="button large shadow-xl bg-white dark:bg-gray-700"
+            class="button large primary shadow-xl bg-white dark:bg-gray-800"
           >
             {{ $t("home.go_to_live_demo") }}
           </NuxtLink>
+          <a
+            @click="scrollToSeekVideo()"
+            class="mt-4 button tiny shadow-xl bg-white dark:bg-gray-800"
+          >
+            <ChevronDoubleDownIcon class="w-3 inline-block" />
+            <span class="mx-1">See full video</span>
+            <ChevronDoubleDownIcon class="w-3 inline-block" />
+          </a>
         </div>
 
         <div
@@ -100,7 +110,7 @@
             muted=""
             playsinline=""
             crossorigin="anonymous"
-            class="rounded-md bg-gray-500 shadow-gray-700/40 shadow-2xl"
+            class="rounded-md bg-gray-900 shadow-gray-700/40 shadow-2xl"
             :class="theme === 'dark' ? '' : 'hidden'"
             preload="none"
             width="1440"
@@ -160,18 +170,24 @@
       </div>
       <ul class="mx-auto max-w-max text-left">
         <li class="flex items-center my-4">
-          <ShieldCheckIcon class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500" />
+          <ShieldCheckIcon
+            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+          />
           <p>
-            We <span class="text-red-500">comply</span> by design with all
-            privacy<br />policies - GDPR, PECR, CCPA and more.
+            We <span class="text-red-500 dark:text-red-600">comply</span> by
+            design with all privacy<br />policies - GDPR, PECR, CCPA and more.
           </p>
         </li>
         <li class="flex items-center my-4">
-          <ShieldCheckIcon class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500" />
+          <ShieldCheckIcon
+            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+          />
           <p>
-            We <span class="text-red-500">never track</span> anyone,
+            We
+            <span class="text-red-500 dark:text-red-600">never track</span>
+            anyone,
             <a
-              class="text-red-500 underline"
+              class="text-red-500 dark:text-red-600 underline"
               href="https://simpleanalytics.com/our-promise"
               target="_blank"
               >we promise<ArrowSmRightIcon class="inline ml-1 w-4 fill-red-500"
@@ -179,15 +195,25 @@
           </p>
         </li>
         <li class="flex items-center my-4">
-          <ShieldCheckIcon class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500" />
+          <ShieldCheckIcon
+            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+          />
           <p>
-            We don’t <span class="text-red-500">store</span> or
-            <span class="text-red-500">sell</span> any visitor data
+            We don’t
+            <span class="text-red-500 dark:text-red-600">store</span> or
+            <span class="text-red-500 dark:text-red-600">sell</span> any visitor
+            data
           </p>
         </li>
         <li class="flex items-center my-4">
-          <ShieldCheckIcon class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500" />
-          <p>No <span class="text-red-500">cookie banner</span> required</p>
+          <ShieldCheckIcon
+            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+          />
+          <p>
+            No
+            <span class="text-red-500 dark:text-red-600">cookie banner</span>
+            required
+          </p>
         </li>
       </ul>
 
@@ -224,7 +250,8 @@
       <div class="mt-12 mb-8">
         <div>
           <p
-            class="mb-4 p-1 px-2 mx-auto inline-flex rounded-full text-xs text-sm text-gray-400 motion-safe:animate-bounce"
+            ref="seekVideoInstruction"
+            class="mb-4 p-1 px-2 mx-auto inline-flex rounded-full text-sm text-gray-400 motion-safe:animate-bounce"
             :class="showClickSeekButton ? 'visible' : 'invisible'"
           >
             <ChevronDoubleDownIcon class="w-3 inline-block" />
@@ -239,7 +266,10 @@
           @click="jumpToTime(seek)"
           :key="seek.translation"
         >
-          <PauseIcon v-if="active === seek.translation" class="w-4 mr-1" />
+          <ArrowCircleRightIcon
+            v-if="active === seek.translation"
+            class="w-4 mr-1"
+          />
           <PlayIcon v-else class="w-4 mr-1" />
           {{ $t(seek.translation) }}
         </a>
@@ -252,12 +282,15 @@
         >
           <div
             :class="paused && active ? 'opacity-100' : 'opacity-0'"
-            class="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t from-red-500 to-red-400 rounded-md flex flex-col items-center justify-center transition-opacity pointer-events-none"
+            class="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t from-red-500 dark:from-red-900 to-red-400 dark:to-red-700 rounded-md flex flex-col items-center justify-center transition-opacity pointer-events-none"
           >
-            <p class="text-lg md:text-2xl text-red-100 mb-4">
+            <p class="text-lg md:text-2xl text-red-100 dark:text-red-400 mb-4">
               {{ $t("seek.presents") }}
             </p>
-            <p v-if="active" class="text-2xl md:text-4xl text-white font-bold">
+            <p
+              v-if="active"
+              class="text-2xl md:text-4xl text-white dark:text-red-200 font-bold"
+            >
               {{ $t(active) }}
             </p>
           </div>
@@ -268,7 +301,7 @@
             muted=""
             playsinline=""
             crossorigin="anonymous"
-            class="rounded-md bg-red-100 dark:bg-gray-500"
+            class="rounded-md bg-blue-100"
             :class="theme === 'dark' ? 'hidden' : ''"
             preload="none"
             width="1440"
@@ -305,7 +338,7 @@
             </p>
           </video>
           <div
-            class="rounded-xl shadow-gray-700/40 shadow-2xl border-2 border-gray-900 overflow-hidden"
+            class="rounded-xl shadow-gray-700/40 shadow-2xl dark:border-2 border-gray-900 overflow-hidden"
           >
             <video
               ref="seekVideoDark"
@@ -374,8 +407,9 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-24 sm:mb-8 font-medium"
       >
-        Connect <span class="text-red-500">your data</span> with your unique
-        workflow.
+        Connect
+        <span class="text-red-500 dark:text-red-600">your data</span> with your
+        unique workflow.
       </h3>
     </div>
 
@@ -396,11 +430,11 @@
         <ul class="mx-auto max-w-max text-left mt-12 sm:mt-0">
           <li class="flex items-center my-6">
             <ShieldCheckIcon
-              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500"
+              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
             />
             <p>
               <a
-                class="text-red-500 underline"
+                class="text-red-500 dark:text-red-600 underline"
                 href="https://simpleanalytics.com/our-promise"
                 target="_blank"
                 >Import your data from Google Analytics
@@ -410,12 +444,12 @@
           </li>
           <li class="flex items-center my-6">
             <ShieldCheckIcon
-              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500"
+              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
             />
             <p>
               Use Google Tag Manager, CloudFlare,<br />or our many frontend
               <a
-                class="text-red-500 underline"
+                class="text-red-500 dark:text-red-600 underline"
                 href="https://docs.simpleanalytics.com/script"
                 >framework plugins
                 <ArrowSmRightIcon class="inline ml-1 w-4 fill-red-500"
@@ -424,19 +458,21 @@
           </li>
           <li class="flex items-center my-6">
             <ShieldCheckIcon
-              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500"
+              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
             />
             <p>
               Export to your own systems or
-              <span class="text-red-500">data lakes</span>
+              <span class="text-red-500 dark:text-red-600">data lakes</span>
             </p>
           </li>
           <li class="flex items-center my-6">
             <ShieldCheckIcon
-              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500"
+              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
             />
             <p>
-              Export as <span class="text-red-500">raw data</span> or aggregated
+              Export as
+              <span class="text-red-500 dark:text-red-600">raw data</span> or
+              aggregated
             </p>
           </li>
         </ul>
@@ -447,7 +483,7 @@
           class="absolute bottom-0 left-1/2 transform -translate-x-1/2 scale-x-[-1]"
         >
           <BackgroundChart
-            class="fill-blue-50 stroke-red-500 dark:fill-gray-800"
+            class="fill-blue-50 stroke-red-500 dark:stroke-red-600 dark:fill-gray-800"
           />
         </div>
       </ClientOnly>
@@ -515,36 +551,42 @@
           <ul>
             <li class="flex items-center my-6">
               <ShieldCheckIcon
-                class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500"
+                class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p>
-                <span class="text-red-500">Keep an eye</span> on your
-                dashboard<br class="block sm:hidden" />
+                <span class="text-red-500 dark:text-red-600">Keep an eye</span>
+                on your dashboard<br class="block sm:hidden" />
                 via your iPhone
               </p>
             </li>
             <li class="flex items-center my-6">
               <ShieldCheckIcon
-                class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500"
+                class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p>
-                Add <span class="text-red-500">widgets</span> to your home
-                screen
+                Add
+                <span class="text-red-500 dark:text-red-600">widgets</span> to
+                your home screen
               </p>
             </li>
             <li class="flex items-center my-6">
               <ShieldCheckIcon
-                class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500"
+                class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p>
-                <span class="text-red-500">Block visits</span> from yourself
+                <span class="text-red-500 dark:text-red-600">Block visits</span>
+                from yourself
               </p>
             </li>
             <li class="flex items-center my-6">
               <ShieldCheckIcon
-                class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500"
+                class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
-              <p>See <span class="text-red-500">spikes</span> as they happen</p>
+              <p>
+                See
+                <span class="text-red-500 dark:text-red-600">spikes</span> as
+                they happen
+              </p>
             </li>
           </ul>
         </div>
@@ -553,24 +595,82 @@
           class="dark:shadow-none md:order-1 shadow-lg shadow-gray-200 rounded-lg max-w-max mx-auto dark:border-0 border-2 border-red-200 overflow-hidden"
         >
           <video
-            ref="seekVideo"
+            ref="widgetsVideoLight"
             loop=""
             muted=""
-            class="bg-red-100"
+            class="bg-[#b9c7d1]"
+            :class="theme === 'dark' ? 'hidden' : ''"
             playsinline=""
             crossorigin="anonymous"
             preload="none"
             width="200px"
-            height="409px"
-            style="aspect-ratio: 258 / 528"
-            data-poster-webp="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.webpXXX"
-            data-poster-png="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.pngXXX"
+            height="410px"
+            style="aspect-ratio: 200 / 410"
+            data-poster-webp="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/poster.webp"
+            data-poster-png="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/poster.png"
           >
-            <source src="/iphone-app-dark.mp4" type="video/mp4" />
+            <source
+              src="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/video.mp4"
+              type="video/mp4"
+            />
+            <source
+              src="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/video.webm"
+              type="video/webm"
+            />
+            <source
+              src="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/video.ogg"
+              type="video/ogg"
+            />
+            <source
+              src="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/video.wmv"
+              type="video/wmv"
+            />
             <p>
               Your browser doesn't support HTML5 video. Here is a
               <a
-                href="https://assets.simpleanalytics.com/videos/2022-03-17-dashboard/video.mp4"
+                href="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/video.mp4"
+                target="_blank"
+                rel="noopener"
+                >link to the video</a
+              >
+              instead.
+            </p>
+          </video>
+          <video
+            ref="widgetsVideoDark"
+            loop=""
+            muted=""
+            class="bg-[#020002]"
+            :class="theme === 'dark' ? '' : 'hidden'"
+            playsinline=""
+            crossorigin="anonymous"
+            preload="none"
+            width="200px"
+            height="410px"
+            style="aspect-ratio: 200 / 410"
+            data-poster-webp="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/poster.webp"
+            data-poster-png="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/poster.png"
+          >
+            <source
+              src="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/video.mp4"
+              type="video/mp4"
+            />
+            <source
+              src="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/video.webm"
+              type="video/webm"
+            />
+            <source
+              src="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/video.ogg"
+              type="video/ogg"
+            />
+            <source
+              src="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/video.wmv"
+              type="video/wmv"
+            />
+            <p>
+              Your browser doesn't support HTML5 video. Here is a
+              <a
+                href="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/video.mp4"
                 target="_blank"
                 rel="noopener"
                 >link to the video</a
@@ -603,6 +703,7 @@ import {
   CheckIcon,
   PlayIcon,
   PauseIcon,
+  ArrowCircleRightIcon,
 } from "@heroicons/vue/solid";
 
 import { ShieldCheckIcon, ChevronDoubleDownIcon } from "@heroicons/vue/outline";
@@ -617,7 +718,21 @@ const previewVideoDark = ref(null);
 const seekVideoLight = ref(null);
 const seekVideoDark = ref(null);
 
-const videoSeeks = [
+const videoSeeksLight = [
+  { translation: "seek.overview", start: 0, end: 3 },
+  { translation: "seek.key_stats", start: 3, end: 15 },
+  { translation: "seek.date_picker", start: 15, end: 24 },
+  { translation: "seek.page_views", start: 24, end: 33 },
+  { translation: "seek.segment", start: 33, end: 51 },
+  { translation: "seek.utm_sources", start: 51, end: 69 },
+  { translation: "seek.countries", start: 69, end: 78 },
+  { translation: "seek.search", start: 78, end: 102 },
+  { translation: "seek.tweet_viewer", start: 102, end: 117 },
+  { translation: "seek.events", start: 117, end: 128 },
+  { translation: "seek.conversion", start: 128, end: Infinity },
+];
+
+const videoSeeksDark = [
   { translation: "seek.overview", start: 0, end: 3 },
   { translation: "seek.key_stats", start: 3, end: 14 },
   { translation: "seek.date_picker", start: 14, end: 26 },
@@ -628,8 +743,12 @@ const videoSeeks = [
   { translation: "seek.search", start: 79, end: 101 },
   { translation: "seek.tweet_viewer", start: 101, end: 115 },
   { translation: "seek.events", start: 115, end: 131 },
-  { translation: "seek.conversion", start: 131, end: 154 },
+  { translation: "seek.conversion", start: 131, end: Infinity },
 ];
+
+const videoSeeks = ref(
+  theme.value === "dark" ? videoSeeksDark : videoSeeksLight
+);
 </script>
 
 <script>
@@ -665,8 +784,16 @@ export default {
   },
   methods: {
     jumpToTime({ start, translation }) {
-      this.$refs.seekVideoDark.currentTime = start;
-      this.$refs.seekVideoDark.pause();
+      if (this.theme === "dark") {
+        this.$refs.seekVideoDark.currentTime = start;
+        this.$refs.seekVideoDark.pause();
+        this.$refs.seekVideoLight.pause();
+      } else {
+        this.$refs.seekVideoLight.currentTime = start;
+        this.$refs.seekVideoLight.pause();
+        this.$refs.seekVideoDark.pause();
+      }
+
       this.paused = true;
       this.active = translation;
       this.lastUpdate = Date.now();
@@ -676,17 +803,54 @@ export default {
 
       this.timer = setTimeout(() => {
         this.paused = false;
-        this.$refs.seekVideoDark.play();
+        if (this.theme === "dark") {
+          this.$refs.seekVideoDark.play();
+        } else {
+          this.$refs.seekVideoLight.play();
+        }
       }, 1500);
     },
     autoplay() {
       const agent = window?.navigator?.userAgent;
+      if (agent)
+        return !/bot|crawl|android|webos|iphone|mobile|opera mini/i.test(agent);
+
+      const type = navigator?.connection?.effectiveType;
+      if (type) return !["2g", "slow-2g"].includes(type);
+
       if (!agent) return false;
-      return !/bot|crawl|android|webos|iphone|mobile|opera mini/i.test(agent);
+      return true;
+    },
+    scrollToSeekVideo() {
+      this?.$refs?.seekVideoInstruction.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    },
+  },
+  watch: {
+    theme() {
+      if (!this.autoplay()) return;
+
+      if (this.theme === "dark") {
+        this?.$refs?.previewVideoLight.pause();
+        this?.$refs?.previewVideoDark.play();
+        this?.$refs?.seekVideoLight.pause();
+        this?.$refs?.seekVideoDark.play();
+        this?.$refs?.widgetsVideoLight.pause();
+        this?.$refs?.widgetsVideoDark.play();
+      } else {
+        this?.$refs?.previewVideoLight.play();
+        this?.$refs?.previewVideoDark.pause();
+        this?.$refs?.seekVideoLight.play();
+        this?.$refs?.seekVideoDark.pause();
+        this?.$refs?.widgetsVideoLight.play();
+        this?.$refs?.widgetsVideoDark.pause();
+      }
     },
   },
   mounted() {
-    this?.$refs?.seekVideoDark?.addEventListener("timeupdate", ({ target }) => {
+    const timeUpdate = ({ target }) => {
       const { currentTime } = target;
 
       let found = null;
@@ -697,13 +861,23 @@ export default {
       }
 
       if (Date.now() - this.lastUpdate > 2000) this.active = found;
-    });
+    };
+
+    this?.$refs?.seekVideoLight?.addEventListener("timeupdate", timeUpdate);
+    this?.$refs?.seekVideoDark?.addEventListener("timeupdate", timeUpdate);
 
     if (this.autoplay()) {
       setTimeout(() => {
-        this?.$refs?.previewVideoDark.play();
-        this?.$refs?.seekVideoDark.play();
-      });
+        if (this.theme === "dark") {
+          this?.$refs?.previewVideoDark.play();
+          this?.$refs?.seekVideoDark.play();
+          this?.$refs?.widgetsVideoDark.play();
+        } else {
+          this?.$refs?.previewVideoLight.play();
+          this?.$refs?.seekVideoLight.play();
+          this?.$refs?.widgetsVideoLight.play();
+        }
+      }, 1000);
     }
 
     if (process.client) {

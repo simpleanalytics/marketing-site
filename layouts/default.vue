@@ -51,7 +51,13 @@
                       >Simple Analytics</span
                     >
                   </NuxtLink>
-                  <a @click="toggleTheme()">D</a>
+                  <a @click="toggleTheme()" class="mt-1">
+                    <SunIcon
+                      class="h-7 p-1 ml-1 stroke-gray-400"
+                      v-if="theme === 'dark'"
+                    />
+                    <MoonIcon class="h-6 p-1 ml-1 stroke-red-500" v-else />
+                  </a>
                   <div
                     class="flex items-center md:hidden"
                     style="margin-right: 4px"
@@ -105,16 +111,16 @@
                         class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0"
                       >
                         <div
-                          class="shadow-lg ring-1 ring-blue-500 ring-opacity-30 overflow-hidden"
+                          class="shadow-lg ring-1 ring-blue-500 ring-opacity-30 dark:ring-0 overflow-hidden"
                         >
                           <div
-                            class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8"
+                            class="relative grid gap-6 bg-white dark:bg-gray-800 px-5 py-6 sm:gap-8 sm:p-8"
                           >
                             <a
                               v-for="item in resources"
                               :key="item.name"
                               :href="item.href"
-                              class="-m-3 p-3 rounded flex items-start hover:bg-blue-100 transition ease-in-out duration-150"
+                              class="-m-3 p-3 rounded flex items-start hover:bg-blue-100 dark:hover:bg-gray-900 transition ease-in-out duration-150"
                             >
                               <component
                                 :is="item.icon"
@@ -131,7 +137,9 @@
                               </div>
                             </a>
                           </div>
-                          <div class="px-5 py-5 bg-blue-100 sm:px-8 sm:py-8">
+                          <div
+                            class="px-5 py-5 bg-blue-100 dark:bg-gray-700 sm:px-8 sm:py-8"
+                          >
                             <div>
                               <h3
                                 class="text-sm tracking-wide font-medium uppercase"
@@ -156,8 +164,16 @@
                                 >
                                   <a
                                     :href="post.url"
-                                    class="font-medium hover:text-gray-900 transition ease-in-out duration-150"
+                                    class="font-medium hover:text-gray-900 dark:hover:text-gray-500 transition ease-in-out duration-150"
                                   >
+                                    <span
+                                      v-if="
+                                        new Date(post.created) >
+                                        Date.now() - 1555200000 // 18 days
+                                      "
+                                      class="inline-block text-sm bg-red-500 dark:bg-red-600 px-1 text-white rounded-md align-text-top mr-1"
+                                      >new</span
+                                    >
                                     {{ post.title }}
                                   </a>
                                 </li>
@@ -210,7 +226,7 @@
               class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
             >
               <div
-                class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden"
+                class="rounded-lg bg-white ring-1 ring-black ring-opacity-5 overflow-hidden"
               >
                 <div class="px-5 pt-4 flex items-center justify-between">
                   <div>
@@ -269,6 +285,8 @@ import {
   TerminalIcon,
   ScaleIcon,
   SupportIcon,
+  MoonIcon,
+  SunIcon,
 } from "@heroicons/vue/outline";
 import { ChevronDownIcon } from "@heroicons/vue/solid";
 import BackgroundShapes from "../components/images/BackgroundShapes.vue";
@@ -326,25 +344,28 @@ useHead({
 const theme = useTheme();
 const open = ref(false);
 
+const themeCookie = useCookie("theme", {
+  secure: process.env.NODE_ENV === "production",
+  sameSite: true,
+});
+
 if (process.client) {
-  const themeCookie = useCookie("theme");
-
   if (!themeCookie.value) themeCookie.value = theme.value;
-
-  watch(theme, (newTheme) => {
-    themeCookie.value = newTheme;
-  });
 
   window
     .matchMedia?.("(prefers-color-scheme: dark)")
     .addEventListener("change", (event) => {
-      theme.value = event.matches ? "dark" : "light";
+      const mode = event.matches ? "dark" : "light";
+      theme.value = mode;
+      themeCookie.value = mode;
     });
 }
 
 const toggleTheme = () => {
   if (theme.value === "light") theme.value = "dark";
   else theme.value = "light";
+
+  themeCookie.value = theme.value;
 };
 
 const { pending, data: recentPosts } = useLazyFetch(

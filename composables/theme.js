@@ -1,7 +1,7 @@
 import { useCookies } from "h3";
 
-export const useTheme = (fallback = "light") => {
-  const darkMode = ref("light");
+export const useDefaultTheme = () => {
+  const darkMode = ref();
 
   if (process.server) {
     const nuxtApp = useNuxtApp();
@@ -15,8 +15,11 @@ export const useTheme = (fallback = "light") => {
         "(prefers-color-scheme: dark)"
       ).matches;
       if (wantsDark) darkMode.value = "dark";
+      else darkMode.value = "light";
     }
   }
 
   return darkMode;
 };
+
+export const useTheme = () => useState("theme", () => useDefaultTheme().value);

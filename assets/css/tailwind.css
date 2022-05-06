@@ -24,7 +24,7 @@ td {
 }
 
 .button {
-  @apply inline-flex items-center justify-center px-4 py-2 border-2 border-red-500  text-base font-medium rounded-full text-red-500 bg-white dark:bg-transparent dark:text-red-500 dark:hover:text-red-600 hover:bg-gray-50 hover:text-red-600  hover:border-red-600;
+  @apply inline-flex items-center justify-center px-4 py-2 border-2 border-red-500 dark:border-red-600 text-base font-medium rounded-full text-red-500 bg-white dark:bg-transparent dark:text-red-600 dark:hover:text-red-600 hover:bg-gray-50 hover:text-red-600  hover:border-red-600;
 }
 .button.tiny {
   @apply py-1 text-sm px-2;
@@ -33,5 +33,5 @@ td {
   @apply px-8 py-3 md:py-4 md:text-lg md:px-10;
 }
 .button.primary {
-  @apply text-white dark:text-red-50 dark:hover:text-red-100 bg-red-500 hover:bg-red-600  hover:border-red-600;
+  @apply text-white dark:text-red-50 dark:hover:text-red-100 bg-red-500 dark:bg-red-600 hover:bg-red-600  hover:border-red-600;
 }
