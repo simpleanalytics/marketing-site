@@ -90,4 +90,4 @@ done
 
 echo "=> To deploy the Node.js app, run this command on the server"
 echo
-echo "cd /home/app/apps/marketing-site/ && unzip -o $current_date-app.zip && sudo service marketing-site restart && tail -n 5 -f /var/log/syslog"
+echo "cd /home/app/apps/marketing-site/ && unzip -o $current_date-app.zip && sudo service marketing-site restart && sudo tail -n 5 -f /var/log/syslog"
