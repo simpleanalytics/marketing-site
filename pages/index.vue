@@ -538,12 +538,14 @@
     >
       <div class="w-2/3 mx-auto max-w-lg" :class="theme" data-carousel>
         <img
+          @click="toggleTheme()"
           src="https://simpleanalyticsassets.b-cdn.net/images/homepage/homepage-light.png"
-          class="relative transition rounded-lg shadow-md"
+          class="relative transition rounded-lg shadow-md cursor-pointer"
         />
         <img
+          @click="toggleTheme()"
           src="https://simpleanalyticsassets.b-cdn.net/images/homepage/homepage-dark.png"
-          class="relative transition rounded-lg shadow-md"
+          class="relative transition rounded-lg shadow-md cursor-pointer"
         />
       </div>
     </div>
