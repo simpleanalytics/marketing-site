@@ -201,12 +201,15 @@
                 class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0"
               >
                 <a
-                  href="https://simpleanalytics.com/welcome"
+                  :href="'https://simpleanalytics.com/welcome?theme=' + theme"
                   class="font-medium hover:text-gray-900 mx-3"
                 >
                   {{ $t("nav.signup") }}
                 </a>
-                <a href="#" class="inline-flex items-center px-4 py-2 button">
+                <a
+                  :href="'https://simpleanalytics.com/login?theme=' + theme"
+                  class="inline-flex items-center px-4 py-2 button"
+                >
                   {{ $t("nav.login") }}
                 </a>
               </div>

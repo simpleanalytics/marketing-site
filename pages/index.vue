@@ -20,7 +20,10 @@
 
         <div class="mt-5 max-w-lg mx-auto sm:flex sm:justify-center md:mt-4">
           <div>
-            <a href="#" class="button large primary">
+            <a
+              :href="'https://simpleanalytics.com/welcome?theme=' + theme"
+              class="button large primary"
+            >
               {{ $t("home.start_trial_now") }}
             </a>
             <p class="mb-8 sm:mb-0 text-xs mt-2">
@@ -29,7 +32,12 @@
             </p>
           </div>
           <div class="mt-3 sm:mt-0 sm:ml-3">
-            <a href="#" class="button large">
+            <a
+              :href="
+                'https://simpleanalytics.com/simpleanalytics.com?theme=' + theme
+              "
+              class="button large"
+            >
               {{ $t("home.see_live_demo") }}
             </a>
           </div>
@@ -40,10 +48,12 @@
     <div class="max-w-3xl px-4 mx-auto text-center">
       <div class="max-w-2xl -mt-4 sm:-mt-14 z-10 mx-auto relative" style="">
         <div
-          class="absolute flex flex-col items-center justify-center w-full h-full"
+          class="absolute z-50 flex flex-col items-center justify-center w-full h-full"
         >
           <NuxtLink
-            href="#"
+            :href="
+              'https://simpleanalytics.com/simpleanalytics.com?theme=' + theme
+            "
             class="button large primary shadow-xl bg-white dark:bg-gray-800"
           >
             {{ $t("home.go_to_live_demo") }}
@@ -68,7 +78,7 @@
             muted=""
             playsinline=""
             crossorigin="anonymous"
-            class="shadow-lg shadow-gray-200 rounded-md bg-blue-100"
+            class="shadow-lg shadow-gray-200 rounded-md bg-blue-100 -z-10"
             :class="theme === 'dark' ? 'hidden' : ''"
             preload="none"
             width="1440"
@@ -110,7 +120,7 @@
             muted=""
             playsinline=""
             crossorigin="anonymous"
-            class="rounded-md bg-gray-900 shadow-gray-700/40 shadow-2xl"
+            class="rounded-md bg-gray-900 shadow-gray-700/40 shadow-2xl -z-10"
             :class="theme === 'dark' ? '' : 'hidden'"
             preload="none"
             width="1440"
@@ -247,11 +257,11 @@
         Without cookies. Without stalking.
       </p>
 
-      <div class="mt-12 mb-8">
+      <div class="mt-4 mb-8">
         <div>
           <p
             ref="seekVideoInstruction"
-            class="mb-4 p-1 px-2 mx-auto inline-flex rounded-full text-sm text-gray-400 motion-safe:animate-bounce"
+            class="mb-4 p-1 pt-8 px-2 mx-auto inline-flex rounded-full text-sm text-gray-400 motion-safe:animate-bounce"
             :class="showClickSeekButton ? 'visible' : 'invisible'"
           >
             <ChevronDoubleDownIcon class="w-3 inline-block" />
@@ -387,7 +397,13 @@
       </div>
 
       <div>
-        <p><a href="#" class="button primary">Start free trial now</a></p>
+        <p>
+          <a
+            :href="'https://simpleanalytics.com/welcome?theme=' + theme"
+            class="button primary"
+            >Start free trial now</a
+          >
+        </p>
         <p class="mb-8 sm:mb-0 text-xs mt-4">
           <span class="block sm:inline my-2">
             <CheckIcon class="fill-green-500 ml-2 w-4 inline align-text-top" />
