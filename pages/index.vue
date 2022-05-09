@@ -607,23 +607,16 @@
           </ul>
         </div>
 
-        <div
-          class="dark:shadow-none md:order-1 shadow-lg shadow-gray-200 rounded-lg max-w-max mx-auto dark:border-0 border-2 border-red-200 overflow-hidden"
-        >
-          <video
-            ref="widgetsVideoLight"
-            loop=""
-            muted=""
-            class="bg-[#b9c7d1]"
+        <div class="md:order-1 max-w-max mx-auto">
+          <Video
+            width="200"
+            height="410"
+            color="#71c8ea"
+            poster="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/poster.png"
+            poster-webp="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/poster.webp"
+            poster-png="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/poster.png"
+            :autoplay="true"
             :class="theme === 'dark' ? 'hidden' : ''"
-            playsinline=""
-            crossorigin="anonymous"
-            preload="none"
-            width="200px"
-            height="410px"
-            style="aspect-ratio: 200 / 410"
-            data-poster-webp="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/poster.webp"
-            data-poster-png="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/poster.png"
           >
             <source
               src="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/video.mp4"
@@ -641,31 +634,16 @@
               src="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/video.wmv"
               type="video/wmv"
             />
-            <p>
-              Your browser doesn't support HTML5 video. Here is a
-              <a
-                href="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/video.mp4"
-                target="_blank"
-                rel="noopener"
-                >link to the video</a
-              >
-              instead.
-            </p>
-          </video>
-          <video
-            ref="widgetsVideoDark"
-            loop=""
-            muted=""
-            class="bg-[#020002]"
+          </Video>
+
+          <Video
+            width="200"
+            height="410"
+            poster="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/poster.png"
+            poster-webp="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/poster.webp"
+            poster-png="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/poster.png"
+            :autoplay="true"
             :class="theme === 'dark' ? '' : 'hidden'"
-            playsinline=""
-            crossorigin="anonymous"
-            preload="none"
-            width="200px"
-            height="410px"
-            style="aspect-ratio: 200 / 410"
-            data-poster-webp="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/poster.webp"
-            data-poster-png="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/poster.png"
           >
             <source
               src="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/video.mp4"
@@ -683,20 +661,79 @@
               src="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/video.wmv"
               type="video/wmv"
             />
-            <p>
-              Your browser doesn't support HTML5 video. Here is a
-              <a
-                href="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/video.mp4"
-                target="_blank"
-                rel="noopener"
-                >link to the video</a
-              >
-              instead.
-            </p>
-          </video>
+          </Video>
         </div>
       </div>
-      <p>Bye</p>
+
+      <h3
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-lg mx-auto mt-2 mb-4 sm:mt-24 sm:mb-8 font-medium"
+      >
+        When you ask videographers to create something fun.
+      </h3>
+
+      <div class="flex flex-col sm:flex-row -mx-2">
+        <div class="basis-2/4 mx-2">
+          <Video
+            width="1440"
+            height="810"
+            color="#71c8ea"
+            poster="https://assets.simpleanalytics.com/videos/2022-03-39-tropical-analytics/video.png"
+          >
+            <source
+              src="https://assets.simpleanalytics.com/videos/2022-03-39-tropical-analytics/video.mp4"
+              type="video/mp4"
+            />
+            <source
+              src="https://assets.simpleanalytics.com/videos/2022-03-39-tropical-analytics/video.webm"
+              type="video/webm"
+            />
+            <source
+              src="https://assets.simpleanalytics.com/videos/2022-03-39-tropical-analytics/video.ogg"
+              type="video/ogg"
+            />
+            <source
+              src="https://assets.simpleanalytics.com/videos/2022-03-39-tropical-analytics/video.wmv"
+              type="video/wmv"
+            />
+          </Video>
+
+          <p class="mt-3 text-xs">
+            Watch our founder getting crazy on his tropical island.
+          </p>
+        </div>
+
+        <div class="basis-2/4 mx-2 mt-6 sm:mt-0">
+          <Video
+            width="854"
+            height="480"
+            color="#5d3828"
+            poster="https://assets.simpleanalytics.com/videos/promo/v2/promo.jpg"
+          >
+            <source
+              src="https://assets.simpleanalytics.com/videos/promo/v2/promo.mp4"
+              type="video/mp4"
+            />
+            <source
+              src="https://assets.simpleanalytics.com/videos/promo/v2/promo.ogv"
+              type="video/ogg"
+            />
+            <source
+              src="https://assets.simpleanalytics.com/videos/promo/v2/promo.webm"
+              type="video/webm"
+            />
+            <track
+              label="English"
+              kind="subtitles"
+              srclang="en"
+              src="https://assets.simpleanalytics.com/videos/promo/v2/promo.vtt"
+              default=""
+            />
+          </Video>
+          <p class="mt-3 text-xs">Is he getting paronoid?</p>
+        </div>
+      </div>
+
+      <p class="py-20"></p>
     </div>
   </NuxtLayout>
 </template>
@@ -711,6 +748,7 @@ import Quote from "../components/Quote.vue";
 import DataConnections from "../components/images/DataConnections.vue";
 import ListIcon from "../components/images/ListIcon.vue";
 import BackgroundChart from "../components/images/BackgroundChart.vue";
+import Video from "../components/Video.vue";
 
 const theme = useTheme();
 
@@ -722,7 +760,11 @@ import {
   ArrowCircleRightIcon,
 } from "@heroicons/vue/solid";
 
-import { ShieldCheckIcon, ChevronDoubleDownIcon } from "@heroicons/vue/outline";
+import {
+  ShieldCheckIcon,
+  ChevronDoubleDownIcon,
+  ArrowsExpandIcon,
+} from "@heroicons/vue/outline";
 
 definePageMeta({
   title: "Simple Analytics - The privacy-first Google Analytics alternative",
@@ -853,19 +895,17 @@ export default {
         this?.$refs?.previewVideoDark.play();
         this?.$refs?.seekVideoLight.pause();
         this?.$refs?.seekVideoDark.play();
-        this?.$refs?.widgetsVideoLight.pause();
-        this?.$refs?.widgetsVideoDark.play();
       } else {
         this?.$refs?.previewVideoLight.play();
         this?.$refs?.previewVideoDark.pause();
         this?.$refs?.seekVideoLight.play();
         this?.$refs?.seekVideoDark.pause();
-        this?.$refs?.widgetsVideoLight.play();
-        this?.$refs?.widgetsVideoDark.pause();
       }
     },
   },
   mounted() {
+    if (!process.client) return;
+
     const timeUpdate = ({ target }) => {
       const { currentTime } = target;
 
@@ -887,27 +927,23 @@ export default {
         if (this.theme === "dark") {
           this?.$refs?.previewVideoDark.play();
           this?.$refs?.seekVideoDark.play();
-          this?.$refs?.widgetsVideoDark.play();
         } else {
           this?.$refs?.previewVideoLight.play();
           this?.$refs?.seekVideoLight.play();
-          this?.$refs?.widgetsVideoLight.play();
         }
       }, 1000);
     }
 
-    if (process.client) {
-      checkWebpFeature("lossy", (hasSupport) => {
-        console.log("support", hasSupport);
-        document
-          .querySelectorAll("[data-poster-webp][data-poster-png]")
-          .forEach((element) => {
-            element.poster = hasSupport
-              ? element.dataset.posterWebp
-              : element.dataset.posterPng;
-          });
-      });
-    }
+    checkWebpFeature("lossy", (hasSupport) => {
+      console.log("support", hasSupport);
+      document
+        .querySelectorAll("[data-poster-webp][data-poster-png]")
+        .forEach((element) => {
+          element.poster = hasSupport
+            ? element.dataset.posterWebp
+            : element.dataset.posterPng;
+        });
+    });
   },
 };
 </script>
