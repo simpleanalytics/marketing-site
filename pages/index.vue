@@ -78,10 +78,9 @@
             muted=""
             playsinline=""
             crossorigin="anonymous"
-            class="shadow-lg shadow-gray-200 rounded-md bg-blue-100 -z-10"
-            :class="theme === 'dark' ? 'hidden' : ''"
+            class="shadow-lg shadow-gray-200 rounded-md bg-blue-100 -z-10 dark:hidden"
             preload="none"
-            width="1440"
+            width="1440px"
             height="1130px"
             style="aspect-ratio: 1440 / 1130"
             data-poster-webp="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/poster.webp"
@@ -103,16 +102,6 @@
               src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/video.wmv"
               type="video/wmv"
             />
-            <p>
-              Your browser doesn't support HTML5 video. Here is a
-              <a
-                href="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/video.mp4"
-                target="_blank"
-                rel="noopener"
-                >link to the video</a
-              >
-              instead.
-            </p>
           </video>
           <video
             ref="previewVideoDark"
@@ -120,10 +109,9 @@
             muted=""
             playsinline=""
             crossorigin="anonymous"
-            class="rounded-md bg-gray-900 shadow-gray-700/40 shadow-2xl -z-10"
-            :class="theme === 'dark' ? '' : 'hidden'"
+            class="rounded-md bg-gray-900 shadow-gray-700/40 shadow-2xl -z-10 hidden dark:block"
             preload="none"
-            width="1440"
+            width="1440px"
             height="1130px"
             style="aspect-ratio: 1440 / 1130"
             data-poster-webp="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/poster.webp"
@@ -145,16 +133,6 @@
               src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/video.wmv"
               type="video/wmv"
             />
-            <p>
-              Your browser doesn't support HTML5 video. Here is a
-              <a
-                href="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/video.mp4"
-                target="_blank"
-                rel="noopener"
-                >link to the video</a
-              >
-              instead.
-            </p>
           </video>
         </div>
       </div>
@@ -311,8 +289,7 @@
             muted=""
             playsinline=""
             crossorigin="anonymous"
-            class="rounded-md bg-blue-100"
-            :class="theme === 'dark' ? 'hidden' : ''"
+            class="rounded-md bg-blue-100 dark:hidden"
             preload="none"
             width="1440"
             height="1130px"
@@ -356,8 +333,7 @@
               muted=""
               playsinline=""
               crossorigin="anonymous"
-              class="bg-gray-500"
-              :class="theme === 'dark' ? '' : 'hidden'"
+              class="bg-gray-500 hidden dark:block"
               preload="none"
               width="1440"
               height="1130px"
@@ -548,6 +524,42 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium"
       >
+        Dark mode.
+      </h3>
+      <p class="my-4 sm:mb-8 leading-loose max-w-xl mx-auto">
+        For those who keep
+        <span class="line-through dark:text-gray-500">working</span>
+        <span class="text-red-500 dark:text-red-600"> coding </span> at night.
+      </p>
+    </div>
+
+    <div
+      class="w-full pt-8 pb-2 sm:pt-12 sm:pb-2 md:pt-16 md:pb-4 overflow-hidden"
+    >
+      <div class="w-2/3 mx-auto max-w-lg" :class="theme" data-carousel>
+        <img
+          src="https://simpleanalyticsassets.b-cdn.net/images/homepage/homepage-light.png"
+          class="relative transition rounded-lg shadow-md"
+        />
+        <img
+          src="https://simpleanalyticsassets.b-cdn.net/images/homepage/homepage-dark.png"
+          class="relative transition rounded-lg shadow-md"
+        />
+      </div>
+    </div>
+
+    <div class="max-w-3xl px-4 mx-auto text-center">
+      <p class="mt-4 mb-8 text-sm">
+        <a @click="toggleTheme()" class="mt-1 button tiny">
+          <span class="ml-2">Toggle dark mode</span>
+          <SunIcon class="h-6 p-1 ml-1 stroke-red-600 hidden dark:block" />
+          <MoonIcon class="h-6 p-1 ml-1 stroke-red-500 dark:hidden" />
+        </a>
+      </p>
+
+      <h3
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium"
+      >
         Automate reports.
       </h3>
       <p class="my-4 leading-loose max-w-xl mx-auto">
@@ -616,7 +628,7 @@
             poster-webp="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/poster.webp"
             poster-png="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/poster.png"
             :autoplay="true"
-            :class="theme === 'dark' ? 'hidden' : ''"
+            class="dark:hidden"
           >
             <source
               src="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/video.mp4"
@@ -643,7 +655,7 @@
             poster-webp="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/poster.webp"
             poster-png="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/poster.png"
             :autoplay="true"
-            :class="theme === 'dark' ? '' : 'hidden'"
+            class="hidden dark:block"
           >
             <source
               src="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/video.mp4"
@@ -698,7 +710,7 @@
           </Video>
 
           <p class="mt-3 text-xs">
-            Watch our founder getting crazy on his tropical island.
+            Why our founder getting crazy on his tropical island.
           </p>
         </div>
 
@@ -750,8 +762,6 @@ import ListIcon from "../components/images/ListIcon.vue";
 import BackgroundChart from "../components/images/BackgroundChart.vue";
 import Video from "../components/Video.vue";
 
-const theme = useTheme();
-
 import {
   ArrowSmRightIcon,
   CheckIcon,
@@ -764,6 +774,8 @@ import {
   ShieldCheckIcon,
   ChevronDoubleDownIcon,
   ArrowsExpandIcon,
+  MoonIcon,
+  SunIcon,
 } from "@heroicons/vue/outline";
 
 definePageMeta({
@@ -804,9 +816,23 @@ const videoSeeksDark = [
   { translation: "seek.conversion", start: 131, end: Infinity },
 ];
 
+const theme = useTheme();
+
 const videoSeeks = ref(
   theme.value === "dark" ? videoSeeksDark : videoSeeksLight
 );
+
+const themeCookie = useCookie("theme", {
+  secure: process.env.NODE_ENV === "production",
+  sameSite: true,
+});
+
+const toggleTheme = () => {
+  if (theme.value === "light") theme.value = "dark";
+  else theme.value = "light";
+
+  themeCookie.value = theme.value;
+};
 </script>
 
 <script>
