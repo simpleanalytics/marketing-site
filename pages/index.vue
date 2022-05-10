@@ -569,6 +569,83 @@
         your reports to be shared automatically at any time you want.
       </p>
 
+      <div class="mt-8 mb-24">
+        <div
+          class="p-4 -m-8 scale-[0.8] text-left border-0 rounded-lg bg-blue-100 dark:bg-gray-700 dark:shadow-none shadow-md -rotate-1"
+        >
+          <h4 class="text-lg">Email reports</h4>
+
+          <p class="mt-2">
+            Send yourself and others an email report of simpleanalytics.com. You
+            can add as many email addresses as you like. See an example of an
+            email report in our documentation.
+          </p>
+
+          <div class="my-4">
+            <table class="w-full max-w-full" v-if="emailReports.length">
+              <thead>
+                <tr>
+                  <th class="font-normal">Recipient</th>
+                  <th class="font-normal">Period</th>
+                  <th class="font-normal hidden sm:table-cell">Last emailed</th>
+                  <th class="font-normal"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="report of emailReports" :key="report.id">
+                  <td class="truncate max-w-[100px] md:max-w-full pr-2">
+                    {{ report.email }}
+                  </td>
+                  <td>{{ report.period }}</td>
+                  <td class="hidden sm:table-cell">{{ report.ago }}</td>
+                  <td>
+                    <a
+                      class="ml-2 button tiny"
+                      @click="removeEmailReport(report)"
+                    >
+                      <span class="hidden sm:inline">Remove</span>
+                      <XCircleIcon class="stroke-red-600 h-6 w-6 sm:hidden" />
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p
+            class="inline-block border border-red-500 text-red-500 dark:text-red-600 rounded-sm py-2 px-3 mb-2 dark:border-red-600"
+            v-if="emailReportError"
+          >
+            {{ emailReportError }}
+          </p>
+
+          <p>
+            <input
+              ref="emailReportEmailField"
+              type="text"
+              v-model="emailReportEmail"
+              placeholder="E.g.: client@example.com"
+              class="appearance-none max-w-full rounded-sm w-72 mr-2 mt-2 pl-3 py-2 text-base focus:outline-none sm:text-normal bg-gray-50 text-gray-500 border border-gray-200 dark:border-0 dark:bg-gray-600 dark:text-gray-300"
+            />
+
+            <select
+              v-model="emailReportPeriod"
+              class="appearance-none rounded-sm mr-2 mt-2 pl-3 pr-8 py-2 text-base focus:outline-none sm:text-normal bg-gray-50 text-gray-500 border border-gray-200 dark:border-0 dark:bg-gray-600 dark:text-gray-300"
+            >
+              <option value="week">Weekly</option>
+              <option value="month">Monthly</option>
+            </select>
+
+            <input
+              type="submit"
+              @click="saveEmailReport"
+              class="mt-2 button"
+              value="Add recipient"
+            />
+          </p>
+        </div>
+      </div>
+
       <div
         class="md:flex items-center justify-center mt-2 mb-4 sm:mt-12 sm:mb-8"
       >
@@ -678,77 +755,89 @@
           </Video>
         </div>
       </div>
+    </div>
 
-      <h3
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-lg mx-auto mt-2 mb-4 sm:mt-24 sm:mb-8 font-medium"
-      >
-        When you ask videographers to create something fun.
-      </h3>
+    <section
+      class="bg-gradient-to-t from-blue-100 dark:from-gray-700 py-4 relative overflow-hidden pb-60"
+    >
+      <div class="max-w-3xl px-4 mx-auto text-center">
+        <h3
+          class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-lg mx-auto mt-2 mb-4 sm:mt-24 sm:mb-8 font-medium"
+        >
+          When you ask videographers to create something fun.
+        </h3>
 
-      <div class="flex flex-col sm:flex-row -mx-2">
-        <div class="basis-2/4 mx-2">
-          <Video
-            width="1440"
-            height="810"
-            color="#71c8ea"
-            poster="https://assets.simpleanalytics.com/videos/2022-03-39-tropical-analytics/video.png"
-          >
-            <source
-              src="https://assets.simpleanalytics.com/videos/2022-03-39-tropical-analytics/video.mp4"
-              type="video/mp4"
-            />
-            <source
-              src="https://assets.simpleanalytics.com/videos/2022-03-39-tropical-analytics/video.webm"
-              type="video/webm"
-            />
-            <source
-              src="https://assets.simpleanalytics.com/videos/2022-03-39-tropical-analytics/video.ogg"
-              type="video/ogg"
-            />
-            <source
-              src="https://assets.simpleanalytics.com/videos/2022-03-39-tropical-analytics/video.wmv"
-              type="video/wmv"
-            />
-          </Video>
+        <div class="flex flex-col sm:flex-row -mx-2">
+          <div class="basis-2/4 mx-2">
+            <Video
+              width="1440"
+              height="810"
+              color="#71c8ea"
+              poster="https://assets.simpleanalytics.com/videos/2022-03-39-tropical-analytics/video.png"
+            >
+              <source
+                src="https://assets.simpleanalytics.com/videos/2022-03-39-tropical-analytics/video.mp4"
+                type="video/mp4"
+              />
+              <source
+                src="https://assets.simpleanalytics.com/videos/2022-03-39-tropical-analytics/video.webm"
+                type="video/webm"
+              />
+              <source
+                src="https://assets.simpleanalytics.com/videos/2022-03-39-tropical-analytics/video.ogg"
+                type="video/ogg"
+              />
+              <source
+                src="https://assets.simpleanalytics.com/videos/2022-03-39-tropical-analytics/video.wmv"
+                type="video/wmv"
+              />
+            </Video>
 
-          <p class="mt-3 text-xs">
-            Why our founder getting crazy on his tropical island.
-          </p>
-        </div>
+            <p class="mt-3 text-xs">
+              Why our founder getting crazy on his tropical island.
+            </p>
+          </div>
 
-        <div class="basis-2/4 mx-2 mt-6 sm:mt-0">
-          <Video
-            width="854"
-            height="480"
-            color="#5d3828"
-            poster="https://assets.simpleanalytics.com/videos/promo/v2/promo.jpg"
-          >
-            <source
-              src="https://assets.simpleanalytics.com/videos/promo/v2/promo.mp4"
-              type="video/mp4"
-            />
-            <source
-              src="https://assets.simpleanalytics.com/videos/promo/v2/promo.ogv"
-              type="video/ogg"
-            />
-            <source
-              src="https://assets.simpleanalytics.com/videos/promo/v2/promo.webm"
-              type="video/webm"
-            />
-            <track
-              label="English"
-              kind="subtitles"
-              srclang="en"
-              src="https://assets.simpleanalytics.com/videos/promo/v2/promo.vtt"
-              default=""
-            />
-          </Video>
-          <p class="mt-3 text-xs">Is he getting paronoid?</p>
+          <div class="basis-2/4 mx-2 mt-6 sm:mt-0">
+            <Video
+              width="854"
+              height="480"
+              color="#5d3828"
+              poster="https://assets.simpleanalytics.com/videos/promo/v2/promo.jpg"
+            >
+              <source
+                src="https://assets.simpleanalytics.com/videos/promo/v2/promo.mp4"
+                type="video/mp4"
+              />
+              <source
+                src="https://assets.simpleanalytics.com/videos/promo/v2/promo.ogv"
+                type="video/ogg"
+              />
+              <source
+                src="https://assets.simpleanalytics.com/videos/promo/v2/promo.webm"
+                type="video/webm"
+              />
+              <track
+                label="English"
+                kind="subtitles"
+                srclang="en"
+                src="https://assets.simpleanalytics.com/videos/promo/v2/promo.vtt"
+                default=""
+              />
+            </Video>
+            <p class="mt-3 text-xs">Is he getting paronoid?</p>
+          </div>
         </div>
       </div>
 
-      <p class="py-20"></p>
-    </div>
+      <ClientOnly>
+        <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+          <BackgroundChart
+            class="fill-blue-50 stroke-blue-500 dark:fill-gray-800"
+          />
+        </div>
+      </ClientOnly>
+    </section>
   </NuxtLayout>
 </template>
 
@@ -778,6 +867,7 @@ import {
   ArrowsExpandIcon,
   MoonIcon,
   SunIcon,
+  XCircleIcon,
 } from "@heroicons/vue/outline";
 
 definePageMeta({
@@ -817,6 +907,63 @@ const videoSeeksDark = [
   { translation: "seek.events", start: 115, end: 131 },
   { translation: "seek.conversion", start: 131, end: Infinity },
 ];
+
+const emailReports = ref([
+  {
+    id: 1,
+    email: "adriaan@simpleanalytics.com",
+    period: "week",
+    ago: "a day ago",
+  },
+  {
+    id: 2,
+    email: "iron@simpleanalytics.com",
+    period: "month",
+    ago: "6 days ago",
+  },
+]);
+
+const emailReportEmailField = ref();
+const emailReportEmail = ref("");
+const emailReportPeriod = ref("week");
+const emailReportError = ref("");
+
+const removeEmailReport = (report) => {
+  const message = `Are you sure to disable ${report.period}ly email reports for ${report.email}?`;
+  const confirmed = window.confirm(message);
+  if (!confirmed) return;
+  const userIndex = emailReports.value.indexOf(report.id);
+  emailReports.value.splice(userIndex, 1);
+};
+
+const saveEmailReport = () => {
+  emailReportError.value = "";
+
+  if (
+    !emailReportEmail.value ||
+    !emailReportEmail.value.includes(".") ||
+    !emailReportEmail.value.includes("@")
+  ) {
+    return setTimeout(() => {
+      emailReportError.value = "Fill in a value email address";
+    }, 200);
+  }
+
+  emailReports.value.push({
+    id: Math.random() * 100,
+    email: emailReportEmail.value,
+    period: emailReportPeriod.value,
+    ago: "never",
+  });
+
+  emailReportEmail.value = "";
+};
+
+onMounted(() => {
+  emailReportEmailField?.value?.addEventListener("focus", () => {
+    emailReportError.value = "";
+  });
+});
 
 const theme = useTheme();
 
@@ -963,7 +1110,6 @@ export default {
     }
 
     checkWebpFeature("lossy", (hasSupport) => {
-      console.log("support", hasSupport);
       document
         .querySelectorAll("[data-poster-webp][data-poster-png]")
         .forEach((element) => {
