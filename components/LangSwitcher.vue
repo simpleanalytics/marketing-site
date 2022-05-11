@@ -2,14 +2,10 @@
   <Listbox as="div" v-model="$i18n.locale">
     <div class="relative">
       <ListboxButton
-        class="relative font-medium hover:text-gray-900 dark:hover:text-gray-500 pl-1 pr-6 text-left cursor-pointer"
+        class="relative font-medium hover-hover:hover:text-gray-900 dark:hover-hover:hover:text-gray-500 pl-1 pr-6 text-left cursor-pointer"
       >
         <span class="flex items-center">
-          <img
-            :src="selectLang($i18n.locale)?.flag"
-            alt=""
-            class="flex-shrink-0 h-6 w-6"
-          />
+          <EuropeanFlag class="flex-shrink-0 w-8 rounded" />
         </span>
         <span
           class="ml-2 absolute inset-y-0 right-0 flex items-center pointer-events-none"
@@ -38,7 +34,7 @@
                 active
                   ? 'text-white dark:text-white bg-red-500'
                   : 'text-gray-900',
-                'cursor-pointer select-none relative py-2 pl-3 pr-9 dark:hover:text-white',
+                'cursor-pointer select-none relative py-2 pl-3 pr-9 dark:hover-hover:hover:text-white',
               ]"
             >
               <div class="flex items-center">
@@ -71,6 +67,8 @@
 </template>
 
 <script setup>
+import EuropeanFlag from "./logos/EuropeanFlag.vue";
+
 import {
   Listbox,
   ListboxButton,

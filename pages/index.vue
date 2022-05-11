@@ -6,12 +6,21 @@
           <span class="leading-snug" v-html="$t('home.title')"></span>
         </h1>
         <p
-          class="mt-4 max-w-md mx-auto text-base sm:text-lg md:mt-8 md:text-xl md:max-w-3xl"
+          class="mt-4 max-w-md mx-auto text-base sm:text-lg md:mt-8 md:text-xl md:max-w-4xl"
         >
           {{ $t("home.subtitle") }}
+
+          <ArrowLink
+            href="https://docs.simpleanalytics.com/protecting-your-data"
+          >
+            <EuropeanFlag class="inline w-8 rounded align-sub" />
+            EU based<Arrow
+              class="inline align-text-bottom w-6 fill-red-500 hover-hover:group-hover:fill-red-600 transition-transform hover-hover:group-hover:rotate-0 -rotate-45"
+            />
+          </ArrowLink>
         </p>
 
-        <div class="flex items-center justify-center mt-6 sm:mt-10">
+        <div class="flex items-center justify-center mt-6 sm:mt-8">
           <HavasMediaLogo class="h-14 mt-0 m-4 sm:m-8" />
           <GovScotLogo class="h-16 mt-1 m-4 sm:m-8" />
           <GovUKLogo class="h-16 mt-0 m-4 sm:m-8" />
@@ -43,6 +52,17 @@
           </div>
         </div>
       </div>
+
+      <div class="mt-10 flex justify-center">
+        <a
+          class="inline-flex items-center"
+          href="https://www.capterra.com/p/248710/Simple-Analytics/#about"
+          target="_blank"
+        >
+          <CapterraLogo class="h-10 mr-4" />
+          <p>based on 5+ reviews</p></a
+        >
+      </div>
     </template>
 
     <div class="max-w-3xl px-4 mx-auto text-center">
@@ -59,7 +79,7 @@
             {{ $t("home.go_to_live_demo") }}
           </NuxtLink>
           <a
-            @click="scrollToSeekVideo()"
+            @click="scrollToSeekVideo('seek.overview')"
             class="mt-4 button tiny shadow-xl bg-white dark:bg-gray-800"
           >
             <ChevronDoubleDownIcon class="w-3 inline-block" />
@@ -157,12 +177,12 @@
           The most privacy-friendly analytics online.
         </h3>
       </div>
-      <ul class="mx-auto max-w-max text-left">
+      <ul class="mx-auto max-w-max text-left z-20 relative">
         <li class="flex items-center my-4">
           <ShieldCheckIcon
             class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
           />
-          <p>
+          <p class="leading-relaxed">
             We <span class="text-red-500 dark:text-red-600">comply</span> by
             design with all privacy<br />policies - GDPR, PECR, CCPA and more.
           </p>
@@ -171,15 +191,30 @@
           <ShieldCheckIcon
             class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
           />
-          <p>
+          <p class="leading-relaxed">
             We
             <span class="text-red-500 dark:text-red-600">never track</span>
             anyone,
-            <a
-              class="text-red-500 dark:text-red-600 underline"
+            <ArrowLink
               href="https://simpleanalytics.com/our-promise"
+              text="we promise"
+            />
+          </p>
+        </li>
+        <li class="flex items-center my-4">
+          <ShieldCheckIcon
+            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+          />
+          <p class="leading-relaxed">
+            We don't
+            <span class="text-red-500 dark:text-red-600">store</span> or
+            <span class="text-red-500 dark:text-red-600">sell</span> any visitor
+            data,<br /><a
+              class="text-red-500 dark:text-red-600 underline"
+              href="https://docs.simpleanalytics.com/what-we-collect"
               target="_blank"
-              >we promise<ArrowSmRightIcon class="inline ml-1 w-4 fill-red-500"
+              >see what we collect<ArrowSmRightIcon
+                class="inline ml-1 w-4 fill-red-500"
             /></a>
           </p>
         </li>
@@ -187,18 +222,7 @@
           <ShieldCheckIcon
             class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
           />
-          <p>
-            We don’t
-            <span class="text-red-500 dark:text-red-600">store</span> or
-            <span class="text-red-500 dark:text-red-600">sell</span> any visitor
-            data
-          </p>
-        </li>
-        <li class="flex items-center my-4">
-          <ShieldCheckIcon
-            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
-          />
-          <p>
+          <p class="leading-relaxed">
             No
             <span class="text-red-500 dark:text-red-600">cookie banner</span>
             required
@@ -225,10 +249,12 @@
         subtitle="Community Manager Indie Hackers"
         subtitlelink="https://indiehackers.com/"
       >
-        "My focus has been on using ethical tools. I said bye to Google
-        Analytics and hello to Simple Analytics.
-        <span class="text-blue-600 dark:text-blue-700">In 1-2 clicks</span> I
-        can get all the information I need."
+        <p class="text-xl leading-relaxed">
+          "My focus has been on using ethical tools. I said bye to Google
+          Analytics and hello to Simple Analytics.
+          <span class="text-blue-600 dark:text-blue-700">In 1-2 clicks</span> I
+          can get all the information I need."
+        </p>
       </Quote>
 
       <h3
@@ -381,8 +407,19 @@
 
       <StartTrial />
 
+      <Quote
+        class="mt-8"
+        :reverse="false"
+        iconclass="fill-blue-200"
+        :logo="FastCompanyLogo"
+        logoclass="bg-blue-200 rounded-full p-4"
+        subtitle="Featured at Fast Company"
+        quote="It's time to ditch Google Analytics."
+        subtitlelink="https://www.fastcompany.com/90300072/its-time-to-ditch-google-analytics"
+      />
+
       <h3
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-24 sm:mb-8 font-medium"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-20 sm:mb-8 font-medium"
       >
         Connect
         <span class="text-red-500 dark:text-red-600">your data</span> with your
@@ -404,7 +441,7 @@
           </template>
         </ClientOnly>
 
-        <ul class="mx-auto max-w-max text-left mt-12 sm:mt-0">
+        <ul class="mx-auto max-w-max text-left mt-12 sm:mt-0 relative z-20">
           <li class="flex items-center my-6">
             <ShieldCheckIcon
               class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
@@ -424,7 +461,7 @@
               class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
             />
             <p>
-              Use Google Tag Manager, CloudFlare,<br />or our many frontend
+              Use Google Tag Manager, WordPress,<br />or our many frontend
               <a
                 class="text-red-500 dark:text-red-600 underline"
                 href="https://docs.simpleanalytics.com/script"
@@ -438,7 +475,7 @@
               class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
             />
             <p>
-              Export to your own systems or
+              Export to your own systems, Power BI,<br />Google Data Studio, or
               <span class="text-red-500 dark:text-red-600">data lakes</span>
             </p>
           </li>
@@ -468,17 +505,22 @@
 
     <div class="max-w-3xl px-4 mx-auto text-center">
       <Quote
-        class="mt-4"
-        :logo="DuckDuckGoLogo"
-        title="Anonymous Owner"
-        subtitle="..."
-        quote="After switching from GA, I tried out another privacy-focused analytics
-      solution but it turned out it was too minimal and didn't give me what I
-      needed. I make decisions based on data. Luckily, Simple Analytics shows
-      the exact metrics I need to know about in order to grow my business, while
-      also being respectful of the privacy of my visitors. AND it loads
-      extremely quickly, making it SEO-friendly"
-      />
+        class="mt-12"
+        image="https://assets.simpleanalytics.com/images/philippe-lehoux.jpg"
+        title="Philippe Lehoux"
+        subtitle="CEO at Missive"
+        subtitlelink="https://missiveapp.com/blog/privacy-first-analytics"
+      >
+        <p class="text-xl leading-relaxed">
+          "We traded a 'free', privacy-less, and complex analytic dashboard to a
+          paid, privacy-first &amp; simple one. We couldn't be happier.
+          <span class="text-red-500 dark:text-red-600"
+            >The best privacy-focused analytics suite that I've found.</span
+          >
+          We're proud to be able to tell our customers that we don't track them
+          at all."
+        </p>
+      </Quote>
     </div>
 
     <div class="max-w-3xl px-4 mx-auto text-center">
@@ -488,11 +530,15 @@
         Event tracking without tracing individuals.
       </h3>
       <p class="my-4 leading-loose max-w-xl mx-auto">
-        Auto collect events like downloads, outbound links, and email clicks
-        (see
-        <a href="https://docs.simpleanalytics.com/automated-events">our docs</a
-        >). Check the performance of every button, click and page visit you
-        want.
+        <a
+          class="text-red-500 dark:text-red-600 underline"
+          href="https://docs.simpleanalytics.com/automated-events"
+          target="_blank"
+          >Auto collect events
+          <ArrowSmRightIcon class="inline ml-0 w-4 fill-red-500"
+        /></a>
+        like downloads, outbound links, and email clicks. Check the performance
+        of every button, click and page visit you want.
       </p>
 
       <p>
@@ -631,19 +677,23 @@
       <StartTrial />
 
       <Quote
-        class="mt-12"
-        image="https://assets.simpleanalytics.com/images/philippe-lehoux.jpg"
-        title="Philippe Lehoux"
-        subtitle="CEO at Missive"
-        subtitlelink="https://missiveapp.com/"
+        class="mt-4"
+        image="https://www.saasdesign.io/hannahavatar.png"
+        title="Hannah Wright"
+        subtitle="Founder SaaS Design"
+        subtitlelink="https://www.saasdesign.io/"
       >
-        "We traded a 'free', privacy-less, and complex analytic dashboard to a
-        paid, privacy-first &amp; simple one. We couldn't be happier.
-        <span class="text-red-500 dark:text-red-600"
-          >The best privacy-focused analytics suite that I've found.</span
-        >
-        We're proud to be able to tell our customers that we don't track them at
-        all."
+        <p class="text-base leading-relaxed">
+          "After switching from GA, I tried out another privacy-focused
+          analytics solution but it turned out it was too minimal and didn't
+          give me what I needed. I make decisions based on data. Luckily, Simple
+          Analytics
+          <span class="text-red-500 dark:text-red-600"
+            >shows the exact metrics I need to know about in order to grow my
+            business</span
+          >, while also being respectful of the privacy of my visitors. AND it
+          loads extremely quickly, making it SEO-friendly"
+        </p>
       </Quote>
 
       <div
@@ -838,12 +888,15 @@
           subtitle="Software engineer"
           subtitlelink="https://evan.gg/blog/simple-analytics-is-great"
         >
-          "This is great to keep track of all the products that I launch. I also
-          <span class="text-blue-600 dark:text-blue-700"
-            >use the API to send myself a bot message</span
-          >
-          each morning with rolling week stats and daily stats from from the
-          previous day"
+          <p class="text-xl leading-relaxed">
+            "This is great to keep track of all the products that I launch. I
+            also
+            <span class="text-blue-600 dark:text-blue-700"
+              >use the API to send myself a bot message</span
+            >
+            each morning with rolling week stats and daily stats from the
+            previous day"
+          </p>
         </Quote>
       </div>
 
@@ -901,9 +954,8 @@
               class="border border-red-400 dark:border-red-600 text-red-400 dark:text-red-600 rounded-full text-sm py-1 px-2"
               >+10% & yearly</span
             >, Apple Pay, and Google Pay as payment methods for all our paid
-            plans. You can pay in Euros, US Dollars or British Pounds. Custom
-            bank transfers are possible if you have the enterprise plan and cost
-            an additional
+            plans. You can pay in Euros, US Dollars or British Pounds. Bills
+            from €500 can be paid via bank transfers and cost an additional
             <span
               class="border border-red-400 dark:border-red-600 text-red-400 dark:text-red-600 rounded-full text-sm py-1 px-2"
               >10%</span
@@ -953,13 +1005,15 @@
         subtitle="Marketeer"
         subtitlelink="https://stefaanoyen.be/"
       >
-        "Excellent alternative for Google Analytics. Yes, you pay a small
-        subscription, but you get a lot in return:
-        <span class="text-red-500 dark:text-red-600">GDPR-proof</span> and
-        <span class="text-red-500 dark:text-red-600">cookieless</span>
-        analytics,
-        <span class="text-red-500 dark:text-red-600">accurate</span> tracking
-        and clear visuals. "
+        <p class="text-xl leading-relaxed">
+          "Excellent alternative for Google Analytics. Yes, you pay a small
+          subscription, but you get a lot in return:
+          <span class="text-red-500 dark:text-red-600">GDPR-proof</span> and
+          <span class="text-red-500 dark:text-red-600">cookieless</span>
+          analytics,
+          <span class="text-red-500 dark:text-red-600">accurate</span> tracking
+          and clear visuals."
+        </p>
       </Quote>
 
       <h3
@@ -976,16 +1030,7 @@
         <HyundaiLogo class="h-14 mt-0 m-4 sm:m-8" />
       </div>
 
-      <Quote
-        class="mt-4"
-        :reverse="true"
-        iconclass="fill-blue-200"
-        :logo="FastCompanyLogo"
-        logoclass="bg-blue-200 rounded-full p-4"
-        subtitle="Featured at Fast Company"
-        quote="It's time to ditch Google Analytics."
-        subtitlelink="https://www.fastcompany.com/90300072/its-time-to-ditch-google-analytics"
-      />
+      <!-- quote -->
 
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-16 sm:mb-8 font-medium text-center"
@@ -999,143 +1044,181 @@
         analytics?
       </h3>
 
-      <h4 class="my-4 text-2xl">There are 5 simple reasons that sum it up.</h4>
-      <h5 class="my-4 text-lg">1. Privacy protection is our business model.</h5>
+      <div class="leading-loose">
+        <h4 class="my-4 text-2xl text-center">
+          There are 5 simple reasons that sum it up.
+        </h4>
 
-      <p>
-        Big tech companies have been collecting personal data for years to make
-        a profit. Users get a "free" product, and big tech companies get paid by
-        advertisers that want to buy your attention.
-      </p>
+        <EyeOffIcon class="mx-auto stroke-1 mt-12 h-12 stroke-red-500" />
 
-      <ul>
-        <li>
-          While you use the "free" product, the tech companies gather creepily
-          huge amounts of data to create a specific profile of your
-          demographics, ethnicity, political preferences, interests, desires,
-          likes, and dislikes.
-        </li>
-      </ul>
+        <h5
+          class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
+        >
+          1. Privacy protection is our business model.
+        </h5>
 
-      <ul>
-        <li>
-          Big tech companies will sell that to the highest bidders as their
-          business model. Without openly telling you.
-        </li>
-      </ul>
+        <p>
+          Big tech companies have been collecting personal data for years to
+          make a profit. Users get a "free" product, and big tech companies get
+          paid by advertisers that want to buy your attention.
+        </p>
 
-      <p>
-        We disgust such 👆 practices. Because Simple Analytics is a paid
-        service, we are independent and have no bias or conflict of interest. No
-        second agendas here. Our mission is simple:
-      </p>
+        <ul class="list-disc ml-8 my-4">
+          <li>
+            While you use the "free" product, the tech companies gather creepily
+            huge amounts of data to create a specific profile of your
+            demographics, ethnicity, political preferences, interests, desires,
+            likes, and dislikes.
+          </li>
+          <li>
+            Big tech companies will sell that to the highest bidders as their
+            business model. Without openly telling you.
+          </li>
+        </ul>
 
-      <ul>
-        <li class="">
-          We give you the fastest, easiest, and most ethical insights about your
-          website performance while upholding the highest privacy standards.
-        </li>
-        <li>
-          To achieve this, Simple Analytics has an
-          <a href="https://simpleanalytics.com/roadmap">open roadmap</a> for you
-          to see the next steps or request features. Also, we operate
-          <a href="https://simpleanalytics.com/open">fully transparently</a>
-          by sharing our metrics (including revenue, costs, amount of customers,
-          and traffic).
-        </li>
-      </ul>
+        <p>
+          We disgust such practices. Because Simple Analytics is a paid service,
+          we are independent and have no bias or conflict of interest. No second
+          agendas here.
+        </p>
 
-      <h5 class="my-4 text-lg">2. Your data is always encrypted.</h5>
+        <p class="mt-4">Our mission is simple:</p>
 
-      <p>
-        We don't store any personal information and collect minimal amounts of
-        data to protect your visitor's privacy, but that does not make your
-        analytics data less important. That's why your data is always encrypted
-        on our servers. The drives storing your data contain nothing but
-        encrypted lines of code. If anybody did manage to steal those drives,
-        they'd be useless.
-      </p>
-      <h5 class="my-4 text-lg">
-        3. We never, ever, ever storeanypersonally identifiable information
-        (PII) about visitors.
-      </h5>
-      <p>
-        Some privacy-focused analytics use personally identifiable data and
-        delete it after a day. For example:
-      </p>
+        <ul class="list-disc ml-8 my-4">
+          <li>
+            We give you the fastest, easiest, and most ethical insights about
+            your website performance while upholding the highest privacy
+            standards.
+          </li>
+          <li>
+            To achieve this, Simple Analytics has an
+            <a href="https://simpleanalytics.com/roadmap">open roadmap</a> for
+            you to see the next steps or request features. Also, we operate
+            <a href="https://simpleanalytics.com/open">fully transparently</a>
+            by sharing our metrics (including revenue, costs, amount of
+            customers, and traffic).
+          </li>
+        </ul>
 
-      <ul>
-        <li>
-          They collect a visitor's IP address, add a date, and turn it intoa
-          hashevery time you have a page visit.
-        </li>
-        <li>
-          These hashes connect page views together. Although this is definitely
-          better than big tech trying to collect as much personal data as they
-          can to sell to advertisers, it is not 100% waterproof and is a grey
-          area.
-        </li>
-      </ul>
+        <KeyIcon class="mx-auto stroke-1 mt-12 h-12 stroke-red-500" />
 
-      <ul>
-        <li>
-          The hashes expire only once per day,so for less than 24 hours,there is
-          still personally identifiable information stored about your
-          visitors.Privacy policies like the GDPR explain you must have visitors
-          consent to store personally identifiable information (PII).
-        </li>
-      </ul>
+        <h5
+          class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
+        >
+          2. Your data is always encrypted.
+        </h5>
 
-      <p>
-        Simple Analyticsnevercompromises privacy. That's why we only use unique
-        visitorswithout tracking IP addresses. We do this based on the browser's
-        referrer, so no PII is stored. When you use Simple Analytics, it is
-        therefore100% guaranteed no personally identifiable information of any
-        of your visitors is stored.Because of this, zero consent is needed.
-        Adiós annoying banners!
-      </p>
+        <p>
+          We don't store any personal information and collect minimal amounts of
+          data to protect your visitor's privacy, but that does not make your
+          analytics data less important. That's why your data is always
+          encrypted on our servers. The drives storing your data contain nothing
+          but encrypted lines of code. If anybody did manage to steal those
+          drives, they'd be useless.
+        </p>
 
-      <p>
-        Tip: some clients like to replace their cookie banners with "we're proud
-        to protect your privacy" banners to gain a competitive advantage.
-      </p>
+        <FingerPrintIcon class="mx-auto stroke-1 mt-12 h-12 stroke-red-500" />
 
-      <h5 class="my-4 text-lg">
-        4. We are an EU-based company with EU-based servers.
-      </h5>
+        <h5
+          class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
+        >
+          3. We never, ever, ever store any personally identifiable information
+          (PII) about visitors.
+        </h5>
+        <p>
+          Some privacy-focused analytics use personally identifiable data and
+          delete it after a day. For example:
+        </p>
 
-      <p>
-        We do everything in our power to keep your data safe. We collect the
-        bare minimum amount of data required to give you a full picture of your
-        website's visitors, and besides the three points listed above, we even
-        go a few steps further.
-      </p>
+        <ul class="list-disc ml-8 my-4">
+          <li>
+            They collect a visitor's IP address, add a date, and turn it intoa
+            hashevery time you have a page visit.
+          </li>
+          <li>
+            These hashes connect page views together. Although this is
+            definitely better than big tech trying to collect as much personal
+            data as they can to sell to advertisers, it is not 100% waterproof
+            and is a grey area.
+          </li>
+          <li>
+            The hashes expire only once per day, so for less than 24 hours,
+            <em
+              >there is still personally identifiable information stored about
+              your visitors.</em
+            >
+            Privacy policies like the GDPR explain you must have visitors
+            consent to store personally identifiable information (PII).
+          </li>
+        </ul>
 
-      <ul>
-        <li>
-          Compared to other continents, the EU has been concerned with its
-          citizens' privacy for a long time and provides diligent privacy
-          regulations.
-        </li>
-        <li>
-          Our servers are located in the Netherlands and our hosting provider is
-          Dutch because this provides asecure physical location, great global
-          network connectivity,andhigh legal standards for data processing(no
-          cloud provider that needs to report to a foreign government).
-        </li>
-        <li>
-          We choose to locate our business in the Netherlands because a
-          privacy-conscious environment helps us uphold our high standards for
-          ethics and privacy.
-        </li>
-      </ul>
+        <p>
+          Simple Analytics never compromises privacy. That's why we only use
+          unique visitorswithout tracking IP addresses. We do this based on the
+          browser's referrer, so no PII is stored. When you use Simple
+          Analytics, it is therefore
+          <em class="text-red-500 dark:text-red-600"
+            >100% guaranteed no personally identifiable information of any of
+            your visitors is stored.</em
+          >
+          Because of this, zero consent is needed. Adiós annoying banners!
+        </p>
 
-      <h5 class="my-4 text-lg">5. You own your data.</h5>
-      <p>
-        We care about your data. We care for your data. Yet, you own your data.
-        We will never sell it. You are in control of your data, and you can
-        download or delete it at any time.
-      </p>
+        <p class="mt-4">
+          Tip: some clients like to replace their cookie banners with "we're
+          proud to protect your privacy" banners to gain a competitive
+          advantage.
+        </p>
+
+        <GlobeIcon class="mx-auto stroke-1 mt-12 h-12 stroke-red-500" />
+
+        <h5
+          class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
+        >
+          4. We are an EU-based company<br class="hidden sm:block" />
+          with EU-based servers.
+        </h5>
+
+        <p>
+          We do everything in our power to keep your data safe. We collect the
+          bare minimum amount of data required to give you a full picture of
+          your website's visitors, and besides the three points listed above, we
+          even go a few steps further.
+        </p>
+
+        <ul class="list-disc ml-8 my-4">
+          <li>
+            Compared to other continents, the EU has been concerned with its
+            citizens' privacy for a long time and provides diligent privacy
+            regulations.
+          </li>
+          <li>
+            Our servers are located in the Netherlands and our hosting provider
+            is Dutch because this provides asecure physical location, great
+            global network connectivity, and high legal standards for data
+            processing (no cloud provider that needs to report to a foreign
+            government).
+          </li>
+          <li>
+            We choose to locate our business in the Netherlands because a
+            privacy-conscious environment helps us uphold our high standards for
+            ethics and privacy.
+          </li>
+        </ul>
+
+        <TableIcon class="mx-auto stroke-1 mt-12 h-12 stroke-red-500" />
+
+        <h5
+          class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
+        >
+          5. You own your data.
+        </h5>
+        <p>
+          We care about your data. We care for your data. Yet, you own your
+          data. We will never sell it. You are in control of your data, and you
+          can download or delete it at any time.
+        </p>
+      </div>
 
       <div class="py-12 text-center">
         <StartTrial />
@@ -1151,6 +1234,10 @@ import GovUKLogo from "../components/logos/GovUK.vue";
 import HyundaiLogo from "../components/logos/Hyundai.vue";
 import DuckDuckGoLogo from "../components/logos/DuckDuckGo.vue";
 import FastCompanyLogo from "../components/logos/FastCompany.vue";
+import CapterraLogo from "../components/logos/Capterra.vue";
+import EuropeanFlag from "../components/logos/EuropeanFlag.vue";
+import Arrow from "../components/Arrow.vue";
+import ArrowLink from "../components/ArrowLink.vue";
 import Quote from "../components/Quote.vue";
 import DataConnections from "../components/images/DataConnections.vue";
 import ListIcon from "../components/images/ListIcon.vue";
@@ -1179,6 +1266,11 @@ import {
   CreditCardIcon,
   BanIcon,
   MailOpenIcon,
+  EyeOffIcon,
+  FingerPrintIcon,
+  KeyIcon,
+  GlobeIcon,
+  TableIcon,
 } from "@heroicons/vue/outline";
 
 definePageMeta({

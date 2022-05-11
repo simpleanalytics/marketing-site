@@ -33,7 +33,7 @@
         </svg>
         <blockquote class="relative">
           <div class="text-2xl leading-9 font-normal">
-            <p
+            <div
               class="italic"
               :class="
                 quote?.length > 300
@@ -43,8 +43,10 @@
                   : 'text-2xl'
               "
             >
-              <slot>"{{ quote }}"</slot>
-            </p>
+              <slot
+                ><p class="leading-relaxed">"{{ quote }}"</p></slot
+              >
+            </div>
           </div>
           <footer class="mt-8">
             <div class="flex justify-center">

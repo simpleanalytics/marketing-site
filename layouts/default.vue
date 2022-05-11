@@ -64,7 +64,7 @@
                     style="margin-right: 4px"
                   >
                     <PopoverButton
-                      class="bg-red-50 dark:bg-gray-700 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-100"
+                      class="bg-red-50 dark:bg-gray-700 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover-hover:hover:text-gray-500 hover-hover:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-100"
                     >
                       <span class="sr-only">Open main menu</span>
                       <MenuIcon
@@ -80,21 +80,21 @@
                   <NuxtLink
                     v-if="!item.popover"
                     :to="item.href"
-                    class="font-medium text-gray-500 hover:text-gray-600"
+                    class="font-medium text-gray-500 hover-hover:hover:text-gray-600"
                     >{{ $t(item.translation) }}</NuxtLink
                   >
                   <Popover class="relative z-20" v-slot="{ open }" v-else>
                     <PopoverButton
                       :class="[
                         open ? 'text-gray-900' : 'text-gray-500',
-                        'group  inline-flex items-center text-base font-medium hover:text-gray-600',
+                        'group  inline-flex items-center text-base font-medium hover-hover:hover:text-gray-600',
                       ]"
                     >
                       <span>{{ $t("nav.resources") }}</span>
                       <ChevronDownIcon
                         :class="[
                           open ? '' : 'text-gray-400',
-                          'ml-2 h-5 w-5 group-hover:text-gray-500',
+                          'ml-2 h-5 w-5 hover-hover:group-hover:text-gray-500',
                         ]"
                         aria-hidden="true"
                       />
@@ -121,7 +121,7 @@
                               v-for="item in resources"
                               :key="item.name"
                               :href="item.href"
-                              class="-m-3 p-3 rounded flex items-start hover:bg-blue-100 dark:hover:bg-gray-900 transition ease-in-out duration-150"
+                              class="-m-3 p-3 rounded flex items-start hover-hover:hover:bg-blue-100 dark:hover-hover:hover:bg-gray-900 transition ease-in-out duration-150"
                             >
                               <component
                                 :is="item.icon"
@@ -165,7 +165,7 @@
                                 >
                                   <a
                                     :href="post.url"
-                                    class="font-medium hover:text-gray-900 dark:hover:text-gray-500 transition ease-in-out duration-150"
+                                    class="font-medium hover-hover:hover:text-gray-900 dark:hover-hover:hover:text-gray-500 transition ease-in-out duration-150"
                                   >
                                     <span
                                       v-if="
@@ -183,7 +183,7 @@
                             <div class="mt-5 text-sm">
                               <a
                                 href="https://blog.simpleanalytics.com"
-                                class="font-medium text-red-500 hover:text-red-500 transition ease-in-out duration-150"
+                                class="font-medium text-red-500 hover-hover:hover:text-red-500 transition ease-in-out duration-150"
                               >
                                 View all blog posts
                                 <span aria-hidden="true">&rarr;</span></a
@@ -203,7 +203,7 @@
               >
                 <a
                   :href="'https://simpleanalytics.com/welcome?theme=' + theme"
-                  class="font-medium text-gray-500 dark:text-gray-400 mx-3 dark:hover:text-gray-600"
+                  class="font-medium text-gray-500 dark:text-gray-400 mx-3 dark:hover-hover:hover:text-gray-600"
                 >
                   {{ $t("nav.signup") }}
                 </a>
@@ -238,7 +238,7 @@
                   </div>
                   <div class="-mr-2">
                     <PopoverButton
-                      class="bg-white dark:bg-gray-500 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-100"
+                      class="bg-white dark:bg-gray-500 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover-hover:hover:text-gray-500 hover-hover:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-100"
                     >
                       <span class="sr-only">Close menu</span>
                       <XIcon
@@ -253,13 +253,13 @@
                     v-for="item in navigation"
                     :key="item.name"
                     :to="item.href"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50"
                     >{{ $t(item.translation) }}</NuxtLink
                   >
                 </div>
                 <a
                   href="/login"
-                  class="block w-full px-5 py-3 text-center font-medium text-red-500 bg-gray-50 hover:bg-gray-100 dark:bg-gray-500 dark:text-gray-100"
+                  class="block w-full px-5 py-3 text-center font-medium text-red-500 bg-gray-50 hover-hover:hover:bg-gray-100 dark:bg-gray-500 dark:text-gray-100"
                 >
                   {{ $t("nav.login") }}
                 </a>

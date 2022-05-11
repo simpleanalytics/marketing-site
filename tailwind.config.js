@@ -82,6 +82,9 @@ module.exports = {
       colors: {
         themeBackground: "var(--background)",
       },
+      screens: {
+        "hover-hover": { raw: "(hover: hover) and (pointer: fine)" },
+      },
     },
   },
   plugins: [
@@ -94,21 +97,6 @@ module.exports = {
           fontDisplay: "swap",
           src: `url("/fonts/space-grotesk/${file}") format("woff2");`,
         })),
-      });
-    }),
-    plugin(function ({ addVariant, e, postcss }) {
-      addVariant("hover", ({ container, separator }) => {
-        const hoverRule = postcss.atRule({
-          name: "media",
-          params: "(hover: hover) and (pointer: fine)",
-        });
-        hoverRule.append(container.nodes);
-        container.append(hoverRule);
-        hoverRule.walkRules((rule) => {
-          rule.selector = `.${e(
-            `hover${separator}${rule.selector.slice(1)}`
-          )}:hover`;
-        });
       });
     }),
   ],
