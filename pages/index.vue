@@ -80,8 +80,8 @@
             crossorigin="anonymous"
             class="shadow-lg shadow-gray-200 rounded-md bg-blue-100 -z-10 dark:hidden"
             preload="none"
-            width="1440px"
-            height="1130px"
+            width="1440"
+            height="1130"
             style="aspect-ratio: 1440 / 1130"
             data-poster-webp="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/poster.webp"
             data-poster-png="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/poster.png"
@@ -111,8 +111,8 @@
             crossorigin="anonymous"
             class="rounded-md bg-gray-900 shadow-gray-700/40 shadow-2xl -z-10 hidden dark:block"
             preload="none"
-            width="1440px"
-            height="1130px"
+            width="1440"
+            height="1130"
             style="aspect-ratio: 1440 / 1130"
             data-poster-webp="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/poster.webp"
             data-poster-png="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/poster.png"
@@ -143,6 +143,7 @@
         :title="$t('testimonials.duckduckgo.name')"
         :subtitle="$t('testimonials.duckduckgo.role')"
         :quote="$t('testimonials.duckduckgo.quote')"
+        subtitlelink="https://duckduckgo.com/"
       />
     </div>
 
@@ -217,12 +218,18 @@
     <div class="max-w-3xl px-4 mx-auto text-center">
       <Quote
         class="mt-4"
-        image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=707b9c33066bf8808c934c8ab394dff6"
-        title="Manager X"
-        subtitle="Company x"
-        quote="We're proud to be able to tell our customers that we don't track them at
-      all."
-      />
+        :reverse="true"
+        iconclass="fill-blue-200"
+        image="https://assets.simpleanalytics.com/images/rosie.jpg"
+        title="Rosie Sherry"
+        subtitle="Community Manager Indie Hackers"
+        subtitlelink="https://indiehackers.com/"
+      >
+        "My focus has been on using ethical tools. I said bye to Google
+        Analytics and hello to Simple Analytics.
+        <span class="text-blue-600 dark:text-blue-700">In 1-2 clicks</span> I
+        can get all the information I need."
+      </Quote>
 
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-4 sm:mb-8 font-medium"
@@ -372,29 +379,7 @@
         </div>
       </div>
 
-      <div>
-        <p>
-          <a
-            :href="'https://simpleanalytics.com/welcome?theme=' + theme"
-            class="button primary"
-            >Start free trial now</a
-          >
-        </p>
-        <p class="mb-8 sm:mb-0 text-xs mt-4">
-          <span class="block sm:inline my-2">
-            <CheckIcon class="fill-green-500 ml-2 w-4 inline align-text-top" />
-            Free 14-day trial
-          </span>
-          <span class="block sm:inline my-2">
-            <CheckIcon class="fill-green-500 ml-2 w-4 inline align-text-top" />
-            No credit card required
-          </span>
-          <span class="block sm:inline my-2">
-            <CheckIcon class="fill-green-500 ml-2 w-4 inline align-text-top" />
-            Cancel anytime
-          </span>
-        </p>
-      </div>
+      <StartTrial />
 
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-24 sm:mb-8 font-medium"
@@ -503,26 +488,23 @@
         Event tracking without tracing individuals.
       </h3>
       <p class="my-4 leading-loose max-w-xl mx-auto">
-        Compare multiple campaigns by their UTM codes. Check the performance of
-        every button, click and page visit you want.
+        Auto collect events like downloads, outbound links, and email clicks
+        (see
+        <a href="https://docs.simpleanalytics.com/automated-events">our docs</a
+        >). Check the performance of every button, click and page visit you
+        want.
       </p>
-      <p class="my-4 leading-loose max-w-xl mx-auto">
-        This feature is currently available in beta and is expected to be
-        released later this year.
+
+      <p>
+        <a @click="scrollToSeekVideo('seek.events')" class="button">
+          <ChevronDoubleUpIcon class="w-3 inline-block" />
+          <span class="mx-1"> See events in action</span>
+          <ChevronDoubleUpIcon class="w-3 inline-block" />
+        </a>
       </p>
 
       <h3
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium"
-      >
-        Easily collaborate with your team or clients.
-      </h3>
-      <p class="my-4 leading-loose max-w-xl mx-auto">
-        Create users. Grant access to the sites you want them to see. Analyze
-        together.
-      </p>
-
-      <h3
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-20 sm:mb-8 font-medium"
       >
         Dark mode.
       </h3>
@@ -539,12 +521,12 @@
       <div class="w-2/3 mx-auto max-w-lg" :class="theme" data-carousel>
         <img
           @click="toggleTheme()"
-          src="https://simpleanalyticsassets.b-cdn.net/images/homepage/homepage-light.png"
+          src="https://assets.simpleanalytics.com/images/homepage/homepage-light.png"
           class="relative transition rounded-lg shadow-md cursor-pointer"
         />
         <img
           @click="toggleTheme()"
-          src="https://simpleanalyticsassets.b-cdn.net/images/homepage/homepage-dark.png"
+          src="https://assets.simpleanalytics.com/images/homepage/homepage-dark.png"
           class="relative transition rounded-lg shadow-md cursor-pointer"
         />
       </div>
@@ -560,7 +542,7 @@
       </p>
 
       <h3
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-20 sm:mb-8 font-medium"
       >
         Automate reports.
       </h3>
@@ -569,9 +551,9 @@
         your reports to be shared automatically at any time you want.
       </p>
 
-      <div class="mt-8 mb-24">
+      <div class="mt-8 mb-12">
         <div
-          class="p-4 -m-8 scale-[0.8] text-left border-0 rounded-lg bg-blue-100 dark:bg-gray-700 dark:shadow-none shadow-md -rotate-1"
+          class="p-4 -m-8 scale-[0.8] text-left border-0 rounded-lg bg-blue-100 dark:bg-gray-700 dark:shadow-none shadow-md rotate-1"
         >
           <h4 class="text-lg">Email reports</h4>
 
@@ -645,6 +627,24 @@
           </p>
         </div>
       </div>
+
+      <StartTrial />
+
+      <Quote
+        class="mt-12"
+        image="https://assets.simpleanalytics.com/images/philippe-lehoux.jpg"
+        title="Philippe Lehoux"
+        subtitle="CEO at Missive"
+        subtitlelink="https://missiveapp.com/"
+      >
+        "We traded a 'free', privacy-less, and complex analytic dashboard to a
+        paid, privacy-first &amp; simple one. We couldn't be happier.
+        <span class="text-red-500 dark:text-red-600"
+          >The best privacy-focused analytics suite that I've found.</span
+        >
+        We're proud to be able to tell our customers that we don't track them at
+        all."
+      </Quote>
 
       <div
         class="md:flex items-center justify-center mt-2 mb-4 sm:mt-12 sm:mb-8"
@@ -758,7 +758,7 @@
     </div>
 
     <section
-      class="bg-gradient-to-t from-blue-100 dark:from-gray-700 py-4 relative overflow-hidden pb-60"
+      class="bg-gradient-to-t from-blue-100 dark:from-gray-700 py-4 relative overflow-hidden pb-32"
     >
       <div class="max-w-3xl px-4 mx-auto text-center">
         <h3
@@ -828,6 +828,23 @@
             <p class="mt-3 text-xs">Is he getting paronoid?</p>
           </div>
         </div>
+
+        <Quote
+          class="mt-20 z-20"
+          :reverse="true"
+          iconclass="fill-blue-200"
+          image="https://pbs.twimg.com/profile_images/1482106371638054912/6alNupZP_400x400.jpg"
+          title="Evan Frawley"
+          subtitle="Software engineer"
+          subtitlelink="https://evan.gg/blog/simple-analytics-is-great"
+        >
+          "This is great to keep track of all the products that I launch. I also
+          <span class="text-blue-600 dark:text-blue-700"
+            >use the API to send myself a bot message</span
+          >
+          each morning with rolling week stats and daily stats from from the
+          previous day"
+        </Quote>
       </div>
 
       <ClientOnly>
@@ -838,6 +855,292 @@
         </div>
       </ClientOnly>
     </section>
+
+    <div class="max-w-3xl px-4 mx-auto">
+      <h3
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium text-center"
+      >
+        Frequently Asked Questions.
+      </h3>
+
+      <div class="flex flex-col flex-wrap sm:flex-row -mt-8">
+        <div class="basis-1/2">
+          <ShieldExclamationIcon
+            class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
+          />
+          <p class="mx-6 leading-loose text-center text-red-400">
+            Will I be charged when my trial expires?
+          </p>
+          <p class="my-4 leading-loose mx-6">
+            No. After your trial expires, your plan downgrades automatically to
+            the basic free version. Upgrade whenever you want to the plan that
+            fits your needs. Prices start from as little as €1,- per month.
+          </p>
+
+          <BanIcon
+            class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
+          />
+          <p class="leading-loose text-center mx-6 text-red-400">
+            Can I cancel anytime?
+          </p>
+          <p class="my-4 leading-loose mx-6">
+            Yes. You can cancel your subscription at any moment. You will still
+            have access to your account and data until the end of the period you
+            paid for.
+          </p>
+
+          <CreditCardIcon
+            class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
+          />
+          <p class="leading-loose text-center mx-6 text-red-400">
+            What payment methods do you accept?
+          </p>
+          <p class="my-4 leading-loose mx-6">
+            We accept Credit Card, Debit Card, Bitcoin
+            <span
+              class="border border-red-400 dark:border-red-600 text-red-400 dark:text-red-600 rounded-full text-sm py-1 px-2"
+              >+10% & yearly</span
+            >, Apple Pay, and Google Pay as payment methods for all our paid
+            plans. You can pay in Euros, US Dollars or British Pounds. Custom
+            bank transfers are possible if you have the enterprise plan and cost
+            an additional
+            <span
+              class="border border-red-400 dark:border-red-600 text-red-400 dark:text-red-600 rounded-full text-sm py-1 px-2"
+              >10%</span
+            >
+            in banking and service fees.
+          </p>
+        </div>
+        <div class="basis-1/2">
+          <TrendingUpIcon
+            class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
+          />
+          <p class="leading-loose text-center mx-6 text-red-400">
+            What will happen with the price when my traffic grows / declines?
+          </p>
+          <p class="my-4 leading-loose mx-6">
+            You only pay for what you actually need. This means that if your
+            plan's page view limit is exceeded, you will be charged for
+            overages. Simple Analytics automatically calculates your price based
+            on your average amount of page views (first looking back one month,
+            then the average of the previous three months). So, if you had an
+            increase in traffic during the last months, you pay a little more
+            next month. Likewise, you automatically pay a little less when your
+            average amount of page views decreased during the last months.
+          </p>
+
+          <MailOpenIcon
+            class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
+          />
+          <p class="leading-loose text-center mx-6 text-red-400">
+            I have more questions, what should I do?
+          </p>
+          <p class="my-4 leading-loose mx-6">
+            Please send your question(s) via
+            <a href="https://simpleanalytics.com/contact">our support page</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <StartTrial />
+      </div>
+
+      <Quote
+        class="mt-20"
+        image="https://stefaanoyen.be/wp-content/uploads/2021/08/janjc2.png"
+        title="Stefaan Oyen"
+        subtitle="Marketeer"
+        subtitlelink="https://stefaanoyen.be/"
+      >
+        "Excellent alternative for Google Analytics. Yes, you pay a small
+        subscription, but you get a lot in return:
+        <span class="text-red-500 dark:text-red-600">GDPR-proof</span> and
+        <span class="text-red-500 dark:text-red-600">cookieless</span>
+        analytics,
+        <span class="text-red-500 dark:text-red-600">accurate</span> tracking
+        and clear visuals. "
+      </Quote>
+
+      <h3
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-16 sm:mb-8 font-medium text-center"
+      >
+        A selection of governments, NGO's and businesses that care about ethical
+        insights
+      </h3>
+
+      <div class="flex items-center justify-center mt-6 sm:mt-10">
+        <HavasMediaLogo class="h-14 mt-0 m-4 sm:m-8" />
+        <GovScotLogo class="h-16 mt-1 m-4 sm:m-8" />
+        <GovUKLogo class="h-16 mt-0 m-4 sm:m-8" />
+        <HyundaiLogo class="h-14 mt-0 m-4 sm:m-8" />
+      </div>
+
+      <Quote
+        class="mt-4"
+        :reverse="true"
+        iconclass="fill-blue-200"
+        :logo="FastCompanyLogo"
+        logoclass="bg-blue-200 rounded-full p-4"
+        subtitle="Featured at Fast Company"
+        quote="It's time to ditch Google Analytics."
+        subtitlelink="https://www.fastcompany.com/90300072/its-time-to-ditch-google-analytics"
+      />
+
+      <h3
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-16 sm:mb-8 font-medium text-center"
+      >
+        Why is Simple Analytics
+        <span class="text-red-500 dark:text-red-600"
+          >the most
+          <br class="hidden sm:block" />
+          privacy-first</span
+        >
+        analytics?
+      </h3>
+
+      <h4 class="my-4 text-2xl">There are 5 simple reasons that sum it up.</h4>
+      <h5 class="my-4 text-lg">1. Privacy protection is our business model.</h5>
+
+      <p>
+        Big tech companies have been collecting personal data for years to make
+        a profit. Users get a "free" product, and big tech companies get paid by
+        advertisers that want to buy your attention.
+      </p>
+
+      <ul>
+        <li>
+          While you use the "free" product, the tech companies gather creepily
+          huge amounts of data to create a specific profile of your
+          demographics, ethnicity, political preferences, interests, desires,
+          likes, and dislikes.
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          Big tech companies will sell that to the highest bidders as their
+          business model. Without openly telling you.
+        </li>
+      </ul>
+
+      <p>
+        We disgust such 👆 practices. Because Simple Analytics is a paid
+        service, we are independent and have no bias or conflict of interest. No
+        second agendas here. Our mission is simple:
+      </p>
+
+      <ul>
+        <li class="">
+          We give you the fastest, easiest, and most ethical insights about your
+          website performance while upholding the highest privacy standards.
+        </li>
+        <li>
+          To achieve this, Simple Analytics has an
+          <a href="https://simpleanalytics.com/roadmap">open roadmap</a> for you
+          to see the next steps or request features. Also, we operate
+          <a href="https://simpleanalytics.com/open">fully transparently</a>
+          by sharing our metrics (including revenue, costs, amount of customers,
+          and traffic).
+        </li>
+      </ul>
+
+      <h5 class="my-4 text-lg">2. Your data is always encrypted.</h5>
+
+      <p>
+        We don't store any personal information and collect minimal amounts of
+        data to protect your visitor's privacy, but that does not make your
+        analytics data less important. That's why your data is always encrypted
+        on our servers. The drives storing your data contain nothing but
+        encrypted lines of code. If anybody did manage to steal those drives,
+        they'd be useless.
+      </p>
+      <h5 class="my-4 text-lg">
+        3. We never, ever, ever storeanypersonally identifiable information
+        (PII) about visitors.
+      </h5>
+      <p>
+        Some privacy-focused analytics use personally identifiable data and
+        delete it after a day. For example:
+      </p>
+
+      <ul>
+        <li>
+          They collect a visitor's IP address, add a date, and turn it intoa
+          hashevery time you have a page visit.
+        </li>
+        <li>
+          These hashes connect page views together. Although this is definitely
+          better than big tech trying to collect as much personal data as they
+          can to sell to advertisers, it is not 100% waterproof and is a grey
+          area.
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          The hashes expire only once per day,so for less than 24 hours,there is
+          still personally identifiable information stored about your
+          visitors.Privacy policies like the GDPR explain you must have visitors
+          consent to store personally identifiable information (PII).
+        </li>
+      </ul>
+
+      <p>
+        Simple Analyticsnevercompromises privacy. That's why we only use unique
+        visitorswithout tracking IP addresses. We do this based on the browser's
+        referrer, so no PII is stored. When you use Simple Analytics, it is
+        therefore100% guaranteed no personally identifiable information of any
+        of your visitors is stored.Because of this, zero consent is needed.
+        Adiós annoying banners!
+      </p>
+
+      <p>
+        Tip: some clients like to replace their cookie banners with "we're proud
+        to protect your privacy" banners to gain a competitive advantage.
+      </p>
+
+      <h5 class="my-4 text-lg">
+        4. We are an EU-based company with EU-based servers.
+      </h5>
+
+      <p>
+        We do everything in our power to keep your data safe. We collect the
+        bare minimum amount of data required to give you a full picture of your
+        website's visitors, and besides the three points listed above, we even
+        go a few steps further.
+      </p>
+
+      <ul>
+        <li>
+          Compared to other continents, the EU has been concerned with its
+          citizens' privacy for a long time and provides diligent privacy
+          regulations.
+        </li>
+        <li>
+          Our servers are located in the Netherlands and our hosting provider is
+          Dutch because this provides asecure physical location, great global
+          network connectivity,andhigh legal standards for data processing(no
+          cloud provider that needs to report to a foreign government).
+        </li>
+        <li>
+          We choose to locate our business in the Netherlands because a
+          privacy-conscious environment helps us uphold our high standards for
+          ethics and privacy.
+        </li>
+      </ul>
+
+      <h5 class="my-4 text-lg">5. You own your data.</h5>
+      <p>
+        We care about your data. We care for your data. Yet, you own your data.
+        We will never sell it. You are in control of your data, and you can
+        download or delete it at any time.
+      </p>
+
+      <div class="py-12 text-center">
+        <StartTrial />
+      </div>
+    </div>
   </NuxtLayout>
 </template>
 
@@ -847,11 +1150,13 @@ import GovScotLogo from "../components/logos/GovScot.vue";
 import GovUKLogo from "../components/logos/GovUK.vue";
 import HyundaiLogo from "../components/logos/Hyundai.vue";
 import DuckDuckGoLogo from "../components/logos/DuckDuckGo.vue";
+import FastCompanyLogo from "../components/logos/FastCompany.vue";
 import Quote from "../components/Quote.vue";
 import DataConnections from "../components/images/DataConnections.vue";
 import ListIcon from "../components/images/ListIcon.vue";
 import BackgroundChart from "../components/images/BackgroundChart.vue";
 import Video from "../components/Video.vue";
+import StartTrial from "../components/StartTrial.vue";
 
 import {
   ArrowSmRightIcon,
@@ -864,10 +1169,16 @@ import {
 import {
   ShieldCheckIcon,
   ChevronDoubleDownIcon,
+  ChevronDoubleUpIcon,
   ArrowsExpandIcon,
   MoonIcon,
   SunIcon,
   XCircleIcon,
+  ShieldExclamationIcon,
+  TrendingUpIcon,
+  CreditCardIcon,
+  BanIcon,
+  MailOpenIcon,
 } from "@heroicons/vue/outline";
 
 definePageMeta({
@@ -1054,11 +1365,18 @@ export default {
       if (!agent) return false;
       return true;
     },
-    scrollToSeekVideo() {
+    scrollToSeekVideo(seek) {
       this?.$refs?.seekVideoInstruction.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
+
+      if (seek) {
+        const found = this.videoSeeks.find(
+          ({ translation }) => seek === translation
+        );
+        if (found) this.jumpToTime(found);
+      }
     },
   },
   watch: {

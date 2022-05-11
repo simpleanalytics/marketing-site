@@ -2,7 +2,7 @@
   <Listbox as="div" v-model="$i18n.locale">
     <div class="relative">
       <ListboxButton
-        class="relative font-medium hover:text-gray-900 dark:hover:text-gray-500 pl-1 pr-6 text-left cursor-default"
+        class="relative font-medium hover:text-gray-900 dark:hover:text-gray-500 pl-1 pr-6 text-left cursor-pointer"
       >
         <span class="flex items-center">
           <img
@@ -24,7 +24,7 @@
         leave-to-class="opacity-0"
       >
         <ListboxOptions
-          class="absolute z-10 mt-1 w-full min-w-max bg-white shadow-lg max-h-56 py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+          class="absolute z-10 mt-1 w-full min-w-max bg-white dark:bg-gray-700 shadow-lg max-h-56 py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
         >
           <ListboxOption
             as="template"
@@ -35,8 +35,10 @@
           >
             <li
               :class="[
-                active ? 'text-white bg-red-500' : 'text-gray-900',
-                'cursor-default select-none relative py-2 pl-3 pr-9',
+                active
+                  ? 'text-white dark:text-white bg-red-500'
+                  : 'text-gray-900',
+                'cursor-pointer select-none relative py-2 pl-3 pr-9 dark:hover:text-white',
               ]"
             >
               <div class="flex items-center">

@@ -5,6 +5,10 @@ export const useDefaultTheme = () => {
 
   if (process.server) {
     const nuxtApp = useNuxtApp();
+
+    const sent = nuxtApp.ssrContext?.res?.headersSent;
+    if (sent) return darkMode;
+
     const { theme } = useCookies(nuxtApp.ssrContext?.req);
     if (theme) darkMode.value = theme;
   } else if (process.client) {

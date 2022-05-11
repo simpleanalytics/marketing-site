@@ -47,7 +47,8 @@
                 <div class="flex items-center justify-between w-full md:w-auto">
                   <NuxtLink to="/" class="flex items-center">
                     <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />
-                    <span class="sm:hidden lg:block ml-3 text-xl sm:text-2xl"
+                    <span
+                      class="sm:hidden lg:block ml-3 text-xl sm:text-2xl text-gray-500 dark:text-gray-400"
                       >Simple Analytics</span
                     >
                   </NuxtLink>
@@ -79,14 +80,14 @@
                   <NuxtLink
                     v-if="!item.popover"
                     :to="item.href"
-                    class="font-medium text-gray-500 hover:text-gray-900"
+                    class="font-medium text-gray-500 hover:text-gray-600"
                     >{{ $t(item.translation) }}</NuxtLink
                   >
                   <Popover class="relative z-20" v-slot="{ open }" v-else>
                     <PopoverButton
                       :class="[
                         open ? 'text-gray-900' : 'text-gray-500',
-                        'group  inline-flex items-center text-base font-medium hover:text-gray-900',
+                        'group  inline-flex items-center text-base font-medium hover:text-gray-600',
                       ]"
                     >
                       <span>{{ $t("nav.resources") }}</span>
@@ -202,7 +203,7 @@
               >
                 <a
                   :href="'https://simpleanalytics.com/welcome?theme=' + theme"
-                  class="font-medium hover:text-gray-900 mx-3"
+                  class="font-medium text-gray-500 dark:text-gray-400 mx-3 dark:hover:text-gray-600"
                 >
                   {{ $t("nav.signup") }}
                 </a>

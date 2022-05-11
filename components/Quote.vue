@@ -1,6 +1,9 @@
 <template>
   <div class="relative mx-auto pt-20 pb-12 px-4 sm:px-6 lg:px-8 lg:pt-20">
-    <div class="relative lg:flex lg:items-center">
+    <div
+      class="relative lg:flex lg:items-center"
+      :class="reverse ? 'lg:flex-row-reverse' : ''"
+    >
       <div class="hidden lg:block lg:flex-shrink-0">
         <img
           v-if="image"
@@ -12,12 +15,14 @@
           v-else-if="logo"
           :is="logo"
           class="h-44 w-44 xl:h-50 xl:w-50"
+          :class="logoclass"
         />
       </div>
 
-      <div class="relative lg:ml-10">
+      <div class="relative" :class="reverse ? 'lg:mr-10' : 'lg:ml-10'">
         <svg
           class="absolute top-0 left-0 fill-red-100 dark:fill-gray-700 transform -translate-x-4 -translate-y-10 h-24 w-24"
+          :class="iconclass"
           viewBox="0 0 144 144"
           aria-hidden="true"
         >
@@ -31,14 +36,14 @@
             <p
               class="italic"
               :class="
-                quote.length > 300
+                quote?.length > 300
                   ? 'text-lg'
-                  : quote.length > 100
+                  : quote?.length > 100
                   ? 'text-xl'
                   : 'text-2xl'
               "
             >
-              “{{ quote }}”
+              <slot>"{{ quote }}"</slot>
             </p>
           </div>
           <footer class="mt-8">
@@ -60,7 +65,17 @@
                 >
                   {{ title }}
                 </div>
+                <a
+                  v-if="subtitlelink"
+                  class="text-base text-left sm:text-center font-normal text-blue-500 underline"
+                  :href="subtitlelink"
+                  target="_blank"
+                >
+                  {{ subtitle
+                  }}<ArrowSmRightIcon class="inline ml-1 w-4 fill-blue-500" />
+                </a>
                 <div
+                  v-else
                   class="text-base text-left sm:text-center font-normal text-blue-500"
                 >
                   {{ subtitle }}
@@ -75,5 +90,17 @@
 </template>
 
 <script setup>
-const props = defineProps(["logo", "image", "quote", "title", "subtitle"]);
+import { ArrowSmRightIcon } from "@heroicons/vue/solid";
+
+const props = defineProps([
+  "logo",
+  "image",
+  "quote",
+  "title",
+  "subtitle",
+  "subtitlelink",
+  "reverse",
+  "iconclass",
+  "logoclass",
+]);
 </script>
