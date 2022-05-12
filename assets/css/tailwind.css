@@ -163,3 +163,13 @@ select {
   position: absolute;
   top: 0;
 }
+
+.animated-background {
+  background-image: radial-gradient(circle closest-side, #8ce1f2, #fcfcfc);
+  background-size: 80% 300%;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.dark .animated-background {
+  background-image: radial-gradient(circle closest-side, #6b7d7f, #232e2f);
+}

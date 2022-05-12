@@ -1,7 +1,7 @@
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 278 91">
     <path
-      class="fill-blue-800"
+      class="fill-red-500"
       d="M263.3.7h-228c-7.7 0-14 6-14.6 13.4L3.5 20.6a4.9 4.9 0 0 0 .1 9.2l17 5.8v40c0 8 6.6 14.7 14.7 14.7h228c8 0 14.7-6.6 14.7-14.7V15.4c0-8-6.6-14.7-14.7-14.7z"
     />
     <path
@@ -10,8 +10,8 @@
     />
 
     <path fill="#ff9d28" d="M5.2 25.3h27.6V15z" />
-    <path class="fill-blue-400" d="M32.8 15v36.6l13-41.5z" />
-    <!-- <path fill="#69c3ea" d="M32.8 15v36.6l13-41.5z" /> -->
+    <!-- <path class="fill-blue-400" d="M32.8 15v36.6l13-41.5z" /> -->
+    <path fill="#69c3ea" d="M32.8 15v36.6l13-41.5z" />
     <path fill="#004f80" d="M32.8 25.4H22.4l10.4 26.2z" />
     <path fill="#e14748" d="M5.2 25.3 25 32.1l-2.6-6.8z" />
     <path

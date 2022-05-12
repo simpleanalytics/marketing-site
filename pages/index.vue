@@ -55,12 +55,12 @@
 
       <div class="mt-10 flex justify-center">
         <a
-          class="inline-flex items-center"
+          class="inline-flex flex-col sm:flex-row items-center"
           href="https://www.capterra.com/p/248710/Simple-Analytics/#about"
           target="_blank"
         >
           <CapterraLogo class="h-10 mr-4" />
-          <p>based on 5+ reviews</p></a
+          <p class="mt-2 sm:mt-0">based on 5+ reviews</p></a
         >
       </div>
     </template>
@@ -1044,12 +1044,14 @@
         analytics?
       </h3>
 
-      <div class="leading-loose">
+      <div class="leading-loose max-w-lg mx-auto">
         <h4 class="my-4 text-2xl text-center">
           There are 5 simple reasons that sum it up.
         </h4>
 
-        <EyeOffIcon class="mx-auto stroke-1 mt-12 h-12 stroke-red-500" />
+        <EyeOffIcon
+          class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
+        />
 
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
@@ -1100,7 +1102,9 @@
           </li>
         </ul>
 
-        <KeyIcon class="mx-auto stroke-1 mt-12 h-12 stroke-red-500" />
+        <KeyIcon
+          class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
+        />
 
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
@@ -1117,7 +1121,9 @@
           drives, they'd be useless.
         </p>
 
-        <FingerPrintIcon class="mx-auto stroke-1 mt-12 h-12 stroke-red-500" />
+        <FingerPrintIcon
+          class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
+        />
 
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
@@ -1170,7 +1176,9 @@
           advantage.
         </p>
 
-        <GlobeIcon class="mx-auto stroke-1 mt-12 h-12 stroke-red-500" />
+        <GlobeIcon
+          class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
+        />
 
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
@@ -1206,7 +1214,9 @@
           </li>
         </ul>
 
-        <TableIcon class="mx-auto stroke-1 mt-12 h-12 stroke-red-500" />
+        <TableIcon
+          class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
+        />
 
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
@@ -1222,6 +1232,16 @@
 
       <div class="py-12 text-center">
         <StartTrial />
+      </div>
+    </div>
+
+    <div class="max-w-3xl px-4 mx-auto animated-background">
+      <div class="flex items-center justify-center">
+        <img
+          src="https://assets.simpleanalytics.com/images/homepage/up-smaller.png"
+          alt=""
+          class="w-96"
+        />
       </div>
     </div>
   </NuxtLayout>
