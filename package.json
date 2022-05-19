@@ -11,6 +11,7 @@
     "@heroicons/vue": "^1.0.6",
     "@intlify/nuxt3": "^0.2.1",
     "@nuxtjs/tailwindcss": "^5.0.3",
+    "@simpleanalytics/common": "^1.3.38",
     "imageoptim-cli": "^3.0.7",
     "nuxt": "^3.0.0-rc.1"
   }
