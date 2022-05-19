@@ -165,7 +165,7 @@ select {
 }
 
 .animated-background {
-  background-image: radial-gradient(circle closest-side, #8ce1f2, #fcfcfc);
+  background-image: radial-gradient(circle closest-side, #94bed0, #fcfcfc);
   background-size: 80% 300%;
   background-position: center top;
   background-repeat: no-repeat;

@@ -277,6 +277,286 @@
     <main>
       <slot></slot>
     </main>
+
+    <footer class="bg-blue-100 dark:bg-gray-800">
+      <div
+        class="bg-gradient-to-t from-blue-100 to-blue-200 dark:from-gray-800 dark:to-gray-700 text-left lg:text-left"
+      >
+        <div class="container px-3 sm:px-6 pt-10 md:pt-16 mx-auto">
+          <div class="grid lg:grid-cols-4 md:grid-cols-2">
+            <div class="mb-10 lg:mb-3">
+              <h5
+                class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
+              >
+                Privacy
+              </h5>
+
+              <ul class="list-none mb-0">
+                <li>
+                  <a
+                    href="https://docs.simpleanalytics.com/what-we-collect"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                  >
+                    <FingerPrintIcon
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                    />
+                    <span>What we collect</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://simpleanalytics.com/no-tracking"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                  >
+                    <EyeOffIcon
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                    />
+                    <span>We don't track you</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://simpleanalytics.com/privacy-policy"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                  >
+                    <ScaleIcon
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                    />
+                    <span>Privacy Policy</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://simpleanalytics.com/cookie-statement"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                  >
+                    <BookOpenIcon
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                    />
+                    <span>Cookie Statement</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://simpleanalytics.com/general-terms-and-conditions"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                  >
+                    <NewspaperIcon
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                    />
+                    <span>Terms &amp; Conditions</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mb-10 lg:mb-3">
+              <h5
+                class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
+              >
+                Comparisons
+              </h5>
+
+              <ul class="list-none mb-0">
+                <li>
+                  <a
+                    href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-google-analytics"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                  >
+                    <GoogleAnalyticsIcon
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                    />
+                    <span>Google Analytics</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-matomo"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                  >
+                    <MatomoIcon
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                    />
+                    <span>Matomo</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#!"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                  >
+                    <PlausibleIcon
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                    />
+                    <span>Plausible</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#!"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                  >
+                    <FathomIcon
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                    />
+                    <span>Fathom</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#!"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                  >
+                    <CloudflareIcon
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                    />
+                    <span>Cloudflare</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mb-10 lg:mb-3">
+              <h5
+                class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
+              >
+                Learn
+              </h5>
+
+              <ul class="list-none mb-0">
+                <li>
+                  <a
+                    href="https://docs.simpleanalytics.com/"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                  >
+                    <SupportIcon
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                    />
+                    <span>Documentation</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://blog.simpleanalytics.com/"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                  >
+                    <BookOpenIcon
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                    />
+                    <span>Blog</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://simpleanalytics.com/roadmap"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                  >
+                    <LocationMarkerIcon
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                    />
+                    <span>Roadmap</span>
+                  </a>
+                </li>
+                <li>
+                  <NuxtLink
+                    href="/pricing"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                  >
+                    <CreditCardIcon
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                    />
+                    <span>Pricing</span>
+                  </NuxtLink>
+                </li>
+                <li>
+                  <a
+                    href="https://status.simpleanalytics.com/"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                  >
+                    <ClipboardCheckIcon
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                    />
+                    <span>Status</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mb-10 lg:mb-3">
+              <h5
+                class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
+              >
+                Latest blog posts
+              </h5>
+
+              <p
+                v-if="pending"
+                class="text-gray-600 dark:text-gray-400 py-3 px-3 block text-left"
+              >
+                Loading posts
+                <a
+                  class="underline text-gray-600 dark:text-gray-400"
+                  href="https://blog.simpleanalytics.com/"
+                  target="_blank"
+                  >from blog</a
+                >...
+              </p>
+              <p
+                v-else-if="!recentPosts?.length"
+                class="text-gray-600 dark:text-gray-400 py-3 px-3 block text-left"
+              >
+                Couldn't connect to
+                <a
+                  class="underline text-gray-600 dark:text-gray-400"
+                  href="https://blog.simpleanalytics.com/"
+                  target="_blank"
+                  >our blog</a
+                >.
+              </p>
+              <ul class="list-none mb-0 mt-0" v-else>
+                <li v-for="(post, index) in recentPosts" :key="post.url">
+                  <a
+                    :href="post.url"
+                    target="_blank"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded-md block group text-left"
+                  >
+                    <span
+                      v-if="labelAgo(post.created)"
+                      class="inline-block text-sm bg-red-500 dark:bg-red-600 px-1 text-white rounded-md align-text-top mr-1"
+                      >{{ labelAgo(post.created) }}</span
+                    >
+                    {{ post.title.split(" ").slice(0, -1).join(" ") }}
+                    <span class="whitespace-nowrap">
+                      {{ post.title.split(" ").pop() }}
+                      <Arrow
+                        class="ml-0 fill-gray-600 hover-hover:group-hover:fill-gray-800 dark:fill-gray-400 dark:hover-hover:group-hover:fill-gray-300"
+                      />
+                    </span>
+                    <img
+                      v-if="index === 0 && (post.image_no_text || post.image)"
+                      class="rounded-lg shadow-md mt-1"
+                      :src="post.image_no_text || post.image"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center p-4 flex items-center justify-center">
+        <a
+          class="text-gray-600 dark:text-gray-500 py-2 px-3 dark:hover-hover:hover:text-gray-300 inline-flex items-center"
+          href="https://simpleanalytics.com/contact#details"
+        >
+          <SimpleAnalyticsIcon class="h-5 w-auto sm:h-5 inline mr-2" />
+          <span class="mt-0.5">Simple Analytics B.V.</span>
+        </a>
+
+        <MoonSun />
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -294,10 +574,27 @@ import {
   SupportIcon,
   MoonIcon,
   SunIcon,
+  FingerPrintIcon,
+  EyeOffIcon,
+  CreditCardIcon,
+  BookOpenIcon,
+  LocationMarkerIcon,
+  ClipboardCheckIcon,
+  NewspaperIcon,
 } from "@heroicons/vue/outline";
 import { ChevronDownIcon } from "@heroicons/vue/solid";
 import BackgroundShapes from "../components/images/BackgroundShapes.vue";
 import SimpleAnalyticsIcon from "../components/images/SimpleAnalyticsIcon.vue";
+
+import CloudflareIcon from "../components/icons/Cloudflare.vue";
+import FathomIcon from "../components/icons/Fathom.vue";
+import GoogleAnalyticsIcon from "../components/icons/GoogleAnalytics.vue";
+import MatomoIcon from "../components/icons/Matomo.vue";
+import PlausibleIcon from "../components/icons/Plausible.vue";
+
+import ArrowLink from "../components/ArrowLink.vue";
+import MoonSun from "../components/MoonSun.vue";
+import ms from "../utils/ms";
 
 const resources = [
   {
@@ -378,4 +675,17 @@ const toggleTheme = () => {
 const { pending, data: recentPosts } = useLazyFetch(
   "https://blog.simpleanalytics.com/recent-posts.json"
 );
+
+const year = new Date().getFullYear();
+
+const labelAgo = (date) => {
+  if (!date || new Date(date) < Date.now() - ms.week * 11) return;
+
+  const ago = Date.now() - new Date(date);
+  if (ago > ms.day * 10) return Math.round(ago / ms.week) + "w ago";
+  if (ago < ms.minute) return "now";
+  if (ago < ms.hour) return Math.round(ago / ms.minute) + "m ago";
+  if (ago < ms.day) return Math.round(ago / ms.hour) + "h ago";
+  return Math.round(ago / ms.day) + "d ago";
+};
 </script>

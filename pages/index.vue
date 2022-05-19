@@ -65,7 +65,7 @@
       </div>
     </template>
 
-    <div class="max-w-3xl px-4 mx-auto text-center">
+    <div class="max-w-3xl px-6 mx-auto text-center">
       <div class="max-w-2xl -mt-4 sm:-mt-14 z-10 mx-auto relative" style="">
         <div
           class="absolute z-50 flex flex-col items-center justify-center w-full h-full"
@@ -170,7 +170,7 @@
     <div
       class="bg-gradient-to-t from-blue-100 dark:from-gray-700 py-4 relative overflow-hidden pb-28"
     >
-      <div class="max-w-3xl px-4 mx-auto text-center">
+      <div class="max-w-3xl px-6 mx-auto text-center">
         <h3
           class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-4 sm:mb-8 font-medium"
         >
@@ -239,7 +239,7 @@
       </ClientOnly>
     </div>
 
-    <div class="max-w-3xl px-4 mx-auto text-center">
+    <div class="max-w-3xl px-6 mx-auto text-center">
       <Quote
         class="mt-4"
         :reverse="true"
@@ -503,7 +503,7 @@
       </ClientOnly>
     </section>
 
-    <div class="max-w-3xl px-4 mx-auto text-center">
+    <div class="max-w-3xl px-6 mx-auto text-center">
       <Quote
         class="mt-12"
         image="https://assets.simpleanalytics.com/images/philippe-lehoux.jpg"
@@ -523,7 +523,7 @@
       </Quote>
     </div>
 
-    <div class="max-w-3xl px-4 mx-auto text-center">
+    <div class="max-w-3xl px-6 mx-auto text-center">
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium"
       >
@@ -578,7 +578,7 @@
       </div>
     </div>
 
-    <div class="max-w-3xl px-4 mx-auto text-center">
+    <div class="max-w-3xl px-6 mx-auto text-center">
       <p class="mt-4 mb-8 text-sm">
         <a @click="toggleTheme()" class="mt-1 button tiny">
           <span class="ml-2">Toggle dark mode</span>
@@ -810,7 +810,7 @@
     <section
       class="bg-gradient-to-t from-blue-100 dark:from-gray-700 py-4 relative overflow-hidden pb-32"
     >
-      <div class="max-w-3xl px-4 mx-auto text-center">
+      <div class="max-w-3xl px-6 mx-auto text-center">
         <h3
           class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-lg mx-auto mt-2 mb-4 sm:mt-24 sm:mb-8 font-medium"
         >
@@ -909,7 +909,7 @@
       </ClientOnly>
     </section>
 
-    <div class="max-w-3xl px-4 mx-auto">
+    <div class="max-w-3xl px-6 mx-auto">
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium text-center"
       >
@@ -1235,7 +1235,7 @@
       </div>
     </div>
 
-    <div class="max-w-3xl px-4 mx-auto animated-background">
+    <div class="max-w-3xl px-6 mx-auto animated-background">
       <div class="flex items-center justify-center">
         <img
           src="https://assets.simpleanalytics.com/images/homepage/up-smaller.png"
