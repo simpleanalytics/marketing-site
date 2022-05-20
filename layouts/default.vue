@@ -295,10 +295,10 @@
                 <li>
                   <a
                     href="https://docs.simpleanalytics.com/what-we-collect"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <FingerPrintIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>What we collect</span>
                   </a>
@@ -306,10 +306,10 @@
                 <li>
                   <a
                     href="https://simpleanalytics.com/no-tracking"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <EyeOffIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>We don't track you</span>
                   </a>
@@ -317,10 +317,10 @@
                 <li>
                   <a
                     href="https://simpleanalytics.com/privacy-policy"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <ScaleIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Privacy Policy</span>
                   </a>
@@ -328,10 +328,10 @@
                 <li>
                   <a
                     href="https://simpleanalytics.com/cookie-statement"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <BookOpenIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Cookie Statement</span>
                   </a>
@@ -339,10 +339,10 @@
                 <li>
                   <a
                     href="https://simpleanalytics.com/general-terms-and-conditions"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <NewspaperIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Terms &amp; Conditions</span>
                   </a>
@@ -361,10 +361,10 @@
                 <li>
                   <a
                     href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-google-analytics"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <GoogleAnalyticsIcon
-                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Google Analytics</span>
                   </a>
@@ -372,10 +372,10 @@
                 <li>
                   <a
                     href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-matomo"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <MatomoIcon
-                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Matomo</span>
                   </a>
@@ -383,10 +383,10 @@
                 <li>
                   <a
                     href="#!"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <PlausibleIcon
-                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Plausible</span>
                   </a>
@@ -394,10 +394,10 @@
                 <li>
                   <a
                     href="#!"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <FathomIcon
-                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Fathom</span>
                   </a>
@@ -405,10 +405,10 @@
                 <li>
                   <a
                     href="#!"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <CloudflareIcon
-                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Cloudflare</span>
                   </a>
@@ -427,10 +427,10 @@
                 <li>
                   <a
                     href="https://docs.simpleanalytics.com/"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <SupportIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Documentation</span>
                   </a>
@@ -438,10 +438,10 @@
                 <li>
                   <a
                     href="https://blog.simpleanalytics.com/"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <BookOpenIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Blog</span>
                   </a>
@@ -449,10 +449,10 @@
                 <li>
                   <a
                     href="https://simpleanalytics.com/roadmap"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <LocationMarkerIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Roadmap</span>
                   </a>
@@ -460,10 +460,10 @@
                 <li>
                   <NuxtLink
                     href="/pricing"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <CreditCardIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Pricing</span>
                   </NuxtLink>
@@ -471,10 +471,10 @@
                 <li>
                   <a
                     href="https://status.simpleanalytics.com/"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <ClipboardCheckIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Status</span>
                   </a>
@@ -518,7 +518,7 @@
                   <a
                     :href="post.url"
                     target="_blank"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 items-center hover-hover:hover:ring-1 dark:hover-hover:hover:ring-0 ring-gray-700 dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded-md block group text-left"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded-md block group text-left"
                   >
                     <span
                       v-if="labelAgo(post.created)"
