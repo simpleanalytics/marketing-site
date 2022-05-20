@@ -1,6 +1,9 @@
 <template>
   <div class="bg-blue-50 dark:bg-gray-800">
-    <Html lang="en-US" :class="{ dark: theme === 'dark' }">
+    <Html
+      lang="en-US"
+      :class="{ dark: theme === 'dark', 'scroll-smooth': true }"
+    >
       <Head>
         <link
           rel="apple-touch-icon"

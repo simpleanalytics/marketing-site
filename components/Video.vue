@@ -7,25 +7,25 @@
       class="absolute top-0 bottom-0 right-0 left-0 flex justify-center items-center transition"
       :class="playing ? 'opacity-0 hover-hover:group-hover:opacity-100' : ''"
     >
-      <div class="basis-1/3 flex justify-center">
+      <div class="grow basis-1/2">
         <ArrowsExpandIcon
           @click="playFullScreen()"
-          class="w-12 fill-white dark:fill-gray-200 scale-125 drop-shadow-lg opacity-0 hover-hover:group-hover:opacity-100 transition cursor-pointer"
+          class="mx-auto w-16 fill-white dark:fill-gray-200 drop-shadow-lg opacity-0 hover-hover:group-hover:opacity-100 transition cursor-pointer"
         />
       </div>
-      <div class="basis-1/3">
+      <div class="grow-0">
         <PauseIcon
           v-if="playing"
           @click="pause()"
-          class="w-24 fill-white dark:fill-gray-200 drop-shadow-lg scale-125 cursor-pointer"
+          class="mx-auto w-24 fill-white dark:fill-gray-200 drop-shadow-lg scale-125 cursor-pointer"
         />
         <PlayIcon
           v-else
           @click="play()"
-          class="w-24 fill-white/95 dark:fill-gray-200/95 hover-hover:group-hover:fill-white dark:hover-hover:group-hover:fill-gray-200 drop-shadow-lg transition hover-hover:group-hover:scale-125 cursor-pointer"
+          class="mx-auto w-24 fill-white/95 dark:fill-gray-200/95 hover-hover:group-hover:fill-white dark:hover-hover:group-hover:fill-gray-200 drop-shadow-lg transition hover-hover:group-hover:scale-125 cursor-pointer"
         />
       </div>
-      <div class="basis-1/3"></div>
+      <div class="grow basis-1/2"></div>
     </div>
     <video
       ref="video"

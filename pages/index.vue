@@ -80,7 +80,7 @@
           </NuxtLink>
           <a
             @click="scrollToSeekVideo('seek.overview')"
-            class="mt-4 button tiny shadow-xl bg-white dark:bg-gray-800"
+            class="mt-4 button tiny shadow-md bg-white dark:bg-gray-800"
           >
             <ChevronDoubleDownIcon class="w-3 inline-block" />
             <span class="mx-1">See full video</span>
@@ -407,6 +407,120 @@
 
       <StartTrial />
 
+      <h3
+        id="reasons"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto -mt-4 mb-4 sm:mt-8 sm:mb-8 pt-8 font-medium"
+      >
+        Why is Simple Analytics the
+        <span class="text-red-500 dark:text-red-600">most privacy-first</span>
+        analytics?
+      </h3>
+
+      <h4 class="my-4 mb-8 text-xl text-center">
+        There are 5<span class="text-red-500 dark:text-red-600">+1</span> simple
+        reasons that sum it up.
+      </h4>
+    </div>
+    <div class="flex flex-col md:flex-row justify-center items-center">
+      <div class="basis-2/4 mx-3 mb-8 md:mb-0">
+        <Video
+          class="ml-auto max-w-[500px]"
+          width="854"
+          height="480"
+          color="#5d3828"
+          poster="https://assets.simpleanalytics.com/videos/promo/v2/promo.jpg"
+        >
+          <source
+            src="https://assets.simpleanalytics.com/videos/promo/v2/promo.mp4"
+            type="video/mp4"
+          />
+          <source
+            src="https://assets.simpleanalytics.com/videos/promo/v2/promo.ogv"
+            type="video/ogg"
+          />
+          <source
+            src="https://assets.simpleanalytics.com/videos/promo/v2/promo.webm"
+            type="video/webm"
+          />
+          <track
+            label="English"
+            kind="subtitles"
+            srclang="en"
+            src="https://assets.simpleanalytics.com/videos/promo/v2/promo.vtt"
+            default=""
+          />
+        </Video>
+      </div>
+      <div class="basis-2/4 mx-3">
+        <ol class="text-left z-20 relative max-w-[400px]">
+          <li class="flex items-center my-4">
+            <EyeOffIcon
+              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+            />
+            <p class="leading-relaxed">
+              1. Privacy protection is
+              <span class="text-red-500 dark:text-red-600"
+                >our business model</span
+              >.
+            </p>
+          </li>
+          <li class="flex items-center my-4">
+            <KeyIcon
+              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+            />
+            <p class="leading-relaxed">
+              2. Your data is always
+              <span class="text-red-500 dark:text-red-600">encrypted</span>.
+            </p>
+          </li>
+          <li class="flex items-center my-4">
+            <FingerPrintIcon
+              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+            />
+            <p class="leading-relaxed">
+              3. We never, ever, ever store any
+              <span class="text-red-500 dark:text-red-600"
+                >personally<br class="hidden sm:block" />identifiable
+                information</span
+              >
+              (PII) about visitors.
+            </p>
+          </li>
+          <li class="flex items-center my-4">
+            <GlobeIcon
+              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+            />
+            <p class="leading-relaxed">
+              4. We are an
+              <span class="text-red-500 dark:text-red-600"
+                >EU-based company</span
+              ><br class="hidden sm:block" />
+              with EU-based servers.
+            </p>
+          </li>
+          <li class="flex items-center my-4">
+            <TableIcon
+              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+            />
+            <p class="leading-relaxed">
+              5. You own
+              <span class="text-red-500 dark:text-red-600">your data</span>.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="max-w-3xl px-6 mt-8 mx-auto text-center">
+      <a
+        @click="scrollToHash('why')"
+        class="mt-4 button tiny shadow-md bg-white dark:bg-gray-800"
+      >
+        <ChevronDoubleDownIcon class="w-3 inline-block" />
+        <span class="mx-1">Read detailed reasons</span>
+        <ChevronDoubleDownIcon class="w-3 inline-block" />
+      </a>
+
       <Quote
         class="mt-8"
         :reverse="false"
@@ -552,44 +666,6 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-20 sm:mb-8 font-medium"
       >
-        Dark mode.
-      </h3>
-      <p class="my-4 sm:mb-8 leading-loose max-w-xl mx-auto">
-        For those who keep
-        <span class="line-through dark:text-gray-500">working</span>
-        <span class="text-red-500 dark:text-red-600"> coding </span> at night.
-      </p>
-    </div>
-
-    <div
-      class="w-full pt-8 pb-2 sm:pt-12 sm:pb-2 md:pt-16 md:pb-4 overflow-hidden"
-    >
-      <div class="w-2/3 mx-auto max-w-lg" :class="theme" data-carousel>
-        <img
-          @click="toggleTheme()"
-          src="https://assets.simpleanalytics.com/images/homepage/homepage-light.png"
-          class="relative transition rounded-lg shadow-md cursor-pointer"
-        />
-        <img
-          @click="toggleTheme()"
-          src="https://assets.simpleanalytics.com/images/homepage/homepage-dark.png"
-          class="relative transition rounded-lg shadow-md cursor-pointer"
-        />
-      </div>
-    </div>
-
-    <div class="max-w-3xl px-6 mx-auto text-center">
-      <p class="mt-4 mb-8 text-sm">
-        <a @click="toggleTheme()" class="mt-1 button tiny">
-          <span class="ml-2">Toggle dark mode</span>
-          <SunIcon class="h-6 p-1 ml-1 stroke-red-600 hidden dark:block" />
-          <MoonIcon class="h-6 p-1 ml-1 stroke-red-500 dark:hidden" />
-        </a>
-      </p>
-
-      <h3
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-20 sm:mb-8 font-medium"
-      >
         Automate reports.
       </h3>
       <p class="my-4 leading-loose max-w-xl mx-auto">
@@ -675,6 +751,44 @@
       </div>
 
       <StartTrial />
+
+      <h3
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-20 sm:mb-8 font-medium"
+      >
+        Dark mode.
+      </h3>
+      <p class="my-4 sm:mb-8 leading-loose max-w-xl mx-auto">
+        For those who keep
+        <span class="line-through dark:text-gray-500">working</span>
+        <span class="text-red-500 dark:text-red-600"> coding </span> at night.
+      </p>
+    </div>
+
+    <div
+      class="w-full pt-8 pb-2 sm:pt-12 sm:pb-2 md:pt-16 md:pb-4 overflow-hidden"
+    >
+      <div class="w-2/3 mx-auto max-w-lg" :class="theme" data-carousel>
+        <img
+          @click="toggleTheme()"
+          src="https://assets.simpleanalytics.com/images/homepage/homepage-light.png"
+          class="relative transition rounded-lg shadow-md cursor-pointer"
+        />
+        <img
+          @click="toggleTheme()"
+          src="https://assets.simpleanalytics.com/images/homepage/homepage-dark.png"
+          class="relative transition rounded-lg shadow-md cursor-pointer"
+        />
+      </div>
+    </div>
+
+    <div class="max-w-3xl px-6 mx-auto text-center">
+      <p class="mt-4 mb-8 text-sm">
+        <a @click="toggleTheme()" class="mt-1 button tiny">
+          <span class="ml-2">Toggle dark mode</span>
+          <SunIcon class="h-6 p-1 ml-1 stroke-red-600 hidden dark:block" />
+          <MoonIcon class="h-6 p-1 ml-1 stroke-red-500 dark:hidden" />
+        </a>
+      </p>
 
       <Quote
         class="mt-4"
@@ -916,7 +1030,7 @@
         Frequently Asked Questions.
       </h3>
 
-      <div class="flex flex-col flex-wrap sm:flex-row -mt-8">
+      <div class="flex flex-col flex-wrap sm:flex-row -mt-8 -mx-6">
         <div class="basis-1/2">
           <ShieldExclamationIcon
             class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
@@ -1033,7 +1147,8 @@
       <!-- quote -->
 
       <h3
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-16 sm:mb-8 font-medium text-center"
+        id="why"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto -mt-4 mb-4 sm:mt-8 sm:mb-8 pt-8 font-medium text-center"
       >
         Why is Simple Analytics
         <span class="text-red-500 dark:text-red-600"
@@ -1048,6 +1163,17 @@
         <h4 class="my-4 text-2xl text-center">
           There are 5 simple reasons that sum it up.
         </h4>
+
+        <p class="text-center" v-if="currentHash === 'why'">
+          <a
+            @click="scrollToHash('reasons')"
+            class="mt-4 button tiny shadow-md bg-white dark:bg-gray-800"
+          >
+            <ChevronDoubleUpIcon class="w-3 inline-block" />
+            <span class="mx-1">Go back</span>
+            <ChevronDoubleUpIcon class="w-3 inline-block" />
+          </a>
+        </p>
 
         <EyeOffIcon
           class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
@@ -1436,6 +1562,7 @@ export default {
       showClickSeekButton: true,
       paused: false,
       timer: null,
+      currentHash: null,
     };
   },
   methods: {
@@ -1489,6 +1616,12 @@ export default {
         );
         if (found) this.jumpToTime(found);
       }
+    },
+    scrollToHash(hash) {
+      if (!process.client) return;
+
+      window.location.hash = hash;
+      this.currentHash = hash;
     },
   },
   watch: {
