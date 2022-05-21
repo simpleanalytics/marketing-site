@@ -8,7 +8,7 @@
         <img
           v-if="image"
           :src="image"
-          class="h-44 w-44 xl:h-50 xl:w-50 rounded-full"
+          :class="'h-44 w-44 xl:h-50 xl:w-50 rounded-full ' + imageBackground"
           alt=""
         />
         <component
@@ -54,7 +54,7 @@
                 <img
                   v-if="image"
                   :src="image"
-                  class="h-12 w-12 rounded-full"
+                  :class="'h-12 w-12 rounded-full ' + imageBackground"
                   :alt="`Image of ${title}`"
                 />
                 <component v-else-if="logo" :is="logo" class="h-12 w-12" />
@@ -105,4 +105,8 @@ const props = defineProps([
   "iconclass",
   "logoclass",
 ]);
+
+const imageBackground = props.iconclass
+  ? props.iconclass?.replace("fill", "bg")
+  : "bg-red-100";
 </script>

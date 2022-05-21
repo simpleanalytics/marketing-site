@@ -1,23 +1,16 @@
 <template>
   <NuxtLayout name="default">
     <template #hero>
-      <div class="text-center">
+      <div class="text-center pb-10">
         <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
           <span class="leading-snug" v-html="$t('home.title')"></span>
         </h1>
         <p
           class="mt-4 max-w-md mx-auto text-base sm:text-lg md:mt-8 md:text-xl md:max-w-4xl"
         >
-          {{ $t("home.subtitle") }}
-
-          <ArrowLink
-            href="https://docs.simpleanalytics.com/protecting-your-data"
-          >
-            <EuropeanFlag class="inline w-8 rounded align-sub" />
-            EU based<Arrow
-              class="inline align-text-bottom w-6 fill-red-500 hover-hover:group-hover:fill-red-600 transition-transform hover-hover:group-hover:rotate-0 -rotate-45"
-            />
-          </ArrowLink>
+          <EuropeanFlag class="inline mr-2 w-8 rounded align-sub" /><span
+            v-html="$t('home.subtitle')"
+          ></span>
         </p>
 
         <div class="flex items-center justify-center mt-6 sm:mt-8">
@@ -26,34 +19,9 @@
           <GovUKLogo class="h-16 mt-0 m-4 sm:m-8" />
           <HyundaiLogo class="h-14 mt-0 m-4 sm:m-8" />
         </div>
-
-        <div class="mt-5 max-w-lg mx-auto sm:flex sm:justify-center md:mt-4">
-          <div>
-            <a
-              :href="'https://simpleanalytics.com/welcome?theme=' + theme"
-              class="button large primary"
-            >
-              {{ $t("home.start_trial_now") }}
-            </a>
-            <p class="mb-8 sm:mb-0 text-xs mt-2">
-              <CheckIcon class="fill-green-500 w-4 inline align-text-top" />
-              {{ $t("home.no_creditcard") }}
-            </p>
-          </div>
-          <div class="mt-3 sm:mt-0 sm:ml-3">
-            <a
-              :href="
-                'https://simpleanalytics.com/simpleanalytics.com?theme=' + theme
-              "
-              class="button large"
-            >
-              {{ $t("home.see_live_demo") }}
-            </a>
-          </div>
-        </div>
       </div>
 
-      <div class="mt-10 flex justify-center">
+      <!-- <div class="mt-10 flex justify-center">
         <a
           class="inline-flex flex-col sm:flex-row items-center"
           href="https://www.capterra.com/p/248710/Simple-Analytics/#about"
@@ -62,11 +30,11 @@
           <CapterraLogo class="h-10 mr-4" />
           <p class="mt-2 sm:mt-0">based on 5+ reviews</p></a
         >
-      </div>
+      </div> -->
     </template>
 
     <div class="max-w-3xl px-6 mx-auto text-center">
-      <div class="max-w-2xl -mt-4 sm:-mt-14 z-10 mx-auto relative" style="">
+      <div class="max-w-2xl -mt-4 sm:-mt-24 z-10 mx-auto relative" style="">
         <div
           class="absolute z-50 flex flex-col items-center justify-center w-full h-full"
         >
@@ -157,6 +125,31 @@
         </div>
       </div>
 
+      <div class="mt-10 max-w-lg mx-auto sm:flex sm:justify-center md:mt-12">
+        <div>
+          <a
+            :href="'https://simpleanalytics.com/welcome?theme=' + theme"
+            class="button large primary"
+          >
+            {{ $t("home.start_trial_now") }}
+          </a>
+          <p class="mb-8 sm:mb-0 text-xs mt-2">
+            <CheckIcon class="fill-green-500 w-4 inline align-text-top" />
+            {{ $t("home.no_creditcard") }}
+          </p>
+        </div>
+        <div class="mt-3 sm:mt-0 sm:ml-3">
+          <a
+            :href="
+              'https://simpleanalytics.com/simpleanalytics.com?theme=' + theme
+            "
+            class="button large"
+          >
+            {{ $t("home.see_live_demo") }}
+          </a>
+        </div>
+      </div>
+
       <Quote
         class="mt-4"
         :logo="DuckDuckGoLogo"
@@ -210,12 +203,11 @@
             <span class="text-red-500 dark:text-red-600">store</span> or
             <span class="text-red-500 dark:text-red-600">sell</span> any visitor
             data,<br /><a
-              class="text-red-500 dark:text-red-600 underline"
+              class="underline"
               href="https://docs.simpleanalytics.com/what-we-collect"
               target="_blank"
-              >see what we collect<ArrowSmRightIcon
-                class="inline ml-1 w-4 fill-red-500"
-            /></a>
+              >see what we collect<Arrow />
+            </a>
           </p>
         </li>
         <li class="flex items-center my-4">
@@ -244,7 +236,7 @@
         class="mt-4"
         :reverse="true"
         iconclass="fill-blue-200"
-        image="https://assets.simpleanalytics.com/images/rosie.jpg"
+        image="https://assets.simpleanalytics.com/images/people/rosie.png"
         title="Rosie Sherry"
         subtitle="Community Manager Indie Hackers"
         subtitlelink="https://indiehackers.com/"
@@ -265,7 +257,7 @@
       <p class="my-4 leading-loose max-w-xl mx-auto">
         One dashboard to instantly see how many visitors are coming to your
         website. Where they come from. And what they do once they're there.
-        Without cookies. Without stalking.
+        Without cookies. Without stalking. Still lightweight.
       </p>
 
       <div class="mt-4 mb-8">
@@ -526,7 +518,7 @@
         :reverse="false"
         iconclass="fill-blue-200"
         :logo="FastCompanyLogo"
-        logoclass="bg-blue-200 rounded-full p-4"
+        logoclass="bg-blue-200 dark:bg-gray-500 rounded-full p-4"
         subtitle="Featured at Fast Company"
         quote="It's time to ditch Google Analytics."
         subtitlelink="https://www.fastcompany.com/90300072/its-time-to-ditch-google-analytics"
@@ -562,11 +554,10 @@
             />
             <p>
               <a
-                class="text-red-500 dark:text-red-600 underline"
+                class="underline group"
                 href="https://simpleanalytics.com/our-promise"
                 target="_blank"
-                >Import your data from Google Analytics
-                <ArrowSmRightIcon class="inline ml-1 w-4 fill-red-500"
+                >Import your data from Google Analytics<Arrow class=""
               /></a>
             </p>
           </li>
@@ -577,11 +568,10 @@
             <p>
               Use Google Tag Manager, WordPress,<br />or our many frontend
               <a
-                class="text-red-500 dark:text-red-600 underline"
+                class="underline group"
                 href="https://docs.simpleanalytics.com/script"
-                >framework plugins
-                <ArrowSmRightIcon class="inline ml-1 w-4 fill-red-500"
-              /></a>
+                >framework plugins<Arrow />
+              </a>
             </p>
           </li>
           <li class="flex items-center my-6">
@@ -620,7 +610,7 @@
     <div class="max-w-3xl px-6 mx-auto text-center">
       <Quote
         class="mt-12"
-        image="https://assets.simpleanalytics.com/images/philippe-lehoux.jpg"
+        image="https://assets.simpleanalytics.com/images/people/philippe.png"
         title="Philippe Lehoux"
         subtitle="CEO at Missive"
         subtitlelink="https://missiveapp.com/blog/privacy-first-analytics"
@@ -645,11 +635,10 @@
       </h3>
       <p class="my-4 leading-loose max-w-xl mx-auto">
         <a
-          class="text-red-500 dark:text-red-600 underline"
+          class="underline group"
           href="https://docs.simpleanalytics.com/automated-events"
           target="_blank"
-          >Auto collect events
-          <ArrowSmRightIcon class="inline ml-0 w-4 fill-red-500"
+          >Auto collect events<Arrow class=""
         /></a>
         like downloads, outbound links, and email clicks. Check the performance
         of every button, click and page visit you want.
@@ -740,12 +729,7 @@
               <option value="month">Monthly</option>
             </select>
 
-            <input
-              type="submit"
-              @click="saveEmailReport"
-              class="mt-2 button"
-              value="Add recipient"
-            />
+            <a @click="saveEmailReport" class="mt-2 button">Add recipient</a>
           </p>
         </div>
       </div>
@@ -792,7 +776,7 @@
 
       <Quote
         class="mt-4"
-        image="https://www.saasdesign.io/hannahavatar.png"
+        image="https://assets.simpleanalytics.com/images/people/hannah.png"
         title="Hannah Wright"
         subtitle="Founder SaaS Design"
         subtitlelink="https://www.saasdesign.io/"
@@ -997,7 +981,7 @@
           class="mt-20 z-20"
           :reverse="true"
           iconclass="fill-blue-200"
-          image="https://pbs.twimg.com/profile_images/1482106371638054912/6alNupZP_400x400.jpg"
+          image="https://assets.simpleanalytics.com/images/people/evan.png"
           title="Evan Frawley"
           subtitle="Software engineer"
           subtitlelink="https://evan.gg/blog/simple-analytics-is-great"
@@ -1114,7 +1098,7 @@
 
       <Quote
         class="mt-20"
-        image="https://stefaanoyen.be/wp-content/uploads/2021/08/janjc2.png"
+        image="https://assets.simpleanalytics.com/images/people/stefaan.png"
         title="Stefaan Oyen"
         subtitle="Marketeer"
         subtitlelink="https://stefaanoyen.be/"
@@ -1129,26 +1113,54 @@
           and clear visuals."
         </p>
       </Quote>
+    </div>
 
-      <h3
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-16 sm:mb-8 font-medium text-center"
-      >
-        A selection of governments, NGO's and businesses that care about ethical
-        insights
-      </h3>
+    <section
+      class="bg-gradient-to-t from-red-50 dark:from-gray-700 mt-12 w-full relative overflow-hidden pb-32"
+    >
+      <div class="max-w-3xl px-6 mx-auto text-center z-20 relative">
+        <h3
+          class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-16 sm:mb-20 font-medium text-center"
+        >
+          Trusted by more than 600
+          <span class="text-red-500 dark:text-red-600">governments</span>,
+          <span class="text-red-500 dark:text-red-600">NGOs</span>, and small to
+          mid-sized
+          <span class="text-red-500 dark:text-red-600">enterprises</span>.
+        </h3>
 
-      <div class="flex items-center justify-center mt-6 sm:mt-10">
-        <HavasMediaLogo class="h-14 mt-0 m-4 sm:m-8" />
-        <GovScotLogo class="h-16 mt-1 m-4 sm:m-8" />
-        <GovUKLogo class="h-16 mt-0 m-4 sm:m-8" />
-        <HyundaiLogo class="h-14 mt-0 m-4 sm:m-8" />
+        <div
+          class="grid grid-cols-2 sm:grid-cols-5 items-center justify-center gap-8 sm:gap-12 mt-6 sm:mt-10 max-w-[80%] sm:max-w-none mx-auto"
+        >
+          <Tooltip
+            v-for="trustedBy in trustedByList"
+            :key="trustedBy.name"
+            :text="trustedBy.name"
+            :class="'flex justify-center items-center group ' + trustedBy.class"
+          >
+            <a :href="trustedBy.url" target="_blank" class="pointer-events-auto"
+              ><component
+                :is="trustedBy.component"
+                class="h-16 max-w-full hover-hover:group-hover:fill-gray-400" /></a
+          ></Tooltip>
+        </div>
       </div>
 
-      <!-- quote -->
+      <ClientOnly>
+        <div
+          class="absolute bottom-0 left-1/2 transform -translate-x-1/2 scale-x-[-1]"
+        >
+          <BackgroundChart
+            class="fill-blue-50 stroke-red-500 dark:stroke-red-600 dark:fill-gray-800"
+          />
+        </div>
+      </ClientOnly>
+    </section>
 
+    <div class="max-w-3xl px-6 mx-auto text-center">
       <h3
         id="why"
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto -mt-4 mb-4 sm:mt-8 sm:mb-8 pt-8 font-medium text-center"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-4 mb-4 sm:mt-28 sm:mb-8 pt-8 font-medium text-center"
       >
         Why is Simple Analytics
         <span class="text-red-500 dark:text-red-600"
@@ -1381,15 +1393,28 @@ import HyundaiLogo from "../components/logos/Hyundai.vue";
 import DuckDuckGoLogo from "../components/logos/DuckDuckGo.vue";
 import FastCompanyLogo from "../components/logos/FastCompany.vue";
 import CapterraLogo from "../components/logos/Capterra.vue";
+import NomadListLogo from "../components/logos/NomadList.vue";
+import CinchLogo from "../components/logos/Cinch.vue";
+import MichelinLogo from "../components/logos/Michelin.vue";
+import AnwaltLogo from "../components/logos/Anwalt.vue";
+import HomeyLogo from "../components/logos/Homey.vue";
+import AllesBesteLogo from "../components/logos/AllesBeste.vue";
+import TrustlyLogo from "../components/logos/Trustly.vue";
+import CleanshotLogo from "../components/logos/Cleanshot.vue";
+import GFLLogo from "../components/logos/GFL.vue";
+import BannerbearLogo from "../components/logos/Bannerbear.vue";
+
 import EuropeanFlag from "../components/logos/EuropeanFlag.vue";
-import Arrow from "../components/Arrow.vue";
-import ArrowLink from "../components/ArrowLink.vue";
-import Quote from "../components/Quote.vue";
 import DataConnections from "../components/images/DataConnections.vue";
 import ListIcon from "../components/images/ListIcon.vue";
 import BackgroundChart from "../components/images/BackgroundChart.vue";
+
+import Arrow from "../components/Arrow.vue";
+import ArrowLink from "../components/ArrowLink.vue";
+import Quote from "../components/Quote.vue";
 import Video from "../components/Video.vue";
 import StartTrial from "../components/StartTrial.vue";
+import Tooltip from "../components/Tooltip.vue";
 
 import {
   ArrowSmRightIcon,
@@ -1455,6 +1480,81 @@ const videoSeeksDark = [
   { translation: "seek.tweet_viewer", start: 101, end: 115 },
   { translation: "seek.events", start: 115, end: 131 },
   { translation: "seek.conversion", start: 131, end: Infinity },
+];
+
+const trustedByList = [
+  {
+    name: "Scottish Government",
+    url: "https://www.gov.scot/",
+    component: GovScotLogo,
+  },
+  {
+    name: "Havas Media Group",
+    url: "https://havasmediagroup.com/",
+    component: HavasMediaLogo,
+  },
+  {
+    name: "Hyundai",
+    url: "https://www.hyundai.com/",
+    component: HyundaiLogo,
+  },
+  {
+    name: "Government of the United Kingdom",
+    url: "https://www.gov.uk/",
+    component: GovUKLogo,
+  },
+  {
+    name: "Nomad List",
+    url: "https://nomadlist.com/",
+    component: NomadListLogo,
+  },
+  {
+    name: "Cinch",
+    url: "https://www.cinch.co.uk/",
+    component: CinchLogo,
+  },
+  {
+    name: "Michelin",
+    url: "https://www.michelin.com/",
+    component: MichelinLogo,
+    class: "col-span-2",
+  },
+  {
+    name: "Homey",
+    url: "https://homey.app/",
+    component: HomeyLogo,
+  },
+  {
+    name: "Anwalt",
+    url: "https://www.anwalt.de/",
+    component: AnwaltLogo,
+  },
+  {
+    name: "Trustly Bank",
+    url: "https://www.trustly.com/",
+    component: TrustlyLogo,
+  },
+  {
+    name: "AllesBeste",
+    url: "https://www.allesbeste.de/",
+    component: AllesBesteLogo,
+  },
+  {
+    name: "Cleanshot X",
+    url: "https://cleanshot.com/",
+    component: CleanshotLogo,
+  },
+  {
+    name: "Green for life Canada",
+    url: "https://gflenv.com/",
+    component: GFLLogo,
+  },
+  {
+    name: "Bannerbear",
+    url: "https://www.bannerbear.com/",
+    component: BannerbearLogo,
+    class: "col-span-2 sm:col-auto",
+  },
 ];
 
 const emailReports = ref([

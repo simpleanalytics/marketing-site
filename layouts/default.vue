@@ -89,15 +89,15 @@
                   <Popover class="relative z-20" v-slot="{ open }" v-else>
                     <PopoverButton
                       :class="[
-                        open ? 'text-gray-900' : 'text-gray-500',
-                        'group  inline-flex items-center text-base font-medium hover-hover:hover:text-gray-600',
+                        open ? 'text-gray-600' : '',
+                        'group  inline-flex items-center text-base font-medium text-gray-500 hover-hover:hover:text-gray-600',
                       ]"
                     >
                       <span>{{ $t("nav.resources") }}</span>
                       <ChevronDownIcon
                         :class="[
-                          open ? '' : 'text-gray-400',
-                          'ml-2 h-5 w-5 hover-hover:group-hover:text-gray-500',
+                          open ? 'text-gray-600' : 'text-gray-500',
+                          'ml-2 h-5 w-5 hover-hover:group-hover:text-gray-600',
                         ]"
                         aria-hidden="true"
                       />
@@ -114,9 +114,7 @@
                       <PopoverPanel
                         class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0"
                       >
-                        <div
-                          class="shadow-lg ring-1 ring-blue-500 ring-opacity-30 dark:ring-0 overflow-hidden"
-                        >
+                        <div class="shadow-lg overflow-hidden">
                           <div
                             class="relative grid gap-6 bg-white dark:bg-gray-800 px-5 py-6 sm:gap-8 sm:p-8"
                           >
@@ -285,9 +283,11 @@
       <div
         class="bg-gradient-to-t from-blue-100 to-blue-200 dark:from-gray-800 dark:to-gray-700 text-left lg:text-left"
       >
-        <div class="container px-3 sm:px-6 pt-10 md:pt-16 mx-auto">
-          <div class="grid lg:grid-cols-4 md:grid-cols-2">
-            <div class="mb-10 lg:mb-3">
+        <div
+          class="container px-3 sm:px-6 pt-10 pb-4 md:pt-16 md:pb-10 mx-auto"
+        >
+          <div class="grid lg:grid-cols-4 lg:grid-rows-3 md:grid-cols-2">
+            <div class="mb-10 lg:mb-0 lg:row-span-2">
               <h5
                 class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
               >
@@ -353,73 +353,7 @@
               </ul>
             </div>
 
-            <div class="mb-10 lg:mb-3">
-              <h5
-                class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
-              >
-                Comparisons
-              </h5>
-
-              <ul class="list-none mb-0">
-                <li>
-                  <a
-                    href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-google-analytics"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
-                  >
-                    <GoogleAnalyticsIcon
-                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
-                    />
-                    <span>Google Analytics</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-matomo"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
-                  >
-                    <MatomoIcon
-                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
-                    />
-                    <span>Matomo</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#!"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
-                  >
-                    <PlausibleIcon
-                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
-                    />
-                    <span>Plausible</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#!"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
-                  >
-                    <FathomIcon
-                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
-                    />
-                    <span>Fathom</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#!"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
-                  >
-                    <CloudflareIcon
-                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
-                    />
-                    <span>Cloudflare</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="mb-10 lg:mb-3">
+            <div class="mb-10 lg:mb-0 lg:row-span-2">
               <h5
                 class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
               >
@@ -485,7 +419,73 @@
               </ul>
             </div>
 
-            <div class="mb-10 lg:mb-3">
+            <div class="mb-10 lg:mb-0 lg:row-span-2">
+              <h5
+                class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
+              >
+                Comparisons
+              </h5>
+
+              <ul class="list-none mb-0">
+                <li>
+                  <a
+                    href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-google-analytics"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                  >
+                    <GoogleAnalyticsIcon
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                    />
+                    <span>Google Analytics</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-matomo"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                  >
+                    <MatomoIcon
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                    />
+                    <span>Matomo</span>
+                  </a>
+                </li>
+                <li v-if="false">
+                  <a
+                    href="#!"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                  >
+                    <PlausibleIcon
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                    />
+                    <span>Plausible</span>
+                  </a>
+                </li>
+                <li v-if="false">
+                  <a
+                    href="#!"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                  >
+                    <FathomIcon
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                    />
+                    <span>Fathom</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#!"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                  >
+                    <CloudflareIcon
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                    />
+                    <span>Cloudflare</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mb-10 lg:mb-0 lg:row-span-3 max-w-[400px]">
               <h5
                 class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
               >
@@ -528,12 +528,16 @@
                       class="inline-block text-sm bg-red-500 dark:bg-red-600 px-1 text-white rounded-md align-text-top mr-1"
                       >{{ labelAgo(post.created) }}</span
                     >
-                    {{ post.title.split(" ").slice(0, -1).join(" ") }}
-                    <span class="whitespace-nowrap">
-                      {{ post.title.split(" ").pop() }}
-                      <Arrow
-                        class="ml-0 fill-gray-600 hover-hover:group-hover:fill-gray-800 dark:fill-gray-400 dark:hover-hover:group-hover:fill-gray-300"
-                      />
+                    <span
+                      class="hover-hover:group-hover:text-red-500 dark:hover-hover:group-hover:text-gray-300"
+                    >
+                      {{ post.title.split(" ").slice(0, -1).join(" ") }}
+                      <span class="whitespace-nowrap">
+                        {{ post.title.split(" ").pop() }}
+                        <Arrow
+                          class="ml-0 fill-gray-800 hover-hover:group-hover:fill-red-500 dark:fill-gray-400 dark:hover-hover:group-hover:fill-gray-300"
+                        />
+                      </span>
                     </span>
                     <img
                       v-if="index === 0 && (post.image_no_text || post.image)"
@@ -544,20 +548,22 @@
                 </li>
               </ul>
             </div>
+
+            <div
+              class="lg:col-span-3 md:col-span-2 text-center flex items-end justify-center lg:justify-start"
+            >
+              <a
+                class="text-gray-700 dark:text-gray-500 py-2 px-3 hover-hover:hover:text-red-500 dark:hover-hover:hover:text-gray-300 inline-flex items-center"
+                href="https://simpleanalytics.com/contact#details"
+              >
+                <SimpleAnalyticsIcon class="h-5 w-auto sm:h-5 inline mr-2" />
+                <span class="mt-0.5">Simple Analytics B.V.</span>
+              </a>
+
+              <!-- <MoonSun /> -->
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="text-center p-4 flex items-center justify-center">
-        <a
-          class="text-gray-600 dark:text-gray-500 py-2 px-3 dark:hover-hover:hover:text-gray-300 inline-flex items-center"
-          href="https://simpleanalytics.com/contact#details"
-        >
-          <SimpleAnalyticsIcon class="h-5 w-auto sm:h-5 inline mr-2" />
-          <span class="mt-0.5">Simple Analytics B.V.</span>
-        </a>
-
-        <MoonSun />
       </div>
     </footer>
   </div>
@@ -626,7 +632,7 @@ const defaultDescription =
 const navigation = [
   { translation: "nav.pricing", href: "/pricing" },
   { translation: "nav.resources", href: "#", popover: true },
-  { translation: "nav.blog", href: "https://blog.simpleanalytics.com" },
+  { translation: "nav.docs", href: "https://docs.simpleanalytics.com" },
   { translation: "nav.contact", href: "https://simpleanalytics.com/contact" },
 ];
 

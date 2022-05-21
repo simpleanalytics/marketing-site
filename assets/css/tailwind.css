@@ -28,7 +28,7 @@ a:not([class*="text-"]) {
 }
 
 .button {
-  @apply inline-flex items-center justify-center px-4 py-2 border-2 border-red-500 dark:border-red-600 text-base font-medium rounded-full text-red-500 bg-white dark:bg-transparent dark:text-red-600 dark:hover-hover:hover:text-red-600 hover-hover:hover:bg-gray-50 hover-hover:hover:text-red-600  hover-hover:hover:border-red-600;
+  @apply inline-flex items-center justify-center px-4 py-2 border-2 border-red-500 dark:border-red-600 text-base font-medium rounded-full text-red-500 bg-white dark:bg-transparent dark:text-red-600 dark:hover-hover:hover:text-red-600 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-transparent hover-hover:hover:text-red-600  hover-hover:hover:border-red-600 dark:hover-hover:hover:border-red-700;
 }
 .button.tiny {
   @apply py-1 text-sm px-2;
