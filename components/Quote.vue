@@ -107,6 +107,6 @@ const props = defineProps([
 ]);
 
 const imageBackground = props.iconclass
-  ? props.iconclass?.replace("fill", "bg")
-  : "bg-red-100";
+  ? props.iconclass?.replace(/fill/g, "bg")
+  : "bg-red-100 dark:bg-gray-700";
 </script>

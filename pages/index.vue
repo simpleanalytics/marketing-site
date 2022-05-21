@@ -980,7 +980,7 @@
         <Quote
           class="mt-20 z-20"
           :reverse="true"
-          iconclass="fill-blue-200"
+          iconclass="fill-blue-200 dark:fill-gray-800"
           image="https://assets.simpleanalytics.com/images/people/evan.png"
           title="Evan Frawley"
           subtitle="Software engineer"
@@ -1118,7 +1118,7 @@
     <section
       class="bg-gradient-to-t from-red-50 dark:from-gray-700 mt-12 w-full relative overflow-hidden pb-32"
     >
-      <div class="max-w-3xl px-6 mx-auto text-center z-20 relative">
+      <div class="max-w-3xl mb-20 px-6 mx-auto text-center z-20 relative">
         <h3
           class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-16 sm:mb-20 font-medium text-center"
         >
@@ -1136,12 +1136,13 @@
             v-for="trustedBy in trustedByList"
             :key="trustedBy.name"
             :text="trustedBy.name"
-            :class="'flex justify-center items-center group ' + trustedBy.class"
+            class="flex justify-center items-center group"
+            :class="trustedBy.class ? trustedBy.class : ''"
           >
             <a :href="trustedBy.url" target="_blank" class="pointer-events-auto"
               ><component
                 :is="trustedBy.component"
-                class="h-16 max-w-full hover-hover:group-hover:fill-gray-400" /></a
+                class="h-16 max-w-full" /></a
           ></Tooltip>
         </div>
       </div>
@@ -1160,7 +1161,7 @@
     <div class="max-w-3xl px-6 mx-auto text-center">
       <h3
         id="why"
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-4 mb-4 sm:mt-28 sm:mb-8 pt-8 font-medium text-center"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-4 mb-4 sm:mt-16 sm:mb-8 pt-8 font-medium text-center"
       >
         Why is Simple Analytics
         <span class="text-red-500 dark:text-red-600"
