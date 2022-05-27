@@ -1,23 +1,156 @@
 <template>
   <NuxtLayout name="default">
     <template #hero>
-      <div class="text-center pb-10">
-        <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
-          <span class="leading-snug" v-html="$t('home.title')"></span>
-        </h1>
-        <p
-          class="mt-4 max-w-md mx-auto text-base sm:text-lg md:mt-8 md:text-xl md:max-w-4xl"
-        >
-          <EuropeanFlag class="inline mr-2 w-8 rounded align-sub" /><span
-            v-html="$t('home.subtitle')"
-          ></span>
-        </p>
+      <p>country: {{ country }}</p>
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-2 flex flex-col md:flex-row items-center"
+      >
+        <div class="text-center md:text-left flex-shrink basis-2/4 md:mr-8">
+          <h1 class="text-3xl font-medium sm:text-4xl lg:text-4xl">
+            <span class="leading-snug" v-html="$t('home.title')"></span>
+          </h1>
+          <p
+            class="mt-4 text-base sm:text-lg md:mt-8 lg:text-xl md:leading-relaxed leading-relaxed"
+          >
+            <EuropeanFlag class="inline mr-2 w-8 rounded align-sub" />EU-based
+            &amp; hosted. No cookies and<br class="hidden sm:block" />
+            a
+            <span class="underline-curly text-red-500 dark:text-red-600"
+              >direct yes</span
+            >
+            from your compliance team.
+          </p>
 
-        <div class="flex items-center justify-center mt-6 sm:mt-8">
-          <HavasMediaLogo class="h-14 mt-0 m-4 sm:m-8" />
-          <GovScotLogo class="h-16 mt-1 m-4 sm:m-8" />
-          <GovUKLogo class="h-16 mt-0 m-4 sm:m-8" />
-          <HyundaiLogo class="h-14 mt-0 m-4 sm:m-8" />
+          <div
+            class="flex items-center justify-center md:justify-start mt-10 sm:mt-12 max-w-full"
+          >
+            <Logos
+              :limit="4"
+              class="flex-wrap sm:flex-nowrap"
+              tooltipclass="md:justify-start justify-center basis-1/4"
+            />
+          </div>
+
+          <div
+            class="max-w-lg flex flex-wrap mt-8 justify-center sm:justify-start"
+          >
+            <div class="mt-4 sm:mr-4">
+              <a
+                :href="'https://simpleanalytics.com/welcome?theme=' + theme"
+                class="button large primary"
+              >
+                {{ $t("home.start_trial_now") }}
+              </a>
+              <p class="mb-8 sm:mb-0 text-xs mt-2 text-center">
+                <CheckIcon class="fill-green-500 w-4 inline align-text-top" />
+                {{ $t("home.no_creditcard") }}
+              </p>
+            </div>
+            <div class="hidden sm:block sm:mt-4">
+              <a
+                :href="
+                  'https://simpleanalytics.com/simpleanalytics.com?theme=' +
+                  theme
+                "
+                class="button large group"
+              >
+                {{ $t("home.see_live_demo") }} <Arrow class="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="z-10 mx-auto relative basis-2/4">
+          <div
+            class="absolute z-50 flex flex-col items-center justify-center w-full h-full"
+          >
+            <a
+              @click="scrollToSeekVideo('seek.overview')"
+              class="group button large primary shadow-xl bg-white dark:bg-gray-800"
+            >
+              <ChevronDoubleDownIcon class="w-3 inline-block" />
+              <span class="mx-2">See feature video below</span>
+              <ChevronDoubleDownIcon class="w-3 inline-block" />
+            </a>
+            <NuxtLink
+              :href="
+                'https://simpleanalytics.com/simpleanalytics.com?theme=' + theme
+              "
+              target="_blank"
+              class="mt-4 button tiny shadow-md bg-white dark:bg-gray-800 group"
+            >
+              <span class="">Play with live demo</span>
+              <Arrow class="h-5 w-5" />
+            </NuxtLink>
+          </div>
+
+          <div
+            class="dark:shadow-none shadow-sm shadow-gray-200 rounded-md"
+            style="aspect-ratio: 1400 / 1014"
+          >
+            <video
+              ref="previewVideoLight"
+              loop=""
+              muted=""
+              playsinline=""
+              crossorigin="anonymous"
+              class="shadow-xl shadow-gray-400/20 rounded-md bg-blue-100 -z-10 dark:hidden"
+              preload="none"
+              width="1440"
+              height="1130"
+              style="aspect-ratio: 1440 / 1130"
+              data-poster-webp="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/poster.webp"
+              data-poster-png="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/poster.png"
+            >
+              <source
+                src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/video.mp4"
+                type="video/mp4"
+              />
+              <source
+                src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/video.webm"
+                type="video/webm"
+              />
+              <source
+                src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/video.ogg"
+                type="video/ogg"
+              />
+              <source
+                src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/video.wmv"
+                type="video/wmv"
+              />
+            </video>
+            <video
+              ref="previewVideoDark"
+              loop=""
+              muted=""
+              playsinline=""
+              crossorigin="anonymous"
+              class="rounded-md bg-gray-900 shadow-gray-700/40 shadow-2xl -z-10 hidden dark:block"
+              preload="none"
+              width="1440"
+              height="1130"
+              style="aspect-ratio: 1440 / 1130"
+              data-poster-webp="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/poster.webp"
+              data-poster-png="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/poster.png"
+            >
+              <source
+                src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/video.mp4"
+                type="video/mp4"
+              />
+              <source
+                src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/video.webm"
+                type="video/webm"
+              />
+              <source
+                src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/video.ogg"
+                type="video/ogg"
+              />
+              <source
+                src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/video.wmv"
+                type="video/wmv"
+              />
+            </video>
+          </div>
         </div>
       </div>
 
@@ -34,6 +167,7 @@
     </template>
 
     <div class="max-w-3xl px-6 mx-auto text-center">
+      <!-- 
       <div class="max-w-2xl -mt-4 sm:-mt-24 z-10 mx-auto relative" style="">
         <div
           class="absolute z-50 flex flex-col items-center justify-center w-full h-full"
@@ -124,103 +258,148 @@
           </video>
         </div>
       </div>
-
-      <div class="mt-10 max-w-lg mx-auto sm:flex sm:justify-center md:mt-12">
-        <div>
-          <a
-            :href="'https://simpleanalytics.com/welcome?theme=' + theme"
-            class="button large primary"
-          >
-            {{ $t("home.start_trial_now") }}
-          </a>
-          <p class="mb-8 sm:mb-0 text-xs mt-2">
-            <CheckIcon class="fill-green-500 w-4 inline align-text-top" />
-            {{ $t("home.no_creditcard") }}
-          </p>
-        </div>
-        <div class="mt-3 sm:mt-0 sm:ml-3">
-          <a
-            :href="
-              'https://simpleanalytics.com/simpleanalytics.com?theme=' + theme
-            "
-            class="button large"
-          >
-            {{ $t("home.see_live_demo") }}
-          </a>
-        </div>
-      </div>
-
-      <Quote
-        class="mt-4"
-        :logo="DuckDuckGoLogo"
-        :title="$t('testimonials.duckduckgo.name')"
-        :subtitle="$t('testimonials.duckduckgo.role')"
-        :quote="$t('testimonials.duckduckgo.quote')"
-        subtitlelink="https://duckduckgo.com/"
-      />
+      -->
     </div>
 
     <div
       class="bg-gradient-to-t from-blue-100 dark:from-gray-700 py-4 relative overflow-hidden pb-28"
     >
-      <div class="max-w-3xl px-6 mx-auto text-center">
+      <div class="max-w-3xl px-6 mt-8 mx-auto text-center">
         <h3
-          class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-4 sm:mb-8 font-medium"
+          id="reasons"
+          class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto -mt-4 mb-4 sm:mt-8 sm:mb-8 pt-8 font-medium"
         >
-          The most privacy-friendly analytics online.
+          Why is Simple Analytics the
+          <span class="text-red-500 dark:text-red-600">most privacy-first</span>
+          analytics?
         </h3>
+
+        <h4 class="my-4 mb-8 text-xl text-center">
+          There are 5<span class="text-red-500 dark:text-red-600">+1</span>
+          simple reasons that sum it up.
+        </h4>
       </div>
-      <ul class="mx-auto max-w-max text-left z-20 relative">
-        <li class="flex items-center my-4">
-          <ShieldCheckIcon
-            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
-          />
-          <p class="leading-relaxed">
-            We <span class="text-red-500 dark:text-red-600">comply</span> by
-            design with all privacy<br />policies - GDPR, PECR, CCPA and more.
-          </p>
-        </li>
-        <li class="flex items-center my-4">
-          <ShieldCheckIcon
-            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
-          />
-          <p class="leading-relaxed">
-            We
-            <span class="text-red-500 dark:text-red-600">never track</span>
-            anyone,
-            <ArrowLink
-              href="https://simpleanalytics.com/our-promise"
-              text="we promise"
+      <div class="flex flex-col md:flex-row justify-center items-center">
+        <div class="basis-2/4 mx-3 mb-8 md:mb-0">
+          <Video
+            class="ml-auto max-w-[500px]"
+            width="854"
+            height="480"
+            color="#5d3828"
+            poster="https://assets.simpleanalytics.com/videos/promo/v2/promo.jpg"
+          >
+            <source
+              src="https://assets.simpleanalytics.com/videos/promo/v2/promo.mp4"
+              type="video/mp4"
             />
-          </p>
-        </li>
-        <li class="flex items-center my-4">
-          <ShieldCheckIcon
-            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
-          />
-          <p class="leading-relaxed">
-            We don't
-            <span class="text-red-500 dark:text-red-600">store</span> or
-            <span class="text-red-500 dark:text-red-600">sell</span> any visitor
-            data,<br /><a
-              class="underline"
-              href="https://docs.simpleanalytics.com/what-we-collect"
-              target="_blank"
-              >see what we collect<Arrow />
-            </a>
-          </p>
-        </li>
-        <li class="flex items-center my-4">
-          <ShieldCheckIcon
-            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
-          />
-          <p class="leading-relaxed">
-            No
-            <span class="text-red-500 dark:text-red-600">cookie banner</span>
-            required
-          </p>
-        </li>
-      </ul>
+            <source
+              src="https://assets.simpleanalytics.com/videos/promo/v2/promo.ogv"
+              type="video/ogg"
+            />
+            <source
+              src="https://assets.simpleanalytics.com/videos/promo/v2/promo.webm"
+              type="video/webm"
+            />
+            <track
+              label="English"
+              kind="subtitles"
+              srclang="en"
+              src="https://assets.simpleanalytics.com/videos/promo/v2/promo.vtt"
+              default=""
+            />
+          </Video>
+        </div>
+        <div class="basis-2/4 mx-3">
+          <ol class="text-left z-20 relative max-w-[400px]">
+            <li class="flex items-center my-4">
+              <EyeOffIcon
+                class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+              />
+              <p class="leading-relaxed">
+                1. Privacy protection is
+                <span class="text-red-500 dark:text-red-600"
+                  >our business model</span
+                >. We comply by design with all privacy policies. Including:
+                GDPR, PECR, CCPA and more.
+              </p>
+            </li>
+            <li class="flex items-center my-4">
+              <KeyIcon
+                class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+              />
+              <p class="leading-relaxed">
+                2. Your data is always
+                <span class="text-red-500 dark:text-red-600">encrypted</span>.
+              </p>
+            </li>
+            <li class="flex items-center my-4">
+              <FingerPrintIcon
+                class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+              />
+              <p class="leading-relaxed">
+                3. We never, ever, ever store any
+                <span class="text-red-500 dark:text-red-600"
+                  >personal data</span
+                >
+                about visitors. No
+                <span class="text-red-500 dark:text-red-600"
+                  >cookies banners</span
+                >.
+              </p>
+            </li>
+            <li class="flex items-center my-4">
+              <GlobeIcon
+                class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+              />
+              <p class="leading-relaxed">
+                4. We are an
+                <span class="text-red-500 dark:text-red-600"
+                  >EU-based company</span
+                >
+                with EU-based servers.
+              </p>
+            </li>
+            <li class="flex items-center my-4">
+              <TableIcon
+                class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+              />
+              <p class="leading-relaxed">
+                5. You own
+                <span class="text-red-500 dark:text-red-600">your data</span>.
+                We don't
+                <span class="text-red-500 dark:text-red-600">sell</span> any
+                visitor data,
+                <a
+                  class="underline group"
+                  href="https://docs.simpleanalytics.com/what-we-collect"
+                  target="_blank"
+                  >see what we collect<Arrow />
+                </a>
+              </p>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="max-w-3xl px-6 mt-8 mx-auto text-center relative z-20">
+        <a
+          @click="scrollToHash('why')"
+          class="mt-4 button tiny shadow-md bg-white dark:bg-gray-800"
+        >
+          <ChevronDoubleDownIcon class="w-3 inline-block" />
+          <span class="mx-1">Read detailed reasons</span>
+          <ChevronDoubleDownIcon class="w-3 inline-block" />
+        </a>
+
+        <Quote
+          class="mt-4"
+          :logo="DuckDuckGoLogo"
+          :title="$t('testimonials.duckduckgo.name')"
+          :subtitle="$t('testimonials.duckduckgo.role')"
+          :quote="$t('testimonials.duckduckgo.quote')"
+          subtitlelink="https://duckduckgo.com/"
+        />
+      </div>
 
       <ClientOnly>
         <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2">
@@ -235,7 +414,7 @@
       <Quote
         class="mt-4"
         :reverse="true"
-        iconclass="fill-blue-200"
+        iconclass="fill-blue-200 dark:fill-gray-800"
         image="https://assets.simpleanalytics.com/images/people/rosie.png"
         title="Rosie Sherry"
         subtitle="Community Manager Indie Hackers"
@@ -399,126 +578,70 @@
 
       <StartTrial />
 
-      <h3
-        id="reasons"
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto -mt-4 mb-4 sm:mt-8 sm:mb-8 pt-8 font-medium"
-      >
-        Why is Simple Analytics the
-        <span class="text-red-500 dark:text-red-600">most privacy-first</span>
-        analytics?
-      </h3>
-
-      <h4 class="my-4 mb-8 text-xl text-center">
-        There are 5<span class="text-red-500 dark:text-red-600">+1</span> simple
-        reasons that sum it up.
-      </h4>
-    </div>
-    <div class="flex flex-col md:flex-row justify-center items-center">
-      <div class="basis-2/4 mx-3 mb-8 md:mb-0">
-        <Video
-          class="ml-auto max-w-[500px]"
-          width="854"
-          height="480"
-          color="#5d3828"
-          poster="https://assets.simpleanalytics.com/videos/promo/v2/promo.jpg"
+      <div class="max-w-3xl px-6 mx-auto text-center">
+        <h3
+          class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-4 sm:mb-8 font-medium"
         >
-          <source
-            src="https://assets.simpleanalytics.com/videos/promo/v2/promo.mp4"
-            type="video/mp4"
-          />
-          <source
-            src="https://assets.simpleanalytics.com/videos/promo/v2/promo.ogv"
-            type="video/ogg"
-          />
-          <source
-            src="https://assets.simpleanalytics.com/videos/promo/v2/promo.webm"
-            type="video/webm"
-          />
-          <track
-            label="English"
-            kind="subtitles"
-            srclang="en"
-            src="https://assets.simpleanalytics.com/videos/promo/v2/promo.vtt"
-            default=""
-          />
-        </Video>
+          The most privacy-friendly analytics online.
+        </h3>
       </div>
-      <div class="basis-2/4 mx-3">
-        <ol class="text-left z-20 relative max-w-[400px]">
-          <li class="flex items-center my-4">
-            <EyeOffIcon
-              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+      <ul class="mx-auto max-w-max text-left z-20 relative">
+        <li class="flex items-center my-4">
+          <ShieldCheckIcon
+            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+          />
+          <p class="leading-relaxed">
+            We <span class="text-red-500 dark:text-red-600">comply</span> by
+            design with all privacy<br />policies - GDPR, PECR, CCPA and more.
+          </p>
+        </li>
+        <li class="flex items-center my-4">
+          <ShieldCheckIcon
+            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+          />
+          <p class="leading-relaxed">
+            We
+            <span class="text-red-500 dark:text-red-600">never track</span>
+            anyone,
+            <ArrowLink
+              href="https://simpleanalytics.com/our-promise"
+              text="we promise"
             />
-            <p class="leading-relaxed">
-              1. Privacy protection is
-              <span class="text-red-500 dark:text-red-600"
-                >our business model</span
-              >.
-            </p>
-          </li>
-          <li class="flex items-center my-4">
-            <KeyIcon
-              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
-            />
-            <p class="leading-relaxed">
-              2. Your data is always
-              <span class="text-red-500 dark:text-red-600">encrypted</span>.
-            </p>
-          </li>
-          <li class="flex items-center my-4">
-            <FingerPrintIcon
-              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
-            />
-            <p class="leading-relaxed">
-              3. We never, ever, ever store any
-              <span class="text-red-500 dark:text-red-600"
-                >personally<br class="hidden sm:block" />identifiable
-                information</span
-              >
-              (PII) about visitors.
-            </p>
-          </li>
-          <li class="flex items-center my-4">
-            <GlobeIcon
-              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
-            />
-            <p class="leading-relaxed">
-              4. We are an
-              <span class="text-red-500 dark:text-red-600"
-                >EU-based company</span
-              ><br class="hidden sm:block" />
-              with EU-based servers.
-            </p>
-          </li>
-          <li class="flex items-center my-4">
-            <TableIcon
-              class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
-            />
-            <p class="leading-relaxed">
-              5. You own
-              <span class="text-red-500 dark:text-red-600">your data</span>.
-            </p>
-          </li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="max-w-3xl px-6 mt-8 mx-auto text-center">
-      <a
-        @click="scrollToHash('why')"
-        class="mt-4 button tiny shadow-md bg-white dark:bg-gray-800"
-      >
-        <ChevronDoubleDownIcon class="w-3 inline-block" />
-        <span class="mx-1">Read detailed reasons</span>
-        <ChevronDoubleDownIcon class="w-3 inline-block" />
-      </a>
+          </p>
+        </li>
+        <li class="flex items-center my-4">
+          <ShieldCheckIcon
+            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+          />
+          <p class="leading-relaxed">
+            We don't
+            <span class="text-red-500 dark:text-red-600">sell</span> any visitor
+            data,<br /><a
+              class="underline"
+              href="https://docs.simpleanalytics.com/what-we-collect"
+              target="_blank"
+              >see what we collect<Arrow />
+            </a>
+          </p>
+        </li>
+        <li class="flex items-center my-4">
+          <ShieldCheckIcon
+            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+          />
+          <p class="leading-relaxed">
+            No
+            <span class="text-red-500 dark:text-red-600">cookie banner</span>
+            required
+          </p>
+        </li>
+      </ul>
 
       <Quote
         class="mt-8"
         :reverse="false"
         iconclass="fill-blue-200"
         :logo="FastCompanyLogo"
-        logoclass="bg-blue-200 dark:bg-gray-500 rounded-full p-4"
+        logoclass="bg-blue-200 dark:bg-gray-500 rounded-full p-1 sm:p-4"
         subtitle="Featured at Fast Company"
         quote="It's time to ditch Google Analytics."
         subtitlelink="https://www.fastcompany.com/90300072/its-time-to-ditch-google-analytics"
@@ -1011,86 +1134,18 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium text-center"
       >
+        Simple pricing.
+      </h3>
+
+      <Pricing />
+
+      <h3
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium text-center"
+      >
         Frequently Asked Questions.
       </h3>
 
-      <div class="flex flex-col flex-wrap sm:flex-row -mt-8 -mx-6">
-        <div class="basis-1/2">
-          <ShieldExclamationIcon
-            class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
-          />
-          <p class="mx-6 leading-loose text-center text-red-400">
-            Will I be charged when my trial expires?
-          </p>
-          <p class="my-4 leading-loose mx-6">
-            No. After your trial expires, your plan downgrades automatically to
-            the basic free version. Upgrade whenever you want to the plan that
-            fits your needs. Prices start from as little as €1,- per month.
-          </p>
-
-          <BanIcon
-            class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
-          />
-          <p class="leading-loose text-center mx-6 text-red-400">
-            Can I cancel anytime?
-          </p>
-          <p class="my-4 leading-loose mx-6">
-            Yes. You can cancel your subscription at any moment. You will still
-            have access to your account and data until the end of the period you
-            paid for.
-          </p>
-
-          <CreditCardIcon
-            class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
-          />
-          <p class="leading-loose text-center mx-6 text-red-400">
-            What payment methods do you accept?
-          </p>
-          <p class="my-4 leading-loose mx-6">
-            We accept Credit Card, Debit Card, Bitcoin
-            <span
-              class="border border-red-400 dark:border-red-600 text-red-400 dark:text-red-600 rounded-full text-sm py-1 px-2"
-              >+10% & yearly</span
-            >, Apple Pay, and Google Pay as payment methods for all our paid
-            plans. You can pay in Euros, US Dollars or British Pounds. Bills
-            from €500 can be paid via bank transfers and cost an additional
-            <span
-              class="border border-red-400 dark:border-red-600 text-red-400 dark:text-red-600 rounded-full text-sm py-1 px-2"
-              >10%</span
-            >
-            in banking and service fees.
-          </p>
-        </div>
-        <div class="basis-1/2">
-          <TrendingUpIcon
-            class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
-          />
-          <p class="leading-loose text-center mx-6 text-red-400">
-            What will happen with the price when my traffic grows / declines?
-          </p>
-          <p class="my-4 leading-loose mx-6">
-            You only pay for what you actually need. This means that if your
-            plan's page view limit is exceeded, you will be charged for
-            overages. Simple Analytics automatically calculates your price based
-            on your average amount of page views (first looking back one month,
-            then the average of the previous three months). So, if you had an
-            increase in traffic during the last months, you pay a little more
-            next month. Likewise, you automatically pay a little less when your
-            average amount of page views decreased during the last months.
-          </p>
-
-          <MailOpenIcon
-            class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
-          />
-          <p class="leading-loose text-center mx-6 text-red-400">
-            I have more questions, what should I do?
-          </p>
-          <p class="my-4 leading-loose mx-6">
-            Please send your question(s) via
-            <a href="https://simpleanalytics.com/contact">our support page</a>.
-          </p>
-        </div>
-      </div>
+      <FAQ />
 
       <div class="mt-12 text-center">
         <StartTrial />
@@ -1129,22 +1184,10 @@
           <span class="text-red-500 dark:text-red-600">enterprises</span>.
         </h3>
 
-        <div
-          class="grid grid-cols-2 sm:grid-cols-5 items-center justify-center gap-8 sm:gap-12 mt-6 sm:mt-10 max-w-[80%] sm:max-w-none mx-auto"
-        >
-          <Tooltip
-            v-for="trustedBy in trustedByList"
-            :key="trustedBy.name"
-            :text="trustedBy.name"
-            class="flex justify-center items-center group"
-            :class="trustedBy.class ? trustedBy.class : ''"
-          >
-            <a :href="trustedBy.url" target="_blank" class="pointer-events-auto"
-              ><component
-                :is="trustedBy.component"
-                class="h-16 max-w-full" /></a
-          ></Tooltip>
-        </div>
+        <Logos
+          class="mt-6 sm:mt-10 max-w-[80%] sm:max-w-none mx-auto"
+          imageclass="max-w-[150px]"
+        />
       </div>
 
       <ClientOnly>
@@ -1267,8 +1310,7 @@
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
         >
-          3. We never, ever, ever store any personally identifiable information
-          (PII) about visitors.
+          3. We never, ever, ever store any personal data about visitors.
         </h5>
         <p>
           Some privacy-focused analytics use personally identifiable data and
@@ -1387,23 +1429,9 @@
 </template>
 
 <script setup>
-import HavasMediaLogo from "../components/logos/HavasMedia.vue";
-import GovScotLogo from "../components/logos/GovScot.vue";
-import GovUKLogo from "../components/logos/GovUK.vue";
-import HyundaiLogo from "../components/logos/Hyundai.vue";
 import DuckDuckGoLogo from "../components/logos/DuckDuckGo.vue";
 import FastCompanyLogo from "../components/logos/FastCompany.vue";
 import CapterraLogo from "../components/logos/Capterra.vue";
-import NomadListLogo from "../components/logos/NomadList.vue";
-import CinchLogo from "../components/logos/Cinch.vue";
-import MichelinLogo from "../components/logos/Michelin.vue";
-import AnwaltLogo from "../components/logos/Anwalt.vue";
-import HomeyLogo from "../components/logos/Homey.vue";
-import AllesBesteLogo from "../components/logos/AllesBeste.vue";
-import TrustlyLogo from "../components/logos/Trustly.vue";
-import CleanshotLogo from "../components/logos/Cleanshot.vue";
-import GFLLogo from "../components/logos/GFL.vue";
-import BannerbearLogo from "../components/logos/Bannerbear.vue";
 
 import EuropeanFlag from "../components/logos/EuropeanFlag.vue";
 import DataConnections from "../components/images/DataConnections.vue";
@@ -1415,7 +1443,9 @@ import ArrowLink from "../components/ArrowLink.vue";
 import Quote from "../components/Quote.vue";
 import Video from "../components/Video.vue";
 import StartTrial from "../components/StartTrial.vue";
-import Tooltip from "../components/Tooltip.vue";
+import Logos from "../components/Logos.vue";
+import Pricing from "../components/Pricing.vue";
+import FAQ from "../components/FAQ.vue";
 
 import {
   ArrowSmRightIcon,
@@ -1433,11 +1463,6 @@ import {
   MoonIcon,
   SunIcon,
   XCircleIcon,
-  ShieldExclamationIcon,
-  TrendingUpIcon,
-  CreditCardIcon,
-  BanIcon,
-  MailOpenIcon,
   EyeOffIcon,
   FingerPrintIcon,
   KeyIcon,
@@ -1454,6 +1479,11 @@ const previewVideoLight = ref(null);
 const previewVideoDark = ref(null);
 const seekVideoLight = ref(null);
 const seekVideoDark = ref(null);
+
+// const affiliate = ref();
+
+const affiliate = useAffiliate("schaap");
+const country = useState("country");
 
 const videoSeeksLight = [
   { translation: "seek.overview", start: 0, end: 3 },
@@ -1481,81 +1511,6 @@ const videoSeeksDark = [
   { translation: "seek.tweet_viewer", start: 101, end: 115 },
   { translation: "seek.events", start: 115, end: 131 },
   { translation: "seek.conversion", start: 131, end: Infinity },
-];
-
-const trustedByList = [
-  {
-    name: "Scottish Government",
-    url: "https://www.gov.scot/",
-    component: GovScotLogo,
-  },
-  {
-    name: "Havas Media Group",
-    url: "https://havasmediagroup.com/",
-    component: HavasMediaLogo,
-  },
-  {
-    name: "Hyundai",
-    url: "https://www.hyundai.com/",
-    component: HyundaiLogo,
-  },
-  {
-    name: "Government of the United Kingdom",
-    url: "https://www.gov.uk/",
-    component: GovUKLogo,
-  },
-  {
-    name: "Nomad List",
-    url: "https://nomadlist.com/",
-    component: NomadListLogo,
-  },
-  {
-    name: "Cinch",
-    url: "https://www.cinch.co.uk/",
-    component: CinchLogo,
-  },
-  {
-    name: "Michelin",
-    url: "https://www.michelin.com/",
-    component: MichelinLogo,
-    class: "col-span-2",
-  },
-  {
-    name: "Homey",
-    url: "https://homey.app/",
-    component: HomeyLogo,
-  },
-  {
-    name: "Anwalt",
-    url: "https://www.anwalt.de/",
-    component: AnwaltLogo,
-  },
-  {
-    name: "Trustly Bank",
-    url: "https://www.trustly.com/",
-    component: TrustlyLogo,
-  },
-  {
-    name: "AllesBeste",
-    url: "https://www.allesbeste.de/",
-    component: AllesBesteLogo,
-  },
-  {
-    name: "Cleanshot X",
-    url: "https://cleanshot.com/",
-    component: CleanshotLogo,
-  },
-  {
-    name: "Green for life Canada",
-    url: "https://gflenv.com/",
-    component: GFLLogo,
-  },
-  {
-    name: "Bannerbear",
-    url: "https://www.bannerbear.com/",
-    component: BannerbearLogo,
-    class: "col-span-2 sm:col-auto",
-  },
 ];
 
 const emailReports = ref([

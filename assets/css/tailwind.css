@@ -46,6 +46,18 @@ select {
   background-position: right 5px top 50%;
 }
 
+.underline-curly {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='none' width='102' height='11' viewBox='0 0 102 11'><path stroke='%23FF5B68' stroke-linecap='round' stroke-width='3' d='M2.5 8.5c25.5-9 63-7.5 97.5 0'/></svg>");
+  background-size: 100%;
+  background-position: center bottom 0;
+  padding-bottom: 10px;
+  background-repeat: no-repeat;
+}
+
+.dark .underline-curly {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='none' width='102' height='11' viewBox='0 0 102 11'><path stroke='%23C12C33' stroke-linecap='round' stroke-width='3' d='M2.5 8.5c25.5-9 63-7.5 97.5 0'/></svg>");
+}
+
 @keyframes moveFrontForwards {
   0% {
     z-index: 0;

@@ -31,7 +31,9 @@
       </Head>
     </Html>
 
-    <div class="text-gray-300 bg-blue-100 dark:bg-gray-900 relative">
+    <div
+      class="text-gray-300 bg-gradient-to-b from-blue-100 dark:from-gray-900 relative"
+    >
       <BackgroundShapes
         class="hidden sm:block absolute w-1/3 bottom-0 right-0"
         aria-hidden="true"

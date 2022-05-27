@@ -57,7 +57,12 @@
                   :class="'h-12 w-12 rounded-full ' + imageBackground"
                   :alt="`Image of ${title}`"
                 />
-                <component v-else-if="logo" :is="logo" class="h-12 w-12" />
+                <component
+                  v-else-if="logo"
+                  :is="logo"
+                  class="h-12 w-12"
+                  :class="logoclass"
+                />
               </div>
               <div
                 class="flex flex-col items-start lg:items-center justify-center ml-4 sm:ml-2 lg:mx-a"
