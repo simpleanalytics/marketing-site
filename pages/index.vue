@@ -1,7 +1,6 @@
 <template>
   <NuxtLayout name="default">
     <template #hero>
-      <p>country: {{ country }}</p>
       <div
         class="max-w-7xl mx-auto px-4 sm:px-2 flex flex-col md:flex-row items-center"
       >
@@ -1480,10 +1479,7 @@ const previewVideoDark = ref(null);
 const seekVideoLight = ref(null);
 const seekVideoDark = ref(null);
 
-// const affiliate = ref();
-
 const affiliate = useAffiliate("schaap");
-const country = useState("country");
 
 const videoSeeksLight = [
   { translation: "seek.overview", start: 0, end: 3 },

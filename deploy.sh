@@ -28,6 +28,8 @@ echo "=> Building"
 
 rm -f app.zip \
   && npm run build \
+  && mkdir -p ./.output/server/data/ \
+  && cp ./server/data/geolite-country.mmdb ./.output/server/data/geolite-country.mmdb \
   && cd ./.output/ \
   && zip -r ../app.zip . \
   && cd -

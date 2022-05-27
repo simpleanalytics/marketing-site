@@ -79,7 +79,8 @@
 import { CheckIcon } from "@heroicons/vue/solid";
 
 const monthly = ref(true);
-const currency = useCurrency();
+const currency = useState("currency");
+const country = useState("country");
 
 const tiers = [
   {

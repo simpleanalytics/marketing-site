@@ -88,5 +88,5 @@ import {
   MailOpenIcon,
 } from "@heroicons/vue/outline";
 
-const currency = useCurrency();
+const currency = useState("currency");
 </script>
