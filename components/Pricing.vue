@@ -30,6 +30,11 @@
     </div>
   </div>
 
+  <p v-if="affiliateCookie" class="text-center mt-8 sm:-mb-6">
+    You get the first month + 14 days for free because you're using an affiliate
+    link.
+  </p>
+
   <div
     class="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 md:grid-cols-3"
   >
@@ -80,7 +85,6 @@ import { CheckIcon } from "@heroicons/vue/solid";
 
 const monthly = ref(true);
 const currency = useState("currency");
-const country = useState("country");
 
 const tiers = [
   {
@@ -129,4 +133,9 @@ const tiers = [
     ],
   },
 ];
+
+const affiliateCookie = useCookie("affiliate", {
+  secure: process.env.NODE_ENV === "production",
+  sameSite: true,
+});
 </script>

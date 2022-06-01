@@ -2,6 +2,51 @@
   <NuxtLayout name="default">
     <template #hero>
       <div
+        v-if="affiliate || affiliateCookie"
+        class="py-4 max-w-7xl mx-auto sm:px-2 mb-4 -mt-4 sm:-mt-10"
+      >
+        <p
+          v-if="affiliateCookie"
+          class="border-2 bg-white dark:bg-gray-900 border-red-500 dark:border-red-600 rounded-lg text-center p-4 shadow"
+        >
+          You accepted the affiliate deal so you get a discount and
+          <strong>{{ affiliate?.name || "the referral" }}</strong> gets a
+          reward.
+          <a @click="undoAffiliate(affiliate)">Click here to undo this</a>.
+        </p>
+        <div
+          v-else-if="affiliate.valid === true"
+          class="border-2 bg-white dark:bg-gray-900 border-red-500 dark:border-red-600 rounded-lg text-center p-4 shadow"
+        >
+          <p class="mb-2">
+            You are here via
+            <strong>{{ affiliate.name }}</strong
+            >. To give you the first month for free and give
+            {{ affiliate.name }} a reward, we ask you to place a cookie for 30
+            days.
+          </p>
+
+          <a @click="acceptAffiliate(affiliate)" class="button"
+            >Accept affiliate deal</a
+          >
+        </div>
+        <p
+          v-else-if="affiliate.valid === false"
+          class="bg-red-500 dark:bg-red-600 text-white rounded-lg text-center p-4 shadow dark:shadow-none"
+        >
+          It looks like your affiliate link
+          <strong>"{{ affiliate.slug }}"</strong> is invalid.
+          <NuxtLink
+            :href="'https://simpleanalytics.com/contact?theme=' + theme"
+            target="_blank"
+            class="text-white underline"
+            >Contact us</NuxtLink
+          >
+          if you think this is a mistake.
+        </p>
+      </div>
+
+      <div
         class="max-w-7xl mx-auto px-4 sm:px-2 flex flex-col md:flex-row items-center"
       >
         <div class="text-center md:text-left flex-shrink basis-2/4 md:mr-8">
@@ -45,7 +90,7 @@
                 {{ $t("home.no_creditcard") }}
               </p>
             </div>
-            <div class="hidden sm:block sm:mt-4">
+            <!-- <div class="hidden sm:block sm:mt-4">
               <a
                 :href="
                   'https://simpleanalytics.com/simpleanalytics.com?theme=' +
@@ -55,7 +100,7 @@
               >
                 {{ $t("home.see_live_demo") }} <Arrow class="h-5 w-5" />
               </a>
-            </div>
+            </div> -->
           </div>
         </div>
 
@@ -65,13 +110,13 @@
           >
             <a
               @click="scrollToSeekVideo('seek.overview')"
-              class="group button large primary shadow-xl bg-white dark:bg-gray-800"
+              class="group button large shadow-xl bg-white dark:bg-gray-800 hover-hover:hover:dark:bg-gray-900"
             >
               <ChevronDoubleDownIcon class="w-3 inline-block" />
               <span class="mx-2">See feature video below</span>
               <ChevronDoubleDownIcon class="w-3 inline-block" />
             </a>
-            <NuxtLink
+            <!-- <NuxtLink
               :href="
                 'https://simpleanalytics.com/simpleanalytics.com?theme=' + theme
               "
@@ -80,7 +125,7 @@
             >
               <span class="">Play with live demo</span>
               <Arrow class="h-5 w-5" />
-            </NuxtLink>
+            </NuxtLink> -->
           </div>
 
           <div
@@ -1139,7 +1184,7 @@
       <Pricing />
 
       <h3
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium text-center"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-24 sm:mb-8 font-medium text-center"
       >
         Frequently Asked Questions.
       </h3>
@@ -1479,7 +1524,7 @@ const previewVideoDark = ref(null);
 const seekVideoLight = ref(null);
 const seekVideoDark = ref(null);
 
-const affiliate = useAffiliate("schaap");
+const affiliate = useState("affiliate");
 
 const videoSeeksLight = [
   { translation: "seek.overview", start: 0, end: 3 },
@@ -1577,11 +1622,26 @@ const themeCookie = useCookie("theme", {
   sameSite: true,
 });
 
+const affiliateCookie = useCookie("affiliate", {
+  secure: process.env.NODE_ENV === "production",
+  sameSite: true,
+  maxAge: 2592000, // 30 days in seconds
+});
+
 const toggleTheme = () => {
   if (theme.value === "light") theme.value = "dark";
   else theme.value = "light";
 
   themeCookie.value = theme.value;
+};
+
+const acceptAffiliate = ({ slug } = {}) => {
+  affiliateCookie.value = slug;
+  history?.replaceState?.({}, "", "/");
+};
+const undoAffiliate = ({ slug } = {}) => {
+  affiliateCookie.value = null;
+  history?.replaceState?.({}, "", `/?referral=${slug}`);
 };
 </script>
 

@@ -271,7 +271,7 @@
           </transition>
         </Popover>
 
-        <main class="container mt-8 mx-auto max-w-7xl px-4 sm:mt-24">
+        <main class="container mt-8 mx-auto max-w-7xl px-4 sm:mt-16">
           <slot name="hero" />
         </main>
       </div>
