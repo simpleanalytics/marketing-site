@@ -123,7 +123,7 @@ const filtered = props.limit ? [...list].slice(0, props.limit) : list;
 
 const classes = !props.tooltipclass
   ? ["justify-center"]
-  : props.tooltipclass.split(" ");
+  : props.tooltipclass?.split(" ") || [];
 
 const tooltipclass = Object.fromEntries(classes.map((c) => [c, true]));
 

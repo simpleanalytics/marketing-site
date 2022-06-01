@@ -41,7 +41,8 @@ const toggleTheme = () => {
   --size: 30px;
   --duration: 0.5s;
   --shine-id: 1; /* Default value */
-  --background-color: #f2f9fc;
+  --background-color-light: #f8fafb;
+  --background-color-dark: #232e2f;
   --moon-color: #9aa7b4;
   --sun-color: gold;
 
@@ -62,6 +63,7 @@ const toggleTheme = () => {
   border-radius: 50%;
   transition: all var(--duration);
   z-index: 1;
+  transform: scale(0.75);
 }
 
 .moon::after {
@@ -73,8 +75,10 @@ const toggleTheme = () => {
   top: calc(var(--size) / -4);
   width: var(--size);
   height: var(--size);
-  transition: all var(--duration), background-color var(--dark-mode-transition);
-  background-color: var(--background-color);
+  transition-property: right, top, width, height, transform;
+  transition-delay: 100ms;
+  transition-duration: var(--duration);
+  background-color: var(--background-color-light);
 }
 
 html.dark .moon {
@@ -86,6 +90,7 @@ html.dark .moon::after {
   width: 0;
   height: 0;
   transform: scale(0.6);
+  background-color: var(--background-color-dark);
 }
 
 .straaltje {
@@ -104,7 +109,7 @@ html.dark .moon::after {
   transform: rotate(calc(360deg / 12 * var(--shine-id)))
     translateY(var(--width));
   opacity: 0;
-  z-index: 0;
+  z-index: 50;
 }
 
 html.dark .straaltje {

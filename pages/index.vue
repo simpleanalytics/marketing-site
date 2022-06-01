@@ -76,7 +76,7 @@
           </div>
 
           <div
-            class="max-w-lg flex flex-wrap mt-8 justify-center sm:justify-start"
+            class="max-w-lg flex flex-wrap mt-8 justify-center md:justify-start"
           >
             <div class="mt-4 sm:mr-4">
               <a
@@ -104,7 +104,7 @@
           </div>
         </div>
 
-        <div class="z-10 mx-auto relative basis-2/4">
+        <div class="mt-12 md:mt-0 z-10 mx-auto relative basis-2/4">
           <div
             class="absolute z-50 flex flex-col items-center justify-center w-full h-full"
           >
@@ -355,33 +355,34 @@
         </div>
         <div class="basis-2/4 mx-3">
           <ol class="text-left z-20 relative max-w-[400px]">
-            <li class="flex items-center my-4">
+            <li class="flex my-3">
               <EyeOffIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
-              <p class="leading-relaxed">
-                1. Privacy protection is
+              <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
+                <span class="inline-block w-2.5">1. </span>Privacy protection is
                 <span class="text-red-500 dark:text-red-600"
                   >our business model</span
                 >. We comply by design with all privacy policies. Including:
                 GDPR, PECR, CCPA and more.
               </p>
             </li>
-            <li class="flex items-center my-4">
+            <li class="flex my-3">
               <KeyIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
-              <p class="leading-relaxed">
-                2. Your data is always
+              <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
+                <span class="inline-block w-2.5">2. </span>Your data is always
                 <span class="text-red-500 dark:text-red-600">encrypted</span>.
               </p>
             </li>
-            <li class="flex items-center my-4">
+            <li class="flex my-3">
               <FingerPrintIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
-              <p class="leading-relaxed">
-                3. We never, ever, ever store any
+              <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
+                <span class="inline-block w-2.5">3. </span>We never, ever, ever
+                store any
                 <span class="text-red-500 dark:text-red-600"
                   >personal data</span
                 >
@@ -391,24 +392,24 @@
                 >.
               </p>
             </li>
-            <li class="flex items-center my-4">
+            <li class="flex my-3">
               <GlobeIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
-              <p class="leading-relaxed">
-                4. We are an
+              <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
+                <span class="inline-block w-2.5">4. </span>We are an
                 <span class="text-red-500 dark:text-red-600"
                   >EU-based company</span
                 >
                 with EU-based servers.
               </p>
             </li>
-            <li class="flex items-center my-4">
+            <li class="flex my-3">
               <TableIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
-              <p class="leading-relaxed">
-                5. You own
+              <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
+                <span class="inline-block w-2.5">5. </span>You own
                 <span class="text-red-500 dark:text-red-600">your data</span>.
                 We don't
                 <span class="text-red-500 dark:text-red-600">sell</span> any
@@ -622,6 +623,7 @@
 
       <StartTrial />
 
+      <!-- 
       <div class="max-w-3xl px-6 mx-auto text-center">
         <h3
           class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-4 sm:mb-8 font-medium"
@@ -678,7 +680,7 @@
             required
           </p>
         </li>
-      </ul>
+      </ul> -->
 
       <Quote
         class="mt-8"
@@ -796,7 +798,7 @@
 
     <div class="max-w-3xl px-6 mx-auto text-center">
       <h3
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mb-4 mt-12 sm:mb-8 font-medium"
       >
         Event tracking without tracing individuals.
       </h3>
@@ -820,7 +822,7 @@
       </p>
 
       <h3
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-20 sm:mb-8 font-medium"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mb-4 mt-20 sm:mb-8 font-medium"
       >
         Automate reports.
       </h3>
@@ -904,7 +906,7 @@
       <StartTrial />
 
       <h3
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-20 sm:mb-8 font-medium"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mb-4 mt-20 sm:mb-8 font-medium"
       >
         Dark mode.
       </h3>
@@ -1077,7 +1079,7 @@
     >
       <div class="max-w-3xl px-6 mx-auto text-center">
         <h3
-          class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-lg mx-auto mt-2 mb-4 sm:mt-24 sm:mb-8 font-medium"
+          class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-lg mx-auto mb-4 mt-24 sm:mb-8 font-medium"
         >
           When you ask videographers to create something fun.
         </h3>
@@ -1176,7 +1178,7 @@
 
     <div class="max-w-3xl px-6 mx-auto">
       <h3
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-12 sm:mb-8 font-medium text-center"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mb-4 mt-12 sm:mb-8 font-medium text-center"
       >
         Simple pricing.
       </h3>
@@ -1184,7 +1186,7 @@
       <Pricing />
 
       <h3
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-24 sm:mb-8 font-medium text-center"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mb-4 mt-24 sm:mb-8 font-medium text-center"
       >
         Frequently Asked Questions.
       </h3>
@@ -1245,10 +1247,10 @@
       </ClientOnly>
     </section>
 
-    <div class="max-w-3xl px-6 mx-auto text-center">
+    <div class="max-w-3xl px-6 mx-auto text-left">
       <h3
         id="why"
-        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-4 mb-4 sm:mt-16 sm:mb-8 pt-8 font-medium text-center"
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mb-4 mt-16 sm:mb-8 pt-8 font-medium text-center"
       >
         Why is Simple Analytics
         <span class="text-red-500 dark:text-red-600"
@@ -1465,7 +1467,9 @@
         <img
           src="https://assets.simpleanalytics.com/images/homepage/up-smaller.png"
           alt=""
-          class="w-96"
+          style="aspect-ratio: 580 / 324"
+          class="w-96 bg-gray-700"
+          loading="lazy"
         />
       </div>
     </div>

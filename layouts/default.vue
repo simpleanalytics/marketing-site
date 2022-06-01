@@ -57,13 +57,14 @@
                       >Simple Analytics</span
                     >
                   </NuxtLink>
-                  <a @click="toggleTheme()" class="mt-1 mr-auto">
+                  <MoonSun class="scale-75 ml-1 mt-1 mr-auto" />
+                  <!-- <a @click="toggleTheme()" class="mt-1 mr-auto">
                     <SunIcon
                       class="h-7 p-1 ml-1 stroke-gray-400"
                       v-if="theme === 'dark'"
                     />
                     <MoonIcon class="h-6 p-1 ml-1 stroke-red-500" v-else />
-                  </a>
+                  </a> -->
                   <div
                     class="flex items-center md:hidden"
                     style="margin-right: 4px"
@@ -283,7 +284,7 @@
 
     <footer class="bg-blue-100 dark:bg-gray-800">
       <div
-        class="bg-gradient-to-t from-blue-100 to-blue-200 dark:from-gray-800 dark:to-gray-700 text-left lg:text-left"
+        class="bg-gradient-to-t from-gray-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 text-left lg:text-left"
       >
         <div
           class="container px-3 sm:px-6 pt-10 pb-4 md:pt-16 md:pb-10 mx-auto"
@@ -451,9 +452,9 @@
                     <span>Matomo</span>
                   </a>
                 </li>
-                <li v-if="false">
+                <li>
                   <a
-                    href="#!"
+                    href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-plausible"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <PlausibleIcon
@@ -475,7 +476,7 @@
                 </li>
                 <li>
                   <a
-                    href="#!"
+                    href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <CloudflareIcon
@@ -518,8 +519,11 @@
                   >our blog</a
                 >.
               </p>
-              <ul class="list-none mb-0 mt-0" v-else>
-                <li v-for="(post, index) in recentPosts" :key="post.url">
+              <ul class="list-none flex flex-col space-y-2 -mb-2.5 mt-0" v-else>
+                <li
+                  v-for="(post, index) in recentPosts.slice(0, 5)"
+                  :key="post.url"
+                >
                   <a
                     :href="post.url"
                     target="_blank"
@@ -533,9 +537,9 @@
                     <span
                       class="hover-hover:group-hover:text-red-500 dark:hover-hover:group-hover:text-gray-300"
                     >
-                      {{ post.title.split(" ").slice(0, -1).join(" ") }}
+                      {{ post.title?.split(" ").slice(0, -1).join(" ") }}
                       <span class="whitespace-nowrap">
-                        {{ post.title.split(" ").pop() }}
+                        {{ post.title?.split(" ").pop() }}
                         <Arrow
                           class="ml-0 fill-gray-800 hover-hover:group-hover:fill-red-500 dark:fill-gray-400 dark:hover-hover:group-hover:fill-gray-300"
                         />
@@ -543,7 +547,7 @@
                     </span>
                     <img
                       v-if="index === 0 && (post.image_no_text || post.image)"
-                      class="rounded-lg shadow-md mt-1"
+                      class="rounded-lg shadow-md mt-1 mb-1 dark:brightness-90"
                       :src="post.image_no_text || post.image"
                     />
                   </a>
@@ -552,17 +556,21 @@
             </div>
 
             <div
-              class="lg:col-span-3 md:col-span-2 text-center flex items-end justify-center lg:justify-start"
+              class="lg:col-span-3 md:col-span-2 text-center flex items-center justify-center lg:justify-start"
             >
-              <a
-                class="text-gray-700 dark:text-gray-500 py-2 px-3 hover-hover:hover:text-red-500 dark:hover-hover:hover:text-gray-300 inline-flex items-center"
-                href="https://simpleanalytics.com/contact#details"
-              >
+              <p class="mt-auto inline-flex items-center">
                 <SimpleAnalyticsIcon class="h-5 w-auto sm:h-5 inline mr-2" />
-                <span class="mt-0.5">Simple Analytics B.V.</span>
-              </a>
-
-              <!-- <MoonSun /> -->
+                <span class="mt-0.5"
+                  >Simple Analytics<span class="ml-3 mr-0">&middot;</span
+                  ><a
+                    class="text-gray-600 dark:text-gray-500 py-2 px-3 hover-hover:hover:text-red-500 dark:hover-hover:hover:text-gray-300 italic"
+                    href="https://simpleanalytics.com/contact#details"
+                    >company details</a
+                  ></span
+                >
+                <span class="mx-2">&middot;</span>
+                <MoonSun class="ml-1" />
+              </p>
             </div>
           </div>
         </div>
@@ -683,9 +691,15 @@ const toggleTheme = () => {
   themeCookie.value = theme.value;
 };
 
-const { pending, data: recentPosts } = useLazyFetch(
+const { pending, data: recentPostsAll } = useLazyFetch(
   "https://blog.simpleanalytics.com/recent-posts.json"
 );
+
+const recentPosts = computed(() => {
+  if (Array.isArray(recentPostsAll.value))
+    return recentPostsAll.value.slice(0, 3);
+  return [];
+});
 
 const year = new Date().getFullYear();
 
