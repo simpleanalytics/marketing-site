@@ -10,6 +10,7 @@
           :src="image"
           :class="'h-44 w-44 xl:h-50 xl:w-50 rounded-full ' + imageBackground"
           alt=""
+          loading="lazy"
         />
         <component
           v-else-if="logo"
@@ -56,6 +57,7 @@
                   :src="image"
                   :class="'h-12 w-12 rounded-full ' + imageBackground"
                   :alt="`Image of ${title}`"
+                  loading="lazy"
                 />
                 <component
                   v-else-if="logo"

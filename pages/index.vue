@@ -925,11 +925,15 @@
           @click="toggleTheme()"
           src="https://assets.simpleanalytics.com/images/homepage/homepage-light.png"
           class="relative transition rounded-lg shadow-md cursor-pointer"
+          loading="lazy"
+          style="aspect-ratio: 1024 / 561"
         />
         <img
           @click="toggleTheme()"
           src="https://assets.simpleanalytics.com/images/homepage/homepage-dark.png"
           class="relative transition rounded-lg shadow-md cursor-pointer"
+          loading="lazy"
+          style="aspect-ratio: 1024 / 562"
         />
       </div>
     </div>
@@ -1468,7 +1472,7 @@
           src="https://assets.simpleanalytics.com/images/homepage/up-smaller.png"
           alt=""
           style="aspect-ratio: 580 / 324"
-          class="w-96 bg-gray-700"
+          class="w-96"
           loading="lazy"
         />
       </div>
