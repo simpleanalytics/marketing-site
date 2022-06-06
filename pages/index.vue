@@ -9,8 +9,8 @@
           v-if="affiliateCookie"
           class="border-2 bg-white dark:bg-gray-900 border-red-500 dark:border-red-600 rounded-lg text-center p-4 shadow"
         >
-          You accepted the affiliate deal so you get a discount and
-          <strong>{{ affiliate?.name || "the referral" }}</strong> gets a
+          You accepted the affiliate deal, therefore you get a discount and
+          <strong>{{ affiliate?.name || "the promoter" }}</strong> gets a
           reward.
           <a @click="undoAffiliate(affiliate)">Click here to undo this</a>.
         </p>
@@ -31,15 +31,23 @@
           >
         </div>
         <p
-          v-else-if="affiliate.valid === false"
+          v-else-if="affiliate.valid === false || affiliate.error"
           class="bg-red-500 dark:bg-red-600 text-white rounded-lg text-center p-4 shadow dark:shadow-none"
         >
-          It looks like your affiliate link
-          <strong>"{{ affiliate.slug }}"</strong> is invalid.
+          <span v-if="affiliate.error">{{ affiliate.error }}</span>
+          <span v-else-if="affiliate.slug">
+            It looks like your affiliate link
+            <strong>"{{ affiliate.slug }}"</strong> is invalid.
+          </span>
+          <span v-else>It looks like your affiliate link is invalid.</span>
+
           <NuxtLink
-            :href="'https://simpleanalytics.com/contact?theme=' + theme"
+            :href="
+              'https://simpleanalytics.com/contact' +
+              (theme === 'dark' ? '?theme=dark' : '')
+            "
             target="_blank"
-            class="text-white underline"
+            class="text-white underline ml-1"
             >Contact us</NuxtLink
           >
           if you think this is a mistake.
@@ -80,7 +88,10 @@
           >
             <div class="mt-4 sm:mr-4">
               <a
-                :href="'https://simpleanalytics.com/welcome?theme=' + theme"
+                :href="
+                  'https://simpleanalytics.com/welcome' +
+                  (theme === 'dark' ? '?theme=dark' : '')
+                "
                 class="button large primary"
               >
                 {{ $t("home.start_trial_now") }}
@@ -93,8 +104,8 @@
             <!-- <div class="hidden sm:block sm:mt-4">
               <a
                 :href="
-                  'https://simpleanalytics.com/simpleanalytics.com?theme=' +
-                  theme
+                  'https://simpleanalytics.com/simpleanalytics.com' +
+                  (theme === 'dark' ? '?theme=dark' : '')
                 "
                 class="button large group"
               >
@@ -118,7 +129,8 @@
             </a>
             <!-- <NuxtLink
               :href="
-                'https://simpleanalytics.com/simpleanalytics.com?theme=' + theme
+                'https://simpleanalytics.com/simpleanalytics.com' +
+                (theme === 'dark' ? '?theme=dark' : '')
               "
               target="_blank"
               class="mt-4 button tiny shadow-md bg-white dark:bg-gray-800 group"
@@ -218,7 +230,8 @@
         >
           <NuxtLink
             :href="
-              'https://simpleanalytics.com/simpleanalytics.com?theme=' + theme
+              'https://simpleanalytics.com/simpleanalytics.com' +
+              (theme === 'dark' ? '?theme=dark' : '')
             "
             class="button large primary shadow-xl bg-white dark:bg-gray-800"
           >

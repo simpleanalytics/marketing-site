@@ -26,7 +26,9 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         valid: data.success,
       };
     } catch (error) {
-      affiliate.value = { error: error.message };
+      affiliate.value = {
+        error: "Failed to check if affiliate link is valid.",
+      };
     }
   }
 });

@@ -206,13 +206,19 @@
                 class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0"
               >
                 <a
-                  :href="'https://simpleanalytics.com/welcome?theme=' + theme"
+                  :href="
+                    'https://simpleanalytics.com/welcome' +
+                    (theme === 'dark' ? '?theme=dark' : '')
+                  "
                   class="font-medium text-gray-500 dark:text-gray-400 mx-3 dark:hover-hover:hover:text-gray-600"
                 >
                   {{ $t("nav.signup") }}
                 </a>
                 <a
-                  :href="'https://simpleanalytics.com/login?theme=' + theme"
+                  :href="
+                    'https://simpleanalytics.com/login' +
+                    (theme === 'dark' ? '?theme=dark' : '')
+                  "
                   class="inline-flex items-center px-4 py-2 button"
                 >
                   {{ $t("nav.login") }}

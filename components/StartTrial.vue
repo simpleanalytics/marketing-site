@@ -1,7 +1,10 @@
 <template>
   <p>
     <a
-      :href="'https://simpleanalytics.com/welcome?theme=' + theme"
+      :href="
+        'https://simpleanalytics.com/welcome' +
+        (theme === 'dark' ? '?theme=dark' : '')
+      "
       class="button primary"
       >Start free trial now</a
     >
