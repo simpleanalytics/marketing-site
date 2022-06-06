@@ -790,6 +790,70 @@
     </section>
 
     <div class="max-w-3xl px-6 mx-auto text-center">
+      <GoogleAnalyticsIcon
+        class="inline stroke-1 h-20 mt-12 stroke-red-500 dark:stroke-red-600"
+      />
+
+      <h3
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mb-4 mt-4 sm:mb-8 font-medium text-red-500 dark:text-red-600"
+      >
+        Why you should switch from Google Analytics
+      </h3>
+
+      <div class="text-left leading-loose">
+        <p class="my-4">
+          Google is one of the world's largest data devouring machine, selling
+          your website visitors' data for profit. From an ethical standpoint,
+          organizations should aim to protect the privacy of their website
+          visitors. Still,
+          <span class="underline">85% of the websites</span> are using Google
+          Analytics; this is about to change.
+        </p>
+
+        <p class="my-4">
+          Privacy laws like the GDPR are put in place to preserve the privacy of
+          internet users and crackdown on big tech and mass surveillance
+          operations. In addition, privacy-friendly alternatives provide
+          organizations with more options to ditch solutions that don't care
+          about user privacy.
+        </p>
+
+        <p class="my-4">
+          Google Analytics is a complex web analytics tool that does not care
+          about user privacy. They are about to change to a new version called
+          <a
+            href="https://blog.simpleanalytics.com/google-to-sunset-universal-analytics-in-2023"
+            target="_blank"
+            class="group"
+            >GA4 that aims to be privacy-friendly but is not<Arrow
+          /></a>
+        </p>
+
+        <p class="my-4">
+          Here is why Simple Analytics is the number one privacy-friendly
+          <a
+            href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-google-analytics"
+            target="_blank"
+            class="group"
+            >alternative to Google Analytics,<Arrow
+          /></a>
+          and we are trusted by 600+ paying customers to provide the insights
+          they need.
+        </p>
+
+        <p class="my-4">
+          The train for privacy-friendly alternatives to big tech is about to
+          leave the station. Are you hopping on?
+          <a
+            :href="
+              'https://simpleanalytics.com/welcome' +
+              (theme === 'dark' ? '?theme=dark' : '')
+            "
+            >Give us a try.</a
+          >
+        </p>
+      </div>
+
       <Quote
         class="mt-12"
         image="https://assets.simpleanalytics.com/images/people/philippe.png"
@@ -820,7 +884,7 @@
           class="underline group"
           href="https://docs.simpleanalytics.com/automated-events"
           target="_blank"
-          >Auto collect events<Arrow class=""
+          >Auto collect events<Arrow
         /></a>
         like downloads, outbound links, and email clicks. Check the performance
         of every button, click and page visit you want.
@@ -1499,6 +1563,7 @@ import FastCompanyLogo from "../components/logos/FastCompany.vue";
 import CapterraLogo from "../components/logos/Capterra.vue";
 
 import EuropeanFlag from "../components/logos/EuropeanFlag.vue";
+import GoogleAnalyticsIcon from "../components/icons/GoogleAnalytics.vue";
 import DataConnections from "../components/images/DataConnections.vue";
 import ListIcon from "../components/images/ListIcon.vue";
 import BackgroundChart from "../components/images/BackgroundChart.vue";
