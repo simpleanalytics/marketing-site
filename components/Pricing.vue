@@ -46,15 +46,40 @@
       <div class="p-6">
         <h2 class="text-lg leading-6 font-medium">{{ tier.name }}.</h2>
         <p class="mt-4 text-sm text-gray-500">{{ tier.description }}</p>
-        <p class="mt-8">
+        <p class="mt-2">
+          <span class="text-base text-gray-300 block">
+            <span v-if="tier.from">from</span>
+            <span v-else>&nbsp;</span></span
+          >
           <span class="text-4xl font-extrabold text-gray-600 dark:text-gray-300"
             >{{ currency?.sign
             }}{{ monthly ? tier.priceMonthly : tier.priceYearly }}</span
           >
           {{ " " }}
           <span class="text-base font-medium text-gray-500">/mo</span>
+          <span class="block text-gray-300 mt-2" v-if="!tier.from"
+            >{{ currency?.sign
+            }}{{
+              monthly ? tier.priceMonthly * 12 : tier.priceYearly * 12
+            }}
+            yearly</span
+          >
+          <span class="block text-gray-300 mt-1" v-else>&nbsp;</span>
         </p>
-        <a :href="tier.href" class="mt-8 block w-full button"
+        <a
+          v-if="tier.name === 'Enterprise'"
+          href="https://simpleanalytics.com/contact"
+          class="mt-4 block w-full button"
+          >Contact us</a
+        >
+        <a
+          v-else
+          :href="`https://simpleanalytics.com/welcome?currency=${
+            currency?.code
+          }&plan=${tier.name.toLowerCase()}&interval=${
+            monthly ? 'monthly' : 'yearly'
+          }`"
+          class="mt-4 block w-full button"
           >Buy {{ tier.name }}</a
         >
       </div>
@@ -122,6 +147,7 @@ const tiers = [
     href: "#",
     priceMonthly: 199,
     priceYearly: 199,
+    from: true,
     description: "All the basics for starting a new business",
     includedFeatures: [
       "1+ million datapoints",
