@@ -10,7 +10,8 @@
       <p class="my-4 leading-loose mx-6">
         No. After your trial expires, your plan downgrades automatically to the
         basic free version. Upgrade whenever you want to the plan that fits your
-        needs. Prices start from as little as {{ currency?.sign }}1,- per month.
+        needs.
+        <!-- Prices start from as little as {{ currency?.sign }}1,- per month. -->
       </p>
 
       <BanIcon
@@ -59,20 +60,22 @@
         page view limit is exceeded, you will be charged for overages. Simple
         Analytics automatically calculates your price based on your average
         amount of page views (first looking back one month, then the average of
-        the previous three months). So, if you had an increase in traffic during
-        the last months, you pay a little more next month. Likewise, you
-        automatically pay a little less when your average amount of page views
-        decreased during the last months.
+        the previous three months).
       </p>
 
-      <MailOpenIcon
-        class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
+      <AverageChart
+        class="mx-6 rounded-lg dark:border-none bg-red-50 dark:bg-gray-700"
       />
-      <p class="leading-loose text-center mx-6 text-red-400 dark:text-red-600">
-        I have more questions, what should I do?
-      </p>
+
       <p class="my-4 leading-loose mx-6">
-        Please send your question(s) via
+        So, if you had an increase in traffic during the last months, you pay
+        only a little more next month. Likewise, you automatically pay a little
+        less when your average amount of page views decreased during the last
+        months.
+      </p>
+
+      <p class="my-4 leading-loose mx-6">
+        Need more help? Please send us your question(s) via
         <a href="https://simpleanalytics.com/contact">our support page</a>.
       </p>
     </div>
@@ -87,6 +90,8 @@ import {
   TrendingUpIcon,
   MailOpenIcon,
 } from "@heroicons/vue/outline";
+
+import AverageChart from "./images/AverageChart.vue";
 
 const currency = useState("currency");
 </script>

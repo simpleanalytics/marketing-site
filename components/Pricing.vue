@@ -108,7 +108,7 @@
 <script setup>
 import { CheckIcon } from "@heroicons/vue/solid";
 
-const monthly = ref(true);
+const monthly = ref(false);
 const currency = useState("currency");
 
 const tiers = [

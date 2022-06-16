@@ -101,17 +101,17 @@
                 {{ $t("home.no_creditcard") }}
               </p>
             </div>
-            <!-- <div class="hidden sm:block sm:mt-4">
+            <div class="hidden sm:block sm:mt-4">
               <a
                 :href="
-                  'https://simpleanalytics.com/simpleanalytics.com' +
-                  (theme === 'dark' ? '?theme=dark' : '')
+                  'http://localhost:3000/seed.com?from=landing' +
+                  (theme === 'dark' ? '&theme=dark' : '')
                 "
                 class="button large group"
               >
                 {{ $t("home.see_live_demo") }} <Arrow class="h-5 w-5" />
               </a>
-            </div> -->
+            </div>
           </div>
         </div>
 
@@ -401,7 +401,7 @@
                 >
                 about visitors. No
                 <span class="text-red-500 dark:text-red-600"
-                  >cookies banners</span
+                  >cookie banners</span
                 >.
               </p>
             </li>
@@ -472,7 +472,7 @@
       <Quote
         class="mt-4"
         :reverse="true"
-        iconclass="fill-blue-200 dark:fill-gray-800"
+        iconclass="fill-blue-200 dark:fill-gray-700"
         image="https://assets.simpleanalytics.com/images/people/rosie.png"
         title="Rosie Sherry"
         subtitle="Community Manager Indie Hackers"
@@ -493,11 +493,11 @@
       </h3>
       <p class="my-4 leading-loose max-w-xl mx-auto">
         One dashboard to instantly see how many visitors are coming to your
-        website. Where they come from. And what they do once they're there.
+        website, where they come from and what they do once they're there.
         Without cookies. Without stalking. Still lightweight.
       </p>
 
-      <div class="mt-4 mb-8">
+      <div class="mt-4 mb-8" id="features">
         <div>
           <p
             ref="seekVideoInstruction"
@@ -1192,7 +1192,7 @@
             </Video>
 
             <p class="mt-3 text-xs">
-              Why our founder getting crazy on his tropical island.
+              Why our founder is getting crazy on his tropical island.
             </p>
           </div>
 
@@ -1446,8 +1446,8 @@
 
         <ul class="list-disc ml-8 my-4">
           <li>
-            They collect a visitor's IP address, add a date, and turn it intoa
-            hashevery time you have a page visit.
+            They collect a visitor's IP address, add a date, and turn it into a
+            hash every time you have a page visit.
           </li>
           <li>
             These hashes connect page views together. Although this is
@@ -1468,7 +1468,7 @@
 
         <p>
           Simple Analytics never compromises privacy. That's why we only use
-          unique visitorswithout tracking IP addresses. We do this based on the
+          unique visitors without tracking IP addresses. We do this based on the
           browser's referrer, so no PII is stored. When you use Simple
           Analytics, it is therefore
           <em class="text-red-500 dark:text-red-600"
