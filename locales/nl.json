@@ -9,14 +9,22 @@
     "recent_blog_posts": "Recente blogberichten",
     "view_all_posts": "Bekijk alle blogberichten",
     "loading_posts": "Bezig met laden van blogberichten...",
-    "did_not_find_any_posts": "Geen berichten gevonden"
+    "did_not_find_any_posts": "Geen berichten gevonden",
+    "see_feature_video_below": "Bekijk alle features"
   },
   "seek": {
     "presents": "Simple Analytics presenteert",
-    "visitors": "Bezoekers",
+    "overview": "Overzicht",
+    "key_stats": "Key stats",
     "date_picker": "Periode",
+    "page_views": "Page views",
+    "segment": "Segment",
     "utm_sources": "UTM sources",
-    "pagination": "Pagina's"
+    "countries": "Landen",
+    "search": "Zoeken",
+    "tweet_viewer": "Tweet viewer",
+    "events": "Events",
+    "conversion": "Conversie"
   },
   "nav": {
     "login": "Inloggen",

@@ -135,7 +135,7 @@
               class="group button large shadow-xl bg-white dark:bg-gray-800 hover-hover:hover:dark:bg-gray-900"
             >
               <ChevronDoubleDownIcon class="w-3 inline-block" />
-              <span class="mx-2">{{ $t("see_feature_video_below") }}</span>
+              <span class="mx-2">{{ $t("home.see_feature_video_below") }}</span>
               <ChevronDoubleDownIcon class="w-3 inline-block" />
             </a>
             <!-- <NuxtLink

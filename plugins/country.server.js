@@ -1,7 +1,7 @@
 import { Reader } from "@maxmind/geoip2-node";
 import { readFileSync } from "fs";
 import { resolve } from "path";
-import { useCookie } from "h3";
+// import { useCookie } from "h3";
 
 const dbBuffer = readFileSync(resolve("server/data/geolite-country.mmdb"));
 
@@ -45,14 +45,14 @@ const euroCountries = [
   "li",
 ];
 
-const parseCookie = (str) =>
-  str
-    .split(";")
-    .map((v) => v.split("="))
-    .reduce((acc, v) => {
-      acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
-      return acc;
-    }, {});
+// const parseCookie = (str) =>
+//   str
+//     .split(";")
+//     .map((v) => v.split("="))
+//     .reduce((acc, v) => {
+//       acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
+//       return acc;
+//     }, {});
 
 export default defineNuxtPlugin((nuxtApp) => {
   const usd = { sign: "$", code: "usd" };
@@ -79,10 +79,9 @@ export default defineNuxtPlugin((nuxtApp) => {
   };
 
   const { req: request } = nuxtApp.ssrContext;
-  const { cookie } = useRequestHeaders(["cookie"]);
-  const locale = cookie ? parseCookie(cookie)?.locale : null;
-  console.log({ locale });
-  if (locale) return saveCountry(locale);
+  // const { cookie } = useRequestHeaders(["cookie"]);
+  // const locale = cookie ? parseCookie(cookie)?.locale : null;
+  // if (locale) return saveCountry(locale);
 
   const ip =
     request?.headers["x-real-ip"] ||
