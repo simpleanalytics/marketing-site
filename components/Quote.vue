@@ -45,8 +45,11 @@
               "
             >
               <slot
-                ><p class="leading-relaxed">"{{ quote }}"</p></slot
-              >
+                ><p
+                  class="leading-relaxed"
+                  v-html="`&#8220;${quote}&#8221;`"
+                ></p
+              ></slot>
             </div>
           </div>
           <footer class="mt-8">

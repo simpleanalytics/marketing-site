@@ -1,7 +1,7 @@
 {
   "home": {
-    "title": "The <span class='text-red-500 dark:text-red-600'>privacy-first</span><br />Google Analytics alternative.",
-    "subtitle": "EU-based & hosted. No cookies and a *direct yes* from your legal team.",
+    "title": "The {0}privacy-first{1}<br />Google Analytics alternative.",
+    "subtitle": "EU-based & hosted. No cookies and a {0}direct yes{1} from your legal team.",
     "no_creditcard": "No credit card required",
     "start_trial_now": "Get Simple Analytics",
     "go_to_live_demo": "Go to live demo",
@@ -10,7 +10,48 @@
     "view_all_posts": "View all blog posts",
     "loading_posts": "Loading posts",
     "did_not_find_any_posts": "Didn't find any posts",
-    "see_feature_video_below": "See feature video below"
+    "see_feature_video_below": "See feature video below",
+    "why_most_privacy": {
+      "title": "Why is Simple Analytics the {0}most privacy-first{1} analytics?",
+      "5_reasons": "There are 5{0}+1{1} simple reasons that sum it up.",
+      "reason_1": "Privacy protection is {0}our business model{1}. We comply by design with all privacy policies. Including: GDPR, PECR, CCPA and more.",
+      "reason_2": "Your data is always encrypted.",
+      "reason_3": "We never, ever, ever store any {0}personal data{1} about visitors. No {0}cookie banners{1}.",
+      "reason_4": "We are an {0}EU-based company{1} with EU-based servers.",
+      "reason_5": "You own {0}your data{1}. We don't {0}sell{1} any visitor data",
+      "see_what_we_collect": "see what we collect",
+      "read_detailed_reasons": "Read detailed reasons"
+    },
+    "simple_title": "Simple",
+    "simple_description": "One dashboard to instantly see how many visitors are coming to your website, where they come from and what they do once they're there. Without cookies. Without stalking. Still lightweight.",
+    "see_if_for_yourself": "See it for yourself, click a button",
+    "connect": {
+      "title": "Connect {0}your data{1} with your unique workflow.",
+      "import_data": "Import your data from Google Analytics",
+      "use_gtm": "Use Google Tag Manager, WordPress,<br />or our many frontend",
+      "framework_plugins": "framework plugins",
+      "export_to": "Export to your own systems, Power BI,<br />Google Data Studio, or {0}data lakes{1}",
+      "export_as": "Export as {0}raw data{1} or aggregated"
+    },
+    "why_switch_from_ga": {
+      "title": "Why you should switch from Google Analytics",
+      "try_us_button": "Give us a try",
+      "paragraph_1": "Google is one of the world's largest data devouring machines, selling your website visitors' data for profit. From an ethical standpoint, organizations should aim to protect the privacy of their website visitors. Still, {0}85% of the websites{1} are using Google Analytics, but this is about to change for the better.",
+      "paragraph_2": "Privacy laws like the GDPR are put in place to preserve the privacy of internet users. Data protection agencies are cracking down on privacy-invasive services like Google Analytics. France (CNIL) & Austria (DSB) already stated that the use of Google Analytics violates GDPR law in their countries. More EU countries are expected to follow this example.",
+      "paragraph_3": "Google Analytics is a complex web analytics tool that has been the default analytics tool, but this is changing, and Google also recognizes this. That's why they are about to change to a new version called",
+      "paragraph_3_link": "GA4 that aims to be privacy-friendly but is not",
+      "paragraph_4": " In addition, web browsers are limiting tracking mechanisms, and adblockers are used to block Google Analytics, which makes their data less and less accurate.",
+      "paragraph_5": "The global business environment is changing towards privacy, and so should you!",
+      "paragraph_6_1": "Here is why Simple Analytics is the number one privacy-friendly",
+      "paragraph_6_link": "alternative to Google Analytics",
+      "paragraph_6_2": "We are trusted by 600+ paying customers to provide the insights they need while protecting the privacy of their website visitors"
+    }
+  },
+  "start_trial": {
+    "button": "Start free trial now",
+    "free_trial": "Free 14-day trial",
+    "no_credit_card": "No credit card required",
+    "cancel_anytime": "Cancel anytime"
   },
   "seek": {
     "presents": "Simple Analytics presents",
@@ -40,6 +81,14 @@
       "name": "DuckDuckGo",
       "role": "Biggest privacy-friendly search engine",
       "quote": "Switching to Simple Analytics will still give you visibility into how visitors are using your website, but you'll also be respecting their right to privacy."
+    },
+    "rosie": {
+      "role": "Community Manager Indie Hackers",
+      "quote": "My focus has been on using ethical tools. I said bye to Google Analytics and hello to Simple Analytics. {0}In 1-2 clicks{1} I can get all the information I need."
+    },
+    "fastcompany": {
+      "role": "Featured at Fast Company",
+      "quote": "It's time to ditch Google Analytics."
     }
   }
 }

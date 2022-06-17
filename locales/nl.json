@@ -10,7 +10,48 @@
     "view_all_posts": "Bekijk alle blogberichten",
     "loading_posts": "Bezig met laden van blogberichten...",
     "did_not_find_any_posts": "Geen berichten gevonden",
-    "see_feature_video_below": "Bekijk alle features"
+    "see_feature_video_below": "Bekijk alle features",
+    "why_most_privacy": {
+      "title": "Waarom is Simple Analytics {0}de meest privacy-first{1} analytics?",
+      "5_reasons": "Er zijn 5{0}+1{1} simpele redenen die het samenvatten.",
+      "reason_1": "Privacybescherming is {0}ons bedrijfsmodel{1}. Wij houden ons standaard aan alle privacybeleidsregels. Waaronder: GDPR, PECR, CCPA en meer.",
+      "reason_2": "Jouw gegevens zijn {0}altijd encrypted{1}.",
+      "reason_3": "We slaan nooit, maar dan ook nooit, {0}persoonlijke gegevens{1} van bezoekers op. Geen {0}cookie banners{1}.",
+      "reason_4": "Wij zijn een in de {0}EU gevestigd{1} bedrijf met in de {0}EU gevestigde{1} servers.",
+      "reason_5": "Je bent zelf de {0}eigenaar{1} van de gegevens. Wij {0}verkopen{1} geen bezoekersgegevens",
+      "see_what_we_collect": "bekijk wat we verzamelen",
+      "read_detailed_reasons": "Lees de gedetailleerde redenen"
+    },
+    "simple_title": "Simple",
+    "simple_description": "Eén dashboard om direct te zien hoeveel bezoekers er op uw website komen, waar ze vandaan komen en wat ze doen als ze er eenmaal zijn. Zonder cookies. Zonder stalking. Nog steeds lichtgewicht.",
+    "see_if_for_yourself": "Zie het voor jezelf, klik op een knop",
+    "connect": {
+      "title": "Verbind {0}je gegevens{1} met jouw unieke workflow.",
+      "import_data": "Importeer uw gegevens uit Google Analytics",
+      "use_gtm": "Gebruik Google Tag Manager, WordPress,<br />of onze vele frontend",
+      "framework_plugins": "framework plugins",
+      "export_to": "Exporteer naar uw eigen systemen,<br />Power BI, Google Data Studio, of {0}data lakes{1}",
+      "export_as": "Exporteer als {0}onbewerkte gegevens{1} of geaggregeerd"
+    },
+    "why_switch_from_ga": {
+      "title": "Waarom zou je moeten overstappen van Google Analytics?",
+      "try_us_button": "Ontdek het zelf",
+      "paragraph_1": "Google is een van 's werelds grootste gegevensverslindende machines, die de gegevens van uw websitebezoekers met winst verkoopt. Vanuit een ethisch standpunt zouden organisaties ernaar moeten streven om de privacy van hun websitebezoekers te beschermen. Nog steeds gebruikt {0}85% van de websites{1} Google Analytics, maar dit staat op het punt ten goede te veranderen.",
+      "paragraph_2": "Privacywetten zoals de GDPR zijn ingevoerd om de privacy van internetgebruikers te beschermen. Gegevensbeschermingsinstanties treden hard op tegen privacyschendende diensten zoals Google Analytics. Frankrijk (CNIL) en Oostenrijk (DSB) hebben al verklaard dat het gebruik van Google Analytics in strijd is met de GDPR-wetgeving in hun landen. Verwacht wordt dat meer EU-landen dit voorbeeld zullen volgen.",
+      "paragraph_3": "Google Analytics is een complexe web analytics tool die tot nu toe het standaard analytics tool was, maar dit is aan het veranderen, en Google erkent dit ook. Daarom staan ze op het punt om over te stappen op een nieuwe versie genaamd",
+      "paragraph_3_link": "GA4 dat privacy-vriendelijk wil zijn, maar dat niet is",
+      "paragraph_4": "Bovendien beperken webbrowsers de trackingmechanismen en worden adblockers gebruikt om Google Analytics te blokkeren, waardoor hun gegevens steeds minder accuraat worden.",
+      "paragraph_5": "Het wereldwijde bedrijfsklimaat verandert in de richting van privacy, en dat zou u ook moeten doen!",
+      "paragraph_6_1": "Hier is waarom Simple Analytics de nummer één privacy-vriendelijke",
+      "paragraph_6_link": "alternatief voor Google Analytics is",
+      "paragraph_6_2": "Meer dan 600 betalende klanten vertrouwen erop dat wij hen de inzichten verschaffen die zij nodig hebben, terwijl wij de privacy van hun websitebezoekers beschermen"
+    }
+  },
+  "start_trial": {
+    "button": "Nu gratis proberen",
+    "free_trial": "Gratis voor 14 dagen",
+    "no_credit_card": "Geen creditcard nodig",
+    "cancel_anytime": "Annuleer elk moment"
   },
   "seek": {
     "presents": "Simple Analytics presenteert",
@@ -39,7 +80,15 @@
     "duckduckgo": {
       "name": "DuckDuckGo",
       "role": "De grootste privacy vriendelijke search engine",
-      "quote": "Switching to Simple Analytics will still give you visibility into how visitors are using your website, but you'll also be respecting their right to privacy."
+      "quote": "Door over te schakelen op Simple Analytics krijgt u nog steeds inzicht in hoe bezoekers uw website gebruiken, maar u respecteert ook {0}hun recht op privacy{1}."
+    },
+    "rosie": {
+      "role": "Community Manager Indie Hackers",
+      "quote": "Mijn focus lag op het gebruik van ethische hulpmiddelen. Ik zei gedag tegen Google Analytics en hallo tegen Simple Analytics. {0}In 1-2 klikken{1} kan ik alle informatie krijgen die ik nodig heb."
+    },
+    "fastcompany": {
+      "role": "Uitgelicht bij Fast Company",
+      "quote": "Het is tijd om Google Analytics te dumpen."
     }
   }
 }

@@ -338,16 +338,13 @@
         <h3
           id="reasons"
           class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto -mt-4 mb-4 sm:mt-8 sm:mb-8 pt-8 font-medium"
-        >
-          Why is Simple Analytics the
-          <span class="text-red-500 dark:text-red-600">most privacy-first</span>
-          analytics?
-        </h3>
+          v-html="$t('home.why_most_privacy.title', tColorsRed)"
+        ></h3>
 
-        <h4 class="my-4 mb-8 text-xl text-center">
-          There are 5<span class="text-red-500 dark:text-red-600">+1</span>
-          simple reasons that sum it up.
-        </h4>
+        <h4
+          class="my-4 mb-8 text-xl text-center"
+          v-html="$t('home.why_most_privacy.5_reasons', tColorsRed)"
+        ></h4>
       </div>
       <div class="flex flex-col md:flex-row justify-center items-center">
         <div class="basis-2/4 mx-3 mb-8 md:mb-0">
@@ -386,11 +383,10 @@
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
-                <span class="inline-block w-2.5">1. </span>Privacy protection is
-                <span class="text-red-500 dark:text-red-600"
-                  >our business model</span
-                >. We comply by design with all privacy policies. Including:
-                GDPR, PECR, CCPA and more.
+                <span class="inline-block w-2.5">1. </span
+                ><span
+                  v-html="$t('home.why_most_privacy.reason_1', tColorsRed)"
+                ></span>
               </p>
             </li>
             <li class="flex my-3">
@@ -398,8 +394,10 @@
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
-                <span class="inline-block w-2.5">2. </span>Your data is always
-                <span class="text-red-500 dark:text-red-600">encrypted</span>.
+                <span class="inline-block w-2.5">2. </span
+                ><span
+                  v-html="$t('home.why_most_privacy.reason_2', tColorsRed)"
+                ></span>
               </p>
             </li>
             <li class="flex my-3">
@@ -407,15 +405,10 @@
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
-                <span class="inline-block w-2.5">3. </span>We never, ever, ever
-                store any
-                <span class="text-red-500 dark:text-red-600"
-                  >personal data</span
-                >
-                about visitors. No
-                <span class="text-red-500 dark:text-red-600"
-                  >cookie banners</span
-                >.
+                <span class="inline-block w-2.5">3. </span
+                ><span
+                  v-html="$t('home.why_most_privacy.reason_3', tColorsRed)"
+                ></span>
               </p>
             </li>
             <li class="flex my-3">
@@ -423,11 +416,10 @@
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
-                <span class="inline-block w-2.5">4. </span>We are an
-                <span class="text-red-500 dark:text-red-600"
-                  >EU-based company</span
-                >
-                with EU-based servers.
+                <span class="inline-block w-2.5">4. </span
+                ><span
+                  v-html="$t('home.why_most_privacy.reason_4', tColorsRed)"
+                ></span>
               </p>
             </li>
             <li class="flex my-3">
@@ -435,16 +427,17 @@
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
-                <span class="inline-block w-2.5">5. </span>You own
-                <span class="text-red-500 dark:text-red-600">your data</span>.
-                We don't
-                <span class="text-red-500 dark:text-red-600">sell</span> any
-                visitor data,
+                <span class="inline-block w-2.5">5. </span
+                ><span
+                  v-html="$t('home.why_most_privacy.reason_5', tColorsRed)"
+                ></span
+                >,
                 <a
                   class="underline group"
                   href="https://docs.simpleanalytics.com/what-we-collect"
                   target="_blank"
-                  >see what we collect<Arrow />
+                  >{{ $t("home.why_most_privacy.see_what_we_collect")
+                  }}<Arrow />
                 </a>
               </p>
             </li>
@@ -458,7 +451,9 @@
           class="mt-4 button tiny shadow-md bg-white dark:bg-gray-800"
         >
           <ChevronDoubleDownIcon class="w-3 inline-block" />
-          <span class="mx-1">Read detailed reasons</span>
+          <span class="mx-1">{{
+            $t("home.why_most_privacy.read_detailed_reasons")
+          }}</span>
           <ChevronDoubleDownIcon class="w-3 inline-block" />
         </a>
 
@@ -467,7 +462,7 @@
           :logo="DuckDuckGoLogo"
           :title="$t('testimonials.duckduckgo.name')"
           :subtitle="$t('testimonials.duckduckgo.role')"
-          :quote="$t('testimonials.duckduckgo.quote')"
+          :quote="$t('testimonials.duckduckgo.quote', tColorsBlue)"
           subtitlelink="https://duckduckgo.com/"
         />
       </div>
@@ -485,29 +480,21 @@
       <Quote
         class="mt-4"
         :reverse="true"
+        :subtitle="$t('testimonials.rosie.role')"
+        :quote="$t('testimonials.rosie.quote', tColorsBlue)"
         iconclass="fill-blue-200 dark:fill-gray-700"
         image="https://assets.simpleanalytics.com/images/people/rosie.png"
         title="Rosie Sherry"
-        subtitle="Community Manager Indie Hackers"
         subtitlelink="https://indiehackers.com/"
-      >
-        <p class="text-xl leading-relaxed">
-          "My focus has been on using ethical tools. I said bye to Google
-          Analytics and hello to Simple Analytics.
-          <span class="text-blue-600 dark:text-blue-700">In 1-2 clicks</span> I
-          can get all the information I need."
-        </p>
-      </Quote>
+      />
 
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-4 sm:mb-8 font-medium"
       >
-        Simple.
+        {{ $t("home.simple_title") }}.
       </h3>
       <p class="my-4 leading-loose max-w-xl mx-auto">
-        One dashboard to instantly see how many visitors are coming to your
-        website, where they come from and what they do once they're there.
-        Without cookies. Without stalking. Still lightweight.
+        {{ $t("home.simple_description") }}
       </p>
 
       <div class="mt-4 mb-8" id="features">
@@ -518,7 +505,7 @@
             :class="showClickSeekButton ? 'visible' : 'invisible'"
           >
             <ChevronDoubleDownIcon class="w-3 inline-block" />
-            <span class="mx-1">See it for yourself, click a button</span>
+            <span class="mx-1">{{ $t("home.see_if_for_yourself") }}</span>
             <ChevronDoubleDownIcon class="w-3 inline-block" />
           </p>
         </div>
@@ -649,83 +636,21 @@
 
       <StartTrial />
 
-      <!-- 
-      <div class="max-w-3xl px-6 mx-auto text-center">
-        <h3
-          class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-4 sm:mb-8 font-medium"
-        >
-          The most privacy-friendly analytics online.
-        </h3>
-      </div>
-      <ul class="mx-auto max-w-max text-left z-20 relative">
-        <li class="flex items-center my-4">
-          <ShieldCheckIcon
-            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
-          />
-          <p class="leading-relaxed">
-            We <span class="text-red-500 dark:text-red-600">comply</span> by
-            design with all privacy<br />policies - GDPR, PECR, CCPA and more.
-          </p>
-        </li>
-        <li class="flex items-center my-4">
-          <ShieldCheckIcon
-            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
-          />
-          <p class="leading-relaxed">
-            We
-            <span class="text-red-500 dark:text-red-600">never track</span>
-            anyone,
-            <ArrowLink
-              :href="mainAppUrl + '/our-promise'"
-              text="we promise"
-            />
-          </p>
-        </li>
-        <li class="flex items-center my-4">
-          <ShieldCheckIcon
-            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
-          />
-          <p class="leading-relaxed">
-            We don't
-            <span class="text-red-500 dark:text-red-600">sell</span> any visitor
-            data,<br /><a
-              class="underline"
-              :href="mainAppUrl + '/what-we-collect'"
-              target="_blank"
-              >see what we collect<Arrow />
-            </a>
-          </p>
-        </li>
-        <li class="flex items-center my-4">
-          <ShieldCheckIcon
-            class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
-          />
-          <p class="leading-relaxed">
-            No
-            <span class="text-red-500 dark:text-red-600">cookie banner</span>
-            required
-          </p>
-        </li>
-      </ul> -->
-
       <Quote
         class="mt-8"
         :reverse="false"
         iconclass="fill-blue-200"
         :logo="FastCompanyLogo"
+        :quote="$t('testimonials.fastcompany.quote', tColorsBlue)"
+        :subtitle="$t('testimonials.fastcompany.role')"
         logoclass="bg-blue-200 dark:bg-gray-500 rounded-full p-1 sm:p-4"
-        subtitle="Featured at Fast Company"
-        quote="It's time to ditch Google Analytics."
         subtitlelink="https://www.fastcompany.com/90300072/its-time-to-ditch-google-analytics"
       />
 
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-20 sm:mb-8 font-medium"
-      >
-        Connect
-        <span class="text-red-500 dark:text-red-600">your data</span> with your
-        unique workflow.
-      </h3>
+        v-html="$t('home.connect.title', tColorsRed)"
+      ></h3>
     </div>
 
     <section
@@ -752,7 +677,10 @@
                 class="underline group"
                 :href="mainAppUrl + '/our-promise'"
                 target="_blank"
-                >Import your data from Google Analytics<Arrow class=""
+                ><span
+                  v-html="$t('home.connect.import_data', tColorsRed)"
+                ></span
+                ><Arrow class=""
               /></a>
             </p>
           </li>
@@ -761,11 +689,13 @@
               class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
             />
             <p>
-              Use Google Tag Manager, WordPress,<br />or our many frontend
+              <span v-html="$t('home.connect.use_gtm')"></span>
               <a
-                class="underline group"
+                class="ml-1 underline group"
                 href="https://docs.simpleanalytics.com/script"
-                >framework plugins<Arrow />
+              >
+                <span v-html="$t('home.connect.framework_plugins')"></span
+                ><Arrow />
               </a>
             </p>
           </li>
@@ -773,20 +703,13 @@
             <ShieldCheckIcon
               class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
             />
-            <p>
-              Export to your own systems, Power BI,<br />Google Data Studio, or
-              <span class="text-red-500 dark:text-red-600">data lakes</span>
-            </p>
+            <p v-html="$t('home.connect.export_to', tColorsRed)"></p>
           </li>
           <li class="flex items-center my-6">
             <ShieldCheckIcon
               class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
             />
-            <p>
-              Export as
-              <span class="text-red-500 dark:text-red-600">raw data</span> or
-              aggregated
-            </p>
+            <p v-html="$t('home.connect.export_as', tColorsRed)"></p>
           </li>
         </ul>
       </div>
@@ -810,61 +733,51 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mb-4 mt-4 sm:mb-8 font-medium text-red-500 dark:text-red-600"
       >
-        Why you should switch from Google Analytics
+        {{ $t("home.why_switch_from_ga.title") }}
       </h3>
 
       <div class="text-left leading-loose">
-        <p class="my-4">
-          Google is one of the world's largest data devouring machines, selling
-          your website visitors' data for profit. From an ethical standpoint,
-          organizations should aim to protect the privacy of their website
-          visitors. Still,
-          <span class="underline">85% of the websites</span> are using Google
-          Analytics, but this is about to change for the better.
-        </p>
+        <p
+          class="my-4"
+          v-html="
+            $t('home.why_switch_from_ga.paragraph_1', [
+              `<span class='underline'>`,
+              `</span>`,
+            ])
+          "
+        ></p>
+
+        <p class="my-4" v-html="$t('home.why_switch_from_ga.paragraph_2')"></p>
 
         <p class="my-4">
-          Privacy laws like the GDPR are put in place to preserve the privacy of
-          internet users. Data protection agencies are cracking down on
-          privacy-invasive services like Google Analytics. France (CNIL) &amp;
-          Austria (DSB) already stated that the use of Google Analytics violates
-          GDPR law in their countries. More EU countries are expected to follow
-          this example.
-        </p>
-
-        <p class="my-4">
-          Google Analytics is a complex web analytics tool that has been the
-          default analytics tool, but this is changing, and Google also
-          recognizes this. That's why they are about to change to a new version
-          called
+          <span v-html="$t('home.why_switch_from_ga.paragraph_3')"></span>
           <a
             href="https://blog.simpleanalytics.com/google-to-sunset-universal-analytics-in-2023"
             target="_blank"
-            class="group"
-            >GA4 that aims to be privacy-friendly but is not<Arrow
+            class="ml-1 group"
+            ><span
+              v-html="$t('home.why_switch_from_ga.paragraph_3_link')"
+            ></span
+            ><Arrow
           /></a>
         </p>
 
-        <p class="my-4">
-          In addition, web browsers are limiting tracking mechanisms, and
-          adblockers are used to block Google Analytics, which makes their data
-          less and less accurate.
-        </p>
-        <p class="my-4">
-          The global business environment is changing towards privacy, and so
-          should you!
-        </p>
+        <p class="my-4" v-html="$t('home.why_switch_from_ga.paragraph_4')"></p>
+
+        <p class="my-4" v-html="$t('home.why_switch_from_ga.paragraph_5')"></p>
 
         <p class="my-4">
-          Here is why Simple Analytics is the number one privacy-friendly
+          <span v-html="$t('home.why_switch_from_ga.paragraph_6_1')"></span>
           <a
             href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-google-analytics"
             target="_blank"
-            class="group"
-            >alternative to Google Analytics.<Arrow
+            class="ml-1 mr-1 group"
+            ><span
+              v-html="$t('home.why_switch_from_ga.paragraph_6_link')"
+            ></span
+            ><Arrow
           /></a>
-          We are trusted by 600+ paying customers to provide the insights they
-          need while protecting the privacy of their website visitors
+          <span v-html="$t('home.why_switch_from_ga.paragraph_6_2')"></span>
         </p>
 
         <p class="my-4">
@@ -872,7 +785,7 @@
             :href="
               mainAppUrl + '/welcome' + (theme === 'dark' ? '?theme=dark' : '')
             "
-            >Give us a try.</a
+            >{{ $t("home.why_switch_from_ga.try_us_button") }}.</a
           >
         </p>
       </div>
@@ -1682,6 +1595,12 @@ const emailReportEmailField = ref();
 const emailReportEmail = ref("");
 const emailReportPeriod = ref("week");
 const emailReportError = ref("");
+
+const tColorsRed = [`<span class='text-red-500 dark:text-red-600'>`, `</span>`];
+const tColorsBlue = [
+  `<span class='text-blue-600 dark:text-blue-700'>`,
+  `</span>`,
+];
 
 const mainAppUrl =
   process.env.NODE_ENV === "production"
