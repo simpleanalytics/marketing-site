@@ -45,7 +45,9 @@
     >
       <div class="p-6">
         <h2 class="text-lg leading-6 font-medium">{{ tier.name }}.</h2>
-        <p class="mt-4 text-sm text-gray-500">{{ tier.description }}</p>
+        <p class="mt-4 text-sm text-gray-500 leading-relaxed">
+          {{ tier.description }}
+        </p>
         <p class="mt-2">
           <span class="text-base text-gray-300 block">
             <span v-if="tier.from">from</span>
@@ -64,7 +66,7 @@
             }}
             yearly</span
           >
-          <span class="block text-gray-300 mt-1" v-else>&nbsp;</span>
+          <span class="block text-gray-300 mt-2" v-else>&nbsp;</span>
         </p>
         <a
           v-if="tier.name === 'Enterprise'"
@@ -84,9 +86,16 @@
         >
       </div>
       <div class="pt-6 pb-8 px-6">
-        <h3 class="text-xs font-medium tracking-wide uppercase">
-          What's included
-        </h3>
+        <p class="text-xs font-medium tracking-wide uppercase">
+          <span>What's included</span>
+        </p>
+
+        <p
+          class="mt-6 mb-7 text-sm text-gray-400 leading-relaxed"
+          v-if="tier.includedIntro"
+        >
+          {{ tier.includedIntro }}
+        </p>
         <ul role="list" class="mt-6 space-y-4">
           <li
             v-for="feature in tier.includedFeatures"
@@ -97,7 +106,7 @@
               class="flex-shrink-0 h-5 w-5 text-green-500"
               aria-hidden="true"
             />
-            <span class="text-sm text-gray-500">{{ feature }}</span>
+            <span class="text-sm text-gray-500" v-html="feature"></span>
           </li>
         </ul>
       </div>
@@ -114,10 +123,9 @@ const currency = useState("currency");
 const tiers = [
   {
     name: "Starter",
-    href: "#",
     priceMonthly: 19,
     priceYearly: 9,
-    description: "All the basics for starting a new business",
+    description: "Everything you need to get you started.",
     includedFeatures: [
       "100,000 datapoints",
       "1 user",
@@ -129,33 +137,29 @@ const tiers = [
   },
   {
     name: "Business",
-    href: "#",
     priceMonthly: 59,
     priceYearly: 49,
-    description: "All the basics for starting a new business",
+    description: "Work together on growing your business.",
+    includedIntro: "Everything from the Starter plan, plus:",
     includedFeatures: [
-      "1 million datapoints",
-      "10 users",
-      "100 websites",
-      "events",
-      "raw level export",
-      "support email",
+      "<strong>1 million</strong> datapoints",
+      "<strong>10</strong> users",
+      "<strong>100</strong> websites",
+      "<strong>raw level</strong> export",
     ],
   },
   {
     name: "Enterprise",
-    href: "#",
-    priceMonthly: 199,
-    priceYearly: 199,
+    priceMonthly: 99,
+    priceYearly: 99,
     from: true,
-    description: "All the basics for starting a new business",
+    description: "Get everything needed to grow your business.",
+    includedIntro: "Everything from the Business plan, plus:",
     includedFeatures: [
-      "1+ million datapoints",
-      "10+ users",
-      "1000 websites",
-      "events",
-      "raw level export",
-      "prio support email",
+      "<strong>1+ million</strong> datapoints",
+      "<strong>10+</strong> users",
+      "<strong>1000</strong> websites",
+      "<strong>prio</strong> support email",
     ],
   },
 ];

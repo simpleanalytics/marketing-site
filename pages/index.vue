@@ -43,8 +43,7 @@
 
           <NuxtLink
             :href="
-              'https://simpleanalytics.com/contact' +
-              (theme === 'dark' ? '?theme=dark' : '')
+              mainAppUrl + '/contact' + (theme === 'dark' ? '?theme=dark' : '')
             "
             target="_blank"
             class="text-white underline ml-1"
@@ -59,18 +58,28 @@
       >
         <div class="text-center md:text-left flex-shrink basis-2/4 md:mr-8">
           <h1 class="text-3xl font-medium sm:text-4xl lg:text-4xl">
-            <span class="leading-snug" v-html="$t('home.title')"></span>
+            <span
+              class="leading-snug"
+              v-html="
+                $t('home.title', [
+                  `<span class='text-red-500 dark:text-red-600'>`,
+                  `</span>`,
+                ])
+              "
+            ></span>
           </h1>
           <p
             class="mt-4 text-base sm:text-lg md:mt-8 lg:text-xl md:leading-relaxed leading-relaxed"
           >
-            <EuropeanFlag class="inline mr-2 w-8 rounded align-sub" />EU-based
-            &amp; hosted. No cookies and<br class="hidden sm:block" />
-            a
-            <span class="underline-curly text-red-500 dark:text-red-600"
-              >direct yes</span
-            >
-            from your compliance team.
+            <EuropeanFlag class="inline mr-2 w-8 rounded align-sub" />
+            <span
+              v-html="
+                $t('home.subtitle', [
+                  `<span class=&quot;underline-curly text-red-500 dark:text-red-600&quot;>`,
+                  `</span>`,
+                ])
+              "
+            ></span>
           </p>
 
           <div
@@ -89,7 +98,8 @@
             <div class="mt-4 sm:mr-4">
               <a
                 :href="
-                  'https://simpleanalytics.com/welcome' +
+                  mainAppUrl +
+                  '/welcome' +
                   (theme === 'dark' ? '?theme=dark' : '')
                 "
                 class="button large primary"
@@ -104,7 +114,8 @@
             <div class="hidden sm:block sm:mt-4">
               <a
                 :href="
-                  'http://localhost:3000/seed.com?from=landing' +
+                  mainAppUrl +
+                  '/seed.com?from=landing' +
                   (theme === 'dark' ? '&theme=dark' : '')
                 "
                 class="button large group"
@@ -117,19 +128,20 @@
 
         <div class="mt-12 md:mt-0 z-10 mx-auto relative basis-2/4">
           <div
-            class="absolute z-50 flex flex-col items-center justify-center w-full h-full"
+            class="absolute z-30 flex flex-col items-center justify-center w-full h-full"
           >
             <a
               @click="scrollToSeekVideo('seek.overview')"
               class="group button large shadow-xl bg-white dark:bg-gray-800 hover-hover:hover:dark:bg-gray-900"
             >
               <ChevronDoubleDownIcon class="w-3 inline-block" />
-              <span class="mx-2">See feature video below</span>
+              <span class="mx-2">{{ $t("see_feature_video_below") }}</span>
               <ChevronDoubleDownIcon class="w-3 inline-block" />
             </a>
             <!-- <NuxtLink
               :href="
-                'https://simpleanalytics.com/simpleanalytics.com' +
+                mainAppUrl +
+                '/simpleanalytics.com' +
                 (theme === 'dark' ? '?theme=dark' : '')
               "
               target="_blank"
@@ -226,11 +238,12 @@
       <!-- 
       <div class="max-w-2xl -mt-4 sm:-mt-24 z-10 mx-auto relative" style="">
         <div
-          class="absolute z-50 flex flex-col items-center justify-center w-full h-full"
+          class="absolute z-30 flex flex-col items-center justify-center w-full h-full"
         >
           <NuxtLink
             :href="
-              'https://simpleanalytics.com/simpleanalytics.com' +
+              mainAppUrl +
+              '/simpleanalytics.com' +
               (theme === 'dark' ? '?theme=dark' : '')
             "
             class="button large primary shadow-xl bg-white dark:bg-gray-800"
@@ -663,7 +676,7 @@
             <span class="text-red-500 dark:text-red-600">never track</span>
             anyone,
             <ArrowLink
-              href="https://simpleanalytics.com/our-promise"
+              :href="mainAppUrl + '/our-promise'"
               text="we promise"
             />
           </p>
@@ -677,7 +690,7 @@
             <span class="text-red-500 dark:text-red-600">sell</span> any visitor
             data,<br /><a
               class="underline"
-              href="https://docs.simpleanalytics.com/what-we-collect"
+              :href="mainAppUrl + '/what-we-collect'"
               target="_blank"
               >see what we collect<Arrow />
             </a>
@@ -724,7 +737,7 @@
 
           <template #fallback>
             <div
-              class="max-w-full mx-auto w-[350px] h-[290px] rounded bg-gray-200 animate-pulse"
+              class="max-w-full mx-auto w-[350px] h-[435px] rounded bg-red-100 animate-pulse"
             ></div>
           </template>
         </ClientOnly>
@@ -737,7 +750,7 @@
             <p>
               <a
                 class="underline group"
-                href="https://simpleanalytics.com/our-promise"
+                :href="mainAppUrl + '/our-promise'"
                 target="_blank"
                 >Import your data from Google Analytics<Arrow class=""
               /></a>
@@ -802,25 +815,28 @@
 
       <div class="text-left leading-loose">
         <p class="my-4">
-          Google is one of the world's largest data devouring machine, selling
+          Google is one of the world's largest data devouring machines, selling
           your website visitors' data for profit. From an ethical standpoint,
           organizations should aim to protect the privacy of their website
           visitors. Still,
           <span class="underline">85% of the websites</span> are using Google
-          Analytics; this is about to change.
+          Analytics, but this is about to change for the better.
         </p>
 
         <p class="my-4">
           Privacy laws like the GDPR are put in place to preserve the privacy of
-          internet users and crackdown on big tech and mass surveillance
-          operations. In addition, privacy-friendly alternatives provide
-          organizations with more options to ditch solutions that don't care
-          about user privacy.
+          internet users. Data protection agencies are cracking down on
+          privacy-invasive services like Google Analytics. France (CNIL) &amp;
+          Austria (DSB) already stated that the use of Google Analytics violates
+          GDPR law in their countries. More EU countries are expected to follow
+          this example.
         </p>
 
         <p class="my-4">
-          Google Analytics is a complex web analytics tool that does not care
-          about user privacy. They are about to change to a new version called
+          Google Analytics is a complex web analytics tool that has been the
+          default analytics tool, but this is changing, and Google also
+          recognizes this. That's why they are about to change to a new version
+          called
           <a
             href="https://blog.simpleanalytics.com/google-to-sunset-universal-analytics-in-2023"
             target="_blank"
@@ -830,24 +846,31 @@
         </p>
 
         <p class="my-4">
+          In addition, web browsers are limiting tracking mechanisms, and
+          adblockers are used to block Google Analytics, which makes their data
+          less and less accurate.
+        </p>
+        <p class="my-4">
+          The global business environment is changing towards privacy, and so
+          should you!
+        </p>
+
+        <p class="my-4">
           Here is why Simple Analytics is the number one privacy-friendly
           <a
             href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-google-analytics"
             target="_blank"
             class="group"
-            >alternative to Google Analytics,<Arrow
+            >alternative to Google Analytics.<Arrow
           /></a>
-          and we are trusted by 600+ paying customers to provide the insights
-          they need.
+          We are trusted by 600+ paying customers to provide the insights they
+          need while protecting the privacy of their website visitors
         </p>
 
         <p class="my-4">
-          The train for privacy-friendly alternatives to big tech is about to
-          leave the station. Are you hopping on?
           <a
             :href="
-              'https://simpleanalytics.com/welcome' +
-              (theme === 'dark' ? '?theme=dark' : '')
+              mainAppUrl + '/welcome' + (theme === 'dark' ? '?theme=dark' : '')
             "
             >Give us a try.</a
           >
@@ -1403,9 +1426,9 @@
           </li>
           <li>
             To achieve this, Simple Analytics has an
-            <a href="https://simpleanalytics.com/roadmap">open roadmap</a> for
-            you to see the next steps or request features. Also, we operate
-            <a href="https://simpleanalytics.com/open">fully transparently</a>
+            <a :href="mainAppUrl + '/roadmap'">open roadmap</a> for you to see
+            the next steps or request features. Also, we operate
+            <a :href="mainAppUrl + '/open'">fully transparently</a>
             by sharing our metrics (including revenue, costs, amount of
             customers, and traffic).
           </li>
@@ -1659,6 +1682,11 @@ const emailReportEmailField = ref();
 const emailReportEmail = ref("");
 const emailReportPeriod = ref("week");
 const emailReportError = ref("");
+
+const mainAppUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://simpleanalytics.com"
+    : "http://localhost:3000";
 
 const removeEmailReport = (report) => {
   const message = `Are you sure to disable ${report.period}ly email reports for ${report.email}?`;

@@ -1,6 +1,6 @@
 <template>
   <Listbox as="div" v-model="$i18n.locale">
-    <div class="relative">
+    <div class="relative z-50">
       <ListboxButton
         class="relative font-medium hover-hover:hover:text-gray-900 dark:hover-hover:hover:text-gray-500 pl-1 pr-6 text-left cursor-pointer"
       >
@@ -20,7 +20,7 @@
         leave-to-class="opacity-0"
       >
         <ListboxOptions
-          class="absolute z-10 mt-1 w-full min-w-max bg-white dark:bg-gray-700 shadow-lg max-h-56 py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+          class="absolute z-50 mt-1 w-full min-w-max bg-white dark:bg-gray-700 shadow-lg max-h-56 py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
         >
           <ListboxOption
             as="template"
@@ -82,7 +82,11 @@ import { useI18n } from "vue-i18n";
 const i18n = useI18n();
 
 const { availableLocales } = i18n;
-const localeCookie = useCookie("locale");
+const localeCookie = useCookie("locale", {
+  secure: process.env.NODE_ENV === "production",
+  sameSite: true,
+  maxAge: 2592000, // 30 days in seconds
+});
 
 const langs = availableLocales.map((locale) => {
   const countryCode = locale.startsWith("en") ? "US" : locale.toUpperCase();
@@ -101,7 +105,7 @@ const langs = availableLocales.map((locale) => {
 
 const selectLang = (lang) => langs.filter(({ code }) => code === lang)?.[0];
 
-watch(i18n.locale, async (newLocale, oldLocale) => {
+watch(i18n.locale, async (newLocale) => {
   localeCookie.value = newLocale;
   console.log("Switched to", newLocale);
 });

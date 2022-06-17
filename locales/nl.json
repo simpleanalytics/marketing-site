@@ -1,11 +1,15 @@
 {
   "home": {
-    "title": "Het <span class='text-red-500 dark:text-red-600'>privacy-first</span><br />Google Analytics alternatief.",
-    "subtitle": "In gebruik door overheden, NGO's en van kleine tot grote bedrijven.",
+    "title": "Het {0}privacy-first{1}<br />Google Analytics alternatief.",
+    "subtitle": "In de EU gevestigd & gehost. Geen cookies en een {0}directe ja{1} van je compliance team.",
     "no_creditcard": "Geen betaalmethode nodig",
     "start_trial_now": "Probeer nu gratis",
     "go_to_live_demo": "Ga naar de demo",
-    "see_live_demo": "Bekijk de demo"
+    "see_live_demo": "Bekijk de demo",
+    "recent_blog_posts": "Recente blogberichten",
+    "view_all_posts": "Bekijk alle blogberichten",
+    "loading_posts": "Bezig met laden van blogberichten...",
+    "did_not_find_any_posts": "Geen berichten gevonden"
   },
   "seek": {
     "presents": "Simple Analytics presenteert",
@@ -20,6 +24,7 @@
     "signup": "Aanmelden",
     "resources": "Content",
     "docs": "Docs",
+    "blog": "Blog",
     "contact": "Klantenservice"
   },
   "testimonials": {

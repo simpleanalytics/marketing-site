@@ -149,16 +149,16 @@
                               <h3
                                 class="text-sm tracking-wide font-medium uppercase"
                               >
-                                Recent blog posts
+                                {{ $t("home.recent_blog_posts") }}
                               </h3>
                               <p v-if="pending" class="mt-5 text-sm">
-                                Loading posts...
+                                {{ $t("home.loading_posts") }}...
                               </p>
                               <p
                                 v-else-if="!recentPosts?.length"
                                 class="mt-5 text-sm"
                               >
-                                Didn't find any posts...
+                                {{ $t("home.did_not_find_any_posts") }}...
                               </p>
                               <ul v-else role="list" class="mt-4 space-y-4">
                                 <li
@@ -189,7 +189,7 @@
                                 href="https://blog.simpleanalytics.com"
                                 class="font-medium text-red-500 hover-hover:hover:text-red-500 transition ease-in-out duration-150"
                               >
-                                View all blog posts
+                                {{ $t("home.view_all_posts") }}
                                 <span aria-hidden="true">&rarr;</span></a
                               >
                             </div>
@@ -649,7 +649,7 @@ const defaultDescription =
 const navigation = [
   { translation: "nav.pricing", href: "/pricing" },
   { translation: "nav.resources", href: "#", popover: true },
-  { translation: "nav.docs", href: "https://docs.simpleanalytics.com" },
+  { translation: "nav.blog", href: "https://blog.simpleanalytics.com" },
   { translation: "nav.contact", href: "https://simpleanalytics.com/contact" },
 ];
 
