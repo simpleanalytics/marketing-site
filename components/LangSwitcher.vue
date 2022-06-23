@@ -88,6 +88,8 @@ const localeCookie = useCookie("locale", {
   maxAge: 2592000, // 30 days in seconds
 });
 
+const countryState = useState("country");
+
 const langs = availableLocales.map((locale) => {
   const countryCode = locale.startsWith("en") ? "US" : locale.toUpperCase();
   const name = locale.startsWith("en")
@@ -112,5 +114,7 @@ watch(i18n.locale, async (newLocale) => {
 
 if (localeCookie.value) {
   i18n.locale.value = localeCookie.value;
+} else if (["nl", "be"].includes(countryState.value)) {
+  i18n.locale.value = countryState.value;
 }
 </script>
