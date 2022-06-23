@@ -151,7 +151,7 @@
                               >
                                 {{ $t("home.recent_blog_posts") }}
                                 <span
-                                  v-if="i18n.locale !== 'en'"
+                                  v-if="i18n.locale.value !== 'en'"
                                   class="lowercase text-gray-400 dark:text-gray-400"
                                 >
                                   {{ $t("home.in_english") }}
@@ -299,14 +299,20 @@
         class="bg-gradient-to-t from-gray-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 text-left lg:text-left"
       >
         <div
-          class="container px-3 sm:px-6 pt-10 pb-4 md:pt-16 md:pb-10 mx-auto"
+          class="container px-3 sm:px-6 pt-10 pb-4 md:pt-12 md:pb-10 mx-auto"
         >
+          <p
+            class="text-center -mt-4 mb-8 flex justify-center items-center text-sm"
+            v-if="i18n.locale.value !== 'en'"
+          >
+            {{ $t("home.most_of_resources_are_english") }}
+          </p>
           <div class="grid lg:grid-cols-4 lg:grid-rows-3 md:grid-cols-2">
             <div class="mb-10 lg:mb-0 lg:row-span-2">
               <h5
                 class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
               >
-                Privacy
+                {{ $t("home.footer.privacy") }}
               </h5>
 
               <ul class="list-none mb-0">
@@ -318,7 +324,7 @@
                     <FingerPrintIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
-                    <span>What we collect</span>
+                    <span>{{ $t("home.footer.what_we_collect") }}</span>
                   </a>
                 </li>
                 <li>
@@ -329,7 +335,7 @@
                     <EyeOffIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
-                    <span>We don't track you</span>
+                    <span>{{ $t("home.footer.we_dont_track_you") }}</span>
                   </a>
                 </li>
                 <li>
@@ -340,7 +346,7 @@
                     <ScaleIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
-                    <span>Privacy Policy</span>
+                    <span>{{ $t("home.footer.privacy_policy") }}</span>
                   </a>
                 </li>
                 <li>
@@ -351,7 +357,7 @@
                     <BookOpenIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
-                    <span>Cookie Statement</span>
+                    <span>{{ $t("home.footer.cookie_statement") }}</span>
                   </a>
                 </li>
                 <li>
@@ -362,7 +368,7 @@
                     <NewspaperIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
-                    <span>Terms &amp; Conditions</span>
+                    <span>{{ $t("home.footer.tos") }}</span>
                   </a>
                 </li>
               </ul>
@@ -372,7 +378,7 @@
               <h5
                 class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
               >
-                Learn
+                {{ $t("home.footer.learn") }}
               </h5>
 
               <ul class="list-none mb-0">
@@ -384,7 +390,7 @@
                     <SupportIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
-                    <span>Documentation</span>
+                    <span>{{ $t("home.footer.documentation") }}</span>
                   </a>
                 </li>
                 <li>
@@ -395,7 +401,7 @@
                     <BookOpenIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
-                    <span>Blog</span>
+                    <span>{{ $t("home.footer.blog") }}</span>
                   </a>
                 </li>
                 <li>
@@ -406,7 +412,7 @@
                     <LocationMarkerIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
-                    <span>Roadmap</span>
+                    <span>{{ $t("home.footer.roadmap") }}</span>
                   </a>
                 </li>
                 <li>
@@ -417,7 +423,7 @@
                     <CreditCardIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
-                    <span>Pricing</span>
+                    <span>{{ $t("home.footer.pricing") }}</span>
                   </NuxtLink>
                 </li>
                 <li>
@@ -428,7 +434,7 @@
                     <ClipboardCheckIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
-                    <span>Status</span>
+                    <span>{{ $t("home.footer.status") }}</span>
                   </a>
                 </li>
               </ul>
@@ -438,7 +444,7 @@
               <h5
                 class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
               >
-                Comparisons
+                {{ $t("home.footer.comparisons") }}
               </h5>
 
               <ul class="list-none mb-0">
@@ -504,33 +510,28 @@
               <h5
                 class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
               >
-                Latest blog posts
+                {{ $t("home.recent_blog_posts") }}
               </h5>
 
               <p
                 v-if="pending"
                 class="text-gray-600 dark:text-gray-400 py-3 px-3 block text-left"
               >
-                Loading posts
-                <a
-                  class="underline text-gray-600 dark:text-gray-400"
-                  href="https://blog.simpleanalytics.com/"
-                  target="_blank"
-                  >from blog</a
-                >...
+                {{ $t("home.loading_posts") }}...
               </p>
               <p
                 v-else-if="!recentPosts?.length"
                 class="text-gray-600 dark:text-gray-400 py-3 px-3 block text-left"
-              >
-                Couldn't connect to
-                <a
-                  class="underline text-gray-600 dark:text-gray-400"
-                  href="https://blog.simpleanalytics.com/"
-                  target="_blank"
-                  >our blog</a
-                >.
-              </p>
+                v-html="
+                  $t('home.could_not_connect', [
+                    `<a
+                      class='underline text-gray-600 dark:text-gray-400'
+                      href='https://blog.simpleanalytics.com/'
+                      target='_blank'>`,
+                    `</a>`,
+                  ])
+                "
+              ></p>
               <ul class="list-none flex flex-col space-y-2 -mb-2.5 mt-0" v-else>
                 <li
                   v-for="(post, index) in recentPosts.slice(0, 5)"
@@ -578,7 +579,8 @@
                   ><a
                     class="text-gray-600 dark:text-gray-500 py-2 px-3 hover-hover:hover:text-red-500 dark:hover-hover:hover:text-gray-300 italic"
                     href="https://simpleanalytics.com/contact#details"
-                    >company details</a
+                  >
+                    {{ $t("home.footer.company_details") }}</a
                   ></span
                 >
                 <span class="mx-2">&middot;</span>
@@ -630,6 +632,7 @@ import ms from "../utils/ms";
 
 import { useI18n } from "vue-i18n";
 const i18n = useI18n();
+const { t } = i18n;
 
 const resources = [
   {
@@ -723,10 +726,13 @@ const labelAgo = (date) => {
   if (!date || new Date(date) < Date.now() - ms.week * 11) return;
 
   const ago = Date.now() - new Date(date);
-  if (ago > ms.day * 10) return Math.round(ago / ms.week) + "w ago";
-  if (ago < ms.minute) return "now";
-  if (ago < ms.hour) return Math.round(ago / ms.minute) + "m ago";
-  if (ago < ms.day) return Math.round(ago / ms.hour) + "h ago";
-  return Math.round(ago / ms.day) + "d ago";
+  if (ago > ms.day * 10)
+    return t("time.short.ago.weeks", [Math.round(ago / ms.week)]);
+  if (ago < ms.minute) return t("time.now");
+  if (ago < ms.hour)
+    return t("time.short.ago.minutes", [Math.round(ago / ms.minute)]);
+  if (ago < ms.day)
+    return t("time.short.ago.hours", [Math.round(ago / ms.hour)]);
+  return t("time.short.ago.days", [Math.round(ago / ms.day)]);
 };
 </script>

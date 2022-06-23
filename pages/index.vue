@@ -343,7 +343,11 @@
 
         <h4
           class="my-4 mb-8 text-xl text-center"
-          v-html="$t('home.why_most_privacy.5_reasons', tColorsRed)"
+          v-html="
+            $t('home.why_most_privacy.x_reasons', [
+              `5<span class='text-red-500 dark:text-red-600'>+1</span>`,
+            ])
+          "
         ></h4>
       </div>
       <div class="flex flex-col md:flex-row justify-center items-center">
@@ -797,10 +801,9 @@
         :subtitle="$t('testimonials.missive.role')"
         subtitlelink="https://missiveapp.com/blog/privacy-first-analytics"
       >
-        <p
-          class="text-xl leading-relaxed"
-          v-html="$t('testimonials.missive.quote', tColorsBlue)"
-        ></p>
+        <p class="text-xl leading-relaxed">
+          "<span v-html="$t('testimonials.missive.quote', tColorsBlue)"></span>"
+        </p>
       </Quote>
     </div>
 
@@ -1242,13 +1245,7 @@
         subtitlelink="https://stefaanoyen.be/"
       >
         <p class="text-xl leading-relaxed">
-          "Excellent alternative for Google Analytics. Yes, you pay a small
-          subscription, but you get a lot in return:
-          <span class="text-red-500 dark:text-red-600">GDPR-proof</span> and
-          <span class="text-red-500 dark:text-red-600">cookieless</span>
-          analytics,
-          <span class="text-red-500 dark:text-red-600">accurate</span> tracking
-          and clear visuals."
+          "<span v-html="$t('testimonials.stefaan.quote', tColorsRed)"></span>"
         </p>
       </Quote>
     </div>
@@ -1259,13 +1256,8 @@
       <div class="max-w-3xl mb-20 px-6 mx-auto text-center z-20 relative">
         <h3
           class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-16 sm:mb-20 font-medium text-center"
-        >
-          Trusted by more than 600
-          <span class="text-red-500 dark:text-red-600">governments</span>,
-          <span class="text-red-500 dark:text-red-600">NGOs</span>, and small to
-          mid-sized
-          <span class="text-red-500 dark:text-red-600">enterprises</span>.
-        </h3>
+          v-html="$t('testimonials.trusted_by', tColorsRed)"
+        ></h3>
 
         <Logos
           class="mt-6 sm:mt-10 max-w-[80%] sm:max-w-none mx-auto"
@@ -1288,20 +1280,14 @@
       <h3
         id="why"
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mb-4 mt-16 sm:mb-8 pt-8 font-medium text-center"
-      >
-        Why is Simple Analytics
-        <span class="text-red-500 dark:text-red-600"
-          >the most
-          <br class="hidden sm:block" />
-          privacy-first</span
-        >
-        analytics?
-      </h3>
+        v-html="$t('home.why_most_privacy.title', tColorsRed)"
+      ></h3>
 
       <div class="leading-loose max-w-lg mx-auto">
-        <h4 class="my-4 text-2xl text-center">
-          There are 5 simple reasons that sum it up.
-        </h4>
+        <h4
+          class="my-4 text-2xl text-center"
+          v-html="$t('home.why_most_privacy.x_reasons', [`5`])"
+        ></h4>
 
         <p class="text-center" v-if="currentHash === 'why'">
           <a
@@ -1321,51 +1307,20 @@
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
         >
-          1. Privacy protection is our business model.
+          1. {{ $t("home.why_most_privacy.business_model.title") }}
         </h5>
 
-        <p>
-          Big tech companies have been collecting personal data for years to
-          make a profit. Users get a "free" product, and big tech companies get
-          paid by advertisers that want to buy your attention.
-        </p>
-
-        <ul class="list-disc ml-8 my-4">
-          <li>
-            While you use the "free" product, the tech companies gather creepily
-            huge amounts of data to create a specific profile of your
-            demographics, ethnicity, political preferences, interests, desires,
-            likes, and dislikes.
-          </li>
-          <li>
-            Big tech companies will sell that to the highest bidders as their
-            business model. Without openly telling you.
-          </li>
-        </ul>
-
-        <p>
-          We disgust such practices. Because Simple Analytics is a paid service,
-          we are independent and have no bias or conflict of interest. No second
-          agendas here.
-        </p>
-
-        <p class="mt-4">Our mission is simple:</p>
-
-        <ul class="list-disc ml-8 my-4">
-          <li>
-            We give you the fastest, easiest, and most ethical insights about
-            your website performance while upholding the highest privacy
-            standards.
-          </li>
-          <li>
-            To achieve this, Simple Analytics has an
-            <a :href="mainAppUrl + '/roadmap'">open roadmap</a> for you to see
-            the next steps or request features. Also, we operate
-            <a :href="mainAppUrl + '/open'">fully transparently</a>
-            by sharing our metrics (including revenue, costs, amount of
-            customers, and traffic).
-          </li>
-        </ul>
+        <div
+          class="prose leading-loose"
+          v-html="
+            $t('home.why_most_privacy.business_model.html', [
+              `<a href='${mainAppUrl}/roadmap'>`,
+              `</a>`,
+              `<a href='${mainAppUrl}/open'>`,
+              `</a>`,
+            ])
+          "
+        ></div>
 
         <KeyIcon
           class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
@@ -1374,17 +1329,13 @@
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
         >
-          2. Your data is always encrypted.
+          2. {{ $t("home.why_most_privacy.encrypted.title") }}
         </h5>
 
-        <p>
-          We don't store any personal information and collect minimal amounts of
-          data to protect your visitor's privacy, but that does not make your
-          analytics data less important. That's why your data is always
-          encrypted on our servers. The drives storing your data contain nothing
-          but encrypted lines of code. If anybody did manage to steal those
-          drives, they'd be useless.
-        </p>
+        <div
+          class="prose leading-loose"
+          v-html="$t('home.why_most_privacy.encrypted.html')"
+        ></div>
 
         <FingerPrintIcon
           class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
@@ -1393,52 +1344,13 @@
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
         >
-          3. We never, ever, ever store any personal data about visitors.
+          3. {{ $t("home.why_most_privacy.personal_data.title") }}
         </h5>
-        <p>
-          Some privacy-focused analytics use personally identifiable data and
-          delete it after a day. For example:
-        </p>
 
-        <ul class="list-disc ml-8 my-4">
-          <li>
-            They collect a visitor's IP address, add a date, and turn it into a
-            hash every time you have a page visit.
-          </li>
-          <li>
-            These hashes connect page views together. Although this is
-            definitely better than big tech trying to collect as much personal
-            data as they can to sell to advertisers, it is not 100% waterproof
-            and is a grey area.
-          </li>
-          <li>
-            The hashes expire only once per day, so for less than 24 hours,
-            <em
-              >there is still personally identifiable information stored about
-              your visitors.</em
-            >
-            Privacy policies like the GDPR explain you must have visitors
-            consent to store personally identifiable information (PII).
-          </li>
-        </ul>
-
-        <p>
-          Simple Analytics never compromises privacy. That's why we only use
-          unique visitors without tracking IP addresses. We do this based on the
-          browser's referrer, so no PII is stored. When you use Simple
-          Analytics, it is therefore
-          <em class="text-red-500 dark:text-red-600"
-            >100% guaranteed no personally identifiable information of any of
-            your visitors is stored.</em
-          >
-          Because of this, zero consent is needed. Adiós annoying banners!
-        </p>
-
-        <p class="mt-4">
-          Tip: some clients like to replace their cookie banners with "we're
-          proud to protect your privacy" banners to gain a competitive
-          advantage.
-        </p>
+        <div
+          class="prose leading-loose"
+          v-html="$t('home.why_most_privacy.personal_data.html', tColorsRed)"
+        ></div>
 
         <GlobeIcon
           class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
@@ -1447,36 +1359,13 @@
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
         >
-          4. We are an EU-based company<br class="hidden sm:block" />
-          with EU-based servers.
+          4. {{ $t("home.why_most_privacy.eu_based.title") }}
         </h5>
 
-        <p>
-          We do everything in our power to keep your data safe. We collect the
-          bare minimum amount of data required to give you a full picture of
-          your website's visitors, and besides the three points listed above, we
-          even go a few steps further.
-        </p>
-
-        <ul class="list-disc ml-8 my-4">
-          <li>
-            Compared to other continents, the EU has been concerned with its
-            citizens' privacy for a long time and provides diligent privacy
-            regulations.
-          </li>
-          <li>
-            Our servers are located in the Netherlands and our hosting provider
-            is Dutch because this provides asecure physical location, great
-            global network connectivity, and high legal standards for data
-            processing (no cloud provider that needs to report to a foreign
-            government).
-          </li>
-          <li>
-            We choose to locate our business in the Netherlands because a
-            privacy-conscious environment helps us uphold our high standards for
-            ethics and privacy.
-          </li>
-        </ul>
+        <div
+          class="prose leading-loose"
+          v-html="$t('home.why_most_privacy.eu_based.html')"
+        ></div>
 
         <TableIcon
           class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
@@ -1485,13 +1374,12 @@
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
         >
-          5. You own your data.
+          5. {{ $t("home.why_most_privacy.own_data.title") }}
         </h5>
-        <p>
-          We care about your data. We care for your data. Yet, you own your
-          data. We will never sell it. You are in control of your data, and you
-          can download or delete it at any time.
-        </p>
+        <div
+          class="prose leading-loose"
+          v-html="$t('home.why_most_privacy.own_data.html')"
+        ></div>
       </div>
 
       <div class="py-12 text-center">

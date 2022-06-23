@@ -8,21 +8,60 @@
     "see_live_demo": "See live demo",
     "recent_blog_posts": "Recent blog posts",
     "in_english": "In English",
+    "most_of_resources_are_english": "The most part of the information below is in English",
     "new": "New",
     "view_all_posts": "View all blog posts",
     "loading_posts": "Loading posts",
     "did_not_find_any_posts": "Didn't find any posts",
+    "could_not_connect": "Couldn't connect to {0}our blog{1}.",
     "see_feature_video_below": "See feature video below",
+
+    "footer": {
+      "comparisons": "Comparisons",
+      "learn": "Learn",
+      "documentation": "Documentation",
+      "blog": "Blog",
+      "roadmap": "Roadmap",
+      "pricing": "Pricing",
+      "status": "Status",
+      "privacy": "Privacy",
+      "what_we_collect": "What we collect",
+      "we_dont_track_you": "We don't track you",
+      "privacy_policy": "Privacy policy",
+      "cookie_statement": "Cookie statement",
+      "tos": "Terms & conditions",
+      "company_details": "Company details"
+    },
     "why_most_privacy": {
       "title": "Why is Simple Analytics the {0}most privacy-first{1} analytics?",
-      "5_reasons": "There are 5{0}+1{1} simple reasons that sum it up.",
+      "x_reasons": "Here are {0} simple reasons that sum it up.",
       "reason_1": "Privacy protection is {0}our business model{1}. We comply by design with all privacy policies. Including: GDPR, PECR, CCPA and more.",
       "reason_2": "Your data is always encrypted.",
       "reason_3": "We never, ever, ever store any {0}personal data{1} about visitors. No {0}cookie banners{1}.",
       "reason_4": "We are an {0}EU-based company{1} with EU-based servers.",
       "reason_5": "You own {0}your data{1}. We don't {0}sell{1} any visitor data",
       "see_what_we_collect": "see what we collect",
-      "read_detailed_reasons": "Read detailed reasons"
+      "read_detailed_reasons": "Read detailed reasons",
+      "business_model": {
+        "title": "Privacy protection is our business model.",
+        "html": "<p>Big tech companies have been collecting personal data for years to make a profit. Users get a \"free\" product, and big tech companies get paid by advertisers that want to buy your attention.</p><ul><li>While you use the \"free\" product, the tech companies gather creepily huge amounts of data to create a specific profile of your demographics, ethnicity, political preferences, interests, desires, likes, and dislikes.</li><li>Big tech companies will sell that to the highest bidders as their business model. Without openly telling you.</li></ul><p>We disgust such practices. Because Simple Analytics is a paid service, we are independent and have no bias or conflict of interest. No second agendas here.</p><p>Our mission is simple:</p><ul><li>We give you the fastest, easiest, and most ethical insights about your website performance while upholding the highest privacy standards.</li><li>To achieve this, Simple Analytics has an {0}open roadmap{1} for you to see the next steps or request features. Also, we operate {2}fully transparently{3} by sharing our metrics (including revenue, costs, amount of customers, and traffic).</li></ul>"
+      },
+      "encrypted": {
+        "title": "Your data is encrypted.",
+        "html": "<p>We don't store any personal information and collect minimal amounts of data to protect your visitor's privacy, but that does not make your analytics data less important. That's why your data is always encrypted on our servers. Encrypted in transit and encrypted at rest.</p><p>The drives storing your data contain nothing but encrypted lines of code. If anybody did manage to steal those drives, they'd be useless. The encryption key is stored outside the servers in a virtual vault that is protected by two-factor authentication.</p>"
+      },
+      "personal_data": {
+        "title": "We never, ever, ever store any personal data about visitors.",
+        "html": "<p>Some privacy-focused analytics use personally identifiable data and delete it after a day. For example:</p><ul><li>They collect a visitor's IP address, add a date, and turn it into a hash every time you have a page visit.</li><li>These hashes connect page views together. Although this is definitely better than big tech trying to collect as much personal data as they can to sell to advertisers, it is not 100% waterproof and is a grey area.</li><li>The hashes expire only once per day, so for less than 24 hours, <em>there is still personally identifiable information stored about your visitors.</em> Privacy policies like the GDPR explain you must have visitors consent to store personally identifiable information (PII).</li></ul><p>Simple Analytics doet nooit concessies aan de Simple Analytics never compromises privacy. That's why we only use unique visitors without tracking IP addresses. We do this based on the browser's referrer, so no PII is stored. When you use Simple Analytics, it is {0}therefore 100% guaranteed no personally identifiable information of any of your visitors is stored.{1} Because of this, zero consent is needed. Adiós annoying banners!</p><p>Tip: some clients like to replace their cookie banners with \"we're proud to protect your privacy\" banners to gain a competitive advantage.</p>"
+      },
+      "eu_based": {
+        "title": "We are an EU-based company with EU-based servers.",
+        "html": "<p>We do everything in our power to keep your data safe. We collect the bare minimum amount of data required to give you a full picture of your website's visitors, and besides the three points listed above, we even go a few steps further.</p><ul><li>Compared to other continents, the EU has been concerned with its citizens' privacy for a long time and provides diligent privacy regulations.</li><li>Our servers are located in the Netherlands and our hosting provider is Dutch because this provides asecure physical location, great global network connectivity, and high legal standards for data processing (no cloud provider that needs to report to a foreign government).</li><li>We choose to locate our business in the Netherlands because a privacy-conscious environment helps us uphold our high standards for ethics and privacy.</li></ul>"
+      },
+      "own_data": {
+        "title": "You own your data.",
+        "html": "<p>We care about your data. We care for your data. Yet, you own your data. We will never sell it. You are in control of your data, and you can download or delete it at any time.</p>"
+      }
     },
     "simple_title": "Simple",
     "simple_description": "One dashboard to instantly see how many visitors are coming to your website, where they come from and what they do once they're there. Without cookies. Without stalking. Still lightweight.",
@@ -174,9 +213,28 @@
     }
   },
   "pricing_faq": {
-    "title": "Frequently Asked Questions"
+    "title": "Frequently Asked Questions",
+    "need_help": "Neer more help? Please send us your question(s) via {0}our support page{1}.",
+    "trial_expires": {
+      "title": "Will I be charged when my trial expires?",
+      "description": "No. After your trial expires, your plan downgrades automatically to the basic free version. Upgrade whenever you want to the plan that fits your needs."
+    },
+    "cancel": {
+      "title": "Can I cancel anytime?",
+      "description": "Yes. You can cancel your subscription at any moment. You will still have access to your account and data until the end of the period you paid for."
+    },
+    "payment_methods": {
+      "title": "What payment methods do you accept?",
+      "description": "We accept Credit Card, Debit Card, Bitcoin {0}+10% & yearly{1}, Apple Pay, and Google Pay as payment methods for all our paid plans. You can pay in Euros, US Dollars or British Pounds. Bills from {2}500 can be paid via bank transfers and cost an additional {0}10%{1} in banking and service fees."
+    },
+    "traffic_change": {
+      "title": "What will happen to my charges when my traffic grows / declines?",
+      "description_1": "You only pay for what you actually need. This means that if your plan's page view limit is exceeded, you will be charged for overages. Simple Analytics automatically calculates your price based on your average amount of page views (first looking back one month, then the average of the previous three months).",
+      "description_2": "So, if you had an increase in traffic during the last three months, you pay only a little more next month. Likewise, you automatically pay a little less when your average amount of page views decreased during the last months."
+    }
   },
   "testimonials": {
+    "trusted_by": "Trusted by more than 600 {0}governments{1}, {0}NGOs{1}, and small to mid-sized {0}enterprises{1}.",
     "duckduckgo": {
       "name": "DuckDuckGo",
       "role": "Biggest privacy-friendly search engine",
@@ -201,6 +259,21 @@
     "evan": {
       "role": "Software engineer",
       "quote": "This is great to keep track of all the products that I launch. I also {0}use the API to send myself a bot message{1} each morning with rolling week stats and daily stats from the previous day"
+    },
+    "stefaan": {
+      "role": "Marketeer",
+      "quote": "Excellent alternative for Google Analytics. Yes, you pay a small subscription, but you get a lot in return: {0}GDPR-proof{1} and {0}cookieless{1} analytics, {0}accurate{1} tracking and clear visuals."
+    }
+  },
+  "time": {
+    "now": "now",
+    "short": {
+      "ago": {
+        "weeks": "{0}w ago",
+        "days": "{0}d ago",
+        "hours": "{0}h ago",
+        "minutes": "{0}m ago"
+      }
     }
   }
 }

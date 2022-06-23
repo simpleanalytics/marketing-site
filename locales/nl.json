@@ -8,21 +8,59 @@
     "see_live_demo": "Bekijk de demo",
     "recent_blog_posts": "Recente blogberichten",
     "in_english": "In het Engels",
+    "most_of_resources_are_english": "Het meeste van de onderstaande informatie is in het Engels",
     "new": "Nieuw",
     "view_all_posts": "Bekijk alle blogberichten",
     "loading_posts": "Bezig met laden van blogberichten...",
     "did_not_find_any_posts": "Geen berichten gevonden",
+    "could_not_connect": "Couldn't connect to {0}our blog{1}.",
     "see_feature_video_below": "Bekijk alle features",
+    "footer": {
+      "comparisons": "Vergelijkingen",
+      "learn": "Ontdek",
+      "documentation": "Documentatie",
+      "blog": "Blog",
+      "roadmap": "Roadmap",
+      "pricing": "Prijzen",
+      "status": "Status",
+      "privacy": "Privacy",
+      "what_we_collect": "Wat we verzamelen",
+      "we_dont_track_you": "We bespieden je niet",
+      "privacy_policy": "Privacybeleid",
+      "cookie_statement": "Cookieverklaring",
+      "tos": "Gebruiksvoorwaarden",
+      "company_details": "Bedrijfsgegevens"
+    },
     "why_most_privacy": {
       "title": "Waarom is Simple Analytics {0}de meest privacy-first{1} analytics?",
-      "5_reasons": "Er zijn 5{0}+1{1} simpele redenen die het samenvatten.",
+      "x_reasons": "Hier zijn {0} simpele redenen die het samenvatten.",
       "reason_1": "Privacybescherming is {0}ons bedrijfsmodel{1}. Wij houden ons standaard aan alle privacybeleidsregels. Waaronder: GDPR, PECR, CCPA en meer.",
       "reason_2": "Jouw gegevens zijn {0}altijd encrypted{1}.",
       "reason_3": "We slaan nooit, maar dan ook nooit, {0}persoonlijke gegevens{1} van bezoekers op. Geen {0}cookie banners{1}.",
       "reason_4": "Wij zijn een in de {0}EU gevestigd{1} bedrijf met in de {0}EU gevestigde{1} servers.",
       "reason_5": "Je bent zelf de {0}eigenaar{1} van de gegevens. Wij {0}verkopen{1} geen bezoekersgegevens",
       "see_what_we_collect": "bekijk wat we verzamelen",
-      "read_detailed_reasons": "Lees de gedetailleerde redenen"
+      "read_detailed_reasons": "Lees de gedetailleerde redenen",
+      "business_model": {
+        "title": "Privacybescherming is ons bedrijfsmodel.",
+        "html": "<p>Grote techbedrijven verzamelen al jaren persoonlijke gegevens om winst te maken. Gebruikers krijgen een \"gratis\" product, en grote techbedrijven worden betaald door adverteerders die uw aandacht willen kopen.</p><ul><li>Terwijl u het \"gratis\" product gebruikt, verzamelen de techbedrijven griezelig veel gegevens om een specifiek profiel te maken van uw demografische gegevens, etniciteit, politieke voorkeuren, interesses, verlangens, voorkeuren en antipathieën.</li><li>Grote techbedrijven zullen dat verkopen aan de hoogste bieders als hun bedrijfsmodel. Zonder het u openlijk te vertellen.</li></ul><p>Wij verafschuwen dergelijke praktijken. Omdat Simple Analytics een betaalde dienst is, zijn wij onafhankelijk en hebben geen vooringenomenheid of belangenconflict. Geen tweede agenda's hier.</p><p>Onze missie is eenvoudig:</p><ul><li>Wij geven u de snelste, gemakkelijkste en meest ethische inzichten over de prestaties van uw website, terwijl we de hoogste privacystandaarden handhaven.</li><li>Om dit te bereiken, heeft Simple Analytics een {0}open roadmap{1} voor u om de volgende stappen te zien of functies aan te vragen. Ook werken we {2}volledig transparant{3} door het delen van onze statistieken (inclusief inkomsten, kosten, aantal klanten en verkeer).</li></ul>"
+      },
+      "encrypted": {
+        "title": "Jouw gegevens zijn versleuteld.",
+        "html": "<p>Wij slaan geen persoonlijke informatie op en verzamelen minimale hoeveelheden gegevens om de privacy van uw bezoekers te beschermen, maar dat maakt uw analytische gegevens niet minder belangrijk. Daarom staan uw gegevens altijd versleuteld op onze servers. Versleuteld bij het verzenden en ontvangen en versleuteld op de server (Engels: at rest).</p><p>De schijven waarop uw gegevens staan, bevatten niets anders dan versleutelde gegevens. Als iemand erin slaagt deze schijven te stelen, zijn ze nutteloos. De encryptiesleutel wordt buiten de servers opgeslagen in een virtuele kluis die wordt beschermd door twee-factor authenticatie.</p>"
+      },
+      "personal_data": {
+        "title": "Wij slaan nooit, maar dan ook nooit, persoonlijke gegevens van bezoekers op.",
+        "html": "<p>Sommige op privacy gerichte analytics gebruiken persoonlijk identificeerbare gegevens en verwijderen deze na een dag. Bijvoorbeeld:</p><ul><li>Ze verzamelen het IP-adres van een bezoeker, voegen een datum toe, en maken er een hash van bij elk paginabezoek.</li><li>Deze hashes verbinden paginaweergaven met elkaar. Hoewel dit zeker beter is dan big tech die probeert zoveel mogelijk persoonlijke gegevens te verzamelen om aan adverteerders te verkopen, is het niet 100% waterdicht en is het een grijs gebied.</li><li>De hashes verlopen maar één keer per dag, <em>dus voor minder dan 24 uur is er nog steeds persoonlijk identificeerbare informatie opgeslagen over uw bezoekers.</em> Privacy policies zoals de GDPR leggen uit dat u toestemming van bezoekers moet hebben om persoonlijk identificeerbare informatie (PII) op te slaan.</li></ul><p>Simple Analytics doet nooit concessies aan de privacy. Daarom gebruiken we alleen unieke bezoekers zonder IP-adressen te volgen. We doen dit op basis van de referrer van de browser, zodat er geen PII wordt opgeslagen. Wanneer u Simple Analytics gebruikt, is het dus {0}100% gegarandeerd dat er geen persoonlijk identificeerbare informatie van een van uw bezoekers wordt opgeslagen.{1} Hierdoor is er nul toestemming nodig. Adiós vervelende banners!</p><p>Tip: sommige klanten vervangen hun cookie banners graag door \"we zijn er trots op dat we uw privacy beschermen\" banners om een concurrentievoordeel te behalen.</p>"
+      },
+      "eu_based": {
+        "title": "Wij zijn een in de EU gevestigd bedrijf met in de EU gevestigde servers.",
+        "html": "<p>Wij doen er alles aan om uw gegevens veilig te houden. Wij verzamelen het absolute minimum aan gegevens dat nodig is om u een volledig beeld te geven van de bezoekers van uw website, en naast de drie punten die hierboven zijn opgesomd, gaan we zelfs nog een paar stappen verder.</p><ul><li>Vergeleken met andere continenten is de EU al lange tijd begaan met de privacy van haar burgers en voorziet zij in ijverige privacyregels.</li><li>Onze servers staan in Nederland en onze hostingprovider is Nederlands omdat dit zorgt voor een veilige fysieke locatie, goede wereldwijde netwerkconnectiviteit, en hoge wettelijke normen voor gegevensverwerking (geen cloudprovider die zich moet melden bij een buitenlandse overheid).</li><li>Wij kiezen ervoor ons bedrijf in Nederland te vestigen omdat een privacy-bewuste omgeving ons helpt onze hoge normen voor ethiek en privacy te handhaven.</li></ul>"
+      },
+      "own_data": {
+        "title": "U bent eigenaar van uw gegevens.",
+        "html": "<p>Wij geven om uw gegevens. Wij geven om uw gegevens. Maar u bent de eigenaar van uw gegevens. We zullen ze nooit verkopen. U hebt de controle over uw gegevens, en u kunt ze op elk moment downloaden of verwijderen.</p>"
+      }
     },
     "simple_title": "Simple",
     "simple_description": "Eén dashboard om direct te zien hoeveel bezoekers er op uw website komen, waar ze vandaan komen en wat ze doen als ze er eenmaal zijn. Zonder cookies. Zonder stalking. Nog steeds lichtgewicht.",
@@ -174,9 +212,28 @@
     }
   },
   "pricing_faq": {
-    "title": "Veelgestelde vragen"
+    "title": "Veelgestelde vragen",
+    "need_help": "Wilt u meer hulp? Stuur ons dan jouw vraag of vragen via {0}onze supportpagina{1}.",
+    "trial_expires": {
+      "title": "Moet ik betalen als mijn proefperiode afloopt?",
+      "description": "Nee. Nadat de proefperiode is verlopen, wordt je abonnement automatisch gedowngrade naar de gratis basisversie. Upgrade wanneer je maar wilt naar het plan dat bij jouw behoeften past."
+    },
+    "cancel": {
+      "title": "Kan ik op elk moment opzeggen?",
+      "description": "Ja. U kunt het abonnement op elk moment opzeggen. Je hebt nog toegang tot jouw account en gegevens tot het einde van de periode waarvoor betaald is."
+    },
+    "payment_methods": {
+      "title": "Welke betaalmethoden accepteren wij?",
+      "description": "Wij accepteren Credit Card, Debit Card, Bitcoin {0}+10&#37; & jaarlijks{1}, Apple Pay, en Google Pay als betaalmethoden voor al onze betaalde plannen. Je kan betalen in Euro's, US Dollars of Britse Ponden. Rekeningen vanaf {2}500 kunnen worden betaald via bankoverschrijvingen en kosten een extra {0}10&#37;{1} aan bank- en servicekosten."
+    },
+    "traffic_change": {
+      "title": "Wat gebeurt er met mijn kosten als mijn verkeer toeneemt / afneemt?",
+      "description_1": "Je betaalt alleen voor wat je daadwerkelijk nodig hebt. Dit betekent dat als de pageview-limiet van het plan wordt overschreden, je in rekening wordt gebracht voor de overschrijdingen. Simple Analytics berekent automatisch je prijs op basis van jouw gemiddeld aantal pageviews (eerst één maand terugblikkend, dan het gemiddelde van de vorige drie maanden).",
+      "description_2": "Dus, als je een toename in verkeer had gedurende de laatste drie maanden, betaal je volgende maand slechts een beetje meer. Op dezelfde manier betaalt je automatisch een beetje minder wanneer jouw gemiddeld aantal pageviews daalde tijdens de laatste maanden."
+    }
   },
   "testimonials": {
+    "trusted_by": "Vertrouwd door meer dan 600 {0}overheden{1}, {0}NGO's{1} en kleine tot grote {0}ondernemingen{1}.",
     "duckduckgo": {
       "name": "DuckDuckGo",
       "role": "De grootste privacy vriendelijke search engine",
@@ -201,6 +258,21 @@
     "evan": {
       "role": "Software developer",
       "quote": "Dit is geweldig voor het bijhouden van alle producten die ik lanceer. Ik gebruik ook {0}de API om mezelf elke ochtend een botbericht{1} te sturen met de statistieken van de lopende week en de dagelijkse statistieken van de vorige dag"
+    },
+    "stefaan": {
+      "role": "Marketeer",
+      "quote": "Uitstekend alternatief voor Google Analytics. Ja, je betaalt een klein abonnement, maar je krijgt er veel voor terug: {0}GDPR-proof{1} en {0}cookieloze{1} analytics, {0}nauwkeurige{1} tracking en duidelijke visuals."
+    }
+  },
+  "time": {
+    "now": "nu",
+    "short": {
+      "ago": {
+        "weeks": "{0}w oud",
+        "days": "{0}d oud",
+        "hours": "{0}u oud",
+        "minutes": "{0}m oud"
+      }
     }
   }
 }

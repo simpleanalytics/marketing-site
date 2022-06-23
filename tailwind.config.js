@@ -88,6 +88,7 @@ module.exports = {
     },
   },
   plugins: [
+    require("@tailwindcss/typography"),
     plugin(function ({ addBase }) {
       addBase({
         "@font-face": fonts.map(({ fontWeight, file }) => ({
