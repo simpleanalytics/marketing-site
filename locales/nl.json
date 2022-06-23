@@ -44,45 +44,45 @@
       "read_detailed_reasons": "Lees de gedetailleerde redenen",
       "business_model": {
         "title": "Privacybescherming is ons bedrijfsmodel.",
-        "html": "<p>Grote techbedrijven verzamelen al jaren persoonlijke gegevens om winst te maken. Gebruikers krijgen een \"gratis\" product, en grote techbedrijven worden betaald door adverteerders die uw aandacht willen kopen.</p><ul><li>Terwijl u het \"gratis\" product gebruikt, verzamelen de techbedrijven griezelig veel gegevens om een specifiek profiel te maken van uw demografische gegevens, etniciteit, politieke voorkeuren, interesses, verlangens, voorkeuren en antipathieën.</li><li>Grote techbedrijven zullen dat verkopen aan de hoogste bieders als hun bedrijfsmodel. Zonder het u openlijk te vertellen.</li></ul><p>Wij verafschuwen dergelijke praktijken. Omdat Simple Analytics een betaalde dienst is, zijn wij onafhankelijk en hebben geen vooringenomenheid of belangenconflict. Geen tweede agenda's hier.</p><p>Onze missie is eenvoudig:</p><ul><li>Wij geven u de snelste, gemakkelijkste en meest ethische inzichten over de prestaties van uw website, terwijl we de hoogste privacystandaarden handhaven.</li><li>Om dit te bereiken, heeft Simple Analytics een {0}open roadmap{1} voor u om de volgende stappen te zien of functies aan te vragen. Ook werken we {2}volledig transparant{3} door het delen van onze statistieken (inclusief inkomsten, kosten, aantal klanten en verkeer).</li></ul>"
+        "html": "<p>Grote techbedrijven verzamelen al jaren persoonlijke gegevens om winst te maken. Gebruikers krijgen een \"gratis\" product, en grote techbedrijven worden betaald door adverteerders die jouw aandacht willen kopen.</p><ul><li>Terwijl je het \"gratis\" product gebruikt, verzamelen de techbedrijven griezelig veel gegevens om een specifiek profiel te maken van jouw demografische gegevens, etniciteit, politieke voorkeuren, interesses, verlangens, voorkeuren en antipathieën.</li><li>Grote techbedrijven zullen dat verkopen aan de hoogste bieders als hun bedrijfsmodel. Zonder het je openlijk te vertellen.</li></ul><p>Wij verafschuwen dergelijke praktijken. Omdat Simple Analytics een betaalde dienst is, zijn wij onafhankelijk en hebben geen vooringenomenheid of belangenconflict. Geen tweede agenda's hier.</p><p>Onze missie is eenvoudig:</p><ul><li>Wij geven je de snelste, gemakkelijkste en meest ethische inzichten over de prestaties van je website, terwijl we de hoogste privacystandaarden handhaven.</li><li>Om dit te bereiken, heeft Simple Analytics een {0}open roadmap{1} voor je om de volgende stappen te zien of functies aan te vragen. Ook werken we {2}volledig transparant{3} door het delen van onze statistieken (inclusief inkomsten, kosten, aantal klanten en verkeer).</li></ul>"
       },
       "encrypted": {
         "title": "Jouw gegevens zijn versleuteld.",
-        "html": "<p>Wij slaan geen persoonlijke informatie op en verzamelen minimale hoeveelheden gegevens om de privacy van uw bezoekers te beschermen, maar dat maakt uw analytische gegevens niet minder belangrijk. Daarom staan uw gegevens altijd versleuteld op onze servers. Versleuteld bij het verzenden en ontvangen en versleuteld op de server (Engels: at rest).</p><p>De schijven waarop uw gegevens staan, bevatten niets anders dan versleutelde gegevens. Als iemand erin slaagt deze schijven te stelen, zijn ze nutteloos. De encryptiesleutel wordt buiten de servers opgeslagen in een virtuele kluis die wordt beschermd door twee-factor authenticatie.</p>"
+        "html": "<p>Wij slaan geen persoonlijke informatie op en verzamelen minimale hoeveelheden gegevens om de privacy van je bezoekers te beschermen, maar dat maakt je analytische gegevens niet minder belangrijk. Daarom staan je gegevens altijd versleuteld op onze servers. Versleuteld bij het verzenden en ontvangen en versleuteld op de server (Engels: at rest).</p><p>De schijven waarop je gegevens staan, bevatten niets anders dan versleutelde gegevens. Als iemand erin slaagt deze schijven te stelen, zijn ze nutteloos. De encryptiesleutel wordt buiten de servers opgeslagen in een virtuele kluis die wordt beschermd door twee-factor authenticatie.</p>"
       },
       "personal_data": {
         "title": "Wij slaan nooit, maar dan ook nooit, persoonlijke gegevens van bezoekers op.",
-        "html": "<p>Sommige op privacy gerichte analytics gebruiken persoonlijk identificeerbare gegevens en verwijderen deze na een dag. Bijvoorbeeld:</p><ul><li>Ze verzamelen het IP-adres van een bezoeker, voegen een datum toe, en maken er een hash van bij elk paginabezoek.</li><li>Deze hashes verbinden paginaweergaven met elkaar. Hoewel dit zeker beter is dan big tech die probeert zoveel mogelijk persoonlijke gegevens te verzamelen om aan adverteerders te verkopen, is het niet 100% waterdicht en is het een grijs gebied.</li><li>De hashes verlopen maar één keer per dag, <em>dus voor minder dan 24 uur is er nog steeds persoonlijk identificeerbare informatie opgeslagen over uw bezoekers.</em> Privacy policies zoals de GDPR leggen uit dat u toestemming van bezoekers moet hebben om persoonlijk identificeerbare informatie (PII) op te slaan.</li></ul><p>Simple Analytics doet nooit concessies aan de privacy. Daarom gebruiken we alleen unieke bezoekers zonder IP-adressen te volgen. We doen dit op basis van de referrer van de browser, zodat er geen PII wordt opgeslagen. Wanneer u Simple Analytics gebruikt, is het dus {0}100% gegarandeerd dat er geen persoonlijk identificeerbare informatie van een van uw bezoekers wordt opgeslagen.{1} Hierdoor is er nul toestemming nodig. Adiós vervelende banners!</p><p>Tip: sommige klanten vervangen hun cookie banners graag door \"we zijn er trots op dat we uw privacy beschermen\" banners om een concurrentievoordeel te behalen.</p>"
+        "html": "<p>Sommige op privacy gerichte analytics gebruiken persoonlijk identificeerbare gegevens en verwijderen deze na een dag. Bijvoorbeeld:</p><ul><li>Ze verzamelen het IP-adres van een bezoeker, voegen een datum toe, en maken er een hash van bij elk paginabezoek.</li><li>Deze hashes verbinden paginaweergaven met elkaar. Hoewel dit zeker beter is dan big tech die probeert zoveel mogelijk persoonlijke gegevens te verzamelen om aan adverteerders te verkopen, is het niet 100% waterdicht en is het een grijs gebied.</li><li>De hashes verlopen maar één keer per dag, <em>dus voor minder dan 24 uur is er nog steeds persoonlijk identificeerbare informatie opgeslagen over je bezoekers.</em> Privacy policies zoals de GDPR leggen uit dat je toestemming van bezoekers moet hebben om persoonlijk identificeerbare informatie (PII) op te slaan.</li></ul><p>Simple Analytics doet nooit concessies aan de privacy. Daarom gebruiken we alleen unieke bezoekers zonder IP-adressen te volgen. We doen dit op basis van de referrer van de browser, zodat er geen PII wordt opgeslagen. Wanneer je Simple Analytics gebruikt, is het dus {0}100% gegarandeerd dat er geen persoonlijk identificeerbare informatie van een van je bezoekers wordt opgeslagen.{1} Hierdoor is er nul toestemming nodig. Adiós vervelende banners!</p><p>Tip: sommige klanten vervangen hun cookie banners graag door \"we zijn er trots op dat we je privacy beschermen\" banners om een concurrentievoordeel te behalen.</p>"
       },
       "eu_based": {
         "title": "Wij zijn een in de EU gevestigd bedrijf met in de EU gevestigde servers.",
-        "html": "<p>Wij doen er alles aan om uw gegevens veilig te houden. Wij verzamelen het absolute minimum aan gegevens dat nodig is om u een volledig beeld te geven van de bezoekers van uw website, en naast de drie punten die hierboven zijn opgesomd, gaan we zelfs nog een paar stappen verder.</p><ul><li>Vergeleken met andere continenten is de EU al lange tijd begaan met de privacy van haar burgers en voorziet zij in ijverige privacyregels.</li><li>Onze servers staan in Nederland en onze hostingprovider is Nederlands omdat dit zorgt voor een veilige fysieke locatie, goede wereldwijde netwerkconnectiviteit, en hoge wettelijke normen voor gegevensverwerking (geen cloudprovider die zich moet melden bij een buitenlandse overheid).</li><li>Wij kiezen ervoor ons bedrijf in Nederland te vestigen omdat een privacy-bewuste omgeving ons helpt onze hoge normen voor ethiek en privacy te handhaven.</li></ul>"
+        "html": "<p>Wij doen er alles aan om je gegevens veilig te houden. Wij verzamelen het absolute minimum aan gegevens dat nodig is om je een volledig beeld te geven van de bezoekers van je website, en naast de drie punten die hierboven zijn opgesomd, gaan we zelfs nog een paar stappen verder.</p><ul><li>Vergeleken met andere continenten is de EU al lange tijd begaan met de privacy van haar burgers en voorziet zij in ijverige privacyregels.</li><li>Onze servers staan in Nederland en onze hostingprovider is Nederlands omdat dit zorgt voor een veilige fysieke locatie, goede wereldwijde netwerkconnectiviteit, en hoge wettelijke normen voor gegevensverwerking (geen cloudprovider die zich moet melden bij een buitenlandse overheid).</li><li>Wij kiezen ervoor ons bedrijf in Nederland te vestigen omdat een privacy-bewuste omgeving ons helpt onze hoge normen voor ethiek en privacy te handhaven.</li></ul>"
       },
       "own_data": {
-        "title": "U bent eigenaar van uw gegevens.",
-        "html": "<p>Wij geven om uw gegevens. Wij geven om uw gegevens. Maar u bent de eigenaar van uw gegevens. We zullen ze nooit verkopen. U hebt de controle over uw gegevens, en u kunt ze op elk moment downloaden of verwijderen.</p>"
+        "title": "Jij bent eigenaar van je gegevens.",
+        "html": "<p>Wij geven om jouw gegevens. En jij bent de eigenaar van die gegevens. We zullen ze nooit verkopen. Jij hebt de controle over je gegevens, en je kunt ze op elk moment downloaden of verwijderen.</p>"
       }
     },
     "simple_title": "Simple",
-    "simple_description": "Eén dashboard om direct te zien hoeveel bezoekers er op uw website komen, waar ze vandaan komen en wat ze doen als ze er eenmaal zijn. Zonder cookies. Zonder stalking. Nog steeds lichtgewicht.",
+    "simple_description": "Eén dashboard om direct te zien hoeveel bezoekers er op je website komen, waar ze vandaan komen en wat ze doen als ze er eenmaal zijn. Zonder cookies. Zonder stalking. Nog steeds lichtgewicht.",
     "see_if_for_yourself": "Zie het voor jezelf, klik op een knop",
     "connect": {
       "title": "Verbind {0}je gegevens{1} met jouw unieke workflow.",
-      "import_data": "Importeer uw gegevens uit Google Analytics",
+      "import_data": "Importeer je gegevens uit Google Analytics",
       "use_gtm": "Gebruik Google Tag Manager, WordPress,<br />of onze vele frontend",
       "framework_plugins": "framework plugins",
-      "export_to": "Exporteer naar uw eigen systemen,<br />Power BI, Google Data Studio, of {0}data lakes{1}",
+      "export_to": "Exporteer naar je eigen systemen,<br />Power BI, Google Data Studio, of {0}data lakes{1}",
       "export_as": "Exporteer als {0}onbewerkte gegevens{1} of geaggregeerd"
     },
     "why_switch_from_ga": {
       "title": "Waarom zou je moeten overstappen van Google Analytics?",
       "try_us_button": "Ontdek het zelf",
-      "paragraph_1": "Google is een van 's werelds grootste gegevensverslindende machines, die de gegevens van uw websitebezoekers met winst verkoopt. Vanuit een ethisch standpunt zouden organisaties ernaar moeten streven om de privacy van hun websitebezoekers te beschermen. Nog steeds gebruikt {0}85% van de websites{1} Google Analytics, maar dit staat op het punt ten goede te veranderen.",
+      "paragraph_1": "Google is een van 's werelds grootste gegevensverslindende machines, die de gegevens van je websitebezoekers met winst verkoopt. Vanuit een ethisch standpunt zouden organisaties ernaar moeten streven om de privacy van hun websitebezoekers te beschermen. Nog steeds gebruikt {0}85% van de websites{1} Google Analytics, maar dit staat op het punt ten goede te veranderen.",
       "paragraph_2": "Privacywetten zoals de GDPR zijn ingevoerd om de privacy van internetgebruikers te beschermen. Gegevensbeschermingsinstanties treden hard op tegen privacyschendende diensten zoals Google Analytics. Frankrijk (CNIL) en Oostenrijk (DSB) hebben al verklaard dat het gebruik van Google Analytics in strijd is met de GDPR-wetgeving in hun landen. Verwacht wordt dat meer EU-landen dit voorbeeld zullen volgen.",
       "paragraph_3": "Google Analytics is een complexe web analytics tool die tot nu toe het standaard analytics tool was, maar dit is aan het veranderen, en Google erkent dit ook. Daarom staan ze op het punt om over te stappen op een nieuwe versie genaamd",
       "paragraph_3_link": "GA4 dat privacy-vriendelijk wil zijn, maar dat niet is",
       "paragraph_4": "Bovendien beperken webbrowsers de trackingmechanismen en worden adblockers gebruikt om Google Analytics te blokkeren, waardoor hun gegevens steeds minder accuraat worden.",
-      "paragraph_5": "Het wereldwijde bedrijfsklimaat verandert in de richting van privacy, en dat zou u ook moeten doen!",
+      "paragraph_5": "Het wereldwijde bedrijfsklimaat verandert in de richting van privacy, en dat zou je ook moeten doen!",
       "paragraph_6_1": "Hier is waarom Simple Analytics de nummer één privacy-vriendelijke",
       "paragraph_6_link": "alternatief voor Google Analytics is",
       "paragraph_6_2": "Meer dan 600 betalende klanten vertrouwen erop dat wij hen de inzichten verschaffen die zij nodig hebben, terwijl wij de privacy van hun websitebezoekers beschermen"
@@ -90,14 +90,14 @@
     "events": {
       "title": "Event traceren zonder individuen te traceren",
       "auto_collect_link": "Automatisch events verzamelen",
-      "auto_collect_description": "zoals downloads, uitgaande links en e-mailadres klikken. Controleer de prestaties van elke knop, klik en paginabezoek die u wilt.",
+      "auto_collect_description": "zoals downloads, uitgaande links en e-mailadres klikken. Controleer de prestaties van elke knop, klik en paginabezoek die je wilt.",
       "see_events_in_action": "Bekijk de events in actie"
     },
     "reports": {
       "title": "Rapporten automatiseren",
-      "description": "Bespaar tijd en houd anderen op de hoogte van uw resultaten. Plan uw rapporten zo dat ze automatisch worden gedeeld wanneer u maar wilt.",
+      "description": "Bespaar tijd en houd anderen op de hoogte van je resultaten. Plan je rapporten zo dat ze automatisch worden gedeeld wanneer je maar wilt.",
       "email_reports": "E-mail rapporten",
-      "instructions": "Stuur uzelf en anderen een e-mailrapport van simpleanalytics.com. U kunt zoveel e-mailadressen toevoegen als u wilt. Zie een voorbeeld van een e-mail rapport in {0}onze documentatie{1}.",
+      "instructions": "Stuur uzelf en anderen een e-mailrapport van simpleanalytics.com. je kunt zoveel e-mailadressen toevoegen als je wilt. Zie een voorbeeld van een e-mail rapport in {0}onze documentatie{1}.",
       "recipient": "Ontvanger",
       "period": "Periode",
       "last_emailed": "Laatst verzonden",
@@ -197,7 +197,7 @@
       },
       "enterprise": {
         "title": "Enterprise",
-        "description": "Alles wat nodig is om uw bedrijf te laten groeien"
+        "description": "Alles wat nodig is om je bedrijf te laten groeien"
       }
     },
     "features": {
@@ -214,14 +214,14 @@
   },
   "pricing_faq": {
     "title": "Veelgestelde vragen",
-    "need_help": "Wilt u meer hulp? Stuur ons dan jouw vraag of vragen via {0}onze supportpagina{1}.",
+    "need_help": "Wilt je meer hulp? Stuur ons dan jouw vraag of vragen via {0}onze supportpagina{1}.",
     "trial_expires": {
       "title": "Moet ik betalen als mijn proefperiode afloopt?",
       "description": "Nee. Nadat de proefperiode is verlopen, wordt je abonnement automatisch gedowngrade naar de gratis basisversie. Upgrade wanneer je maar wilt naar het plan dat bij jouw behoeften past."
     },
     "cancel": {
       "title": "Kan ik op elk moment opzeggen?",
-      "description": "Ja. U kunt het abonnement op elk moment opzeggen. Je hebt nog toegang tot jouw account en gegevens tot het einde van de periode waarvoor betaald is."
+      "description": "Ja. je kunt het abonnement op elk moment opzeggen. Je hebt nog toegang tot jouw account en gegevens tot het einde van de periode waarvoor betaald is."
     },
     "payment_methods": {
       "title": "Welke betaalmethoden accepteren wij?",
@@ -238,7 +238,7 @@
     "duckduckgo": {
       "name": "DuckDuckGo",
       "role": "De grootste privacy vriendelijke search engine",
-      "quote": "Door over te schakelen op Simple Analytics krijgt u nog steeds inzicht in hoe bezoekers uw website gebruiken, maar u respecteert ook {0}hun recht op privacy{1}."
+      "quote": "Door over te schakelen op Simple Analytics krijgt je nog steeds inzicht in hoe bezoekers je website gebruiken, maar je respecteert ook {0}hun recht op privacy{1}."
     },
     "rosie": {
       "role": "Community Manager Indie Hackers",
