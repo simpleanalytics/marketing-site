@@ -134,10 +134,10 @@
                               />
                               <div class="ml-4">
                                 <p class="text-base font-medium text-gray-900">
-                                  {{ item.name }}
+                                  {{ $t(item.name) }}
                                 </p>
                                 <p class="mt-1 text-sm">
-                                  {{ item.description }}
+                                  {{ $t(item.description) }}
                                 </p>
                               </div>
                             </a>
@@ -150,6 +150,12 @@
                                 class="text-sm tracking-wide font-medium uppercase"
                               >
                                 {{ $t("home.recent_blog_posts") }}
+                                <span
+                                  v-if="i18n.locale !== 'en'"
+                                  class="lowercase text-gray-400 dark:text-gray-400"
+                                >
+                                  {{ $t("home.in_english") }}
+                                </span>
                               </h3>
                               <p v-if="pending" class="mt-5 text-sm">
                                 {{ $t("home.loading_posts") }}...
@@ -177,7 +183,7 @@
                                         Date.now() - 1555200000 // 18 days
                                       "
                                       class="inline-block text-sm bg-red-500 dark:bg-red-600 px-1 text-white rounded-md align-text-top mr-1"
-                                      >new</span
+                                      >{{ $t("home.new") }}</span
                                     >
                                     {{ post.title }}
                                   </a>
@@ -622,22 +628,25 @@ import ArrowLink from "../components/ArrowLink.vue";
 import MoonSun from "../components/MoonSun.vue";
 import ms from "../utils/ms";
 
+import { useI18n } from "vue-i18n";
+const i18n = useI18n();
+
 const resources = [
   {
-    name: "Documentation",
-    description: "Learn what is possible within Simple Analytics.",
+    name: "nav.resources_dropdown.docs.title",
+    description: "nav.resources_dropdown.docs.description",
     href: "https://docs.simpleanalytics.com",
     icon: AcademicCapIcon,
   },
   {
-    name: "Privacy and how we handle your data",
-    description: "Understand how we take your privacy seriously.",
+    name: "nav.resources_dropdown.privacy.title",
+    description: "nav.resources_dropdown.privacy.description",
     href: "https://docs.simpleanalytics.com/what-we-collect",
     icon: ScaleIcon,
   },
   {
-    name: "API & integrations",
-    description: "Find out how to integrate us with your current workflow.",
+    name: "nav.resources_dropdown.api.title",
+    description: "nav.resources_dropdown.api.description",
     href: "https://docs.simpleanalytics.com/api",
     icon: TerminalIcon,
   },

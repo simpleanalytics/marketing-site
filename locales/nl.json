@@ -7,6 +7,8 @@
     "go_to_live_demo": "Ga naar de demo",
     "see_live_demo": "Bekijk de demo",
     "recent_blog_posts": "Recente blogberichten",
+    "in_english": "In het Engels",
+    "new": "Nieuw",
     "view_all_posts": "Bekijk alle blogberichten",
     "loading_posts": "Bezig met laden van blogberichten...",
     "did_not_find_any_posts": "Geen berichten gevonden",
@@ -45,6 +47,50 @@
       "paragraph_6_1": "Hier is waarom Simple Analytics de nummer één privacy-vriendelijke",
       "paragraph_6_link": "alternatief voor Google Analytics is",
       "paragraph_6_2": "Meer dan 600 betalende klanten vertrouwen erop dat wij hen de inzichten verschaffen die zij nodig hebben, terwijl wij de privacy van hun websitebezoekers beschermen"
+    },
+    "events": {
+      "title": "Event traceren zonder individuen te traceren",
+      "auto_collect_link": "Automatisch events verzamelen",
+      "auto_collect_description": "zoals downloads, uitgaande links en e-mailadres klikken. Controleer de prestaties van elke knop, klik en paginabezoek die u wilt.",
+      "see_events_in_action": "Bekijk de events in actie"
+    },
+    "reports": {
+      "title": "Rapporten automatiseren",
+      "description": "Bespaar tijd en houd anderen op de hoogte van uw resultaten. Plan uw rapporten zo dat ze automatisch worden gedeeld wanneer u maar wilt.",
+      "email_reports": "E-mail rapporten",
+      "instructions": "Stuur uzelf en anderen een e-mailrapport van simpleanalytics.com. U kunt zoveel e-mailadressen toevoegen als u wilt. Zie een voorbeeld van een e-mail rapport in {0}onze documentatie{1}.",
+      "recipient": "Ontvanger",
+      "period": "Periode",
+      "last_emailed": "Laatst verzonden",
+      "email_placeholder": "Bijv. client{'@'}example.com",
+      "add_recipient": "Voeg ontvanger toe",
+      "remove": "Verwijder",
+      "week": "week",
+      "month": "maand",
+      "weekly": "weekelijks",
+      "monthly": "maandelijks",
+      "a_day_ago": "een dag geleden",
+      "six_days_ago": "6 dagen geleden",
+      "confirm": "Weet je zeker dat je het {0}e email rapport voor {1} wilt uitschakelen?",
+      "invalid_email": "Vul een geldig e-mail adres in",
+      "never": "nooit"
+    },
+    "dark_mode": {
+      "title": "Dark mode",
+      "description": "Voor hen die 's nachts {0}doorwerken{1} {2}blijven coderen{3}.",
+      "toggle_button": "Schakel dark mode in/uit"
+    },
+    "mobile": {
+      "title": "Neem je dashboard mee",
+      "point_1": "{0}Houd een oogje{1} op je dashboard{2}via je iPhone",
+      "point_2": "{0}Widgets{1} toevoegen aan je startscherm",
+      "point_3": "{0}Blokkeer bezoeken{1} van jezelf",
+      "point_4": "Zie {0}pieken{1} als ze gebeuren"
+    },
+    "videos": {
+      "title": "Als je videografen vraagt om iets leuks te maken",
+      "tropical_caption": "Waarom onze oprichter gek wordt op zijn tropisch eiland.",
+      "paranoid_caption": "Wordt hij paranoïde?"
     }
   },
   "start_trial": {
@@ -74,7 +120,61 @@
     "resources": "Content",
     "docs": "Docs",
     "blog": "Blog",
-    "contact": "Klantenservice"
+    "contact": "Klantenservice",
+    "resources_dropdown": {
+      "docs": {
+        "title": "Docs",
+        "description": "Leer hoe Simple Analytics werkt."
+      },
+      "privacy": {
+        "title": "Privacy en hoe we met jouw data omgaan",
+        "description": "Begrijpen hoe wij jouw privacy serieus nemen."
+      },
+      "api": {
+        "title": "API & integraties",
+        "description": "Ontdek hoe je ons kunt integreren in je workflow."
+      }
+    }
+  },
+  "pricing": {
+    "title": "Simpele kosten",
+    "yearly_billing": "Jaarlijks",
+    "monthly_billing": "Maandelijks",
+    "from": "vanaf",
+    "per_month_short": "ma",
+    "yearly": "jaarlijks",
+    "buy": "Koop",
+    "everything_plus": "Alles van het {0} plan, plus:",
+    "what_is_included": "Wat is inbegrepen",
+    "contact_us": "Neem contact op",
+    "plans": {
+      "starter": {
+        "title": "Starter",
+        "description": "Alles wat je nodig hebt om te beginnen"
+      },
+      "business": {
+        "title": "Business",
+        "description": "Werk samen aan de groei van jouw bedrijf"
+      },
+      "enterprise": {
+        "title": "Enterprise",
+        "description": "Alles wat nodig is om uw bedrijf te laten groeien"
+      }
+    },
+    "features": {
+      "datapoints": "{0} datapunten",
+      "users": "{0} gebruikers",
+      "user": "{0} gebruiker",
+      "websites": "{0} websites",
+      "events": "events",
+      "aggregated_export": "geaggregeerde export",
+      "raw_level_export": "<strong>raw level</strong> export",
+      "email_support": "e-mail support",
+      "prio_email_support": "<strong>prio</strong> e-mail support"
+    }
+  },
+  "pricing_faq": {
+    "title": "Veelgestelde vragen"
   },
   "testimonials": {
     "duckduckgo": {
@@ -89,6 +189,18 @@
     "fastcompany": {
       "role": "Uitgelicht bij Fast Company",
       "quote": "Het is tijd om Google Analytics te dumpen."
+    },
+    "missive": {
+      "role": "CEO van Missive",
+      "quote": "We hebben een 'gratis', privacy-loos en complex analytisch dashboard ingeruild voor een betaald, privacy-first en eenvoudig dashboard. We konden niet gelukkiger zijn. {0}De beste privacy-gerichte analytics suite die ik heb gevonden.{1} We zijn er trots op dat we onze klanten kunnen vertellen dat we ze helemaal niet volgen."
+    },
+    "hannah": {
+      "role": "Oprichter SaaS Design",
+      "quote": "Nadat ik was overgestapt van GA, probeerde ik een andere analytics-oplossing die gericht was op privacy, maar die bleek te minimaal te zijn en gaf me niet wat ik nodig had. Ik neem beslissingen op basis van gegevens. Gelukkig {0}laat Simple Analytics precies die statistieken zien die ik nodig heb om mijn bedrijf te laten groeien,{1} terwijl het ook de privacy van mijn bezoekers respecteert. EN het laadt extreem snel, waardoor het SEO-vriendelijk is"
+    },
+    "evan": {
+      "role": "Software developer",
+      "quote": "Dit is geweldig voor het bijhouden van alle producten die ik lanceer. Ik gebruik ook {0}de API om mezelf elke ochtend een botbericht{1} te sturen met de statistieken van de lopende week en de dagelijkse statistieken van de vorige dag"
     }
   }
 }

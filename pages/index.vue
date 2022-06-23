@@ -75,7 +75,7 @@
             <span
               v-html="
                 $t('home.subtitle', [
-                  `<span class=&quot;underline-curly text-red-500 dark:text-red-600&quot;>`,
+                  `<span class='underline-curly text-red-500 dark:text-red-600'>`,
                   `</span>`,
                 ])
               "
@@ -794,18 +794,13 @@
         class="mt-12"
         image="https://assets.simpleanalytics.com/images/people/philippe.png"
         title="Philippe Lehoux"
-        subtitle="CEO at Missive"
+        :subtitle="$t('testimonials.missive.role')"
         subtitlelink="https://missiveapp.com/blog/privacy-first-analytics"
       >
-        <p class="text-xl leading-relaxed">
-          "We traded a 'free', privacy-less, and complex analytic dashboard to a
-          paid, privacy-first &amp; simple one. We couldn't be happier.
-          <span class="text-red-500 dark:text-red-600"
-            >The best privacy-focused analytics suite that I've found.</span
-          >
-          We're proud to be able to tell our customers that we don't track them
-          at all."
-        </p>
+        <p
+          class="text-xl leading-relaxed"
+          v-html="$t('testimonials.missive.quote', tColorsBlue)"
+        ></p>
       </Quote>
     </div>
 
@@ -813,23 +808,24 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mb-4 mt-12 sm:mb-8 font-medium"
       >
-        Event tracking without tracing individuals.
+        {{ $t("home.events.title") }}.
       </h3>
       <p class="my-4 leading-loose max-w-xl mx-auto">
         <a
           class="underline group"
           href="https://docs.simpleanalytics.com/automated-events"
           target="_blank"
-          >Auto collect events<Arrow
+          >{{ $t("home.events.auto_collect_link") }}<Arrow
         /></a>
-        like downloads, outbound links, and email clicks. Check the performance
-        of every button, click and page visit you want.
+        {{ $t("home.events.auto_collect_description") }}
       </p>
 
       <p>
         <a @click="scrollToSeekVideo('seek.events')" class="button">
           <ChevronDoubleUpIcon class="w-3 inline-block" />
-          <span class="mx-1"> See events in action</span>
+          <span class="mx-1">
+            {{ $t("home.events.see_events_in_action") }}</span
+          >
           <ChevronDoubleUpIcon class="w-3 inline-block" />
         </a>
       </p>
@@ -837,32 +833,39 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mb-4 mt-20 sm:mb-8 font-medium"
       >
-        Automate reports.
+        {{ $t("home.reports.title") }}.
       </h3>
       <p class="my-4 leading-loose max-w-xl mx-auto">
-        Save time while keeping others in the loop of your results. Schedule
-        your reports to be shared automatically at any time you want.
+        {{ $t("home.reports.description") }}
       </p>
 
       <div class="mt-8 mb-12">
         <div
           class="p-4 -m-8 scale-[0.8] text-left border-0 rounded-lg bg-blue-100 dark:bg-gray-700 dark:shadow-none shadow-md rotate-1"
         >
-          <h4 class="text-lg">Email reports</h4>
+          <h4 class="text-lg">{{ $t("home.reports.email_reports") }}</h4>
 
-          <p class="mt-2">
-            Send yourself and others an email report of simpleanalytics.com. You
-            can add as many email addresses as you like. See an example of an
-            email report in our documentation.
-          </p>
+          <p
+            class="mt-2"
+            v-html="
+              $t('home.reports.instructions', [
+                `<a href='https://docs.simpleanalytics.com/email-reports'>`,
+                `</a>`,
+              ])
+            "
+          ></p>
 
           <div class="my-4">
             <table class="w-full max-w-full" v-if="emailReports.length">
               <thead>
                 <tr>
-                  <th class="font-normal">Recipient</th>
-                  <th class="font-normal">Period</th>
-                  <th class="font-normal hidden sm:table-cell">Last emailed</th>
+                  <th class="font-normal">
+                    {{ $t("home.reports.recipient") }}
+                  </th>
+                  <th class="font-normal">{{ $t("home.reports.period") }}</th>
+                  <th class="font-normal hidden sm:table-cell">
+                    {{ $t("home.reports.last_emailed") }}
+                  </th>
                   <th class="font-normal"></th>
                 </tr>
               </thead>
@@ -871,14 +874,24 @@
                   <td class="truncate max-w-[100px] md:max-w-full pr-2">
                     {{ report.email }}
                   </td>
-                  <td>{{ report.period }}</td>
-                  <td class="hidden sm:table-cell">{{ report.ago }}</td>
+                  <td>
+                    {{
+                      report.period === "month"
+                        ? $t("home.reports.month")
+                        : $t("home.reports.week")
+                    }}
+                  </td>
+                  <td class="hidden sm:table-cell">
+                    {{ $t(report.agoTranslation) }}
+                  </td>
                   <td>
                     <a
                       class="ml-2 button tiny"
                       @click="removeEmailReport(report)"
                     >
-                      <span class="hidden sm:inline">Remove</span>
+                      <span class="hidden sm:inline">{{
+                        $t("home.reports.remove")
+                      }}</span>
                       <XCircleIcon class="stroke-red-600 h-6 w-6 sm:hidden" />
                     </a>
                   </td>
@@ -899,7 +912,7 @@
               ref="emailReportEmailField"
               type="text"
               v-model="emailReportEmail"
-              placeholder="E.g.: client@example.com"
+              :placeholder="$t('home.reports.email_placeholder')"
               class="appearance-none max-w-full rounded-sm w-72 mr-2 mt-2 pl-3 py-2 text-base focus:outline-none sm:text-normal bg-gray-50 text-gray-500 border border-gray-200 dark:border-0 dark:bg-gray-600 dark:text-gray-300"
             />
 
@@ -907,11 +920,13 @@
               v-model="emailReportPeriod"
               class="appearance-none rounded-sm mr-2 mt-2 pl-3 pr-8 py-2 text-base focus:outline-none sm:text-normal bg-gray-50 text-gray-500 border border-gray-200 dark:border-0 dark:bg-gray-600 dark:text-gray-300"
             >
-              <option value="week">Weekly</option>
-              <option value="month">Monthly</option>
+              <option value="week">{{ $t("home.reports.weekly") }}</option>
+              <option value="month">{{ $t("home.reports.monthly") }}</option>
             </select>
 
-            <a @click="saveEmailReport" class="mt-2 button">Add recipient</a>
+            <a @click="saveEmailReport" class="mt-2 button">{{
+              $t("home.reports.add_recipient")
+            }}</a>
           </p>
         </div>
       </div>
@@ -921,13 +936,19 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mb-4 mt-20 sm:mb-8 font-medium"
       >
-        Dark mode.
+        {{ $t("home.dark_mode.title") }}.
       </h3>
-      <p class="my-4 sm:mb-8 leading-loose max-w-xl mx-auto">
-        For those who keep
-        <span class="line-through dark:text-gray-500">working</span>
-        <span class="text-red-500 dark:text-red-600"> coding </span> at night.
-      </p>
+      <p
+        class="my-4 sm:mb-8 leading-loose max-w-xl mx-auto"
+        v-html="
+          $t('home.dark_mode.description', [
+            `<span class='line-through dark:text-gray-500'>`,
+            `</span>`,
+            `<span class='text-red-500 dark:text-red-600'>`,
+            `</span>`,
+          ])
+        "
+      ></p>
     </div>
 
     <div
@@ -954,7 +975,7 @@
     <div class="max-w-3xl px-6 mx-auto text-center">
       <p class="mt-4 mb-8 text-sm">
         <a @click="toggleTheme()" class="mt-1 button tiny">
-          <span class="ml-2">Toggle dark mode</span>
+          <span class="ml-2">{{ $t("home.dark_mode.toggle_button") }}</span>
           <SunIcon class="h-6 p-1 ml-1 stroke-red-600 hidden dark:block" />
           <MoonIcon class="h-6 p-1 ml-1 stroke-red-500 dark:hidden" />
         </a>
@@ -964,19 +985,11 @@
         class="mt-4"
         image="https://assets.simpleanalytics.com/images/people/hannah.png"
         title="Hannah Wright"
-        subtitle="Founder SaaS Design"
+        :subtitle="$t('testimonials.hannah.role')"
         subtitlelink="https://www.saasdesign.io/"
       >
         <p class="text-base leading-relaxed">
-          "After switching from GA, I tried out another privacy-focused
-          analytics solution but it turned out it was too minimal and didn't
-          give me what I needed. I make decisions based on data. Luckily, Simple
-          Analytics
-          <span class="text-red-500 dark:text-red-600"
-            >shows the exact metrics I need to know about in order to grow my
-            business</span
-          >, while also being respectful of the privacy of my visitors. AND it
-          loads extremely quickly, making it SEO-friendly"
+          "<span v-html="$t('testimonials.hannah.quote', tColorsRed)"></span>"
         </p>
       </Quote>
 
@@ -987,47 +1000,60 @@
           <h3
             class="text-2xl sm:text-4xl text-center md:text-left leading-normal sm:leading-normal font-medium"
           >
-            Take it mobile.
+            {{ $t("home.mobile.title") }}.
           </h3>
           <ul>
             <li class="flex items-center my-6">
               <ShieldCheckIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
-              <p>
-                <span class="text-red-500 dark:text-red-600">Keep an eye</span>
-                on your dashboard<br class="block sm:hidden" />
-                via your iPhone
-              </p>
+              <p
+                v-html="
+                  $t('home.mobile.point_1', [
+                    ...tColorsRed,
+                    `<br class='block sm:hidden' /> `,
+                  ])
+                "
+              ></p>
             </li>
             <li class="flex items-center my-6">
               <ShieldCheckIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
-              <p>
-                Add
-                <span class="text-red-500 dark:text-red-600">widgets</span> to
-                your home screen
-              </p>
+              <p
+                v-html="
+                  $t('home.mobile.point_2', [
+                    ...tColorsRed,
+                    `<br class='block sm:hidden' /> `,
+                  ])
+                "
+              ></p>
             </li>
             <li class="flex items-center my-6">
               <ShieldCheckIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
-              <p>
-                <span class="text-red-500 dark:text-red-600">Block visits</span>
-                from yourself
-              </p>
+              <p
+                v-html="
+                  $t('home.mobile.point_3', [
+                    ...tColorsRed,
+                    `<br class='block sm:hidden' /> `,
+                  ])
+                "
+              ></p>
             </li>
             <li class="flex items-center my-6">
               <ShieldCheckIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
-              <p>
-                See
-                <span class="text-red-500 dark:text-red-600">spikes</span> as
-                they happen
-              </p>
+              <p
+                v-html="
+                  $t('home.mobile.point_4', [
+                    ...tColorsRed,
+                    `<br class='block sm:hidden' /> `,
+                  ])
+                "
+              ></p>
             </li>
           </ul>
         </div>
@@ -1098,7 +1124,7 @@
         <h3
           class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-lg mx-auto mb-4 mt-24 sm:mb-8 font-medium"
         >
-          When you ask videographers to create something fun.
+          {{ $t("home.videos.title") }}.
         </h3>
 
         <div class="flex flex-col sm:flex-row -mx-2">
@@ -1128,7 +1154,7 @@
             </Video>
 
             <p class="mt-3 text-xs">
-              Why our founder is getting crazy on his tropical island.
+              {{ $t("home.videos.tropical_caption") }}
             </p>
           </div>
 
@@ -1159,7 +1185,7 @@
                 default=""
               />
             </Video>
-            <p class="mt-3 text-xs">Is he getting paronoid?</p>
+            <p class="mt-3 text-xs">{{ $t("home.videos.paranoid_caption") }}</p>
           </div>
         </div>
 
@@ -1169,17 +1195,11 @@
           iconclass="fill-blue-200 dark:fill-gray-800"
           image="https://assets.simpleanalytics.com/images/people/evan.png"
           title="Evan Frawley"
-          subtitle="Software engineer"
+          :subtitle="$t('testimonials.evan.role', tColorsBlue)"
           subtitlelink="https://evan.gg/blog/simple-analytics-is-great"
         >
           <p class="text-xl leading-relaxed">
-            "This is great to keep track of all the products that I launch. I
-            also
-            <span class="text-blue-600 dark:text-blue-700"
-              >use the API to send myself a bot message</span
-            >
-            each morning with rolling week stats and daily stats from the
-            previous day"
+            "<span v-html="$t('testimonials.evan.quote', tColorsBlue)"></span>"
           </p>
         </Quote>
       </div>
@@ -1197,7 +1217,7 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mb-4 mt-12 sm:mb-8 font-medium text-center"
       >
-        Simple pricing.
+        {{ $t("pricing.title") }}.
       </h3>
 
       <Pricing />
@@ -1205,7 +1225,7 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mb-4 mt-24 sm:mb-8 font-medium text-center"
       >
-        Frequently Asked Questions.
+        {{ $t("pricing_faq.title") }}.
       </h3>
 
       <FAQ />
@@ -1513,6 +1533,9 @@ import Logos from "../components/Logos.vue";
 import Pricing from "../components/Pricing.vue";
 import FAQ from "../components/FAQ.vue";
 
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+
 import {
   ArrowSmRightIcon,
   CheckIcon,
@@ -1578,16 +1601,16 @@ const videoSeeksDark = [
 
 const emailReports = ref([
   {
-    id: 1,
+    id: 0,
     email: "adriaan@simpleanalytics.com",
     period: "week",
-    ago: "a day ago",
+    agoTranslation: "home.reports.a_day_ago",
   },
   {
-    id: 2,
+    id: 1,
     email: "iron@simpleanalytics.com",
     period: "month",
-    ago: "6 days ago",
+    agoTranslation: "home.reports.six_days_ago",
   },
 ]);
 
@@ -1608,7 +1631,12 @@ const mainAppUrl =
     : "http://localhost:3000";
 
 const removeEmailReport = (report) => {
-  const message = `Are you sure to disable ${report.period}ly email reports for ${report.email}?`;
+  const message = t("home.reports.confirm", [
+    report.period === "week"
+      ? t("home.reports.weekly")
+      : t("home.reports.monthly"),
+    report.email,
+  ]);
   const confirmed = window.confirm(message);
   if (!confirmed) return;
   const userIndex = emailReports.value.indexOf(report.id);
@@ -1624,7 +1652,7 @@ const saveEmailReport = () => {
     !emailReportEmail.value.includes("@")
   ) {
     return setTimeout(() => {
-      emailReportError.value = "Fill in a value email address";
+      emailReportError.value = t("home.reports.invalid_email");
     }, 200);
   }
 
@@ -1632,7 +1660,7 @@ const saveEmailReport = () => {
     id: Math.random() * 100,
     email: emailReportEmail.value,
     period: emailReportPeriod.value,
-    ago: "never",
+    agoTranslation: "home.reports.never",
   });
 
   emailReportEmail.value = "";
@@ -1774,15 +1802,15 @@ export default {
       if (!this.autoplay()) return;
 
       if (this.theme === "dark") {
-        this?.$refs?.previewVideoLight.pause();
-        this?.$refs?.previewVideoDark.play();
-        this?.$refs?.seekVideoLight.pause();
-        this?.$refs?.seekVideoDark.play();
+        this?.$refs?.previewVideoLight?.pause();
+        this?.$refs?.previewVideoDark?.play();
+        this?.$refs?.seekVideoLight?.pause();
+        this?.$refs?.seekVideoDark?.play();
       } else {
-        this?.$refs?.previewVideoLight.play();
-        this?.$refs?.previewVideoDark.pause();
-        this?.$refs?.seekVideoLight.play();
-        this?.$refs?.seekVideoDark.pause();
+        this?.$refs?.previewVideoLight?.play();
+        this?.$refs?.previewVideoDark?.pause();
+        this?.$refs?.seekVideoLight?.play();
+        this?.$refs?.seekVideoDark?.pause();
       }
     },
   },

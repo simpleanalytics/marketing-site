@@ -13,7 +13,7 @@
         "
         @click="monthly = true"
       >
-        Monthly billing
+        {{ t("pricing.monthly_billing") }}
       </button>
       <button
         type="button"
@@ -25,7 +25,7 @@
         "
         @click="monthly = false"
       >
-        Yearly billing
+        {{ t("pricing.yearly_billing") }}
       </button>
     </div>
   </div>
@@ -50,7 +50,7 @@
         </p>
         <p class="mt-2">
           <span class="text-base text-gray-300 block">
-            <span v-if="tier.from">from</span>
+            <span v-if="tier.from">{{ t("pricing.from") }}</span>
             <span v-else>&nbsp;</span></span
           >
           <span class="text-4xl font-extrabold text-gray-600 dark:text-gray-300"
@@ -58,13 +58,13 @@
             }}{{ monthly ? tier.priceMonthly : tier.priceYearly }}</span
           >
           {{ " " }}
-          <span class="text-base font-medium text-gray-500">/mo</span>
+          <span class="text-base font-medium text-gray-500"
+            >/{{ t("pricing.per_month_short") }}</span
+          >
           <span class="block text-gray-300 mt-2" v-if="!tier.from"
             >{{ currency?.sign
-            }}{{
-              monthly ? tier.priceMonthly * 12 : tier.priceYearly * 12
-            }}
-            yearly</span
+            }}{{ monthly ? tier.priceMonthly * 12 : tier.priceYearly * 12 }}
+            {{ t("pricing.yearly") }}</span
           >
           <span class="block text-gray-300 mt-2" v-else>&nbsp;</span>
         </p>
@@ -72,7 +72,7 @@
           v-if="tier.name === 'Enterprise'"
           href="https://simpleanalytics.com/contact"
           class="mt-4 block w-full button"
-          >Contact us</a
+          >{{ t("pricing.contact_us") }}</a
         >
         <a
           v-else
@@ -82,12 +82,12 @@
             monthly ? 'monthly' : 'yearly'
           }`"
           class="mt-4 block w-full button"
-          >Buy {{ tier.name }}</a
+          >{{ t("pricing.buy") }} {{ tier.name }}</a
         >
       </div>
       <div class="pt-6 pb-8 px-6">
         <p class="text-xs font-medium tracking-wide uppercase">
-          <span>What's included</span>
+          <span>{{ t("pricing.what_is_included") }}</span>
         </p>
 
         <p
@@ -116,36 +116,41 @@
 
 <script setup>
 import { CheckIcon } from "@heroicons/vue/solid";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const monthly = ref(false);
 const currency = useState("currency");
 
 const tiers = [
   {
-    name: "Starter",
+    name: t("pricing.plans.starter.title"),
     priceMonthly: 19,
     priceYearly: 9,
-    description: "Everything you need to get you started.",
+    description: t("pricing.plans.starter.description"),
     includedFeatures: [
-      "100,000 datapoints",
-      "1 user",
-      "10 websites",
-      "events",
-      "aggregated export",
-      "support email",
+      t("pricing.features.datapoints", ["<strong>100,000</strong>"]),
+      t("pricing.features.user", ["<strong>1</strong>"]),
+      t("pricing.features.websites", ["<strong>10</strong>"]),
+      t("pricing.features.events"),
+      t("pricing.features.aggregated_export"),
+      t("pricing.features.email_support"),
     ],
   },
   {
     name: "Business",
     priceMonthly: 59,
     priceYearly: 49,
-    description: "Work together on growing your business.",
-    includedIntro: "Everything from the Starter plan, plus:",
+    description: t("pricing.plans.business.description"),
+    includedIntro: t("pricing.everything_plus", [
+      t("pricing.plans.starter.title"),
+    ]),
     includedFeatures: [
-      "<strong>1 million</strong> datapoints",
-      "<strong>10</strong> users",
-      "<strong>100</strong> websites",
-      "<strong>raw level</strong> export",
+      t("pricing.features.datapoints", ["<strong>1 million</strong>"]),
+      t("pricing.features.users", ["<strong>10</strong>"]),
+      t("pricing.features.websites", ["<strong>100</strong>"]),
+      t("pricing.features.raw_level_export"),
     ],
   },
   {
@@ -153,13 +158,15 @@ const tiers = [
     priceMonthly: 99,
     priceYearly: 99,
     from: true,
-    description: "Get everything needed to grow your business.",
-    includedIntro: "Everything from the Business plan, plus:",
+    description: t("pricing.plans.enterprise.description"),
+    includedIntro: t("pricing.everything_plus", [
+      t("pricing.plans.business.title"),
+    ]),
     includedFeatures: [
-      "<strong>1+ million</strong> datapoints",
-      "<strong>10+</strong> users",
-      "<strong>1000</strong> websites",
-      "<strong>prio</strong> support email",
+      t("pricing.features.datapoints", ["<strong>1+ million</strong>"]),
+      t("pricing.features.users", ["<strong>10+</strong>"]),
+      t("pricing.features.websites", ["<strong>1000</strong>"]),
+      t("pricing.features.prio_email_support"),
     ],
   },
 ];

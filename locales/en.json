@@ -7,6 +7,8 @@
     "go_to_live_demo": "Go to live demo",
     "see_live_demo": "See live demo",
     "recent_blog_posts": "Recent blog posts",
+    "in_english": "In English",
+    "new": "New",
     "view_all_posts": "View all blog posts",
     "loading_posts": "Loading posts",
     "did_not_find_any_posts": "Didn't find any posts",
@@ -45,6 +47,50 @@
       "paragraph_6_1": "Here is why Simple Analytics is the number one privacy-friendly",
       "paragraph_6_link": "alternative to Google Analytics",
       "paragraph_6_2": "We are trusted by 600+ paying customers to provide the insights they need while protecting the privacy of their website visitors"
+    },
+    "events": {
+      "title": "Event tracking without tracing individuals",
+      "auto_collect_link": "Auto collect events",
+      "auto_collect_description": "like downloads, outbound links, and email clicks. Check the performance of every button, click and page visit you want.",
+      "see_events_in_action": "See events in action"
+    },
+    "reports": {
+      "title": "Automate reports",
+      "description": "Save time while keeping others in the loop of your results. Schedule your reports to be shared automatically at any time you want.",
+      "email_reports": "Email reports",
+      "instructions": "Send yourself and others an email report of simpleanalytics.com. You can add as many email addresses as you like. See an example of an email report in {0}our documentation{1}.",
+      "recipient": "Recipient",
+      "period": "Period",
+      "last_emailed": "Last emailed",
+      "email_placeholder": "E.g.: client{'@'}example.com",
+      "add_recipient": "Add recipient",
+      "remove": "Remove",
+      "week": "week",
+      "month": "month",
+      "weekly": "weekly",
+      "monthly": "monthly",
+      "a_day_ago": "a day ago",
+      "six_days_ago": "6 days ago",
+      "confirm": "Are you sure to disable {0} email reports for {1}?",
+      "invalid_email": "Fill in a valid email address",
+      "never": "never"
+    },
+    "dark_mode": {
+      "title": "Dark mode",
+      "description": "For those who keep {0}working{1} {2}coding{3} at night.",
+      "toggle_button": "Toggle dark mode"
+    },
+    "mobile": {
+      "title": "Take it mobile",
+      "point_1": "{0}Keep an eye{1} on your dashboard{2}via your iPhone",
+      "point_2": "Add {0}widgets{1} to your home screen",
+      "point_3": "{0}Block visits{1} from yourself",
+      "point_4": "See {0}spikes{1} as they happen"
+    },
+    "videos": {
+      "title": "When you ask videographers to create something fun",
+      "tropical_caption": "Why our founder is getting crazy on his tropical island.",
+      "paranoid_caption": "Is he getting paranoid?"
     }
   },
   "start_trial": {
@@ -74,7 +120,61 @@
     "resources": "Resources",
     "docs": "Docs",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Contact",
+    "resources_dropdown": {
+      "docs": {
+        "title": "Documentation",
+        "description": "Learn what is possible within Simple Analytics."
+      },
+      "privacy": {
+        "title": "Privacy and how we handle your data",
+        "description": "Understand how we take your privacy seriously."
+      },
+      "api": {
+        "title": "API & integrations",
+        "description": "Find out how to integrate us with your current workflow."
+      }
+    }
+  },
+  "pricing": {
+    "title": "Simple pricing",
+    "yearly_billing": "Yearly billing",
+    "monthly_billing": "Monthly billing",
+    "from": "from",
+    "per_month_short": "mo",
+    "yearly": "yearly",
+    "buy": "Buy",
+    "everything_plus": "Everything from the {0} plan, plus:",
+    "what_is_included": "What's included",
+    "contact_us": "Contact us",
+    "plans": {
+      "starter": {
+        "title": "Starter",
+        "description": "Everything you need to get you started"
+      },
+      "business": {
+        "title": "Business",
+        "description": "Work together on growing your business"
+      },
+      "enterprise": {
+        "title": "Enterprise",
+        "description": "Get everything needed to grow your business"
+      }
+    },
+    "features": {
+      "datapoints": "{0} datapoints",
+      "users": "{0} users",
+      "user": "{0} user",
+      "websites": "{0} websites",
+      "events": "events",
+      "aggregated_export": "aggregated export",
+      "raw_level_export": "<strong>raw level</strong> export",
+      "email_support": "support email",
+      "prio_email_support": "<strong>prio</strong> email support"
+    }
+  },
+  "pricing_faq": {
+    "title": "Frequently Asked Questions"
   },
   "testimonials": {
     "duckduckgo": {
@@ -89,6 +189,18 @@
     "fastcompany": {
       "role": "Featured at Fast Company",
       "quote": "It's time to ditch Google Analytics."
+    },
+    "missive": {
+      "role": "CEO at Missive",
+      "quote": "We traded a 'free', privacy-less, and complex analytic dashboard to a paid, privacy-first & simple one. We couldn't be happier. {0}The best privacy-focused analytics suite that I've found.{1} We're proud to be able to tell our customers that we don't track them at all."
+    },
+    "hannah": {
+      "role": "Founder SaaS Design",
+      "quote": "After switching from GA, I tried out another privacy-focused analytics solution but it turned out it was too minimal and didn't give me what I needed. I make decisions based on data. Luckily, Simple Analytics {0}shows the exact metrics I need to know about in order to grow my business{1}, while also being respectful of the privacy of my visitors. AND it loads extremely quickly, making it SEO-friendly"
+    },
+    "evan": {
+      "role": "Software engineer",
+      "quote": "This is great to keep track of all the products that I launch. I also {0}use the API to send myself a bot message{1} each morning with rolling week stats and daily stats from the previous day"
     }
   }
 }

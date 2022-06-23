@@ -2,11 +2,13 @@
   <NuxtLayout name="default">
     <template #hero>
       <div class="text-center">
-        <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">Pricing</h1>
+        <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl pt-8">
+          {{ $t("pricing.title") }}.
+        </h1>
       </div>
     </template>
 
-    <div class="max-w-3xl px-6 mx-auto">
+    <div class="max-w-3xl px-6 mx-auto -mt-14">
       <Pricing />
 
       <h3
