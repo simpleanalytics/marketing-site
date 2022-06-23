@@ -53,7 +53,7 @@
         class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
       />
       <p class="leading-loose text-center mx-6 text-red-400 dark:text-red-600">
-        What will happen with the price when my traffic grows / declines?
+        What will happen to my charges when my traffic grows / declines?
       </p>
       <p class="my-4 leading-loose mx-6">
         You only pay for what you actually need. This means that if your plan's
@@ -68,10 +68,10 @@
       />
 
       <p class="my-4 leading-loose mx-6">
-        So, if you had an increase in traffic during the last months, you pay
-        only a little more next month. Likewise, you automatically pay a little
-        less when your average amount of page views decreased during the last
-        months.
+        So, if you had an increase in traffic during the last three months, you
+        pay only a little more next month. Likewise, you automatically pay a
+        little less when your average amount of page views decreased during the
+        last months.
       </p>
 
       <p class="my-4 leading-loose mx-6">
