@@ -362,7 +362,11 @@
                 </li>
                 <li>
                   <a
-                    href="https://simpleanalytics.com/general-terms-and-conditions"
+                    :href="
+                      i18n.locale.value === 'nl'
+                        ? 'https://simpleanalytics.com/algemene-voorwaarden'
+                        : 'https://simpleanalytics.com/terms-of-service'
+                    "
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <NewspaperIcon

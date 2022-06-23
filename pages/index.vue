@@ -1295,7 +1295,7 @@
             class="mt-4 button tiny shadow-md bg-white dark:bg-gray-800"
           >
             <ChevronDoubleUpIcon class="w-3 inline-block" />
-            <span class="mx-1">Go back</span>
+            <span class="mx-1">{{ $t("home.go_back") }}</span>
             <ChevronDoubleUpIcon class="w-3 inline-block" />
           </a>
         </p>

@@ -15,6 +15,7 @@
     "did_not_find_any_posts": "Geen berichten gevonden",
     "could_not_connect": "Couldn't connect to {0}our blog{1}.",
     "see_feature_video_below": "Bekijk alle features",
+    "go_back": "Ga terug",
     "footer": {
       "comparisons": "Vergelijkingen",
       "learn": "Ontdek",
@@ -28,7 +29,7 @@
       "we_dont_track_you": "We bespieden je niet",
       "privacy_policy": "Privacybeleid",
       "cookie_statement": "Cookieverklaring",
-      "tos": "Gebruiksvoorwaarden",
+      "tos": "Algemene voorwaarden",
       "company_details": "Bedrijfsgegevens"
     },
     "why_most_privacy": {
