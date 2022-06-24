@@ -156,10 +156,10 @@
     "login": "Inloggen",
     "pricing": "Prijzen",
     "signup": "Aanmelden",
-    "resources": "Content",
+    "resources": "Info",
     "docs": "Docs",
     "blog": "Blog",
-    "contact": "Klantenservice",
+    "contact": "Support",
     "resources_dropdown": {
       "docs": {
         "title": "Docs",
@@ -173,7 +173,9 @@
         "title": "API & integraties",
         "description": "Ontdek hoe je ons kunt integreren in je workflow."
       }
-    }
+    },
+    "switch_to_english": "Klik hier voor Engels",
+    "switch_to_dutch": "Klik hier voor Nederlands"
   },
   "pricing": {
     "title": "Simpele kosten",
@@ -238,11 +240,11 @@
     "duckduckgo": {
       "name": "DuckDuckGo",
       "role": "De grootste privacy vriendelijke search engine",
-      "quote": "Door over te schakelen op Simple Analytics krijgt je nog steeds inzicht in hoe bezoekers je website gebruiken, maar je respecteert ook {0}hun recht op privacy{1}."
+      "quote": "Door over te schakelen op Simple Analytics krijg je nog steeds inzicht in hoe bezoekers je website gebruiken, maar je respecteert ook {0}hun recht op privacy{1}."
     },
     "rosie": {
       "role": "Community Manager Indie Hackers",
-      "quote": "Mijn focus lag op het gebruik van ethische hulpmiddelen. Ik zei gedag tegen Google Analytics en hallo tegen Simple Analytics. {0}In 1-2 klikken{1} kan ik alle informatie krijgen die ik nodig heb."
+      "quote": "Mijn focus lag op het gebruik van ethische oplossingen. Ik zei gedag tegen Google Analytics en hallo tegen Simple Analytics. {0}In 1-2 klikken{1} kan ik alle informatie krijgen die ik nodig heb."
     },
     "fastcompany": {
       "role": "Uitgelicht bij Fast Company",

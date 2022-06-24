@@ -173,7 +173,9 @@
         "title": "API & integrations",
         "description": "Find out how to integrate us with your current workflow."
       }
-    }
+    },
+    "switch_to_english": "Switch to English",
+    "switch_to_dutch": "Switch to Dutch"
   },
   "pricing": {
     "title": "Simple pricing",

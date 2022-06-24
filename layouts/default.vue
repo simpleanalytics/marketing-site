@@ -308,9 +308,28 @@
                   <NuxtLink
                     v-for="item in navigation"
                     :key="item.name"
-                    :to="item.href"
+                    :to="item.mobile?.href || item.href"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50"
-                    >{{ $t(item.translation) }}</NuxtLink
+                    >{{
+                      $t(item.mobile?.translation || item.translation)
+                    }}</NuxtLink
+                  >
+                  <NuxtLink
+                    to="https://simpleanalytics.com/welcome"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50"
+                    >{{ $t("nav.signup") }}</NuxtLink
+                  >
+                  <a
+                    @click="i18n.locale.value = 'en'"
+                    v-if="i18n.locale.value === 'nl'"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50"
+                    >{{ $t("nav.switch_to_english") }}</a
+                  >
+                  <a
+                    v-else
+                    @click="i18n.locale.value = 'nl'"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50"
+                    >{{ $t("nav.switch_to_dutch") }}</a
                   >
                 </div>
                 <a
@@ -704,7 +723,15 @@ const defaultDescription =
 
 const navigation = [
   { translation: "nav.pricing", href: "/pricing" },
-  { translation: "nav.resources", href: "#", popover: true },
+  {
+    translation: "nav.resources",
+    href: "#",
+    popover: true,
+    mobile: {
+      translation: "nav.docs",
+      href: "https://docs.simpleanalytics.com",
+    },
+  },
   { translation: "nav.blog", href: "https://blog.simpleanalytics.com" },
   { translation: "nav.contact", href: "https://simpleanalytics.com/contact" },
 ];
@@ -734,6 +761,10 @@ const themeCookie = useCookie("theme", {
   secure: process.env.NODE_ENV === "production",
   sameSite: true,
 });
+
+const isMobile = process.client
+  ? !window.matchMedia("(min-width: 768px)").matches
+  : null;
 
 if (process.client) {
   if (!themeCookie.value) themeCookie.value = theme.value;
