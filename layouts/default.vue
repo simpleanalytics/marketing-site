@@ -45,7 +45,7 @@
         <Meta name="msapplication-TileColor" content="#ff4f64" />
         <Meta
           name="theme-color"
-          :content="theme === 'dark' ? '#273537' : '#eef9ff'"
+          :content="theme === 'dark' ? '#2a373a' : '#eef9ff'"
         />
         <Meta name="apple-mobile-web-app-capable" content="yes" />
         <Meta name="referrer" content="strict-origin-when-cross-origin" />
