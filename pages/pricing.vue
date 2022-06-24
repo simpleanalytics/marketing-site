@@ -14,7 +14,7 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-32 sm:mb-8 font-medium text-center"
       >
-        Frequently Asked Questions.
+        {{ $t("pricing_faq.title") }}.
       </h3>
 
       <FAQ />

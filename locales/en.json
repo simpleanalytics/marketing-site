@@ -275,5 +275,8 @@
         "minutes": "{0}m ago"
       }
     }
+  },
+  "amount": {
+    "million": "million"
   }
 }

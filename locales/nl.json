@@ -230,7 +230,7 @@
     "traffic_change": {
       "title": "Wat gebeurt er met mijn kosten als mijn verkeer toeneemt / afneemt?",
       "description_1": "Je betaalt alleen voor wat je daadwerkelijk nodig hebt. Dit betekent dat als de pageview-limiet van het plan wordt overschreden, je in rekening wordt gebracht voor de overschrijdingen. Simple Analytics berekent automatisch je prijs op basis van jouw gemiddeld aantal pageviews (eerst één maand terugblikkend, dan het gemiddelde van de vorige drie maanden).",
-      "description_2": "Dus, als je een toename in verkeer had gedurende de laatste drie maanden, betaal je volgende maand slechts een beetje meer. Op dezelfde manier betaalt je automatisch een beetje minder wanneer jouw gemiddeld aantal pageviews daalde tijdens de laatste maanden."
+      "description_2": "Dus, als je een toename in verkeer had gedurende de laatste drie maanden, betaal je volgende maand slechts een beetje meer. Op dezelfde manier betaal je automatisch een beetje minder wanneer jouw gemiddeld aantal pageviews daalde tijdens de laatste maanden."
     }
   },
   "testimonials": {
@@ -275,5 +275,8 @@
         "minutes": "{0}m oud"
       }
     }
+  },
+  "amount": {
+    "million": "miljoen"
   }
 }

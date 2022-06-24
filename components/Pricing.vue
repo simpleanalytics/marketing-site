@@ -147,7 +147,9 @@ const tiers = [
       t("pricing.plans.starter.title"),
     ]),
     includedFeatures: [
-      t("pricing.features.datapoints", ["<strong>1 million</strong>"]),
+      t("pricing.features.datapoints", [
+        `<strong>1 ${t("amount.million")}</strong>`,
+      ]),
       t("pricing.features.users", ["<strong>10</strong>"]),
       t("pricing.features.websites", ["<strong>100</strong>"]),
       t("pricing.features.raw_level_export"),
@@ -163,7 +165,9 @@ const tiers = [
       t("pricing.plans.business.title"),
     ]),
     includedFeatures: [
-      t("pricing.features.datapoints", ["<strong>1+ million</strong>"]),
+      t("pricing.features.datapoints", [
+        `<strong>1+ ${t("amount.million")}</strong>`,
+      ]),
       t("pricing.features.users", ["<strong>10+</strong>"]),
       t("pricing.features.websites", ["<strong>1000</strong>"]),
       t("pricing.features.prio_email_support"),
