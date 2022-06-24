@@ -674,7 +674,7 @@ const route = useRoute();
 useHead({
   title: route.meta.title?.includes("Simple Analytics")
     ? route.meta.title
-    : `${route.meta.title} | Simple Analytics`,
+    : `${route.meta.title} - Simple Analytics`,
   meta: [
     {
       name: "description",

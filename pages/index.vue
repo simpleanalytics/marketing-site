@@ -1448,7 +1448,9 @@ import {
 } from "@heroicons/vue/outline";
 
 definePageMeta({
-  title: "Simple Analytics - The privacy-first Google Analytics alternative",
+  title: "The privacy-first Google Analytics alternative - Simple Analytics",
+  description:
+    "Simple Analytics is the privacy-first Google Analytics alternative that is 100% GDPR compliant. Give us a try!",
   layout: false,
 });
 
