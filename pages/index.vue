@@ -111,11 +111,11 @@
                 {{ $t("home.no_creditcard") }}
               </p>
             </div>
-            <div class="hidden sm:block sm:mt-4">
+            <div class="sm:mt-4">
               <a
                 :href="
                   mainAppUrl +
-                  '/seed.com?from=landing' +
+                  '/simpleanalytics.com?from=landing' +
                   (theme === 'dark' ? '&theme=dark' : '')
                 "
                 class="button large group"
