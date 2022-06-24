@@ -5,66 +5,66 @@
       :class="{ dark: theme === 'dark', 'scroll-smooth': true }"
     >
       <Head>
-        <link
+        <Link
           rel="preconnect"
           href="https://assets.simpleanalytics.com/"
           crossorigin
         />
-        <link
+        <Link
           rel="preconnect"
           href="https://scripts.simpleanalyticscdn.com/"
           crossorigin
         />
-        <link rel="dns-prefetch" href="https://assets.simpleanalytics.com/" />
-        <link rel="dns-prefetch" href="https://docs.simpleanalytics.com/" />
-        <link
+        <Link rel="dns-prefetch" href="https://assets.simpleanalytics.com/" />
+        <Link rel="dns-prefetch" href="https://docs.simpleanalytics.com/" />
+        <Link
           rel="dns-prefetch"
           href="https://scripts.simpleanalyticscdn.com/"
         />
-        <link
+        <Link
           rel="apple-touch-icon"
           sizes="180x180"
           href="/apple-touch-icon.png"
         />
-        <link
+        <Link
           rel="icon"
           type="image/png"
           sizes="32x32"
           href="/favicon-32x32.png"
         />
-        <link
+        <Link
           rel="icon"
           type="image/png"
           sizes="16x16"
           href="/favicon-16x16.png"
         />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff4f64" />
-        <meta name="apple-mobile-web-app-title" content="Simple Analytics" />
-        <meta name="application-name" content="Simple Analytics" />
-        <meta name="msapplication-TileColor" content="#ff4f64" />
-        <meta name="theme-color" content="#eef9ff" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="referrer" content="strict-origin-when-cross-origin" />
-        <meta
+        <Link rel="manifest" href="/site.webmanifest" />
+        <Link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff4f64" />
+        <Meta name="apple-mobile-web-app-title" content="Simple Analytics" />
+        <Meta name="application-name" content="Simple Analytics" />
+        <Meta name="msapplication-TileColor" content="#ff4f64" />
+        <Meta name="theme-color" content="#eef9ff" />
+        <Meta name="apple-mobile-web-app-capable" content="yes" />
+        <Meta name="referrer" content="strict-origin-when-cross-origin" />
+        <Meta
           itemprop="image"
           content="https://assets.simpleanalytics.com/social-media/dark-chart.png"
         />
-        <meta
+        <Meta
           property="og:image"
           content="https://assets.simpleanalytics.com/social-media/dark-chart.png"
         />
-        <meta name="twitter:url" content="https://simpleanalytics.com" />
-        <meta name="twitter:title" :content="route.meta.title" />
-        <meta name="twitter:description" :content="route.meta.description" />
-        <meta
+        <Meta name="twitter:url" content="https://simpleanalytics.com" />
+        <Meta name="twitter:title" :content="route.meta.title" />
+        <Meta name="twitter:description" :content="route.meta.description" />
+        <Meta
           name="twitter:image"
           content="https://assets.simpleanalytics.com/social-media/dark-chart.png"
         />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@SimpleAnalytic" />
-        <meta name="twitter:creator" content="@SimpleAnalytic" />
-        <meta name="twitter:image:alt" :content="defaultDescription" />
+        <Meta name="twitter:card" content="summary_large_image" />
+        <Meta name="twitter:site" content="@SimpleAnalytic" />
+        <Meta name="twitter:creator" content="@SimpleAnalytic" />
+        <Meta name="twitter:image:alt" :content="defaultDescription" />
       </Head>
     </Html>
 
