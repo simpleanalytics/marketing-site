@@ -43,7 +43,10 @@
         <Meta name="apple-mobile-web-app-title" content="Simple Analytics" />
         <Meta name="application-name" content="Simple Analytics" />
         <Meta name="msapplication-TileColor" content="#ff4f64" />
-        <Meta name="theme-color" content="#eef9ff" />
+        <Meta
+          name="theme-color"
+          :content="theme === 'dark' ? '#273537' : '#eef9ff'"
+        />
         <Meta name="apple-mobile-web-app-capable" content="yes" />
         <Meta name="referrer" content="strict-origin-when-cross-origin" />
         <Meta
