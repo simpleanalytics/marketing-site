@@ -315,7 +315,10 @@
                     }}</NuxtLink
                   >
                   <NuxtLink
-                    to="https://simpleanalytics.com/welcome"
+                    :to="
+                      'https://simpleanalytics.com/welcome' +
+                      (theme === 'dark' ? '?theme=dark' : '')
+                    "
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50"
                     >{{ $t("nav.signup") }}</NuxtLink
                   >
@@ -333,7 +336,10 @@
                   >
                 </div>
                 <a
-                  href="/login"
+                  :href="
+                    'https://simpleanalytics.com/login' +
+                    (theme === 'dark' ? '?theme=dark' : '')
+                  "
                   class="block w-full px-5 py-3 text-center font-medium text-red-500 bg-gray-50 hover-hover:hover:bg-gray-100 dark:bg-gray-500 dark:text-gray-100"
                 >
                   {{ $t("nav.login") }}
