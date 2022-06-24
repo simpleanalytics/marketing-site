@@ -55,11 +55,8 @@
           content="https://assets.simpleanalytics.com/social-media/dark-chart.png"
         />
         <meta name="twitter:url" content="https://simpleanalytics.com" />
-        <meta name="twitter:title" content="{{ route.meta.title }}" />
-        <meta
-          name="twitter:description"
-          content="{{ route.meta.description }}"
-        />
+        <meta name="twitter:title" :content="route.meta.title" />
+        <meta name="twitter:description" :content="route.meta.description" />
         <meta
           name="twitter:image"
           content="https://assets.simpleanalytics.com/social-media/dark-chart.png"
@@ -67,7 +64,7 @@
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@SimpleAnalytic" />
         <meta name="twitter:creator" content="@SimpleAnalytic" />
-        <meta name="twitter:image:alt" content="{{ defaultDescription }}" />
+        <meta name="twitter:image:alt" :content="defaultDescription" />
       </Head>
     </Html>
 
@@ -98,13 +95,6 @@
                     >
                   </NuxtLink>
                   <MoonSun class="scale-75 ml-1 mt-1 mr-auto" />
-                  <!-- <a @click="toggleTheme()" class="mt-1 mr-auto">
-                    <SunIcon
-                      class="h-7 p-1 ml-1 stroke-gray-400"
-                      v-if="theme === 'dark'"
-                    />
-                    <MoonIcon class="h-6 p-1 ml-1 stroke-red-500" v-else />
-                  </a> -->
                   <div
                     class="flex items-center md:hidden"
                     style="margin-right: 4px"
