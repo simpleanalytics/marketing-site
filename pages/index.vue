@@ -679,7 +679,7 @@
             <p>
               <a
                 class="underline group"
-                :href="mainAppUrl + '/our-promise'"
+                href="https://docs.simpleanalytics.com/import-google-analytics-data"
                 target="_blank"
                 ><span
                   v-html="$t('home.connect.import_data', tColorsRed)"
@@ -696,7 +696,7 @@
               <span v-html="$t('home.connect.use_gtm')"></span>
               <a
                 class="ml-1 underline group"
-                href="https://docs.simpleanalytics.com/script"
+                href="https://docs.simpleanalytics.com/install-on-other-platforms#framework-plugins"
               >
                 <span v-html="$t('home.connect.framework_plugins')"></span
                 ><Arrow />

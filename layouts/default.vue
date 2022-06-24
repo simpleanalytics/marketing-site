@@ -6,6 +6,22 @@
     >
       <Head>
         <link
+          rel="preconnect"
+          href="https://assets.simpleanalytics.com/"
+          crossorigin
+        />
+        <link
+          rel="preconnect"
+          href="https://scripts.simpleanalyticscdn.com/"
+          crossorigin
+        />
+        <link rel="dns-prefetch" href="https://assets.simpleanalytics.com/" />
+        <link rel="dns-prefetch" href="https://docs.simpleanalytics.com/" />
+        <link
+          rel="dns-prefetch"
+          href="https://scripts.simpleanalyticscdn.com/"
+        />
+        <link
           rel="apple-touch-icon"
           sizes="180x180"
           href="/apple-touch-icon.png"
@@ -28,6 +44,30 @@
         <meta name="application-name" content="Simple Analytics" />
         <meta name="msapplication-TileColor" content="#ff4f64" />
         <meta name="theme-color" content="#eef9ff" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta
+          itemprop="image"
+          content="https://assets.simpleanalytics.com/social-media/dark-chart.png"
+        />
+        <meta
+          property="og:image"
+          content="https://assets.simpleanalytics.com/social-media/dark-chart.png"
+        />
+        <meta name="twitter:url" content="https://simpleanalytics.com" />
+        <meta name="twitter:title" content="{{ route.meta.title }}" />
+        <meta
+          name="twitter:description"
+          content="{{ route.meta.description }}"
+        />
+        <meta
+          name="twitter:image"
+          content="https://assets.simpleanalytics.com/social-media/dark-chart.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@SimpleAnalytic" />
+        <meta name="twitter:creator" content="@SimpleAnalytic" />
+        <meta name="twitter:image:alt" content="{{ defaultDescription }}" />
       </Head>
     </Html>
 
