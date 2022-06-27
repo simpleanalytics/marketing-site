@@ -291,7 +291,7 @@
                     >
                       <span class="sr-only">Close menu</span>
                       <XIcon
-                        class="h-6 w-6 stroke-gray-100"
+                        class="h-6 w-6 stroke-gray-100 dark:stroke-gray-300"
                         aria-hidden="true"
                       />
                     </PopoverButton>
@@ -302,7 +302,7 @@
                     v-for="item in navigation"
                     :key="item.name"
                     :to="item.mobile?.href || item.href"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
                     >{{
                       $t(item.mobile?.translation || item.translation)
                     }}</NuxtLink
@@ -312,19 +312,19 @@
                       'https://simpleanalytics.com/welcome' +
                       (theme === 'dark' ? '?theme=dark' : '')
                     "
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
                     >{{ $t("nav.signup") }}</NuxtLink
                   >
                   <a
                     @click="i18n.locale.value = 'en'"
                     v-if="i18n.locale.value === 'nl'"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
                     >{{ $t("nav.switch_to_english") }}</a
                   >
                   <a
                     v-else
                     @click="i18n.locale.value = 'nl'"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
                     >{{ $t("nav.switch_to_dutch") }}</a
                   >
                 </div>
