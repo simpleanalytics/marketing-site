@@ -217,6 +217,10 @@
   "pricing_faq": {
     "title": "Frequently Asked Questions",
     "need_help": "Neer more help? Please send us your question(s) via {0}our support page{1}.",
+    "datapoints": {
+      "title": "What are datapoints?",
+      "description": "You can collect two types of data with Simple Analytics: page views and events. The combined term for both is datapoint. If you don't use events, the datapoints will only be page views. If you do use events, the datapoints will also be events."
+    },
     "trial_expires": {
       "title": "Will I be charged when my trial expires?",
       "description": "No. After your trial expires, your plan downgrades automatically to the basic free version. Upgrade whenever you want to the plan that fits your needs."

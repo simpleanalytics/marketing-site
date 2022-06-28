@@ -217,6 +217,10 @@
   "pricing_faq": {
     "title": "Veelgestelde vragen",
     "need_help": "Wilt je meer hulp? Stuur ons dan jouw vraag of vragen via {0}onze supportpagina{1}.",
+    "datapoints": {
+      "title": "Wat zijn datapunten?",
+      "description": "Je kan twee soorten data verzamelen bij Simple Analytics: paginabezoeken en events. De verzamelterm voor beide is datapunt. Als je geen events gebruikt, zullen de datapunten alleen paginabezoeken zijn. Als je wel events gebruikt, zullen de datapunten ook events zijn."
+    },
     "trial_expires": {
       "title": "Moet ik betalen als mijn proefperiode afloopt?",
       "description": "Nee. Nadat de proefperiode is verlopen, wordt je abonnement automatisch gedowngrade naar de gratis basisversie. Upgrade wanneer je maar wilt naar het plan dat bij jouw behoeften past."

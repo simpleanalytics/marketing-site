@@ -1,6 +1,16 @@
 <template>
   <div class="flex flex-col flex-wrap sm:flex-row -mt-8 -mx-6">
     <div class="basis-1/2">
+      <CursorClickIcon
+        class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
+      />
+      <p class="mx-6 leading-loose text-center text-red-400 dark:text-red-600">
+        {{ $t("pricing_faq.datapoints.title") }}
+      </p>
+      <p class="my-4 leading-loose mx-6">
+        {{ $t("pricing_faq.datapoints.description") }}
+      </p>
+
       <ShieldExclamationIcon
         class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
       />
@@ -9,16 +19,6 @@
       </p>
       <p class="my-4 leading-loose mx-6">
         {{ $t("pricing_faq.trial_expires.description") }}
-      </p>
-
-      <BanIcon
-        class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
-      />
-      <p class="leading-loose text-center mx-6 text-red-400 dark:text-red-600">
-        {{ $t("pricing_faq.cancel.title") }}
-      </p>
-      <p class="my-4 leading-loose mx-6">
-        {{ $t("pricing_faq.cancel.description") }}
       </p>
 
       <CreditCardIcon
@@ -58,6 +58,16 @@
         v-html="$t('pricing_faq.traffic_change.description_2')"
       ></p>
 
+      <BanIcon
+        class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
+      />
+      <p class="leading-loose text-center mx-6 text-red-400 dark:text-red-600">
+        {{ $t("pricing_faq.cancel.title") }}
+      </p>
+      <p class="my-4 leading-loose mx-6">
+        {{ $t("pricing_faq.cancel.description") }}
+      </p>
+
       <p
         class="my-4 leading-loose mx-6"
         v-html="
@@ -78,6 +88,7 @@ import {
   CreditCardIcon,
   TrendingUpIcon,
   MailOpenIcon,
+  CursorClickIcon,
 } from "@heroicons/vue/outline";
 
 import AverageChart from "./images/AverageChart.vue";
