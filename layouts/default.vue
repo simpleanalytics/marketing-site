@@ -97,7 +97,10 @@
                       >Simple Analytics</span
                     >
                   </NuxtLink>
-                  <MoonSun class="scale-75 ml-1 mt-1 mr-auto" />
+
+                  <ClientOnly>
+                    <MoonSun class="scale-75 ml-1 mt-1 mr-auto" />
+                  </ClientOnly>
                   <div
                     class="flex items-center md:hidden"
                     style="margin-right: 4px"
@@ -645,8 +648,11 @@
                     {{ $t("home.footer.company_details") }}</a
                   ></span
                 >
-                <span class="mx-2">&middot;</span>
-                <MoonSun class="ml-1" />
+
+                <ClientOnly>
+                  <span class="mx-2">&middot;</span>
+                  <MoonSun class="ml-1" />
+                </ClientOnly>
               </p>
             </div>
           </div>
