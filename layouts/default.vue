@@ -68,6 +68,11 @@
         <Meta name="twitter:site" content="@SimpleAnalytic" />
         <Meta name="twitter:creator" content="@SimpleAnalytic" />
         <Meta name="twitter:image:alt" :content="defaultDescription" />
+        <Script
+          async
+          defer
+          src="https://scripts.simpleanalyticscdn.com/latest.js"
+        />
       </Head>
     </Html>
 
