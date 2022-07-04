@@ -4,7 +4,7 @@
     :style="`aspect-ratio: ${width} / ${height}`"
   >
     <div
-      class="absolute top-0 bottom-0 right-0 left-0 flex justify-center items-center transition"
+      class="absolute z-20 top-0 bottom-0 right-0 left-0 flex justify-center items-center transition"
       :class="playing ? 'opacity-0 hover-hover:group-hover:opacity-100' : ''"
     >
       <div class="grow basis-1/2">
@@ -32,6 +32,7 @@
       loop
       :poster="poster"
       crossorigin="anonymous"
+      class="relative z-10"
       preload="none"
       playsinline
       :muted="autoPlay()"
