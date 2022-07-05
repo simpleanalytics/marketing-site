@@ -32,7 +32,7 @@
         </div>
         <p
           v-else-if="affiliate.valid === false || affiliate.error"
-          class="bg-red-500 dark:bg-red-600 text-white rounded-lg text-center p-4 shadow dark:shadow-none"
+          class="bg-red-500 dark:bg-red-600 text-white dark:text-white rounded-lg text-center p-4 shadow dark:shadow-none"
         >
           <span v-if="affiliate.error">{{ affiliate.error }}</span>
           <span v-else-if="affiliate.slug">
