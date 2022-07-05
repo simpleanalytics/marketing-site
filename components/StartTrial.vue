@@ -1,13 +1,6 @@
 <template>
   <p>
-    <a
-      :href="
-        'https://simpleanalytics.com/welcome' +
-        (theme === 'dark' ? '?theme=dark' : '')
-      "
-      class="button primary"
-      >{{ $t("start_trial.button") }}</a
-    >
+    <a :href="url" class="button primary">{{ $t("start_trial.button") }}</a>
   </p>
   <p class="mb-8 sm:mb-0 text-xs mt-4">
     <span class="block sm:inline my-2">
@@ -29,4 +22,22 @@
 import { CheckIcon } from "@heroicons/vue/solid";
 
 const theme = useTheme();
+const currency = useState("currency");
+
+const affiliateCookie = useCookie("affiliate", {
+  secure: process.env.NODE_ENV === "production",
+  sameSite: true,
+});
+
+const params = new URLSearchParams();
+if (currency?.value?.code) params.set("currency", currency.value.code);
+if (affiliateCookie?.value) params.set("affiliate", affiliateCookie.value);
+if (theme === "dark") params.set("theme", "dark");
+
+const mainAppUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://simpleanalytics.com"
+    : "http://localhost:3000";
+
+const url = `${mainAppUrl}/welcome?${params}`;
 </script>
