@@ -31,8 +31,7 @@
   </div>
 
   <p v-if="affiliateCookie" class="text-center mt-8 sm:-mb-6">
-    You get the first month + 14 days for free because you're using an affiliate
-    link.
+    {{ t("pricing.affiliate_description", [14]) }}
   </p>
 
   <div
@@ -59,7 +58,7 @@
           >
           {{ " " }}
           <span class="text-base font-medium text-gray-500"
-            >/{{ t("pricing.per_month_short") }}</span
+            >/{{ t("pricing.per_month") }}</span
           >
           <span class="block text-gray-300 mt-2" v-if="!tier.from"
             >{{ currency?.sign

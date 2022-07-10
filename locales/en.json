@@ -182,12 +182,14 @@
     "yearly_billing": "Yearly billing",
     "monthly_billing": "Monthly billing",
     "from": "from",
+    "per_month": "month",
     "per_month_short": "mo",
     "yearly": "yearly",
     "buy": "Buy",
     "everything_plus": "Everything from the {0} plan, plus:",
     "what_is_included": "What's included",
     "contact_us": "Contact us",
+    "affiliate_description": "You get the first month + {0} days for free because you're using an affiliate link.",
     "plans": {
       "starter": {
         "title": "Starter",
@@ -203,7 +205,7 @@
       }
     },
     "features": {
-      "datapoints": "{0} datapoints",
+      "datapoints": "{0} datapoints per month",
       "users": "{0} users",
       "user": "{0} user",
       "websites": "{0} websites",

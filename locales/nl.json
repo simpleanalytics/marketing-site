@@ -182,12 +182,14 @@
     "yearly_billing": "Jaarlijks",
     "monthly_billing": "Maandelijks",
     "from": "vanaf",
+    "per_month": "maand",
     "per_month_short": "ma",
     "yearly": "jaarlijks",
     "buy": "Koop",
     "everything_plus": "Alles van het {0} plan, plus:",
     "what_is_included": "Wat is inbegrepen",
     "contact_us": "Neem contact op",
+    "affiliate_description": "Je krijgt de eerste maand + {0} dagen gratis omdat je een affiliate link gebruikt.",
     "plans": {
       "starter": {
         "title": "Starter",
@@ -203,7 +205,7 @@
       }
     },
     "features": {
-      "datapoints": "{0} datapunten",
+      "datapoints": "{0} datapunten per maand",
       "users": "{0} gebruikers",
       "user": "{0} gebruiker",
       "websites": "{0} websites",
