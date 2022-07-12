@@ -97,6 +97,9 @@ export default defineNuxtPlugin((nuxtApp) => {
         saveCountry(response.country.isoCode);
       }
     } catch (error) {
+      if (/The address (.*) is not in the database/i.test(error?.message))
+        return;
+
       console.error(error);
     }
   }
