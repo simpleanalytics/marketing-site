@@ -747,11 +747,21 @@ const navigation = [
 ];
 
 const route = useRoute();
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://simpleanalytics.com"
+    : "http://localhost:3005";
 
 useHead({
   title: route.meta.title?.includes("Simple Analytics")
     ? route.meta.title
     : `${route.meta.title} - Simple Analytics`,
+  link: [
+    {
+      rel: "canonical",
+      href: BASE_URL + route.path,
+    },
+  ],
   meta: [
     {
       name: "description",
