@@ -1,9 +1,12 @@
 <template>
   <svg
+    role="img"
+    aria-label="Logo of Cleanshot X"
     xmlns="http://www.w3.org/2000/svg"
     class="fill-gray-600 dark:fill-gray-500"
     viewBox="0 0 398 397"
   >
+    <title>Logo of Cleanshot X</title>
     <!-- background -->
     <path
       class="transition-colors fill-gray-600 dark:fill-gray-600 dark:hover-hover:group-hover:fill-[#4E535D]"

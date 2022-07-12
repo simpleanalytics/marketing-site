@@ -1,9 +1,12 @@
 <template>
   <svg
+    role="img"
+    aria-label="Logo of Homey"
     xmlns="http://www.w3.org/2000/svg"
     class="transition-colors fill-gray-600 dark:fill-gray-500"
     viewBox="0 0 512 512"
   >
+    <title>Logo of Homey</title>
     <path
       class="hover-hover:group-hover:fill-[#ffe000]"
       d="M219 10c82-9 267 94 180 299 51-186-154-240-253-191C54 164-16 267 45 401-79 185 80 23 219 10Z"

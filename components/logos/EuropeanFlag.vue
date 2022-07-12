@@ -1,5 +1,12 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 767 512">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 767 512"
+    role="img"
+    aria-label="European flag"
+  >
+    <title>European flag</title>
     <path class="fill-[#233E90]/80" d="M766 1H1v510h765V1Z" />
     <path
       class="fill-yellow-400"

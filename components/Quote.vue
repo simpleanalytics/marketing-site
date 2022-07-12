@@ -9,7 +9,7 @@
           v-if="image"
           :src="image"
           :class="'h-44 w-44 xl:h-50 xl:w-50 rounded-full ' + imageBackground"
-          alt=""
+          :alt="`Image of ${title}`"
           loading="lazy"
         />
         <component

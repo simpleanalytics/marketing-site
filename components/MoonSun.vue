@@ -1,5 +1,5 @@
 <template>
-  <a @click="toggleTheme()">
+  <a @click="toggleTheme()" role="img" aria-label="Toggle dark mode">
     <div class="moon-container">
       <div class="moon"></div>
       <div class="straaltje" style="--shine-id: 1"></div>

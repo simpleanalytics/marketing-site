@@ -1,5 +1,11 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 278 91">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 278 91"
+    role="img"
+    aria-label="Logo of Capterra"
+  >
+    <title>Logo of Capterra</title>
     <path
       class="fill-red-500"
       d="M263.3.7h-228c-7.7 0-14 6-14.6 13.4L3.5 20.6a4.9 4.9 0 0 0 .1 9.2l17 5.8v40c0 8 6.6 14.7 14.7 14.7h228c8 0 14.7-6.6 14.7-14.7V15.4c0-8-6.6-14.7-14.7-14.7z"

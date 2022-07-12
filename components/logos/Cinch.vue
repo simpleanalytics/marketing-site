@@ -1,9 +1,12 @@
 <template>
   <svg
+    role="img"
+    aria-label="Logo of Cinch.co.uk"
     xmlns="http://www.w3.org/2000/svg"
     class="fill-gray-600 dark:fill-gray-500"
     viewBox="0 0 75 28"
   >
+    <title>Logo of Cinch.co.uk</title>
     <!-- circle on the i -->
     <path
       class="transition-colors hover-hover:group-hover:fill-[#54d4f0]"

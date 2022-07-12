@@ -1,9 +1,12 @@
 <template>
   <svg
+    role="img"
+    aria-label="Logo of the Bannerbear.com"
     xmlns="http://www.w3.org/2000/svg"
     class="transition-colors fill-gray-600 dark:fill-gray-500 hover-hover:group-hover:fill-[#ffd700]"
     viewBox="0 0 296 387"
   >
+    <title>Logo of the Bannerbear.com</title>
     <path
       fill-rule="evenodd"
       d="M93 30c16-18 35-30 56-30s39 12 55 30c17 18 31 43 43 69 23 53 37 115 37 152a135 135 0 1 1-271 0A421 421 0 0 1 93 30Zm-25 80c-22 51-35 109-35 140 0 64 52 116 115 116 64 0 116-52 116-116a419 419 0 0 0-73-204c-15-17-29-26-43-26s-28 9-42 26c-14 16-27 39-38 64Z"

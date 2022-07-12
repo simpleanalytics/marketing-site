@@ -1,10 +1,13 @@
 <template>
   <svg
+    role="img"
+    aria-label="Logo of Trustly"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     class="transition-colors fill-gray-600 dark:fill-gray-500 hover-hover:group-hover:fill-[#0ee06e]"
     viewBox="125 125 1002 210"
   >
+    <title>Logo of Trustly</title>
     <path
       d="M458.4,291.8V156.7h-48.5v-32.1h131.9v32.1h-48.5v135.1H458.4z"
     ></path>

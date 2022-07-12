@@ -1,11 +1,14 @@
 <template>
   <svg
+    role="img"
+    aria-label="Logo of Havas Media Group"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     fill="none"
     viewBox="0 0 543 296"
     class="fill-gray-600 dark:fill-gray-500"
   >
+    <title>Logo of Havas Media Group</title>
     <!-- left line in h -->
     <path
       class="transition-colors fill-gray-400 hover-hover:group-hover:fill-[#96aecc]"

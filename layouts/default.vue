@@ -632,6 +632,7 @@
                       v-if="index === 0 && (post.image_no_text || post.image)"
                       class="rounded-lg shadow-md mt-1 mb-1 dark:brightness-90"
                       :src="post.image_no_text || post.image"
+                      :alt="post.title"
                       loading="lazy"
                     />
                   </a>

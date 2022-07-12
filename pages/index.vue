@@ -961,6 +961,7 @@
         <img
           @click="toggleTheme()"
           src="https://assets.simpleanalytics.com/images/homepage/homepage-light.png"
+          alt="Simple Analytics homepage in light mode"
           class="relative transition rounded-lg shadow-md cursor-pointer"
           loading="lazy"
           style="aspect-ratio: 1024 / 561"
@@ -968,6 +969,7 @@
         <img
           @click="toggleTheme()"
           src="https://assets.simpleanalytics.com/images/homepage/homepage-dark.png"
+          alt="Simple Analytics homepage in dark mode"
           class="relative transition rounded-lg shadow-md cursor-pointer"
           loading="lazy"
           style="aspect-ratio: 1024 / 562"
@@ -1391,7 +1393,7 @@
       <div class="flex items-center justify-center">
         <img
           src="https://assets.simpleanalytics.com/images/homepage/up-smaller.png"
-          alt=""
+          alt="Adriaan van Rossum and Iron Brands pointing up"
           style="aspect-ratio: 580 / 324"
           class="w-96"
           loading="lazy"

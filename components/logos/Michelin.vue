@@ -1,9 +1,12 @@
 <template>
   <svg
+    role="img"
+    aria-label="Logo of Michelin"
     xmlns="http://www.w3.org/2000/svg"
     class="fill-gray-600 dark:fill-gray-500"
     viewBox="0 0 779 417"
   >
+    <title>Logo of Michelin</title>
     <!-- line -->
     <path
       class="transition-colors hover-hover:group-hover:fill-[#fbe402]"

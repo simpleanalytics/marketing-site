@@ -1,10 +1,13 @@
 <template>
   <svg
+    role="img"
+    aria-label="Logo of Nomad List"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 200 200"
     class="transition-colors fill-gray-600 dark:fill-gray-500 hover-hover:group-hover:fill-[#ff4742]"
   >
+    <title>Logo of Nomad List</title>
     <path d="m86 52.7 28.7 19.1v72.9l-28.5-19.4C86 101.1 86 77 86 52.7Z" />
     <path
       fill-rule="evenodd"

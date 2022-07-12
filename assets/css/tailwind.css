@@ -41,13 +41,13 @@ a:not([class*="text-"]) {
 }
 
 select {
-  background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 20 20' width='24' height='24' xmlns='http://www.w3.org/2000/svg'><path fill='%238fa5a8' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'></path></svg>")
+  background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 20 20' width='24' height='24' aria-hidden='true' xmlns='http://www.w3.org/2000/svg'><path fill='%238fa5a8' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'></path></svg>")
     no-repeat;
   background-position: right 5px top 50%;
 }
 
 .underline-curly {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='none' width='102' height='11' viewBox='0 0 102 11'><path stroke='%23FF5B68' stroke-linecap='round' stroke-width='3' d='M2.5 8.5c25.5-9 63-7.5 97.5 0'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' fill='none' width='102' height='11' viewBox='0 0 102 11'><path stroke='%23FF5B68' stroke-linecap='round' stroke-width='3' d='M2.5 8.5c25.5-9 63-7.5 97.5 0'/></svg>");
   background-size: 100%;
   background-position: center bottom 0;
   padding-bottom: 10px;
@@ -55,7 +55,7 @@ select {
 }
 
 .dark .underline-curly {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='none' width='102' height='11' viewBox='0 0 102 11'><path stroke='%23C12C33' stroke-linecap='round' stroke-width='3' d='M2.5 8.5c25.5-9 63-7.5 97.5 0'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' fill='none' width='102' height='11' viewBox='0 0 102 11'><path stroke='%23C12C33' stroke-linecap='round' stroke-width='3' d='M2.5 8.5c25.5-9 63-7.5 97.5 0'/></svg>");
 }
 
 @keyframes moveFrontForwards {

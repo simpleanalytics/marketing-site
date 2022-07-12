@@ -1,9 +1,12 @@
 <template>
   <svg
+    role="img"
+    aria-label="Logo of Anwalt.de"
     xmlns="http://www.w3.org/2000/svg"
     class="transition-colors fill-gray-600 dark:fill-gray-500 hover-hover:group-hover:fill-[#e95d0f]"
     viewBox="0 0 370 72"
   >
+    <title>Logo of Anwalt.de</title>
     <path
       d="M104.6 49.2h-18L83 59h-5.2L93 18.8h4.9L113.4 59h-5.2l-3.6-9.8Zm-1.5-4.3-7.4-20.1h-.1l-7.3 20.1h14.8Zm49-26.1V59h-5l-22.6-31.7h-.1V59h-4.9V18.8h4.9l22.7 32.1h.1V18.8h4.9Zm59.1 0L198.3 59h-4.8l-9.3-33h-.1l-9.5 33h-4.8l-12.9-40.2h5.3l9.9 32.1h.1l9.1-32.1h5.4l9.1 32.3h.1l9.9-32.3h5.4Zm25.4 30.4h-18L215 59h-5.2L225 18.8h4.9L245.4 59h-5.2l-3.6-9.8Zm-1.6-4.3-7.4-20.1h-.1l-7.3 20.1H235Zm16.5-26.1h4.9v35.7h20V59h-24.9V18.8Zm30.5 4.5h-12.1v-4.5H299v4.5h-12.1V59H282V23.3Z"
     />

@@ -1,9 +1,12 @@
 <template>
   <svg
+    role="img"
+    aria-label="Logo of the Scottish Government"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 407 352"
     class="transition-colors fill-gray-600 dark:fill-gray-500 hover-hover:group-hover:fill-[#166cb5]"
   >
+    <title>Logo of the Scottish Government</title>
     <path
       d="M202.2 91 48.5 0h309L202.2 91Zm51.1 30.3L407 28v186.4l-153.7-93.2Zm-100.1 0L0 28v186l153.2-92.6Zm49 30.2L355.4 241H49l153.2-89.5Z"
     />
