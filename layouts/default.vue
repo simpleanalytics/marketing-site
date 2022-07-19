@@ -750,7 +750,7 @@ const navigation = [
 const route = useRoute();
 const BASE_URL =
   process.env.NODE_ENV === "production"
-    ? "https://simpleanalytics.com"
+    ? "https://www.simpleanalytics.com"
     : "http://localhost:3005";
 
 useHead({
