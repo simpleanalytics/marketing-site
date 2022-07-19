@@ -241,6 +241,9 @@
       "description_2": "So, if you had an increase in traffic during the last three months, you pay only a little more next month. Likewise, you automatically pay a little less when your average amount of page views decreased during the last months."
     }
   },
+  "video": {
+    "title": "Why is Simple Analytics the {0}most privacy-first{1} analytics?"
+  },
   "testimonials": {
     "trusted_by": "Trusted by more than 600 {0}governments{1}, {0}NGOs{1}, and small to mid-sized {0}enterprises{1}.",
     "duckduckgo": {

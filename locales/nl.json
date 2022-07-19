@@ -241,6 +241,9 @@
       "description_2": "Dus, als je een toename in verkeer had gedurende de laatste drie maanden, betaal je volgende maand slechts een beetje meer. Op dezelfde manier betaal je automatisch een beetje minder wanneer jouw gemiddeld aantal pageviews daalde tijdens de laatste maanden."
     }
   },
+  "video": {
+    "title": "Waarom is Simple Analytics {0}de meest privacy-first{1} analytics?"
+  },
   "testimonials": {
     "trusted_by": "Vertrouwd door meer dan 600 {0}overheden{1}, {0}NGO's{1} en kleine tot grote {0}ondernemingen{1}.",
     "duckduckgo": {
