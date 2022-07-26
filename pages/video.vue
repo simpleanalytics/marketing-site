@@ -1,15 +1,13 @@
 <template>
-  <NuxtLayout name="default">
-    <template #hero>
-      <div class="text-center">
-        <h1
-          class="text-2xl font-medium sm:text-2xl md:text-4xl pt-8"
-          v-html="$t('home.why_most_privacy.title', tColorsRed)"
-        ></h1>
-      </div>
-    </template>
+  <div>
+    <div class="text-center">
+      <h1
+        class="text-2xl font-medium sm:text-2xl md:text-4xl"
+        v-html="$t('home.why_most_privacy.title', tColorsRed)"
+      ></h1>
+    </div>
 
-    <div class="max-w-3xl px-6 mx-auto -mt-6 md:-mt-14">
+    <div class="max-w-3xl px-6 mx-auto mt-12">
       <Video
         class="mx-auto max-w-[800px]"
         width="854"
@@ -42,7 +40,7 @@
         <StartTrial />
       </div>
     </div>
-  </NuxtLayout>
+  </div>
 </template>
 
 <script setup>
@@ -50,7 +48,6 @@ import Video from "../components/Video.vue";
 
 definePageMeta({
   title: "Video",
-  layout: false,
 });
 
 const tColorsRed = [`<span class='text-red-500 dark:text-red-600'>`, `</span>`];

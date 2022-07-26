@@ -1,144 +1,142 @@
 <template>
-  <NuxtLayout name="default">
-    <template #hero>
-      <div
-        v-if="affiliate || affiliateCookie"
-        class="py-4 max-w-7xl mx-auto sm:px-2 mb-4 -mt-4 sm:-mt-10"
+  <div>
+    <div
+      v-if="affiliate || affiliateCookie"
+      class="py-4 max-w-7xl mx-auto sm:px-2 mb-4 -mt-4 sm:-mt-10"
+    >
+      <p
+        v-if="affiliateCookie"
+        class="border-2 bg-white dark:bg-gray-900 border-red-500 dark:border-red-600 rounded-lg text-center p-4 shadow"
       >
-        <p
-          v-if="affiliateCookie"
-          class="border-2 bg-white dark:bg-gray-900 border-red-500 dark:border-red-600 rounded-lg text-center p-4 shadow"
-        >
-          You accepted the affiliate deal, therefore you get a discount and
-          <strong>{{ affiliate?.name || "the promoter" }}</strong> gets a
-          reward.
-          <a @click="undoAffiliate(affiliate)">Click here to undo this</a>.
+        You accepted the affiliate deal, therefore you get a discount and
+        <strong>{{ affiliate?.name || "the promoter" }}</strong> gets a reward.
+        <a @click="undoAffiliate(affiliate)">Click here to undo this</a>.
+      </p>
+      <div
+        v-else-if="affiliate.valid === true"
+        class="border-2 bg-white dark:bg-gray-900 border-red-500 dark:border-red-600 rounded-lg text-center p-4 shadow"
+      >
+        <p class="mb-2">
+          You are here via
+          <strong>{{ affiliate.name }}</strong
+          >. To give you the first month for free and give
+          {{ affiliate.name }} a reward, we ask you to place a cookie for 30
+          days.
         </p>
-        <div
-          v-else-if="affiliate.valid === true"
-          class="border-2 bg-white dark:bg-gray-900 border-red-500 dark:border-red-600 rounded-lg text-center p-4 shadow"
-        >
-          <p class="mb-2">
-            You are here via
-            <strong>{{ affiliate.name }}</strong
-            >. To give you the first month for free and give
-            {{ affiliate.name }} a reward, we ask you to place a cookie for 30
-            days.
-          </p>
 
-          <a @click="acceptAffiliate(affiliate)" class="button"
-            >Accept affiliate deal</a
-          >
-        </div>
-        <p
-          v-else-if="affiliate.valid === false || affiliate.error"
-          class="bg-red-500 dark:bg-red-600 text-white dark:text-white rounded-lg text-center p-4 shadow dark:shadow-none"
+        <a @click="acceptAffiliate(affiliate)" class="button"
+          >Accept affiliate deal</a
         >
-          <span v-if="affiliate.error">{{ affiliate.error }}</span>
-          <span v-else-if="affiliate.slug">
-            It looks like your affiliate link
-            <strong>"{{ affiliate.slug }}"</strong> is invalid.
-          </span>
-          <span v-else>It looks like your affiliate link is invalid.</span>
+      </div>
+      <p
+        v-else-if="affiliate.valid === false || affiliate.error"
+        class="bg-red-500 dark:bg-red-600 text-white dark:text-white rounded-lg text-center p-4 shadow dark:shadow-none"
+      >
+        <span v-if="affiliate.error">{{ affiliate.error }}</span>
+        <span v-else-if="affiliate.slug">
+          It looks like your affiliate link
+          <strong>"{{ affiliate.slug }}"</strong> is invalid.
+        </span>
+        <span v-else>It looks like your affiliate link is invalid.</span>
 
-          <NuxtLink
-            :href="
-              mainAppUrl + '/contact' + (theme === 'dark' ? '?theme=dark' : '')
+        <NuxtLink
+          :href="
+            mainAppUrl + '/contact' + (theme === 'dark' ? '?theme=dark' : '')
+          "
+          target="_blank"
+          class="text-white underline ml-1"
+          >Contact us</NuxtLink
+        >
+        if you think this is a mistake.
+      </p>
+    </div>
+
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-2 flex flex-col md:flex-row items-center"
+    >
+      <div class="text-center md:text-left flex-shrink basis-2/4 md:mr-8">
+        <h1 class="text-3xl font-medium sm:text-4xl lg:text-4xl">
+          <span
+            class="leading-snug"
+            v-html="
+              $t('home.title', [
+                `<span class='text-red-500 dark:text-red-600'>`,
+                `</span>`,
+              ])
             "
-            target="_blank"
-            class="text-white underline ml-1"
-            >Contact us</NuxtLink
-          >
-          if you think this is a mistake.
+          ></span>
+        </h1>
+        <p
+          class="mt-4 text-base sm:text-lg md:mt-8 lg:text-xl md:leading-relaxed leading-relaxed"
+        >
+          <EuropeanFlag class="inline mr-2 w-8 rounded align-sub" />
+          <span
+            v-html="
+              $t('home.subtitle', [
+                `<span class='underline-curly text-red-500 dark:text-red-600'>`,
+                `</span>`,
+              ])
+            "
+          ></span>
         </p>
+
+        <div
+          class="flex items-center justify-center md:justify-start mt-10 sm:mt-12 max-w-full"
+        >
+          <Logos
+            :limit="4"
+            class="flex-wrap sm:flex-nowrap"
+            tooltipclass="md:justify-start justify-center basis-1/4"
+          />
+        </div>
+
+        <div
+          class="max-w-lg flex flex-wrap mt-8 justify-center md:justify-start"
+        >
+          <div class="mt-4 sm:mr-4">
+            <a
+              :href="
+                mainAppUrl +
+                '/welcome' +
+                (theme === 'dark' ? '?theme=dark' : '')
+              "
+              class="button large primary"
+            >
+              {{ $t("home.start_trial_now") }}
+            </a>
+            <p class="mb-8 sm:mb-0 text-xs mt-2 text-center">
+              <CheckIcon class="fill-green-500 w-4 inline align-text-top" />
+              {{ $t("home.no_creditcard") }}
+            </p>
+          </div>
+          <div class="sm:mt-4">
+            <a
+              :href="
+                mainAppUrl +
+                '/simpleanalytics.com?from=landing' +
+                (theme === 'dark' ? '&theme=dark' : '')
+              "
+              class="button large group"
+            >
+              {{ $t("home.see_live_demo") }} <Arrow class="h-5 w-5" />
+            </a>
+          </div>
+        </div>
       </div>
 
-      <div
-        class="max-w-7xl mx-auto px-4 sm:px-2 flex flex-col md:flex-row items-center"
-      >
-        <div class="text-center md:text-left flex-shrink basis-2/4 md:mr-8">
-          <h1 class="text-3xl font-medium sm:text-4xl lg:text-4xl">
-            <span
-              class="leading-snug"
-              v-html="
-                $t('home.title', [
-                  `<span class='text-red-500 dark:text-red-600'>`,
-                  `</span>`,
-                ])
-              "
-            ></span>
-          </h1>
-          <p
-            class="mt-4 text-base sm:text-lg md:mt-8 lg:text-xl md:leading-relaxed leading-relaxed"
+      <div class="mt-12 md:mt-0 z-10 mx-auto relative basis-2/4">
+        <div
+          class="absolute z-30 flex flex-col items-center justify-center w-full h-full"
+        >
+          <a
+            @click="scrollToSeekVideo('seek.overview')"
+            class="group button large shadow-xl bg-white dark:bg-gray-800 hover-hover:hover:dark:bg-gray-900"
           >
-            <EuropeanFlag class="inline mr-2 w-8 rounded align-sub" />
-            <span
-              v-html="
-                $t('home.subtitle', [
-                  `<span class='underline-curly text-red-500 dark:text-red-600'>`,
-                  `</span>`,
-                ])
-              "
-            ></span>
-          </p>
-
-          <div
-            class="flex items-center justify-center md:justify-start mt-10 sm:mt-12 max-w-full"
-          >
-            <Logos
-              :limit="4"
-              class="flex-wrap sm:flex-nowrap"
-              tooltipclass="md:justify-start justify-center basis-1/4"
-            />
-          </div>
-
-          <div
-            class="max-w-lg flex flex-wrap mt-8 justify-center md:justify-start"
-          >
-            <div class="mt-4 sm:mr-4">
-              <a
-                :href="
-                  mainAppUrl +
-                  '/welcome' +
-                  (theme === 'dark' ? '?theme=dark' : '')
-                "
-                class="button large primary"
-              >
-                {{ $t("home.start_trial_now") }}
-              </a>
-              <p class="mb-8 sm:mb-0 text-xs mt-2 text-center">
-                <CheckIcon class="fill-green-500 w-4 inline align-text-top" />
-                {{ $t("home.no_creditcard") }}
-              </p>
-            </div>
-            <div class="sm:mt-4">
-              <a
-                :href="
-                  mainAppUrl +
-                  '/simpleanalytics.com?from=landing' +
-                  (theme === 'dark' ? '&theme=dark' : '')
-                "
-                class="button large group"
-              >
-                {{ $t("home.see_live_demo") }} <Arrow class="h-5 w-5" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-12 md:mt-0 z-10 mx-auto relative basis-2/4">
-          <div
-            class="absolute z-30 flex flex-col items-center justify-center w-full h-full"
-          >
-            <a
-              @click="scrollToSeekVideo('seek.overview')"
-              class="group button large shadow-xl bg-white dark:bg-gray-800 hover-hover:hover:dark:bg-gray-900"
-            >
-              <ChevronDoubleDownIcon class="w-3 inline-block" />
-              <span class="mx-2">{{ $t("home.see_feature_video_below") }}</span>
-              <ChevronDoubleDownIcon class="w-3 inline-block" />
-            </a>
-            <!-- <NuxtLink
+            <ChevronDoubleDownIcon class="w-3 inline-block" />
+            <span class="mx-2">{{ $t("home.see_feature_video_below") }}</span>
+            <ChevronDoubleDownIcon class="w-3 inline-block" />
+          </a>
+          <!-- <NuxtLink
               :href="
                 mainAppUrl +
                 '/simpleanalytics.com' +
@@ -150,114 +148,6 @@
               <span class="">Play with live demo</span>
               <Arrow class="h-5 w-5" />
             </NuxtLink> -->
-          </div>
-
-          <div
-            class="dark:shadow-none shadow-sm shadow-gray-200 rounded-md"
-            style="aspect-ratio: 1400 / 1014"
-          >
-            <video
-              ref="previewVideoLight"
-              loop=""
-              muted=""
-              playsinline=""
-              crossorigin="anonymous"
-              class="shadow-xl shadow-gray-400/20 rounded-md bg-blue-100 -z-10 dark:hidden"
-              preload="none"
-              width="1440"
-              height="1130"
-              style="aspect-ratio: 1440 / 1130"
-              data-poster-webp="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/poster.webp"
-              data-poster-png="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/poster.png"
-            >
-              <source
-                src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/video.mp4"
-                type="video/mp4"
-              />
-              <source
-                src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/video.webm"
-                type="video/webm"
-              />
-              <source
-                src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/video.ogg"
-                type="video/ogg"
-              />
-              <source
-                src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-light/video.wmv"
-                type="video/wmv"
-              />
-            </video>
-            <video
-              ref="previewVideoDark"
-              loop=""
-              muted=""
-              playsinline=""
-              crossorigin="anonymous"
-              class="rounded-md bg-gray-900 shadow-gray-700/40 shadow-2xl -z-10 hidden dark:block"
-              preload="none"
-              width="1440"
-              height="1130"
-              style="aspect-ratio: 1440 / 1130"
-              data-poster-webp="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/poster.webp"
-              data-poster-png="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/poster.png"
-            >
-              <source
-                src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/video.mp4"
-                type="video/mp4"
-              />
-              <source
-                src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/video.webm"
-                type="video/webm"
-              />
-              <source
-                src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/video.ogg"
-                type="video/ogg"
-              />
-              <source
-                src="https://assets.simpleanalytics.com/videos/2022-05-05-dashboard-dark/video.wmv"
-                type="video/wmv"
-              />
-            </video>
-          </div>
-        </div>
-      </div>
-
-      <!-- <div class="mt-10 flex justify-center">
-        <a
-          class="inline-flex flex-col sm:flex-row items-center"
-          href="https://www.capterra.com/p/248710/Simple-Analytics/#about"
-          target="_blank"
-        >
-          <CapterraLogo class="h-10 mr-4" />
-          <p class="mt-2 sm:mt-0">based on 5+ reviews</p></a
-        >
-      </div> -->
-    </template>
-
-    <div class="max-w-3xl px-6 mx-auto text-center">
-      <!-- 
-      <div class="max-w-2xl -mt-4 sm:-mt-24 z-10 mx-auto relative" style="">
-        <div
-          class="absolute z-30 flex flex-col items-center justify-center w-full h-full"
-        >
-          <NuxtLink
-            :href="
-              mainAppUrl +
-              '/simpleanalytics.com' +
-              (theme === 'dark' ? '?theme=dark' : '')
-            "
-            class="button large primary shadow-xl bg-white dark:bg-gray-800"
-          >
-            {{ $t("home.go_to_live_demo") }}
-          </NuxtLink>
-          <a
-            @click="scrollToSeekVideo('seek.overview')"
-            class="mt-4 button tiny shadow-md bg-white dark:bg-gray-800"
-          >
-            <ChevronDoubleDownIcon class="w-3 inline-block" />
-            <span class="mx-1">See full video</span>
-            <ChevronDoubleDownIcon class="w-3 inline-block" />
-          </a>
         </div>
 
         <div
@@ -270,7 +160,7 @@
             muted=""
             playsinline=""
             crossorigin="anonymous"
-            class="shadow-lg shadow-gray-200 rounded-md bg-blue-100 -z-10 dark:hidden"
+            class="shadow-xl shadow-gray-400/20 rounded-md bg-blue-100 -z-10 dark:hidden"
             preload="none"
             width="1440"
             height="1130"
@@ -328,8 +218,18 @@
           </video>
         </div>
       </div>
-      -->
     </div>
+
+    <!-- <div class="mt-10 flex justify-center">
+        <a
+          class="inline-flex flex-col sm:flex-row items-center"
+          href="https://www.capterra.com/p/248710/Simple-Analytics/#about"
+          target="_blank"
+        >
+          <CapterraLogo class="h-10 mr-4" />
+          <p class="mt-2 sm:mt-0">based on 5+ reviews</p></a
+        >
+      </div> -->
 
     <div
       class="bg-gradient-to-t from-blue-100 dark:from-gray-700 py-4 relative overflow-hidden pb-28"
@@ -1400,7 +1300,7 @@
         />
       </div>
     </div>
-  </NuxtLayout>
+  </div>
 </template>
 
 <script setup>
@@ -1453,7 +1353,6 @@ definePageMeta({
   title: "The privacy-first Google Analytics alternative - Simple Analytics",
   description:
     "Simple Analytics is the privacy-first Google Analytics alternative that is 100% GDPR compliant. Give us a try!",
-  layout: false,
 });
 
 const previewVideoLight = ref(null);

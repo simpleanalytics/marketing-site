@@ -1,14 +1,12 @@
 <template>
-  <NuxtLayout name="default">
-    <template #hero>
-      <div class="text-center">
-        <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl pt-8">
-          {{ $t("pricing.title") }}.
-        </h1>
-      </div>
-    </template>
+  <div>
+    <div class="text-center">
+      <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
+        {{ $t("pricing.title") }}.
+      </h1>
+    </div>
 
-    <div class="max-w-3xl px-6 mx-auto -mt-14">
+    <div class="max-w-3xl px-6 mx-auto mt-8">
       <Pricing />
 
       <h3
@@ -23,7 +21,7 @@
         <StartTrial />
       </div>
     </div>
-  </NuxtLayout>
+  </div>
 </template>
 
 <script setup>
@@ -32,6 +30,5 @@ import FAQ from "../components/FAQ.vue";
 
 definePageMeta({
   title: "Pricing",
-  layout: false,
 });
 </script>
