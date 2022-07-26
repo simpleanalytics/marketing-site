@@ -1289,7 +1289,7 @@
       </div>
     </div>
 
-    <div class="max-w-3xl px-6 mx-auto animated-background">
+    <div class="max-w-3xl -mb-20 px-6 mx-auto animated-background">
       <div class="flex items-center justify-center">
         <img
           src="https://assets.simpleanalytics.com/images/homepage/up-smaller.png"
