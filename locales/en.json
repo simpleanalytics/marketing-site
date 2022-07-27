@@ -165,6 +165,10 @@
         "title": "Documentation",
         "description": "Learn what is possible within Simple Analytics."
       },
+      "blog": {
+        "title": "Blog",
+        "description": "Read what is currently a hot topic in privacy land."
+      },
       "privacy": {
         "title": "Privacy and how we handle your data",
         "description": "Understand how we take your privacy seriously."
@@ -244,6 +248,12 @@
   "video": {
     "title": "Why is Simple Analytics the {0}most privacy-first{1} analytics?"
   },
+  "blog": {
+    "title": "Blog",
+    "description": "Follow our journey to fight for privacy & against Google Analytics.",
+    "back_to_top": "Back to top.",
+    "published_on_by": "Published on {0} by {1}"
+  },
   "testimonials": {
     "trusted_by": "Trusted by more than 600 {0}governments{1}, {0}NGOs{1}, and small to mid-sized {0}enterprises{1}.",
     "duckduckgo": {
@@ -277,6 +287,7 @@
     }
   },
   "time": {
+    "intl_locale": "en-US",
     "now": "now",
     "short": {
       "ago": {

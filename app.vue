@@ -72,11 +72,13 @@
         <Meta name="twitter:site" content="@SimpleAnalytic" />
         <Meta name="twitter:creator" content="@SimpleAnalytic" />
         <Meta name="twitter:image:alt" :content="defaultDescription" />
-        <Script
-          async
-          defer
-          src="https://scripts.simpleanalyticscdn.com/latest.js"
-        />
+        <ClientOnly>
+          <Script
+            async
+            defer
+            src="https://scripts.simpleanalyticscdn.com/latest.js"
+          />
+        </ClientOnly>
       </Head>
     </Html>
 
@@ -209,12 +211,12 @@
                               <ul v-else role="list" class="mt-4 space-y-4">
                                 <li
                                   v-for="post in recentPosts"
-                                  :key="post.url"
+                                  :key="post.path"
                                   class="text-base truncate"
                                   :title="post.excerpt"
                                 >
-                                  <a
-                                    :href="post.url"
+                                  <NuxtLink
+                                    :to="post.path"
                                     class="font-medium hover-hover:hover:text-gray-900 dark:hover-hover:hover:text-gray-500 transition ease-in-out duration-150"
                                   >
                                     <span
@@ -226,17 +228,17 @@
                                       >{{ $t("home.new") }}</span
                                     >
                                     {{ post.title }}
-                                  </a>
+                                  </NuxtLink>
                                 </li>
                               </ul>
                             </div>
                             <div class="mt-5 text-sm">
-                              <a
-                                href="https://blog.simpleanalytics.com"
+                              <NuxtLink
+                                to="/blog"
                                 class="font-medium text-red-500 hover-hover:hover:text-red-500 transition ease-in-out duration-150"
                               >
                                 {{ $t("home.view_all_posts") }}
-                                <span aria-hidden="true">&rarr;</span></a
+                                <span aria-hidden="true">&rarr;</span></NuxtLink
                               >
                             </div>
                           </div>
@@ -459,15 +461,15 @@
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="https://blog.simpleanalytics.com/"
+                  <NuxtLink
+                    to="/blog"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <BookOpenIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>{{ $t("home.footer.blog") }}</span>
-                  </a>
+                  </NuxtLink>
                 </li>
                 <li>
                   <a
@@ -514,59 +516,59 @@
 
               <ul class="list-none mb-0">
                 <li>
-                  <a
-                    href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-google-analytics"
+                  <NuxtLink
+                    to="/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <GoogleAnalyticsIcon
                       class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Google Analytics</span>
-                  </a>
+                  </NuxtLink>
                 </li>
                 <li>
-                  <a
-                    href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-matomo"
+                  <NuxtLink
+                    to="/blog/why-simple-analytics-is-a-great-alternative-to-matomo"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <MatomoIcon
                       class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Matomo</span>
-                  </a>
+                  </NuxtLink>
                 </li>
                 <li>
-                  <a
-                    href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-plausible"
+                  <NuxtLink
+                    to="/blog/why-simple-analytics-is-a-great-alternative-to-plausible"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <PlausibleIcon
                       class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Plausible</span>
-                  </a>
+                  </NuxtLink>
                 </li>
                 <li v-if="false">
-                  <a
-                    href="#!"
+                  <NuxtLink
+                    to="#!"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <FathomIcon
                       class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Fathom</span>
-                  </a>
+                  </NuxtLink>
                 </li>
                 <li>
-                  <a
-                    href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics"
+                  <NuxtLink
+                    to="/blog/why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <CloudflareIcon
                       class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>Cloudflare</span>
-                  </a>
+                  </NuxtLink>
                 </li>
               </ul>
             </div>
@@ -591,20 +593,18 @@
                   $t('home.could_not_connect', [
                     `<a
                       class='underline text-gray-600 dark:text-gray-400'
-                      href='https://blog.simpleanalytics.com/'
-                      target='_blank'>`,
+                      href='/blog'>`,
                     `</a>`,
                   ])
                 "
               ></p>
               <ul class="list-none flex flex-col space-y-2 -mb-2.5 mt-0" v-else>
                 <li
-                  v-for="(post, index) in recentPosts.slice(0, 5)"
-                  :key="post.url"
+                  v-for="(post, index) in recentPosts.slice(0, 3)"
+                  :key="post.path"
                 >
-                  <a
-                    :href="post.url"
-                    target="_blank"
+                  <NuxtLink
+                    :to="post.path"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded-md block group text-left"
                   >
                     <span
@@ -630,7 +630,7 @@
                       :alt="post.title"
                       loading="lazy"
                     />
-                  </a>
+                  </NuxtLink>
                 </li>
               </ul>
             </div>
@@ -670,7 +670,6 @@ import {
   XIcon,
   BookmarkAltIcon,
   CalendarIcon,
-  AcademicCapIcon,
   ShieldCheckIcon,
   TerminalIcon,
   ScaleIcon,
@@ -704,10 +703,10 @@ const { t } = i18n;
 
 const resources = [
   {
-    name: "nav.resources_dropdown.docs.title",
-    description: "nav.resources_dropdown.docs.description",
-    href: "https://docs.simpleanalytics.com",
-    icon: AcademicCapIcon,
+    name: "nav.resources_dropdown.blog.title",
+    description: "nav.resources_dropdown.blog.description",
+    href: "/blog",
+    icon: NewspaperIcon,
   },
   {
     name: "nav.resources_dropdown.privacy.title",
@@ -733,11 +732,11 @@ const navigation = [
     href: "#",
     popover: true,
     mobile: {
-      translation: "nav.docs",
-      href: "https://docs.simpleanalytics.com",
+      translation: "nav.blog",
+      href: "/blog",
     },
   },
-  { translation: "nav.blog", href: "/blog" },
+  { translation: "nav.docs", href: "https://docs.simpleanalytics.com" },
   { translation: "nav.contact", href: "https://simpleanalytics.com/contact" },
 ];
 
@@ -750,7 +749,9 @@ const BASE_URL =
 useHead({
   title: route.meta.title?.includes("Simple Analytics")
     ? route.meta.title
-    : `${route.meta.title} - Simple Analytics`,
+    : route.meta.title
+    ? `${route.meta.title} - Simple Analytics`
+    : "Simple Analytics",
   link: [
     {
       rel: "canonical",
@@ -809,7 +810,12 @@ const { pending, data: recentPostsAll } = useLazyFetch(
 
 const recentPosts = computed(() => {
   if (Array.isArray(recentPostsAll.value))
-    return recentPostsAll.value.slice(0, 3);
+    return recentPostsAll.value.slice(0, 3).map((post) => {
+      return {
+        ...post,
+        path: post.url.replace("https://blog.simpleanalytics.com/", "/blog/"),
+      };
+    });
   return [];
 });
 

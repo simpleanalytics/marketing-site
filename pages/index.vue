@@ -656,7 +656,7 @@
         <p class="my-4">
           <span v-html="$t('home.why_switch_from_ga.paragraph_3')"></span>
           <a
-            href="https://blog.simpleanalytics.com/google-to-sunset-universal-analytics-in-2023"
+            href="/blog/google-to-sunset-universal-analytics-in-2023"
             target="_blank"
             class="ml-1 group"
             ><span
@@ -673,7 +673,7 @@
         <p class="my-4">
           <span v-html="$t('home.why_switch_from_ga.paragraph_6_1')"></span>
           <a
-            href="https://blog.simpleanalytics.com/why-simple-analytics-is-a-great-alternative-to-google-analytics"
+            href="/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics"
             target="_blank"
             class="ml-1 mr-1 group"
             ><span

@@ -1,9 +1,11 @@
 <template>
   <div class="mb-20">
-    <div class="text-center">
-      <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">Blog.</h1>
+    <div class="text-center mx-4">
+      <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
+        {{ $t("blog.title") }}.
+      </h1>
       <p class="mt-8 text-lg">
-        Follow our journey to fight for privacy &amp; against Google Analytics.
+        {{ $t("blog.description") }}
       </p>
     </div>
 
@@ -14,15 +16,15 @@
       <p v-else-if="!recentPosts?.length" class="mt-5 text-sm">
         {{ $t("home.did_not_find_any_posts") }}...
       </p>
-      <div v-else role="list" class="justify-center block md:flex-wrap md:flex">
+      <div v-else role="list" class="justify-center block sm:flex-wrap sm:flex">
         <article
           v-for="post in recentPosts"
           :key="post.url"
           :title="post.excerpt"
-          class="flex w-full p-6 lg:w-1/2 xl:w-1/3"
+          class="flex w-full p-6 sm:w-1/2 lg:w-1/3"
         >
           <div
-            class="flex flex-col shadow-2xl overflow-hidden rounded-lg bg-blue-100 dark:bg-gray-700"
+            class="flex flex-col shadow-xl overflow-hidden rounded-lg bg-blue-100 dark:bg-gray-700"
           >
             <div>
               <NuxtLink :to="post.path">
@@ -48,7 +50,13 @@
                 :to="post.path"
                 class="block mt-3 mb-8 leading-relaxed text-md text-gray-700 dark:text-gray-300"
               >
-                {{ post.excerpt }}
+                {{
+                  post.excerpt?.length > 200
+                    ? post.excerpt.substring(0, 200) + "..."
+                    : [".", "?", "!"].includes(post.excerpt.trim().slice(-1))
+                    ? post.excerpt
+                    : post.excerpt + "."
+                }}
               </NuxtLink>
 
               <div
@@ -65,7 +73,7 @@
                   >
 
                   {{
-                    new Intl.DateTimeFormat("en-US", {
+                    new Intl.DateTimeFormat($t("time.intl_locale"), {
                       month: "short",
                       year: "numeric",
                       day: "numeric",
@@ -81,8 +89,8 @@
             </div>
           </div>
         </article>
-        <article class="flex w-full lg:w-1/2 xl:w-1/3"></article>
-        <article class="flex w-full lg:w-1/2 xl:w-1/3"></article>
+        <article class="flex w-full sm:w-1/2 lg:w-1/3"></article>
+        <article class="flex w-full sm:w-1/2 lg:w-1/3"></article>
       </div>
     </div>
   </div>
@@ -115,5 +123,11 @@ const recentPosts = computed(() => {
       };
     });
   return [];
+});
+
+definePageMeta({
+  title: "Blog of Simple Analytics",
+  description:
+    "Follow our journey to fight for privacy against Google Analytics and learn what is happening in the privacy landscape.",
 });
 </script>
