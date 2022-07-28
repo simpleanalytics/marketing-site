@@ -123,18 +123,18 @@ const { pending, data: recentPostsAll } = useLazyFetch(
 );
 
 const recentPosts = computed(() => {
-  if (Array.isArray(recentPostsAll.value))
-    return recentPostsAll.value.map((post) => {
-      const path = "/blog/" + post.url.split("/").slice(3).join("/");
-      const image = post.image_no_text || post.image;
+  if (!Array.isArray(recentPostsAll.value)) return [];
 
-      return {
-        ...post,
-        path,
-        cover: image?.startsWith("/") ? `${BLOG_URL}${image}` : image,
-      };
-    });
-  return [];
+  return recentPostsAll.value.map((post) => {
+    const path = post.url.split("/").slice(3).join("/");
+    const image = post.image_no_text || post.image;
+
+    return {
+      ...post,
+      path,
+      cover: image?.startsWith("/") ? `${BLOG_URL}${image}` : image,
+    };
+  });
 });
 
 definePageMeta({
