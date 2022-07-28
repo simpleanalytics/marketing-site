@@ -96,7 +96,7 @@
                 <div class="flex items-center justify-between w-full md:w-auto">
                   <PopoverButton
                     :as="MenuLink"
-                    to="/"
+                    href="/"
                     class="flex items-center"
                   >
                     <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />
@@ -127,10 +127,17 @@
               </div>
               <div class="hidden md:flex md:space-x-6 md:mt-2">
                 <div v-for="item in navigation" :key="item.name">
+                  <a
+                    :href="item.href"
+                    v-if="!item.popover && /^https?:\/\//.test(item.href)"
+                    target="_blank"
+                    class="font-medium text-gray-500 hover-hover:hover:text-gray-600"
+                    >{{ $t(item.translation) }} ...</a
+                  >
                   <PopoverButton
                     :as="MenuLink"
-                    v-if="!item.popover"
-                    :to="item.href"
+                    v-else-if="!item.popover"
+                    :href="item.href"
                     class="font-medium text-gray-500 hover-hover:hover:text-gray-600"
                     >{{ $t(item.translation) }}</PopoverButton
                   >
@@ -166,7 +173,8 @@
                           <div
                             class="relative grid gap-6 bg-white dark:bg-gray-800 px-5 py-6 sm:gap-8 sm:p-8"
                           >
-                            <a
+                            <PopoverButton
+                              :as="MenuLink"
                               v-for="item in resources"
                               :key="item.name"
                               :href="item.href"
@@ -185,7 +193,7 @@
                                   {{ $t(item.description) }}
                                 </p>
                               </div>
-                            </a>
+                            </PopoverButton>
                           </div>
                           <div
                             class="px-5 py-5 bg-blue-100 dark:bg-gray-700 sm:px-8 sm:py-8"
@@ -220,7 +228,7 @@
                                 >
                                   <PopoverButton
                                     :as="MenuLink"
-                                    :to="post.path"
+                                    :href="post.path"
                                     class="font-medium hover-hover:hover:text-gray-900 dark:hover-hover:hover:text-gray-500 transition ease-in-out duration-150"
                                   >
                                     <span
@@ -239,14 +247,12 @@
                             <div class="mt-5 text-sm">
                               <PopoverButton
                                 :as="MenuLink"
-                                to="/blog"
+                                href="/blog"
                                 class="font-medium text-red-500 hover-hover:hover:text-red-500 transition ease-in-out duration-150"
                               >
                                 {{ $t("home.view_all_posts") }}
-                                <span aria-hidden="true"
-                                  >&rarr;</span
-                                ></PopoverButton
-                              >
+                                <span aria-hidden="true">&rarr;</span>
+                              </PopoverButton>
                             </div>
                           </div>
                         </div>
