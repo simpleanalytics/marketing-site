@@ -184,7 +184,7 @@
                             >
                               <component
                                 :is="item.icon"
-                                class="flex-shrink-0 h-6 w-6 text-red-500"
+                                class="flex-shrink-0 h-6 w-6 text-red-500 dark:stroke-red-600 stroke-red-500"
                                 aria-hidden="true"
                               />
                               <div class="ml-4">
@@ -234,12 +234,8 @@
                                     class="font-medium hover-hover:hover:text-gray-900 dark:hover-hover:hover:text-gray-500 transition ease-in-out duration-150"
                                   >
                                     <span
-                                      v-if="
-                                        new Date(post.created) >
-                                        Date.now() - 1555200000 // 18 days
-                                      "
-                                      class="inline-block text-sm bg-red-500 dark:bg-red-600 px-1 text-white rounded-md align-text-top mr-1"
-                                      >{{ $t("home.new") }}</span
+                                      class="inline-block text-sm bg-red-500 dark:bg-red-600 px-1 text-white dark:text-gray-700 rounded-md align-text-top mr-1"
+                                      >{{ labelAgo(post.created) }}</span
                                     >
                                     {{ post.title }}
                                   </PopoverButton>
