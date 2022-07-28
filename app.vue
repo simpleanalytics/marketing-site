@@ -841,7 +841,7 @@ const recentPosts = computed(() => {
       return {
         ...post,
         path: post.url.replace(
-          /https:\/\/blog(old)?.simpleanalytics.com\//g,
+          /^https:\/\/blog(old)?.simpleanalytics.com\//g,
           "/blog/"
         ),
       };
