@@ -840,7 +840,7 @@ const recentPosts = computed(() => {
     return recentPostsAll.value.slice(0, 3).map((post) => {
       return {
         ...post,
-        path: post.urlreplace(
+        path: post.url.replace(
           /https:\/\/blog(old)?.simpleanalytics.com\//g,
           "/blog/"
         ),
