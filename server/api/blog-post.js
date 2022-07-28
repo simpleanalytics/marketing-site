@@ -1,6 +1,6 @@
 const BLOG_URL =
   process.env.NODE_ENV === "production"
-    ? "https://blog.simpleanalytics.com"
+    ? "https://blogold.simpleanalytics.com"
     : "http://localhost:4001";
 
 const getAuthorFromSlug = (slug) => {
@@ -51,7 +51,7 @@ export default defineEventHandler(async (event) => {
       title: title?.[1],
       article: article?.[1]
         ?.replace(/="\//g, `="${BLOG_URL}/`)
-        ?.replace(/https:\/\/blog.simpleanalytics.com\//g, "/blog/"),
+        ?.replace(/https:\/\/blog(old)?.simpleanalytics.com\//g, "/blog/"),
     };
   } catch (error) {
     console.error(error.message);

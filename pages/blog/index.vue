@@ -107,7 +107,7 @@ import { useI18n } from "vue-i18n";
 
 const BLOG_URL =
   process.env.NODE_ENV === "production"
-    ? "https://blog.simpleanalytics.com"
+    ? "https://blogold.simpleanalytics.com"
     : "http://localhost:4001";
 
 const MAIN_URL =

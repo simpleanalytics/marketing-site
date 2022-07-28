@@ -826,8 +826,13 @@ const toggleTheme = () => {
   themeCookie.value = theme.value;
 };
 
+const BLOG_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://blogold.simpleanalytics.com"
+    : "http://localhost:4001";
+
 const { pending, data: recentPostsAll } = useLazyFetch(
-  "https://blog.simpleanalytics.com/recent-posts.json"
+  `${BLOG_URL}/recent-posts.json`
 );
 
 const recentPosts = computed(() => {
@@ -835,7 +840,10 @@ const recentPosts = computed(() => {
     return recentPostsAll.value.slice(0, 3).map((post) => {
       return {
         ...post,
-        path: post.url.replace("https://blog.simpleanalytics.com/", "/blog/"),
+        path: post.urlreplace(
+          /https:\/\/blog(old)?.simpleanalytics.com\//g,
+          "/blog/"
+        ),
       };
     });
   return [];
