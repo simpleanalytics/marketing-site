@@ -1613,7 +1613,7 @@ export default {
 
       let found = null;
 
-      for (const seek of this.videoSeeks) {
+      for (const seek of this.videoSeeks || []) {
         if (currentTime > seek.start && currentTime < seek.end)
           found = seek.translation;
       }

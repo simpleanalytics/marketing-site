@@ -132,8 +132,9 @@
                     v-if="!item.popover && /^https?:\/\//.test(item.href)"
                     target="_blank"
                     class="font-medium text-gray-500 hover-hover:hover:text-gray-600"
-                    >{{ $t(item.translation) }} ...</a
                   >
+                    {{ $t(item.translation) }}
+                  </a>
                   <PopoverButton
                     :as="MenuLink"
                     v-else-if="!item.popover"
