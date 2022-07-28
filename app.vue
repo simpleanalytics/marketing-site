@@ -846,12 +846,13 @@ const { pending, data: recentPostsAll } = useLazyFetch(
 const recentPosts = computed(() => {
   if (Array.isArray(recentPostsAll.value))
     return recentPostsAll.value.slice(0, 3).map((post) => {
+      const path = post.url
+        .replace(/^https:\/\/blog(old)?.simpleanalytics.com/g, "/blog/")
+        .replace(/^https:\/\/www?.simpleanalytics.com\/blog\//g, "/blog/");
+
       return {
         ...post,
-        path: post.url.replace(
-          /^https:\/\/blog(old)?.simpleanalytics.com\//g,
-          "/blog/"
-        ),
+        path,
       };
     });
   return [];
