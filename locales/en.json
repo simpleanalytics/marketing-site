@@ -237,7 +237,7 @@
     },
     "payment_methods": {
       "title": "What payment methods do you accept?",
-      "description": "We accept Credit Card, Debit Card, Bitcoin {0}+10% & yearly{1}, Apple Pay, and Google Pay as payment methods for all our paid plans. You can pay in Euros, US Dollars or British Pounds. Bills from {2}500 can be paid via bank transfers and cost an additional {0}10%{1} in banking and service fees."
+      "description": "We accept Credit Card, Debit Card, Bitcoin {0}+10% & yearly{1}, Apple Pay, and Google Pay as payment methods for all our paid plans. You can pay in Euros, US Dollars or British Pounds. Bills from {2}500 can be paid via bank transfers and cost an additional {0}10&#37;{1} in banking and service fees."
     },
     "traffic_change": {
       "title": "What will happen to my charges when my traffic grows / declines?",
