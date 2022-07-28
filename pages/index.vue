@@ -2,7 +2,7 @@
   <div>
     <div
       v-if="affiliate || affiliateCookie"
-      class="py-4 max-w-7xl mx-auto sm:px-2 mb-4 -mt-4 sm:-mt-10"
+      class="py-4 max-w-7xl mx-auto px-6 mb-4 -mt-4 sm:-mt-10"
     >
       <p
         v-if="affiliateCookie"
@@ -28,6 +28,7 @@
           >Accept affiliate deal</a
         >
       </div>
+
       <p
         v-else-if="affiliate.valid === false || affiliate.error"
         class="bg-red-500 dark:bg-red-600 text-white dark:text-white rounded-lg text-center p-4 shadow dark:shadow-none"
@@ -51,9 +52,7 @@
       </p>
     </div>
 
-    <div
-      class="max-w-7xl mx-auto px-4 sm:px-2 flex flex-col md:flex-row items-center"
-    >
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center">
       <div class="text-center md:text-left flex-shrink basis-2/4 md:mr-8">
         <h1 class="text-3xl font-medium sm:text-4xl lg:text-4xl">
           <span

@@ -109,6 +109,7 @@
                   <ClientOnly>
                     <MoonSun class="scale-75 ml-1 mt-1 mr-auto" />
                   </ClientOnly>
+
                   <div
                     class="flex items-center md:hidden"
                     style="margin-right: 4px"
