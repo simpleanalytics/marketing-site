@@ -53,17 +53,11 @@
         />
         <Meta name="apple-mobile-web-app-capable" content="yes" />
         <Meta name="referrer" content="strict-origin-when-cross-origin" />
-        <Meta
-          property="og:image"
-          content="https://assets.simpleanalytics.com/social-media/dark-chart.png"
-        />
+        <Meta property="og:image" :content="image" />
         <Meta name="twitter:url" content="https://simpleanalytics.com" />
         <Meta name="twitter:title" :content="route.meta.title" />
         <Meta name="twitter:description" :content="route.meta.description" />
-        <Meta
-          name="twitter:image"
-          content="https://assets.simpleanalytics.com/social-media/dark-chart.png"
-        />
+        <Meta name="twitter:image" :content="image" />
         <Meta name="twitter:card" content="summary_large_image" />
         <Meta name="twitter:site" content="@SimpleAnalytic" />
         <Meta name="twitter:creator" content="@SimpleAnalytic" />
@@ -760,6 +754,19 @@ const BASE_URL =
   process.env.NODE_ENV === "production"
     ? "https://www.simpleanalytics.com"
     : "http://localhost:3005";
+const MAIN_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://simpleanalytics.com"
+    : "http://localhost:3000";
+
+const generateParams = new URLSearchParams({
+  url: BASE_URL + route.path,
+  title: route.meta.title || "Click here for more information",
+});
+
+const image = route.meta.title
+  ? `${MAIN_URL}/generate-image.png?${generateParams}`
+  : "https://assets.simpleanalytics.com/social-media/dark-chart.png";
 
 useHead({
   title: route.meta.title?.includes("Simple Analytics")
