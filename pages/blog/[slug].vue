@@ -4,9 +4,13 @@
       <h1
         class="text-4xl md:leading-normal font-medium sm:text-5xl md:text-6xl mx-4 lg:mx-10"
       >
-        <span v-if="post?.title">{{ post?.title }}</span>
-        <span v-else>Not found.</span>
+        <span v-if="post?.title">{{ post.title }}</span>
+        <span v-else-if="pending">{{ $t("blog.loading_post") }}</span>
       </h1>
+
+      <p class="mt-6" v-if="!post?.article">
+        {{ $t("blog.article_not_found") }}
+      </p>
 
       <p class="mt-6" v-if="post?.date">
         {{
@@ -27,7 +31,7 @@
       v-html="post?.article || ''"
     ></div>
 
-    <div class="max-w-3xl px-6 mx-auto mt-8">
+    <div class="max-w-3xl px-6 mx-auto mt-8" v-if="post?.article">
       <a @click="scrollToTop" class="inline-flex items-center group">
         <UploadIcon
           class="h-5 mr-1 inline dark:hover-hover:group-hover:fill-red-700 hover-hover:group-hover:fill-red-600"
@@ -40,31 +44,106 @@
 
 <script setup>
 import { UploadIcon } from "@heroicons/vue/solid";
+import { createError } from "h3";
+import { useI18n } from "vue-i18n";
+
+const i18n = useI18n();
+const { t } = i18n;
 
 const route = useRoute();
+
 const BASE_URL =
   process.env.NODE_ENV === "production"
     ? "https://www.simpleanalytics.com"
     : "http://localhost:3005";
 
-const { data: post } = await useLazyAsyncData(`blog-${route.params.slug}`, () =>
-  $fetch("/api/blog-post?slug=" + route.params.slug)
+const { pending, data: post } = await useAsyncData(
+  `blog-${route.params.slug}`,
+  () => $fetch("/api/blog-post?slug=" + route.params.slug)
 );
 
 const defaultDescription =
   "A blog post by Simple Analytics, the privacy-first Google Analytics alternative that is 100% GDPR compliant.";
 
+const lang = post?.value?.lang || "en";
+const langRegion = lang + "-" + lang === "en" ? "US" : lang.toUpperCase();
+
+const image =
+  post?.value?.image ||
+  post?.value?.image_no_text ||
+  (post?.value?.title
+    ? `https://simpleanalytics.com/generate-image?type=blog&text=${post.value.title}`
+    : "https://simpleanalytics.com/generate-image?type=blog");
+
+const meta = [
+  {
+    name: "description",
+    content: post?.value?.excerpt || defaultDescription,
+  },
+  {
+    name: "language",
+    content: lang.toUpperCase(),
+  },
+  {
+    ["http-equiv"]: "content-language",
+    content: langRegion,
+  },
+  {
+    ["http-equiv"]: "content-language",
+    content: langRegion,
+  },
+  {
+    itemprop: "image",
+    content: image,
+  },
+  {
+    name: "twitter:image",
+    content: image,
+  },
+  {
+    property: "og:image",
+    content: image,
+  },
+];
+
+if (post?.value?.created)
+  meta.push({
+    itemprop: "datePublished",
+    content: post?.value?.created,
+  });
+
+if (post?.value?.author)
+  meta.push({
+    name: "author",
+    content: post?.value?.author,
+  });
+
+const link = [
+  {
+    rel: "alternate",
+    hreflang: lang,
+    href: `${BASE_URL}/blog/${route.params.slug}`,
+  },
+  {
+    property: "image",
+    href: image,
+  },
+];
+
 useHead({
   title: post?.value?.title,
-  meta: [
-    {
-      name: "description",
-      content: post?.value?.excerpt || defaultDescription,
-    },
-  ],
+  meta,
+  link,
 });
 
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
+
+if (!post?.value?.article && process.server) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: t("blog.article_not_found"),
+  });
+}
 </script>

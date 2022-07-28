@@ -54,10 +54,6 @@
         <Meta name="apple-mobile-web-app-capable" content="yes" />
         <Meta name="referrer" content="strict-origin-when-cross-origin" />
         <Meta
-          itemprop="image"
-          content="https://assets.simpleanalytics.com/social-media/dark-chart.png"
-        />
-        <Meta
           property="og:image"
           content="https://assets.simpleanalytics.com/social-media/dark-chart.png"
         />
@@ -72,6 +68,14 @@
         <Meta name="twitter:site" content="@SimpleAnalytic" />
         <Meta name="twitter:creator" content="@SimpleAnalytic" />
         <Meta name="twitter:image:alt" :content="defaultDescription" />
+
+        <!-- Location in Amsterdam -->
+        <Meta property="og:latitude" content="52.37304233578102" />
+        <Meta property="og:longitude" content="4.8925307523630535" />
+        <Meta property="og:locality" content="Amsterdam" />
+        <Meta property="og:region" content="Noord-Holland" />
+        <Meta property="og:country-name" content="NL" />
+
         <ClientOnly>
           <Script
             async
@@ -354,6 +358,7 @@
     </div>
 
     <main class="flex-grow mb-20">
+      <NuxtLoadingIndicator :color="dark ? '#DE3243' : '#FF4F64'" />
       <NuxtPage />
     </main>
 

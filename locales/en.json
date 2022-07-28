@@ -251,6 +251,8 @@
   "blog": {
     "title": "Blog",
     "description": "Follow our journey to fight for privacy & against Google Analytics.",
+    "loading_post": "Loading...",
+    "article_not_found": "Article not found.",
     "back_to_top": "Back to top.",
     "published_on_by": "Published on {0} by {1}"
   },

@@ -251,6 +251,8 @@
   "blog": {
     "title": "Blog",
     "description": "Volg onze reis waarin we vechten voor privacy & tegen Google Analytics.",
+    "loading_post": "Laden...",
+    "article_not_found": "Artikel niet gevonden.",
     "back_to_top": "Terug naar boven.",
     "published_on_by": "Gepubliceerd op {0} door {1}"
   },

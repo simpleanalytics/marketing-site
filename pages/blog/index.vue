@@ -10,10 +10,10 @@
     </div>
 
     <div class="max-w-7xl px-6 mx-auto mt-8">
-      <p v-if="pending" class="mt-5 text-sm">
+      <p v-if="pending" class="mt-5 text-lg text-center">
         {{ $t("home.loading_posts") }}...
       </p>
-      <p v-else-if="!recentPosts?.length" class="mt-5 text-sm">
+      <p v-else-if="!recentPosts?.length" class="mt-5 text-lg text-center">
         {{ $t("home.did_not_find_any_posts") }}...
       </p>
       <div v-else role="list" class="justify-center block sm:flex-wrap sm:flex">
