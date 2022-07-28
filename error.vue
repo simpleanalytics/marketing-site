@@ -2,7 +2,6 @@
   <Html
     lang="en-US"
     :class="{
-      dark: true,
       'scroll-smooth': true,
       'min-h-full': true,
     }"

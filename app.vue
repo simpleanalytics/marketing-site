@@ -100,13 +100,17 @@
                 class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0"
               >
                 <div class="flex items-center justify-between w-full md:w-auto">
-                  <NuxtLink to="/" class="flex items-center">
+                  <PopoverButton
+                    :as="MenuLink"
+                    to="/"
+                    class="flex items-center"
+                  >
                     <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />
                     <span
                       class="sm:hidden lg:block ml-3 text-xl sm:text-2xl text-gray-500 dark:text-gray-400"
                       >Simple Analytics</span
                     >
-                  </NuxtLink>
+                  </PopoverButton>
 
                   <ClientOnly>
                     <MoonSun class="scale-75 ml-1 mt-1 mr-auto" />
@@ -129,11 +133,12 @@
               </div>
               <div class="hidden md:flex md:space-x-6 md:mt-2">
                 <div v-for="item in navigation" :key="item.name">
-                  <NuxtLink
+                  <PopoverButton
+                    :as="MenuLink"
                     v-if="!item.popover"
                     :to="item.href"
                     class="font-medium text-gray-500 hover-hover:hover:text-gray-600"
-                    >{{ $t(item.translation) }}</NuxtLink
+                    >{{ $t(item.translation) }}</PopoverButton
                   >
                   <Popover class="relative z-20" v-slot="{ open }" v-else>
                     <PopoverButton
@@ -219,7 +224,8 @@
                                   class="text-base truncate"
                                   :title="post.excerpt"
                                 >
-                                  <NuxtLink
+                                  <PopoverButton
+                                    :as="MenuLink"
                                     :to="post.path"
                                     class="font-medium hover-hover:hover:text-gray-900 dark:hover-hover:hover:text-gray-500 transition ease-in-out duration-150"
                                   >
@@ -232,17 +238,20 @@
                                       >{{ $t("home.new") }}</span
                                     >
                                     {{ post.title }}
-                                  </NuxtLink>
+                                  </PopoverButton>
                                 </li>
                               </ul>
                             </div>
                             <div class="mt-5 text-sm">
-                              <NuxtLink
+                              <PopoverButton
+                                :as="MenuLink"
                                 to="/blog"
                                 class="font-medium text-red-500 hover-hover:hover:text-red-500 transition ease-in-out duration-150"
                               >
                                 {{ $t("home.view_all_posts") }}
-                                <span aria-hidden="true">&rarr;</span></NuxtLink
+                                <span aria-hidden="true"
+                                  >&rarr;</span
+                                ></PopoverButton
                               >
                             </div>
                           </div>
@@ -358,7 +367,7 @@
     </div>
 
     <main class="flex-grow mb-20">
-      <NuxtLoadingIndicator :color="dark ? '#DE3243' : '#FF4F64'" />
+      <NuxtLoadingIndicator :color="theme === 'dark' ? '#DE3243' : '#FF4F64'" />
       <NuxtPage />
     </main>
 
@@ -690,6 +699,7 @@ import {
   NewspaperIcon,
 } from "@heroicons/vue/outline";
 import { ChevronDownIcon } from "@heroicons/vue/solid";
+import MenuLink from "./components/MenuLink.vue";
 import SimpleAnalyticsIcon from "./components/images/SimpleAnalyticsIcon.vue";
 
 import CloudflareIcon from "./components/icons/Cloudflare.vue";

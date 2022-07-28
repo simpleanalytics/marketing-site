@@ -35,6 +35,11 @@
                   style="aspect-ratio: 1200/628"
                   class="object-cover object-center w-full"
                 />
+                <div
+                  v-else
+                  class="bg-gray-200 dark:bg-gray-600 bg-gradient-to-b from-gray-100 dark:from-gray-500"
+                  style="aspect-ratio: 1200/628"
+                ></div>
               </NuxtLink>
             </div>
             <div class="px-6 py-4 mt-2 flex-grow flex flex-col">
@@ -105,6 +110,11 @@ const BLOG_URL =
     ? "https://blog.simpleanalytics.com"
     : "http://localhost:4001";
 
+const MAIN_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://simpleanalytics.com"
+    : "http://localhost:3000";
+
 const i18n = useI18n();
 const { t } = i18n;
 
@@ -115,10 +125,12 @@ const { pending, data: recentPostsAll } = useLazyFetch(
 const recentPosts = computed(() => {
   if (Array.isArray(recentPostsAll.value))
     return recentPostsAll.value.map((post) => {
+      const path = "/blog/" + post.url.split("/").slice(3).join("/");
       const image = post.image_no_text || post.image;
+
       return {
         ...post,
-        path: "/blog/" + post.url.split("/").slice(3).join("/"),
+        path,
         cover: image?.startsWith("/") ? `${BLOG_URL}${image}` : image,
       };
     });

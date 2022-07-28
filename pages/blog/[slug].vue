@@ -57,6 +57,11 @@ const BASE_URL =
     ? "https://www.simpleanalytics.com"
     : "http://localhost:3005";
 
+const MAIN_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://simpleanalytics.com"
+    : "http://localhost:3000";
+
 const { pending, data: post } = await useAsyncData(
   `blog-${route.params.slug}`,
   () => $fetch("/api/blog-post?slug=" + route.params.slug)
@@ -68,17 +73,27 @@ const defaultDescription =
 const lang = post?.value?.lang || "en";
 const langRegion = lang + "-" + lang === "en" ? "US" : lang.toUpperCase();
 
+const generateParams = new URLSearchParams({
+  url: `https://www.simpleanalytics.com/blog/${route.params.slug}`,
+  title: post?.value?.title,
+  "author-slug": post?.value?.author_slug,
+});
+
+const defaultParams = new URLSearchParams({
+  title: t("blog.article_not_found"),
+});
+
 const image =
   post?.value?.image ||
   post?.value?.image_no_text ||
   (post?.value?.title
-    ? `https://simpleanalytics.com/generate-image?type=blog&text=${post.value.title}`
-    : "https://simpleanalytics.com/generate-image?type=blog");
+    ? `${MAIN_URL}/generate-image.png?${generateParams}`
+    : `${MAIN_URL}/generate-image?${defaultParams}`);
 
 const meta = [
   {
     name: "description",
-    content: post?.value?.excerpt || defaultDescription,
+    content: post?.value?.excerpt?.trim() || defaultDescription,
   },
   {
     name: "language",
