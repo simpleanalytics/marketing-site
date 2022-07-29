@@ -112,7 +112,7 @@
                     style="margin-right: 4px"
                   >
                     <PopoverButton
-                      class="bg-red-50 dark:bg-gray-700 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover-hover:hover:text-gray-500 hover-hover:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-100"
+                      class="bg-red-50 dark:bg-gray-700 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover-hover:hover:text-gray-500 hover-hover:hover:bg-gray-100"
                     >
                       <span class="sr-only">Open main menu</span>
                       <MenuIcon
@@ -262,24 +262,24 @@
               <div
                 class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0"
               >
-                <a
-                  :href="
+                <NuxtLink
+                  :to="
                     'https://simpleanalytics.com/welcome' +
                     (theme === 'dark' ? '?theme=dark' : '')
                   "
                   class="font-medium text-gray-500 dark:text-gray-400 mx-3 dark:hover-hover:hover:text-gray-600"
                 >
                   {{ $t("nav.signup") }}
-                </a>
-                <a
-                  :href="
+                </NuxtLink>
+                <NuxtLink
+                  :to="
                     'https://simpleanalytics.com/login' +
                     (theme === 'dark' ? '?theme=dark' : '')
                   "
                   class="inline-flex items-center px-4 py-2 button"
                 >
                   {{ $t("nav.login") }}
-                </a>
+                </NuxtLink>
               </div>
             </nav>
           </div>
@@ -316,15 +316,15 @@
                   </div>
                 </div>
                 <div class="px-2 pt-2 pb-3">
-                  <NuxtLink
+                  <PopoverButton
+                    :as="MenuLink"
                     v-for="item in navigation"
                     :key="item.name"
-                    :to="item.mobile?.href || item.href"
+                    :href="item.mobile?.href || item.href"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
-                    >{{
-                      $t(item.mobile?.translation || item.translation)
-                    }}</NuxtLink
                   >
+                    {{ $t(item.mobile?.translation || item.translation) }}
+                  </PopoverButton>
                   <NuxtLink
                     :to="
                       'https://simpleanalytics.com/welcome' +
@@ -346,15 +346,15 @@
                     >{{ $t("nav.switch_to_dutch") }}</a
                   >
                 </div>
-                <a
-                  :href="
+                <NuxtLink
+                  :to="
                     'https://simpleanalytics.com/login' +
                     (theme === 'dark' ? '?theme=dark' : '')
                   "
                   class="block w-full px-5 py-3 text-center font-medium text-red-500 bg-gray-50 hover-hover:hover:bg-gray-100 dark:bg-gray-500 dark:text-gray-100"
                 >
                   {{ $t("nav.login") }}
-                </a>
+                </NuxtLink>
               </div>
             </PopoverPanel>
           </transition>
