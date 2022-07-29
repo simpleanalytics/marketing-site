@@ -7,7 +7,7 @@
     "deploy": "./deploy.sh"
   },
   "devDependencies": {
-    "@headlessui/vue": "^1.6.0",
+    "@headlessui/vue": "^1.6.7",
     "@heroicons/vue": "^1.0.6",
     "@intlify/nuxt3": "^0.2.3",
     "@nuxtjs/tailwindcss": "^5.0.3",

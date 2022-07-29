@@ -94,17 +94,14 @@
                 class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0"
               >
                 <div class="flex items-center justify-between w-full md:w-auto">
-                  <PopoverButton
-                    :as="MenuLink"
-                    href="/"
-                    class="flex items-center"
-                  >
+                  <NuxtLink href="/" class="flex items-center">
                     <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />
                     <span
                       class="sm:hidden lg:block ml-3 text-xl sm:text-2xl text-gray-500 dark:text-gray-400"
-                      >Simple Analytics</span
                     >
-                  </PopoverButton>
+                      Simple Analytics
+                    </span>
+                  </NuxtLink>
 
                   <ClientOnly>
                     <MoonSun class="scale-75 ml-1 mt-1 mr-auto" />
@@ -126,23 +123,24 @@
                   </div>
                 </div>
               </div>
+
               <div class="hidden md:flex md:space-x-6 md:mt-2">
                 <div v-for="item in navigation" :key="item.name">
-                  <a
-                    :href="item.href"
+                  <NuxtLink
+                    :to="item.href"
                     v-if="!item.popover && /^https?:\/\//.test(item.href)"
                     target="_blank"
                     class="font-medium text-gray-500 hover-hover:hover:text-gray-600"
                   >
                     {{ $t(item.translation) }}
-                  </a>
-                  <PopoverButton
-                    :as="MenuLink"
+                  </NuxtLink>
+                  <NuxtLink
                     v-else-if="!item.popover"
-                    :href="item.href"
+                    :to="item.href"
                     class="font-medium text-gray-500 hover-hover:hover:text-gray-600"
-                    >{{ $t(item.translation) }}</PopoverButton
                   >
+                    {{ $t(item.translation) }}
+                  </NuxtLink>
                   <Popover class="relative z-20" v-slot="{ open }" v-else>
                     <PopoverButton
                       :class="[
@@ -616,7 +614,7 @@
                   :key="post.path"
                 >
                   <NuxtLink
-                    :to="post.path"
+                    :to="{ path: post.path }"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded-md block group text-left"
                   >
                     <span
@@ -676,7 +674,10 @@
 </template>
 
 <script setup>
+import { useI18n } from "vue-i18n";
+
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
+import { ChevronDownIcon } from "@heroicons/vue/solid";
 import {
   MenuIcon,
   XIcon,
@@ -696,7 +697,7 @@ import {
   ClipboardCheckIcon,
   NewspaperIcon,
 } from "@heroicons/vue/outline";
-import { ChevronDownIcon } from "@heroicons/vue/solid";
+
 import MenuLink from "./components/MenuLink.vue";
 import SimpleAnalyticsIcon from "./components/images/SimpleAnalyticsIcon.vue";
 
@@ -708,9 +709,10 @@ import PlausibleIcon from "./components/icons/Plausible.vue";
 
 import ArrowLink from "./components/ArrowLink.vue";
 import MoonSun from "./components/MoonSun.vue";
+
+import { getPathFromBlogUrl, BLOG_URL } from "./utils/blog";
 import ms from "./utils/ms";
 
-import { useI18n } from "vue-i18n";
 const i18n = useI18n();
 const { t } = i18n;
 
@@ -830,11 +832,6 @@ const toggleTheme = () => {
   themeCookie.value = theme.value;
 };
 
-const BLOG_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://blogold.simpleanalytics.com"
-    : "http://localhost:4001";
-
 const { pending, data: recentPostsAll } = useLazyFetch(
   `${BLOG_URL}/recent-posts.json`
 );
@@ -842,13 +839,9 @@ const { pending, data: recentPostsAll } = useLazyFetch(
 const recentPosts = computed(() => {
   if (Array.isArray(recentPostsAll.value))
     return recentPostsAll.value.slice(0, 3).map((post) => {
-      const path = post.url
-        .replace(/^https:\/\/blog(old)?.simpleanalytics.com/g, "/blog/")
-        .replace(/^https:\/\/www?.simpleanalytics.com\/blog\//g, "/blog/");
-
       return {
         ...post,
-        path,
+        path: getPathFromBlogUrl(post.url),
       };
     });
   return [];

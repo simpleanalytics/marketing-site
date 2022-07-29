@@ -104,11 +104,7 @@
 <script setup>
 import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
 import { useI18n } from "vue-i18n";
-
-const BLOG_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://blogold.simpleanalytics.com"
-    : "http://localhost:4001";
+import { getPathFromBlogUrl, BLOG_URL } from "~/utils/blog";
 
 const MAIN_URL =
   process.env.NODE_ENV === "production"
@@ -126,7 +122,7 @@ const recentPosts = computed(() => {
   if (!Array.isArray(recentPostsAll.value)) return [];
 
   return recentPostsAll.value.map((post) => {
-    const path = post.url.split("/").slice(3).join("/");
+    const path = getPathFromBlogUrl(post.url);
     const image = post.image_no_text || post.image;
 
     return {
