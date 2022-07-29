@@ -46,6 +46,7 @@
 import { UploadIcon } from "@heroicons/vue/solid";
 import { createError } from "h3";
 import { useI18n } from "vue-i18n";
+import { replaceInlineImages } from "~~/utils/blog";
 
 const i18n = useI18n();
 const { t } = i18n;
@@ -165,7 +166,7 @@ if (!post?.value?.article && process.server) {
 const article = computed(() => {
   if (!post?.value?.article) return null;
 
-  return post?.value?.article
+  return replaceInlineImages(post.value.article)
     .replace(/preload="auto"/g, 'preload="auto" controls="controls"')
     .replace(/class="split"/g, 'class="flex space-x-8"');
 });
