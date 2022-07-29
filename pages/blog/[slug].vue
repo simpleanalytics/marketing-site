@@ -8,7 +8,7 @@
         <span v-else-if="pending">{{ $t("blog.loading_post") }}</span>
       </h1>
 
-      <p class="mt-6" v-if="!post?.article">
+      <p class="mt-6" v-if="!article">
         {{ $t("blog.article_not_found") }}
       </p>
 
@@ -27,8 +27,8 @@
     </div>
 
     <div
-      class="max-w-3xl px-6 mx-auto mt-8 prose prose-lg prose-ul:list-disc prose-img:rounded-lg prose-headings:text-gray-600 prose-headings:font-semibold dark:prose-strong:text-gray-500"
-      v-html="post?.article || ''"
+      class="max-w-3xl px-6 mx-auto mt-8 prose prose-lg prose-ul:list-disc prose-img:rounded-lg prose-video:rounded-lg prose-headings:text-gray-600 prose-headings:font-semibold dark:prose-strong:text-gray-500 prose-code:after:content-[''] prose-code:before:content-[''] prose-code:font-normal prose-code:bg-blue-100 dark:prose-code:bg-gray-700 prose-code:px-2 prose-code:py-1 prose-code:rounded-lg prose-code:text-gray-600 dark:prose-code:text-gray-300 prose-li:my-1 prose-headings:mb-4"
+      v-html="article || ''"
     ></div>
 
     <div class="max-w-3xl px-6 mx-auto mt-8" v-if="post?.article">
@@ -161,4 +161,12 @@ if (!post?.value?.article && process.server) {
     statusMessage: t("blog.article_not_found"),
   });
 }
+
+const article = computed(() => {
+  if (!post?.value?.article) return null;
+
+  return post?.value?.article
+    .replace(/preload="auto"/g, 'preload="auto" controls="controls"')
+    .replace(/class="split"/g, 'class="flex space-x-8"');
+});
 </script>

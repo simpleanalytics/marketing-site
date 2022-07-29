@@ -1,7 +1,4 @@
-const BLOG_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://blogold.simpleanalytics.com"
-    : "http://localhost:4001";
+import { BLOG_URL } from "~~/utils/blog";
 
 const getAuthorFromSlug = (slug) => {
   switch (slug) {
@@ -51,7 +48,8 @@ export default defineEventHandler(async (event) => {
       title: title?.[1],
       article: article?.[1]
         ?.replace(/="\//g, `="${BLOG_URL}/`)
-        ?.replace(/https:\/\/blog(old)?.simpleanalytics.com\//g, "/blog/"),
+        ?.replace(/https:\/\/blog(old)?.simpleanalytics.com\//g, "/blog/")
+        ?.replace(/src="\//g, `src="${BLOG_URL}/`),
     };
   } catch (error) {
     console.error(error.message);
