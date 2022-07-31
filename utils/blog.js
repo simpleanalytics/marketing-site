@@ -67,6 +67,8 @@ export const getAuthorFromSlug = (slug) => {
       return "Iron Brands";
     case "adriaan":
       return "Adriaan van Rossum";
+    case "tim":
+      return "Tim de Nood";
     case "mike":
       return "Mike Timofiiv";
     default:
