@@ -785,6 +785,12 @@ useHead({
       rel: "canonical",
       href: BASE_URL + route.path,
     },
+    {
+      rel: "alternate",
+      type: "application/atom+xml",
+      title: "Blog of Simple Analytics",
+      href: BASE_URL + "/feed.xml",
+    },
   ],
   meta: [
     {

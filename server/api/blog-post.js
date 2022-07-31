@@ -1,17 +1,4 @@
-import { BLOG_URL } from "~~/utils/blog";
-
-const getAuthorFromSlug = (slug) => {
-  switch (slug) {
-    case "iron":
-      return "Iron Brands";
-    case "adriaan":
-      return "Adriaan van Rossum";
-    case "mike":
-      return "Mike Timofiiv";
-    default:
-      return "Simple Analytics";
-  }
-};
+import { BLOG_URL, getAuthorFromSlug } from "~~/utils/blog";
 
 export default defineEventHandler(async (event) => {
   const { searchParams } = new URL(event.req.url, "https://example.com");
