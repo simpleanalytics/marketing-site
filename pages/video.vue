@@ -48,6 +48,8 @@ import Video from "../components/Video.vue";
 
 definePageMeta({
   title: "Video",
+  description:
+    "Our non-serious video where we explain why Simple Analytics is the most privacy-first analytics.",
 });
 
 const tColorsRed = [`<span class='text-red-500 dark:text-red-600'>`, `</span>`];
