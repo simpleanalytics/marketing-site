@@ -192,7 +192,7 @@ const clickEnterprise = () => {
 
   // Send event before redirecting to contact page
   if (process.client && window.sa_event)
-    sa_event("click_enterprise", () => {
+    window.sa_event("click_enterprise", () => {
       window.location.href = url;
     });
   else {
@@ -209,7 +209,7 @@ const goToWelcome = ({ currency, plan, interval }) => {
   // Send event before redirecting to welcome page
   if (process.client && window.sa_event) {
     window.sa_metadata = { currency, plan, interval };
-    sa_event("click_buy", () => {
+    window.sa_event("click_buy", () => {
       window.location.href = url;
     });
   } else {
