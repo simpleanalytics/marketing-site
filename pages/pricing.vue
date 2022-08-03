@@ -30,5 +30,7 @@ import FAQ from "../components/FAQ.vue";
 
 definePageMeta({
   title: "Pricing",
+  description:
+    "Simple Analytics pricing page consisting out of starter, business and enterprise offerings",
 });
 </script>
