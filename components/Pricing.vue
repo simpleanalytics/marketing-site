@@ -191,11 +191,14 @@ const clickEnterprise = () => {
   }
 
   // Send event before redirecting to contact page
-  if (process.client && window.sa_event)
+  if (process.client && window.sa_event) {
     window.sa_event("click_enterprise", () => {
       window.location.href = url;
     });
-  else {
+    window.setTimeout(() => {
+      window.location.href = url;
+    }, 250);
+  } else {
     window.location.href = url;
   }
 };
@@ -212,6 +215,9 @@ const goToWelcome = ({ currency, plan, interval }) => {
     window.sa_event("click_buy", () => {
       window.location.href = url;
     });
+    window.setTimeout(() => {
+      window.location.href = url;
+    }, 250);
   } else {
     window.location.href = url;
   }
