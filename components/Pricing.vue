@@ -58,28 +58,31 @@
           >
           {{ " " }}
           <span class="text-base font-medium text-gray-500"
-            >/{{ t("pricing.per_month") }}</span
-          >
+            >/{{ t("pricing.per_month") }}
+          </span>
           <span class="block text-gray-300 mt-2" v-if="!tier.from"
             >{{ currency?.sign
             }}{{ monthly ? tier.priceMonthly * 12 : tier.priceYearly * 12 }}
-            {{ t("pricing.yearly") }}</span
-          >
+            {{ t("pricing.yearly") }}
+          </span>
           <span class="block text-gray-300 mt-2" v-else>&nbsp;</span>
         </p>
         <a
           v-if="tier.name === 'Enterprise'"
-          href="https://simpleanalytics.com/contact"
+          @click="clickEnterprise()"
           class="mt-4 block w-full button"
-          >{{ t("pricing.contact_us") }}</a
         >
+          {{ t("pricing.contact_us") }}
+        </a>
         <a
           v-else
-          :href="`https://simpleanalytics.com/welcome?currency=${
-            currency?.code
-          }&plan=${tier.name.toLowerCase()}&interval=${
-            monthly ? 'monthly' : 'yearly'
-          }`"
+          @click="
+            goToWelcome({
+              plan: tier.name.toLowerCase(),
+              interval: monthly ? 'monthly' : 'yearly',
+              currency: currency?.code,
+            })
+          "
           class="mt-4 block w-full button"
           >{{ t("pricing.buy") }} {{ tier.name }}</a
         >
@@ -178,4 +181,39 @@ const affiliateCookie = useCookie("affiliate", {
   secure: process.env.NODE_ENV === "production",
   sameSite: true,
 });
+
+const theme = useTheme();
+
+const clickEnterprise = () => {
+  let url = `https://simpleanalytics.com/contact`;
+  if (theme.value === "dark") {
+    url += "&theme=dark";
+  }
+
+  // Send event before redirecting to contact page
+  if (process.client && window.sa_event)
+    sa_event("click_enterprise", () => {
+      window.location.href = url;
+    });
+  else {
+    window.location.href = url;
+  }
+};
+
+const goToWelcome = ({ currency, plan, interval }) => {
+  let url = `https://simpleanalytics.com/welcome?currency=${currency}&plan=${plan}&interval=${interval}`;
+  if (theme.value === "dark") {
+    url += "&theme=dark";
+  }
+
+  // Send event before redirecting to welcome page
+  if (process.client && window.sa_event) {
+    window.sa_metadata = { currency, plan, interval };
+    sa_event("click_buy", () => {
+      window.location.href = url;
+    });
+  } else {
+    window.location.href = url;
+  }
+};
 </script>

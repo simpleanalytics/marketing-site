@@ -9,6 +9,10 @@
       }"
     >
       <Head>
+        <Script
+          children="window.sa_event=window.sa_event||function(){var
+          a=[].slice.call(arguments);window.sa_event.q?window.sa_event.q.push(a):window.sa_event.q=[a]}"
+        />
         <Link
           rel="preconnect"
           href="https://assets.simpleanalytics.com/"

@@ -33,4 +33,8 @@ definePageMeta({
   description:
     "Simple Analytics pricing page consisting out of starter, business and enterprise offerings",
 });
+
+onMounted(() => {
+  if (process.client && window.sa_event) sa_event("visit_pricing");
+});
 </script>

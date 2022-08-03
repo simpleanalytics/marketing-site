@@ -1460,6 +1460,8 @@ onMounted(() => {
   emailReportEmailField?.value?.addEventListener("focus", () => {
     emailReportError.value = "";
   });
+
+  if (process.client && window.sa_event) sa_event("visit_landing");
 });
 
 const theme = useTheme();
