@@ -13,7 +13,7 @@
         "
         @click="monthly = true"
       >
-        {{ t("pricing.monthly_billing") }}
+        {{ $t("pricing.monthly_billing") }}
       </button>
       <button
         type="button"
@@ -25,13 +25,13 @@
         "
         @click="monthly = false"
       >
-        {{ t("pricing.yearly_billing") }}
+        {{ $t("pricing.yearly_billing") }}
       </button>
     </div>
   </div>
 
   <p v-if="affiliateCookie" class="text-center mt-8 sm:-mb-6">
-    {{ t("pricing.affiliate_description", [14]) }}
+    {{ $t("pricing.affiliate_description", [14]) }}
   </p>
 
   <div
@@ -43,13 +43,13 @@
       class="border border-gray-200 dark:border-0 dark:bg-gray-700 rounded-lg shadow-sm divide-y divide-gray-200 dark:divide-gray-800"
     >
       <div class="p-6">
-        <h2 class="text-lg leading-6 font-medium">{{ tier.name }}.</h2>
+        <h2 class="text-lg leading-6 font-medium">{{ $t(tier.name) }}.</h2>
         <p class="mt-4 text-sm text-gray-500 leading-relaxed">
-          {{ tier.description }}
+          {{ $t(tier.description) }}
         </p>
         <p class="mt-2">
           <span class="text-base text-gray-300 block">
-            <span v-if="tier.from">{{ t("pricing.from") }}</span>
+            <span v-if="tier.from">{{ $t("pricing.from") }}</span>
             <span v-else>&nbsp;</span></span
           >
           <span class="text-4xl font-extrabold text-gray-600 dark:text-gray-300"
@@ -58,21 +58,21 @@
           >
           {{ " " }}
           <span class="text-base font-medium text-gray-500"
-            >/{{ t("pricing.per_month") }}
+            >/{{ $t("pricing.per_month") }}
           </span>
           <span class="block text-gray-300 mt-2" v-if="!tier.from"
             >{{ currency?.sign
             }}{{ monthly ? tier.priceMonthly * 12 : tier.priceYearly * 12 }}
-            {{ t("pricing.yearly") }}
+            {{ $t("pricing.yearly") }}
           </span>
           <span class="block text-gray-300 mt-2" v-else>&nbsp;</span>
         </p>
         <a
-          v-if="tier.name === 'Enterprise'"
+          v-if="tier.name.includes('enterprise')"
           @click="clickEnterprise()"
           class="mt-4 block w-full button"
         >
-          {{ t("pricing.contact_us") }}
+          {{ $t("pricing.contact_us") }}
         </a>
         <a
           v-else
@@ -84,31 +84,124 @@
             })
           "
           class="mt-4 block w-full button"
-          >{{ t("pricing.buy") }} {{ tier.name }}</a
+          >{{ $t("pricing.buy") }} {{ $t(tier.name) }}</a
         >
       </div>
       <div class="pt-6 pb-8 px-6">
         <p class="text-xs font-medium tracking-wide uppercase">
-          <span>{{ t("pricing.what_is_included") }}</span>
+          <span>{{ $t("pricing.what_is_included") }}</span>
         </p>
 
         <p
           class="mt-6 mb-7 text-sm text-gray-400 leading-relaxed"
           v-if="tier.includedIntro"
         >
-          {{ tier.includedIntro }}
+          {{ $t(tier.includedIntro[0], [$t(tier.includedIntro[1])]) }}
         </p>
         <ul role="list" class="mt-6 space-y-4">
           <li
-            v-for="feature in tier.includedFeatures"
-            :key="feature"
-            class="flex space-x-3"
+            class="flex space-x-3 text-sm text-gray-500"
+            v-if="tier.includedFeatures.datapoints"
           >
             <CheckIcon
               class="flex-shrink-0 h-5 w-5 text-green-500"
               aria-hidden="true"
             />
-            <span class="text-sm text-gray-500" v-html="feature"></span>
+            <span
+              v-html="
+                $t('pricing.features.datapoints', [
+                  new Intl.NumberFormat($t('time.intl_locale')).format(
+                    tier.includedFeatures.datapoints
+                  ) + (tier.amountsAreMinimum ? '+' : ''),
+                ])
+              "
+            ></span>
+          </li>
+          <li
+            class="flex space-x-3 text-sm text-gray-500"
+            v-if="tier.includedFeatures.users"
+          >
+            <CheckIcon
+              class="flex-shrink-0 h-5 w-5 text-green-500"
+              aria-hidden="true"
+            />
+            <span
+              v-html="
+                $t('pricing.features.users', [
+                  new Intl.NumberFormat($t('time.intl_locale')).format(
+                    tier.includedFeatures.users
+                  ) + (tier.amountsAreMinimum ? '+' : ''),
+                ])
+              "
+            ></span>
+          </li>
+          <li
+            class="flex space-x-3 text-sm text-gray-500"
+            v-if="tier.includedFeatures.websites"
+          >
+            <CheckIcon
+              class="flex-shrink-0 h-5 w-5 text-green-500"
+              aria-hidden="true"
+            />
+            <span
+              v-html="
+                $t('pricing.features.websites', [
+                  new Intl.NumberFormat($t('time.intl_locale')).format(
+                    tier.includedFeatures.websites
+                  ) + (tier.amountsAreMinimum ? '+' : ''),
+                ])
+              "
+            ></span>
+          </li>
+          <li
+            class="flex space-x-3 text-sm text-gray-500"
+            v-if="tier.includedFeatures.events"
+          >
+            <CheckIcon
+              class="flex-shrink-0 h-5 w-5 text-green-500"
+              aria-hidden="true"
+            />
+            <span v-html="$t('pricing.features.events')"></span>
+          </li>
+          <li
+            class="flex space-x-3 text-sm text-gray-500"
+            v-if="tier.includedFeatures.aggregated_export"
+          >
+            <CheckIcon
+              class="flex-shrink-0 h-5 w-5 text-green-500"
+              aria-hidden="true"
+            />
+            <span v-html="$t('pricing.features.aggregated_export')"></span>
+          </li>
+          <li
+            class="flex space-x-3 text-sm text-gray-500"
+            v-if="tier.includedFeatures.events"
+          >
+            <CheckIcon
+              class="flex-shrink-0 h-5 w-5 text-green-500"
+              aria-hidden="true"
+            />
+            <span v-html="$t('pricing.features.events')"></span>
+          </li>
+          <li
+            class="flex space-x-3 text-sm text-gray-500"
+            v-if="tier.includedFeatures.raw_level_export"
+          >
+            <CheckIcon
+              class="flex-shrink-0 h-5 w-5 text-green-500"
+              aria-hidden="true"
+            />
+            <span v-html="$t('pricing.features.raw_level_export')"></span>
+          </li>
+          <li
+            class="flex space-x-3 text-sm text-gray-500"
+            v-if="tier.includedFeatures.prio_email_support"
+          >
+            <CheckIcon
+              class="flex-shrink-0 h-5 w-5 text-green-500"
+              aria-hidden="true"
+            />
+            <span v-html="$t('pricing.features.prio_email_support')"></span>
           </li>
         </ul>
       </div>
@@ -127,53 +220,46 @@ const currency = useState("currency");
 
 const tiers = [
   {
-    name: t("pricing.plans.starter.title"),
+    name: "pricing.plans.starter.title",
     priceMonthly: 19,
     priceYearly: 9,
-    description: t("pricing.plans.starter.description"),
-    includedFeatures: [
-      t("pricing.features.datapoints", ["<strong>100,000</strong>"]),
-      t("pricing.features.user", ["<strong>1</strong>"]),
-      t("pricing.features.websites", ["<strong>10</strong>"]),
-      t("pricing.features.events"),
-      t("pricing.features.aggregated_export"),
-      t("pricing.features.email_support"),
-    ],
+    description: "pricing.plans.starter.description",
+    includedFeatures: {
+      datapoints: 100000,
+      users: 1,
+      websites: 10,
+      events: true,
+      aggregated_export: true,
+      email_support: true,
+    },
   },
   {
-    name: "Business",
+    name: "pricing.plans.business.title",
     priceMonthly: 59,
     priceYearly: 49,
-    description: t("pricing.plans.business.description"),
-    includedIntro: t("pricing.everything_plus", [
-      t("pricing.plans.starter.title"),
-    ]),
-    includedFeatures: [
-      t("pricing.features.datapoints", [
-        `<strong>1 ${t("amount.million")}</strong>`,
-      ]),
-      t("pricing.features.users", ["<strong>10</strong>"]),
-      t("pricing.features.websites", ["<strong>100</strong>"]),
-      t("pricing.features.raw_level_export"),
-    ],
+    description: "pricing.plans.business.description",
+    includedIntro: ["pricing.everything_plus", "pricing.plans.starter.title"],
+    includedFeatures: {
+      datapoints: 1000000,
+      users: 10,
+      websites: 100,
+      raw_level_export: true,
+    },
   },
   {
-    name: "Enterprise",
+    name: "pricing.plans.enterprise.title",
     priceMonthly: 99,
     priceYearly: 99,
     from: true,
-    description: t("pricing.plans.enterprise.description"),
-    includedIntro: t("pricing.everything_plus", [
-      t("pricing.plans.business.title"),
-    ]),
-    includedFeatures: [
-      t("pricing.features.datapoints", [
-        `<strong>1+ ${t("amount.million")}</strong>`,
-      ]),
-      t("pricing.features.users", ["<strong>10+</strong>"]),
-      t("pricing.features.websites", ["<strong>1000</strong>"]),
-      t("pricing.features.prio_email_support"),
-    ],
+    description: "pricing.plans.enterprise.description",
+    includedIntro: ["pricing.everything_plus", "pricing.plans.business.title"],
+    amountsAreMinimum: true,
+    includedFeatures: {
+      datapoints: 1000000,
+      users: 10,
+      websites: 100,
+      prio_email_support: true,
+    },
   },
 ];
 

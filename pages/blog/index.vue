@@ -118,7 +118,7 @@
 
 <script setup>
 import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
-import { useI18n } from "vue-i18n";
+
 import {
   getPathFromBlogUrl,
   BLOG_URL,
@@ -130,9 +130,6 @@ const MAIN_URL =
   process.env.NODE_ENV === "production"
     ? "https://simpleanalytics.com"
     : "http://localhost:3000";
-
-const i18n = useI18n();
-const { t } = i18n;
 
 const { pending, data: recentPostsAll } = useLazyFetch(
   `${BLOG_URL}/recent-posts.json`

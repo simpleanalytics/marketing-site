@@ -209,10 +209,10 @@
       }
     },
     "features": {
-      "datapoints": "{0} datapunten per maand",
-      "users": "{0} gebruikers",
-      "user": "{0} gebruiker",
-      "websites": "{0} websites",
+      "datapoints": "<strong>{0}</strong> datapunten per maand",
+      "users": "<strong>{0}</strong> gebruikers",
+      "user": "<strong>{0}</strong> gebruiker",
+      "websites": "<strong>{0}</strong> websites",
       "events": "events",
       "aggregated_export": "geaggregeerde export",
       "raw_level_export": "<strong>raw level</strong> export",
