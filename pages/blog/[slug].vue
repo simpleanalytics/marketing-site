@@ -71,8 +71,10 @@ const { pending, data: post } = await useAsyncData(
 const defaultDescription =
   "A blog post by Simple Analytics, the privacy-first Google Analytics alternative that is 100% GDPR compliant.";
 
-const lang = post?.value?.lang || "en";
-const langRegion = lang + "-" + lang === "en" ? "US" : lang.toUpperCase();
+const lang = computed(() => post?.value?.lang || "en");
+const langRegion = computed(() =>
+  lang.value + "-" + lang.value === "en" ? "US" : lang.value.toUpperCase()
+);
 
 const generateParams = new URLSearchParams({
   url: `https://www.simpleanalytics.com/blog/${route.params.slug}`,
@@ -84,21 +86,27 @@ const defaultParams = new URLSearchParams({
   title: t("blog.article_not_found"),
 });
 
-const image =
-  post?.value?.image ||
-  post?.value?.image_no_text ||
-  (post?.value?.title
-    ? `${MAIN_URL}/generate-image.png?${generateParams}`
-    : `${MAIN_URL}/generate-image?${defaultParams}`);
+const image = computed(
+  () =>
+    post?.value?.image ||
+    post?.value?.image_no_text ||
+    (post?.value?.title
+      ? `${MAIN_URL}/generate-image.png?${generateParams}`
+      : `${MAIN_URL}/generate-image?${defaultParams}`)
+);
+
+const description = computed(
+  () => post?.value?.excerpt?.trim() || defaultDescription
+);
 
 const meta = [
   {
     name: "description",
-    content: post?.value?.excerpt?.trim() || defaultDescription,
+    content: description,
   },
   {
     name: "language",
-    content: lang.toUpperCase(),
+    content: computed(() => lang?.value.toUpperCase()),
   },
   {
     ["http-equiv"]: "content-language",
@@ -117,6 +125,10 @@ const meta = [
     content: image,
   },
   {
+    name: "twitter:image:alt",
+    content: description,
+  },
+  {
     property: "og:image",
     content: image,
   },
@@ -125,20 +137,20 @@ const meta = [
 if (post?.value?.created)
   meta.push({
     itemprop: "datePublished",
-    content: post?.value?.created,
+    content: computed(() => post?.value?.created),
   });
 
 if (post?.value?.author)
   meta.push({
     name: "author",
-    content: post?.value?.author,
+    content: computed(() => post?.value?.author),
   });
 
 const link = [
   {
     rel: "alternate",
     hreflang: lang,
-    href: `${BASE_URL}/blog/${route.params.slug}`,
+    href: computed(() => `${BASE_URL}/blog/${route.params.slug}`),
   },
   {
     property: "image",
