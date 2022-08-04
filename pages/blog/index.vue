@@ -24,7 +24,7 @@
           class="flex w-full p-6 sm:w-1/2 lg:w-1/3"
         >
           <div
-            class="flex flex-col shadow-xl overflow-hidden rounded-lg bg-blue-100 dark:bg-gray-700"
+            class="flex w-full flex-col shadow-xl overflow-hidden rounded-lg bg-blue-100 dark:bg-gray-700"
           >
             <div>
               <NuxtLink :to="post.path">
@@ -66,17 +66,23 @@
 
               <div
                 v-if="post.created"
-                class="flex mt-auto text-sm dark:text-gray-500 text-gray-500"
+                class="flex items-center mt-auto text-sm dark:text-gray-500 text-gray-500"
               >
-                <div>
-                  <span
-                    v-if="
-                      new Date(post.created) > Date.now() - 1555200000 // 18 days
-                    "
-                    class="mr-1 text-sm font-normal bg-red-500 dark:bg-red-600 px-1 text-blue-100 dark:text-gray-700 rounded-md align-text-bottom"
-                    >{{ $t("home.new") }}</span
-                  >
+                <img
+                  v-if="post.avatar"
+                  :src="post.avatar"
+                  :alt="`Image of ${post.author}`"
+                  class="rounded-full w-8 h-8 bg-gray-300 mr-2"
+                />
+                <div
+                  v-else
+                  class="rounded-full w-8 h-8 bg-gray-300 dark:bg-gray-600 mr-2"
+                ></div>
 
+                <span>
+                  <span v-if="post.name && post.name !== 'Simple Analytics'"
+                    >{{ post.name }},</span
+                  >
                   {{
                     new Intl.DateTimeFormat($t("time.intl_locale"), {
                       month: "short",
@@ -84,7 +90,16 @@
                       day: "numeric",
                     }).format(new Date(post.created))
                   }}
-                </div>
+                </span>
+
+                <span
+                  v-if="
+                    new Date(post.created) > Date.now() - 1555200000 // 18 days
+                  "
+                  class="text-sm whitespace-nowrap mx-2 font-normal bg-red-500 dark:bg-red-600 px-1 text-blue-100 dark:text-gray-700 rounded-md align-text-bottom"
+                  >{{ labelAgo($t, post.created) }}</span
+                >
+
                 <div class="ml-auto">
                   <SimpleAnalyticsIcon
                     class="dark:fill-gray-500 fill-gray-300 w-auto h-3 sm:h-4"
@@ -104,7 +119,12 @@
 <script setup>
 import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
 import { useI18n } from "vue-i18n";
-import { getPathFromBlogUrl, BLOG_URL } from "~/utils/blog";
+import {
+  getPathFromBlogUrl,
+  BLOG_URL,
+  labelAgo,
+  getAuthorFromSlug,
+} from "~/utils/blog";
 
 const MAIN_URL =
   process.env.NODE_ENV === "production"
@@ -125,8 +145,12 @@ const recentPosts = computed(() => {
     const path = getPathFromBlogUrl(post.url);
     const image = post.image_no_text || post.image;
 
+    const { avatar, name } = getAuthorFromSlug(post.author_slug) || {};
+
     return {
       ...post,
+      name,
+      avatar,
       path,
       cover: image?.startsWith("/") ? `${BLOG_URL}${image}` : image,
     };

@@ -1,3 +1,5 @@
+import ms from "~~/utils/ms";
+
 export const BLOG_URL =
   process.env.NODE_ENV === "production"
     ? "https://blogold.simpleanalytics.com"
@@ -64,14 +66,48 @@ export const rfc822date = (date) => {
 export const getAuthorFromSlug = (slug) => {
   switch (slug) {
     case "iron":
-      return "Iron Brands";
+      return {
+        name: "Iron Brands",
+        avatar: "https://assets.simpleanalytics.com/images/people/iron.jpg",
+      };
     case "adriaan":
-      return "Adriaan van Rossum";
+      return {
+        name: "Adriaan van Rossum",
+        avatar: "https://assets.simpleanalytics.com/images/people/adriaan.jpg",
+      };
+    case "carlo":
+      return {
+        name: "Carlo Cilento",
+        avatar:
+          "https://assets.simpleanalytics.com/images/people/carlo-cilento.jpg",
+      };
     case "tim":
-      return "Tim de Nood";
+      return {
+        name: "Tim de Nood",
+        avatar:
+          "https://assets.simpleanalytics.com/images/people/tim-de-nood.jpg",
+      };
     case "mike":
-      return "Mike Timofiiv";
+      return {
+        name: "Mike Timofiiv",
+        avatar:
+          "https://assets.simpleanalytics.com/images/people/mike-timofiiv.jpg",
+      };
     default:
-      return "Simple Analytics";
+      return { name: "Simple Analytics" };
   }
+};
+
+export const labelAgo = (t, date) => {
+  if (!date || new Date(date) < Date.now() - ms.week * 11) return;
+
+  const ago = Date.now() - new Date(date);
+  if (ago > ms.day * 10)
+    return t("time.short.ago.weeks", [Math.round(ago / ms.week)]);
+  if (ago < ms.minute) return t("time.now");
+  if (ago < ms.hour)
+    return t("time.short.ago.minutes", [Math.round(ago / ms.minute)]);
+  if (ago < ms.day)
+    return t("time.short.ago.hours", [Math.round(ago / ms.hour)]);
+  return t("time.short.ago.days", [Math.round(ago / ms.day)]);
 };

@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
     let lastUpdatedAt = null;
 
     for (const post of posts) {
-      const author = getAuthorFromSlug(post.author_slug);
+      const author = getAuthorFromSlug(post.author_slug).name;
       const image = post.image || post.image_no_text;
       const created = new Date(post.created || post.created_at);
       const updated = new Date(post.last_modified_at || created);

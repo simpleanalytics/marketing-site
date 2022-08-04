@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-col flex-grow">
     <div class="max-w-5xl mx-auto text-center">
       <h1
         class="text-4xl md:leading-normal font-medium sm:text-5xl md:text-6xl mx-4 lg:mx-10"
@@ -12,17 +12,28 @@
         {{ $t("blog.article_not_found") }}
       </p>
 
-      <p class="mt-6" v-if="post?.date">
-        {{
-          $t("blog.published_on_by", [
-            new Intl.DateTimeFormat($t("time.intl_locale"), {
-              month: "short",
-              year: "numeric",
-              day: "numeric",
-            }).format(new Date(post.date)),
-            post.author,
-          ])
-        }}
+      <p class="mt-6 flex items-center justify-center" v-if="post?.date">
+        <span class="mr-1"
+          >{{
+            $t("blog.published_on_by", [
+              new Intl.DateTimeFormat($t("time.intl_locale"), {
+                month: "short",
+                year: "numeric",
+                day: "numeric",
+              }).format(new Date(post.date)),
+            ])
+          }}
+        </span>
+
+        <img
+          v-if="post.avatar"
+          :src="post.avatar"
+          :alt="`Image of ${post.author}`"
+          onerror="this.src='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='"
+          class="rounded-full w-8 h-8 bg-gray-300 ml-1 mr-2"
+        />
+
+        <span>{{ post.author }}</span>
       </p>
     </div>
 
@@ -31,7 +42,10 @@
       v-html="article || ''"
     ></div>
 
-    <div class="max-w-3xl px-6 mx-auto mt-8" v-if="post?.article">
+    <div
+      class="max-w-3xl px-6 pt-10 mx-auto text-center mt-auto"
+      v-if="post?.article"
+    >
       <a @click="scrollToTop" class="inline-flex items-center group">
         <UploadIcon
           class="h-5 mr-1 inline dark:hover-hover:group-hover:fill-red-700 hover-hover:group-hover:fill-red-600"
@@ -46,7 +60,8 @@
 import { UploadIcon } from "@heroicons/vue/solid";
 import { createError } from "h3";
 import { useI18n } from "vue-i18n";
-import { replaceInlineImages } from "~~/utils/blog";
+import { replaceInlineImages } from "~/utils/blog";
+import { useHead } from "#imports";
 
 const i18n = useI18n();
 const { t } = i18n;

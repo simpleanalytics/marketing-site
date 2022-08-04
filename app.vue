@@ -1,368 +1,379 @@
 <template>
   <div class="bg-blue-50 dark:bg-gray-800 flex flex-col min-h-screen">
-    <Html
-      lang="en-US"
-      :class="{
-        dark: theme === 'dark',
-        'scroll-smooth': true,
-        'min-h-full': true,
-      }"
-    >
-      <Head>
-        <Link rel="dns-prefetch" href="https://assets.simpleanalytics.com/" />
-        <Link rel="dns-prefetch" href="https://docs.simpleanalytics.com/" />
-        <Link
-          rel="dns-prefetch"
-          href="https://scripts.simpleanalyticscdn.com/"
-        />
-        <Link
-          rel="preconnect"
-          href="https://assets.simpleanalytics.com/"
-          crossorigin
-        />
-        <Link
-          rel="preconnect"
-          href="https://scripts.simpleanalyticscdn.com/"
-          crossorigin
-        />
-        <Script
-          children="window.sa_event=window.sa_event||function(){var
+    <!-- Begin of what is in viewport -->
+    <div class="flex flex-col min-h-screen">
+      <Html
+        lang="en-US"
+        :class="{
+          dark: theme === 'dark',
+          'scroll-smooth': true,
+          'min-h-full': true,
+        }"
+      >
+        <Head>
+          <Link rel="dns-prefetch" href="https://assets.simpleanalytics.com/" />
+          <Link rel="dns-prefetch" href="https://docs.simpleanalytics.com/" />
+          <Link
+            rel="dns-prefetch"
+            href="https://scripts.simpleanalyticscdn.com/"
+          />
+          <Link
+            rel="preconnect"
+            href="https://assets.simpleanalytics.com/"
+            crossorigin
+          />
+          <Link
+            rel="preconnect"
+            href="https://scripts.simpleanalyticscdn.com/"
+            crossorigin
+          />
+          <Script
+            children="window.sa_event=window.sa_event||function(){var
           a=[].slice.call(arguments);window.sa_event.q?window.sa_event.q.push(a):window.sa_event.q=[a]}"
-        />
-        <Link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <Link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <Link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <Link rel="manifest" href="/site.webmanifest" />
-        <Link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff4f64" />
-        <Meta name="apple-mobile-web-app-title" content="Simple Analytics" />
-        <Meta name="application-name" content="Simple Analytics" />
-        <Meta name="msapplication-TileColor" content="#ff4f64" />
-        <Meta
-          name="theme-color"
-          :content="theme === 'dark' ? '#2a373a' : '#eef9ff'"
-        />
-        <Meta name="apple-mobile-web-app-capable" content="yes" />
-        <Meta name="referrer" content="strict-origin-when-cross-origin" />
-        <Meta property="og:image" :content="image" />
-        <Meta name="twitter:url" content="https://simpleanalytics.com" />
-        <Meta name="twitter:title" :content="route.meta.title" />
-        <Meta name="twitter:description" :content="route.meta.description" />
-        <Meta name="twitter:image" :content="image" />
-        <Meta name="twitter:card" content="summary_large_image" />
-        <Meta name="twitter:site" content="@SimpleAnalytic" />
-        <Meta name="twitter:creator" content="@SimpleAnalytic" />
-        <Meta name="twitter:image:alt" :content="defaultDescription" />
+          />
+          <Link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+          />
+          <Link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+          />
+          <Link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+          />
+          <Link rel="manifest" href="/site.webmanifest" />
+          <Link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff4f64" />
+          <Meta name="apple-mobile-web-app-title" content="Simple Analytics" />
+          <Meta name="application-name" content="Simple Analytics" />
+          <Meta name="msapplication-TileColor" content="#ff4f64" />
+          <Meta
+            name="theme-color"
+            :content="theme === 'dark' ? '#2a373a' : '#eef9ff'"
+          />
+          <Meta name="apple-mobile-web-app-capable" content="yes" />
+          <Meta name="referrer" content="strict-origin-when-cross-origin" />
+          <Meta property="og:image" :content="image" />
+          <Meta name="twitter:url" content="https://simpleanalytics.com" />
+          <Meta name="twitter:title" :content="route.meta.title" />
+          <Meta name="twitter:description" :content="route.meta.description" />
+          <Meta name="twitter:image" :content="image" />
+          <Meta name="twitter:card" content="summary_large_image" />
+          <Meta name="twitter:site" content="@SimpleAnalytic" />
+          <Meta name="twitter:creator" content="@SimpleAnalytic" />
+          <Meta name="twitter:image:alt" :content="defaultDescription" />
 
-        <!-- Location in Amsterdam -->
-        <Meta property="og:latitude" content="52.37304233578102" />
-        <Meta property="og:longitude" content="4.8925307523630535" />
-        <Meta property="og:locality" content="Amsterdam" />
-        <Meta property="og:region" content="Noord-Holland" />
-        <Meta property="og:country-name" content="NL" />
-      </Head>
-    </Html>
+          <!-- Location in Amsterdam -->
+          <Meta property="og:latitude" content="52.37304233578102" />
+          <Meta property="og:longitude" content="4.8925307523630535" />
+          <Meta property="og:locality" content="Amsterdam" />
+          <Meta property="og:region" content="Noord-Holland" />
+          <Meta property="og:country-name" content="NL" />
+        </Head>
+      </Html>
 
-    <div
-      class="text-gray-300 bg-gradient-to-b from-blue-100 dark:from-gray-900 relative"
-    >
-      <div class="relative pt-6 pb-16 sm:pb-24">
-        <Popover>
-          <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <nav
-              class="relative flex items-center justify-between sm:h-10 md:justify-center"
-              aria-label="Global"
-            >
-              <div
-                class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0"
+      <div
+        class="text-gray-300 bg-gradient-to-b from-blue-100 dark:from-gray-900 relative"
+      >
+        <div class="relative pt-6 pb-16 sm:pb-24">
+          <Popover>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+              <nav
+                class="relative flex items-center justify-between sm:h-10 md:justify-center"
+                aria-label="Global"
               >
-                <div class="flex items-center justify-between w-full md:w-auto">
-                  <NuxtLink href="/" class="flex items-center">
-                    <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />
-                    <span
-                      class="sm:hidden lg:block ml-3 text-xl sm:text-2xl text-gray-500 dark:text-gray-400"
-                    >
-                      Simple Analytics
-                    </span>
-                  </NuxtLink>
-
-                  <ClientOnly>
-                    <MoonSun class="scale-75 ml-1 mt-1 mr-auto" />
-                  </ClientOnly>
-
+                <div
+                  class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0"
+                >
                   <div
-                    class="flex items-center md:hidden"
-                    style="margin-right: 4px"
+                    class="flex items-center justify-between w-full md:w-auto"
                   >
-                    <PopoverButton
-                      class="bg-red-50 dark:bg-gray-700 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover-hover:hover:text-gray-500 hover-hover:hover:bg-gray-100"
+                    <NuxtLink href="/" class="flex items-center">
+                      <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />
+                      <span
+                        class="sm:hidden lg:block ml-3 text-xl sm:text-2xl text-gray-500 dark:text-gray-400"
+                      >
+                        Simple Analytics
+                      </span>
+                    </NuxtLink>
+
+                    <ClientOnly>
+                      <MoonSun class="scale-75 ml-1 mt-1 mr-auto" />
+                    </ClientOnly>
+
+                    <div
+                      class="flex items-center md:hidden"
+                      style="margin-right: 4px"
                     >
-                      <span class="sr-only">Open main menu</span>
-                      <MenuIcon
-                        class="h-6 w-6 stroke-red-500 dark:stroke-gray-400"
-                        aria-hidden="true"
-                      />
-                    </PopoverButton>
+                      <PopoverButton
+                        class="bg-red-50 dark:bg-gray-700 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover-hover:hover:text-gray-500 hover-hover:hover:bg-gray-100"
+                      >
+                        <span class="sr-only">Open main menu</span>
+                        <MenuIcon
+                          class="h-6 w-6 stroke-red-500 dark:stroke-gray-400"
+                          aria-hidden="true"
+                        />
+                      </PopoverButton>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="hidden md:flex md:space-x-6 md:mt-2">
-                <div v-for="item in navigation" :key="item.name">
-                  <NuxtLink
-                    :to="item.href"
-                    v-if="!item.popover && /^https?:\/\//.test(item.href)"
-                    target="_blank"
-                    class="font-medium text-gray-500 hover-hover:hover:text-gray-600"
-                  >
-                    {{ $t(item.translation) }}
-                  </NuxtLink>
-                  <NuxtLink
-                    v-else-if="!item.popover"
-                    :to="item.href"
-                    class="font-medium text-gray-500 hover-hover:hover:text-gray-600"
-                  >
-                    {{ $t(item.translation) }}
-                  </NuxtLink>
-                  <Popover class="relative z-20" v-slot="{ open }" v-else>
-                    <PopoverButton
-                      :class="[
-                        open ? 'text-gray-600' : '',
-                        'group  inline-flex items-center text-base font-medium text-gray-500 hover-hover:hover:text-gray-600',
-                      ]"
+                <div class="hidden md:flex md:space-x-6 md:mt-2">
+                  <div v-for="item in navigation" :key="item.name">
+                    <NuxtLink
+                      :to="item.href"
+                      v-if="!item.popover && /^https?:\/\//.test(item.href)"
+                      target="_blank"
+                      class="font-medium text-gray-500 hover-hover:hover:text-gray-600"
                     >
-                      <span>{{ $t("nav.resources") }}</span>
-                      <ChevronDownIcon
+                      {{ $t(item.translation) }}
+                    </NuxtLink>
+                    <NuxtLink
+                      v-else-if="!item.popover"
+                      :to="item.href"
+                      class="font-medium text-gray-500 hover-hover:hover:text-gray-600"
+                    >
+                      {{ $t(item.translation) }}
+                    </NuxtLink>
+                    <Popover class="relative z-20" v-slot="{ open }" v-else>
+                      <PopoverButton
                         :class="[
-                          open ? 'text-gray-600' : 'text-gray-500',
-                          'ml-2 h-5 w-5 hover-hover:group-hover:text-gray-600',
+                          open ? 'text-gray-600' : '',
+                          'group  inline-flex items-center text-base font-medium text-gray-500 hover-hover:hover:text-gray-600',
                         ]"
-                        aria-hidden="true"
-                      />
-                    </PopoverButton>
-
-                    <transition
-                      enter-active-class="transition ease-out duration-200"
-                      enter-from-class="opacity-0 translate-y-1"
-                      enter-to-class="opacity-100 translate-y-0"
-                      leave-active-class="transition ease-in duration-150"
-                      leave-from-class="opacity-100 translate-y-0"
-                      leave-to-class="opacity-0 translate-y-1"
-                    >
-                      <PopoverPanel
-                        class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0"
                       >
-                        <div class="shadow-lg overflow-hidden">
-                          <div
-                            class="relative grid gap-6 bg-white dark:bg-gray-800 px-5 py-6 sm:gap-8 sm:p-8"
-                          >
-                            <PopoverButton
-                              :as="MenuLink"
-                              v-for="item in resources"
-                              :key="item.name"
-                              :href="item.href"
-                              class="-m-3 p-3 rounded flex items-start hover-hover:hover:bg-blue-100 dark:hover-hover:hover:bg-gray-900 transition ease-in-out duration-150"
+                        <span>{{ $t("nav.resources") }}</span>
+                        <ChevronDownIcon
+                          :class="[
+                            open ? 'text-gray-600' : 'text-gray-500',
+                            'ml-2 h-5 w-5 hover-hover:group-hover:text-gray-600',
+                          ]"
+                          aria-hidden="true"
+                        />
+                      </PopoverButton>
+
+                      <transition
+                        enter-active-class="transition ease-out duration-200"
+                        enter-from-class="opacity-0 translate-y-1"
+                        enter-to-class="opacity-100 translate-y-0"
+                        leave-active-class="transition ease-in duration-150"
+                        leave-from-class="opacity-100 translate-y-0"
+                        leave-to-class="opacity-0 translate-y-1"
+                      >
+                        <PopoverPanel
+                          class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0"
+                        >
+                          <div class="shadow-lg overflow-hidden">
+                            <div
+                              class="relative grid gap-6 bg-white dark:bg-gray-800 px-5 py-6 sm:gap-8 sm:p-8"
                             >
-                              <component
-                                :is="item.icon"
-                                class="flex-shrink-0 h-6 w-6 text-red-500 dark:stroke-red-600 stroke-red-500"
-                                aria-hidden="true"
-                              />
-                              <div class="ml-4">
-                                <p class="text-base font-medium text-gray-900">
-                                  {{ $t(item.name) }}
-                                </p>
-                                <p class="mt-1 text-sm">
-                                  {{ $t(item.description) }}
-                                </p>
-                              </div>
-                            </PopoverButton>
-                          </div>
-                          <div
-                            class="px-5 py-5 bg-blue-100 dark:bg-gray-700 sm:px-8 sm:py-8"
-                            v-if="pending || recentPosts?.length"
-                          >
-                            <div>
-                              <h3
-                                class="text-sm tracking-wide font-medium uppercase"
-                              >
-                                {{ $t("home.recent_blog_posts") }}
-                                <span
-                                  v-if="i18n.locale.value !== 'en'"
-                                  class="lowercase text-gray-400 dark:text-gray-400"
-                                >
-                                  {{ $t("home.in_english") }}
-                                </span>
-                              </h3>
-                              <p v-if="pending" class="mt-5 text-sm">
-                                {{ $t("home.loading_posts") }}...
-                              </p>
-                              <p
-                                v-else-if="!recentPosts?.length"
-                                class="mt-5 text-sm"
-                              >
-                                {{ $t("home.did_not_find_any_posts") }}...
-                              </p>
-                              <ul v-else role="list" class="mt-4 space-y-4">
-                                <li
-                                  v-for="post in recentPosts"
-                                  :key="post.path"
-                                  class="text-base truncate"
-                                  :title="post.excerpt"
-                                >
-                                  <PopoverButton
-                                    :as="MenuLink"
-                                    :href="post.path"
-                                    class="font-medium hover-hover:hover:text-gray-900 dark:hover-hover:hover:text-gray-500 transition ease-in-out duration-150"
-                                  >
-                                    <span
-                                      class="inline-block text-sm bg-red-500 dark:bg-red-600 px-1 text-white dark:text-gray-700 rounded-md align-text-top mr-1"
-                                      >{{ labelAgo(post.created) }}</span
-                                    >
-                                    {{ post.title }}
-                                  </PopoverButton>
-                                </li>
-                              </ul>
-                            </div>
-                            <div class="mt-5 text-sm">
                               <PopoverButton
                                 :as="MenuLink"
-                                href="/blog"
-                                class="font-medium text-red-500 hover-hover:hover:text-red-500 transition ease-in-out duration-150"
+                                v-for="item in resources"
+                                :key="item.name"
+                                :href="item.href"
+                                class="-m-3 p-3 rounded flex items-start hover-hover:hover:bg-blue-100 dark:hover-hover:hover:bg-gray-900 transition ease-in-out duration-150"
                               >
-                                {{ $t("home.view_all_posts") }}
-                                <span aria-hidden="true">&rarr;</span>
+                                <component
+                                  :is="item.icon"
+                                  class="flex-shrink-0 h-6 w-6 text-red-500 dark:stroke-red-600 stroke-red-500"
+                                  aria-hidden="true"
+                                />
+                                <div class="ml-4">
+                                  <p
+                                    class="text-base font-medium text-gray-900"
+                                  >
+                                    {{ $t(item.name) }}
+                                  </p>
+                                  <p class="mt-1 text-sm">
+                                    {{ $t(item.description) }}
+                                  </p>
+                                </div>
                               </PopoverButton>
                             </div>
+                            <div
+                              class="px-5 py-5 bg-blue-100 dark:bg-gray-700 sm:px-8 sm:py-8"
+                              v-if="pending || recentPosts?.length"
+                            >
+                              <div>
+                                <h3
+                                  class="text-sm tracking-wide font-medium uppercase"
+                                >
+                                  {{ $t("home.recent_blog_posts") }}
+                                  <span
+                                    v-if="i18n.locale.value !== 'en'"
+                                    class="lowercase text-gray-400 dark:text-gray-400"
+                                  >
+                                    {{ $t("home.in_english") }}
+                                  </span>
+                                </h3>
+                                <p v-if="pending" class="mt-5 text-sm">
+                                  {{ $t("home.loading_posts") }}...
+                                </p>
+                                <p
+                                  v-else-if="!recentPosts?.length"
+                                  class="mt-5 text-sm"
+                                >
+                                  {{ $t("home.did_not_find_any_posts") }}...
+                                </p>
+                                <ul v-else role="list" class="mt-4 space-y-4">
+                                  <li
+                                    v-for="post in recentPosts"
+                                    :key="post.path"
+                                    class="text-base truncate"
+                                    :title="post.excerpt"
+                                  >
+                                    <PopoverButton
+                                      :as="MenuLink"
+                                      :href="post.path"
+                                      class="font-medium hover-hover:hover:text-gray-900 dark:hover-hover:hover:text-gray-500 transition ease-in-out duration-150"
+                                    >
+                                      <span
+                                        class="inline-block text-sm bg-red-500 dark:bg-red-600 px-1 text-white dark:text-gray-700 rounded-md align-text-top mr-1"
+                                        >{{ labelAgo($t, post.created) }}</span
+                                      >
+                                      {{ post.title }}
+                                    </PopoverButton>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="mt-5 text-sm">
+                                <PopoverButton
+                                  :as="MenuLink"
+                                  href="/blog"
+                                  class="font-medium text-red-500 hover-hover:hover:text-red-500 transition ease-in-out duration-150"
+                                >
+                                  {{ $t("home.view_all_posts") }}
+                                  <span aria-hidden="true">&rarr;</span>
+                                </PopoverButton>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </PopoverPanel>
-                    </transition>
-                  </Popover>
-                </div>
-
-                <LangSwitcher />
-              </div>
-              <div
-                class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0"
-              >
-                <NuxtLink
-                  :to="
-                    'https://simpleanalytics.com/welcome' +
-                    (theme === 'dark' ? '?theme=dark' : '')
-                  "
-                  class="font-medium text-gray-500 dark:text-gray-400 mx-3 dark:hover-hover:hover:text-gray-600"
-                >
-                  {{ $t("nav.signup") }}
-                </NuxtLink>
-                <NuxtLink
-                  :to="
-                    'https://simpleanalytics.com/login' +
-                    (theme === 'dark' ? '?theme=dark' : '')
-                  "
-                  class="inline-flex items-center px-4 py-2 button"
-                >
-                  {{ $t("nav.login") }}
-                </NuxtLink>
-              </div>
-            </nav>
-          </div>
-
-          <transition
-            enter-active-class="duration-150 ease-out"
-            enter-from-class="opacity-0 scale-95"
-            enter-to-class="opacity-100 scale-100"
-            leave-active-class="duration-100 ease-in"
-            leave-from-class="opacity-100 scale-100"
-            leave-to-class="opacity-0 scale-95"
-          >
-            <PopoverPanel
-              focus
-              class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
-            >
-              <div
-                class="rounded-lg bg-white dark:bg-gray-700 ring-1 ring-black ring-opacity-5 overflow-hidden"
-              >
-                <div class="px-5 pt-4 flex items-center justify-between">
-                  <div>
-                    <SimpleAnalyticsIcon class="h-8 w-auto" />
+                        </PopoverPanel>
+                      </transition>
+                    </Popover>
                   </div>
-                  <div class="-mr-2">
-                    <PopoverButton
-                      class="bg-white dark:bg-gray-500 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover-hover:hover:text-gray-500 hover-hover:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-100"
-                    >
-                      <span class="sr-only">Close menu</span>
-                      <XIcon
-                        class="h-6 w-6 stroke-gray-100 dark:stroke-gray-300"
-                        aria-hidden="true"
-                      />
-                    </PopoverButton>
-                  </div>
+
+                  <LangSwitcher />
                 </div>
-                <div class="px-2 pt-2 pb-3">
-                  <PopoverButton
-                    :as="MenuLink"
-                    v-for="item in navigation"
-                    :key="item.name"
-                    :href="item.mobile?.href || item.href"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
-                  >
-                    {{ $t(item.mobile?.translation || item.translation) }}
-                  </PopoverButton>
+                <div
+                  class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0"
+                >
                   <NuxtLink
                     :to="
                       'https://simpleanalytics.com/welcome' +
                       (theme === 'dark' ? '?theme=dark' : '')
                     "
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
-                    >{{ $t("nav.signup") }}</NuxtLink
+                    class="font-medium text-gray-500 dark:text-gray-400 mx-3 dark:hover-hover:hover:text-gray-600"
                   >
-                  <a
-                    @click="i18n.locale.value = 'en'"
-                    v-if="i18n.locale.value === 'nl'"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
-                    >{{ $t("nav.switch_to_english") }}</a
+                    {{ $t("nav.signup") }}
+                  </NuxtLink>
+                  <NuxtLink
+                    :to="
+                      'https://simpleanalytics.com/login' +
+                      (theme === 'dark' ? '?theme=dark' : '')
+                    "
+                    class="inline-flex items-center px-4 py-2 button"
                   >
-                  <a
-                    v-else
-                    @click="i18n.locale.value = 'nl'"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
-                    >{{ $t("nav.switch_to_dutch") }}</a
-                  >
+                    {{ $t("nav.login") }}
+                  </NuxtLink>
                 </div>
-                <NuxtLink
-                  :to="
-                    'https://simpleanalytics.com/login' +
-                    (theme === 'dark' ? '?theme=dark' : '')
-                  "
-                  class="block w-full px-5 py-3 text-center font-medium text-red-500 bg-gray-50 hover-hover:hover:bg-gray-100 dark:bg-gray-500 dark:text-gray-100"
-                >
-                  {{ $t("nav.login") }}
-                </NuxtLink>
-              </div>
-            </PopoverPanel>
-          </transition>
-        </Popover>
-      </div>
-    </div>
+              </nav>
+            </div>
 
-    <main class="flex-grow mb-20">
-      <NuxtLoadingIndicator :color="theme === 'dark' ? '#DE3243' : '#FF4F64'" />
-      <NuxtPage />
-    </main>
+            <transition
+              enter-active-class="duration-150 ease-out"
+              enter-from-class="opacity-0 scale-95"
+              enter-to-class="opacity-100 scale-100"
+              leave-active-class="duration-100 ease-in"
+              leave-from-class="opacity-100 scale-100"
+              leave-to-class="opacity-0 scale-95"
+            >
+              <PopoverPanel
+                focus
+                class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+              >
+                <div
+                  class="rounded-lg bg-white dark:bg-gray-700 ring-1 ring-black ring-opacity-5 overflow-hidden"
+                >
+                  <div class="px-5 pt-4 flex items-center justify-between">
+                    <div>
+                      <SimpleAnalyticsIcon class="h-8 w-auto" />
+                    </div>
+                    <div class="-mr-2">
+                      <PopoverButton
+                        class="bg-white dark:bg-gray-500 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover-hover:hover:text-gray-500 hover-hover:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-100"
+                      >
+                        <span class="sr-only">Close menu</span>
+                        <XIcon
+                          class="h-6 w-6 stroke-gray-100 dark:stroke-gray-300"
+                          aria-hidden="true"
+                        />
+                      </PopoverButton>
+                    </div>
+                  </div>
+                  <div class="px-2 pt-2 pb-3">
+                    <PopoverButton
+                      :as="MenuLink"
+                      v-for="item in navigation"
+                      :key="item.name"
+                      :href="item.mobile?.href || item.href"
+                      class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
+                    >
+                      {{ $t(item.mobile?.translation || item.translation) }}
+                    </PopoverButton>
+                    <NuxtLink
+                      :to="
+                        'https://simpleanalytics.com/welcome' +
+                        (theme === 'dark' ? '?theme=dark' : '')
+                      "
+                      class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
+                      >{{ $t("nav.signup") }}</NuxtLink
+                    >
+                    <a
+                      @click="i18n.locale.value = 'en'"
+                      v-if="i18n.locale.value === 'nl'"
+                      class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
+                      >{{ $t("nav.switch_to_english") }}</a
+                    >
+                    <a
+                      v-else
+                      @click="i18n.locale.value = 'nl'"
+                      class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
+                      >{{ $t("nav.switch_to_dutch") }}</a
+                    >
+                  </div>
+                  <NuxtLink
+                    :to="
+                      'https://simpleanalytics.com/login' +
+                      (theme === 'dark' ? '?theme=dark' : '')
+                    "
+                    class="block w-full px-5 py-3 text-center font-medium text-red-500 bg-gray-50 hover-hover:hover:bg-gray-100 dark:bg-gray-500 dark:text-gray-100"
+                  >
+                    {{ $t("nav.login") }}
+                  </NuxtLink>
+                </div>
+              </PopoverPanel>
+            </transition>
+          </Popover>
+        </div>
+      </div>
+
+      <main class="flex flex-col flex-grow mb-20">
+        <NuxtLoadingIndicator
+          :color="theme === 'dark' ? '#DE3243' : '#FF4F64'"
+        />
+        <NuxtPage />
+      </main>
+
+      <!-- End of what is in viewport -->
+    </div>
 
     <footer class="bg-blue-100 dark:bg-gray-800 mt-auto">
       <div
@@ -615,9 +626,9 @@
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded-md block group text-left"
                   >
                     <span
-                      v-if="labelAgo(post.created)"
+                      v-if="labelAgo($t, post.created)"
                       class="inline-block text-sm bg-red-500 dark:bg-red-600 px-1 text-white rounded-md align-text-top mr-1"
-                      >{{ labelAgo(post.created) }}</span
+                      >{{ labelAgo($t, post.created) }}</span
                     >
                     <span
                       class="hover-hover:group-hover:text-red-500 dark:hover-hover:group-hover:text-gray-300"
@@ -707,8 +718,7 @@ import PlausibleIcon from "./components/icons/Plausible.vue";
 import ArrowLink from "./components/ArrowLink.vue";
 import MoonSun from "./components/MoonSun.vue";
 
-import { getPathFromBlogUrl, BLOG_URL } from "./utils/blog";
-import ms from "./utils/ms";
+import { getPathFromBlogUrl, BLOG_URL, labelAgo } from "./utils/blog";
 
 const i18n = useI18n();
 const { t } = i18n;
@@ -892,18 +902,4 @@ const recentPosts = computed(() => {
 });
 
 const year = new Date().getFullYear();
-
-const labelAgo = (date) => {
-  if (!date || new Date(date) < Date.now() - ms.week * 11) return;
-
-  const ago = Date.now() - new Date(date);
-  if (ago > ms.day * 10)
-    return t("time.short.ago.weeks", [Math.round(ago / ms.week)]);
-  if (ago < ms.minute) return t("time.now");
-  if (ago < ms.hour)
-    return t("time.short.ago.minutes", [Math.round(ago / ms.minute)]);
-  if (ago < ms.day)
-    return t("time.short.ago.hours", [Math.round(ago / ms.hour)]);
-  return t("time.short.ago.days", [Math.round(ago / ms.day)]);
-};
 </script>

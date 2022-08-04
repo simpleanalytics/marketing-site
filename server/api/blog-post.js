@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
 
     const jsonData = found || {};
 
-    const author = getAuthorFromSlug(jsonData?.author_slug);
+    const { name: author, avatar } = getAuthorFromSlug(jsonData?.author_slug);
 
     const date =
       /itemprop="datePublished"[\s\S]*?content="([\s\S]*?)"[\s\S]*?\/>/g.exec(
@@ -35,6 +35,7 @@ export default defineEventHandler(async (event) => {
     return {
       ...jsonData,
       author,
+      avatar,
       slug,
       date: date?.[1],
       title: title?.[1],
