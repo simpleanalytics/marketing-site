@@ -73,14 +73,6 @@
         <Meta property="og:locality" content="Amsterdam" />
         <Meta property="og:region" content="Noord-Holland" />
         <Meta property="og:country-name" content="NL" />
-
-        <ClientOnly>
-          <Script
-            async
-            defer
-            src="https://scripts.simpleanalyticscdn.com/latest.js"
-          />
-        </ClientOnly>
       </Head>
     </Html>
 
@@ -779,24 +771,63 @@ const image = route.meta.title
   ? `${MAIN_URL}/generate-image.png?${generateParams}`
   : "https://assets.simpleanalytics.com/social-media/dark-chart.png";
 
+const scripts = [];
+
+if (process.server) {
+  scripts.push(
+    {
+      src: "https://scripts.simpleanalyticscdn.com/latest.js",
+      async: true,
+      defer: true,
+    },
+    {
+      src: "https://scripts.simpleanalyticscdn.com/auto-events.js",
+      async: true,
+      defer: true,
+    }
+  );
+}
+
+const link = [
+  {
+    rel: "canonical",
+    href: BASE_URL + route.path,
+  },
+  {
+    rel: "alternate",
+    type: "application/atom+xml",
+    title: "Blog of Simple Analytics",
+    href: BASE_URL + "/feed.xml",
+  },
+];
+
+if (process.env.NODE_ENV === "production") {
+  const cdnURL = "https://www-cdn.simpleanalytics.com";
+
+  link.push(
+    {
+      rel: "preload",
+      href: `${cdnURL}/fonts/space-grotesk/regular.woff2`,
+      as: "font",
+      crossorigin: "anonymous",
+    },
+    {
+      rel: "preload",
+      href: `${cdnURL}/fonts/space-grotesk/medium.woff2`,
+      as: "font",
+      crossorigin: "anonymous",
+    }
+  );
+}
+
 useHead({
   title: route.meta.title?.includes("Simple Analytics")
     ? route.meta.title
     : route.meta.title
     ? `${route.meta.title} - Simple Analytics`
     : "Simple Analytics",
-  link: [
-    {
-      rel: "canonical",
-      href: BASE_URL + route.path,
-    },
-    {
-      rel: "alternate",
-      type: "application/atom+xml",
-      title: "Blog of Simple Analytics",
-      href: BASE_URL + "/feed.xml",
-    },
-  ],
+  link,
+  script: scripts,
   meta: [
     {
       name: "description",
