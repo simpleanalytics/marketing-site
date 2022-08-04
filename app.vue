@@ -201,6 +201,7 @@
                           </div>
                           <div
                             class="px-5 py-5 bg-blue-100 dark:bg-gray-700 sm:px-8 sm:py-8"
+                            v-if="pending || recentPosts?.length"
                           >
                             <div>
                               <h3
