@@ -1,6 +1,9 @@
 import { defineNuxtConfig } from "nuxt";
 
-const cdnURL = "https://www-cdn.simpleanalytics.com";
+const cdnURL =
+  process.env.DEPLOYING === "true"
+    ? "https://www-cdn.simpleanalytics.com/"
+    : null;
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
@@ -14,7 +17,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/",
     buildAssetsDir: "/_nuxt/",
-    cdnURL: cdnURL + "/",
+    cdnURL,
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",

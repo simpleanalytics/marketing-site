@@ -95,9 +95,7 @@ const image = computed(
       : `${MAIN_URL}/generate-image?${defaultParams}`)
 );
 
-const description = computed(
-  () => post?.value?.excerpt?.trim() || defaultDescription
-);
+const description = computed(() => post?.value?.excerpt?.trim());
 
 const meta = [
   {
@@ -107,10 +105,6 @@ const meta = [
   {
     name: "language",
     content: computed(() => lang?.value.toUpperCase()),
-  },
-  {
-    ["http-equiv"]: "content-language",
-    content: langRegion,
   },
   {
     ["http-equiv"]: "content-language",
@@ -159,7 +153,7 @@ const link = [
 ];
 
 useHead({
-  title: post?.value?.title,
+  title: computed(() => post?.value?.title),
   meta,
   link,
 });

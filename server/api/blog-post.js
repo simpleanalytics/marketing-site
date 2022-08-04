@@ -1,4 +1,4 @@
-import { BLOG_URL, getAuthorFromSlug } from "~~/utils/blog";
+import { BLOG_URL, getAuthorFromSlug, getPathFromBlogUrl } from "~~/utils/blog";
 
 export default defineEventHandler(async (event) => {
   const { searchParams } = new URL(event.req.url, "https://example.com");
@@ -14,9 +14,14 @@ export default defineEventHandler(async (event) => {
     const article = /<article>([\s\S]*?)<\/article>/g.exec(post);
 
     const found = posts.find(({ url }) => {
-      const path = url.replace(BLOG_URL, "").slice(1);
+      const path = getPathFromBlogUrl(url).slice("/blog/".length);
       return path === slug;
     });
+
+    if (!found)
+      console.warn(
+        new Error(`Extra blog post info not found in posts for ${slug}`)
+      );
 
     const jsonData = found || {};
 

@@ -9,9 +9,11 @@
       }"
     >
       <Head>
-        <Script
-          children="window.sa_event=window.sa_event||function(){var
-          a=[].slice.call(arguments);window.sa_event.q?window.sa_event.q.push(a):window.sa_event.q=[a]}"
+        <Link rel="dns-prefetch" href="https://assets.simpleanalytics.com/" />
+        <Link rel="dns-prefetch" href="https://docs.simpleanalytics.com/" />
+        <Link
+          rel="dns-prefetch"
+          href="https://scripts.simpleanalyticscdn.com/"
         />
         <Link
           rel="preconnect"
@@ -23,11 +25,9 @@
           href="https://scripts.simpleanalyticscdn.com/"
           crossorigin
         />
-        <Link rel="dns-prefetch" href="https://assets.simpleanalytics.com/" />
-        <Link rel="dns-prefetch" href="https://docs.simpleanalytics.com/" />
-        <Link
-          rel="dns-prefetch"
-          href="https://scripts.simpleanalyticscdn.com/"
+        <Script
+          children="window.sa_event=window.sa_event||function(){var
+          a=[].slice.call(arguments);window.sa_event.q?window.sa_event.q.push(a):window.sa_event.q=[a]}"
         />
         <Link
           rel="apple-touch-icon"
@@ -820,7 +820,7 @@ if (process.env.NODE_ENV === "production") {
   );
 }
 
-useHead({
+const head = {
   title: route.meta.title?.includes("Simple Analytics")
     ? route.meta.title
     : route.meta.title
@@ -841,7 +841,9 @@ useHead({
   bodyAttrs: {
     class: "min-h-full",
   },
-});
+};
+
+useHead(head);
 
 const theme = useTheme();
 const open = ref(false);
