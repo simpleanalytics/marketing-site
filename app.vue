@@ -126,14 +126,13 @@
 
                 <div class="hidden md:flex md:space-x-6 md:mt-2">
                   <div v-for="item in navigation" :key="item.name">
-                    <NuxtLink
-                      :to="item.href"
+                    <ExternalLink
+                      :href="item.href"
                       v-if="!item.popover && /^https?:\/\//.test(item.href)"
-                      target="_blank"
                       class="font-medium text-gray-500 hover-hover:hover:text-gray-600"
                     >
                       {{ $t(item.translation) }}
-                    </NuxtLink>
+                    </ExternalLink>
                     <NuxtLink
                       v-else-if="!item.popover"
                       :to="item.href"
@@ -174,7 +173,11 @@
                               class="relative grid gap-6 bg-white dark:bg-gray-800 px-5 py-6 sm:gap-8 sm:p-8"
                             >
                               <PopoverButton
-                                :as="MenuLink"
+                                :as="
+                                  /^https?:\/\//.test(item.href)
+                                    ? ExternalLink
+                                    : MenuLink
+                                "
                                 v-for="item in resources"
                                 :key="item.name"
                                 :href="item.href"
@@ -707,6 +710,7 @@ import {
 } from "@heroicons/vue/outline";
 
 import MenuLink from "./components/MenuLink.vue";
+import ExternalLink from "./components/ExternalLink.vue";
 import SimpleAnalyticsIcon from "./components/images/SimpleAnalyticsIcon.vue";
 
 import CloudflareIcon from "./components/icons/Cloudflare.vue";
