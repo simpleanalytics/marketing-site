@@ -64,7 +64,7 @@
       }
     },
     "simple_title": "Simple",
-    "simple_description": "Eén dashboard om direct te zien hoeveel bezoekers er op je website komen, waar ze vandaan komen en wat ze doen als ze er eenmaal zijn. Zonder cookies. Zonder stalking. Nog steeds lichtgewicht.",
+    "simple_description": "Simple Analytics is een eenvoudig Google Analytics alternatief. Eén dashboard om direct te zien hoeveel bezoekers er op je website komen, waar ze vandaan komen en wat ze doen als ze er eenmaal zijn. Zonder cookies. Zonder stalking. Nog steeds lichtgewicht.",
     "see_if_for_yourself": "Zie het voor jezelf, klik op een knop",
     "connect": {
       "title": "Verbind {0}je gegevens{1} met jouw unieke workflow.",
@@ -77,14 +77,14 @@
     "why_switch_from_ga": {
       "title": "Waarom zou je moeten overstappen van Google Analytics?",
       "try_us_button": "Ontdek het zelf",
-      "paragraph_1": "Google is een van 's werelds grootste gegevensverslindende machines, die de gegevens van je websitebezoekers met winst verkoopt. Vanuit een ethisch standpunt zouden organisaties ernaar moeten streven om de privacy van hun websitebezoekers te beschermen. Nog steeds gebruikt {0}85% van de websites{1} Google Analytics, maar dit staat op het punt ten goede te veranderen.",
+      "paragraph_1": "Google is een van 's werelds grootste gegevensverslindende machines, die de gegevens van je websitebezoekers met winst verkoopt. Vanuit een ethisch standpunt zouden organisaties ernaar moeten streven om de privacy van hun websitebezoekers te beschermen. Nog steeds gebruikt {0}85% van de websites{1} Google Analytics, maar dit staat op het punt ten goede te veranderen. Tijd voor een Google Analytics alternatief.",
       "paragraph_2": "Privacywetten zoals de GDPR zijn ingevoerd om de privacy van internetgebruikers te beschermen. Gegevensbeschermingsinstanties treden hard op tegen privacyschendende diensten zoals Google Analytics. Frankrijk (CNIL) en Oostenrijk (DSB) hebben al verklaard dat het gebruik van Google Analytics in strijd is met de GDPR-wetgeving in hun landen. Verwacht wordt dat meer EU-landen dit voorbeeld zullen volgen.",
       "paragraph_3": "Google Analytics is een complexe web analytics tool die tot nu toe het standaard analytics tool was, maar dit is aan het veranderen, en Google erkent dit ook. Daarom staan ze op het punt om over te stappen op een nieuwe versie genaamd",
       "paragraph_3_link": "GA4 dat privacy-vriendelijk wil zijn, maar dat niet is",
       "paragraph_4": "Bovendien beperken webbrowsers de trackingmechanismen en worden adblockers gebruikt om Google Analytics te blokkeren, waardoor hun gegevens steeds minder accuraat worden.",
       "paragraph_5": "Het wereldwijde bedrijfsklimaat verandert in de richting van privacy, en dat zou je ook moeten doen!",
-      "paragraph_6_1": "Hier is waarom Simple Analytics de nummer één privacy-vriendelijke",
-      "paragraph_6_link": "alternatief voor Google Analytics is",
+      "paragraph_6_1": "Hierom is Simple Analytics het nummer één privacy-vriendelijke",
+      "paragraph_6_link": "Google Analytics alternatief",
       "paragraph_6_2": "Meer dan 600 betalende klanten vertrouwen erop dat wij hen de inzichten verschaffen die zij nodig hebben, terwijl wij de privacy van hun websitebezoekers beschermen"
     },
     "events": {

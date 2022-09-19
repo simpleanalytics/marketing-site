@@ -64,7 +64,7 @@
       }
     },
     "simple_title": "Simple",
-    "simple_description": "One dashboard to instantly see how many visitors are coming to your website, where they come from and what they do once they're there. Without cookies. Without stalking. Still lightweight.",
+    "simple_description": "Simple Analytics is a simple Google Analytics alternative. One dashboard to instantly see how many visitors are coming to your website, where they come from and what they do once they're there. Without cookies. Without stalking. Still lightweight.",
     "see_if_for_yourself": "See it for yourself, click a button",
     "connect": {
       "title": "Connect {0}your data{1} with your unique workflow.",
@@ -77,14 +77,14 @@
     "why_switch_from_ga": {
       "title": "Why you should switch from Google Analytics",
       "try_us_button": "Give us a try",
-      "paragraph_1": "Google is one of the world's largest data devouring machines, selling your website visitors' data for profit. From an ethical standpoint, organizations should aim to protect the privacy of their website visitors. Still, {0}85% of the websites{1} are using Google Analytics, but this is about to change for the better.",
+      "paragraph_1": "Google is one of the world's largest data devouring machines, selling your website visitors' data for profit. From an ethical standpoint, organizations should aim to protect the privacy of their website visitors. Still, {0}85% of the websites{1} are using Google Analytics, but this is about to change for the better. The call for a Google Analytics alternative.",
       "paragraph_2": "Privacy laws like the GDPR are put in place to preserve the privacy of internet users. Data protection agencies are cracking down on privacy-invasive services like Google Analytics. France (CNIL) & Austria (DSB) already stated that the use of Google Analytics violates GDPR law in their countries. More EU countries are expected to follow this example.",
       "paragraph_3": "Google Analytics is a complex web analytics tool that has been the default analytics tool, but this is changing, and Google also recognizes this. That's why they are about to change to a new version called",
       "paragraph_3_link": "GA4 that aims to be privacy-friendly but is not",
       "paragraph_4": " In addition, web browsers are limiting tracking mechanisms, and adblockers are used to block Google Analytics, which makes their data less and less accurate.",
       "paragraph_5": "The global business environment is changing towards privacy, and so should you!",
       "paragraph_6_1": "Here is why Simple Analytics is the number one privacy-friendly",
-      "paragraph_6_link": "alternative to Google Analytics",
+      "paragraph_6_link": "Google Analytics alternative",
       "paragraph_6_2": "We are trusted by 600+ paying customers to provide the insights they need while protecting the privacy of their website visitors"
     },
     "events": {
