@@ -8,14 +8,14 @@ h3,
 h4,
 h5,
 h6 {
-  @apply text-gray-600 dark:text-gray-300;
+  @apply text-gray-700 dark:text-gray-200;
 }
 
 p,
 li,
 th,
 td {
-  @apply text-gray-500 dark:text-gray-400;
+  @apply text-gray-600 dark:text-gray-300;
 }
 
 a,
@@ -284,4 +284,11 @@ details img {
   margin: 0px 8px 4px;
   display: inline-block;
   vertical-align: middle;
+}
+
+.footnotes {
+  @apply text-gray-600 dark:text-gray-300 text-sm border-t-2 border-gray-300 leading-loose pt-4;
+}
+.footnotes p {
+  @apply my-2;
 }
