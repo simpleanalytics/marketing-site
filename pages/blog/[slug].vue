@@ -15,13 +15,26 @@
       <p class="mt-6 flex items-center justify-center" v-if="post?.date">
         <span class="mr-1"
           >{{
-            $t("blog.published_on_by", [
-              new Intl.DateTimeFormat($t("time.intl_locale"), {
-                month: "short",
-                year: "numeric",
-                day: "numeric",
-              }).format(new Date(post.date)),
-            ])
+            post.last_modified_at
+              ? $t("blog.published_and_edited_on_by", [
+                  new Intl.DateTimeFormat($t("time.intl_locale"), {
+                    month: "short",
+                    year: "numeric",
+                    day: "numeric",
+                  }).format(new Date(post.date)),
+                  new Intl.DateTimeFormat($t("time.intl_locale"), {
+                    month: "short",
+                    year: "numeric",
+                    day: "numeric",
+                  }).format(new Date(post.last_modified_at)),
+                ])
+              : $t("blog.published_on_by", [
+                  new Intl.DateTimeFormat($t("time.intl_locale"), {
+                    month: "short",
+                    year: "numeric",
+                    day: "numeric",
+                  }).format(new Date(post.date)),
+                ])
           }}
         </span>
 

@@ -254,7 +254,8 @@
     "loading_post": "Laden...",
     "article_not_found": "Artikel niet gevonden.",
     "back_to_top": "Terug naar boven.",
-    "published_on_by": "Gepubliceerd op {0} door {1}"
+    "published_on_by": "Gepubliceerd op {0} door {1}",
+    "published_and_edited_on_by": "Gepubliceerd op {0} en geüpdatet op {1} door"
   },
   "testimonials": {
     "trusted_by": "Vertrouwd door meer dan 600 {0}overheden{1}, {0}NGO's{1} en kleine tot grote {0}ondernemingen{1}.",

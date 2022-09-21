@@ -254,7 +254,8 @@
     "loading_post": "Loading...",
     "article_not_found": "Article not found.",
     "back_to_top": "Back to top.",
-    "published_on_by": "Published on {0} by {1}"
+    "published_on_by": "Published on {0} by {1}",
+    "published_and_edited_on_by": "Published on {0} and edited on {1} by"
   },
   "testimonials": {
     "trusted_by": "Trusted by more than 600 {0}governments{1}, {0}NGOs{1}, and small to mid-sized {0}enterprises{1}.",
