@@ -208,20 +208,18 @@ const article = computed(() => {
     .replace(/class="split"/g, 'class="flex space-x-8"');
 });
 
-if (process.client) {
-  onMounted(() => {
-    setTimeout(() => {
-      const gifs = document.querySelectorAll("div.gif");
-      if (!gifs.length) return;
-      gifs.forEach((gif) => {
-        gif.addEventListener("mouseenter", () => {
-          gif.querySelector("details").open = true;
-        });
-        gif.addEventListener("mouseleave", () => {
-          gif.querySelector("details").open = false;
-        });
+onMounted(() => {
+  setTimeout(() => {
+    const gifs = document.querySelectorAll("div.gif");
+    if (!gifs.length) return;
+    gifs.forEach((gif) => {
+      gif.addEventListener("mouseenter", () => {
+        gif.querySelector("details").open = true;
       });
-    }, 250);
-  });
-}
+      gif.addEventListener("mouseleave", () => {
+        gif.querySelector("details").open = false;
+      });
+    });
+  }, 250);
+});
 </script>
