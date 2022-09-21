@@ -294,12 +294,8 @@ details img {
 }
 
 .video-container.border {
-  border: 1px solid #dedddd;
-  border-radius: 10px;
-  overflow: hidden;
+  @apply border-gray-200 dark:border-none rounded-lg overflow-hidden;
 }
 .video-container.border-radius {
-  border: none;
-  border-radius: 10px;
-  overflow: hidden;
+  @apply border-none rounded-lg overflow-hidden;
 }

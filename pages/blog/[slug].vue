@@ -194,4 +194,21 @@ const article = computed(() => {
     .replace(/&#8617;/g, svgUp)
     .replace(/class="split"/g, 'class="flex space-x-8"');
 });
+
+if (process.client) {
+  onMounted(() => {
+    setTimeout(() => {
+      const gifs = document.querySelectorAll("div.gif");
+      if (!gifs.length) return;
+      gifs.forEach((gif) => {
+        gif.addEventListener("mouseenter", () => {
+          gif.querySelector("details").open = true;
+        });
+        gif.addEventListener("mouseleave", () => {
+          gif.querySelector("details").open = false;
+        });
+      });
+    }, 250);
+  });
+}
 </script>
