@@ -269,10 +269,7 @@
                   class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0"
                 >
                   <NuxtLink
-                    :to="
-                      'https://simpleanalytics.com/welcome' +
-                      (theme === 'dark' ? '?theme=dark' : '')
-                    "
+                    :to="welcomeUrl"
                     class="font-medium text-gray-500 dark:text-gray-400 mx-3 dark:hover-hover:hover:text-gray-600"
                   >
                     {{ $t("nav.signup") }}
@@ -332,10 +329,7 @@
                       {{ $t(item.mobile?.translation || item.translation) }}
                     </PopoverButton>
                     <NuxtLink
-                      :to="
-                        'https://simpleanalytics.com/welcome' +
-                        (theme === 'dark' ? '?theme=dark' : '')
-                      "
+                      :to="welcomeUrl"
                       class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
                       >{{ $t("nav.signup") }}</NuxtLink
                     >
@@ -906,4 +900,22 @@ const recentPosts = computed(() => {
 });
 
 const year = new Date().getFullYear();
+
+// Code to create welcome URL
+// TODO: move this to a better place
+const mainAppUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://simpleanalytics.com"
+    : "http://localhost:3000";
+
+const currency = useState("currency");
+const affiliate = useState("affiliate");
+
+const welcomeUrl = computed(() => {
+  const params = new URLSearchParams();
+  if (currency?.value?.code) params.set("currency", currency.value.code);
+  if (affiliate?.value?.slug) params.set("affiliate", affiliate?.value?.slug);
+  if (theme.value === "dark") params.set("theme", "dark");
+  return `${mainAppUrl}/welcome?${params}`;
+});
 </script>

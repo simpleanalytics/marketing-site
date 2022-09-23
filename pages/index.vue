@@ -93,16 +93,9 @@
           class="max-w-lg flex flex-wrap mt-8 justify-center md:justify-start"
         >
           <div class="mt-4 sm:mr-4">
-            <a
-              :href="
-                mainAppUrl +
-                '/welcome' +
-                (theme === 'dark' ? '?theme=dark' : '')
-              "
-              class="button large primary"
-            >
+            <NuxtLink :to="welcomeUrl" class="button large primary">
               {{ $t("home.start_trial_now") }}
-            </a>
+            </NuxtLink>
             <p class="mb-8 sm:mb-0 text-xs mt-2 text-center">
               <CheckIcon class="fill-green-500 w-4 inline align-text-top" />
               {{ $t("home.no_creditcard") }}
@@ -1359,8 +1352,6 @@ const previewVideoDark = ref(null);
 const seekVideoLight = ref(null);
 const seekVideoDark = ref(null);
 
-const affiliate = useState("affiliate");
-
 const videoSeeksLight = [
   { translation: "seek.overview", start: 0, end: 3 },
   { translation: "seek.key_stats", start: 3, end: 15 },
@@ -1392,13 +1383,13 @@ const videoSeeksDark = [
 const emailReports = ref([
   {
     id: 0,
-    email: "adriaan@simpleanalytics.com",
+    email: "adriaanvanrossum@simpleanalytics.com",
     period: "week",
     agoTranslation: "home.reports.a_day_ago",
   },
   {
     id: 1,
-    email: "iron@simpleanalytics.com",
+    email: "ironbrands@simpleanalytics.com",
     period: "month",
     agoTranslation: "home.reports.six_days_ago",
   },
@@ -1419,6 +1410,19 @@ const mainAppUrl =
   process.env.NODE_ENV === "production"
     ? "https://simpleanalytics.com"
     : "http://localhost:3000";
+
+// Code to create welcome URL
+// TODO: move this to a better place
+const currency = useState("currency");
+const affiliate = useState("affiliate");
+
+const welcomeUrl = computed(() => {
+  const params = new URLSearchParams();
+  if (currency?.value?.code) params.set("currency", currency.value.code);
+  if (affiliate?.value?.slug) params.set("affiliate", affiliate?.value?.slug);
+  if (theme.value === "dark") params.set("theme", "dark");
+  return `${mainAppUrl}/welcome?${params}`;
+});
 
 const removeEmailReport = (report) => {
   const message = t("home.reports.confirm", [

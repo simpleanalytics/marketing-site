@@ -1,6 +1,8 @@
 <template>
   <p>
-    <a :href="url" class="button primary">{{ $t("start_trial.button") }}</a>
+    <NuxtLink :to="welcomeUrl" class="button primary">{{
+      $t("start_trial.button")
+    }}</NuxtLink>
   </p>
   <p class="mb-8 sm:mb-0 text-xs mt-4">
     <span class="block sm:inline my-2">
@@ -21,23 +23,20 @@
 <script setup>
 import { CheckIcon } from "@heroicons/vue/solid";
 
-const theme = useTheme();
-const currency = useState("currency");
-
-const affiliateCookie = useCookie("affiliate", {
-  secure: process.env.NODE_ENV === "production",
-  sameSite: true,
-});
-
-const params = new URLSearchParams();
-if (currency?.value?.code) params.set("currency", currency.value.code);
-if (affiliateCookie?.value) params.set("affiliate", affiliateCookie.value);
-if (theme === "dark") params.set("theme", "dark");
-
 const mainAppUrl =
   process.env.NODE_ENV === "production"
     ? "https://simpleanalytics.com"
     : "http://localhost:3000";
 
-const url = `${mainAppUrl}/welcome?${params}`;
+const theme = useTheme();
+const currency = useState("currency");
+const affiliate = useState("affiliate");
+
+const welcomeUrl = computed(() => {
+  const params = new URLSearchParams();
+  if (currency?.value?.code) params.set("currency", currency.value.code);
+  if (affiliate?.value?.slug) params.set("affiliate", affiliate?.value?.slug);
+  if (theme.value === "dark") params.set("theme", "dark");
+  return `${mainAppUrl}/welcome?${params}`;
+});
 </script>

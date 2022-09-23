@@ -117,7 +117,7 @@ onMounted(() => {
 
   if (autoPlay()) {
     setTimeout(() => {
-      video.value.play();
+      if (video?.value) video.value.play();
     }, 1000);
   }
 });

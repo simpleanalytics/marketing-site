@@ -78,7 +78,7 @@
           v-else
           @click="
             goToWelcome({
-              plan: tier.name.toLowerCase(),
+              plan: tier.slug,
               interval: monthly ? 'monthly' : 'yearly',
               currency: currency?.code,
             })
@@ -217,9 +217,11 @@ const { t } = useI18n();
 
 const monthly = ref(false);
 const currency = useState("currency");
+const affiliate = useState("affiliate");
 
 const tiers = [
   {
+    slug: "starter",
     name: "pricing.plans.starter.title",
     priceMonthly: 19,
     priceYearly: 9,
@@ -234,6 +236,7 @@ const tiers = [
     },
   },
   {
+    slug: "business",
     name: "pricing.plans.business.title",
     priceMonthly: 59,
     priceYearly: 49,
@@ -247,6 +250,7 @@ const tiers = [
     },
   },
   {
+    slug: "enterprise",
     name: "pricing.plans.enterprise.title",
     priceMonthly: 99,
     priceYearly: 99,
@@ -270,41 +274,42 @@ const affiliateCookie = useCookie("affiliate", {
 
 const theme = useTheme();
 
+const mainAppUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://simpleanalytics.com"
+    : "http://localhost:3000";
+
 const clickEnterprise = () => {
-  let url = `https://simpleanalytics.com/contact`;
-  if (theme.value === "dark") {
-    url += "&theme=dark";
-  }
+  const params = new URLSearchParams();
+  if (theme.value === "dark") params.set("theme", "dark");
+  const url = `${mainAppUrl}/contact?${params}`;
 
   // Send event before redirecting to contact page
-  if (process.client && window.sa_event) {
+  if (process.client && window.sa_event && window.sa_loaded) {
     window.sa_event("click_enterprise", () => {
       window.location.href = url;
     });
-    window.setTimeout(() => {
-      window.location.href = url;
-    }, 250);
-  } else {
+  } else if (process.client) {
     window.location.href = url;
   }
 };
 
-const goToWelcome = ({ currency, plan, interval }) => {
-  let url = `https://simpleanalytics.com/welcome?currency=${currency}&plan=${plan}&interval=${interval}`;
-  if (theme.value === "dark") {
-    url += "&theme=dark";
-  }
+const goToWelcome = ({ plan, interval }) => {
+  const params = new URLSearchParams();
+  if (currency?.value?.code) params.set("currency", currency.value.code);
+  if (affiliate?.value?.slug) params.set("affiliate", affiliate?.value?.slug);
+  if (plan) params.set("plan", plan);
+  if (interval) params.set("interval", interval);
+  if (theme.value === "dark") params.set("theme", "dark");
+
+  const url = `${mainAppUrl}/welcome?${params}`;
 
   // Send event before redirecting to welcome page
-  if (process.client && window.sa_event) {
-    window.sa_metadata = { currency, plan, interval };
-    window.sa_event("click_buy", () => {
+  if (process.client && window.sa_event && window.sa_loaded) {
+    window.sa_event("click_buy", { currency, plan, interval }, () => {
       window.location.href = url;
     });
-    window.setTimeout(() => {
-      window.location.href = url;
-    }, 250);
-  } else {
+  } else if (process.client) {
     window.location.href = url;
   }
 };
