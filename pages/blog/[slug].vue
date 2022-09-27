@@ -156,6 +156,10 @@ const meta = [
     content: image,
   },
   {
+    name: "twitter:description",
+    content: description,
+  },
+  {
     name: "twitter:image:alt",
     content: description,
   },
