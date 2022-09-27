@@ -123,9 +123,18 @@ const image = computed(
       : `${MAIN_URL}/generate-image?${defaultParams}`)
 );
 
+const title = computed(() => post?.value?.title);
 const description = computed(() => post?.value?.excerpt?.trim());
 
 const meta = [
+  {
+    name: "og:title",
+    content: title,
+  },
+  {
+    name: "twitter:title",
+    content: title,
+  },
   {
     name: "description",
     content: description,
@@ -148,6 +157,10 @@ const meta = [
   },
   {
     name: "twitter:image:alt",
+    content: description,
+  },
+  {
+    name: "twitter:text:title",
     content: description,
   },
   {
@@ -181,7 +194,7 @@ const link = [
 ];
 
 useHead({
-  title: computed(() => post?.value?.title),
+  title,
   meta,
   link,
 });

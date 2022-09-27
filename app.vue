@@ -61,13 +61,27 @@
           <Meta name="referrer" content="strict-origin-when-cross-origin" />
           <Meta property="og:image" :content="image" />
           <Meta name="twitter:url" content="https://simpleanalytics.com" />
-          <Meta name="twitter:title" :content="route.meta.title" />
-          <Meta name="twitter:description" :content="route.meta.description" />
+          <Meta
+            v-if="route.meta.title"
+            name="twitter:title"
+            :content="route.meta.title"
+          />
+          <Meta
+            v-if="route.meta.title"
+            name="og:title"
+            :content="route.meta.title"
+          />
+          <Meta
+            v-if="route.meta.description"
+            name="twitter:description"
+            :content="route.meta.description"
+          />
           <Meta name="twitter:image" :content="image" />
           <Meta name="twitter:card" content="summary_large_image" />
           <Meta name="twitter:site" content="@SimpleAnalytic" />
           <Meta name="twitter:creator" content="@SimpleAnalytic" />
           <Meta name="twitter:image:alt" :content="defaultDescription" />
+          <Meta name="twitter:text:title" :content="defaultDescription" />
 
           <!-- Location in Amsterdam -->
           <Meta property="og:latitude" content="52.37304233578102" />
