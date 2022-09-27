@@ -60,6 +60,11 @@
           <Meta name="apple-mobile-web-app-capable" content="yes" />
           <Meta name="referrer" content="strict-origin-when-cross-origin" />
           <Meta property="og:image" :content="image" />
+          <Meta
+            v-if="route.meta.title"
+            name="og:image:alt"
+            :content="`Image for ${route.meta.title}`"
+          />
           <Meta name="twitter:url" content="https://simpleanalytics.com" />
           <Meta
             v-if="route.meta.title"

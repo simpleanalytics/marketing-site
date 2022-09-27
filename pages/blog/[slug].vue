@@ -124,6 +124,9 @@ const image = computed(
 );
 
 const title = computed(() => post?.value?.title);
+const imageTitle = computed(
+  () => "Image for " + post?.value?.title?.toLowerCase()
+);
 const description = computed(() => post?.value?.excerpt?.trim());
 
 const meta = [
@@ -160,8 +163,12 @@ const meta = [
     content: description,
   },
   {
+    name: "og:image:alt",
+    content: imageTitle,
+  },
+  {
     name: "twitter:image:alt",
-    content: description,
+    content: imageTitle,
   },
   {
     name: "twitter:text:title",
