@@ -90,7 +90,7 @@
         </div>
 
         <div
-          class="max-w-lg flex flex-wrap mt-8 justify-center md:justify-start"
+          class="max-w-xl flex flex-wrap mt-8 justify-center md:justify-start"
         >
           <div class="mt-4 sm:mr-4">
             <NuxtLink :to="welcomeUrl" class="button large primary">
@@ -103,14 +103,12 @@
           </div>
           <div class="sm:mt-4">
             <a
-              :href="
-                mainAppUrl +
-                '/simpleanalytics.com?from=landing' +
-                (theme === 'dark' ? '&theme=dark' : '')
-              "
-              class="button large group"
+              @click="scrollToSeekVideo('seek.overview')"
+              class="button px-8 py-3 md:py-4 md:text-lg md:px-6"
             >
-              {{ $t("home.see_live_demo") }} <Arrow class="h-5 w-5" />
+              <ChevronDoubleDownIcon class="w-3 inline-block" />
+              <span class="mx-2">{{ $t("home.see_feature_video_below") }}</span>
+              <ChevronDoubleDownIcon class="w-3 inline-block" />
             </a>
           </div>
         </div>
@@ -121,25 +119,16 @@
           class="absolute z-30 flex flex-col items-center justify-center w-full h-full"
         >
           <a
-            @click="scrollToSeekVideo('seek.overview')"
+            :href="
+              mainAppUrl +
+              '/simpleanalytics.com?from=landing' +
+              (theme === 'dark' ? '&theme=dark' : '')
+            "
             class="group button large shadow-xl bg-white dark:bg-gray-800 hover-hover:hover:dark:bg-gray-900"
           >
-            <ChevronDoubleDownIcon class="w-3 inline-block" />
-            <span class="mx-2">{{ $t("home.see_feature_video_below") }}</span>
-            <ChevronDoubleDownIcon class="w-3 inline-block" />
+            <span class="mx-2">{{ $t("home.see_live_demo") }}</span>
+            <Arrow class="h-5 w-5" />
           </a>
-          <!-- <NuxtLink
-              :href="
-                mainAppUrl +
-                '/simpleanalytics.com' +
-                (theme === 'dark' ? '?theme=dark' : '')
-              "
-              target="_blank"
-              class="mt-4 button tiny shadow-md bg-white dark:bg-gray-800 group"
-            >
-              <span class="">Play with live demo</span>
-              <Arrow class="h-5 w-5" />
-            </NuxtLink> -->
         </div>
 
         <div
