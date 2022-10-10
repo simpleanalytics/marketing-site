@@ -137,7 +137,7 @@ const onSubmit = async () => {
 
   const response = await fetch(mainAppUrl + "/subscribe", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "text/plain; charset=UTF-8" },
     body: JSON.stringify({
       email: email.value.trim().toLowerCase(),
       type: type,
