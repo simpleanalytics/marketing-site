@@ -14,7 +14,8 @@ h6 {
 p,
 li,
 th,
-td {
+td,
+label {
   @apply text-gray-600 dark:text-gray-300;
 }
 
@@ -309,4 +310,8 @@ mark {
   );
   border-radius: 1em 0;
   padding: 0.5rem;
+}
+
+input[type="checkbox"] {
+  @apply h-4 w-4 rounded border-red-300 text-red-500 focus:ring-red-500 dark:ring-transparent dark:outline-none dark:border-none dark:text-red-600 dark:focus:ring-red-600 dark:bg-red-600;
 }

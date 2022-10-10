@@ -96,7 +96,7 @@
     "reports": {
       "title": "Rapporten automatiseren",
       "description": "Bespaar tijd en houd anderen op de hoogte van je resultaten. Plan je rapporten zo dat ze automatisch worden gedeeld wanneer je maar wilt.",
-      "email_reports": "E-mail rapporten",
+      "email_reports": "E-mailrapporten",
       "instructions": "Stuur uzelf en anderen een e-mailrapport van simpleanalytics.com. je kunt zoveel e-mailadressen toevoegen als je wilt. Zie een voorbeeld van een e-mail rapport in {0}onze documentatie{1}.",
       "recipient": "Ontvanger",
       "period": "Periode",
@@ -110,8 +110,8 @@
       "monthly": "maandelijks",
       "a_day_ago": "een dag geleden",
       "six_days_ago": "6 dagen geleden",
-      "confirm": "Weet je zeker dat je het {0}e email rapport voor {1} wilt uitschakelen?",
-      "invalid_email": "Vul een geldig e-mail adres in",
+      "confirm": "Weet je zeker dat je het {0}e e-mailrapport voor {1} wilt uitschakelen?",
+      "invalid_email": "Vul een geldig e-mailadres in",
       "never": "nooit"
     },
     "dark_mode": {
@@ -255,7 +255,21 @@
     "article_not_found": "Artikel niet gevonden.",
     "back_to_top": "Terug naar boven.",
     "published_on_by": "Gepubliceerd op {0} door {1}",
-    "published_and_edited_on_by": "Gepubliceerd op {0} en geüpdatet op {1} door"
+    "published_and_edited_on_by": "Gepubliceerd op {0} en geüpdatet op {1} door",
+    "subscribe": {
+      "title": "The Privacy Newsletter",
+      "description": "Hoi, mijn naam is Adriaan, ik ben de oprichter van Simple Analytics. Ongeveer elke maand deel ik inzichten en privacy updates in onze nieuwsbrief. Uitschrijven kan met 1 klik.",
+      "checkbox_newsletter": "Nieuwsbrief",
+      "checkbox_blog_posts": "Stuur mij nieuwe blog posts",
+      "email_placeholder": "Bijv.: eric{'@'}google.com",
+      "button": "Inschrijven",
+      "thank_you": "Controleer je inbox om je inschrijving te bevestigen. Bedankt voor het inschrijven!",
+      "errors": {
+        "no_email": "Vul een e-mailadres in.",
+        "invalid_email": "Vul een geldig e-mailadres in",
+        "select_at_least_one": "Selecteer tenminste één optie."
+      }
+    }
   },
   "testimonials": {
     "trusted_by": "Vertrouwd door meer dan 600 {0}overheden{1}, {0}NGO's{1} en kleine tot grote {0}ondernemingen{1}.",
@@ -303,5 +317,10 @@
   },
   "amount": {
     "million": "miljoen"
+  },
+  "general": {
+    "errors": {
+      "something_went_wrong": "Er is iets misgegaan. Probeer het later opnieuw."
+    }
   }
 }

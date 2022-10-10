@@ -14,16 +14,23 @@
         {{ $t("home.loading_posts") }}...
       </p>
       <p v-else-if="!recentPosts?.length" class="mt-5 text-lg text-center">
-        {{ $t("home.did_not_find_any_posts") }}...
+        {{ $t("home.did_not_find_any_posts") }}.
       </p>
       <div v-else role="list" class="justify-center block sm:flex-wrap sm:flex">
         <article
-          v-for="post in recentPosts"
+          v-for="post in recentPostsWithSubscribe"
           :key="post.url"
           :title="post.excerpt"
           class="flex w-full p-6 sm:w-1/2 lg:w-1/3"
         >
           <div
+            v-if="post.subscribe"
+            class="flex w-full flex-col shadow-xl overflow-hidden rounded-lg bg-blue-100 dark:bg-gray-700 text-center"
+          >
+            <SubscribeForm />
+          </div>
+          <div
+            v-else
             class="flex w-full flex-col shadow-xl overflow-hidden rounded-lg bg-blue-100 dark:bg-gray-700"
           >
             <div>
@@ -118,6 +125,7 @@
 
 <script setup>
 import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
+import SubscribeForm from "~/components/SubscribeForm.vue";
 
 import {
   getPathFromBlogUrl,
@@ -152,6 +160,14 @@ const recentPosts = computed(() => {
       cover: image?.startsWith("/") ? `${BLOG_URL}${image}` : image,
     };
   });
+});
+
+const recentPostsWithSubscribe = computed(() => {
+  const posts = [...recentPosts.value];
+
+  posts.splice(1, 0, { subscribe: true });
+
+  return posts;
 });
 
 definePageMeta({

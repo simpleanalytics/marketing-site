@@ -255,7 +255,21 @@
     "article_not_found": "Article not found.",
     "back_to_top": "Back to top.",
     "published_on_by": "Published on {0} by {1}",
-    "published_and_edited_on_by": "Published on {0} and edited on {1} by"
+    "published_and_edited_on_by": "Published on {0} and edited on {1} by",
+    "subscribe": {
+      "title": "The Privacy Newsletter",
+      "description": "Hey, my name is Adriaan, I'm the founder of Simple Analytics. About once a month I share insights and privacy updates in our newsletter. Unsubscribe with 1 click.",
+      "checkbox_newsletter": "Newsletter",
+      "checkbox_blog_posts": "Notify me of new blog posts",
+      "email_placeholder": "E.g.: eric{'@'}google.com",
+      "button": "Subscribe",
+      "thank_you": "Check your inbox to confirm your subscription. Thank you for subscribing!",
+      "errors": {
+        "no_email": "Please fill in an email address",
+        "invalid_email": "Please fill in a valid email address",
+        "select_at_least_one": "Please select at least one checkbox"
+      }
+    }
   },
   "testimonials": {
     "trusted_by": "Trusted by more than 600 {0}governments{1}, {0}NGOs{1}, and small to mid-sized {0}enterprises{1}.",
@@ -303,5 +317,10 @@
   },
   "amount": {
     "million": "million"
+  },
+  "general": {
+    "errors": {
+      "something_went_wrong": "Something went wrong. Please try again later."
+    }
   }
 }
