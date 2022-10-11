@@ -1340,6 +1340,7 @@ const previewVideoLight = ref(null);
 const previewVideoDark = ref(null);
 const seekVideoLight = ref(null);
 const seekVideoDark = ref(null);
+const seekVideoInstruction = ref(null);
 
 const videoSeeksLight = [
   { translation: "seek.overview", start: 0, end: 3 },
@@ -1389,6 +1390,13 @@ const emailReportEmail = ref("");
 const emailReportPeriod = ref("week");
 const emailReportError = ref("");
 
+const active = ref(null);
+const lastUpdate = ref(Date.now());
+const showClickSeekButton = ref(true);
+const paused = ref(false);
+const timer = ref(null);
+const currentHash = ref(null);
+
 const tColorsRed = [`<span class='text-red-500 dark:text-red-600'>`, `</span>`];
 const tColorsBlue = [
   `<span class='text-blue-600 dark:text-blue-700'>`,
@@ -1408,7 +1416,7 @@ const affiliate = useState("affiliate");
 const welcomeUrl = computed(() => {
   const params = new URLSearchParams();
   if (currency?.value?.code) params.set("currency", currency.value.code);
-  if (affiliate?.value?.slug) params.set("affiliate", affiliate?.value?.slug);
+  if (affiliate?.value?.slug) params.set("affiliate", affiliate.value.slug);
   if (theme.value === "dark") params.set("theme", "dark");
   return `${mainAppUrl}/welcome?${params}`;
 });
@@ -1449,13 +1457,17 @@ const saveEmailReport = () => {
   emailReportEmail.value = "";
 };
 
-onMounted(() => {
-  emailReportEmailField?.value?.addEventListener("focus", () => {
-    emailReportError.value = "";
-  });
+const autoplay = () => {
+  const agent = window?.navigator?.userAgent;
+  if (agent)
+    return !/bot|crawl|android|webos|iphone|mobile|opera mini/i.test(agent);
 
-  if (process.client && window.sa_event) sa_event("visit_landing");
-});
+  const type = navigator?.connection?.effectiveType;
+  if (type) return !["2g", "slow-2g"].includes(type);
+
+  if (!agent) return false;
+  return true;
+};
 
 const theme = useTheme();
 
@@ -1467,6 +1479,20 @@ const videoSeeks = ref(
 // Update video seeks when theme changes
 watch(theme, (newTheme) => {
   videoSeeks.value = newTheme === "dark" ? videoSeeksDark : videoSeeksLight;
+
+  if (!autoplay()) return;
+
+  if (theme.value === "dark") {
+    previewVideoLight.value?.pause();
+    previewVideoDark.value?.play();
+    seekVideoLight.value?.pause();
+    seekVideoDark.value?.play();
+  } else {
+    previewVideoLight.value?.play();
+    previewVideoDark.value?.pause();
+    seekVideoLight.value?.play();
+    seekVideoDark.value?.pause();
+  }
 });
 
 const themeCookie = useCookie("theme", {
@@ -1495,10 +1521,10 @@ const undoAffiliate = ({ slug } = {}) => {
   affiliateCookie.value = null;
   history?.replaceState?.({}, "", `/?referral=${slug}`);
 };
-</script>
 
-<script>
-function checkWebpFeature(feature, callback) {
+const checkWebpFeature = (feature, callback) => {
+  if (!process.client) return callback(false);
+
   const images = {
     lossy: "UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA",
     lossless: "UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==",
@@ -1516,135 +1542,102 @@ function checkWebpFeature(feature, callback) {
     callback(false);
   };
   img.src = "data:image/webp;base64," + images[feature];
-}
+};
 
-export default {
-  data: () => {
-    return {
-      active: null,
-      lastUpdate: Date.now(),
-      showClickSeekButton: true,
-      paused: false,
-      timer: null,
-      currentHash: null,
-    };
-  },
-  methods: {
-    jumpToTime({ start, translation }) {
-      if (this.theme === "dark") {
-        this.$refs.seekVideoDark.currentTime = start;
-        this.$refs.seekVideoDark.pause();
-        this.$refs.seekVideoLight.pause();
-      } else {
-        this.$refs.seekVideoLight.currentTime = start;
-        this.$refs.seekVideoLight.pause();
-        this.$refs.seekVideoDark.pause();
-      }
+const jumpToTime = ({ start, translation }) => {
+  if (theme.value === "dark") {
+    seekVideoDark.value.currentTime = start;
+    seekVideoDark.value.pause();
+    seekVideoLight.value.pause();
+  } else {
+    seekVideoLight.value.currentTime = start;
+    seekVideoLight.value.pause();
+    seekVideoDark.value.pause();
+  }
 
-      this.paused = true;
-      this.active = translation;
-      this.lastUpdate = Date.now();
-      this.showClickSeekButton = false;
+  paused.value = true;
+  active.value = translation;
+  lastUpdate.value = Date.now();
+  showClickSeekButton.value = false;
 
-      if (this.timer) clearInterval(this.timer);
+  if (timer.value) clearInterval(timer.value);
 
-      this.timer = setTimeout(() => {
-        this.paused = false;
-        if (this.theme === "dark") {
-          this.$refs.seekVideoDark.play();
-        } else {
-          this.$refs.seekVideoLight.play();
-        }
-      }, 1500);
-    },
-    autoplay() {
-      const agent = window?.navigator?.userAgent;
-      if (agent)
-        return !/bot|crawl|android|webos|iphone|mobile|opera mini/i.test(agent);
+  timer.value = setTimeout(() => {
+    paused.value = false;
+    if (theme.value === "dark") {
+      seekVideoDark.value.play();
+    } else {
+      seekVideoLight.play();
+    }
+  }, 1500);
+};
 
-      const type = navigator?.connection?.effectiveType;
-      if (type) return !["2g", "slow-2g"].includes(type);
+const scrollToSeekVideo = (seek) => {
+  seekVideoInstruction.value.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
 
-      if (!agent) return false;
-      return true;
-    },
-    scrollToSeekVideo(seek) {
-      this?.$refs?.seekVideoInstruction.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+  if (seek) {
+    const found = videoSeeks.value?.find(
+      ({ translation }) => seek === translation
+    );
+    if (found) jumpToTime(found);
+  }
+};
 
-      if (seek) {
-        const found = this.videoSeeks?.find(
-          ({ translation }) => seek === translation
-        );
-        if (found) this.jumpToTime(found);
-      }
-    },
-    scrollToHash(hash) {
-      if (!process.client) return;
+const scrollToHash = (hash) => {
+  if (!process.client) return;
 
-      window.location.hash = hash;
-      this.currentHash = hash;
-    },
-  },
-  watch: {
-    theme() {
-      if (!this.autoplay()) return;
+  window.location.hash = hash;
+  currentHash.value = hash;
+};
 
-      if (this.theme === "dark") {
-        this?.$refs?.previewVideoLight?.pause();
-        this?.$refs?.previewVideoDark?.play();
-        this?.$refs?.seekVideoLight?.pause();
-        this?.$refs?.seekVideoDark?.play();
-      } else {
-        this?.$refs?.previewVideoLight?.play();
-        this?.$refs?.previewVideoDark?.pause();
-        this?.$refs?.seekVideoLight?.play();
-        this?.$refs?.seekVideoDark?.pause();
-      }
-    },
-  },
-  mounted() {
-    if (!process.client) return;
+onMounted(() => {
+  emailReportEmailField.value?.addEventListener("focus", () => {
+    emailReportError.value = "";
+  });
 
-    const timeUpdate = ({ target }) => {
-      const { currentTime } = target;
+  if (process.client && window.sa_event) sa_event("visit_landing");
 
-      let found = null;
+  if (!process.client) return;
 
-      for (const seek of this.videoSeeks || []) {
-        if (currentTime > seek.start && currentTime < seek.end)
-          found = seek.translation;
-      }
+  const timeUpdate = ({ target }) => {
+    const { currentTime } = target;
 
-      if (Date.now() - this.lastUpdate > 2000) this.active = found;
-    };
+    let found = null;
 
-    this?.$refs?.seekVideoLight?.addEventListener("timeupdate", timeUpdate);
-    this?.$refs?.seekVideoDark?.addEventListener("timeupdate", timeUpdate);
-
-    if (this.autoplay()) {
-      setTimeout(() => {
-        if (this.theme === "dark") {
-          this?.$refs?.previewVideoDark.play();
-          this?.$refs?.seekVideoDark.play();
-        } else {
-          this?.$refs?.previewVideoLight.play();
-          this?.$refs?.seekVideoLight.play();
-        }
-      }, 1000);
+    for (const seek of videoSeeks.value || []) {
+      if (currentTime > seek.start && currentTime < seek.end)
+        found = seek.translation;
     }
 
-    checkWebpFeature("lossy", (hasSupport) => {
-      document
-        .querySelectorAll("[data-poster-webp][data-poster-png]")
-        .forEach((element) => {
-          element.poster = hasSupport
-            ? element.dataset.posterWebp
-            : element.dataset.posterPng;
-        });
-    });
-  },
-};
+    if (Date.now() - lastUpdate.value > 2000) active.value = found;
+  };
+
+  seekVideoLight.value?.addEventListener("timeupdate", timeUpdate);
+  seekVideoDark.value?.addEventListener("timeupdate", timeUpdate);
+
+  if (autoplay()) {
+    setTimeout(() => {
+      if (theme.value === "dark") {
+        previewVideoDark.value.play();
+        seekVideoDark.value.play();
+      } else {
+        previewVideoLight.value.play();
+        seekVideoLight.value.play();
+      }
+    }, 1000);
+  }
+
+  checkWebpFeature("lossy", (hasSupport) => {
+    document
+      .querySelectorAll("[data-poster-webp][data-poster-png]")
+      .forEach((element) => {
+        element.poster = hasSupport
+          ? element.dataset.posterWebp
+          : element.dataset.posterPng;
+      });
+  });
+});
 </script>
