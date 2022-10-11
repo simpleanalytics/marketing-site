@@ -113,17 +113,17 @@ const hidePopupCookie = useCookie("hide_subscribe_popup", {
 
 const show = ref(false);
 
+const start = Date.now();
+
+const onmouseleave = (event) => {
+  const duration = Date.now() - start;
+  const timerDone = duration > 20 * 1000;
+  if (timerDone && event.clientY < 10 && event.clientX > 150) show.value = true;
+};
+
 if (process.client && !hidePopupCookie.value) {
-  const start = Date.now();
-
-  const onmouseleave = function (event) {
-    var duration = Date.now() - start;
-    if (event.clientY < 10 && event.clientX > 150 && duration > 20 * 1000)
-      show.value = true;
-  };
-
   if (window.innerWidth >= 1024) {
-    document.body.addEventListener("mouseleave", onmouseleave);
+    document.body.addEventListener("mouseleave", onmouseleave, false);
   } else {
     setTimeout(() => (show.value = true), 60 * 1000);
   }
@@ -134,7 +134,7 @@ const hide = () => {
   hidePopupCookie.value = true;
 
   if (process.client)
-    document.body.removeEventListener("mouseleave", onmouseleave);
+    document.body.removeEventListener("mouseleave", onmouseleave, false);
 };
 
 const BASE_URL =
