@@ -1459,9 +1459,15 @@ onMounted(() => {
 
 const theme = useTheme();
 
+// Initiate video seeks
 const videoSeeks = ref(
   theme.value === "dark" ? videoSeeksDark : videoSeeksLight
 );
+
+// Update video seeks when theme changes
+watch(theme, (newTheme) => {
+  videoSeeks.value = newTheme === "dark" ? videoSeeksDark : videoSeeksLight;
+});
 
 const themeCookie = useCookie("theme", {
   secure: process.env.NODE_ENV === "production",
@@ -1569,7 +1575,7 @@ export default {
       });
 
       if (seek) {
-        const found = this.videoSeeks.find(
+        const found = this.videoSeeks?.find(
           ({ translation }) => seek === translation
         );
         if (found) this.jumpToTime(found);
