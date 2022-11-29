@@ -178,16 +178,6 @@
           </li>
           <li
             class="flex space-x-3 text-sm text-gray-500"
-            v-if="tier.includedFeatures.events"
-          >
-            <CheckIcon
-              class="flex-shrink-0 h-5 w-5 text-green-500"
-              aria-hidden="true"
-            />
-            <span v-html="$t('pricing.features.events')"></span>
-          </li>
-          <li
-            class="flex space-x-3 text-sm text-gray-500"
             v-if="tier.includedFeatures.raw_level_export"
           >
             <CheckIcon
