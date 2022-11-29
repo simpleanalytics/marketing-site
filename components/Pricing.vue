@@ -54,7 +54,8 @@
           >
           <span class="text-4xl font-extrabold text-gray-600 dark:text-gray-300"
             >{{ currency?.sign
-            }}{{ monthly ? tier.priceMonthly : tier.priceYearly }}</span
+            }}{{ monthly ? tier.priceMonthly : tier.priceYearly
+            }}<span v-if="tier.from">+</span></span
           >
           {{ " " }}
           <span class="text-base font-medium text-gray-500"
@@ -65,7 +66,9 @@
             }}{{ monthly ? tier.priceMonthly * 12 : tier.priceYearly * 12 }}
             {{ $t("pricing.yearly") }}
           </span>
-          <span class="block text-gray-300 mt-2" v-else>&nbsp;</span>
+          <span class="block text-gray-300 mt-2" v-else>{{
+            $t("pricing.depending_on_usage")
+          }}</span>
         </p>
         <a
           v-if="tier.name.includes('enterprise')"
