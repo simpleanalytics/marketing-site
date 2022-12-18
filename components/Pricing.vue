@@ -203,7 +203,7 @@
 </template>
 
 <script setup>
-import { CheckIcon } from "@heroicons/vue/solid";
+import { CheckIcon } from "@heroicons/vue/24/solid";
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
@@ -278,11 +278,11 @@ const clickEnterprise = () => {
   const url = `${mainAppUrl}/contact?${params}`;
 
   // Send event before redirecting to contact page
-  if (process.client && window.sa_event && window.sa_loaded) {
+  if (window.sa_event && window.sa_loaded) {
     window.sa_event("click_enterprise", () => {
       window.location.href = url;
     });
-  } else if (process.client) {
+  } else {
     window.location.href = url;
   }
 };
@@ -298,11 +298,11 @@ const goToWelcome = ({ plan, interval }) => {
   const url = `${mainAppUrl}/welcome?${params}`;
 
   // Send event before redirecting to welcome page
-  if (process.client && window.sa_event && window.sa_loaded) {
+  if (window.sa_event && window.sa_loaded) {
     window.sa_event("click_buy", { currency, plan, interval }, () => {
       window.location.href = url;
     });
-  } else if (process.client) {
+  } else {
     window.location.href = url;
   }
 };

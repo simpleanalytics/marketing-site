@@ -1,15 +1,15 @@
-import { useCookies } from "h3";
+import { getCookie } from "h3";
 
 export const useDefaultTheme = () => {
   const darkMode = ref();
+  const { ssrContext } = useNuxtApp();
 
-  if (process.server) {
-    const nuxtApp = useNuxtApp();
-
-    const sent = nuxtApp.ssrContext?.res?.headersSent;
+  if (process.server && ssrContext) {
+    const event = useRequestEvent();
+    const sent = event.node?.res?.headersSent;
     if (sent) return darkMode;
 
-    const { theme } = useCookies(nuxtApp.ssrContext?.req);
+    const theme = getCookie(event, "theme");
     if (theme) darkMode.value = theme;
   } else if (process.client) {
     const themeCookie = useCookie("theme");

@@ -1,18 +1,22 @@
-import { defineNuxtConfig } from "nuxt";
+import { defineNuxtConfig } from "nuxt/config";
+
+const baseUrl = process.env.BASE_URL || "https://www.simpleanalytics.com";
 
 const cdnURL =
   process.env.DEPLOYING === "true"
     ? "https://www-cdn.simpleanalytics.com/"
-    : null;
+    : undefined;
 
-// https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
+// https://nuxt.com/docs/migration/configuration/#nuxtconfig
 export default defineNuxtConfig({
+  experimental: {
+    treeshakeClientOnly: true,
+  },
   nitro: {
     timing: false,
   },
   build: {
     transpile: ["@heroicons/vue"],
-    publicPath: "",
   },
   app: {
     baseURL: "/",
@@ -23,19 +27,28 @@ export default defineNuxtConfig({
       viewport: "width=device-width, initial-scale=1",
     },
   },
-  modules: ["@nuxtjs/tailwindcss"],
-  buildModules: ["@intlify/nuxt3"],
-  compilerOptions: {
-    isCustomElement: (tag) => {
-      return tag.startsWith("Nuxt");
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
+  i18n: {
+    baseUrl,
+    locales: [
+      { code: "en", iso: "en-US", file: "en.json" },
+      { code: "nl", iso: "nl-NL", file: "nl.json" },
+    ],
+    strategy: "prefix_except_default",
+    defaultLocale: "en",
+    langDir: "locales/",
+    detectBrowserLanguage: {
+      alwaysRedirect: false,
+      fallbackLocale: "",
+      redirectOn: "root",
+      useCookie: true,
+      cookieCrossOrigin: false,
+      cookieDomain: null,
+      cookieKey: "i18n_redirected",
+      cookieSecure: false,
     },
-  },
-  intlify: {
     vueI18n: {
-      locale: "en",
-      fallbackLocale: "en",
-      formatFallbackMessages: true,
+      legacy: false,
     },
-    localeDir: "locales",
   },
 });

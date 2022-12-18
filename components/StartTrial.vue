@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import { CheckIcon } from "@heroicons/vue/solid";
+import { CheckIcon } from "@heroicons/vue/24/solid";
 
 const mainAppUrl =
   process.env.NODE_ENV === "production"

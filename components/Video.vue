@@ -8,7 +8,7 @@
       :class="playing ? 'opacity-0 hover-hover:group-hover:opacity-100' : ''"
     >
       <div class="grow basis-1/2">
-        <ArrowsExpandIcon
+        <ArrowsPointingOutIcon
           @click="playFullScreen()"
           class="mx-auto w-16 fill-white dark:fill-gray-200 drop-shadow-lg opacity-0 hover-hover:group-hover:opacity-100 transition cursor-pointer"
         />
@@ -47,14 +47,19 @@
 
 <script setup>
 import {
-  ArrowSmRightIcon,
+  ArrowSmallRightIcon,
   CheckIcon,
   PlayIcon,
   PauseIcon,
-  ArrowCircleRightIcon,
-} from "@heroicons/vue/solid";
+  ArrowRightCircleIcon,
+} from "@heroicons/vue/24/solid";
 
-import { ShieldCheckIcon, ChevronDoubleDownIcon } from "@heroicons/vue/outline";
+import {
+  ShieldCheckIcon,
+  ChevronDoubleDownIcon,
+  ArrowsPointingOutIcon,
+} from "@heroicons/vue/24/outline";
+
 import ArrowsExpandIcon from "./images/ArrowsExpandIcon";
 
 const props = defineProps(["width", "height", "poster", "color", "autoplay"]);

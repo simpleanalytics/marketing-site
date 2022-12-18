@@ -264,7 +264,7 @@
         <div class="basis-2/4 mx-3">
           <ol class="text-left z-20 relative max-w-[400px]">
             <li class="flex my-3">
-              <EyeOffIcon
+              <EyeSlashIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
@@ -297,7 +297,7 @@
               </p>
             </li>
             <li class="flex my-3">
-              <GlobeIcon
+              <GlobeAmericasIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
@@ -308,7 +308,7 @@
               </p>
             </li>
             <li class="flex my-3">
-              <TableIcon
+              <TableCellsIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
@@ -401,7 +401,7 @@
           @click="jumpToTime(seek)"
           :key="seek.translation"
         >
-          <ArrowCircleRightIcon
+          <ArrowRightCircleIcon
             v-if="active === seek.translation"
             class="w-4 mr-1"
           />
@@ -1183,7 +1183,7 @@
           </a>
         </p>
 
-        <EyeOffIcon
+        <EyeSlashIcon
           class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
         />
 
@@ -1235,7 +1235,7 @@
           v-html="$t('home.why_most_privacy.personal_data.html', tColorsRed)"
         ></div>
 
-        <GlobeIcon
+        <GlobeAmericasIcon
           class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
         />
 
@@ -1250,7 +1250,7 @@
           v-html="$t('home.why_most_privacy.eu_based.html')"
         ></div>
 
-        <TableIcon
+        <TableCellsIcon
           class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
         />
 
@@ -1308,27 +1308,26 @@ import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
 import {
-  ArrowSmRightIcon,
+  ArrowSmallRightIcon,
   CheckIcon,
   PlayIcon,
   PauseIcon,
-  ArrowCircleRightIcon,
-} from "@heroicons/vue/solid";
+  ArrowRightCircleIcon,
+} from "@heroicons/vue/24/solid";
 
 import {
   ShieldCheckIcon,
   ChevronDoubleDownIcon,
   ChevronDoubleUpIcon,
-  ArrowsExpandIcon,
   MoonIcon,
   SunIcon,
   XCircleIcon,
-  EyeOffIcon,
+  EyeSlashIcon,
   FingerPrintIcon,
   KeyIcon,
-  GlobeIcon,
-  TableIcon,
-} from "@heroicons/vue/outline";
+  GlobeAmericasIcon,
+  TableCellsIcon,
+} from "@heroicons/vue/24/outline";
 
 definePageMeta({
   title: "The privacy-first Google Analytics alternative",

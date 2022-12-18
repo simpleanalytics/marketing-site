@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col flex-wrap sm:flex-row -mt-8 -mx-6">
     <div class="basis-1/2">
-      <CursorClickIcon
+      <CursorArrowRaysIcon
         class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
       />
       <p class="mx-6 leading-loose text-center text-red-400 dark:text-red-600">
@@ -38,7 +38,7 @@
       ></p>
     </div>
     <div class="basis-1/2">
-      <TrendingUpIcon
+      <ArrowTrendingUpIcon
         class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
       />
       <p class="leading-loose text-center mx-6 text-red-400 dark:text-red-600">
@@ -58,7 +58,7 @@
         v-html="$t('pricing_faq.traffic_change.description_2')"
       ></p>
 
-      <BanIcon
+      <NoSymbolIcon
         class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
       />
       <p class="leading-loose text-center mx-6 text-red-400 dark:text-red-600">
@@ -84,12 +84,12 @@
 <script setup>
 import {
   ShieldExclamationIcon,
-  BanIcon,
+  NoSymbolIcon,
   CreditCardIcon,
-  TrendingUpIcon,
-  MailOpenIcon,
-  CursorClickIcon,
-} from "@heroicons/vue/outline";
+  ArrowTrendingUpIcon,
+  EnvelopeOpenIcon,
+  CursorArrowRaysIcon,
+} from "@heroicons/vue/24/outline";
 
 import AverageChart from "./images/AverageChart.vue";
 

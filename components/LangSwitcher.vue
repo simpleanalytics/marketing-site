@@ -76,7 +76,7 @@ import {
   ListboxOption,
   ListboxOptions,
 } from "@headlessui/vue";
-import { CheckIcon, SelectorIcon, ChevronDownIcon } from "@heroicons/vue/solid";
+import { CheckIcon, ChevronDownIcon } from "@heroicons/vue/24/solid";
 
 import { useI18n } from "vue-i18n";
 const i18n = useI18n();

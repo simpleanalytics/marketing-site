@@ -1,5 +1,3 @@
-import { useCookie } from "h3";
-
 const MAIN_URL =
   process.env.NODE_ENV === "production"
     ? "https://simpleanalytics.com"

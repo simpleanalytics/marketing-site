@@ -84,7 +84,9 @@
                   target="_blank"
                 >
                   {{ subtitle
-                  }}<ArrowSmRightIcon class="inline ml-1 w-4 fill-blue-500" />
+                  }}<ArrowSmallRightIcon
+                    class="inline ml-1 w-4 fill-blue-500"
+                  />
                 </a>
                 <div
                   v-else
@@ -102,7 +104,7 @@
 </template>
 
 <script setup>
-import { ArrowSmRightIcon } from "@heroicons/vue/solid";
+import { ArrowSmallRightIcon } from "@heroicons/vue/24/solid";
 
 const props = defineProps([
   "logo",

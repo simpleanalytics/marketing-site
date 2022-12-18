@@ -27,10 +27,6 @@
             href="https://scripts.simpleanalyticscdn.com/"
             crossorigin
           />
-          <Script
-            children="window.sa_event=window.sa_event||function(){var
-          a=[].slice.call(arguments);window.sa_event.q?window.sa_event.q.push(a):window.sa_event.q=[a]}"
-          />
           <Link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -134,7 +130,7 @@
                         class="bg-red-50 dark:bg-gray-700 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover-hover:hover:text-gray-500 hover-hover:hover:bg-gray-100"
                       >
                         <span class="sr-only">Open main menu</span>
-                        <MenuIcon
+                        <Bars3Icon
                           class="h-6 w-6 stroke-red-500 dark:stroke-gray-400"
                           aria-hidden="true"
                         />
@@ -330,7 +326,7 @@
                         class="bg-white dark:bg-gray-500 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover-hover:hover:text-gray-500 hover-hover:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-100"
                       >
                         <span class="sr-only">Close menu</span>
-                        <XIcon
+                        <XMarkIcon
                           class="h-6 w-6 stroke-gray-100 dark:stroke-gray-300"
                           aria-hidden="true"
                         />
@@ -429,7 +425,7 @@
                     href="https://simpleanalytics.com/no-tracking"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
-                    <EyeOffIcon
+                    <EyeSlashIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>{{ $t("home.footer.we_dont_track_you") }}</span>
@@ -488,7 +484,7 @@
                     href="https://docs.simpleanalytics.com/"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
-                    <SupportIcon
+                    <LifebuoyIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>{{ $t("home.footer.documentation") }}</span>
@@ -510,7 +506,7 @@
                     href="https://simpleanalytics.com/roadmap"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
-                    <LocationMarkerIcon
+                    <MapPinIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>{{ $t("home.footer.roadmap") }}</span>
@@ -532,7 +528,7 @@
                     href="https://status.simpleanalytics.com/"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
-                    <ClipboardCheckIcon
+                    <ClipboardDocumentCheckIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
                     />
                     <span>{{ $t("home.footer.status") }}</span>
@@ -701,26 +697,21 @@
 import { useI18n } from "vue-i18n";
 
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
-import { ChevronDownIcon } from "@heroicons/vue/solid";
+import { ChevronDownIcon } from "@heroicons/vue/24/solid";
 import {
-  MenuIcon,
-  XIcon,
-  BookmarkAltIcon,
-  CalendarIcon,
-  ShieldCheckIcon,
-  TerminalIcon,
+  Bars3Icon,
+  XMarkIcon,
+  CommandLineIcon,
   ScaleIcon,
-  SupportIcon,
-  MoonIcon,
-  SunIcon,
+  LifebuoyIcon,
   FingerPrintIcon,
-  EyeOffIcon,
+  EyeSlashIcon,
   CreditCardIcon,
   BookOpenIcon,
-  LocationMarkerIcon,
-  ClipboardCheckIcon,
+  MapPinIcon,
+  ClipboardDocumentCheckIcon,
   NewspaperIcon,
-} from "@heroicons/vue/outline";
+} from "@heroicons/vue/24/outline";
 
 import MenuLink from "./components/MenuLink.vue";
 import ExternalLink from "./components/ExternalLink.vue";
@@ -736,6 +727,8 @@ import ArrowLink from "./components/ArrowLink.vue";
 import MoonSun from "./components/MoonSun.vue";
 
 import { getPathFromBlogUrl, BLOG_URL, labelAgo } from "./utils/blog";
+
+const localePath = useLocalePath();
 
 const i18n = useI18n();
 const { t } = i18n;
@@ -757,7 +750,7 @@ const resources = [
     name: "nav.resources_dropdown.api.title",
     description: "nav.resources_dropdown.api.description",
     href: "https://docs.simpleanalytics.com/api",
-    icon: TerminalIcon,
+    icon: CommandLineIcon,
   },
 ];
 

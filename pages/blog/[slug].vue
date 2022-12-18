@@ -80,7 +80,7 @@
         v-if="show"
       >
         <a @click="hide" class="absolute top-0 right-0 p-4 group">
-          <XIcon
+          <XMarkIcon
             class="h-8 w-8 stroke-gray-100 group-hover:stroke-white dark:stroke-gray-400 dark:group-hover:stroke-gray-200"
             aria-hidden="true"
           />
@@ -92,9 +92,9 @@
 </template>
 
 <script setup>
-import { UploadIcon } from "@heroicons/vue/solid";
+import { UploadIcon } from "@heroicons/vue/24/solid";
 import SubscribeForm from "~/components/SubscribeForm.vue";
-import { XIcon } from "@heroicons/vue/outline";
+import { XMarkIcon } from "@heroicons/vue/24/outline";
 
 import { createError } from "h3";
 import { useI18n } from "vue-i18n";
