@@ -61,7 +61,7 @@
             name="og:image:alt"
             :content="`Image for ${route.meta.title}`"
           />
-          <Meta name="twitter:url" content="https://simpleanalytics.com" />
+          <Meta name="twitter:url" :content="BASE_URL" />
           <Meta
             v-if="route.meta.title"
             name="twitter:title"
@@ -109,7 +109,10 @@
                   <div
                     class="flex items-center justify-between w-full md:w-auto"
                   >
-                    <NuxtLink href="/" class="flex items-center">
+                    <NuxtLink
+                      :to="localePath('index')"
+                      class="flex items-center"
+                    >
                       <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />
                       <span
                         class="sm:hidden lg:block ml-3 text-xl sm:text-2xl text-gray-500 dark:text-gray-400"
@@ -143,14 +146,14 @@
                   <div v-for="item in navigation" :key="item.name">
                     <ExternalLink
                       :href="item.href"
-                      v-if="!item.popover && /^https?:\/\//.test(item.href)"
+                      v-if="!item.popover && item.href"
                       class="font-medium text-gray-500 hover-hover:hover:text-gray-600"
                     >
                       {{ $t(item.translation) }}
                     </ExternalLink>
                     <NuxtLink
                       v-else-if="!item.popover"
-                      :to="item.href"
+                      :to="localePath(item.to)"
                       class="font-medium text-gray-500 hover-hover:hover:text-gray-600"
                     >
                       {{ $t(item.translation) }}
@@ -195,7 +198,11 @@
                                 "
                                 v-for="item in resources"
                                 :key="item.name"
-                                :href="item.href"
+                                :href="
+                                  /^https?:\/\//.test(item.href)
+                                    ? item.href
+                                    : localePath(item.href)
+                                "
                                 class="-m-3 p-3 rounded flex items-start hover-hover:hover:bg-blue-100 dark:hover-hover:hover:bg-gray-900 transition ease-in-out duration-150"
                               >
                                 <component
@@ -249,7 +256,7 @@
                                   >
                                     <PopoverButton
                                       :as="MenuLink"
-                                      :href="post.path"
+                                      :href="localePath(post.path)"
                                       class="font-medium hover-hover:hover:text-gray-900 dark:hover-hover:hover:text-gray-500 transition ease-in-out duration-150"
                                     >
                                       <span
@@ -264,7 +271,7 @@
                               <div class="mt-5 text-sm">
                                 <PopoverButton
                                   :as="MenuLink"
-                                  href="/blog"
+                                  :href="localePath('blog')"
                                   class="font-medium text-red-500 hover-hover:hover:text-red-500 transition ease-in-out duration-150"
                                 >
                                   {{ $t("home.view_all_posts") }}
@@ -492,7 +499,7 @@
                 </li>
                 <li>
                   <NuxtLink
-                    to="/blog"
+                    :to="localePath('blog')"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <BookOpenIcon
@@ -514,7 +521,7 @@
                 </li>
                 <li>
                   <NuxtLink
-                    href="/pricing"
+                    :to="localePath('pricing')"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <CreditCardIcon
@@ -547,7 +554,11 @@
               <ul class="list-none mb-0">
                 <li>
                   <NuxtLink
-                    to="/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics"
+                    :to="
+                      localePath(
+                        '/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics'
+                      )
+                    "
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <GoogleAnalyticsIcon
@@ -558,7 +569,11 @@
                 </li>
                 <li>
                   <NuxtLink
-                    to="/blog/why-simple-analytics-is-a-great-alternative-to-matomo"
+                    :to="
+                      localePath(
+                        '/blog/why-simple-analytics-is-a-great-alternative-to-matomo'
+                      )
+                    "
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <MatomoIcon
@@ -569,7 +584,11 @@
                 </li>
                 <li>
                   <NuxtLink
-                    to="/blog/why-simple-analytics-is-a-great-alternative-to-plausible"
+                    :to="
+                      localePath(
+                        '/blog/why-simple-analytics-is-a-great-alternative-to-plausible'
+                      )
+                    "
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <PlausibleIcon
@@ -591,7 +610,11 @@
                 </li>
                 <li>
                   <NuxtLink
-                    to="/blog/why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics"
+                    :to="
+                      localePath(
+                        '/blog/why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics'
+                      )
+                    "
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
                   >
                     <CloudflareIcon
@@ -634,7 +657,7 @@
                   :key="post.path"
                 >
                   <NuxtLink
-                    :to="{ path: post.path }"
+                    :to="localePath(post.path)"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded-md block group text-left"
                   >
                     <span
@@ -726,7 +749,7 @@ import PlausibleIcon from "./components/icons/Plausible.vue";
 import ArrowLink from "./components/ArrowLink.vue";
 import MoonSun from "./components/MoonSun.vue";
 
-import { getPathFromBlogUrl, BLOG_URL, labelAgo } from "./utils/blog";
+import { getPathFromBlogUrl, labelAgo } from "./utils/blog";
 
 const localePath = useLocalePath();
 
@@ -758,10 +781,9 @@ const defaultDescription =
   "Simple Analytics is the privacy-first Google Analytics alternative that is 100% GDPR compliant.";
 
 const navigation = [
-  { translation: "nav.pricing", href: "/pricing" },
+  { translation: "nav.pricing", to: "pricing" },
   {
     translation: "nav.resources",
-    href: "#",
     popover: true,
     mobile: {
       translation: "nav.blog",
@@ -773,14 +795,9 @@ const navigation = [
 ];
 
 const route = useRoute();
-const BASE_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://www.simpleanalytics.com"
-    : "http://localhost:3005";
-const MAIN_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://simpleanalytics.com"
-    : "http://localhost:3000";
+
+const config = useRuntimeConfig();
+const { BASE_URL, MAIN_URL, CDN_URL, BLOG_URL } = config.public;
 
 const generateParams = new URLSearchParams({
   url: BASE_URL + route.path,
@@ -822,18 +839,16 @@ const link = [
 ];
 
 if (process.env.NODE_ENV === "production") {
-  const cdnURL = "https://www-cdn.simpleanalytics.com";
-
   link.push(
     {
       rel: "preload",
-      href: `${cdnURL}/fonts/space-grotesk/regular.woff2`,
+      href: `${CDN_URL}/fonts/space-grotesk/regular.woff2`,
       as: "font",
       crossorigin: "anonymous",
     },
     {
       rel: "preload",
-      href: `${cdnURL}/fonts/space-grotesk/medium.woff2`,
+      href: `${CDN_URL}/fonts/space-grotesk/medium.woff2`,
       as: "font",
       crossorigin: "anonymous",
     }
@@ -841,14 +856,15 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const head = {
-  title: route.meta.title?.includes("Simple Analytics")
-    ? route.meta.title
-    : route.meta.title
-    ? `${route.meta.title} - Simple Analytics`
-    : "Simple Analytics",
+  title: () =>
+    route.meta.title?.includes("Simple Analytics")
+      ? route.meta.title
+      : route.meta.title
+      ? `${route.meta.title} - Simple Analytics`
+      : "Simple Analytics",
   link,
   script: scripts,
-  meta: [
+  meta: () => [
     {
       name: "description",
       content: route.meta.description || defaultDescription,
@@ -914,12 +930,6 @@ const recentPosts = computed(() => {
 const year = new Date().getFullYear();
 
 // Code to create welcome URL
-// TODO: move this to a better place
-const mainAppUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://simpleanalytics.com"
-    : "http://localhost:3000";
-
 const currency = useState("currency");
 const affiliate = useState("affiliate");
 
@@ -928,6 +938,6 @@ const welcomeUrl = computed(() => {
   if (currency?.value?.code) params.set("currency", currency.value.code);
   if (affiliate?.value?.slug) params.set("affiliate", affiliate?.value?.slug);
   if (theme.value === "dark") params.set("theme", "dark");
-  return `${mainAppUrl}/welcome?${params}`;
+  return `${MAIN_URL}/welcome?${params}`;
 });
 </script>

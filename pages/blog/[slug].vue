@@ -60,7 +60,7 @@
       v-if="post?.article"
     >
       <a @click="scrollToTop" class="inline-flex items-center group">
-        <UploadIcon
+        <CloudArrowUpIcon
           class="h-5 mr-1 inline dark:hover-hover:group-hover:fill-red-700 hover-hover:group-hover:fill-red-600"
         />
         <span>{{ $t("blog.back_to_top") }}</span>
@@ -92,7 +92,7 @@
 </template>
 
 <script setup>
-import { UploadIcon } from "@heroicons/vue/24/solid";
+import { CloudArrowUpIcon } from "@heroicons/vue/24/solid";
 import SubscribeForm from "~/components/SubscribeForm.vue";
 import { XMarkIcon } from "@heroicons/vue/24/outline";
 
@@ -137,15 +137,8 @@ const hide = () => {
     document.body.removeEventListener("mouseleave", onmouseleave, false);
 };
 
-const BASE_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://www.simpleanalytics.com"
-    : "http://localhost:3005";
-
-const MAIN_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://simpleanalytics.com"
-    : "http://localhost:3000";
+const config = useRuntimeConfig();
+const { BASE_URL, MAIN_URL, BLOG_URL } = config.public;
 
 const { pending, data: post } = await useAsyncData(
   `blog-${route.params.slug}`,
@@ -271,10 +264,7 @@ const scrollToTop = () => {
 };
 
 if (!post?.value?.article && process.server) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: t("blog.article_not_found"),
-  });
+  setResponseStatus(404, "Page Not Found");
 }
 
 const svgUp = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-4 inline dark:hover-hover:group-hover:fill-red-700 hover-hover:group-hover:fill-red-600"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>`;
@@ -282,7 +272,7 @@ const svgUp = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill=
 const article = computed(() => {
   if (!post?.value?.article) return null;
 
-  return replaceInlineImages(post.value.article)
+  return replaceInlineImages(BLOG_URL, post.value.article)
     .replace(/preload="auto"/g, 'preload="auto" controls="controls"')
     .replace(/&#8617;/g, svgUp)
     .replace(/class="split"/g, 'class="flex space-x-8"');

@@ -1,7 +1,6 @@
 import { Reader } from "@maxmind/geoip2-node";
 import { readFileSync } from "fs";
 import { resolve } from "path";
-// import { useCookie } from "h3";
 
 const dbBuffer = readFileSync(resolve("server/data/geolite-country.mmdb"));
 
@@ -45,16 +44,7 @@ const euroCountries = [
   "li",
 ];
 
-// const parseCookie = (str) =>
-//   str
-//     .split(";")
-//     .map((v) => v.split("="))
-//     .reduce((acc, v) => {
-//       acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
-//       return acc;
-//     }, {});
-
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(() => {
   const usd = { sign: "$", code: "usd" };
   const gbp = { sign: "£", code: "gbp" };
   const eur = { sign: "€", code: "eur" };
@@ -78,16 +68,8 @@ export default defineNuxtPlugin((nuxtApp) => {
     }
   };
 
-  const { req: request } = nuxtApp.ssrContext;
-  // const { cookie } = useRequestHeaders(["cookie"]);
-  // const locale = cookie ? parseCookie(cookie)?.locale : null;
-  // if (locale) return saveCountry(locale);
-
-  const ip =
-    request?.headers["x-real-ip"] ||
-    request?.headers["x-forwarded-for"] ||
-    request?.connection?.remoteAddress ||
-    request?.connection?.socket?.remoteAddress;
+  const headers = useRequestHeaders();
+  const ip = headers["x-real-ip"] || headers["x-forwarded-for"];
 
   if (ip && dbBuffer) {
     try {

@@ -34,13 +34,14 @@
             class="flex w-full flex-col shadow-xl overflow-hidden rounded-lg bg-blue-100 dark:bg-gray-700"
           >
             <div>
-              <NuxtLink :to="post.path">
+              <NuxtLink :to="localePath(post.path)">
                 <img
                   v-if="post.cover"
                   :src="post.cover"
                   :alt="post.title"
                   style="aspect-ratio: 1200/628"
                   class="object-cover object-center w-full"
+                  loading="lazy"
                 />
                 <div
                   v-else
@@ -52,14 +53,14 @@
             <div class="px-6 py-4 mt-2 flex-grow flex flex-col">
               <h2 class="text-2xl font-semibold">
                 <NuxtLink
-                  :to="post.path"
+                  :to="localePath(post.path)"
                   class="dark:text-gray-300 text-gray-600"
                 >
                   {{ post.title }}
                 </NuxtLink>
               </h2>
               <NuxtLink
-                :to="post.path"
+                :to="localePath(post.path)"
                 class="block mt-3 mb-8 leading-relaxed text-md text-gray-700 dark:text-gray-300"
               >
                 {{
@@ -127,17 +128,10 @@
 import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
 import SubscribeForm from "~/components/SubscribeForm.vue";
 
-import {
-  getPathFromBlogUrl,
-  BLOG_URL,
-  labelAgo,
-  getAuthorFromSlug,
-} from "~/utils/blog";
+import { getPathFromBlogUrl, labelAgo, getAuthorFromSlug } from "~/utils/blog";
 
-const MAIN_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://simpleanalytics.com"
-    : "http://localhost:3000";
+const config = useRuntimeConfig();
+const { BLOG_URL } = config.public;
 
 const { pending, data: recentPostsAll } = useLazyFetch(
   `${BLOG_URL}/recent-posts.json`

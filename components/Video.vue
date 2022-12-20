@@ -10,7 +10,7 @@
       <div class="grow basis-1/2">
         <ArrowsPointingOutIcon
           @click="playFullScreen()"
-          class="mx-auto w-16 fill-white dark:fill-gray-200 drop-shadow-lg opacity-0 hover-hover:group-hover:opacity-100 transition cursor-pointer"
+          class="mx-auto w-16 stroke-white dark:stroke-gray-200 drop-shadow-lg opacity-0 hover-hover:group-hover:opacity-100 transition cursor-pointer"
         />
       </div>
       <div class="grow-0">
@@ -94,25 +94,22 @@ const playFullScreen = () => {
 const autoPlay = () => {
   if (!props.autoplay) return false;
 
+  const hasSpeed = process.client && navigator?.connection?.effectiveType;
+  const isSlow = hasSpeed ? ["2g", "slow-2g"].includes(hasSpeed) : false;
+  if (isSlow) return false;
+
   let agent;
 
   if (process.client) {
     agent = window?.navigator?.userAgent;
   } else if (process.server) {
-    const nuxtApp = useNuxtApp();
-    agent = nuxtApp.ssrContext?.req?.headers?.["user-agent"];
-  }
-
-  if (agent)
-    return !/bot|crawl|android|webos|iphone|mobile|opera mini/i.test(agent);
-
-  if (process.client) {
-    const type = navigator?.connection?.effectiveType;
-    if (type) return !["2g", "slow-2g"].includes(type);
+    const headers = useRequestHeaders();
+    agent = headers?.["user-agent"];
   }
 
   if (!agent) return false;
-  return true;
+
+  return !/bot|crawl|android|webos|iphone|mobile|opera mini/i.test(agent);
 };
 
 onMounted(() => {

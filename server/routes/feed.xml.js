@@ -1,4 +1,4 @@
-import { BLOG_URL, getAuthorFromSlug, rfc822date } from "~~/utils/blog";
+import { getAuthorFromSlug, rfc822date } from "~~/utils/blog";
 
 const sanitize = (text = "") => {
   return text
@@ -13,6 +13,9 @@ const sanitize = (text = "") => {
 const regex = new RegExp("^ +", "gm");
 
 export default defineEventHandler(async (event) => {
+  const config = useRuntimeConfig();
+  const { BLOG_URL } = config.public;
+
   event.res.setHeader("Content-Type", "application/xml");
 
   const posts = await $fetch(`${BLOG_URL}/posts.json`);

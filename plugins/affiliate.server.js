@@ -1,23 +1,22 @@
-const MAIN_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://simpleanalytics.com"
-    : "http://localhost:3000";
-
 export default defineNuxtPlugin(async (nuxtApp) => {
+  const config = useRuntimeConfig();
+  const { BASE_URL, MAIN_URL } = config.public;
+
   const affiliate = useState("affiliate");
 
   const { ssrContext } = nuxtApp;
-  const { searchParams } = new URL(ssrContext?.req?.url, MAIN_URL);
+  const { searchParams } = new URL(ssrContext?.url, BASE_URL);
   const referral = searchParams.get("referral");
-  const cookie = useCookie(ssrContext?.req, "affiliate");
+  const cookie = useCookie("affiliate");
 
-  const slug = referral || cookie;
+  const slug = referral || cookie.value;
   affiliate.value = null;
 
   if (slug) {
     try {
       const url = `${MAIN_URL}/api/referral-validator?referral=${slug}`;
       const data = await $fetch(url);
+
       affiliate.value = {
         slug: data.slug || slug,
         name: data.name,

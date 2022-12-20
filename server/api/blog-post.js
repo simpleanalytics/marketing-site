@@ -1,6 +1,9 @@
-import { BLOG_URL, getAuthorFromSlug, getPathFromBlogUrl } from "~~/utils/blog";
+import { getAuthorFromSlug, getPathFromBlogUrl } from "~~/utils/blog";
 
 export default defineEventHandler(async (event) => {
+  const config = useRuntimeConfig();
+  const { BLOG_URL } = config.public;
+
   const { searchParams } = new URL(event.req.url, "https://example.com");
   const slug = searchParams.get("slug");
 

@@ -1566,7 +1566,7 @@ const jumpToTime = ({ start, translation }) => {
     if (theme.value === "dark") {
       seekVideoDark.value.play();
     } else {
-      seekVideoLight.play();
+      seekVideoLight.value.play();
     }
   }, 1500);
 };
@@ -1620,11 +1620,11 @@ onMounted(() => {
   if (autoplay()) {
     setTimeout(() => {
       if (theme.value === "dark") {
-        previewVideoDark.value.play();
-        seekVideoDark.value.play();
+        previewVideoDark.value?.play();
+        seekVideoDark.value?.play();
       } else {
-        previewVideoLight.value.play();
-        seekVideoLight.value.play();
+        previewVideoLight.value?.play();
+        seekVideoLight.value?.play();
       }
     }, 1000);
   }
