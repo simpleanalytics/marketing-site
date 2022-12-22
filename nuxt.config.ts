@@ -2,11 +2,30 @@ import { defineNuxtConfig } from "nuxt/config";
 
 const isProduction = process.env.NODE_ENV === "production";
 
+const locales = [
+  {
+    code: "en",
+    iso: "en-US",
+    file: "en.json",
+    name: "English",
+    flag: "US",
+  },
+  {
+    code: "nl",
+    iso: "nl-NL",
+    file: "nl.json",
+    name: "Nederlands",
+    flag: "NL",
+  },
+];
+
+const BASE_URL = isProduction
+  ? "https://www.simpleanalytics.com"
+  : "http://localhost:3005";
+
 const env = {
   NODE_ENV: process.env.NODE_ENV,
-  BASE_URL: isProduction
-    ? "https://www.simpleanalytics.com"
-    : "http://localhost:3005",
+  BASE_URL,
   MAIN_URL: isProduction
     ? "https://simpleanalytics.com"
     : "http://localhost:3000",
@@ -17,6 +36,7 @@ const env = {
   BLOG_URL: isProduction
     ? "https://blogold.simpleanalytics.com"
     : "http://localhost:4001",
+  LOCALES: locales,
 };
 
 // https://nuxt.com/docs/migration/configuration/#nuxtconfig
@@ -48,23 +68,8 @@ export default defineNuxtConfig({
   },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
   i18n: {
-    // baseUrl: env.BASE_URL,
-    locales: [
-      {
-        code: "en",
-        iso: "en-US",
-        file: "en.json",
-        name: "English",
-        flag: "US",
-      },
-      {
-        code: "nl",
-        iso: "nl-NL",
-        file: "nl.json",
-        name: "Nederlands",
-        flag: "NL",
-      },
-    ],
+    baseUrl: BASE_URL,
+    locales,
     strategy: "prefix",
     defaultLocale: "en",
     langDir: "locales",
@@ -86,7 +91,7 @@ export default defineNuxtConfig({
       },
     },
     detectBrowserLanguage: {
-      alwaysRedirect: true,
+      alwaysRedirect: false,
       fallbackLocale: "en",
       redirectOn: "no prefix",
       useCookie: true,

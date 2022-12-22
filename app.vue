@@ -3,7 +3,7 @@
     <!-- Begin of what is in viewport -->
     <div class="flex flex-col min-h-screen">
       <Html
-        lang="en-US"
+        :lang="localeIso"
         :class="{
           dark: theme === 'dark',
           'scroll-smooth': true,
@@ -90,6 +90,25 @@
           <Meta property="og:locality" content="Amsterdam" />
           <Meta property="og:region" content="Noord-Holland" />
           <Meta property="og:country-name" content="NL" />
+
+          <!-- Languages -->
+          <Meta name="language" :content="locale?.toUpperCase()" />
+          <Meta http-equiv="content-language" :content="locale" />
+          <Link
+            rel="alternate"
+            hreflang="nl-NL"
+            :href="switchLocalePath('nl')"
+          />
+          <Link
+            rel="alternate"
+            hreflang="en-US"
+            :href="switchLocalePath('en')"
+          />
+          <Link
+            rel="alternate"
+            hreflang="x-default"
+            :href="switchLocalePath('en').replace('/en/', '/')"
+          />
         </Head>
       </Html>
 
@@ -341,15 +360,24 @@
                     </div>
                   </div>
                   <div class="px-2 pt-2 pb-3">
-                    <PopoverButton
-                      :as="MenuLink"
-                      v-for="item in navigation"
-                      :key="item.name"
-                      :href="item.mobile?.href || item.href"
-                      class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
-                    >
-                      {{ $t(item.mobile?.translation || item.translation) }}
-                    </PopoverButton>
+                    <template v-for="item in navigation" :key="item.name">
+                      <PopoverButton
+                        :as="MenuLink"
+                        v-if="item.mobile?.to || item.to"
+                        :to="item.mobile?.to || item.to"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
+                      >
+                        {{ $t(item.mobile?.translation || item.translation) }}
+                      </PopoverButton>
+                      <PopoverButton
+                        :as="MenuLink"
+                        v-else
+                        :href="item.mobile?.href || item.href"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
+                      >
+                        {{ $t(item.mobile?.translation || item.translation) }}
+                      </PopoverButton>
+                    </template>
                     <NuxtLink
                       :to="welcomeUrl"
                       class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
@@ -751,10 +779,21 @@ import MoonSun from "./components/MoonSun.vue";
 
 import { getPathFromBlogUrl, labelAgo } from "./utils/blog";
 
+const route = useRoute();
+
+const config = useRuntimeConfig();
+const { BASE_URL, MAIN_URL, CDN_URL, BLOG_URL, LOCALES } = config.public;
+
 const localePath = useLocalePath();
+const switchLocalePath = useSwitchLocalePath();
 
 const i18n = useI18n();
-const { t } = i18n;
+const { t, locale } = i18n;
+
+const localeIso = computed(() => {
+  const found = LOCALES.find((loc) => loc.code === locale.value);
+  return found?.iso || "";
+});
 
 const resources = [
   {
@@ -787,17 +826,12 @@ const navigation = [
     popover: true,
     mobile: {
       translation: "nav.blog",
-      href: "/blog",
+      to: "blog",
     },
   },
   { translation: "nav.docs", href: "https://docs.simpleanalytics.com" },
   { translation: "nav.contact", href: "https://simpleanalytics.com/contact" },
 ];
-
-const route = useRoute();
-
-const config = useRuntimeConfig();
-const { BASE_URL, MAIN_URL, CDN_URL, BLOG_URL } = config.public;
 
 const generateParams = new URLSearchParams({
   url: BASE_URL + route.path,
