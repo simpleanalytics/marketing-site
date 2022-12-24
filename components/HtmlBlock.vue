@@ -10,15 +10,18 @@ export default {
   },
   render() {
     return h({
-      template: `<div>${this.html.replace(
-        /<a href="([^"]+)"([^>]*)>([^<]+)<\/a>/g,
-        function (match, href, attributes, text) {
-          if (href.startsWith("/") && !/^\/[a-z]{2}\//i.test(href)) {
-            return `<NuxtLink to="${href}" ${attributes}>${text}</NuxtLink>`;
+      template: `
+        <article class="mt-4 prose prose-headings:leading-normal prose-p:leading-loose ml-auto mr-auto counters">
+          ${
+            this.html?.replace(
+              /<a href="([^"]+)"([^>]*)>([^<]+)<\/a>/g,
+              function (match, href, attributes, text) {
+                return `<NuxtLink to="${href}" ${attributes}>${text}</NuxtLink>`;
+              }
+            ) || ""
           }
-          return `<NuxtLink to="${href}" ${attributes}>${text}</NuxtLink>`;
-        }
-      )}</div>`,
+        </article>
+      `,
       components: { NuxtLink },
     });
   },
