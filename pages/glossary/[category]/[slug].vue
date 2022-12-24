@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="max-w-5xl pt-4 mx-auto">
+    <div class="max-w-5xl pt-4 px-4 mx-auto">
       <div class="text-center mb-8">
         <h2 class="text-2xl sm:text-2xl md:text-3xl text-gray-500">
           <NuxtLink
@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <div class="max-w-3xl pb-4 mx-auto">
+    <div class="max-w-3xl pb-4 px-4 mx-auto">
       <HtmlBlock :html="article.contentHtml" />
     </div>
 

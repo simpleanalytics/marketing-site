@@ -31,8 +31,8 @@ const env = {
     : "http://localhost:3000",
   CDN_URL:
     process.env.DEPLOYING === "true"
-      ? "https://www-cdn.simpleanalytics.com/"
-      : "/",
+      ? "https://www-cdn.simpleanalytics.com"
+      : undefined,
   BLOG_URL: isProduction
     ? "https://blogold.simpleanalytics.com"
     : "http://localhost:4001",

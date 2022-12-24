@@ -25,7 +25,7 @@ a,
   @apply cursor-pointer select-none;
 }
 
-a:not([class*="text-"]):not([data-no-style]),
+a:not([class*="text-"]):not([data-no-style]):not(.button.primary),
 .text-link {
   @apply text-red-500 hover-hover:hover:text-red-600 dark:text-red-600 hover-hover:hover:dark:text-red-700;
 }
