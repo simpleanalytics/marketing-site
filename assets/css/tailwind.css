@@ -15,7 +15,8 @@ p,
 li,
 th,
 td,
-label {
+label,
+strong {
   @apply text-gray-600 dark:text-gray-300;
 }
 
@@ -24,7 +25,8 @@ a,
   @apply cursor-pointer select-none;
 }
 
-a:not([class*="text-"]) {
+a:not([class*="text-"]):not([data-no-style]),
+.text-link {
   @apply text-red-500 hover-hover:hover:text-red-600 dark:text-red-600 hover-hover:hover:dark:text-red-700;
 }
 
@@ -314,4 +316,50 @@ mark {
 
 input[type="checkbox"] {
   @apply h-4 w-4 rounded border-red-300 text-red-500 focus:ring-red-500 dark:ring-transparent dark:outline-none dark:border-none dark:text-red-600 dark:focus:ring-red-600 dark:bg-red-600;
+}
+
+article.counters {
+  counter-reset: h2 h3 h4;
+}
+
+article.counters h2::before {
+  counter-increment: h2;
+  counter-reset: h3 h4;
+  content: counters(h2, ".", decimal) ". ";
+}
+article.counters h3::before {
+  counter-increment: h3;
+  counter-reset: h4;
+  content: counters(h2, ".", decimal) "." counters(h3, ".", decimal) ". ";
+}
+article.counters h4::before {
+  counter-increment: h4;
+  content: counters(h3, ".", decimal) "." counters(h4, ".", decimal) "."
+    counters(h4, ".", decimal) ". ";
+}
+
+ol.counters {
+  counter-reset: l1 l2 l3;
+  list-style-type: none !important;
+}
+
+ol.counters ol {
+  list-style-type: none !important;
+}
+
+ol.counters > li::before {
+  counter-increment: l1;
+  counter-reset: l2 l3;
+  content: counters(l1, ".", decimal) ". ";
+}
+
+ol.counters > li > ol > li::before {
+  counter-increment: l2;
+  counter-reset: l3;
+  content: counters(l1, ".", decimal) "." counters(l2, ".", decimal) ". ";
+}
+ol.counters > li > ol > li > ol > li::before {
+  counter-increment: l3;
+  content: counters(l1, ".", decimal) "." counters(l2, ".", decimal) "."
+    counters(l3, ".", decimal) ". ";
 }

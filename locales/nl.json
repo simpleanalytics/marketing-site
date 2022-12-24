@@ -176,6 +176,10 @@
       "api": {
         "title": "API & integraties",
         "description": "Ontdek hoe je ons kunt integreren in je workflow."
+      },
+      "glossary": {
+        "title": "Begrippenlijst",
+        "description": "Leer de termen die je tegenkomt in ons veld."
       }
     },
     "switch_to_english": "Klik hier voor Engels",
@@ -302,6 +306,21 @@
     "stefaan": {
       "role": "Marketeer",
       "quote": "Uitstekend alternatief voor Google Analytics. Ja, je betaalt een klein abonnement, maar je krijgt er veel voor terug: {0}GDPR-proof{1} en {0}cookieloze{1} analytics, {0}nauwkeurige{1} tracking en duidelijke visuals."
+    }
+  },
+  "glossary": {
+    "title": "Begrippenlijst",
+    "overview": "Begrippenlijsten",
+    "overview_description": "Deze begrippenlijsten bevatten de meeste termen die worden gebruikt in Google Analytics en andere algemene analytics op het web. Klik op een woordenlijst om er meer over te lezen.",
+    "categories": {
+      "googleanalytics": {
+        "title": "Google Analytics",
+        "description": "Begrippenlijst van Google Analytics termen"
+      },
+      "analytics": {
+        "title": "Web Analytics",
+        "description": "Begrippenlijst of generieke analytics termen"
+      }
     }
   },
   "time": {

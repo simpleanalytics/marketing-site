@@ -1,0 +1,125 @@
+<template>
+  <div class="max-w-3xl px-4 mx-auto">
+    <div class="text-center mb-8">
+      <h2 class="text-2xl sm:text-2xl md:text-3xl text-gray-500">
+        <NuxtLink :to="localePath({ name: 'glossary' })" data-no-style>{{
+          $t("glossary.title")
+        }}</NuxtLink>
+      </h2>
+      <h1 class="mt-4 text-4xl font-medium sm:text-5xl md:text-6xl">
+        {{ $t(category.titleTranslation) }}
+      </h1>
+      <p class="mt-6 text-lg">
+        {{ $t(category.descriptionTranslation) }}
+      </p>
+    </div>
+
+    <p v-if="pending" class="text-center">{{ $t("blog.loading_post") }}</p>
+    <p
+      v-else-if="error"
+      class="bg-red-500 dark:bg-red-600 text-white dark:text-white rounded-lg text-center p-4 shadow dark:shadow-none"
+    >
+      {{ error }}
+    </p>
+    <div
+      v-else-if="articles.length"
+      class="mt-10 mb-20 grid gap-4 grid-cols-1 md:grid-cols-2"
+    >
+      <NuxtLink
+        v-for="article in articles"
+        :key="article.title"
+        :to="
+          localePath({
+            name: 'glossary-category-slug',
+            params: { category: article.articleType, slug: article.slug },
+          })
+        "
+        class="group bg-white dark:bg-gray-700 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-red-500 dark:focus-within:ring-red-600 flex flex-col rounded-lg shadow dark:shadow-none"
+      >
+        <h3 class="text-lg font-medium text-link">
+          <ClientOnly
+            v-if="article.locale !== locale && getFlagUrl(article.locale)"
+          >
+            <img
+              :src="getFlagUrl(article.locale)"
+              class="h-4 align-baseline translate-y-px inline mr-1"
+            />
+          </ClientOnly>
+          {{ article.title }} <Arrow />
+        </h3>
+        <p class="mt-2 text-sm text-gray-500 leading-relaxed">
+          {{ article.excerpt }}
+        </p>
+      </NuxtLink>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import {
+  ChartBarSquareIcon,
+  ComputerDesktopIcon,
+} from "@heroicons/vue/24/outline";
+
+import GoogleAnalyticsIcon from "@/components/icons/GoogleAnalytics.vue";
+import Arrow from "@/components/Arrow.vue";
+import transformer from "@/utils/transformer";
+import { categories } from "@/data/glossary";
+
+const route = useRoute();
+const { locale, getBrowserLocale } = useI18n();
+const {
+  public: { LOCALES },
+} = useRuntimeConfig();
+
+const browserLocale = getBrowserLocale();
+
+const {
+  public: { BASE_URL },
+} = useRuntimeConfig();
+
+const url = new URL("/api/cms", BASE_URL);
+url.searchParams.set("path", "/articles");
+url.searchParams.set("locale", "all");
+url.searchParams.set("filters[articleType][$eq]", "google-analytics");
+url.searchParams.set("populate[0]", "localizations");
+url.searchParams.set("pagination[pageSize]", "100");
+
+const {
+  data: articles,
+  pending,
+  error,
+} = await useFetch(url.toString(), {
+  key: `articles-locale-${locale.value}`,
+  transform: ({ data }) =>
+    transformer({
+      data,
+      locale: locale.value,
+      keys: ["title", "excerpt", "locale", "slug", "articleType"],
+    }),
+});
+
+const category = computed(() => {
+  const category = categories.find(
+    (category) => category.category === route.params.category
+  );
+  return category || {};
+});
+
+const getFlagUrl = (locale) => {
+  const url = "https://assets.simpleanalytics.com/images/flags/";
+
+  if (locale === "en" && process.client) {
+    const found = navigator?.languages.find((lang) => lang.startsWith("en-"));
+    if (found) {
+      const [, region] = found.split("-");
+      return `${url}${region.toUpperCase()}.svg`;
+    }
+  }
+
+  const found = LOCALES.find((lang) => lang.code === locale);
+  if (found) {
+    return `${url}${found.flag.toUpperCase()}.svg`;
+  }
+};
+</script>

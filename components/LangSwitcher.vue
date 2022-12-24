@@ -60,7 +60,7 @@ import {
 import { CheckIcon, ChevronDownIcon } from "@heroicons/vue/24/solid";
 import EuropeanFlag from "./logos/EuropeanFlag.vue";
 
-const { locale, locales, setLocale } = useI18n();
+const { locale, locales, setLocale, getBrowserLocale } = useI18n();
 
 const availableLocales = computed(() => {
   return locales.value

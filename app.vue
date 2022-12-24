@@ -218,10 +218,13 @@
                                 v-for="item in resources"
                                 :key="item.name"
                                 :href="
-                                  /^https?:\/\//.test(item.href)
+                                  !item.href
+                                    ? undefined
+                                    : /^https?:\/\//.test(item.href)
                                     ? item.href
                                     : localePath(item.href)
                                 "
+                                :to="item.to ? localePath(item.to) : undefined"
                                 class="-m-3 p-3 rounded flex items-start hover-hover:hover:bg-blue-100 dark:hover-hover:hover:bg-gray-900 transition ease-in-out duration-150"
                               >
                                 <component
@@ -762,6 +765,7 @@ import {
   MapPinIcon,
   ClipboardDocumentCheckIcon,
   NewspaperIcon,
+  AcademicCapIcon,
 } from "@heroicons/vue/24/outline";
 
 import MenuLink from "./components/MenuLink.vue";
@@ -813,6 +817,12 @@ const resources = [
     description: "nav.resources_dropdown.api.description",
     href: "https://docs.simpleanalytics.com/api",
     icon: CommandLineIcon,
+  },
+  {
+    name: "nav.resources_dropdown.glossary.title",
+    description: "nav.resources_dropdown.glossary.description",
+    to: "glossary",
+    icon: AcademicCapIcon,
   },
 ];
 

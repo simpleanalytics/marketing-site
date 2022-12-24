@@ -19,7 +19,9 @@ const locales = [
   },
 ];
 
-const BASE_URL = isProduction
+const BASE_URL = process.env.BASE_URL
+  ? process.env.BASE_URL
+  : isProduction
   ? "https://www.simpleanalytics.com"
   : "http://localhost:3005";
 
@@ -39,11 +41,16 @@ const env = {
   LOCALES: locales,
 };
 
+const privateKeys = {
+  deploying: process.env.DEPLOYING === "true",
+  strapiToken: process.env.STRAPI_TOKEN,
+};
+
 // https://nuxt.com/docs/migration/configuration/#nuxtconfig
 export default defineNuxtConfig({
   runtimeConfig: {
     // Private keys are only available on the server
-    deploying: process.env.DEPLOYING === "true",
+    ...privateKeys,
 
     // Public keys that are exposed to the client
     public: env,
@@ -88,6 +95,14 @@ export default defineNuxtConfig({
       },
       "blog/index": {
         nl: "/blog",
+      },
+      "glossary/[slug]": {
+        // params need to be put back here as you would with Nuxt Dynamic Routes
+        // https://nuxt.com/docs/guide/directory-structure/pages#dynamic-routes
+        nl: "/glossary/[slug]",
+      },
+      "glossary/index": {
+        nl: "/glossary",
       },
     },
     detectBrowserLanguage: {

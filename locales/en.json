@@ -176,6 +176,10 @@
       "api": {
         "title": "API & integrations",
         "description": "Find out how to integrate us with your current workflow."
+      },
+      "glossary": {
+        "title": "Glossary",
+        "description": "Learn about terms in our field."
       }
     },
     "switch_to_english": "Switch to English",
@@ -302,6 +306,21 @@
     "stefaan": {
       "role": "Marketeer",
       "quote": "Excellent alternative for Google Analytics. Yes, you pay a small subscription, but you get a lot in return: {0}GDPR-proof{1} and {0}cookieless{1} analytics, {0}accurate{1} tracking and clear visuals."
+    }
+  },
+  "glossary": {
+    "title": "Glossary",
+    "overview": "Glossary overview",
+    "overview_description": "These glossaries contains most terms that are used in Google Analytics and other general analytics on the web. Click on a glossary to read more about it.",
+    "categories": {
+      "googleanalytics": {
+        "title": "Google Analytics",
+        "description": "Glossary of Google Analytics terms"
+      },
+      "analytics": {
+        "title": "Web Analytics",
+        "description": "Glossary of web analytics terms"
+      }
     }
   },
   "time": {

@@ -18,6 +18,7 @@
     "nuxt": "^3.0.0"
   },
   "dependencies": {
-    "@maxmind/geoip2-node": "^3.4.0"
+    "@maxmind/geoip2-node": "^3.4.0",
+    "marked": "^4.2.5"
   }
 }

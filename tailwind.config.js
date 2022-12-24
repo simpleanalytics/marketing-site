@@ -35,6 +35,7 @@ const fonts = [
 
 module.exports = {
   darkMode: "class",
+  content: ["./data/**/*.js"],
   theme: {
     colors: {
       ...colors,
