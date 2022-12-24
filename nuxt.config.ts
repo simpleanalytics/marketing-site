@@ -19,9 +19,7 @@ const locales = [
   },
 ];
 
-const BASE_URL = process.env.BASE_URL
-  ? process.env.BASE_URL
-  : isProduction
+const BASE_URL = isProduction
   ? "https://www.simpleanalytics.com"
   : "http://localhost:3005";
 
@@ -34,7 +32,7 @@ const env = {
   CDN_URL:
     process.env.DEPLOYING === "true"
       ? "https://www-cdn.simpleanalytics.com/"
-      : undefined,
+      : "/",
   BLOG_URL: isProduction
     ? "https://blogold.simpleanalytics.com"
     : "http://localhost:4001",
@@ -58,9 +56,6 @@ export default defineNuxtConfig({
   experimental: {
     treeshakeClientOnly: true,
   },
-  nitro: {
-    timing: false,
-  },
   build: {
     transpile: ["@heroicons/vue"],
   },
@@ -73,7 +68,7 @@ export default defineNuxtConfig({
       viewport: "width=device-width, initial-scale=1",
     },
   },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n", "nuxt-runtime-compiler"],
   i18n: {
     baseUrl: BASE_URL,
     locales,
@@ -121,5 +116,8 @@ export default defineNuxtConfig({
         default: ["en"],
       },
     },
+  },
+  nitro: {
+    timing: false,
   },
 });

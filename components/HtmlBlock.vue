@@ -1,30 +1,26 @@
-<template>
-  <article
-    class="mt-4 prose prose-headings:leading-normal prose-p:leading-loose ml-auto mr-auto counters"
-  >
-    <LinkContainer />
-  </article>
-</template>
+<script>
+import { h } from "vue";
+import NuxtLink from "#app/components/nuxt-link";
 
-<script setup>
-import { compile } from "vue/dist/vue.esm-bundler";
-import { defineNuxtComponent } from "#imports";
-import DynamicLink from "@/components/DynamicLink.vue";
-
-const props = defineProps(["html"]);
-
-const LinkContainer = defineNuxtComponent({
-  components: { DynamicLink },
-  render: compile(
-    props.html.replace(
-      /<a href="([^"]+)"([^>]*)>([^<]+)<\/a>/g,
-      function (match, href, attributes, text) {
-        if (href.startsWith("/") && !/^\/[a-z]{2}\//i.test(href)) {
-          return `<DynamicLink to="/nl${href}" ${attributes}>${text}</DynamicLink>`;
+export default {
+  props: {
+    html: {
+      type: String,
+    },
+  },
+  render() {
+    return h({
+      template: `<div>${this.html.replace(
+        /<a href="([^"]+)"([^>]*)>([^<]+)<\/a>/g,
+        function (match, href, attributes, text) {
+          if (href.startsWith("/") && !/^\/[a-z]{2}\//i.test(href)) {
+            return `<NuxtLink to="${href}" ${attributes}>${text}</NuxtLink>`;
+          }
+          return `<NuxtLink to="${href}" ${attributes}>${text}</NuxtLink>`;
         }
-        return `<DynamicLink to="${href}" ${attributes}>${text}</DynamicLink>`;
-      }
-    )
-  ),
-});
+      )}</div>`,
+      components: { NuxtLink },
+    });
+  },
+};
 </script>
