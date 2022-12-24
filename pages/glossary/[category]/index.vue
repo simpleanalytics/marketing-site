@@ -81,7 +81,7 @@ const {
 const url = new URL("/api/cms", BASE_URL);
 url.searchParams.set("path", "/articles");
 url.searchParams.set("locale", "all");
-url.searchParams.set("filters[articleType][$eq]", "google-analytics");
+url.searchParams.set("filters[articleType][$eq]", route.params.category);
 url.searchParams.set("populate[0]", "localizations");
 url.searchParams.set("pagination[pageSize]", "100");
 
