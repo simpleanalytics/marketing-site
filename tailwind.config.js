@@ -35,7 +35,7 @@ const fonts = [
 
 module.exports = {
   darkMode: "class",
-  content: ["./data/**/*.js"],
+  content: ["./data/**/*.js", "./server/api/cms.js"],
   theme: {
     colors: {
       ...colors,

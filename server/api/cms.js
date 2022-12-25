@@ -59,7 +59,7 @@ function createIndentedList(items) {
   return html;
 }
 
-const convert = (data, { indexAfterParagraph = 0, showIndex = false } = {}) => {
+const convert = (data, { showIndex = false } = {}) => {
   let html = marked(data, {
     headerIds: true,
   });
@@ -83,6 +83,13 @@ const convert = (data, { indexAfterParagraph = 0, showIndex = false } = {}) => {
     }
   );
 
+  // Replace GIF images with VueFreezeframe component
+  html = html.replace(/<img src="([^"]+)"([^>]*)>/g, function (match, src) {
+    if (src.endsWith(".gif"))
+      return `<img class="mx-auto rounded-lg" src="${src}" />`;
+    return match;
+  });
+
   if (!showIndex) return html;
 
   const toc = tableOfContents(html);
@@ -94,13 +101,9 @@ const convert = (data, { indexAfterParagraph = 0, showIndex = false } = {}) => {
     '<ol class="counters">'
   );
 
-  if (indexAfterParagraph > 0) {
-    const paragraphs = html.match(/<p>([^<]+)<\/p>/g);
-    if (paragraphs && paragraphs.length >= indexAfterParagraph) {
-      const paragraph = paragraphs[indexAfterParagraph - 1];
-      return html.replace(paragraph, `${paragraph}${index}`);
-    }
-  }
+  // Check if html contains "{{tableofcontents}}"
+  if (html.match(/{{tableofcontents}}/))
+    return html.replace(/{{tableofcontents}}/g, index);
 
   // Check if paragraph before <h2> is less than 100 characters
   if (html.match(/<p>([^<]{0,100})<\/p>\n<h2/))

@@ -13,12 +13,14 @@ export default {
       template: `
         <article class="mt-4 prose prose-headings:leading-normal prose-p:leading-loose ml-auto mr-auto counters">
           ${
-            this.html?.replace(
-              /<a href="([^"]+)"([^>]*)>([^<]+)<\/a>/g,
-              function (match, href, attributes, text) {
-                return `<NuxtLink to="${href}" ${attributes}>${text}</NuxtLink>`;
-              }
-            ) || ""
+            this.html
+              ?.replace(/{{/g, "&#123;&#123;")
+              .replace(
+                /<a href="([^"]+)"([^>]*)>([^<]+)<\/a>/g,
+                function (match, href, attributes, text) {
+                  return `<NuxtLink to="${href}" ${attributes}>${text}</NuxtLink>`;
+                }
+              ) || ""
           }
         </article>
       `,
