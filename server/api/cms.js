@@ -62,6 +62,7 @@ function createIndentedList(items) {
 const convert = (markdown, { showIndex = false } = {}) => {
   // Replace HTML tags with &lt; and &gt; except in ``` blocks in markdown
   markdown = markdown
+    .split("```")
     .map((part, index) => {
       if (index % 2 === 0) {
         // Sanitize the text outside of the code blocks
