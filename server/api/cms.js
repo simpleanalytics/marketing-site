@@ -59,8 +59,22 @@ function createIndentedList(items) {
   return html;
 }
 
-const convert = (data, { showIndex = false } = {}) => {
-  let html = marked(data, {
+const convert = (markdown, { showIndex = false } = {}) => {
+  // Replace HTML tags with &lt; and &gt; except in ``` blocks in markdown
+  markdown = markdown
+    .map((part, index) => {
+      if (index % 2 === 0) {
+        // Sanitize the text outside of the code blocks
+        return part.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      } else {
+        // Leave the code block unchanged
+        return "```" + part + "```";
+      }
+    })
+    .join("");
+
+  // Convert markdown to html
+  let html = marked(markdown, {
     headerIds: true,
   });
 
