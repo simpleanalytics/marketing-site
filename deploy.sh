@@ -1,45 +1,45 @@
 #! /bin/bash
 
-set -eu
+set -Eeuo pipefail
 
 bucket="sa-marketing-assets"
 
 if [ -f .env ]; then
     export $(grep -v '^#' .env | sed 's/\r$//' | awk '/=/ {print $1}' )
 else
-  echo "=> Preparing deploy"
+  echo "🚀 Preparing deploy"
   echo "Can not find .env variables"
   exit 1
 fi
 
 if [[ -z ${BUNNY_CDN_ACCESS_KEY+x} || -z ${BUNNY_CDN_ACCOUNT_KEY+x} ]]; then
-  echo "=> Preparing deploy"
+  echo "🚀 Preparing deploy"
   echo "Make sure BUNNY_CDN_ACCESS_KEY and BUNNY_CDN_ACCOUNT_KEY are defined in .env"
   exit 1
 fi
 
-read -r -p "=> Are you sure you want to deploy to production? [y/N] " prompt
+read -r -p "🚀 Are you sure you want to deploy to production? [y/N] " prompt
 if ! [[ $prompt == "y" ]]; then
   echo "Aborted by you. Next time, type 'y' to confirm."
   exit 0
 fi
 
-echo "=> Building"
+echo "🚀 Building"
 
 rm -f app.zip \
   && DEPLOYING=true npm run build \
   && mkdir -p ./.output/server/data/ \
   && cp ./server/data/geolite-country.mmdb ./.output/server/data/geolite-country.mmdb \
   && cd ./.output/ \
-  && zip -r ../app.zip . \
+  && zip -q -r ../app.zip . \
   && cd -
 
-echo "=> Uploading server part via SSH"
+echo "🚀 Uploading server part via SSH"
 
 current_date=$(date +"%Y-%m-%d")
 scp -q -o LogLevel=QUIET app.zip "app@simpleanalytics.com:/home/app/apps/marketing-site/$current_date-app.zip"
 
-echo "=> Minimize images"
+echo "🚀  Minimize images"
 
 if [ -f "node_modules/imageoptim-cli/dist/imageoptim" ]; then
   node_modules/imageoptim-cli/dist/imageoptim '.output/public/**/*.png' '.output/public/**/*.jpg' '.output/public/**/*.jpeg'
@@ -48,7 +48,7 @@ else
   exit 1
 fi
 
-echo "=> Uploading to BunnyCDN..."
+echo "🚀 Uploading to BunnyCDN..."
 
 find .output/public -type f ! -iname ".DS_Store" -print0 | while read -r -d $'\0' localfile
 do
@@ -70,7 +70,7 @@ do
   fi
 done
 
-echo "=> Flushing files on BunnyCDN..."
+echo "🚀 Flushing files on BunnyCDN..."
 
 find .output/public -type f ! -iname ".DS_Store" -print0 | while read -r -d $'\0' localfile
 do
@@ -90,6 +90,5 @@ do
   fi
 done
 
-echo "=> To deploy the Node.js app, run this command on the server"
-echo
-echo "cd /home/app/apps/marketing-site/ && unzip -o $current_date-app.zip && sudo service marketing-site restart && sudo tail -n 5 -f /var/log/syslog"
+echo "🚀 Deploy new version of the app"
+ssh app@simpleanalytics.com "cd /home/app/apps/marketing-site/ && unzip -qq -o $current_date-app.zip && sudo /bin/systemctl restart marketing-site.service && /bin/systemctl status marketing-site.service && date"
