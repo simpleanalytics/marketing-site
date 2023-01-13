@@ -97,17 +97,17 @@
           <Link
             rel="alternate"
             hreflang="nl-NL"
-            :href="switchLocalePath('nl')"
+            :href="BASE_URL + switchLocalePath('nl')"
           />
           <Link
             rel="alternate"
             hreflang="en-US"
-            :href="switchLocalePath('en')"
+            :href="BASE_URL + switchLocalePath('en')"
           />
           <Link
             rel="alternate"
             hreflang="x-default"
-            :href="switchLocalePath('en').replace('/en/', '/')"
+            :href="BASE_URL + switchLocalePath('en').replace('/en/', '/')"
           />
         </Head>
       </Html>
