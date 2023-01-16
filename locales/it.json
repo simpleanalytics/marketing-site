@@ -1,0 +1,598 @@
+{
+  "home": {
+    "title": "L'alternativa {0}privacy-first{1} a<br />Google Analytics.",
+    "subtitle": "Basato ed ospitato nell'UE. Nessun cookie e un {0}sì diretto{1} dal tuo team legale.",
+    "no_creditcard": "Nessuna carta di credito richiesta",
+    "start_trial_now": "Inizia ora con Simple Analytics",
+    "go_to_live_demo": "Vai alla demo live",
+    "see_live_demo": "Vedi demo live",
+    "recent_blog_posts": "Post recenti del blog",
+    "in_english": "In inglese",
+    "most_of_resources_are_english": "La maggior parte delle informazioni qui sotto sono in inglese",
+    "new": "Nuovo",
+    "view_all_posts": "Vedi tutti i post del blog",
+    "loading_posts": "Caricamento post",
+    "did_not_find_any_posts": "Non sono stati trovati post",
+    "could_not_connect": "Impossibile connettersi al {0}nostro blog{1}.",
+    "see_feature_video_below": "Vedi il video delle funzionalità",
+    "go_back": "Torna indietro",
+    "footer": {
+      "comparisons": "Confronti",
+      "learn": "Impara",
+      "documentation": "Documentazione",
+      "blog": "Blog",
+      "roadmap": "Roadmap",
+      "pricing": "Prezzi",
+      "status": "Stato",
+      "privacy": "Privacy",
+      "what_we_collect": "Cosa raccogliamo",
+      "we_dont_track_you": "Non ti tracciamo",
+      "privacy_policy": "Informativa sulla privacy",
+      "cookie_statement": "Informativa sui cookie",
+      "tos": "Termini e condizioni",
+      "company_details": "Dettagli azienda"
+    },
+    "why_most_privacy": {
+      "title": "Perché Simple Analytics è {0}la soluzione più rispettosa della privacy{1} per analizzare i dati?",
+      "x_reasons": "Ecco alcuni {0} semplici motivi che la sintetizzano.",
+      "reason_1": "La protezione della privacy è {0}il nostro modello di business{1}. Rispettiamo per design tutte le politiche sulla privacy. Compresi: GDPR, PECR, CCPA e altri.",
+      "reason_2": "I tuoi dati sono sempre criptati.",
+      "reason_3": "Non memorizziamo mai, assolutamente mai, nessun {0}dato personale{1} sui tuoi visitatori. Nessun {0}banner cookie{1}.",
+      "reason_4": "Siamo una {0}società con sede nell'UE{1} con server situati nell'UE.",
+      "reason_5": "Tuoi dati sono {0}di tua proprietà{1}. Non {0}vendiamo{1} alcun dato relativo ai visitatori.",
+      "see_what_we_collect": "guarda cosa raccogliamo",
+      "read_detailed_reasons": "Leggi le ragioni dettagliate",
+      "business_model": {
+        "title": "La protezione della privacy è il nostro modello di business.",
+        "html": "<p>Le grandi aziende tecnologiche hanno raccolto dati personali per anni per trarre profitto. Gli utenti ottengono un prodotto \"gratuito\", e le grandi aziende tecnologiche vengono pagate da inserzionisti che vogliono acquistare la loro attenzione.</p><ul><li>Mentre si utilizza il prodotto \"gratuito\", le aziende tecnologiche raccolgono cantità inquietantemente grandi di dati per creare un profilo specifico dei tuoi dati demografici, etnia, preferenze politiche, interessi, desideri, gusti e disgusti.</li><li>Le grandi aziende tecnologiche lo venderanno ai migliori offerenti come loro modello di business. Senza dirtelo apertamente.</li></ul><p>Ci disgustano tali pratiche. Poiché Simple Analytics è un servizio a pagamento, siamo indipendenti e non abbiamo alcuna preferenza o conflitto d'interesse. Qui non ci sono secondi fini.</p><p>La nostra missione è semplice:</p><ul><li>Ti offriamo le più veloci, facili ed etiche insights sulla prestazione del tuo sito web nel rispetto dei più alti standard di privacy.</li><li>Per raggiungere questo obiettivo, Simple Analytics ha un {0}roadmap aperto{1} per vedere i prossimi passi o richiedere funzionalità. Inoltre, operiamo {2}totalmente in modo trasparente{3} condividendo le nostre metriche (inclusi ricavi, costi, numero di clienti e traffico).</li></ul>"
+      },
+      "encrypted": {
+        "title": "I tuoi dati sono criptati.",
+        "html": "<p>Non memorizziamo alcuna informazione personale e raccogliamo un minimo di dati per proteggere la privacy dei tuoi visitatori, ma questo non rende i tuoi dati di analisi meno importanti. Ecco perché i tuoi dati sono sempre criptati nei nostri server. Criptati in transito e criptati a riposo.</p><p>I dischi che memorizzano i tuoi dati non contengono altro che linee criptate di codice. Se qualcuno riuscisse a rubare quei dischi, sarebbero inutili. La chiave di cifratura è archiviata al di fuori dei server in una cassaforte virtuale protetta da autenticazione a due fattori.</p>"
+      },
+      "personal_data": {
+        "title": "Non memorizziamo mai, in nessun caso, dati personali riguardanti i tuoi visitatori.",
+        "html": "<p>Alcuni strumenti di analisi orientati alla privacy utilizzano dati identificabili che vengono poi eliminati dopo un giorno.</p><p>Ad esempio:</p><ul><li>Raccogliere l'indirizzo IP dei visitatori, aggiungere una data e trasformarlo in un hash ogni volta che si ha una visita alla pagina.</li><li>Questi hash collegano le visualizzazioni delle pagine. Anche se questo è sicuramente migliore di quanto fanno alcune grandi aziende tecnologiche che cercano di raccogliere più dati personali possibile da vendere agli inserzionisti, non è al 100% a prova di errore ed è un'area grigia.</li><li>Gli hash scadono solo una volta al giorno, quindi per meno di 24 ore, <em>c'è ancora informazioni identificabili memorizzate riguardanti i tuoi visitatori.</em> Le politiche sulla privacy come il GDPR spiegano che devi avere il consenso dei visitatori per memorizzare informazioni identificabili (PII).</li></ul><p>Simple Analytics non compromette mai la privacy. Ecco perché usiamo solo visitatori unici senza tracciare gli indirizzi IP. Facciamo ciò in base al referrer del browser, quindi non vengono memorizzati PII. Quando utilizzi Simple Analytics, {0}è quindi garantito al 100% che non venga memorizzata alcuna informazione personalmente identificabile dei tuoi visitatori.{1} A causa di ciò, non è necessario alcun consenso. Addio a banner fastidiosi!</p><p>Consiglio: alcuni clienti sostituiscono i loro banner relativi ai cookie con banner \"siamo orgogliosi di proteggere la tua privacy\" per ottenere un vantaggio competitivo.</p>"
+      },
+      "eu_based": {
+        "title": "Siamo un'azienda con sede nell'UE con server situati nell'UE.",
+        "html": "<p>Facciamo tutto il possibile per mantenere i tuoi dati al sicuro. Raccolgiamo la minima quantità di dati necessaria per darti un quadro completo dei visitatori del tuo sito web e, oltre ai tre punti elencati sopra, andiamo anche oltre.</p><ul><li>Rispetto ad altri continenti, l'UE si è da tempo preoccupata della privacy dei suoi cittadini e fornisce regolamenti rigorosi sulla privacy.</li><li>I nostri server si trovano nei Paesi Bassi e il nostro fornitore di hosting è olandese, poiché ciò fornisce una posizione fisica sicura, una grande connettività di rete globale e elevati standard legali per l'elaborazione dei dati (nessun provider cloud che debba riferire a un governo straniero).</li><li>Scegliamo di situare la nostra attività nei Paesi Bassi perché un ambiente attento alla privacy ci aiuta a mantenere i nostri elevati standard di etica e privacy.</li></ul>"
+      },
+      "own_data": {
+        "title": "Possiedi i tuoi dati.",
+        "html": "<p>Ci preoccupiamo dei tuoi dati. Ci prendiamo cura dei tuoi dati. Eppure, possiedi i tuoi dati. Non li venderò mai. Sei tu a controllare i tuoi dati e puoi scaricarli o eliminarli in qualsiasi momento.</p>"
+      }
+    },
+    "simple_title": "Simple",
+    "simple_description": "Simple Analytics è un'alternativa semplice a Google Analytics. Un pannello per vedere istantaneamente quanti visitatori arrivano al tuo sito web, da dove vengono e cosa fanno una volta lì. Senza cookie. Senza stalking. Ancora leggero.",
+    "see_if_for_yourself": "Vedi tu stesso, clicca un pulsante",
+    "connect": {
+      "title": "Connetti {0}i tuoi dati{1} con il tuo flusso di lavoro unico.",
+      "import_data": "Importa i tuoi dati da Google Analytics",
+      "use_gtm": "Usa Google Tag Manager, WordPress,<br />o i nostri molti plugin",
+      "framework_plugins": "per framework",
+      "export_to": "Esporta nei tuoi sistemi, Power BI,<br />Google Data Studio, o {0}laghi di dati{1}",
+      "export_as": "Esporta come {0}dati grezzi{1} o aggregati"
+    },
+    "why_switch_from_ga": {
+      "title": "Perché dovresti passare da Google Analytics",
+      "try_us_button": "Dacci una possibilità",
+      "paragraph_1": "Google è una delle più grandi macchine divoratrici di dati al mondo, vendendo i dati dei visitatori del tuo sito web per trarne profitto. Da un punto di vista etico, le organizzazioni dovrebbero mirare a proteggere la privacy dei loro visitatori. Tuttavia, {0}il 85% dei siti web{1} sta ancora usando Google Analytics, ma questo sta per cambiare in meglio. Sta emergendo la necessità di un'alternativa a Google Analytics.",
+      "paragraph_2": "Le leggi sulla privacy come GDPR sono in vigore per preservare la privacy degli utenti di Internet. Le agenzie di protezione dei dati stanno contrastando servizi invasivi della privacy come Google Analytics. Francia (CNIL) e Austria (DSB) hanno già dichiarato che l'utilizzo di Google Analytics viola la legge GDPR nei loro paesi. Si attendono altri paesi dell'UE che seguano questo esempio.",
+      "paragraph_3": "Google Analytics è una complessa strumento di analisi web che è stato lo strumento di analisi predefinito, ma questo sta cambiando, e Google lo riconosce anche. Ecco perché stanno per cambiare alla nuova versione chiamata",
+      "paragraph_3_link": "GA4 che mira ad essere rispettoso della privacy ma non lo è",
+      "paragraph_4": "Inoltre, i browser limitano i meccanismi di tracciamento e gli adblocker sono utilizzati per bloccare Google Analytics, rendendo i loro dati sempre meno accurati.",
+      "paragraph_5": "L'ambiente di business globale sta cambiando verso la privacy, e anche tu dovresti!",
+      "paragraph_6_1": "Ecco perché Simple Analytics è il numero uno",
+      "paragraph_6_link": "alternativa a Google Analytics rispettosa della privacy",
+      "paragraph_6_2": "Siamo affidabili da oltre 600 clienti paganti per fornire le informazioni di cui hanno bisogno, proteggendo al contempo la privacy dei visitatori del loro sito web"
+    },
+    "events": {
+      "title": "Tracciamento degli eventi senza tracciare le persone",
+      "auto_collect_link": "Raccolta automatica degli eventi",
+      "auto_collect_description": "come download, link esterni e clic su email. Controlla le prestazioni di ogni pulsante, clic e visita di pagina che desideri.",
+      "see_events_in_action": "Vedi gli eventi in azione"
+    },
+    "reports": {
+      "title": "Automatizzare i rapporti",
+      "description": "Risparmia tempo mantenendo gli altri aggiornati sui tuoi risultati. Programma i tuoi rapporti per essere condivisi automaticamente in qualsiasi momento tu voglia.",
+      "email_reports": "Rapporti di posta elettronica",
+      "instructions": "Inviati un rapporto di posta elettronica di simpleanalytics.com a te stesso e ad altri. Puoi aggiungere quante più email vuoi. Guarda un esempio di rapporto e-mail in {0}la nostra documentazione{1}.",
+      "recipient": "Destinatario",
+      "period": "Periodo",
+      "last_emailed": "Ultimo inviato via e-mail",
+      "email_placeholder": "Esempio: client{'@'}example.com",
+      "add_recipient": "Aggiungi destinatario",
+      "remove": "Rimuovere",
+      "week": "settimana",
+      "month": "mese",
+      "weekly": "settimanalmente",
+      "monthly": "mensilmente",
+      "a_day_ago": "un giorno fa",
+      "six_days_ago": "6 giorni fa",
+      "confirm": "Sei sicuro di disabilitare i rapporti e-mail {0} per {1}?",
+      "invalid_email": "Inserisci un indirizzo email valido",
+      "never": "mai"
+    },
+    "dark_mode": {
+      "title": "Modalità scura",
+      "description": "Per quelli che continuano a {0}lavorare{1} {2}codificare{3} di notte.",
+      "toggle_button": "Attiva/disattiva modalità scura"
+    },
+    "mobile": {
+      "title": "Portalo con te",
+      "point_1": "{0}Tenere sotto controllo{1} la tua dashboard dal tuo iPhone",
+      "point_2": "Aggiungi {0}widget{1} alla tua schermata home",
+      "point_3": "{0}Blocca le visite{1} da te stesso",
+      "point_4": "Vedi i {0}picchi{1} mentre accadono"
+    },
+    "videos": {
+      "title": "Quando chiedi ai videomaker di creare qualcosa di divertente",
+      "tropical_caption": "Perché il nostro fondatore sta impazzendo sulla sua isola tropicale?",
+      "paranoid_caption": "Sta diventando paranoico?"
+    }
+  },
+  "start_trial": {
+    "button": "Inizia la prova gratuita ora",
+    "free_trial": "Prova gratuita di 14 giorni",
+    "no_credit_card": "Nessuna carta di credito richiesta",
+    "cancel_anytime": "Annulla in qualsiasi momento"
+  },
+  "seek": {
+    "presents": "Simple Analytics presenta",
+    "overview": "Panoramica del sito web",
+    "key_stats": "Statistiche chiave",
+    "date_picker": "Selettore di data",
+    "page_views": "Visualizzazioni di pagina",
+    "segment": "Segmentazione",
+    "utm_sources": "Fonti UTM",
+    "countries": "Paesi",
+    "search": "Ricerca",
+    "tweet_viewer": "Visualizzatore di tweet",
+    "events": "Eventi",
+    "conversion": "Conversione"
+  },
+  "nav": {
+    "login": "Accedi",
+    "pricing": "Prezzo",
+    "signup": "Iscriviti",
+    "resources": "Risorse",
+    "docs": "Documentazione",
+    "blog": "Blog",
+    "contact": "Contattaci",
+    "resources_dropdown": {
+      "docs": {
+        "title": "Documentazione",
+        "description": "Scopri cosa è possibile con Simple Analytics."
+      },
+      "blog": {
+        "title": "Blog",
+        "description": "Scopri cosa sta succedendo nel mondo della privacy."
+      },
+      "privacy": {
+        "title": "Privacy e come trattiamo i tuoi dati",
+        "description": "Scopri come prendiamo sul serio la tua privacy."
+      },
+      "api": {
+        "title": "API e integrazioni",
+        "description": "Scopri come integrarci nel tuo workflow."
+      },
+      "glossary": {
+        "title": "Glossario",
+        "description": "Impara i termini del nostro campo."
+      },
+      "ga_countries": {
+        "title": "Google Analytics illegale?",
+        "description": "Paesi nei quali è illegale Google Analytics."
+      }
+    },
+    "switch_to_english": "Passa all'inglese",
+    "switch_to_dutch": "Passa al neerlandese"
+  },
+  "pricing": {
+    "title": "Prezzi semplici",
+    "yearly_billing": "Fatturazione annuale",
+    "monthly_billing": "Fatturazione mensile",
+    "from": "a partire da",
+    "depending_on_usage": "in base all'utilizzo",
+    "per_month": "mese",
+    "per_month_short": "mese",
+    "yearly": "annualmente",
+    "buy": "Acquista",
+    "everything_plus": "Tutto dal piano {0}, più:",
+    "what_is_included": "Cosa include",
+    "contact_us": "Contattaci",
+    "affiliate_description": "Avrai il primo mese + {0} giorni gratuitamente perché stai usando un link di affiliazione.",
+    "plans": {
+      "starter": {
+        "title": "Starter",
+        "description": "Tutto ciò di cui hai bisogno per iniziare"
+      },
+      "business": {
+        "title": "Business",
+        "description": "Lavora insieme per far crescere la tua attività"
+      },
+      "enterprise": {
+        "title": "Enterprise",
+        "description": "Ottieni tutto ciò di cui hai bisogno per far crescere la tua attività"
+      }
+    },
+    "features": {
+      "datapoints": "<strong>{0}</strong> punti dati al mese",
+      "users": "<strong>{0}</strong> utenti",
+      "user": "<strong>{0}</strong> utente",
+      "websites": "<strong>{0}</strong> siti web",
+      "events": "eventi",
+      "aggregated_export": "esportazione aggregata",
+      "raw_level_export": "<strong>livello grezzo</strong> esportazione",
+      "email_support": "supporto email",
+      "prio_email_support": "<strong>prio</strong> supporto email"
+    }
+  },
+  "pricing_faq": {
+    "title": "Domande frequenti",
+    "need_help": "Hai bisogno di ulteriore aiuto? Inviaci la tua domanda (e) tramite {0}la nostra pagina di supporto{1}.",
+    "datapoints": {
+      "title": "Cosa sono i datapoints?",
+      "description": "Puoi raccogliere due tipi di dati con Simple Analytics: visualizzazioni di pagina e eventi. Il termine combinato per entrambi è datapoint. Se non usi gli eventi, i datapoint saranno solo visualizzazioni di pagina. Se usi eventi, i datapoint saranno anche eventi."
+    },
+    "trial_expires": {
+      "title": "Verrò addebitato quando scade il mio periodo di prova?",
+      "description": "No. Dopo che il tuo periodo di prova scade, il tuo piano si ridurrà automaticamente alla versione gratuita di base. Aggiorna quando vuoi al piano che soddisfa le tue esigenze."
+    },
+    "cancel": {
+      "title": "Posso annullare in qualsiasi momento?",
+      "description": "Sì. Puoi annullare la tua sottoscrizione in qualsiasi momento. Avrai comunque accesso al tuo account e ai tuoi dati fino alla fine del periodo per il quale hai pagato."
+    },
+    "payment_methods": {
+      "title": "Quali sono i metodi di pagamento accettati?",
+      "description": "Accettiamo Carta di Credito, Carta di Debito, Bitcoin {0}+10% & annuale{1}, Apple Pay e Google Pay come metodi di pagamento per tutti i nostri piani a pagamento. Puoi pagare in euro, dollari statunitensi o sterline britanniche. Le fatture da {2}500 possono essere pagate tramite bonifico bancario e comportano un costo aggiuntivo di {0}10&#37;{1} in commissioni bancarie e spese di servizio."
+    },
+    "traffic_change": {
+      "title": "Cosa succederà alle mie spese quando il mio traffico aumenta / diminuisce?",
+      "description_1": "Paghi solo ciò di cui hai effettivamente bisogno. Ciò significa che se si supera il limite di visualizzazioni del tuo piano, ti verranno addebitate spese aggiuntive. Simple Analytics calcola automaticamente il tuo prezzo in base al tuo numero medio di visualizzazioni (prima guardando indietro di un mese, poi la media degli ultimi tre mesi).",
+      "description_2": "Quindi, se hai avuto un aumento del traffico durante gli ultimi tre mesi, paghi solo un po' di più il prossimo mese. Allo stesso modo, paghi automaticamente un po' meno quando il tuo numero medio di visualizzazioni è diminuito nei mesi scorsi."
+    }
+  },
+  "video": {
+    "title": "Perché Simple Analytics è il {0}più rispettoso della privacy{1} analytics?"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Seguite il nostro viaggio per combattere per la privacy e contro Google Analytics.",
+    "loading_post": "Caricamento...",
+    "article_not_found": "Articolo non trovato.",
+    "back_to_top": "Torna su.",
+    "published_on_by": "Pubblicato il {0} da {1}",
+    "published_and_edited_on_by": "Pubblicato il {0} e modificato il {1} da",
+    "subscribe": {
+      "title": "Newsletter sulla privacy",
+      "description": "Ciao, mi chiamo Adriaan, sono il fondatore di Simple Analytics. Circa una volta al mese condivido informazioni e aggiornamenti sulla privacy nella nostra newsletter. Disiscriviti con 1 click.",
+      "checkbox_newsletter": "Newsletter",
+      "checkbox_blog_posts": "Notificami nuovi post del blog",
+      "email_placeholder": "Es. eric { '@' } google.com",
+      "button": "Iscriviti",
+      "thank_you": "Controlla la tua casella di posta per confermare la tua iscrizione. Grazie per esserti iscritto!",
+      "errors": {
+        "no_email": "Per favore, inserisci un indirizzo email",
+        "invalid_email": "Per favore, inserisci un indirizzo email valido",
+        "select_at_least_one": "Per favore, seleziona almeno una casella di controllo"
+      }
+    }
+  },
+  "testimonials": {
+    "trusted_by": "Affidato da oltre 600 {0}governi{1}, {0}ONG{1} e piccole e medie {0}imprese{1}.",
+    "duckduckgo": {
+      "name": "DuckDuckGo",
+      "role": "Maggiore motore di ricerca privacy-friendly",
+      "quote": "Passare a Simple Analytics ti darà ancora visibilità su come i visitatori stanno utilizzando il tuo sito web, ma rispetterai anche il loro diritto alla privacy."
+    },
+    "rosie": {
+      "role": "Community Manager Indie Hackers",
+      "quote": "Il mio focus è stato sull'utilizzo di strumenti etici. Ho detto arrivederci a Google Analytics e ciao a Simple Analytics. {0}In 1-2 click{1} posso ottenere tutte le informazioni di cui ho bisogno."
+    },
+    "fastcompany": {
+      "role": "In vetrina su Fast Company",
+      "quote": "È ora di abbandonare Google Analytics."
+    },
+    "missive": {
+      "role": "CEO di Missive",
+      "quote": "Abbiamo sostituito un cruscotto di analisi gratuito, senza privacy e complesso con uno a pagamento, con privacy come priorità e semplice. Non potremmo essere più felici. {0}Il miglior set di analisi focalizzato sulla privacy che abbia mai trovato.{1} Siamo orgogliosi di poter dire ai nostri clienti che non li tracciamo affatto."
+    },
+    "hannah": {
+      "role": "Fondatrice Design SaaS",
+      "quote": "Dopo aver cambiato da GA, ho provato un'altra soluzione di analisi incentrata sulla privacy, ma si è rivelata troppo minima e non mi ha dato ciò di cui avevo bisogno. Prendo decisioni basate sui dati. Fortunatamente, Simple Analytics {0}mostra le metriche esatte di cui ho bisogno per far crescere la mia attività{1}, pur rispettando la privacy dei miei visitatori. E carica estremamente velocemente, rendendola SEO-friendly."
+    },
+    "evan": {
+      "role": "Ingegnere software",
+      "quote": "Questo è grande per tenere traccia di tutti i prodotti che lancio. Anche {0}uso l'API per inviarmi un messaggio di bot{1} ogni mattina con le statistiche settimanali e le statistiche giornaliere del giorno precedente"
+    },
+    "stefaan": {
+      "role": "Marketeer",
+      "quote": "Eccellente alternativa a Google Analytics. Sì, paghi una piccola sottoscrizione, ma ottieni molto in cambio: {0}analisi a prova di GDPR{1} e {0}prive di cookie{1}, {0}precise{1} e grafici chiari."
+    }
+  },
+  "ga_countries": {
+    "overview": "Paesi dove Google Analytics è illegale",
+    "overview_description": "In alcuni paesi, Google Analytics è illegale. Questo perché Google Analytics non è conforme al RGPD. In questi paesi, puoi usare invece Simple Analytics. Siamo conformi al RGPD e non usiamo cookie.",
+    "map_generated_with": "Mappa generata con",
+    "labels": {
+      "forbidden": "Vietato",
+      "legal": "Legale",
+      "likely_to_be_forbidden": "Probabilmente vietato",
+      "not_researched": "Non ricercato"
+    }
+  },
+  "time": {
+    "intl_locale": "it-IT",
+    "now": "ora",
+    "short": {
+      "ago": {
+        "weeks": "Fa {0}s",
+        "days": "Fa {0}g",
+        "hours": "Fa {0}h",
+        "minutes": "Fa {0}m"
+      }
+    }
+  },
+  "amount": {
+    "million": "milione"
+  },
+  "general": {
+    "errors": {
+      "something_went_wrong": "Qualcosa è andato storto. Riprova più tardi."
+    }
+  },
+  "countries": {
+    "_source": "https://github.com/rl-king/elm-iso3166-country-codes/blob/master/src/Iso3166/Italian.elm",
+    "AD": "Andorra",
+    "AE": "Emirati Arabi Uniti",
+    "AF": "Afghanistan",
+    "AG": "Antigua e Barbuda",
+    "AI": "Anguilla",
+    "AL": "Albania",
+    "AM": "Armenia",
+    "AO": "Angola",
+    "AQ": "Antartide",
+    "AR": "Argentina",
+    "AS": "Samoa Americane",
+    "AT": "Austria",
+    "AU": "Australia",
+    "AW": "Aruba",
+    "AX": "Isole Åland",
+    "AZ": "Azerbaigian",
+    "BA": "Bosnia ed Erzegovina",
+    "BB": "Barbados",
+    "BD": "Bangladesh",
+    "BE": "Belgio",
+    "BF": "Burkina Faso",
+    "BG": "Bulgaria",
+    "BH": "Bahrein",
+    "BI": "Burundi",
+    "BJ": "Benin",
+    "BL": "Saint-Barthélemy",
+    "BM": "Bermuda",
+    "BN": "Brunei",
+    "BO": "Bolivia",
+    "BQ": "Isole BES",
+    "BR": "Brasile",
+    "BS": "Bahamas",
+    "BT": "Bhutan",
+    "BV": "Isola Bouvet",
+    "BW": "Botswana",
+    "BY": "Bielorussia",
+    "BZ": "Belize",
+    "CA": "Canada",
+    "CC": "Isole Cocos (Keeling)",
+    "CD": "RD del Congo",
+    "CF": "Rep. Centrafricana",
+    "CG": "Rep. del Congo",
+    "CH": "Svizzera",
+    "CI": "Costa d'Avorio",
+    "CK": "Isole Cook",
+    "CL": "Cile",
+    "CM": "Camerun",
+    "CN": "Cina",
+    "CO": "Colombia",
+    "CR": "Costa Rica",
+    "CU": "Cuba",
+    "CV": "Capo Verde",
+    "CW": "Curaçao",
+    "CX": "Isola di Natale",
+    "CY": "Cipro",
+    "CZ": "Rep. Ceca",
+    "DE": "Germania",
+    "DJ": "Gibuti",
+    "DK": "Danimarca",
+    "DM": "Dominica",
+    "DO": "Rep. Dominicana",
+    "DZ": "Algeria",
+    "EC": "Ecuador",
+    "EE": "Estonia",
+    "EG": "Egitto",
+    "EH": "Sahara Occidentale",
+    "ER": "Eritrea",
+    "ES": "Spagna",
+    "ET": "Etiopia",
+    "FI": "Finlandia",
+    "FJ": "Figi",
+    "FK": "Isole Falkland",
+    "FM": "Micronesia",
+    "FO": "Fær Øer",
+    "FR": "Francia",
+    "GA": "Gabon",
+    "GB": "Regno Unito",
+    "GD": "Grenada",
+    "GE": "Georgia",
+    "GF": "Guyana francese",
+    "GG": "Guernsey",
+    "GH": "Ghana",
+    "GI": "Gibilterra",
+    "GL": "Groenlandia",
+    "GM": "Gambia",
+    "GN": "Guinea",
+    "GP": "Guadalupa",
+    "GQ": "Guinea Equatoriale",
+    "GR": "Grecia",
+    "GS": "Georgia del Sud e Isole Sandwich Australi",
+    "GT": "Guatemala",
+    "GU": "Guam",
+    "GW": "Guinea-Bissau",
+    "GY": "Guyana",
+    "HK": "Hong Kong",
+    "HM": "Isole Heard e McDonald",
+    "HN": "Honduras",
+    "HR": "Croazia",
+    "HT": "Haiti",
+    "HU": "Ungheria",
+    "ID": "Indonesia",
+    "IE": "Irlanda",
+    "IL": "Israele",
+    "IM": "Isola di Man",
+    "IN": "India",
+    "IO": "Territorio britannico dell'Oceano Indiano",
+    "IQ": "Iraq",
+    "IR": "Iran",
+    "IS": "Islanda",
+    "IT": "Italia",
+    "JE": "Jersey",
+    "JM": "Giamaica",
+    "JO": "Giordania",
+    "JP": "Giappone",
+    "KE": "Kenya",
+    "KG": "Kirghizistan",
+    "KH": "Cambogia",
+    "KI": "Kiribati",
+    "KM": "Comore",
+    "KN": "Saint Kitts e Nevis",
+    "KP": "Corea del Nord",
+    "KR": "Corea del Sud",
+    "KW": "Kuwait",
+    "KY": "Isole Cayman",
+    "KZ": "Kazakistan",
+    "LA": "Laos",
+    "LB": "Libano",
+    "LC": "Saint Lucia",
+    "LI": "Liechtenstein",
+    "LK": "Sri Lanka",
+    "LR": "Liberia",
+    "LS": "Lesotho",
+    "LT": "Lituania",
+    "LU": "Lussemburgo",
+    "LV": "Lettonia",
+    "LY": "Libia",
+    "MA": "Marocco",
+    "MC": "Monaco",
+    "MD": "Moldavia",
+    "ME": "Montenegro",
+    "MF": "Saint-Martin",
+    "MG": "Madagascar",
+    "MH": "Isole Marshall",
+    "MK": "Macedonia del Nord",
+    "ML": "Mali",
+    "MM": "Birmania",
+    "MN": "Mongolia",
+    "MO": "Macao",
+    "MP": "Isole Marianne Settentrionali",
+    "MQ": "Martinica",
+    "MR": "Mauritania",
+    "MS": "Montserrat",
+    "MT": "Malta",
+    "MU": "Mauritius",
+    "MV": "Maldive",
+    "MW": "Malawi",
+    "MX": "Messico",
+    "MY": "Malaysia",
+    "MZ": "Mozambico",
+    "NA": "Namibia",
+    "NC": "Nuova Caledonia",
+    "NE": "Niger",
+    "NF": "Isola Norfolk",
+    "NG": "Nigeria",
+    "NI": "Nicaragua",
+    "NL": "Paesi Bassi",
+    "NO": "Norvegia",
+    "NP": "Nepal",
+    "NR": "Nauru",
+    "NU": "Niue",
+    "NZ": "Nuova Zelanda",
+    "OM": "Oman",
+    "PA": "Panama",
+    "PE": "Perù",
+    "PF": "Polinesia francese",
+    "PG": "Papua Nuova Guinea",
+    "PH": "Filippine",
+    "PK": "Pakistan",
+    "PL": "Polonia",
+    "PM": "Saint-Pierre e Miquelon",
+    "PN": "Isole Pitcairn",
+    "PR": "Porto Rico",
+    "PS": "Palestina",
+    "PT": "Portogallo",
+    "PW": "Palau",
+    "PY": "Paraguay",
+    "QA": "Qatar",
+    "RE": "Riunione",
+    "RO": "Romania",
+    "RS": "Serbia",
+    "RU": "Russia",
+    "RW": "Ruanda",
+    "SA": "Arabia Saudita",
+    "SB": "Isole Salomone",
+    "SC": "Seychelles",
+    "SD": "Sudan",
+    "SE": "Svezia",
+    "SG": "Singapore",
+    "SH": "Sant'Elena, Ascensione e Tristan da Cunha",
+    "SI": "Slovenia",
+    "SJ": "Svalbard e Jan Mayen",
+    "SK": "Slovacchia",
+    "SL": "Sierra Leone",
+    "SM": "San Marino",
+    "SN": "Senegal",
+    "SO": "Somalia",
+    "SR": "Suriname",
+    "SS": "Sudan del Sud",
+    "ST": "São Tomé e Príncipe",
+    "SV": "El Salvador",
+    "SX": "Sint Maarten",
+    "SY": "Siria",
+    "SZ": "Swaziland",
+    "TC": "Turks e Caicos",
+    "TD": "Ciad",
+    "TF": "Terre australi e antartiche francesi",
+    "TG": "Togo",
+    "TH": "Thailandia",
+    "TJ": "Tagikistan",
+    "TK": "Tokelau",
+    "TL": "Timor Est",
+    "TM": "Turkmenistan",
+    "TN": "Tunisia",
+    "TO": "Tonga",
+    "TR": "Turchia",
+    "TT": "Trinidad e Tobago",
+    "TV": "Tuvalu",
+    "TW": "Taiwan",
+    "TZ": "Tanzania",
+    "UA": "Ucraina",
+    "UG": "Uganda",
+    "UM": "Isole minori esterne degli Stati Uniti",
+    "US": "Stati Uniti",
+    "UY": "Uruguay",
+    "UZ": "Uzbekistan",
+    "VA": "Città del Vaticano",
+    "VC": "Saint Vincent e Grenadine",
+    "VE": "Venezuela",
+    "VG": "Isole Vergini britanniche",
+    "VI": "Isole Vergini americane",
+    "VN": "Vietnam",
+    "VU": "Vanuatu",
+    "WF": "Wallis e Futuna",
+    "WS": "Samoa",
+    "YE": "Yemen",
+    "YT": "Mayotte",
+    "ZA": "Sudafrica",
+    "ZM": "Zambia",
+    "ZW": "Zimbabwe"
+  }
+}

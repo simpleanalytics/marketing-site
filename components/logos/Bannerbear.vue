@@ -3,7 +3,7 @@
     role="img"
     aria-label="Logo of the Bannerbear.com"
     xmlns="http://www.w3.org/2000/svg"
-    class="transition-colors fill-gray-600 dark:fill-gray-500 hover-hover:group-hover:fill-[#ffd700]"
+    class="transition-colors fill-gray-600 dark:fill-gray-500 hover:group-hover:fill-[#ffd700]"
     viewBox="0 0 296 387"
   >
     <title>Logo of the Bannerbear.com</title>

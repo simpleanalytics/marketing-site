@@ -3,7 +3,7 @@
     role="img"
     aria-label="Logo of Anwalt.de"
     xmlns="http://www.w3.org/2000/svg"
-    class="transition-colors fill-gray-600 dark:fill-gray-500 hover-hover:group-hover:fill-[#e95d0f]"
+    class="transition-colors fill-gray-600 dark:fill-gray-500 hover:group-hover:fill-[#e95d0f]"
     viewBox="0 0 370 72"
   >
     <title>Logo of Anwalt.de</title>

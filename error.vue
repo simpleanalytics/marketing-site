@@ -11,13 +11,20 @@
       <h1 v-if="error.statusMessage">{{ error.statusMessage }}</h1>
       <h1 v-else-if="error.statusCode == 404">Oops, page not found</h1>
       <h1 v-else>Oops, an error occurred</h1>
-      <NuxtLink to="/">Go to the home page</NuxtLink>
+      <NuxtLink to="/" class="button mt-4">Go to the home page</NuxtLink>
     </div>
   </div>
 </template>
 
 <script setup>
+import { isProxy, toRaw } from "vue";
+
 const props = defineProps(["error"]);
 
-console.log(props.error);
+console.error("Error from Nuxt:", isProxy ? toRaw(props.error) : props.error);
+
+onMounted(() => {
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+    document.documentElement.classList.add("dark");
+});
 </script>

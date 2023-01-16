@@ -9,7 +9,7 @@
         :class="
           monthly
             ? 'bg-white dark:bg-gray-600 dark:text-gray-300'
-            : 'hover-hover:hover:bg-gray-100 dark:hover-hover:hover:bg-gray-400 dark:text-gray-300 dark:hover-hover:hover:text-gray-700'
+            : 'hover:bg-gray-100 dark:hover:bg-gray-400 dark:text-gray-300 dark:hover:text-gray-700'
         "
         @click="monthly = true"
       >
@@ -20,7 +20,7 @@
         class="ml-0.5 relative w-1/2 border border-transparent rounded-md py-2 text-sm font-medium whitespace-nowrap sm:w-auto sm:px-8"
         :class="
           monthly
-            ? 'hover-hover:hover:bg-gray-100 dark:hover-hover:hover:bg-gray-400 dark:text-gray-300 dark:hover-hover:hover:text-gray-700'
+            ? 'hover:bg-gray-100 dark:hover:bg-gray-400 dark:text-gray-300 dark:hover:text-gray-700'
             : 'bg-white dark:bg-gray-600 dark:text-gray-300'
         "
         @click="monthly = false"

@@ -83,9 +83,6 @@ module.exports = {
       colors: {
         themeBackground: "var(--background)",
       },
-      screens: {
-        "hover-hover": { raw: "(hover: hover) and (pointer: fine)" },
-      },
     },
   },
   plugins: [

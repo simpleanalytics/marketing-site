@@ -2,7 +2,7 @@
   <Listbox as="div" v-model="selectedLocale">
     <div class="relative z-50">
       <ListboxButton
-        class="relative font-medium hover-hover:hover:text-gray-900 dark:hover-hover:hover:text-gray-500 pl-1 pr-6 text-left cursor-pointer"
+        class="relative font-medium hover:text-gray-900 dark:hover:text-gray-500 pl-1 pr-6 text-left cursor-pointer"
       >
         <span class="flex items-center">
           <EuropeanFlag class="flex-shrink-0 w-8 rounded" />
@@ -29,7 +29,7 @@
             :value="availableLocale"
           >
             <li
-              class="cursor-pointer select-none relative py-2 pl-3 pr-9 dark:hover-hover:hover:text-white"
+              class="cursor-pointer select-none relative py-2 pl-3 pr-9 dark:hover:text-white"
             >
               <div class="flex items-center">
                 <img

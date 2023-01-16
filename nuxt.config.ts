@@ -17,6 +17,34 @@ const locales = [
     name: "Nederlands",
     flag: "NL",
   },
+  {
+    code: "de",
+    iso: "de-DE",
+    file: "de.json",
+    name: "Alemán",
+    flag: "DE",
+  },
+  {
+    code: "es",
+    iso: "es-ES",
+    file: "es.json",
+    name: "Español",
+    flag: "ES",
+  },
+  {
+    code: "fr",
+    iso: "fr-FR",
+    file: "fr.json",
+    name: "Francés",
+    flag: "FR",
+  },
+  {
+    code: "it",
+    iso: "it-IT",
+    file: "it.json",
+    name: "Italiano",
+    flag: "IT",
+  },
 ];
 
 const BASE_URL = isProduction
@@ -68,6 +96,13 @@ export default defineNuxtConfig({
       viewport: "width=device-width, initial-scale=1",
     },
   },
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+      "postcss-hover-media-feature": {},
+    },
+  },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n", "nuxt-runtime-compiler"],
   i18n: {
     baseUrl: BASE_URL,
@@ -98,6 +133,22 @@ export default defineNuxtConfig({
       },
       "glossary/index": {
         nl: "/glossary",
+      },
+      "google-analytics-countries/[slug]": {
+        // params need to be put back here as you would with Nuxt Dynamic Routes
+        // https://nuxt.com/docs/guide/directory-structure/pages#dynamic-routes
+        nl: "/google-analytics-verboden/[slug]",
+        es: "google-analytics-paises/[slug]",
+        de: "google-analytics-lander/[slug]",
+        it: "google-analytics-paesi/[slug]",
+        fr: "google-analytics-pays/[slug]",
+      },
+      "google-analytics-countries/index": {
+        nl: "/google-analytics-verboden-in-deze-landen",
+        es: "google-analytics-prohibido-en-estos-paises",
+        de: "google-analytics-in-diesen-landern-verboten",
+        it: "google-analytics-vietato-in-questi-paesi",
+        fr: "google-analytics-interdit-dans-ces-pays",
       },
     },
     detectBrowserLanguage: {

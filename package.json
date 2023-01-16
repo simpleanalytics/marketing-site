@@ -16,7 +16,8 @@
     "@tailwindcss/typography": "^0.5.8",
     "imageoptim-cli": "^3.0.7",
     "nuxt": "^3.0.0",
-    "nuxt-runtime-compiler": "^1.1.0"
+    "nuxt-runtime-compiler": "^1.1.0",
+    "postcss-hover-media-feature": "^1.0.2"
   },
   "dependencies": {
     "@maxmind/geoip2-node": "^3.4.0",

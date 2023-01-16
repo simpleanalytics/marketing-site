@@ -5,12 +5,12 @@
   >
     <div
       class="absolute z-20 top-0 bottom-0 right-0 left-0 flex justify-center items-center transition"
-      :class="playing ? 'opacity-0 hover-hover:group-hover:opacity-100' : ''"
+      :class="playing ? 'opacity-0 hover:group-hover:opacity-100' : ''"
     >
       <div class="grow basis-1/2">
         <ArrowsPointingOutIcon
           @click="playFullScreen()"
-          class="mx-auto w-16 stroke-white dark:stroke-gray-200 drop-shadow-lg opacity-0 hover-hover:group-hover:opacity-100 transition cursor-pointer"
+          class="mx-auto w-16 stroke-white dark:stroke-gray-200 drop-shadow-lg opacity-0 hover:group-hover:opacity-100 transition cursor-pointer"
         />
       </div>
       <div class="grow-0">
@@ -22,7 +22,7 @@
         <PlayIcon
           v-else
           @click="play()"
-          class="mx-auto w-24 fill-white/95 dark:fill-gray-200/95 hover-hover:group-hover:fill-white dark:hover-hover:group-hover:fill-gray-200 drop-shadow-lg transition hover-hover:group-hover:scale-125 cursor-pointer"
+          class="mx-auto w-24 fill-white/95 dark:fill-gray-200/95 hover:group-hover:fill-white dark:hover:group-hover:fill-gray-200 drop-shadow-lg transition hover:group-hover:scale-125 cursor-pointer"
         />
       </div>
       <div class="grow basis-1/2"></div>

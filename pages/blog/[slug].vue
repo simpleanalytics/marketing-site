@@ -61,7 +61,7 @@
     >
       <a @click="scrollToTop" class="inline-flex items-center group">
         <CloudArrowUpIcon
-          class="h-5 mr-1 inline dark:hover-hover:group-hover:fill-red-700 hover-hover:group-hover:fill-red-600"
+          class="h-5 mr-1 inline dark:hover:group-hover:fill-red-700 hover:group-hover:fill-red-600"
         />
         <span>{{ $t("blog.back_to_top") }}</span>
       </a>
@@ -215,7 +215,7 @@ if (!post?.value?.article && process.server) {
   setResponseStatus(404, "Page Not Found");
 }
 
-const svgUp = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-4 inline dark:hover-hover:group-hover:fill-red-700 hover-hover:group-hover:fill-red-600"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>`;
+const svgUp = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-4 inline dark:hover:group-hover:fill-red-700 hover:group-hover:fill-red-600"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>`;
 
 const article = computed(() => {
   if (!post?.value?.article) return null;

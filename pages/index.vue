@@ -124,7 +124,7 @@
               '/simpleanalytics.com?from=landing' +
               (theme === 'dark' ? '&theme=dark' : '')
             "
-            class="group button large shadow-xl bg-white dark:bg-gray-800 hover-hover:hover:dark:bg-gray-900"
+            class="group button large shadow-xl bg-white dark:bg-gray-800 hover:dark:bg-gray-900"
           >
             <span class="mx-2">{{ $t("home.see_live_demo") }}</span>
             <Arrow class="h-5 w-5" />

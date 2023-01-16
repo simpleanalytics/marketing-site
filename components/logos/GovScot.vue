@@ -4,7 +4,7 @@
     aria-label="Logo of the Scottish Government"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 407 352"
-    class="transition-colors fill-gray-600 dark:fill-gray-500 hover-hover:group-hover:fill-[#166cb5]"
+    class="transition-colors fill-gray-600 dark:fill-gray-500 hover:group-hover:fill-[#166cb5]"
   >
     <title>Logo of the Scottish Government</title>
     <path

@@ -149,7 +149,7 @@
                       style="margin-right: 4px"
                     >
                       <PopoverButton
-                        class="bg-red-50 dark:bg-gray-700 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover-hover:hover:text-gray-500 hover-hover:hover:bg-gray-100"
+                        class="bg-red-50 dark:bg-gray-700 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100"
                       >
                         <span class="sr-only">Open main menu</span>
                         <Bars3Icon
@@ -166,14 +166,14 @@
                     <ExternalLink
                       :href="item.href"
                       v-if="!item.popover && item.href"
-                      class="font-medium text-gray-500 hover-hover:hover:text-gray-600"
+                      class="font-medium text-gray-500 hover:text-gray-600"
                     >
                       {{ $t(item.translation) }}
                     </ExternalLink>
                     <NuxtLink
                       v-else-if="!item.popover"
                       :to="localePath(item.to)"
-                      class="font-medium text-gray-500 hover-hover:hover:text-gray-600"
+                      class="font-medium text-gray-500 hover:text-gray-600"
                     >
                       {{ $t(item.translation) }}
                     </NuxtLink>
@@ -181,14 +181,14 @@
                       <PopoverButton
                         :class="[
                           open ? 'text-gray-600' : '',
-                          'group  inline-flex items-center text-base font-medium text-gray-500 hover-hover:hover:text-gray-600',
+                          'group  inline-flex items-center text-base font-medium text-gray-500 hover:text-gray-600',
                         ]"
                       >
                         <span>{{ $t("nav.resources") }}</span>
                         <ChevronDownIcon
                           :class="[
                             open ? 'text-gray-600' : 'text-gray-500',
-                            'ml-2 h-5 w-5 hover-hover:group-hover:text-gray-600',
+                            'ml-2 h-5 w-5 hover:group-hover:text-gray-600',
                           ]"
                           aria-hidden="true"
                         />
@@ -225,7 +225,7 @@
                                     : localePath(item.href)
                                 "
                                 :to="item.to ? localePath(item.to) : undefined"
-                                class="-m-3 p-3 rounded flex items-start hover-hover:hover:bg-blue-100 dark:hover-hover:hover:bg-gray-900 transition ease-in-out duration-150"
+                                class="-m-3 p-3 rounded flex items-start hover:bg-blue-100 dark:hover:bg-gray-900 transition ease-in-out duration-150"
                               >
                                 <component
                                   :is="item.icon"
@@ -279,7 +279,7 @@
                                     <PopoverButton
                                       :as="MenuLink"
                                       :href="localePath(post.path)"
-                                      class="font-medium hover-hover:hover:text-gray-900 dark:hover-hover:hover:text-gray-500 transition ease-in-out duration-150"
+                                      class="font-medium hover:text-gray-900 dark:hover:text-gray-500 transition ease-in-out duration-150"
                                     >
                                       <span
                                         class="inline-block text-sm bg-red-500 dark:bg-red-600 px-1 text-white dark:text-gray-700 rounded-md align-text-top mr-1"
@@ -294,7 +294,7 @@
                                 <PopoverButton
                                   :as="MenuLink"
                                   :href="localePath('blog')"
-                                  class="font-medium text-red-500 hover-hover:hover:text-red-500 transition ease-in-out duration-150"
+                                  class="font-medium text-red-500 hover:text-red-500 transition ease-in-out duration-150"
                                 >
                                   {{ $t("home.view_all_posts") }}
                                   <span aria-hidden="true">&rarr;</span>
@@ -314,7 +314,7 @@
                 >
                   <NuxtLink
                     :to="welcomeUrl"
-                    class="font-medium text-gray-500 dark:text-gray-400 mx-3 dark:hover-hover:hover:text-gray-600"
+                    class="font-medium text-gray-500 dark:text-gray-400 mx-3 dark:hover:text-gray-600"
                   >
                     {{ $t("nav.signup") }}
                   </NuxtLink>
@@ -352,7 +352,7 @@
                     </div>
                     <div class="-mr-2">
                       <PopoverButton
-                        class="bg-white dark:bg-gray-500 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover-hover:hover:text-gray-500 hover-hover:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-100"
+                        class="bg-white dark:bg-gray-500 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-100"
                       >
                         <span class="sr-only">Close menu</span>
                         <XMarkIcon
@@ -368,7 +368,7 @@
                         :as="MenuLink"
                         v-if="item.mobile?.to || item.to"
                         :to="item.mobile?.to || item.to"
-                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
                       >
                         {{ $t(item.mobile?.translation || item.translation) }}
                       </PopoverButton>
@@ -376,26 +376,26 @@
                         :as="MenuLink"
                         v-else
                         :href="item.mobile?.href || item.href"
-                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
                       >
                         {{ $t(item.mobile?.translation || item.translation) }}
                       </PopoverButton>
                     </template>
                     <NuxtLink
                       :to="welcomeUrl"
-                      class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
+                      class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
                       >{{ $t("nav.signup") }}</NuxtLink
                     >
                     <a
                       @click="i18n.locale.value = 'en'"
                       v-if="i18n.locale.value === 'nl'"
-                      class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
+                      class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
                       >{{ $t("nav.switch_to_english") }}</a
                     >
                     <a
                       v-else
                       @click="i18n.locale.value = 'nl'"
-                      class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover-hover:hover:text-gray-900 hover-hover:hover:bg-gray-50 dark:hover-hover:hover:bg-gray-300"
+                      class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
                       >{{ $t("nav.switch_to_dutch") }}</a
                     >
                   </div>
@@ -404,7 +404,7 @@
                       'https://simpleanalytics.com/login' +
                       (theme === 'dark' ? '?theme=dark' : '')
                     "
-                    class="block w-full px-5 py-3 text-center font-medium text-red-500 bg-gray-50 hover-hover:hover:bg-gray-100 dark:bg-gray-500 dark:text-gray-100"
+                    class="block w-full px-5 py-3 text-center font-medium text-red-500 bg-gray-50 hover:bg-gray-100 dark:bg-gray-500 dark:text-gray-100"
                   >
                     {{ $t("nav.login") }}
                   </NuxtLink>
@@ -450,10 +450,10 @@
                 <li>
                   <a
                     href="https://docs.simpleanalytics.com/what-we-collect"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <FingerPrintIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
                     <span>{{ $t("home.footer.what_we_collect") }}</span>
                   </a>
@@ -461,10 +461,10 @@
                 <li>
                   <a
                     href="https://simpleanalytics.com/no-tracking"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <EyeSlashIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
                     <span>{{ $t("home.footer.we_dont_track_you") }}</span>
                   </a>
@@ -472,10 +472,10 @@
                 <li>
                   <a
                     href="https://simpleanalytics.com/privacy-policy"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <ScaleIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
                     <span>{{ $t("home.footer.privacy_policy") }}</span>
                   </a>
@@ -483,10 +483,10 @@
                 <li>
                   <a
                     href="https://simpleanalytics.com/cookie-statement"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <BookOpenIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
                     <span>{{ $t("home.footer.cookie_statement") }}</span>
                   </a>
@@ -498,10 +498,10 @@
                         ? 'https://simpleanalytics.com/algemene-voorwaarden'
                         : 'https://simpleanalytics.com/terms-of-service'
                     "
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <NewspaperIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
                     <span>{{ $t("home.footer.tos") }}</span>
                   </a>
@@ -520,10 +520,10 @@
                 <li>
                   <a
                     href="https://docs.simpleanalytics.com/"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <LifebuoyIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
                     <span>{{ $t("home.footer.documentation") }}</span>
                   </a>
@@ -531,10 +531,10 @@
                 <li>
                   <NuxtLink
                     :to="localePath('blog')"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <BookOpenIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
                     <span>{{ $t("home.footer.blog") }}</span>
                   </NuxtLink>
@@ -542,10 +542,10 @@
                 <li>
                   <a
                     href="https://simpleanalytics.com/roadmap"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <MapPinIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
                     <span>{{ $t("home.footer.roadmap") }}</span>
                   </a>
@@ -553,10 +553,10 @@
                 <li>
                   <NuxtLink
                     :to="localePath('pricing')"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <CreditCardIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
                     <span>{{ $t("home.footer.pricing") }}</span>
                   </NuxtLink>
@@ -564,10 +564,10 @@
                 <li>
                   <a
                     href="https://status.simpleanalytics.com/"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <ClipboardDocumentCheckIcon
-                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
                     <span>{{ $t("home.footer.status") }}</span>
                   </a>
@@ -590,10 +590,10 @@
                         '/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics'
                       )
                     "
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <GoogleAnalyticsIcon
-                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
                     <span>Google Analytics</span>
                   </NuxtLink>
@@ -605,10 +605,10 @@
                         '/blog/why-simple-analytics-is-a-great-alternative-to-matomo'
                       )
                     "
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <MatomoIcon
-                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
                     <span>Matomo</span>
                   </NuxtLink>
@@ -620,10 +620,10 @@
                         '/blog/why-simple-analytics-is-a-great-alternative-to-plausible'
                       )
                     "
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <PlausibleIcon
-                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
                     <span>Plausible</span>
                   </NuxtLink>
@@ -631,10 +631,10 @@
                 <li v-if="false">
                   <NuxtLink
                     to="#!"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <FathomIcon
-                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
                     <span>Fathom</span>
                   </NuxtLink>
@@ -646,10 +646,10 @@
                         '/blog/why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics'
                       )
                     "
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded hover-hover:hover:text-red-500 group"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <CloudflareIcon
-                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover-hover:group-hover:stroke-red-500 dark:hover-hover:group-hover:stroke-gray-400"
+                      class="inline stroke-2 h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
                     <span>Cloudflare</span>
                   </NuxtLink>
@@ -689,7 +689,7 @@
                 >
                   <NuxtLink
                     :to="localePath(post.path)"
-                    class="text-gray-800 dark:text-gray-400 py-2 px-3 items-center dark:hover-hover:hover:bg-gray-600 dark:hover-hover:hover:text-gray-300 rounded-md block group text-left"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded-md block group text-left"
                   >
                     <span
                       v-if="labelAgo($t, post.created)"
@@ -697,13 +697,13 @@
                       >{{ labelAgo($t, post.created) }}</span
                     >
                     <span
-                      class="hover-hover:group-hover:text-red-500 dark:hover-hover:group-hover:text-gray-300"
+                      class="hover:group-hover:text-red-500 dark:hover:group-hover:text-gray-300"
                     >
                       {{ post.title?.split(" ").slice(0, -1).join(" ") }}
                       <span class="whitespace-nowrap">
                         {{ post.title?.split(" ").pop() }}
                         <Arrow
-                          class="ml-0 fill-gray-800 hover-hover:group-hover:fill-red-500 dark:fill-gray-400 dark:hover-hover:group-hover:fill-gray-300"
+                          class="ml-0 fill-gray-800 hover:group-hover:fill-red-500 dark:fill-gray-400 dark:hover:group-hover:fill-gray-300"
                         />
                       </span>
                     </span>
@@ -725,9 +725,9 @@
               <p class="mt-auto inline-flex items-center">
                 <SimpleAnalyticsIcon class="h-5 w-auto sm:h-5 inline mr-2" />
                 <span class="mt-0.5"
-                  >Simple Analytics<span class="ml-3 mr-0">&middot;</span
+                  >Simple Analytics B.V.<span class="ml-3 mr-0">&middot;</span
                   ><a
-                    class="text-gray-600 dark:text-gray-500 py-2 px-3 hover-hover:hover:text-red-500 dark:hover-hover:hover:text-gray-300 italic"
+                    class="text-gray-600 dark:text-gray-500 py-2 px-3 hover:text-red-500 dark:hover:text-gray-300 italic"
                     href="https://simpleanalytics.com/contact#details"
                   >
                     {{ $t("home.footer.company_details") }}</a
@@ -823,6 +823,12 @@ const resources = [
     description: "nav.resources_dropdown.glossary.description",
     to: "glossary",
     icon: AcademicCapIcon,
+  },
+  {
+    name: "nav.resources_dropdown.ga_countries.title",
+    description: "nav.resources_dropdown.ga_countries.description",
+    to: "google-analytics-countries",
+    icon: GoogleAnalyticsIcon,
   },
 ];
 

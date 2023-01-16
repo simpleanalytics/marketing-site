@@ -6,7 +6,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     fill="none"
     viewBox="0 0 339 352"
-    class="transition-colors fill-gray-600 dark:fill-gray-500 hover-hover:group-hover:fill-[#1d70b8]"
+    class="transition-colors fill-gray-600 dark:fill-gray-500 hover:group-hover:fill-[#1d70b8]"
   >
     <title>Logo of the Government of the United Kingdom</title>
     <path
