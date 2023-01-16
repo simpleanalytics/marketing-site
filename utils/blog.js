@@ -88,6 +88,17 @@ export const getAuthorFromSlug = (slug) => {
         avatar:
           "https://assets.simpleanalytics.com/images/people/mike-timofiiv.jpg",
       };
+    case "ankit":
+      return {
+        name: "Ankit",
+        avatar: "https://assets.simpleanalytics.com/images/people/ankit.jpg",
+      };
+    case "pieter_vegt":
+      return {
+        name: "Pieter Vegt",
+        avatar:
+          "https://assets.simpleanalytics.com/images/people/pieter-vegt.jpg",
+      };
     default:
       return { name: "Simple Analytics" };
   }
