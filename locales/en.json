@@ -44,7 +44,7 @@
       "read_detailed_reasons": "Read detailed reasons",
       "business_model": {
         "title": "Privacy protection is our business model.",
-        "html": "<p>Big tech companies have been collecting personal data for years to make a profit. Users get a \"free\" product, and big tech companies get paid by advertisers that want to buy your attention.</p><ul><li>While you use the \"free\" product, the tech companies gather creepily huge amounts of data to create a specific profile of your demographics, ethnicity, political preferences, interests, desires, likes, and dislikes.</li><li>Big tech companies will sell that to the highest bidders as their business model. Without openly telling you.</li></ul><p>We disgust such practices. Because Simple Analytics is a paid service, we are independent and have no bias or conflict of interest. No second agendas here.</p><p>Our mission is simple:</p><ul><li>We give you the fastest, easiest, and most ethical insights about your website performance while upholding the highest privacy standards.</li><li>To achieve this, Simple Analytics has an {0}open roadmap{1} for you to see the next steps or request features. Also, we operate {2}fully transparently{3} by sharing our metrics (including revenue, costs, amount of customers, and traffic).</li></ul>"
+        "html": "<p>Big tech companies have been collecting personal data for years to make a profit. Users get a \"free\" product, and big tech companies get paid by advertisers that want to buy your attention.</p><ul><li>While you use the \"free\" product, the tech companies gather creepily huge amounts of data to create a specific profile of your demographics, ethnicity, political preferences, interests, desires, likes, and dislikes.</li><li>Big tech companies will sell that to the highest bidders as their business model. Without openly telling you.</li></ul><p>We despise such practices. Because Simple Analytics is a paid service, we are independent and have no bias or conflict of interest. No second agendas here.</p><p>Our mission is simple:</p><ul><li>We give you the fastest, easiest, and most ethical insights about your website performance while upholding the highest privacy standards.</li><li>To achieve this, Simple Analytics has an {0}open roadmap{1} for you to see the next steps or request features. Furthermore, we operate {2}fully transparently{3} by sharing our metrics (including revenue, costs, number of customers, and traffic).</li></ul>"
       },
       "encrypted": {
         "title": "Your data is encrypted.",
@@ -52,7 +52,7 @@
       },
       "personal_data": {
         "title": "We never, ever, ever store any personal data about your visitors.",
-        "html": "<p>Some privacy-focused analytics tools use personally identifiable data and delete it after a day.</p><p>For example:</p><ul><li>They collect a visitor's IP address, add a date, and turn it into a hash every time you have a page visit.</li><li>These hashes connect page views together. Although this is definitely better than big tech trying to collect as much personal data as they can to sell to advertisers, it is not 100% waterproof and is a grey area.</li><li>The hashes expire only once per day, so for less than 24 hours, <em>there is still personally identifiable information stored about your visitors.</em> Privacy policies like the GDPR explain you must have visitors consent to store personally identifiable information (PII).</li></ul><p>Simple Analytics never compromises privacy. That's why we only use unique visitors without tracking IP addresses. We do this based on the browser's referrer, so no PII is stored. When you use Simple Analytics, it is {0}therefore 100% guaranteed no personally identifiable information of any of your visitors is stored.{1} Because of this, zero consent is needed. Adiós annoying banners!</p><p>Tip: some clients like to replace their cookie banners with \"we're proud to protect your privacy\" banners to gain a competitive advantage.</p>"
+        "html": "<p>Some privacy-focused analytics tools use personally identifiable data and delete it after a day.</p><p>For example:</p><ul><li>They collect a visitor's IP address, add a date, and turn it into a hash every time you have a page visit.</li><li>These hashes connect page views together. Although this is definitely better than big tech trying to collect as much personal data as they can to sell to advertisers, it is not 100% waterproof and is a gray area.</li><li>The hashes expire only once per day, so for less than 24 hours, <em>there is still personally identifiable information stored about your visitors.</em> Privacy policies like the GDPR explain you must have visitors consent to store personally identifiable information (PII).</li></ul><p>Simple Analytics never compromises privacy. That's why we only use unique visitors without tracking IP addresses. We do this based on the browser's referrer, so no PII is stored. When you use Simple Analytics, it is {0}therefore 100% guaranteed no personally identifiable information of your visitors is stored.{1} Because of this, zero consent is needed. Adiós annoying banners!</p><p>Tip: some clients like to replace their cookie banners with \"we're proud to protect your privacy\" banners to gain a competitive advantage.</p>"
       },
       "eu_based": {
         "title": "We are an EU-based company with EU-based servers.",
@@ -72,7 +72,7 @@
       "import_data": "Import your data from Google Analytics",
       "use_gtm": "Use Google Tag Manager, WordPress,<br />or our many frontend",
       "framework_plugins": "framework plugins",
-      "export_to": "Export to your own systems, Power BI,<br />Google Data Studio, or {0}data lakes{1}",
+      "export_to": "Export to your systems, Power BI,<br />Google Data Studio, or {0}data lakes{1}",
       "export_as": "Export as {0}raw data{1} or aggregated"
     },
     "why_switch_from_ga": {
@@ -82,7 +82,7 @@
       "paragraph_2": "Privacy laws like the GDPR are put in place to preserve the privacy of internet users. Data protection agencies are cracking down on privacy-invasive services like Google Analytics. France (CNIL) & Austria (DSB) already stated that the use of Google Analytics violates GDPR law in their countries. More EU countries are expected to follow this example.",
       "paragraph_3": "Google Analytics is a complex web analytics tool that has been the default analytics tool, but this is changing, and Google also recognizes this. That's why they are about to change to a new version called",
       "paragraph_3_link": "GA4 that aims to be privacy-friendly but is not",
-      "paragraph_4": " In addition, web browsers are limiting tracking mechanisms, and adblockers are used to block Google Analytics, which makes their data less and less accurate.",
+      "paragraph_4": " In addition, web browsers are limiting tracking mechanisms, and ad blockers are used to block Google Analytics, which makes their data less and less accurate.",
       "paragraph_5": "The global business environment is changing towards privacy, and so should you!",
       "paragraph_6_1": "Here is why Simple Analytics is the number one privacy-friendly",
       "paragraph_6_link": "Google Analytics alternative",
@@ -90,8 +90,8 @@
     },
     "events": {
       "title": "Event tracking without tracing individuals",
-      "auto_collect_link": "Auto collect events",
-      "auto_collect_description": "like downloads, outbound links, and email clicks. Check the performance of every button, click and page visit you want.",
+      "auto_collect_link": "Auto-collect events",
+      "auto_collect_description": "like downloads, outbound links, and email clicks. Check the performance of every button, click, and page visit you want.",
       "see_events_in_action": "See events in action"
     },
     "reports": {
@@ -183,7 +183,7 @@
         "description": "Learn about terms in our field."
       },
       "ga_countries": {
-        "title": "Google Analytics illigal?",
+        "title": "Google Analytics illegal?",
         "description": "Countries where Google Analytics is illegal."
       }
     },
@@ -232,7 +232,7 @@
   },
   "pricing_faq": {
     "title": "Frequently Asked Questions",
-    "need_help": "Neer more help? Please send us your question(s) via {0}our support page{1}.",
+    "need_help": "Need more help? Please send us your question(s) via {0}our support page{1}.",
     "datapoints": {
       "title": "What are datapoints?",
       "description": "You can collect two types of data with Simple Analytics: page views and events. The combined term for both is datapoint. If you don't use events, the datapoints will only be page views. If you do use events, the datapoints will also be events."
@@ -252,7 +252,7 @@
     "traffic_change": {
       "title": "What will happen to my charges when my traffic grows / declines?",
       "description_1": "You only pay for what you actually need. This means that if your plan's page view limit is exceeded, you will be charged for overages. Simple Analytics automatically calculates your price based on your average amount of page views (first looking back one month, then the average of the previous three months).",
-      "description_2": "So, if you had an increase in traffic during the last three months, you pay only a little more next month. Likewise, you automatically pay a little less when your average amount of page views decreased during the last months."
+      "description_2": "So, if you had an increase in traffic during the past three months, you pay only a little more next month. Likewise, you automatically pay a little less when your average amount of page views decreased during the last months."
     }
   },
   "video": {
@@ -268,7 +268,7 @@
     "published_and_edited_on_by": "Published on {0} and edited on {1} by",
     "subscribe": {
       "title": "The Privacy Newsletter",
-      "description": "Hey, my name is Adriaan, I'm the founder of Simple Analytics. About once a month I share insights and privacy updates in our newsletter. Unsubscribe with 1 click.",
+      "description": "Hey, my name is Adriaan, I'm the founder of Simple Analytics. About once a month, I share insights and privacy updates in our newsletter. Unsubscribe with 1 click.",
       "checkbox_newsletter": "Newsletter",
       "checkbox_blog_posts": "Notify me of new blog posts",
       "email_placeholder": "E.g.: eric{'@'}google.com",
@@ -298,7 +298,7 @@
     },
     "missive": {
       "role": "CEO at Missive",
-      "quote": "We traded a 'free', privacy-less, and complex analytic dashboard to a paid, privacy-first & simple one. We couldn't be happier. {0}The best privacy-focused analytics suite that I've found.{1} We're proud to be able to tell our customers that we don't track them at all."
+      "quote": "We traded a 'free', privacy-less, and complex analytic dashboard for a paid, privacy-first & simple one. We couldn't be happier. {0}The best privacy-focused analytics suite that I've found.{1} We're proud to be able to tell our customers that we don't track them at all."
     },
     "hannah": {
       "role": "Founder SaaS Design",
@@ -329,8 +329,8 @@
     }
   },
   "ga_countries": {
-    "overview": "Countries where Google Analytics is illigal",
-    "overview_description": "In some countries, Google Analytics is illigal. This is because Google Analytics is not GDPR compliant. In these countries, you can use Simple Analytics instead. We are GDPR compliant and we don't use cookies.",
+    "overview": "Countries where Google Analytics is illegal",
+    "overview_description": "In some countries, Google Analytics is illegal. This is because Google Analytics is not GDPR-compliant. In these countries, you can use Simple Analytics instead. We are GDPR-compliant, and we don't use cookies.",
     "map_generated_with": "Map generated with",
     "labels": {
       "forbidden": "Forbidden",
