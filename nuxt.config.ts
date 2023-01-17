@@ -134,7 +134,6 @@ export default defineNuxtConfig({
         de: "/artikel/[slug]",
         it: "/articolo/[slug]",
         fr: "/article/[slug]",
-        en: "/article/[slug]",
       },
       "blog/index": {
         nl: "/blog",
