@@ -138,17 +138,17 @@ export default defineNuxtConfig({
         // params need to be put back here as you would with Nuxt Dynamic Routes
         // https://nuxt.com/docs/guide/directory-structure/pages#dynamic-routes
         nl: "/google-analytics-verboden/[slug]",
-        es: "google-analytics-paises/[slug]",
-        de: "google-analytics-lander/[slug]",
-        it: "google-analytics-paesi/[slug]",
-        fr: "google-analytics-pays/[slug]",
+        es: "/google-analytics-paises/[slug]",
+        de: "/google-analytics-lander/[slug]",
+        it: "/google-analytics-paesi/[slug]",
+        fr: "/google-analytics-pays/[slug]",
       },
       "google-analytics-countries/index": {
         nl: "/google-analytics-verboden-in-deze-landen",
-        es: "google-analytics-prohibido-en-estos-paises",
-        de: "google-analytics-in-diesen-landern-verboten",
-        it: "google-analytics-vietato-in-questi-paesi",
-        fr: "google-analytics-interdit-dans-ces-pays",
+        es: "/google-analytics-prohibido-en-estos-paises",
+        de: "/google-analytics-in-diesen-landern-verboten",
+        it: "/google-analytics-vietato-in-questi-paesi",
+        fr: "/google-analytics-interdit-dans-ces-pays",
       },
     },
     detectBrowserLanguage: {
