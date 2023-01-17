@@ -39,6 +39,7 @@ import HtmlBlock from "@/components/HtmlBlock.vue";
 
 const route = useRoute();
 const { locale } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
 
 const {
   public: { BASE_URL },
@@ -57,15 +58,24 @@ const {
   error,
 } = await useFetch(url.toString(), {
   key: `articles-locale-${locale.value}`,
-  transform: ({ data }) =>
-    transformer({
+  transform: ({ data }) => {
+    return transformer({
       data,
       locale: locale.value,
-      keys: ["title", "excerpt", "locale", "slug", "contentHtml"],
-    }),
+      keys: [
+        "title",
+        "excerpt",
+        "locale",
+        "slug",
+        "contentHtml",
+        "translations",
+      ],
+    });
+  },
 });
 
 const article = computed(() => {
+  if (!articles.value[0]) return;
   return articles.value[0];
 });
 
@@ -75,4 +85,8 @@ const category = computed(() => {
   );
   return category || {};
 });
+
+if (articles?.value?.[0]?.languages) {
+  route.meta.nuxtI18n = articles?.value?.[0]?.languages;
+}
 </script>

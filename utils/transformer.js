@@ -1,4 +1,6 @@
 export default ({ data, locale = "en", keys = [] }) => {
+  const languages = {};
+
   const filterAttributes = (attributes) => {
     const filtered = {};
     keys.forEach((key) => {
@@ -36,6 +38,16 @@ export default ({ data, locale = "en", keys = [] }) => {
     return acc;
   }, []);
 
+  for (const item of flattened) {
+    if (
+      item?.attributes?.locale &&
+      item?.attributes?.slug &&
+      !languages[item.attributes.locale]
+    ) {
+      languages[item.attributes.locale] = { slug: item.attributes.slug };
+    }
+  }
+
   const preferred = ids.map((array) => {
     // Find the preferred locale
     const preferred = flattened.find(
@@ -56,6 +68,6 @@ export default ({ data, locale = "en", keys = [] }) => {
   });
 
   return preferred.map(({ attributes }) => {
-    return filterAttributes(attributes);
+    return { ...filterAttributes(attributes), languages };
   });
 };

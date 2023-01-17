@@ -3,7 +3,8 @@
     <!-- Begin of what is in viewport -->
     <div class="flex flex-col min-h-screen">
       <Html
-        :lang="localeIso"
+        :lang="localeHead.htmlAttrs.lang"
+        :dir="localeHead.htmlAttrs.dir"
         :class="{
           dark: theme === 'dark',
           'scroll-smooth': true,
@@ -92,23 +93,30 @@
           <Meta property="og:country-name" content="NL" />
 
           <!-- Languages -->
-          <Meta name="language" :content="locale?.toUpperCase()" />
-          <Meta http-equiv="content-language" :content="locale" />
-          <Link
-            rel="alternate"
-            hreflang="nl-NL"
-            :href="BASE_URL + switchLocalePath('nl')"
+          <Meta
+            name="language"
+            :content="localeHead.htmlAttrs.lang?.toUpperCase()?.split('-')[0]"
           />
-          <Link
-            rel="alternate"
-            hreflang="en-US"
-            :href="BASE_URL + switchLocalePath('en')"
+          <Meta
+            http-equiv="content-language"
+            :content="localeHead.htmlAttrs.lang?.split('-')[0]"
           />
-          <Link
-            rel="alternate"
-            hreflang="x-default"
-            :href="BASE_URL + switchLocalePath('en').replace('/en/', '/')"
-          />
+
+          <template v-for="link in localeHead.link" :key="link.id">
+            <Link
+              :id="link.id"
+              :rel="link.rel"
+              :href="link.href"
+              :hreflang="link.hreflang"
+            />
+          </template>
+          <template v-for="meta in localeHead.meta" :key="meta.id">
+            <Meta
+              :id="meta.id"
+              :property="meta.property"
+              :content="meta.content"
+            />
+          </template>
         </Head>
       </Html>
 
@@ -797,6 +805,12 @@ const { t, locale } = i18n;
 const localeIso = computed(() => {
   const found = LOCALES.find((loc) => loc.code === locale.value);
   return found?.iso || "";
+});
+
+const localeHead = useLocaleHead({
+  addDirAttribute: true,
+  identifierAttribute: "id",
+  addSeoAttributes: true,
 });
 
 const resources = [

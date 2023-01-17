@@ -48,11 +48,22 @@ const {
     transformer({
       data,
       locale: locale.value,
-      keys: ["title", "excerpt", "locale", "slug", "contentHtml"],
+      keys: [
+        "title",
+        "excerpt",
+        "locale",
+        "slug",
+        "contentHtml",
+        "translations",
+      ],
     }),
 });
 
 const article = computed(() => {
   return articles.value[0];
 });
+
+if (articles?.value?.[0]?.languages) {
+  route.meta.nuxtI18n = articles?.value?.[0]?.languages;
+}
 </script>

@@ -56,7 +56,8 @@
                   :to="localePath(post.path)"
                   class="dark:text-gray-300 text-gray-600"
                 >
-                  {{ post.title }}
+                  {{ post.title }}: {{ localePath(post.path, "nl") }}
+                  {{ locale }}
                 </NuxtLink>
               </h2>
               <NuxtLink
@@ -130,6 +131,9 @@ import SubscribeForm from "~/components/SubscribeForm.vue";
 
 import { getPathFromBlogUrl, labelAgo, getAuthorFromSlug } from "~/utils/blog";
 
+const i18n = useI18n();
+const { t, locale } = i18n;
+const localePath = useLocalePath();
 const config = useRuntimeConfig();
 const { BLOG_URL } = config.public;
 

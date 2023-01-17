@@ -111,6 +111,7 @@ export default defineNuxtConfig({
     defaultLocale: "en",
     langDir: "locales",
     customRoutes: "config",
+    dynamicRouteParams: true,
     pages: {
       pricing: {
         nl: "/prijzen",
@@ -126,21 +127,21 @@ export default defineNuxtConfig({
         it: "/video",
         fr: "/video",
       },
-      "blog/[slug]": {
-        // params need to be put back here as you would with Nuxt Dynamic Routes
-        // https://nuxt.com/docs/guide/directory-structure/pages#dynamic-routes
-        nl: "/artikel/[slug]",
-        es: "/articulo/[slug]",
-        de: "/artikel/[slug]",
-        it: "/articolo/[slug]",
-        fr: "/article/[slug]",
-      },
       "blog/index": {
         nl: "/blog",
         es: "/blog",
         de: "/blog",
         it: "/blog",
         fr: "/blog",
+      },
+      "blog/[slug]": {
+        // params need to be put back here as you would with Nuxt Dynamic Routes
+        // https://nuxt.com/docs/guide/directory-structure/pages#dynamic-routes
+        nl: "/blog/[slug]",
+        es: "/blog/[slug]",
+        de: "/blog/[slug]",
+        it: "/blog/[slug]",
+        fr: "/blog/[slug]",
       },
       "glossary/index": {
         nl: "/begrippenlijsten",
