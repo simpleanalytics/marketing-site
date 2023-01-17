@@ -68,6 +68,8 @@ export default ({ data, locale = "en", keys = [] }) => {
   });
 
   return preferred.map(({ attributes }) => {
-    return { ...filterAttributes(attributes), languages };
+    if (keys.includes("languages"))
+      return { ...filterAttributes(attributes), languages };
+    return filterAttributes(attributes);
   });
 };

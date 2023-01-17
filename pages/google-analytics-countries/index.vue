@@ -77,7 +77,7 @@ url.searchParams.set("populate[0]", "localizations");
 url.searchParams.set("pagination[pageSize]", "100");
 
 const { data, pending, error } = await useFetch(url.toString(), {
-  key: `articles-locale-${locale.value}`,
+  key: `countries-all-${locale.value}`,
   transform: ({ data }) =>
     transformer({
       data,
@@ -104,38 +104,41 @@ const legend = [
 
 const fixedCountries = [
   {
-    link:
-      locale.value === "nl"
-        ? localePath(
-            `/blog/frankrijk-oordeelt-dat-google-analytics-in-strijd-is-met-gdpr-uitspraak`
-          )
-        : locale.value === "fr"
-        ? localePath(
-            `/blog/la-france-juge-que-google-analytics-est-en-contradiction-avec-le-reglement-rgpd`
-          )
-        : localePath(
-            `/blog/france-rules-google-analytics-to-be-in-conflict-with-gdpr-ruling`
-          ),
+    link: localePath({
+      name: "blog-slug",
+      params: {
+        slug: "france-rules-google-analytics-to-be-in-conflict-with-gdpr-ruling",
+      },
+    }),
     locale: "fr",
     code: "fr",
     class: classes.yes,
   },
   {
-    link: localePath(`/blog/denmark-declares-google-analytics-unlawful`),
+    link: localePath({
+      name: "blog-slug",
+      params: { slug: "denmark-declares-google-analytics-unlawful" },
+    }),
     locale: "en",
     code: "dk",
     class: classes.yes,
   },
   {
-    link: localePath(
-      `/blog/hungarian-dpa-to-rule-against-google-analytics-according-to-gdprtoday`
-    ),
+    link: localePath({
+      name: "blog-slug",
+      params: {
+        slug: "hungarian-dpa-to-rule-against-google-analytics-according-to-gdprtoday",
+      },
+    }),
     locale: "en",
     code: "hu",
     class: classes.yes,
   },
   {
-    link: localePath(`/blog/italy-declares-google-analytics-illegal`),
+    link: localePath({
+      name: "blog-slug",
+      params: { slug: "italy-declares-google-analytics-illegal" },
+    }),
     locale: "en",
     code: "it",
     class: classes.yes,
@@ -146,7 +149,10 @@ const countriesList = computed(() => {
   if (!data?.value?.length) return fixedCountries;
 
   const databaseCountries = data.value.map((country) => ({
-    link: localePath(`/google-analytics-countries/${country.slug}`),
+    link: localePath({
+      name: "google-analytics-countries-slug",
+      params: { slug: country.slug },
+    }),
     locale: country.locale,
     code: country.metadata?.country_code,
     class:

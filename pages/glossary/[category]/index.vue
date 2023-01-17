@@ -90,7 +90,7 @@ const {
   pending,
   error,
 } = await useFetch(url.toString(), {
-  key: `articles-locale-${locale.value}`,
+  key: `glossary-category-${route.params.category}-${locale.value}`,
   transform: ({ data }) =>
     transformer({
       data,

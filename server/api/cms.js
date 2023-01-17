@@ -74,6 +74,12 @@ const convert = (markdown, { showIndex = false } = {}) => {
     })
     .join("");
 
+  // In the markdown links are formatted like this: [text](<url>), replace those with [text](url)
+  markdown = markdown.replace(
+    /\[([^\]]+)\]\((<|&lt;)(>|.+?(?=&gt;))(>|&gt;)\)/g,
+    "[$1]($3)"
+  );
+
   // Convert markdown to html
   let html = marked(markdown, {
     headerIds: true,
@@ -83,18 +89,22 @@ const convert = (markdown, { showIndex = false } = {}) => {
   html = html.replace(
     /<a href="([^"]+)"([^>]*)>([^<]+)<\/a>/g,
     function (match, href, attributes, text) {
-      const url = new URL(href);
-      if (url.hostname === "www.simpleanalytics.com") {
-        const path = href.split("/").slice(3).join("/");
-        return `<a href="/${path}"${attributes}>${text}</a>`;
+      try {
+        const url = new URL(href);
+        if (url.hostname === "www.simpleanalytics.com") {
+          const path = href.split("/").slice(3).join("/");
+          return `<a href="/${path}"${attributes}>${text}</a>`;
+        }
+        if (
+          href.startsWith("http") &&
+          !url.hostname.includes("simpleanalytics")
+        ) {
+          return `<a href="${href}"${attributes} target="_blank" rel="noopener noreferrer nofollow">${text}</a>`;
+        }
+        return match;
+      } catch (error) {
+        return match;
       }
-      if (
-        href.startsWith("http") &&
-        !url.hostname.includes("simpleanalytics")
-      ) {
-        return `<a href="${href}"${attributes} target="_blank" rel="noopener noreferrer nofollow">${text}</a>`;
-      }
-      return match;
     }
   );
 
