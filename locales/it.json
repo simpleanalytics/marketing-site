@@ -265,6 +265,7 @@
     "back_to_top": "Torna su.",
     "published_on_by": "Pubblicato il {0} da {1}",
     "published_and_edited_on_by": "Pubblicato il {0} e modificato il {1} da",
+    "go_to_overview": "Vai alla panoramica del blog",
     "subscribe": {
       "title": "Newsletter sulla privacy",
       "description": "Ciao, mi chiamo Adriaan, sono il fondatore di Simple Analytics. Circa una volta al mese condivido informazioni e aggiornamenti sulla privacy nella nostra newsletter. Disiscriviti con 1 click.",
@@ -310,6 +311,21 @@
     "stefaan": {
       "role": "Marketeer",
       "quote": "Eccellente alternativa a Google Analytics. Sì, paghi una piccola sottoscrizione, ma ottieni molto in cambio: {0}analisi a prova di GDPR{1} e {0}prive di cookie{1}, {0}precise{1} e grafici chiari."
+    }
+  },
+  "glossary": {
+    "title": "Glossario",
+    "overview": "Panoramica del glossario",
+    "overview_description": "Questi glossari contengono la maggior parte dei termini utilizzati in Google Analytics e in altre analisi generali su web. Fai clic su un glossario per saperne di più.",
+    "categories": {
+      "googleanalytics": {
+        "title": "Google Analytics",
+        "description": "Glossario dei termini di Google Analytics"
+      },
+      "analytics": {
+        "title": "Analisi web",
+        "description": "Glossario dei termini di analisi web"
+      }
     }
   },
   "ga_countries": {

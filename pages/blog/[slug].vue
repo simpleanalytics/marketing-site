@@ -11,6 +11,11 @@
       <p class="mt-6" v-if="!article">
         {{ $t("blog.article_not_found") }}
       </p>
+      <p class="mt-6" v-if="!article">
+        <NuxtLink :to="localePath('/blog')" class="button">{{
+          $t("blog.go_to_overview")
+        }}</NuxtLink>
+      </p>
 
       <p class="mt-6 flex items-center justify-center" v-if="post?.date">
         <span class="mr-1"

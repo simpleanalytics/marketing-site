@@ -90,7 +90,7 @@ export const getAuthorFromSlug = (slug) => {
       };
     case "ankit":
       return {
-        name: "Ankit",
+        name: "Ankit Ghosh",
         avatar: "https://assets.simpleanalytics.com/images/people/ankit.jpg",
       };
     case "pieter_vegt":

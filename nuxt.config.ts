@@ -114,25 +114,66 @@ export default defineNuxtConfig({
     pages: {
       pricing: {
         nl: "/prijzen",
+        es: "/precios",
+        de: "/preise",
+        it: "/prezzi",
+        fr: "/tarifs",
       },
       video: {
         nl: "/video",
+        es: "/video",
+        de: "/video",
+        it: "/video",
+        fr: "/video",
       },
       "blog/[slug]": {
         // params need to be put back here as you would with Nuxt Dynamic Routes
         // https://nuxt.com/docs/guide/directory-structure/pages#dynamic-routes
-        nl: "/blog/[slug]",
+        nl: "/artikel/[slug]",
+        es: "/articulo/[slug]",
+        de: "/artikel/[slug]",
+        it: "/articolo/[slug]",
+        fr: "/article/[slug]",
+        en: "/article/[slug]",
       },
       "blog/index": {
         nl: "/blog",
-      },
-      "glossary/[slug]": {
-        // params need to be put back here as you would with Nuxt Dynamic Routes
-        // https://nuxt.com/docs/guide/directory-structure/pages#dynamic-routes
-        nl: "/glossary/[slug]",
+        es: "/blog",
+        de: "/blog",
+        it: "/blog",
+        fr: "/blog",
       },
       "glossary/index": {
-        nl: "/glossary",
+        nl: "/begrippenlijsten",
+        es: "/glosarios",
+        de: "/glossare",
+        it: "/glossari",
+        fr: "/glossaires",
+      },
+      "glossary/[category]/index": {
+        // params need to be put back here as you would with Nuxt Dynamic Routes
+        // https://nuxt.com/docs/guide/directory-structure/pages#dynamic-routes
+        nl: "/begrippenlijst/[category]",
+        es: "/glosario/[category]",
+        de: "/glossar/[category]",
+        it: "/glossario/[category]",
+        fr: "/glossaire/[category]",
+      },
+      "glossary/[category]/[slug]": {
+        // params need to be put back here as you would with Nuxt Dynamic Routes
+        // https://nuxt.com/docs/guide/directory-structure/pages#dynamic-routes
+        nl: "/glossary/[category]/[slug]",
+        es: "/glosario/[category]/[slug]",
+        de: "/glossar/[category]/[slug]",
+        it: "/glossario/[category]/[slug]",
+        fr: "/glossaire/[category]/[slug]",
+      },
+      "google-analytics-countries/index": {
+        nl: "/google-analytics-verboden-in-deze-landen",
+        es: "/google-analytics-prohibido-en-estos-paises",
+        de: "/google-analytics-in-diesen-landern-verboten",
+        it: "/google-analytics-vietato-in-questi-paesi",
+        fr: "/google-analytics-interdit-dans-ces-pays",
       },
       "google-analytics-countries/[slug]": {
         // params need to be put back here as you would with Nuxt Dynamic Routes
@@ -142,13 +183,6 @@ export default defineNuxtConfig({
         de: "/google-analytics-lander/[slug]",
         it: "/google-analytics-paesi/[slug]",
         fr: "/google-analytics-pays/[slug]",
-      },
-      "google-analytics-countries/index": {
-        nl: "/google-analytics-verboden-in-deze-landen",
-        es: "/google-analytics-prohibido-en-estos-paises",
-        de: "/google-analytics-in-diesen-landern-verboten",
-        it: "/google-analytics-vietato-in-questi-paesi",
-        fr: "/google-analytics-interdit-dans-ces-pays",
       },
     },
     detectBrowserLanguage: {
