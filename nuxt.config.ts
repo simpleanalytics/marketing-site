@@ -35,7 +35,7 @@ const locales = [
     code: "fr",
     iso: "fr-FR",
     file: "fr.json",
-    name: "Francés",
+    name: "Français",
     flag: "FR",
   },
   {
