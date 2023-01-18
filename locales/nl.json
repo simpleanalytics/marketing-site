@@ -265,6 +265,7 @@
     "back_to_top": "Terug naar boven.",
     "published_on_by": "Gepubliceerd op {0} door {1}",
     "published_and_edited_on_by": "Gepubliceerd op {0} en bijgewerkt op {1} door",
+    "automatic_translated_switch_to_english": "Dit artikel is automatisch vertaald. {0}Ga naar de Engelse versie{1} voor het origineel.",
     "go_to_overview": "Ga naar blog overzicht",
     "subscribe": {
       "title": "The Privacy Newsletter",

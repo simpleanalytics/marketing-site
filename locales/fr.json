@@ -266,6 +266,7 @@
     "back_to_top": "Retour vers le haut.",
     "published_on_by": "Publié le {0} par {1}",
     "published_and_edited_on_by": "Publié le {0} et modifié le {1} par",
+    "automatic_translated_switch_to_english": "Cet article est traduit automatiquement. {0}Passe à la version anglaise{1} pour l'original.",
     "go_to_overview": "Aller à la vue d'ensemble du blog",
     "subscribe": {
       "title": "Lettre d'information sur la confidentialité",

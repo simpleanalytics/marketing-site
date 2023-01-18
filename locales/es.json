@@ -265,6 +265,7 @@
     "back_to_top": "Volver arriba.",
     "published_on_by": "Publicado el {0} por {1}",
     "published_and_edited_on_by": "Publicado el {0} y editado el {1} por",
+    "automatic_translated_switch_to_english": "Este artículo se ha traducido automáticamente. {0}Cambia a la versión en inglés{1} para ver el original.",
     "go_to_overview": "Ir a la vista general del blog",
     "subscribe": {
       "title": "Boletín de privacidad",

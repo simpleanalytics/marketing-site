@@ -267,6 +267,7 @@
     "back_to_top": "Zurück zum Anfang.",
     "published_on_by": "Veröffentlicht am {0} von {1}",
     "published_and_edited_on_by": "Veröffentlicht am {0} und bearbeitet am {1} von",
+    "automatic_translated_switch_to_english": "Dieser Artikel wird automatisch übersetzt. {0}Wechsle zur englischen Version{1}, um das Original zu lesen.",
     "go_to_overview": "Gehe zur Blog-Übersicht",
     "subscribe": {
       "title": "Der Privacy Newsletter",

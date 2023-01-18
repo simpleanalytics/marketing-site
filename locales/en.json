@@ -266,6 +266,8 @@
     "back_to_top": "Back to top.",
     "published_on_by": "Published on {0} by {1}",
     "published_and_edited_on_by": "Published on {0} and edited on {1} by",
+    "automatic_translated_switch_to_english": "This article is automatically translated. {0}Switch to the English version{1} for the original.",
+    "go_to_overview": "Go to overview",
     "subscribe": {
       "title": "The Privacy Newsletter",
       "description": "Hey, my name is Adriaan, I'm the founder of Simple Analytics. About once a month, I share insights and privacy updates in our newsletter. Unsubscribe with 1 click.",
