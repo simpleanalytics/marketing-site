@@ -293,7 +293,7 @@
                                       :href="
                                         localePath({
                                           name: 'blog-slug',
-                                          slug: post.slug,
+                                          params: { slug: post.slug },
                                         })
                                       "
                                       class="font-medium hover:text-gray-900 dark:hover:text-gray-500 transition ease-in-out duration-150"
@@ -605,7 +605,9 @@
                     :to="
                       localePath({
                         name: 'blog-slug',
-                        slug: 'why-simple-analytics-is-a-great-alternative-to-google-analytics',
+                        params: {
+                          slug: 'why-simple-analytics-is-a-great-alternative-to-google-analytics',
+                        },
                       })
                     "
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
@@ -621,7 +623,9 @@
                     :to="
                       localePath({
                         name: 'blog-slug',
-                        slug: 'why-simple-analytics-is-a-great-alternative-to-matomo',
+                        params: {
+                          slug: 'why-simple-analytics-is-a-great-alternative-to-matomo',
+                        },
                       })
                     "
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
@@ -637,7 +641,9 @@
                     :to="
                       localePath({
                         name: 'blog-slug',
-                        slug: 'why-simple-analytics-is-a-great-alternative-to-plausible',
+                        params: {
+                          slug: 'why-simple-analytics-is-a-great-alternative-to-plausible',
+                        },
                       })
                     "
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
@@ -664,7 +670,9 @@
                     :to="
                       localePath({
                         name: 'blog-slug',
-                        slug: 'why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics',
+                        params: {
+                          slug: 'why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics',
+                        },
                       })
                     "
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
@@ -712,7 +720,7 @@
                     :to="
                       localePath({
                         name: 'blog-slug',
-                        slug: post.slug,
+                        params: { slug: post.slug },
                       })
                     "
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded-md block group text-left"
@@ -807,7 +815,7 @@ import PlausibleIcon from "./components/icons/Plausible.vue";
 import ArrowLink from "./components/ArrowLink.vue";
 import MoonSun from "./components/MoonSun.vue";
 
-import { getPathFromBlogUrl, labelAgo } from "./utils/blog";
+import { getPathFromBlogUrl, labelAgo, getSlugFromBlogUrl } from "./utils/blog";
 
 const route = useRoute();
 
@@ -1004,6 +1012,7 @@ const recentPosts = computed(() => {
       return {
         ...post,
         path: getPathFromBlogUrl(post.url),
+        slug: getSlugFromBlogUrl(post.url),
       };
     });
   return [];

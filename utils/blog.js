@@ -6,6 +6,11 @@ export const getPathFromBlogUrl = (url) => {
   return "/blog" + pathname;
 };
 
+export const getSlugFromBlogUrl = (url) => {
+  const path = getPathFromBlogUrl(url);
+  return path.split("/").pop();
+};
+
 export const replaceInlineImages = (BLOG_URL, article) => {
   const url = BLOG_URL.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const regexp = new RegExp(`(src)="${url}\/blog\/`, "g");

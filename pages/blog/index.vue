@@ -38,7 +38,7 @@
                 :to="
                   localePath({
                     name: 'blog-slug',
-                    slug: post.slug,
+                    params: { slug: post.slug },
                   })
                 "
               >
@@ -63,7 +63,7 @@
                   :to="
                     localePath({
                       name: 'blog-slug',
-                      slug: post.slug,
+                      params: { slug: post.slug },
                     })
                   "
                   class="dark:text-gray-300 text-gray-600"
@@ -140,7 +140,12 @@
 import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
 import SubscribeForm from "~/components/SubscribeForm.vue";
 
-import { getPathFromBlogUrl, labelAgo, getAuthorFromSlug } from "~/utils/blog";
+import {
+  getPathFromBlogUrl,
+  labelAgo,
+  getAuthorFromSlug,
+  getSlugFromBlogUrl,
+} from "~/utils/blog";
 
 const i18n = useI18n();
 const { t, locale } = i18n;
@@ -157,6 +162,7 @@ const recentPosts = computed(() => {
 
   return recentPostsAll.value.map((post) => {
     const path = getPathFromBlogUrl(post.url);
+    const slug = getSlugFromBlogUrl(post.url);
     const image = post.image_no_text || post.image;
 
     const { avatar, name } = getAuthorFromSlug(post.author_slug) || {};
@@ -166,6 +172,7 @@ const recentPosts = computed(() => {
       name,
       avatar,
       path,
+      slug,
       cover: image?.startsWith("/") ? `${BLOG_URL}${image}` : image,
     };
   });
