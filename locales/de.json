@@ -283,9 +283,8 @@
       }
     }
   },
-
   "testimonials": {
-    "trusted_by": "Vertraut von mehr als 600 {0}Regierungen{1}, {0}NGOs{1} und kleinen bis mittelgroßen {0}Unternehmen{1}.",
+    "trusted_by": "Mehr als 600 kleine bis mittelgroße {0}Unternehmen{1}, {0}NGOs{1} und {0}Regierungen{1} vertrauen uns.",
     "duckduckgo": {
       "name": "DuckDuckGo",
       "role": "Größte datenschutzfreundliche Suchmaschine",
