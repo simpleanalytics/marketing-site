@@ -73,7 +73,7 @@ const {
 } = useRuntimeConfig();
 
 const { articles, pending, error } = await useArticle({
-  routeName: "glossary-category-slug",
+  routeName: "glossary-category",
   filter: "articleType",
   slug: route.params.category,
 });

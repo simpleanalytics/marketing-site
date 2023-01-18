@@ -14,6 +14,17 @@ export const useArticle = async ({ routeName, slug, filter = "slug" }) => {
   url.searchParams.set("populate[0]", "localizations");
   url.searchParams.set("pagination[pageSize]", "100");
 
+  const keys = [
+    "title",
+    "excerpt",
+    "locale",
+    "slug",
+    "contentHtml",
+    "languages",
+  ];
+
+  if (filter !== "slug") keys.push(filter);
+
   const {
     data: articles,
     pending,
@@ -24,14 +35,7 @@ export const useArticle = async ({ routeName, slug, filter = "slug" }) => {
       transformer({
         data,
         locale: locale.value,
-        keys: [
-          "title",
-          "excerpt",
-          "locale",
-          "slug",
-          "contentHtml",
-          "languages",
-        ],
+        keys,
       }),
   });
 
@@ -40,7 +44,7 @@ export const useArticle = async ({ routeName, slug, filter = "slug" }) => {
     return articles.value[0];
   });
 
-  if (articles?.value) {
+  if (articles?.value && filter === "slug") {
     const lanuages = articles?.value?.[0]?.languages || {};
 
     if (slug !== lanuages[locale.value].slug) {
