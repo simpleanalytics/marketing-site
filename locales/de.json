@@ -335,10 +335,11 @@
     "overview": "Länder, in denen Google Analytics verboten ist",
     "overview_description": "In einigen Ländern ist Google Analytics verboten. Das liegt daran, dass Google Analytics nicht den GDPR-Richtlinien entspricht. In diesen Ländern kannst du stattdessen Simple Analytics verwenden. Wir sind GDPR-konform und verwenden keine Cookies.",
     "map_generated_with": "Karte erstellt mit",
+    "click_country_to_learn_more": "Klicken Sie auf ein Land, um mehr zu erfahren.",
     "labels": {
       "forbidden": "Verboten",
       "legal": "Legal",
-      "likely_to_be_forbidden": "Wahrscheinlich verboten",
+      "pending_cases": "Ausstehende Fälle",
       "not_researched": "Nicht untersucht"
     }
   },

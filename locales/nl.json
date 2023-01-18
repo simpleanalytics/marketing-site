@@ -332,10 +332,11 @@
     "overview": "Landen waar Google Analytics illegaal is",
     "overview_description": "In sommige landen is Google Analytics illegaal. Dit komt doordat Google Analytics niet GDPR-compliant is. In deze landen kunt u in plaats daarvan Simple Analytics gebruiken. We zijn GDPR-compliant en we gebruiken geen cookies.",
     "map_generated_with": "Kaart gemaakt met",
+    "click_country_to_learn_more": "Klik op een land om meer te weten te komen.",
     "labels": {
       "forbidden": "Verboden",
       "legal": "Legaal",
-      "likely_to_be_forbidden": "Waarschijnlijk verboden",
+      "pending_cases": "Lopende rechtszaken",
       "not_researched": "Niet onderzocht"
     }
   },

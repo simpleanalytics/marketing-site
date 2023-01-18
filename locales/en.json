@@ -332,10 +332,11 @@
     "overview": "Countries where Google Analytics is illegal",
     "overview_description": "In some countries, Google Analytics is illegal. This is because Google Analytics is not GDPR-compliant. In these countries, you can use Simple Analytics instead. We are GDPR-compliant, and we don't use cookies.",
     "map_generated_with": "Map generated with",
+    "click_country_to_learn_more": "Click on a country to learn more.",
     "labels": {
       "forbidden": "Forbidden",
       "legal": "Legal",
-      "likely_to_be_forbidden": "Likely to be forbidden",
+      "pending_cases": "Pending cases",
       "not_researched": "Not researched"
     }
   },

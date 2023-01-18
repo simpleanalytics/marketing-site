@@ -332,10 +332,11 @@
     "overview": "Paesi dove Google Analytics è illegale",
     "overview_description": "In alcuni paesi, Google Analytics è illegale. Questo perché Google Analytics non è conforme al RGPD. In questi paesi, puoi usare invece Simple Analytics. Siamo conformi al RGPD e non usiamo cookies.",
     "map_generated_with": "Mappa generata con",
+    "click_country_to_learn_more": "Clicca su un paese per saperne di più.",
     "labels": {
       "forbidden": "Illegale",
       "legal": "Legale",
-      "likely_to_be_forbidden": "Ricorsi pendenti",
+      "pending_cases": "Casi in sospeso",
       "not_researched": "Ignoto"
     }
   },

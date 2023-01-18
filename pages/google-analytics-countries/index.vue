@@ -21,6 +21,10 @@
           {{ $t(`ga_countries.labels.${item.translation}`) }}
         </li>
       </ul>
+
+      <p class="mt-6">
+        {{ $t("ga_countries.click_country_to_learn_more") }}
+      </p>
     </div>
   </div>
 
@@ -98,7 +102,7 @@ const classes = {
 const legend = [
   { class: "bg-red-500", translation: "forbidden" },
   { class: "bg-green-500", translation: "legal" },
-  { class: "bg-yellow-500", translation: "likely_to_be_forbidden" },
+  { class: "bg-yellow-500", translation: "pending_cases" },
   { class: "bg-gray-300 dark:bg-gray-500", translation: "not_researched" },
 ];
 
