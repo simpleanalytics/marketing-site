@@ -21,6 +21,7 @@ export const useArticle = async ({ routeName, slug, filter = "slug" }) => {
     "slug",
     "contentHtml",
     "languages",
+    "automaticTranslated",
   ];
 
   if (filter !== "slug") keys.push(filter);
@@ -45,12 +46,12 @@ export const useArticle = async ({ routeName, slug, filter = "slug" }) => {
   });
 
   if (articles?.value && filter === "slug") {
-    const lanuages = articles?.value?.[0]?.languages || {};
+    const languages = articles?.value?.[0]?.languages || {};
 
-    if (slug !== lanuages[locale.value].slug) {
+    if (slug !== languages[locale.value].slug) {
       const path = localePath({
         name: routeName,
-        params: { slug: lanuages[locale.value].slug },
+        params: { slug: languages[locale.value].slug },
       });
       navigateTo(path, { redirectCode: 308 }); // 308 Permanent Redirect
     }

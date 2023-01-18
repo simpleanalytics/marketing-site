@@ -21,7 +21,7 @@ const locales = [
     code: "de",
     iso: "de-DE",
     file: "de.json",
-    name: "Alemán",
+    name: "Deutsch",
     flag: "DE",
   },
   {
