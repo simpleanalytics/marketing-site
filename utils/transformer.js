@@ -1,5 +1,12 @@
 export default ({ data, locale = "en", keys = [] }) => {
-  const languages = {};
+  const languages = {
+    en: {},
+    de: {},
+    fr: {},
+    it: {},
+    es: {},
+    nl: {},
+  };
 
   const filterAttributes = (attributes) => {
     const filtered = {};
@@ -39,11 +46,7 @@ export default ({ data, locale = "en", keys = [] }) => {
   }, []);
 
   for (const item of flattened) {
-    if (
-      item?.attributes?.locale &&
-      item?.attributes?.slug &&
-      !languages[item.attributes.locale]
-    ) {
+    if (item?.attributes?.locale && item?.attributes?.slug) {
       languages[item.attributes.locale] = { slug: item.attributes.slug };
     }
   }
@@ -68,8 +71,15 @@ export default ({ data, locale = "en", keys = [] }) => {
   });
 
   return preferred.map(({ attributes }) => {
-    if (keys.includes("languages"))
-      return { ...filterAttributes(attributes), languages };
-    return filterAttributes(attributes);
+    if (!keys.includes("languages")) return filterAttributes(attributes);
+
+    if (languages.en?.slug) {
+      for (const key in languages) {
+        if (languages[key].slug) continue;
+        languages[key].slug = languages.en.slug;
+      }
+    }
+
+    return { ...filterAttributes(attributes), languages };
   });
 };

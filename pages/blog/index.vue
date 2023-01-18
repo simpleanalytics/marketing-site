@@ -34,7 +34,14 @@
             class="flex w-full flex-col shadow-xl overflow-hidden rounded-lg bg-blue-100 dark:bg-gray-700"
           >
             <div>
-              <NuxtLink :to="localePath(post.path)">
+              <NuxtLink
+                :to="
+                  localePath({
+                    name: 'blog-slug',
+                    slug: post.slug,
+                  })
+                "
+              >
                 <img
                   v-if="post.cover"
                   :src="post.cover"
@@ -53,11 +60,15 @@
             <div class="px-6 py-4 mt-2 flex-grow flex flex-col">
               <h2 class="text-2xl font-semibold">
                 <NuxtLink
-                  :to="localePath(post.path)"
+                  :to="
+                    localePath({
+                      name: 'blog-slug',
+                      slug: post.slug,
+                    })
+                  "
                   class="dark:text-gray-300 text-gray-600"
                 >
-                  {{ post.title }}: {{ localePath(post.path, "nl") }}
-                  {{ locale }}
+                  {{ post.title }}
                 </NuxtLink>
               </h2>
               <NuxtLink

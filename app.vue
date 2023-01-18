@@ -180,7 +180,7 @@
                     </ExternalLink>
                     <NuxtLink
                       v-else-if="!item.popover"
-                      :to="localePath(item.to)"
+                      :to="localePath({ name: item.to })"
                       class="font-medium text-gray-500 hover:text-gray-600"
                     >
                       {{ $t(item.translation) }}
@@ -232,7 +232,11 @@
                                     ? item.href
                                     : localePath(item.href)
                                 "
-                                :to="item.to ? localePath(item.to) : undefined"
+                                :to="
+                                  item.to
+                                    ? localePath({ name: item.to })
+                                    : undefined
+                                "
                                 class="-m-3 p-3 rounded flex items-start hover:bg-blue-100 dark:hover:bg-gray-900 transition ease-in-out duration-150"
                               >
                                 <component
@@ -280,13 +284,18 @@
                                 <ul v-else role="list" class="mt-4 space-y-4">
                                   <li
                                     v-for="post in recentPosts"
-                                    :key="post.path"
+                                    :key="post.slug"
                                     class="text-base truncate"
                                     :title="post.excerpt"
                                   >
                                     <PopoverButton
                                       :as="MenuLink"
-                                      :href="localePath(post.path)"
+                                      :href="
+                                        localePath({
+                                          name: 'blog-slug',
+                                          slug: post.slug,
+                                        })
+                                      "
                                       class="font-medium hover:text-gray-900 dark:hover:text-gray-500 transition ease-in-out duration-150"
                                     >
                                       <span
@@ -301,7 +310,7 @@
                               <div class="mt-5 text-sm">
                                 <PopoverButton
                                   :as="MenuLink"
-                                  :href="localePath('blog')"
+                                  :href="localePath({ name: 'blog' })"
                                   class="font-medium text-red-500 hover:text-red-500 transition ease-in-out duration-150"
                                 >
                                   {{ $t("home.view_all_posts") }}
@@ -538,7 +547,7 @@
                 </li>
                 <li>
                   <NuxtLink
-                    :to="localePath('blog')"
+                    :to="localePath({ name: 'blog' })"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <BookOpenIcon
@@ -560,7 +569,7 @@
                 </li>
                 <li>
                   <NuxtLink
-                    :to="localePath('pricing')"
+                    :to="localePath({ name: 'pricing' })"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <CreditCardIcon
@@ -594,9 +603,10 @@
                 <li>
                   <NuxtLink
                     :to="
-                      localePath(
-                        '/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics'
-                      )
+                      localePath({
+                        name: 'blog-slug',
+                        slug: 'why-simple-analytics-is-a-great-alternative-to-google-analytics',
+                      })
                     "
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
@@ -609,9 +619,10 @@
                 <li>
                   <NuxtLink
                     :to="
-                      localePath(
-                        '/blog/why-simple-analytics-is-a-great-alternative-to-matomo'
-                      )
+                      localePath({
+                        name: 'blog-slug',
+                        slug: 'why-simple-analytics-is-a-great-alternative-to-matomo',
+                      })
                     "
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
@@ -624,9 +635,10 @@
                 <li>
                   <NuxtLink
                     :to="
-                      localePath(
-                        '/blog/why-simple-analytics-is-a-great-alternative-to-plausible'
-                      )
+                      localePath({
+                        name: 'blog-slug',
+                        slug: 'why-simple-analytics-is-a-great-alternative-to-plausible',
+                      })
                     "
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
@@ -650,9 +662,10 @@
                 <li>
                   <NuxtLink
                     :to="
-                      localePath(
-                        '/blog/why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics'
-                      )
+                      localePath({
+                        name: 'blog-slug',
+                        slug: 'why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics',
+                      })
                     "
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
@@ -696,7 +709,12 @@
                   :key="post.path"
                 >
                   <NuxtLink
-                    :to="localePath(post.path)"
+                    :to="
+                      localePath({
+                        name: 'blog-slug',
+                        slug: post.slug,
+                      })
+                    "
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded-md block group text-left"
                   >
                     <span

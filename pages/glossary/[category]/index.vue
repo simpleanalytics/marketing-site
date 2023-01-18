@@ -56,47 +56,26 @@
 </template>
 
 <script setup>
+import GoogleAnalyticsIcon from "@/components/icons/GoogleAnalytics.vue";
+import Arrow from "@/components/Arrow.vue";
+import transformer from "@/utils/transformer";
+import { categories } from "@/data/glossary";
 import {
   ChartBarSquareIcon,
   ComputerDesktopIcon,
 } from "@heroicons/vue/24/outline";
 
-import GoogleAnalyticsIcon from "@/components/icons/GoogleAnalytics.vue";
-import Arrow from "@/components/Arrow.vue";
-import transformer from "@/utils/transformer";
-import { categories } from "@/data/glossary";
-
 const route = useRoute();
 const { locale, getBrowserLocale } = useI18n();
+const browserLocale = getBrowserLocale();
 const {
   public: { LOCALES },
 } = useRuntimeConfig();
 
-const browserLocale = getBrowserLocale();
-
-const {
-  public: { BASE_URL },
-} = useRuntimeConfig();
-
-const url = new URL("/api/cms", BASE_URL);
-url.searchParams.set("path", "/articles");
-url.searchParams.set("locale", "all");
-url.searchParams.set("filters[articleType][$eq]", route.params.category);
-url.searchParams.set("populate[0]", "localizations");
-url.searchParams.set("pagination[pageSize]", "100");
-
-const {
-  data: articles,
-  pending,
-  error,
-} = await useFetch(url.toString(), {
-  key: `glossary-category-${route.params.category}-${locale.value}`,
-  transform: ({ data }) =>
-    transformer({
-      data,
-      locale: locale.value,
-      keys: ["title", "excerpt", "locale", "slug", "articleType"],
-    }),
+const { articles, pending, error } = await useArticle({
+  routeName: "glossary-category-slug",
+  filter: "articleType",
+  slug: route.params.category,
 });
 
 const category = computed(() => {

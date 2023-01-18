@@ -27,36 +27,8 @@ import HtmlBlock from "@/components/HtmlBlock.vue";
 const route = useRoute();
 const { locale } = useI18n();
 
-const {
-  public: { BASE_URL },
-} = useRuntimeConfig();
-
-const url = new URL("/api/cms", BASE_URL);
-url.searchParams.set("path", "/articles");
-url.searchParams.set("locale", "all");
-url.searchParams.set("filters[slug][$eq]", route.params.slug);
-url.searchParams.set("populate[0]", "localizations");
-url.searchParams.set("pagination[pageSize]", "100");
-
-const {
-  data: articles,
-  pending,
-  error,
-} = await useFetch(url.toString(), {
-  key: `countries-${route.params.slug}-locale-${locale.value}`,
-  transform: ({ data }) =>
-    transformer({
-      data,
-      locale: locale.value,
-      keys: ["title", "excerpt", "locale", "slug", "contentHtml", "languages"],
-    }),
+const { article } = await useArticle({
+  routeName: "google-analytics-countries-slug",
+  slug: route.params.slug,
 });
-
-const article = computed(() => {
-  return articles.value[0];
-});
-
-if (articles?.value?.[0]?.languages) {
-  route.meta.nuxtI18n = articles?.value?.[0]?.languages;
-}
 </script>

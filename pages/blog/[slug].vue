@@ -93,6 +93,21 @@ const route = useRoute();
 const config = useRuntimeConfig();
 const { BASE_URL, MAIN_URL, BLOG_URL } = config.public;
 
+onMounted(() => {
+  setTimeout(() => {
+    const gifs = document.querySelectorAll("div.gif");
+    if (!gifs.length) return;
+    gifs.forEach((gif) => {
+      gif.addEventListener("mouseenter", () => {
+        gif.querySelector("details").open = true;
+      });
+      gif.addEventListener("mouseleave", () => {
+        gif.querySelector("details").open = false;
+      });
+    });
+  }, 250);
+});
+
 const { pending, data: post } = await useAsyncData(
   `blog-${route.params.slug}`,
   () => $fetch("/api/blog-post?slug=" + route.params.slug)
@@ -229,20 +244,5 @@ const article = computed(() => {
     .replace(/preload="auto"/g, 'preload="auto" controls="controls"')
     .replace(/&#8617;/g, svgUp)
     .replace(/class="split"/g, 'class="flex space-x-8"');
-});
-
-onMounted(() => {
-  setTimeout(() => {
-    const gifs = document.querySelectorAll("div.gif");
-    if (!gifs.length) return;
-    gifs.forEach((gif) => {
-      gif.addEventListener("mouseenter", () => {
-        gif.querySelector("details").open = true;
-      });
-      gif.addEventListener("mouseleave", () => {
-        gif.querySelector("details").open = false;
-      });
-    });
-  }, 250);
 });
 </script>
