@@ -1,6 +1,7 @@
 <template>
   <Article
-    name="glossary-category-slug"
+    name="glossary-category-key-terms-slug"
+    type="key-terms"
     :slug="route.params.slug"
     :articleType="route.params.category"
   >
@@ -9,13 +10,13 @@
         <NuxtLink
           :to="
             localePath({
-              name: 'glossary-category',
+              name: 'glossary-category-key-terms',
               params: { category: route.params.category },
             })
           "
           data-no-style
           >{{ $t(category.titleTranslation) }}
-          {{ $t("glossary.title") }}
+          {{ $t("glossary.key_terms_title") }}
         </NuxtLink>
       </h2>
     </template>

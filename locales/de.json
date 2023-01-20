@@ -269,6 +269,7 @@
     "published_and_edited_on_by": "Veröffentlicht am {0} und bearbeitet am {1} von",
     "automatic_translated_switch_to_english": "Dieser Artikel wird automatisch übersetzt. {0}Wechsle zur englischen Version{1}, um das Original zu lesen.",
     "go_to_overview": "Gehe zur Blog-Übersicht",
+    "content_not_translated": "Dieser Inhalt ist noch nicht ins Deutsche übersetzt. Unten finden Sie die englische Version.",
     "subscribe": {
       "title": "Der Privacy Newsletter",
       "description": "Hey, mein Name ist Adriaan, ich bin der Gründer von Simple Analytics. Ungefähr einmal im Monat teile ich Einblicke und Updates zur Privatsphäre in unserem Newsletter. Abmelden mit 1 Klick.",

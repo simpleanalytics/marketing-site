@@ -823,7 +823,6 @@ const config = useRuntimeConfig();
 const { BASE_URL, MAIN_URL, CDN_URL, BLOG_URL, LOCALES } = config.public;
 
 const localePath = useLocalePath();
-const switchLocalePath = useSwitchLocalePath();
 
 const i18n = useI18n();
 const { t, locale } = i18n;

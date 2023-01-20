@@ -103,7 +103,13 @@ export default defineNuxtConfig({
       "postcss-hover-media-feature": {},
     },
   },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n", "nuxt-runtime-compiler"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/i18n",
+    "nuxt-runtime-compiler",
+    "nuxt-schema-org",
+  ],
+  schemaOrg: { host: BASE_URL },
   i18n: {
     baseUrl: BASE_URL,
     locales,

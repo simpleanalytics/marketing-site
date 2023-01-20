@@ -1,4 +1,10 @@
-export const useArticle = async ({ routeName, slug, filter = "slug" }) => {
+export const useArticle = async ({
+  routeName,
+  type,
+  slug,
+  articleType,
+  keys: extraKeys = [],
+}) => {
   const route = useRoute();
   const { locale } = useI18n();
   const localePath = useLocalePath();
@@ -8,30 +14,34 @@ export const useArticle = async ({ routeName, slug, filter = "slug" }) => {
   } = useRuntimeConfig();
 
   const url = new URL("/api/cms", BASE_URL);
-  url.searchParams.set("path", "/articles");
+  url.searchParams.set(
+    "path",
+    type === "key-terms" ? "/key-terms" : "/articles"
+  );
   url.searchParams.set("locale", "all");
-  url.searchParams.set(`filters[${filter}][$eq]`, slug);
+  if (slug) url.searchParams.set(`filters[slug][$eq]`, slug);
+  if (articleType)
+    url.searchParams.set(`filters[articleType][$eq]`, articleType);
   url.searchParams.set("populate[0]", "localizations");
   url.searchParams.set("pagination[pageSize]", "100");
 
   const keys = [
+    ...extraKeys,
     "title",
     "excerpt",
     "locale",
     "slug",
-    "contentHtml",
-    "languages",
     "automaticTranslated",
   ];
 
-  if (filter !== "slug") keys.push(filter);
+  if (articleType) keys.push("articleType");
 
   const {
     data: articles,
     pending,
     error,
   } = await useFetch(url.toString(), {
-    key: `${routeName}-${slug}-${locale.value}`,
+    key: `${routeName}-${articleType}-${slug}-${locale.value}`,
     transform: ({ data }) =>
       transformer({
         data,
@@ -41,13 +51,12 @@ export const useArticle = async ({ routeName, slug, filter = "slug" }) => {
   });
 
   const article = computed(() => {
-    if (!articles?.value?.[0]) return;
+    if (!articles?.value?.[0]) return {};
     return articles.value[0];
   });
 
-  if (articles?.value && filter === "slug") {
-    const languages = articles?.value?.[0]?.languages || {};
-
+  const languages = articles?.value?.[0]?.languages;
+  if (languages && slug) {
     if (slug !== languages[locale.value].slug) {
       const path = localePath({
         name: routeName,
@@ -56,7 +65,7 @@ export const useArticle = async ({ routeName, slug, filter = "slug" }) => {
       navigateTo(path, { redirectCode: 308 }); // 308 Permanent Redirect
     }
 
-    route.meta.nuxtI18n = articles?.value?.[0]?.languages;
+    route.meta.nuxtI18n = languages;
   }
 
   const localeHead = useLocaleHead({

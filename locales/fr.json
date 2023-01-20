@@ -268,6 +268,7 @@
     "published_and_edited_on_by": "Publié le {0} et modifié le {1} par",
     "automatic_translated_switch_to_english": "Cet article est traduit automatiquement. {0}Passe à la version anglaise{1} pour l'original.",
     "go_to_overview": "Aller à la vue d'ensemble du blog",
+    "content_not_translated": "Ce contenu n'est pas encore traduit en français. Vous trouverez ci-dessous la version anglaise.",
     "subscribe": {
       "title": "Lettre d'information sur la confidentialité",
       "description": "Salut, je m'appelle Adriaan, je suis le fondateur de Simple Analytics. Environ une fois par mois, je partage des informations et des mises à jour sur la confidentialité dans notre lettre d'information. Se désabonner avec 1 click.",

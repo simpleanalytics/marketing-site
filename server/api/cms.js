@@ -4,6 +4,9 @@ const TYPES = {
   articles: {
     markdown: ["content"],
   },
+  "key-terms": {
+    markdown: ["content"],
+  },
 };
 
 const tableOfContents = (html) => {
@@ -186,7 +189,7 @@ export default defineEventHandler(async (event) => {
   url.pathname = "/api" + path;
   url.searchParams.delete("path");
 
-  if (!path || !TYPES[type]) throw new Error("Not allowed");
+  if (!path || !TYPES[type]) throw new Error("Invalid type, add to TYPES");
 
   const response = await $fetch(url, { method: "GET", headers });
 

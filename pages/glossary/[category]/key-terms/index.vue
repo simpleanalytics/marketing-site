@@ -7,7 +7,7 @@
         }}</NuxtLink>
       </h2>
       <h1 class="mt-4 text-4xl font-medium sm:text-5xl md:text-6xl">
-        {{ $t(category.titleTranslation) }}
+        {{ $t("glossary.key_terms_title") }}
       </h1>
       <p class="mt-6 text-lg">
         {{ $t(category.descriptionTranslation) }}
@@ -26,27 +26,11 @@
       class="mt-10 mb-20 grid gap-4 grid-cols-1 md:grid-cols-2"
     >
       <NuxtLink
-        :to="
-          localePath({
-            name: 'glossary-category-key-terms',
-            params: { category: route.params.category },
-          })
-        "
-        class="group bg-white dark:bg-gray-700 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-red-500 dark:focus-within:ring-red-600 flex flex-col rounded-lg shadow dark:shadow-none"
-      >
-        <h3 class="text-lg font-medium text-link">
-          {{ $t("glossary.key_terms_title") }} <Arrow />
-        </h3>
-        <p class="mt-2 text-sm text-gray-500 leading-relaxed">
-          {{ $t("glossary.key_terms_description") }}
-        </p>
-      </NuxtLink>
-      <NuxtLink
         v-for="article in articles"
         :key="article.title"
         :to="
           localePath({
-            name: 'glossary-category-slug',
+            name: 'glossary-category-key-terms-slug',
             params: { category: article.articleType, slug: article.slug },
           })
         "
@@ -84,12 +68,14 @@ import {
 const route = useRoute();
 const { locale, getBrowserLocale } = useI18n();
 const browserLocale = getBrowserLocale();
+const localePath = useLocalePath();
 const {
   public: { LOCALES },
 } = useRuntimeConfig();
 
 const { articles, pending, error } = await useArticle({
-  routeName: "glossary-category",
+  routeName: "glossary-category-key-terms",
+  type: "key-terms",
   articleType: route.params.category,
 });
 
