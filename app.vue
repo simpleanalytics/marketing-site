@@ -357,7 +357,7 @@
                       <PopoverButton
                         :as="MenuLink"
                         v-if="item.mobile?.to || item.to"
-                        :to="item.mobile?.to || item.to"
+                        :to="localePath({ name: item.mobile?.to || item.to })"
                         class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
                       >
                         {{ $t(item.mobile?.translation || item.translation) }}
@@ -365,7 +365,7 @@
                       <PopoverButton
                         :as="MenuLink"
                         v-else
-                        :href="item.mobile?.href || item.href"
+                        :href="localePath(item.mobile?.href || item.href)"
                         class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
                       >
                         {{ $t(item.mobile?.translation || item.translation) }}
