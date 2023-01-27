@@ -18,23 +18,27 @@ export const useArticle = async ({
     "path",
     type === "key-terms" ? "/key-terms" : "/articles"
   );
-  url.searchParams.set("locale", "all");
   if (slug) url.searchParams.set(`filters[slug][$eq]`, slug);
   if (articleType)
     url.searchParams.set(`filters[articleType][$eq]`, articleType);
-  url.searchParams.set("populate[0]", "localizations");
-  url.searchParams.set("pagination[pageSize]", "100");
 
   const keys = [
     ...extraKeys,
+    "id",
     "title",
     "excerpt",
     "locale",
     "slug",
+    "authorSlug",
     "automaticTranslated",
+    "publishedAt",
+    "updatedAt",
+    "showIndex",
   ];
 
   if (articleType) keys.push("articleType");
+
+  url.searchParams.set("fields", keys.join(","));
 
   const {
     data: articles,

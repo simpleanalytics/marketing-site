@@ -13,7 +13,7 @@
       <p v-if="pending" class="mt-5 text-lg text-center">
         {{ $t("home.loading_posts") }}...
       </p>
-      <p v-else-if="!recentPosts?.length" class="mt-5 text-lg text-center">
+      <p v-else-if="!articles?.length" class="mt-5 text-lg text-center">
         {{ $t("home.did_not_find_any_posts") }}.
       </p>
       <div v-else role="list" class="justify-center block sm:flex-wrap sm:flex">
@@ -43,8 +43,24 @@
                 "
               >
                 <img
-                  v-if="post.cover"
-                  :src="post.cover"
+                  v-if="post.cover?.small"
+                  :src="post.cover.small"
+                  :alt="post.cover?.alt || post.title"
+                  style="aspect-ratio: 1200/628"
+                  class="object-cover object-center w-full"
+                  loading="lazy"
+                />
+                <img
+                  v-else-if="post.title"
+                  :src="`https://simpleanalytics.com/generate-image.png?title=${encodeURIComponent(
+                    post.title
+                  )}&url=${encodeURIComponent(
+                    BASE_URL +
+                      localePath({
+                        name: 'blog-slug',
+                        params: { slug: post.slug },
+                      })
+                  )}&author-slug=${post.authorSlug}`"
                   :alt="post.title"
                   style="aspect-ratio: 1200/628"
                   class="object-cover object-center w-full"
@@ -57,6 +73,7 @@
                 ></div>
               </NuxtLink>
             </div>
+
             <div class="px-6 py-4 mt-2 flex-grow flex flex-col">
               <h2 class="text-2xl font-semibold">
                 <NuxtLink
@@ -72,7 +89,12 @@
                 </NuxtLink>
               </h2>
               <NuxtLink
-                :to="localePath(post.path)"
+                :to="
+                  localePath({
+                    name: 'blog-slug',
+                    params: { slug: post.slug },
+                  })
+                "
                 class="block mt-3 mb-8 leading-relaxed text-md text-gray-700 dark:text-gray-300"
               >
                 {{
@@ -85,19 +107,10 @@
               </NuxtLink>
 
               <div
-                v-if="post.created"
+                v-if="post.publishedAt"
                 class="flex items-center mt-auto text-sm dark:text-gray-500 text-gray-500"
               >
-                <img
-                  v-if="post.avatar"
-                  :src="post.avatar"
-                  :alt="`Image of ${post.author}`"
-                  class="rounded-full w-8 h-8 bg-gray-300 mr-2"
-                />
-                <div
-                  v-else
-                  class="rounded-full w-8 h-8 bg-gray-300 dark:bg-gray-600 mr-2"
-                ></div>
+                <Avatar :slug="post.authorSlug" class="mr-2" />
 
                 <span>
                   <span v-if="post.name && post.name !== 'Simple Analytics'"
@@ -108,16 +121,16 @@
                       month: "short",
                       year: "numeric",
                       day: "numeric",
-                    }).format(new Date(post.created))
+                    }).format(new Date(post.publishedAt))
                   }}
                 </span>
 
                 <span
                   v-if="
-                    new Date(post.created) > Date.now() - 1555200000 // 18 days
+                    new Date(post.publishedAt) > Date.now() - 1555200000 // 18 days
                   "
                   class="text-sm whitespace-nowrap mx-2 font-normal bg-red-500 dark:bg-red-600 px-1 text-blue-100 dark:text-gray-700 rounded-md align-text-bottom"
-                  >{{ labelAgo($t, post.created) }}</span
+                  >{{ labelAgo($t, post.publishedAt) }}</span
                 >
 
                 <div class="ml-auto">
@@ -139,6 +152,7 @@
 <script setup>
 import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
 import SubscribeForm from "~/components/SubscribeForm.vue";
+import Avatar from "~/components/Avatar.vue";
 
 import {
   getPathFromBlogUrl,
@@ -151,35 +165,17 @@ const i18n = useI18n();
 const { t, locale } = i18n;
 const localePath = useLocalePath();
 const config = useRuntimeConfig();
-const { BLOG_URL } = config.public;
+const { BLOG_URL, BASE_URL } = config.public;
 
-const { pending, data: recentPostsAll } = useLazyFetch(
-  `${BLOG_URL}/recent-posts.json`
-);
-
-const recentPosts = computed(() => {
-  if (!Array.isArray(recentPostsAll.value)) return [];
-
-  return recentPostsAll.value.map((post) => {
-    const path = getPathFromBlogUrl(post.url);
-    const slug = getSlugFromBlogUrl(post.url);
-    const image = post.image_no_text || post.image;
-
-    const { avatar, name } = getAuthorFromSlug(post.author_slug) || {};
-
-    return {
-      ...post,
-      name,
-      avatar,
-      path,
-      slug,
-      cover: image?.startsWith("/") ? `${BLOG_URL}${image}` : image,
-    };
-  });
+const route = useRoute();
+const { articles, pending, error } = await useArticle({
+  routeName: "blog-slug",
+  articleType: "blog",
+  keys: ["coverImageWithText", "coverImageWithoutText"],
 });
 
 const recentPostsWithSubscribe = computed(() => {
-  const posts = [...recentPosts.value];
+  const posts = [...articles.value];
 
   posts.splice(1, 0, { subscribe: true });
 

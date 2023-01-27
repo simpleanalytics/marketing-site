@@ -201,16 +201,27 @@
       </div>
     </div>
 
-    <!-- <div class="mt-10 flex justify-center">
-        <a
-          class="inline-flex flex-col sm:flex-row items-center"
-          href="https://www.capterra.com/p/248710/Simple-Analytics/#about"
-          target="_blank"
-        >
-          <CapterraLogo class="h-10 mr-4" />
-          <p class="mt-2 sm:mt-0">based on 5+ reviews</p></a
-        >
-      </div> -->
+    <div
+      v-if="locale && !['en', 'nl', 'it'].includes(locale)"
+      class="mx-auto text-center mt-20"
+    >
+      <p
+        class="inline-block px-4 py-2 rounded-lg bg-[#ffd9cb] dark:bg-[#592b1b]"
+      >
+        <template v-if="translationParts.length === 3">
+          {{ translationParts[0] }}
+          <NuxtLink
+            class="dark:text-gray-300 text-gray-700 underline"
+            :to="localePath({ name: 'index' }, 'en')"
+          >
+            {{ translationParts[1] }}</NuxtLink
+          >{{ translationParts[2] }}
+        </template>
+        <template v-else>
+          {{ $t("home.automatic_translated_switch_to_english") }}
+        </template>
+      </p>
+    </div>
 
     <div
       class="bg-gradient-to-t from-blue-100 dark:from-gray-700 py-4 relative overflow-hidden pb-28"
@@ -1305,7 +1316,7 @@ import Pricing from "../components/Pricing.vue";
 import FAQ from "../components/FAQ.vue";
 
 import { useI18n } from "vue-i18n";
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 import {
   ArrowSmallRightIcon,
@@ -1401,6 +1412,11 @@ const tColorsBlue = [
   `<span class='text-blue-600 dark:text-blue-700'>`,
   `</span>`,
 ];
+
+const translationParts = t("home.automatic_translated_switch_to_english", [
+  "---",
+  "---",
+]).split("---");
 
 const mainAppUrl =
   process.env.NODE_ENV === "production"

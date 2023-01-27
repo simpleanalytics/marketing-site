@@ -65,47 +65,59 @@ export const rfc822date = (date) => {
 
 export const getAuthorFromSlug = (slug) => {
   switch (slug) {
-    case "iron":
+    case "iron-brands":
       return {
         name: "Iron Brands",
         avatar: "https://assets.simpleanalytics.com/images/people/iron.jpg",
       };
-    case "adriaan":
+    case "adriaan-van-rossum":
       return {
         name: "Adriaan van Rossum",
         avatar: "https://assets.simpleanalytics.com/images/people/adriaan.jpg",
       };
-    case "carlo":
+    case "carlo-cilento":
       return {
         name: "Carlo Cilento",
         avatar:
           "https://assets.simpleanalytics.com/images/people/carlo-cilento.jpg",
       };
-    case "tim":
+    case "tim-de-nood":
       return {
         name: "Tim de Nood",
         avatar:
           "https://assets.simpleanalytics.com/images/people/tim-de-nood.jpg",
       };
-    case "mike":
+    case "mike-timofiiv":
       return {
         name: "Mike Timofiiv",
         avatar:
           "https://assets.simpleanalytics.com/images/people/mike-timofiiv.jpg",
       };
-    case "ankit":
+    case "ankit-ghosh":
       return {
         name: "Ankit Ghosh",
         avatar: "https://assets.simpleanalytics.com/images/people/ankit.jpg",
       };
-    case "pieter_vegt":
+    case "pieter-vegt":
       return {
         name: "Pieter Vegt",
         avatar:
           "https://assets.simpleanalytics.com/images/people/pieter-vegt.jpg",
       };
+    case "jules-van-den-berg":
+      return {
+        name: "Jules van den Berg",
+        avatar:
+          "https://assets.simpleanalytics.com/images/people/jules-van-den-berg.jpg",
+      };
+    case "onur-genes":
+      return {
+        name: "Onur Genes",
+        avatar:
+          "https://assets.simpleanalytics.com/images/people/onur-genes.jpg",
+      };
     default:
-      return { name: "Simple Analytics" };
+      return {};
   }
 };
 

@@ -69,25 +69,10 @@ const localePath = useLocalePath();
 const route = useRoute();
 const { t, locale } = useI18n();
 
-const {
-  public: { BASE_URL },
-} = useRuntimeConfig();
-
-const url = new URL("/api/cms", BASE_URL);
-url.searchParams.set("path", "/articles");
-url.searchParams.set("locale", "all");
-url.searchParams.set("filters[articleType][$eq]", "google-analytics-countries");
-url.searchParams.set("populate[0]", "localizations");
-url.searchParams.set("pagination[pageSize]", "100");
-
-const { data, pending, error } = await useFetch(url.toString(), {
-  key: `countries-all-${locale.value}`,
-  transform: ({ data }) =>
-    transformer({
-      data,
-      locale: locale.value,
-      keys: ["slug", "locale", "metadata"],
-    }),
+const { articles, pending, error } = await useArticle({
+  routeName: "google-analytics-countries-slug",
+  articleType: "google-analytics-countries",
+  keys: ["metadata"],
 });
 
 const classes = {
@@ -150,9 +135,9 @@ const fixedCountries = [
 ];
 
 const countriesList = computed(() => {
-  if (!data?.value?.length) return fixedCountries;
+  if (!articles?.value?.length) return fixedCountries;
 
-  const databaseCountries = data.value.map((country) => ({
+  const databaseCountries = articles.value.map((country) => ({
     link: localePath({
       name: "google-analytics-countries-slug",
       params: { slug: country.slug },

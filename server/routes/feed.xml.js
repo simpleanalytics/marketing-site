@@ -1,4 +1,5 @@
 import { getAuthorFromSlug, rfc822date } from "~~/utils/blog";
+import { stringify as qsStringify } from "qs";
 
 const sanitize = (text = "") => {
   return text
@@ -13,12 +14,56 @@ const sanitize = (text = "") => {
 const regex = new RegExp("^ +", "gm");
 
 export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig();
-  const { BLOG_URL } = config.public;
+  const { strapiToken } = useRuntimeConfig();
+  const locale = "en";
 
   event.res.setHeader("Content-Type", "application/xml");
 
-  const posts = await $fetch(`${BLOG_URL}/posts.json`);
+  const url = new URL(`/api/articles`, "https://cms.simpleanalytics.com");
+  const params = {
+    fields: [
+      "title",
+      "slug",
+      "excerpt",
+      "authorSlug",
+      "createdAt",
+      "updatedAt",
+      "publishedAt",
+    ],
+    locale,
+    sort: "publishedAt:desc",
+    filters: {
+      articleType: {
+        $eq: "blog",
+      },
+    },
+    populate: {
+      coverImageWithoutText: { fields: ["formats"] },
+      coverImageWithText: { fields: ["formats"] },
+    },
+  };
+  url.search = qsStringify(params, { encodeValuesOnly: true });
+  const response = await $fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${strapiToken}`,
+    },
+  });
+
+  const posts = response.data.map(({ attributes = {} }) => {
+    const cover = attributes.coverImageWithoutText?.data
+      ? attributes.coverImageWithoutText.data
+      : attributes.coverImageWithText?.data
+      ? attributes.coverImageWithText.data
+      : null;
+    const formats = cover?.attributes?.formats;
+    const url =
+      formats?.medium?.url || formats?.small?.url || formats?.thumbnail?.url;
+    delete attributes.coverImageWithText;
+    delete attributes.coverImageWithoutText;
+    return { ...attributes, image: url };
+  });
 
   try {
     const entries = [];
@@ -26,10 +71,10 @@ export default defineEventHandler(async (event) => {
     let lastUpdatedAt = null;
 
     for (const post of posts) {
-      const author = getAuthorFromSlug(post.author_slug).name;
-      const image = post.image || post.image_no_text;
-      const created = new Date(post.created || post.created_at);
-      const updated = new Date(post.last_modified_at || created);
+      const author = getAuthorFromSlug(post.authorSlug).name;
+      const image = post.image;
+      const created = new Date(post.created || post.createdAt);
+      const updated = new Date(post.updatedAt || created);
 
       if (lastUpdatedAt === null || updated > lastUpdatedAt) {
         lastUpdatedAt = updated;
@@ -44,17 +89,17 @@ export default defineEventHandler(async (event) => {
         <published>${rfc822date(created)}</published>
         <updated>${rfc822date(updated)}</updated>
         <modified>${rfc822date(updated)}</modified>
-        <id>https://www.simpleanalytics.com/blog/${post.slug}</id>
-        <content type="html" xml:base="https://www.simpleanalytics.com/blog/${
+        <id>https://www.simpleanalytics.com/${locale}/blog/${post.slug}</id>
+        <content type="html" xml:base="https://www.simpleanalytics.com/${locale}/blog/${
           post.slug
         }">${sanitize(post.content?.trim())}</content>
         <author><name>${author}</name></author>
         <language>en-US</language>
         <summary type="html">${sanitize(post.excerpt?.trim())}</summary>
         ${
-          image
-            ? `<media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="${image}" />
-                <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="${image}" />`
+          post.image
+            ? `<media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="${post.image}" />
+                <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="${post.image}" />`
             : ""
         }
       `.trim()
@@ -64,7 +109,7 @@ export default defineEventHandler(async (event) => {
     let xml = `
       <?xml version="1.0" encoding="utf-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom">
         <link href="https://www.simpleanalytics.com/rss.xml" rel="self" type="application/atom+xml" />
-        <link href="https://www.simpleanalytics.com/blog/" rel="alternate" type="text/html" />
+        <link href="https://www.simpleanalytics.com/${locale}/blog/" rel="alternate" type="text/html" />
         <updated>${rfc822date(lastUpdatedAt)}</updated>
         <id>https://www.simpleanalytics.com/rss.xml</id>
         <title type="html">Blog of Simple Analytics</title>

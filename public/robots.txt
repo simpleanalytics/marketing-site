@@ -1,2 +1,13 @@
 User-agent: *
-Disallow:
+Disallow: /de/glossar/
+Disallow: /de/glossare
+Disallow: /en/glossaries
+Disallow: /en/glossary/
+Disallow: /es/glosario/
+Disallow: /es/glosarios
+Disallow: /fr/glossaire/
+Disallow: /fr/glossaires
+Disallow: /it/glossari
+Disallow: /it/glossario/
+Disallow: /nl/begrippenlijst/
+Disallow: /nl/begrippenlijsten

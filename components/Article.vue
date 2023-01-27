@@ -14,6 +14,29 @@
           </h1>
         </slot>
 
+        <!-- Show published date with avatar -->
+        <div class="flex items-center justify-center mt-4">
+          <div class="flex items-center">
+            <Avatar :slug="article.authorSlug" />
+            <div class="ml-2" v-if="article.publishedAt">
+              <p class="text-sm text-gray-500 dark:text-gray-400">
+                {{
+                  showEditedBy
+                    ? $t("blog.published_and_edited_on_by", [
+                        format(article.publishedAt),
+                        format(article.updatedAt),
+                        getAuthorFromSlug(article.authorSlug)?.name,
+                      ])
+                    : $t("blog.published_on_by", [
+                        format(article.publishedAt),
+                        getAuthorFromSlug(article.authorSlug)?.name,
+                      ])
+                }}
+              </p>
+            </div>
+          </div>
+        </div>
+
         <p
           v-if="
             article.slug &&
@@ -22,15 +45,14 @@
           "
           class="inline-block mt-6 px-4 py-2 rounded-lg bg-[#ffd9cb] dark:bg-[#592b1b]"
         >
-          <template v-if="parts.length === 3">
-            {{ parts[0] }}
+          <template v-if="translationParts.length === 3">
+            {{ translationParts[0] }}
             <NuxtLink
               class="dark:text-gray-300 text-gray-700 underline"
               :to="toEnglish"
             >
-              {{ parts[1] }}
-            </NuxtLink>
-            {{ parts[2] }}
+              {{ translationParts[1] }}</NuxtLink
+            >{{ translationParts[2] }}
           </template>
           <template v-else>
             {{ $t("blog.automatic_translated_switch_to_english") }}
@@ -51,7 +73,7 @@
     </div>
 
     <div class="max-w-3xl pb-4 px-4 mx-auto" v-if="article.contentHtml">
-      <HtmlBlock :html="article.contentHtml" />
+      <HtmlBlock :html="article.contentHtml" :articleId="article.id" />
     </div>
 
     <SubscribePopup />
@@ -63,14 +85,24 @@ const props = defineProps(["type", "name", "slug", "articleType"]);
 
 import { categories } from "@/data/glossary";
 import SubscribePopup from "@/components/SubscribePopup.vue";
+import Avatar from "@/components/Avatar.vue";
 import HtmlBlock from "@/components/HtmlBlock.vue";
 
 const route = useRoute();
 const { t, locale } = useI18n();
 const localePath = useLocalePath();
+const config = useRuntimeConfig();
+const { BASE_URL, MAIN_URL } = config.public;
 
 const { article } = await useArticle({
-  keys: ["contentHtml", "languages", "question", "content"],
+  keys: [
+    "contentHtml",
+    "languages",
+    "question",
+    "content",
+    "coverImageWithText",
+    "coverImageWithoutText",
+  ],
   routeName: props.name,
   slug: props.slug,
   articleType: props.articleType,
@@ -81,12 +113,62 @@ if (!article?.value && process.server) {
   setResponseStatus(404, "Page Not Found");
 }
 
-const parts = t("blog.automatic_translated_switch_to_english", [
+const translationParts = t("blog.automatic_translated_switch_to_english", [
   "---",
   "---",
 ]).split("---");
 
 const toEnglish = localePath({ name: props.name, params: route.params }, "en");
+
+const generateParams = new URLSearchParams({
+  url: `${BASE_URL}/${localePath({
+    name: props.name,
+    params: route.params,
+  })}`,
+  title: article?.value?.title,
+  "author-slug": article?.value?.authorSlug,
+});
+
+const defaultParams = new URLSearchParams({
+  title: t("blog.article_not_found"),
+});
+
+const format = (date) => {
+  if (!date) return null;
+  return new Intl.DateTimeFormat(t("time.intl_locale"), {
+    month: "short",
+    year: "numeric",
+    day: "numeric",
+  }).format(new Date(date));
+};
+
+const showEditedBy = computed(() => {
+  if (!article.value?.publishedAt || !article.value?.updatedAt) return false;
+  const week = 604800000; // 1 week
+  const diff =
+    new Date(article.value?.publishedAt) - new Date(article.value?.updatedAt);
+  return Math.abs(diff) > week;
+});
+
+const image = computed(
+  () =>
+    article.value?.cover?.large ||
+    article.value?.cover?.original ||
+    article.value?.cover?.medium ||
+    article.value?.cover?.small ||
+    (article.value?.title
+      ? `${MAIN_URL}/generate-image.png?${generateParams}`
+      : null)
+);
+
+useSeoMeta({
+  title: () => article.value?.title,
+  ogTitle: () => article.value?.title,
+  description: () => article.value?.excerpt,
+  ogDescription: () => article.value?.excerpt,
+  ogImage: image,
+  twitterCard: "summary_large_image",
+});
 
 const routeParts = props.name
   .replace(/key\-terms/, "keyterms")

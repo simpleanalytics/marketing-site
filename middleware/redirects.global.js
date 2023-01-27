@@ -1,6 +1,31 @@
 const redirects = [
   {
     type: "replace",
+    from: "/stop-using-google-analytics-if-you-care-about-your-page-rank",
+    to: "/google-analytics-performance-impact-using-google-lighthouse",
+  },
+  {
+    type: "replace",
+    from: "/google-analytics-hurts-your-search-ranking",
+    to: "/google-analytics-performance-impact-using-google-lighthouse",
+  },
+  {
+    type: "replace",
+    from: "/what-is-wrong-with-developers",
+    to: "/why-simple-analytics-is-my-first-successful-project",
+  },
+  {
+    type: "replace",
+    from: "/why-you-should-reconsider-using-google-analytics",
+    to: "/why-its-time-to-move-away-from-google-analytics",
+  },
+  {
+    type: "replace",
+    from: "/denmark-bans-all-google-products",
+    to: "/denmark-bans-google-workspace-for-municipalities",
+  },
+  {
+    type: "replace",
     from: "/google-analytics-countries",
     to: "/google-analytics-is-illegal-in-these-countries",
   },

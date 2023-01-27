@@ -70,6 +70,8 @@ const env = {
 const privateKeys = {
   deploying: process.env.DEPLOYING === "true",
   strapiToken: process.env.STRAPI_TOKEN,
+  trelloPersonalKey: process.env.TRELLO_PERSONAL_KEY,
+  trelloPersonalToken: process.env.TRELLO_PERSONAL_TOKEN,
 };
 
 // https://nuxt.com/docs/migration/configuration/#nuxtconfig

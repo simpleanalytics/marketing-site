@@ -16,16 +16,18 @@ li,
 th,
 td,
 label,
-strong {
+strong,
+code {
   @apply text-gray-600 dark:text-gray-300;
 }
 
 a,
 .button {
-  @apply cursor-pointer select-none;
+  @apply cursor-pointer;
 }
 
 a:not([class*="text-"]):not([data-no-style]):not(.button.primary),
+a strong,
 .text-link {
   @apply text-red-500 hover:text-red-600 dark:text-red-600 hover:dark:text-red-700;
 }
@@ -319,27 +321,43 @@ input[type="checkbox"] {
 }
 
 article.counters {
-  counter-reset: h2 h3 h4;
+  counter-reset: h2counter;
+}
+article.counters h2 {
+  counter-reset: h3counter h4counter h5counter;
+}
+article.counters h2::before {
+  counter-increment: h2counter;
+  content: counters(h2counter, ".", decimal) ". ";
 }
 
-article.counters h2::before {
-  counter-increment: h2;
-  counter-reset: h3 h4;
-  content: counters(h2, ".", decimal) ". ";
+article.counters h3 {
+  counter-reset: h4counter h5counter;
 }
 article.counters h3::before {
-  counter-increment: h3;
-  counter-reset: h4;
-  content: counters(h2, ".", decimal) "." counters(h3, ".", decimal) ". ";
+  counter-increment: h3counter;
+  content: counters(h2counter, ".", decimal) "."
+    counters(h3counter, ".", decimal) ". ";
+}
+
+article.counters h4 {
+  counter-reset: h5counter;
 }
 article.counters h4::before {
-  counter-increment: h4;
-  content: counters(h3, ".", decimal) "." counters(h4, ".", decimal) "."
-    counters(h4, ".", decimal) ". ";
+  counter-increment: h4counter;
+  content: counters(h2counter, ".", decimal) "."
+    counters(h3counter, ".", decimal) "." counters(h4counter, ".", decimal) ". ";
+}
+
+article.counters h5::before {
+  counter-increment: h5counter;
+  content: counters(h2counter, ".", decimal) "."
+    counters(h3counter, ".", decimal) "." counters(h4counter, ".", decimal) "."
+    counters(h5counter, ".", decimal) ". ";
 }
 
 ol.counters {
-  counter-reset: l1 l2 l3;
+  counter-reset: level1;
   list-style-type: none !important;
 }
 
@@ -347,19 +365,55 @@ ol.counters ol {
   list-style-type: none !important;
 }
 
-ol.counters > li::before {
-  counter-increment: l1;
-  counter-reset: l2 l3;
-  content: counters(l1, ".", decimal) ". ";
+ol.counters li::before {
+  content: counters(level1, ".") ". ";
+  counter-increment: level1;
 }
 
-ol.counters > li > ol > li::before {
-  counter-increment: l2;
-  counter-reset: l3;
-  content: counters(l1, ".", decimal) "." counters(l2, ".", decimal) ". ";
+ol.counters ol {
+  counter-reset: level2;
 }
-ol.counters > li > ol > li > ol > li::before {
-  counter-increment: l3;
-  content: counters(l1, ".", decimal) "." counters(l2, ".", decimal) "."
-    counters(l3, ".", decimal) ". ";
+
+ol.counters ol li::before {
+  content: counters(level1, ".") "." counters(level2, ".") ". ";
+  counter-increment: level2;
+}
+
+ol.counters ol ol {
+  counter-reset: level3;
+}
+
+ol.counters ol ol li::before {
+  content: counters(level1, ".") "." counters(level2, ".") "."
+    counters(level3, ".") ". ";
+  counter-increment: level3;
+}
+
+ol.counters ol ol ol {
+  counter-reset: level4;
+}
+
+ol.counters ol ol ol li::before {
+  content: counters(level1, ".") "." counters(level2, ".") "."
+    counters(level3, ".") "." counters(level4, ".") ". ";
+  counter-increment: level4;
+}
+
+ol.counters ol ol ol ol {
+  counter-reset: level5;
+}
+
+ol.counters ol ol ol ol li::before {
+  content: counters(level1, ".") "." counters(level2, ".") "."
+    counters(level3, ".") "." counters(level4, ".") "." counters(level5, ".")
+    ". ";
+  counter-increment: level5;
+}
+
+article table td img {
+  margin: 0 !important;
+}
+
+article p img + em {
+  @apply text-center block -mt-6;
 }

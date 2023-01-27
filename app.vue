@@ -13,7 +13,6 @@
       >
         <Head>
           <Link rel="dns-prefetch" href="https://assets.simpleanalytics.com/" />
-          <Link rel="dns-prefetch" href="https://docs.simpleanalytics.com/" />
           <Link
             rel="dns-prefetch"
             href="https://scripts.simpleanalyticscdn.com/"
@@ -56,34 +55,8 @@
           />
           <Meta name="apple-mobile-web-app-capable" content="yes" />
           <Meta name="referrer" content="strict-origin-when-cross-origin" />
-          <Meta property="og:image" :content="image" />
-          <Meta
-            v-if="route.meta.title"
-            name="og:image:alt"
-            :content="`Image for ${route.meta.title}`"
-          />
-          <Meta name="twitter:url" :content="BASE_URL" />
-          <Meta
-            v-if="route.meta.title"
-            name="twitter:title"
-            :content="route.meta.title"
-          />
-          <Meta
-            v-if="route.meta.title"
-            name="og:title"
-            :content="route.meta.title"
-          />
-          <Meta
-            v-if="route.meta.description"
-            name="twitter:description"
-            :content="route.meta.description"
-          />
-          <Meta name="twitter:image" :content="image" />
-          <Meta name="twitter:card" content="summary_large_image" />
           <Meta name="twitter:site" content="@SimpleAnalytic" />
           <Meta name="twitter:creator" content="@SimpleAnalytic" />
-          <Meta name="twitter:image:alt" :content="defaultDescription" />
-          <Meta name="twitter:text:title" :content="defaultDescription" />
 
           <!-- Location in Amsterdam -->
           <Meta property="og:latitude" content="52.37304233578102" />
@@ -404,17 +377,19 @@
                       >{{ $t("nav.signup") }}</NuxtLink
                     >
                     <a
-                      @click="i18n.locale.value = 'en'"
-                      v-if="i18n.locale.value === 'nl'"
+                      @click="setLocale(switchTo)"
+                      v-if="switchTo"
                       class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
-                      >{{ $t("nav.switch_to_english") }}</a
                     >
+                      Switch to English
+                    </a>
                     <a
-                      v-else
-                      @click="i18n.locale.value = 'nl'"
+                      v-if="switchTo !== 'en' && locale !== 'en'"
+                      @click="setLocale('nl')"
                       class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
-                      >{{ $t("nav.switch_to_dutch") }}</a
                     >
+                      Switch to English
+                    </a>
                   </div>
                   <NuxtLink
                     :to="
@@ -825,11 +800,13 @@ const { BASE_URL, MAIN_URL, CDN_URL, BLOG_URL, LOCALES } = config.public;
 const localePath = useLocalePath();
 
 const i18n = useI18n();
-const { t, locale } = i18n;
+const { t, locale, locales, getBrowserLocale, setLocale } = i18n;
 
-const localeIso = computed(() => {
-  const found = LOCALES.find((loc) => loc.code === locale.value);
-  return found?.iso || "";
+const switchTo = computed(() => {
+  const browserLocale = getBrowserLocale();
+  const found = locales.value.find(({ code }) => code === browserLocale);
+  const code = found?.code;
+  return code !== locale.value ? code : null;
 });
 
 const localeHead = useLocaleHead({

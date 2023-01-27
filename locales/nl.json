@@ -16,6 +16,7 @@
     "could_not_connect": "Kon niet verbinden met {0}onze blog{1}.",
     "see_feature_video_below": "Bekijk alle features",
     "go_back": "Ga terug",
+    "automatic_translated_switch_to_english": "Deze website is automatisch vertaald. {0}Ga naar de Engelse versie{1} voor het origineel.",
     "footer": {
       "comparisons": "Vergelijkingen",
       "learn": "Ontdek",
@@ -88,7 +89,7 @@
       "paragraph_6_2": "Meer dan 600 betalende klanten vertrouwen erop dat wij hen de inzichten verschaffen die zij nodig hebben, terwijl wij de privacy van hun websitebezoekers beschermen"
     },
     "events": {
-      "title": "Event traceren zonder individuen te traceren",
+      "title": "Events traceren zonder individuen te traceren",
       "auto_collect_link": "Automatisch events verzamelen",
       "auto_collect_description": "zoals downloads, uitgaande links en e-mailadres klikken. Controleer de prestaties van elke knop, klik en paginabezoek die je wilt.",
       "see_events_in_action": "Bekijk de events in actie"
@@ -264,7 +265,7 @@
     "article_not_found": "Artikel niet gevonden.",
     "back_to_top": "Terug naar boven.",
     "published_on_by": "Gepubliceerd op {0} door {1}",
-    "published_and_edited_on_by": "Gepubliceerd op {0} en bijgewerkt op {1} door",
+    "published_and_edited_on_by": "Gepubliceerd op {0} en bijgewerkt op {1} door {2}",
     "automatic_translated_switch_to_english": "Dit artikel is automatisch vertaald. {0}Ga naar de Engelse versie{1} voor het origineel.",
     "go_to_overview": "Ga naar blog overzicht",
     "content_not_translated": "Deze inhoud is nog niet vertaald in het Nederlands. Hieronder staat de Engelse versie.",

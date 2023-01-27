@@ -1,4 +1,5 @@
 import { marked } from "marked";
+import { parse as qsParse, stringify as qsStringify } from "qs";
 
 const TYPES = {
   articles: {
@@ -9,13 +10,27 @@ const TYPES = {
   },
 };
 
+const tableOfContentsRegex = /{{( )?tableofcontents( )?}}/g;
+
+const populateMediaField = {
+  fields: [
+    "name",
+    "alternativeText",
+    "caption",
+    "width",
+    "height",
+    "url",
+    "formats",
+  ],
+};
+
 const tableOfContents = (html) => {
   const toc = [];
   var level = 0;
 
   html.replace(
-    /<h([1-6]) id="([^"]+)">([^<]+)<\/h([1-6])>/g,
-    function (match, _level, id, text) {
+    /<h([1-6]) id="([^"]+)">(<a[^>]+>)?([^<]+)(<\/a>)?<\/h([1-6])>/g,
+    function (match, _level, id, _2, text) {
       _level = parseInt(_level, 10);
       while (level > _level) {
         level--;
@@ -62,14 +77,47 @@ function createIndentedList(items) {
   return html;
 }
 
-const convert = (markdown, { showIndex = false } = {}) => {
+const preconvert = (markdown, { showIndex = false } = {}) => {
   // Replace HTML tags with &lt; and &gt; except in ``` blocks in markdown
   markdown = markdown
     .split("```")
     .map((part, index) => {
       if (index % 2 === 0) {
         // Sanitize the text outside of the code blocks
-        return part.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+        // Sanitize only the p, img, and a tags
+        part = part.replace(
+          /<((?!\/?(span|details|summary|code|mark|p|img|a))[^>]+)>/g,
+          "&lt;$1&gt;"
+        );
+
+        // A underscore direct after a new line after an image.
+        // this markdown:
+        // ![image](https://example.com/image.png)
+        // caption (source [link](https://exmaple.com))
+        //
+        // is converted to this:
+        // ![image](https://example.com/image.png)
+        // _caption (source [link](https://exmaple.com))_
+        part = part.replace(
+          /(\n|^)(!\[[^\]]+\]\([^\)]+\))\n(.+)\n/,
+          "$1$2\n_$3_\n"
+        );
+
+        // Replace [^1]: and [^string]: with - [^1]: and - [^string]:
+        part = part.replace(
+          /(\n|^)(\[\^)([^\]]+)(\]:)/g,
+          function (match, _1, _2, id, _3) {
+            return `${_1}- ${_2}${id}${_3}`;
+          }
+        );
+
+        part = part.replace(
+          /{% include gif\.html slug="([^"]+)" alt="([^"]+)"(?:.*?)%}/g,
+          "![$2](https://assets.simpleanalytics.com/gifs/$1.gif)"
+        );
+
+        return part;
       } else {
         // Leave the code block unchanged
         return "```" + part + "```";
@@ -86,6 +134,7 @@ const convert = (markdown, { showIndex = false } = {}) => {
   // Convert markdown to html
   let html = marked(markdown, {
     headerIds: true,
+    gfm: true,
   });
 
   // Replace external links with target="_blank"
@@ -118,29 +167,73 @@ const convert = (markdown, { showIndex = false } = {}) => {
     return match;
   });
 
-  if (!showIndex) return html;
+  // Replace markdown footnotes like [^1] or [^note] with <sup id="ref-1"><a href="#note-1">1</a></sup>
+  // make sure it does not match [^1]: or [^1](
+  html = html.replace(
+    /(?<!\[\^)(\[\^)([^\]]+)(\])(?!\:|\()/g,
+    function (match, _1, id, _2) {
+      const ref = id.replace(/[^a-z0-9]/gi, "-");
+      return `<sup id="ref-${ref}"><a class="no-underline p-1" href="#note-${ref}">${id}</a></sup>`;
+    }
+  );
+
+  // Replace markdown footnotes like [^1]: or [^note] with <li id="note-1"><a href="#ref-1">1</a></li>
+  html = html.replace(
+    /(\[\^)([^\]]+)(\]:)(.+)(?=\n)/g,
+    function (match, _1, id, _2, text) {
+      const ref = id.replace(/[^a-z0-9]/gi, "-");
+      return `<a id="note-${ref}" class="no-underline" href="#ref-${ref}">#${id}</a> ${text.trim()}`;
+    }
+  );
+
+  // Add classes
+  html = html.replace(
+    /<ul>\s?<li>\s?<a\sid\=\"note\-/,
+    '<ul class="not-prose list-none mt-8 pt-6 border-t-2 border-gray-300 dark:border-gray-600 pl-0 text-sm text-red-600"><li><a id="note-'
+  );
+
+  html = html.replace(
+    /<li>\s?<a\sid\=\"note\-/g,
+    '<li class="text-gray-400 dark:text-gray-500 mb-2"><a id="note-'
+  );
+
+  if (!showIndex) {
+    if (tableOfContentsRegex.test(html))
+      return html.replace(tableOfContentsRegex, "");
+
+    return html;
+  }
 
   const toc = tableOfContents(html);
 
   if (toc.length === 0) return html;
 
+  // Add class to first <ol> to make it a counter
   const index = createIndentedList(toc).replace(
     "<ol>",
     '<ol class="counters">'
   );
 
   // Check if html contains "{{tableofcontents}}"
-  if (html.match(/{{tableofcontents}}/))
-    return html.replace(/{{tableofcontents}}/g, index);
+  if (tableOfContentsRegex.test(html))
+    return html.replace(tableOfContentsRegex, index);
 
   // Check if paragraph before <h2> is less than 100 characters
-  if (html.match(/<p>([^<]{0,100})<\/p>\n<h2/))
+  if (/<p>([^<]{0,100})<\/p>\n<h2/.test(html))
     return html.replace(/(<p>([^<]{0,100})<\/p>\n)<h2/, `${index}$1<h2`);
 
   // Insert before first <h2> if it exists
-  if (html.match(/<h2/)) return html.replace(/<h2/, `${index}$1<h2`);
+  if (/<h2/.test(html)) return html.replace(/<h2/, `${index}$1<h2`);
 
   return `${index}${html}`;
+};
+
+const convert = (...props) => {
+  const html = preconvert(...props);
+
+  // Remove <p> tags around <ol> and <ul> tags
+  const regex = /<p>(<(ol|ul).*<\/(ol|ul)>)\s*<\/p>/gi;
+  return html.replace(regex, "$1");
 };
 
 const parse = ({ type, response }) => {
@@ -153,6 +246,9 @@ const parse = ({ type, response }) => {
         );
       }
     }
+
+    // Add ID to attributes
+    item.attributes.id = item.id;
 
     if (item.attributes.localizations.data.length > 0) {
       item.attributes.localizations.data.forEach((localization) => {
@@ -187,7 +283,58 @@ export default defineEventHandler(async (event) => {
   const type = path.slice(1);
 
   url.pathname = "/api" + path;
-  url.searchParams.delete("path");
+
+  const fields = url.searchParams.has("fields")
+    ? url.searchParams.get("fields").split(",").filter(Boolean)
+    : [];
+
+  const nonRelationFields = fields.filter(
+    (field) =>
+      ![
+        "coverImageWithoutText",
+        "coverImageWithText",
+        "contentHtml",
+        "languages",
+      ].includes(field)
+  );
+
+  const populate =
+    fields.includes("coverImageWithoutText") ||
+    fields.includes("coverImageWithText")
+      ? {
+          coverImageWithoutText: populateMediaField,
+          coverImageWithText: populateMediaField,
+        }
+      : {};
+
+  const params = {
+    ...qsParse(url.search.slice(1)),
+    locale: url.searchParams.has("locale")
+      ? url.searchParams.get("locale")
+      : "all",
+    sort: url.searchParams.has("sort")
+      ? url.searchParams.get("sort")
+      : "publishedAt:desc",
+    fields: nonRelationFields,
+    populate: {
+      localizations: {
+        fields: nonRelationFields,
+        populate,
+      },
+      ...populate,
+    },
+    pagination: {
+      pageSize: url.searchParams.has("pagination[pageSize]")
+        ? url.searchParams.get("pagination[pageSize]")
+        : "500",
+    },
+  };
+
+  const query = qsStringify(params, {
+    encodeValuesOnly: true, // prettify URL
+  });
+
+  url.search = query;
 
   if (!path || !TYPES[type]) throw new Error("Invalid type, add to TYPES");
 

@@ -16,6 +16,7 @@
     "could_not_connect": "Couldn't connect to {0}our blog{1}.",
     "see_feature_video_below": "See feature video",
     "go_back": "Go back",
+    "automatic_translated_switch_to_english": "This website is automatically translated. {0}Switch to the English version{1} for the original.",
     "footer": {
       "comparisons": "Comparisons",
       "learn": "Learn",
@@ -265,7 +266,7 @@
     "article_not_found": "Article not found.",
     "back_to_top": "Back to top.",
     "published_on_by": "Published on {0} by {1}",
-    "published_and_edited_on_by": "Published on {0} and edited on {1} by",
+    "published_and_edited_on_by": "Published on {0} and edited on {1} by {2}",
     "automatic_translated_switch_to_english": "This article is automatically translated. {0}Switch to the English version{1} for the original.",
     "go_to_overview": "Go to overview",
     "content_not_translated": "This content is not translated yet. Below is the English version.",
