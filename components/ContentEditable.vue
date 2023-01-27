@@ -5,21 +5,21 @@
     :class="
       edited && editing
         ? 'ring-8 bg-orange-200 ring-orange-200 dark:bg-orange-900 dark:ring-orange-900' +
-          (enabled ? ' enabled' : '')
+          (enable ? ' enabled' : '')
         : editing
         ? 'ring-8 bg-blue-200 ring-blue-200 dark:bg-gray-900 dark:ring-gray-900' +
-          (enabled ? ' enabled' : '')
-        : enabled
+          (enable ? ' enabled' : '')
+        : enable
         ? 'hover:ring-8 hover:bg-blue-100 hover:ring-blue-100 dark:hover:bg-gray-700  dark:hover:ring-gray-700' +
-          (enabled ? ' enabled' : '')
+          (enable ? ' enabled' : '')
         : ''
     "
     :contenteditable="contenteditable"
-    :tabIndex="enabled ? 0 : -1"
+    :tabIndex="enable ? 0 : -1"
     ref="content"
     ><slot></slot
     ><span
-      v-if="enabled"
+      v-if="enable"
       contenteditable="false"
       class="cursor-pointer select-none invisible group-hover:visible absolute -right-7 dark:bg-gray-900 bg-blue-200 rounded-full top-1/2 transform -translate-y-1/2"
       :class="editing ? '!visible' : ''"
@@ -106,12 +106,25 @@ const toggleEditing = () => {
     if (!savedHashes.value.length)
       savedHashes.value.push(hashCode(content.value.textContent));
 
+    if (!initialContent.value) initialContent.value = content.value.textContent;
+
     content.value.focus();
     document.addEventListener("keydown", eventListener, false);
   } else {
     document.removeEventListener("keydown", eventListener, false);
     save();
   }
+};
+
+const hasHoverSupport = () => {
+  if (process.server) return false;
+  const mq = window.matchMedia("(hover: hover)");
+  return mq.matches;
+};
+
+const enable = () => {
+  if (hasHoverSupport()) return props.enabled;
+  return false;
 };
 
 onMounted(() => {

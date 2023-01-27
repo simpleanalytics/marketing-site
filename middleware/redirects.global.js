@@ -39,6 +39,26 @@ const redirects = [
     from: /\/nl\/glossary\/?$/i,
     to: "/nl/begrippenlijst",
   },
+  {
+    type: "replace",
+    from: "/denmark-bans-all-google-products",
+    to: "/denmark-bans-google-workspace-for-municipalities",
+  },
+  {
+    type: "replace",
+    from: "/why-you-should-reconsider-using-google-analytics",
+    to: "/why-its-time-to-move-away-from-google-analytics",
+  },
+  {
+    type: "replace",
+    from: "/google-analytics-hurts-your-search-ranking",
+    to: "/google-penalizes-you-for-using-google-analytics",
+  },
+  {
+    type: "replace",
+    from: "/stop-using-google-analytics-if-you-care-about-your-page-rank",
+    to: "/google-penalizes-you-for-using-google-analytics",
+  },
 ];
 
 const options = { redirectCode: 308 }; // 308 Permanent Redirect

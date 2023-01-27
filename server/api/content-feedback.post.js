@@ -23,8 +23,8 @@ export default defineEventHandler(async (event) => {
   } = await readBody(event);
 
   // Remove new lines
-  const suggestion = suggestionRaw.replace(/\n/g, " ");
-  const original = originalRaw.replace(/\n/g, " ");
+  const original = originalRaw?.replace(/\n/g, " ");
+  const suggestion = suggestionRaw?.replace(/\n/g, " ");
 
   const cmsUrl = new URL(
     `/api/articles/${articleId}`,

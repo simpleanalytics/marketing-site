@@ -15,7 +15,10 @@
         </slot>
 
         <!-- Show published date with avatar -->
-        <div class="flex items-center justify-center mt-4">
+        <div
+          class="flex items-center justify-center mt-4"
+          v-if="article.authorSlug"
+        >
           <div class="flex items-center">
             <Avatar :slug="article.authorSlug" />
             <div class="ml-2" v-if="article.publishedAt">

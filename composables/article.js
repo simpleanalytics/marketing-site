@@ -1,6 +1,6 @@
 export const useArticle = async ({
   routeName,
-  type,
+  type = "articles",
   slug,
   articleType,
   keys: extraKeys = [],
@@ -33,8 +33,12 @@ export const useArticle = async ({
     "automaticTranslated",
     "publishedAt",
     "updatedAt",
-    "showIndex",
   ];
+
+  if (type === "key-terms") {
+  } else {
+    keys.push("showIndex");
+  }
 
   if (articleType) keys.push("articleType");
 
