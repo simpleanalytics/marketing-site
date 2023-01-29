@@ -15,7 +15,7 @@ export default {
   render() {
     const replaceContentEditable = (match, tag, attributes, content) => {
       const enabled = !/<(ol class|img)/.test(content);
-      return `<ContentEditable${attributes} :enabled="${enabled}" tag="${tag}" articleId="${this.articleId}">${content}</ContentEditable>`;
+      return `<ContentEditable ${attributes} :enabled="${enabled}" tag="${tag}" articleId="${this.articleId}">${content}</ContentEditable>`;
     };
 
     return h({
