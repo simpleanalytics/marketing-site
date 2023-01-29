@@ -2,6 +2,7 @@
   <component
     :is="tag"
     class="rounded relative group"
+    @click="focusOnContent"
     :class="
       edited && editing
         ? 'ring-8 bg-orange-200 ring-orange-200 dark:bg-orange-900 dark:ring-orange-900' +
@@ -14,10 +15,14 @@
           (enable ? ' enabled' : '')
         : ''
     "
-    :contenteditable="contenteditable"
-    :tabIndex="enable ? 0 : -1"
-    ref="content"
-    ><slot></slot
+    ><span
+      :contenteditable="contenteditable"
+      :tabIndex="enable ? 0 : -1"
+      ref="content"
+      :class="
+        parent === 'blockquote' ? '' : tag === 'p' ? 'block' : 'inline-block'
+      "
+      ><slot></slot></span
     ><span
       v-if="enable"
       contenteditable="false"
@@ -28,8 +33,6 @@
         viewBox="0 0 24 24"
         class="w-5 h-5 m-2 dark:fill-blue-300 fill-blue-800"
         xmlns="http://www.w3.org/2000/svg"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
       >
         <g v-if="editing">
           <path
@@ -47,7 +50,7 @@
 </template>
 
 <script setup>
-const props = defineProps(["tag", "enabled", "articleId"]);
+const props = defineProps(["tag", "enabled", "articleId", "parent"]);
 
 const content = ref(null);
 const hash = ref(null);
@@ -84,7 +87,7 @@ const save = () => {
       suggestion: content.value?.textContent,
     }),
   }).catch((error) => {
-    console.log(error);
+    console.error(error);
   });
 };
 
@@ -125,6 +128,10 @@ const hasHoverSupport = () => {
 const enable = () => {
   if (hasHoverSupport()) return props.enabled;
   return false;
+};
+
+const focusOnContent = () => {
+  if (editing.value) content.value.focus();
 };
 
 onMounted(() => {

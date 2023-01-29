@@ -52,7 +52,7 @@ function createIndentedList(items) {
   for (const item of items) {
     const { id, level, text } = item;
     while (level < currentLevel) {
-      html += `</${stack.pop()}>`;
+      html += `</li></${stack.pop()}>`;
       currentLevel--;
     }
     while (level > currentLevel) {
@@ -61,18 +61,20 @@ function createIndentedList(items) {
       currentLevel++;
     }
     if (level === currentLevel) {
-      html += `</li><li><a href="#${id}">${text}</a>`;
+      html += `</li><li><NuxtLink to="#${id}">${text}</NuxtLink>`;
     } else {
-      html += `<li><a href="#${id}">${text}</a>`;
+      html += `<li><NuxtLink to="#${id}">${text}</NuxtLink>`;
     }
   }
   while (stack.length > 0) {
-    html += `</${stack.pop()}>`;
+    html += `</li></${stack.pop()}>`;
   }
 
   // Remove empty list items
-  html = html.replace(/<li><\/li>/g, "");
-  html = html.replace(/<\/a><\/ol>/g, "</a></li></ol>");
+  html = html.replace(/<li>(\n)?<\/li>/g, "");
+
+  // replace multiple \n with a single \n
+  html = html.replace(/\n{2,}/g, "\n");
 
   return html;
 }
@@ -81,46 +83,74 @@ const preconvert = (markdown, { showIndex = false } = {}) => {
   // Replace HTML tags with &lt; and &gt; except in ``` blocks in markdown
   markdown = markdown
     .split("```")
-    .map((part, index) => {
+    .map((nonCode, index) => {
       if (index % 2 === 0) {
-        // Sanitize the text outside of the code blocks
+        return nonCode
+          .split("`")
+          .map((part, index) => {
+            if (index % 2 === 0) {
+              // Sanitize the text outside of the code blocks
 
-        // Sanitize only the p, img, and a tags
-        part = part.replace(
-          /<((?!\/?(span|details|summary|code|mark|p|img|a))[^>]+)>/g,
-          "&lt;$1&gt;"
-        );
+              // Sanitize only the p, img, and a tags
+              part = part.replace(
+                /<((?!\/?(span|details|summary|code|mark|p|img|a))[^>]+)>/g,
+                "&lt;$1&gt;"
+              );
 
-        // A underscore direct after a new line after an image.
-        // this markdown:
-        // ![image](https://example.com/image.png)
-        // caption (source [link](https://exmaple.com))
-        //
-        // is converted to this:
-        // ![image](https://example.com/image.png)
-        // _caption (source [link](https://exmaple.com))_
-        part = part.replace(
-          /(\n|^)(!\[[^\]]+\]\([^\)]+\))\n(.+)\n/,
-          "$1$2\n_$3_\n"
-        );
+              // A underscore direct after a new line after an image.
+              // this markdown:
+              // ![image](https://example.com/image.png)
+              // caption (source [link](https://exmaple.com))
+              //
+              // is converted to this:
+              // ![image](https://example.com/image.png)
+              // _caption (source [link](https://exmaple.com))_
+              part = part.replace(
+                /(\n|^)(!\[[^\]]+\]\([^\)]+\))\n(.+)\n/,
+                "$1$2\n_$3_\n"
+              );
 
-        // Replace [^1]: and [^string]: with - [^1]: and - [^string]:
-        part = part.replace(
-          /(\n|^)(\[\^)([^\]]+)(\]:)/g,
-          function (match, _1, _2, id, _3) {
-            return `${_1}- ${_2}${id}${_3}`;
-          }
-        );
+              // Replace [^1]: and [^string]: with - [^1]: and - [^string]:
+              part = part.replace(
+                /(\n|^)(\[\^)([^\]]+)(\]:)/g,
+                function (match, _1, _2, id, _3) {
+                  return `${_1}- ${_2}${id}${_3}`;
+                }
+              );
 
-        part = part.replace(
-          /{% include gif\.html slug="([^"]+)" alt="([^"]+)"(?:.*?)%}/g,
-          "![$2](https://assets.simpleanalytics.com/gifs/$1.gif)"
-        );
+              part = part.replace(
+                /{% include gif\.html slug="([^"]+)" alt="([^"]+)"(?:.*?)%}/g,
+                "![$2](https://assets.simpleanalytics.com/gifs/$1.gif)"
+              );
 
-        return part;
+              // Replace markdown footnotes like [^1] or [^note] with <sup id="ref-1"><a href="#note-1">1</a></sup>
+              // make sure it does not match [^1]: or [^1](
+              part = part.replace(
+                /(?<!\[\^)(\[\^)([^\]]+)(\])(?!\:|\()/g,
+                function (match, _1, id, _2) {
+                  const ref = id.replace(/[^a-z0-9]/gi, "-");
+                  return `<sup id="ref-${ref}"><a class="no-underline p-1" href="#note-${ref}">${id}</a></sup>`;
+                }
+              );
+
+              // Replace \n\n>>text\n\n with <blockquote>text</blockquote>
+              part = part.replace(
+                /(\n\n|^)(\>\>)(.+?)(\n\n)/g,
+                function (match, prefix, _indent, text, suffix) {
+                  return `${prefix}<blockquote class="warning"><p>${text}</p></blockquote>${suffix}`;
+                }
+              );
+
+              return part;
+            } else {
+              // Leave the code block unchanged
+              return "`" + part + "`";
+            }
+          })
+          .join("");
       } else {
         // Leave the code block unchanged
-        return "```" + part + "```";
+        return "```" + nonCode + "```";
       }
     })
     .join("");
@@ -145,7 +175,7 @@ const preconvert = (markdown, { showIndex = false } = {}) => {
         const url = new URL(href);
         if (url.hostname === "www.simpleanalytics.com") {
           const path = href.split("/").slice(3).join("/");
-          return `<a href="/${path}"${attributes}>${text}</a>`;
+          return `<a href="/${path}" ${attributes}>${text}</a>`;
         }
         if (
           href.startsWith("http") &&
@@ -167,16 +197,6 @@ const preconvert = (markdown, { showIndex = false } = {}) => {
     return match;
   });
 
-  // Replace markdown footnotes like [^1] or [^note] with <sup id="ref-1"><a href="#note-1">1</a></sup>
-  // make sure it does not match [^1]: or [^1](
-  html = html.replace(
-    /(?<!\[\^)(\[\^)([^\]]+)(\])(?!\:|\()/g,
-    function (match, _1, id, _2) {
-      const ref = id.replace(/[^a-z0-9]/gi, "-");
-      return `<sup id="ref-${ref}"><a class="no-underline p-1" href="#note-${ref}">${id}</a></sup>`;
-    }
-  );
-
   // Replace markdown footnotes like [^1]: or [^note] with <li id="note-1"><a href="#ref-1">1</a></li>
   html = html.replace(
     /(\[\^)([^\]]+)(\]:)(.+)(?=\n)/g,
@@ -190,6 +210,12 @@ const preconvert = (markdown, { showIndex = false } = {}) => {
   html = html.replace(
     /<ul>\s?<li>\s?<a\sid\=\"note\-/,
     '<ul class="not-prose list-none mt-8 pt-6 border-t-2 border-gray-300 dark:border-gray-600 pl-0 text-sm text-red-600"><li><a id="note-'
+  );
+
+  // Replace <pre><code> with <pre class="no-prose"><code>
+  html = html.replace(
+    /<pre>\s?<code(?:\sclass="([^"]*)")?>/g,
+    '<pre class="not-prose bg-gray-600 dark:bg-gray-900"><code class="$1 text-gray-100 dark:text-gray-100">'
   );
 
   html = html.replace(
@@ -218,8 +244,15 @@ const preconvert = (markdown, { showIndex = false } = {}) => {
   if (tableOfContentsRegex.test(html))
     return html.replace(tableOfContentsRegex, index);
 
+  const firstH2Index = html.search(/<h2/);
+  const hasPBeforeH2 = firstH2Index
+    ? html
+        .slice(0, firstH2Index + "<h2".length)
+        .match(/<p>([^<]{0,100})<\/p>\n<h2/)
+    : false;
+
   // Check if paragraph before <h2> is less than 100 characters
-  if (/<p>([^<]{0,100})<\/p>\n<h2/.test(html))
+  if (hasPBeforeH2)
     return html.replace(/(<p>([^<]{0,100})<\/p>\n)<h2/, `${index}$1<h2`);
 
   // Insert before first <h2> if it exists

@@ -17,17 +17,20 @@ th,
 td,
 label,
 strong,
-code {
+code,
+summary {
   @apply text-gray-600 dark:text-gray-300;
 }
 
 a,
-.button {
+.button,
+summary {
   @apply cursor-pointer;
 }
 
 a:not([class*="text-"]):not([data-no-style]):not(.button.primary),
 a strong,
+a code,
 .text-link {
   @apply text-red-500 hover:text-red-600 dark:text-red-600 hover:dark:text-red-700;
 }
@@ -416,4 +419,19 @@ article table td img {
 
 article p img + em {
   @apply text-center block -mt-6;
+}
+
+article details + details {
+  @apply mt-4;
+}
+
+article details {
+  @apply bg-gray-100 dark:bg-gray-700 rounded-lg p-4;
+}
+
+article blockquote.warning {
+  @apply rounded-tr-xl rounded-br-xl bg-orange-100 dark:bg-yellow-900 border-l-4 border-yellow-500 dark:border-yellow-500 text-yellow-700 dark:text-yellow-300 py-1 px-2;
+}
+article blockquote.warning p {
+  @apply my-1 mx-2 before:content-none after:content-none;
 }
