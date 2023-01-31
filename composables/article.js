@@ -38,6 +38,7 @@ export const useArticle = async ({
   if (type === "key-terms") {
   } else {
     keys.push("showIndex");
+    keys.push("showCallToActions");
   }
 
   if (articleType) keys.push("articleType");

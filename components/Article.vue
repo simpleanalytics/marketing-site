@@ -105,6 +105,7 @@ const { article } = await useArticle({
     "content",
     "coverImageWithText",
     "coverImageWithoutText",
+    "inlineMedia",
   ],
   routeName: props.name,
   slug: props.slug,

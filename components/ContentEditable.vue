@@ -20,13 +20,19 @@
       :tabIndex="enable ? 0 : -1"
       ref="content"
       :class="
-        parent === 'blockquote' ? '' : tag === 'p' ? 'block' : 'inline-block'
+        parent === 'blockquote'
+          ? ''
+          : tag === 'p'
+          ? 'block'
+          : /^h[0-9]$/.test(tag)
+          ? 'inline'
+          : 'inline-block'
       "
       ><slot></slot></span
     ><span
       v-if="enable"
       contenteditable="false"
-      class="cursor-pointer select-none invisible group-hover:visible absolute -right-7 dark:bg-gray-900 bg-blue-200 rounded-full top-1/2 transform -translate-y-1/2"
+      class="cursor-pointer select-none invisible group-hover:visible absolute right-0 md:-right-7 dark:bg-gray-900 bg-blue-200 rounded-full top-1/2 transform -translate-y-1/2"
       :class="editing ? '!visible' : ''"
       @click="toggleEditing"
       ><svg
@@ -50,7 +56,7 @@
 </template>
 
 <script setup>
-const props = defineProps(["tag", "enabled", "articleId", "parent"]);
+const props = defineProps(["tag", "articleId", "parent"]);
 
 const content = ref(null);
 const hash = ref(null);
@@ -119,23 +125,22 @@ const toggleEditing = () => {
   }
 };
 
-const hasHoverSupport = () => {
+const hasHoverSupport = computed(() => {
   if (process.server) return false;
-  const mq = window.matchMedia("(hover: hover)");
-  return mq.matches;
-};
+  return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+});
 
-const enable = () => {
-  if (hasHoverSupport()) return props.enabled;
+const enable = computed(() => {
+  if (typeof hasHoverSupport.value === "boolean") return true;
   return false;
-};
+});
 
 const focusOnContent = () => {
   if (editing.value) content.value.focus();
 };
 
 onMounted(() => {
-  if (!props.enabled || !content.value) return;
+  if (!content.value) return;
 
   hash.value = hashCode(content.value.textContent);
 

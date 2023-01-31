@@ -1,6 +1,9 @@
 <template>
   <div
-    class="group relative dark:shadow-gray-600/10 shadow-lg rounded-lg overflow-hidden"
+    class="not-prose group relative dark:shadow-gray-600/10 shadow-lg rounded-lg overflow-hidden"
+    :class="
+      brightness && brightness < 80 ? 'dark:border dark:border-gray-600' : ''
+    "
     :style="`aspect-ratio: ${width} / ${height}`"
   >
     <div
@@ -31,9 +34,8 @@
       ref="video"
       loop
       :poster="poster"
-      crossorigin="anonymous"
       class="relative z-10"
-      preload="none"
+      :preload="poster ? 'none' : 'auto'"
       playsinline
       :muted="autoPlay()"
       :width="width"
@@ -62,7 +64,14 @@ import {
 
 import ArrowsExpandIcon from "./images/ArrowsExpandIcon";
 
-const props = defineProps(["width", "height", "poster", "color", "autoplay"]);
+const props = defineProps([
+  "width",
+  "height",
+  "poster",
+  "color",
+  "autoplay",
+  "brightness",
+]);
 
 const playing = ref(false);
 const video = ref();

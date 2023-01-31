@@ -10,7 +10,9 @@ const TYPES = {
   },
 };
 
-const tableOfContentsRegex = /{{( )?tableofcontents( )?}}/g;
+const tableOfContentsRegex = /{{( )?tableofcontents( )?}}/gi;
+const ctaOneRegex = /{{( )?ctaone( )?}}/gi;
+const ctaTwoRegex = /{{( )?ctatwo( )?}}/gi;
 
 const populateMediaField = {
   fields: [
@@ -21,6 +23,7 @@ const populateMediaField = {
     "height",
     "url",
     "formats",
+    "provider_metadata",
   ],
 };
 
@@ -79,7 +82,7 @@ function createIndentedList(items) {
   return html;
 }
 
-const preconvert = (markdown, { showIndex = false } = {}) => {
+const preconvert = (markdown, { showIndex = false, inlineMedia } = {}) => {
   // Replace HTML tags with &lt; and &gt; except in ``` blocks in markdown
   markdown = markdown
     .split("```")
@@ -109,6 +112,55 @@ const preconvert = (markdown, { showIndex = false } = {}) => {
                 /(\n|^)(!\[[^\]]+\]\([^\)]+\))\n(.+)\n/,
                 "$1$2\n_$3_\n"
               );
+
+              for (const { id, attributes } of inlineMedia?.data || []) {
+                // Replace `![alt text](url)` with `![alt text](id)`
+                part = part.replace(
+                  /!\[(?:[^\]]*)\]\(([^\)]+)\)/g,
+                  (match, url) => {
+                    if (url === attributes.url) {
+                      const metadata = attributes.provider_metadata;
+                      const medium = metadata?.formats?.medium;
+                      const file =
+                        medium?.webp?.url || medium?.gif?.url || attributes.url;
+                      const poster =
+                        medium?.poster?.webp?.url || medium?.poster?.png?.url;
+                      const color = metadata?.meta?.averageColorHex || "";
+                      return `<Gif width="${medium?.width || ""}" height="${
+                        medium?.height || ""
+                      }" poster="${poster}" background="${color}" src="${file}" />`;
+                    }
+                    return match;
+                  }
+                );
+
+                part = part.replace(
+                  /\[(?:[^\]]*)\]\(([^\)]+)\)/g,
+                  (match, url) => {
+                    if (url === attributes.url) {
+                      const metadata = attributes.provider_metadata;
+                      const xlarge = metadata?.formats?.xlarge;
+                      const file =
+                        xlarge?.webp?.url || xlarge?.gif?.url || attributes.url;
+                      const poster =
+                        xlarge?.poster?.webp?.url || xlarge?.poster?.png?.url;
+                      const color = metadata?.meta?.averageColorHex || "";
+                      const brightness =
+                        metadata?.meta?.averageColorBrightness || "";
+                      return `<Video width="${xlarge?.width || ""}" height="${
+                        xlarge?.height || ""
+                      }" color="${color}" brightness="${brightness}" poster="${poster}"><source src="${
+                        xlarge?.mp4?.url || attributes.url
+                      }" type="video/mp4" />${
+                        xlarge?.webm?.url
+                          ? `<source src="${xlarge?.webm?.url}" type="video/webm" />`
+                          : ""
+                      }Video not supported, you can <a href="${file}">download it</a>.</Video>`;
+                    }
+                    return match;
+                  }
+                );
+              }
 
               // Replace [^1]: and [^string]: with - [^1]: and - [^string]:
               part = part.replace(
@@ -223,6 +275,21 @@ const preconvert = (markdown, { showIndex = false } = {}) => {
     '<li class="text-gray-400 dark:text-gray-500 mb-2"><a id="note-'
   );
 
+  // Remove <p> tags around `<p>{{tableofcontents}}</p>`
+  html = html.replace(/<p>{{([a-z0-9\.]+)}}<\/p>/gi, "{{$1}}");
+
+  // Remove <p> tags around `<p><Video>...</Video></p>`
+  html = html.replace(
+    /<p><Video((?:(?!<\/Video>).)*)<\/Video><\/p>/gi,
+    "<Video$1</Video>"
+  );
+
+  // Remove <p> tags around `<p><Gif...</Gif></p>`
+  html = html.replace(
+    /<p><Gif((?:(?!<\/Gif>).)*)<\/Gif><\/p>/gi,
+    "<Gif$1</Gif>"
+  );
+
   if (!showIndex) {
     if (tableOfContentsRegex.test(html))
       return html.replace(tableOfContentsRegex, "");
@@ -240,9 +307,11 @@ const preconvert = (markdown, { showIndex = false } = {}) => {
     '<ol class="counters">'
   );
 
+  const ctaOne = ctaOneRegex.test(html) ? "" : "{{ctaone}}";
+
   // Check if html contains "{{tableofcontents}}"
   if (tableOfContentsRegex.test(html))
-    return html.replace(tableOfContentsRegex, index);
+    return html.replace(tableOfContentsRegex, `${index}${ctaOne}`);
 
   const firstH2Index = html.search(/<h2/);
   const hasPBeforeH2 = firstH2Index
@@ -253,20 +322,27 @@ const preconvert = (markdown, { showIndex = false } = {}) => {
 
   // Check if paragraph before <h2> is less than 100 characters
   if (hasPBeforeH2)
-    return html.replace(/(<p>([^<]{0,100})<\/p>\n)<h2/, `${index}$1<h2`);
+    return html.replace(
+      /(<p>([^<]{0,100})<\/p>\n)<h2/,
+      `${index}${ctaOne}$1<h2`
+    );
 
   // Insert before first <h2> if it exists
-  if (/<h2/.test(html)) return html.replace(/<h2/, `${index}$1<h2`);
+  if (/<h2/.test(html)) return html.replace(/<h2/, `${index}${ctaOne}<h2`);
 
-  return `${index}${html}`;
+  return `${index}${ctaOne}${html}`;
 };
 
-const convert = (...props) => {
-  const html = preconvert(...props);
+const convert = (markdown, attributes) => {
+  let html = preconvert(markdown, attributes);
+  const ctaTwo = ctaTwoRegex.test(html) ? "" : "{{ctatwo}}";
+  html = html + ctaTwo;
 
-  // Remove <p> tags around <ol> and <ul> tags
-  const regex = /<p>(<(ol|ul).*<\/(ol|ul)>)\s*<\/p>/gi;
-  return html.replace(regex, "$1");
+  const ctas = attributes.showCallToActions !== false;
+  html = html.replace(ctaOneRegex, ctas ? "<CtaOne />" : "");
+  html = html.replace(ctaTwoRegex, ctas ? "<CtaTwo />" : "");
+
+  return html;
 };
 
 const parse = ({ type, response }) => {
@@ -326,6 +402,7 @@ export default defineEventHandler(async (event) => {
       ![
         "coverImageWithoutText",
         "coverImageWithText",
+        "inlineMedia",
         "contentHtml",
         "languages",
       ].includes(field)
@@ -333,10 +410,12 @@ export default defineEventHandler(async (event) => {
 
   const populate =
     fields.includes("coverImageWithoutText") ||
-    fields.includes("coverImageWithText")
+    fields.includes("coverImageWithText") ||
+    fields.includes("inlineMedia")
       ? {
           coverImageWithoutText: populateMediaField,
           coverImageWithText: populateMediaField,
+          inlineMedia: populateMediaField,
         }
       : {};
 

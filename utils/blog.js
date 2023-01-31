@@ -11,7 +11,7 @@ export const getSlugFromBlogUrl = (url) => {
   return path.split("/").pop();
 };
 
-export const replaceInlineImages = (BLOG_URL, article) => {
+export const replaceinlineMedia = (BLOG_URL, article) => {
   const url = BLOG_URL.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const regexp = new RegExp(`(src)="${url}\/blog\/`, "g");
   return article.replace(regexp, `$1="${BLOG_URL}/`);
