@@ -333,6 +333,29 @@ const preconvert = (markdown, { showIndex = false, inlineMedia } = {}) => {
   return `${index}${ctaOne}${html}`;
 };
 
+const replacer = ({
+  match,
+  tag,
+  attributes,
+  content,
+  parent,
+  parentAttributes,
+  id,
+}) => {
+  if (/(<img|ContentEditable|<ol class|<Video )/i.test(match)) return match;
+
+  const html = `<ContentEditable ${attributes} parent="${parent || ""}" tag="${
+    tag || ""
+  }" articleId="${id}">${content}</ContentEditable>`;
+
+  if (parent)
+    return `<${parent}${
+      parentAttributes ? ` ${parentAttributes}` : ""
+    }>${html}</${parent}>`;
+
+  return html;
+};
+
 const convert = (markdown, attributes) => {
   let html = preconvert(markdown, attributes);
   const ctaTwo = ctaTwoRegex.test(html) ? "" : "{{ctatwo}}";
@@ -341,6 +364,49 @@ const convert = (markdown, attributes) => {
   const ctas = attributes.showCallToActions !== false;
   html = html.replace(ctaOneRegex, ctas ? "<CtaOne />" : "");
   html = html.replace(ctaTwoRegex, ctas ? "<CtaTwo />" : "");
+
+  const id = attributes.id || "";
+
+  html = html
+    // Replace handlebar variables with html characters
+    .replace(/{{/g, "&lbrace;&lbrace;")
+    .replace(/}}/g, "&rbrace;&rbrace;")
+    .replace(
+      /<a href="([^"]+)"([^>]*)>((?:(?!<\/a>).)*)<\/a>/g,
+      (match, href, attributes, text) => {
+        return `<NuxtLink to="${href}"${
+          attributes ? ` ${attributes}` : ""
+        }>${text}</NuxtLink>`;
+      }
+    )
+    .replace(
+      /(?<!(?:<blockquote(?:[^>]*)>\n?))<(p)([^>]*)>((?:(?!<\/p>).)*)<\/p>/g,
+      (match, tag, attributes, content) =>
+        replacer({ match, tag, attributes, content, id })
+    )
+    .replace(
+      /<(summary)([^>]*)>((?:(?!<\/summary>).)*)<\/summary>/g,
+      (match, tag, attributes, content) =>
+        replacer({ match, tag, attributes, content, id })
+    )
+    .replace(
+      /<(blockquote)([^>]*)>(?:[ \r\n]*)<(p)([^>]*)>((?:(?!<\/p>).)*)<\/p>(?:[ \r\n]*)<\/blockquote>/g,
+      (match, parent, parentAttributes, tag, attributes, content) =>
+        replacer({
+          match,
+          parent,
+          parentAttributes,
+          tag,
+          attributes,
+          content,
+          id,
+        })
+    )
+    .replace(
+      /<(h[1-9])([^>]*)>((?:(?!<\/h[1-9]>).)*)<\/h[1-9]>/g,
+      (match, tag, attributes, content) =>
+        replacer({ match, tag, attributes, content, id })
+    );
 
   return html;
 };
