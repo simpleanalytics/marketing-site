@@ -126,9 +126,12 @@ const preconvert = (markdown, { showIndex = false, inlineMedia } = {}) => {
                       const poster =
                         medium?.poster?.webp?.url || medium?.poster?.png?.url;
                       const color = metadata?.meta?.averageColorHex || "";
+
                       return `<Gif width="${medium?.width || ""}" height="${
                         medium?.height || ""
-                      }" poster="${poster}" background="${color}" src="${file}" />`;
+                      }" poster="${
+                        poster || ""
+                      }" background="${color}" src="${file}" />`;
                     }
                     return match;
                   }

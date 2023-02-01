@@ -96,7 +96,7 @@
       <div
         class="text-gray-300 bg-gradient-to-b from-blue-100 dark:from-gray-900 relative"
       >
-        <div class="relative pt-6 pb-16 sm:pb-24">
+        <div class="relative pt-6 pb-16 sm:pb-8">
           <Popover>
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
               <nav

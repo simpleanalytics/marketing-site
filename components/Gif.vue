@@ -6,19 +6,20 @@
       ref="container"
     >
       <img
+        v-if="poster"
         :src="poster"
         class="absolute my-0 mx-auto w-full"
         :class="playing ? 'invisible' : ''"
         :style="ratio"
       />
       <img
-        v-if="playing || loaded"
+        v-if="src && (playing || loaded || !poster)"
         :src="src"
         class="my-0 mx-auto w-full"
         :style="ratio"
       />
       <PlayCircleIcon
-        v-if="!playing"
+        v-if="!playing && poster"
         class="pointer-events-none stroke-gray-200 absolute p-1 rounded-full bg-gray-800 w-20 h-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
       />
       <GifIcon
