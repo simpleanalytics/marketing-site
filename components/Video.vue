@@ -1,10 +1,11 @@
 <template>
   <div
+    data-video
     class="not-prose group relative dark:shadow-gray-600/10 shadow-lg rounded-lg overflow-hidden"
     :class="
       brightness && brightness < 80 ? 'dark:border dark:border-gray-600' : ''
     "
-    :style="`aspect-ratio: ${width} / ${height}`"
+    :style="style"
   >
     <div
       class="absolute z-20 top-0 bottom-0 right-0 left-0 flex justify-center items-center transition"
@@ -38,9 +39,9 @@
       :preload="poster ? 'none' : 'auto'"
       playsinline
       :muted="autoPlay()"
-      :width="width"
-      :height="height"
-      :style="`aspect-ratio: ${width} / ${height}`"
+      :width="width ? width : 'auto'"
+      :height="height ? height : 'auto'"
+      :style="ratio"
     >
       <slot />
     </video>
@@ -68,13 +69,21 @@ const props = defineProps([
   "width",
   "height",
   "poster",
-  "color",
   "autoplay",
+  "background",
   "brightness",
 ]);
 
 const playing = ref(false);
 const video = ref();
+
+const ratio =
+  props.width && props.height
+    ? `aspect-ratio: ${props.width} / ${props.height}`
+    : "";
+const style = props.background
+  ? `background-color: #${props.background} !important;${ratio}`
+  : ratio;
 
 const play = () => {
   video.value.muted = false;

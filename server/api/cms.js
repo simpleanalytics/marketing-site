@@ -109,8 +109,8 @@ const preconvert = (markdown, { showIndex = false, inlineMedia } = {}) => {
               // ![image](https://example.com/image.png)
               // _caption (source [link](https://exmaple.com))_
               part = part.replace(
-                /(\n|^)(!\[[^\]]+\]\([^\)]+\))\n(.+)\n/,
-                "$1$2\n_$3_\n"
+                /(\n|^)(!?\[[^\]]+\]\([^\)]+\))\n(.+)\n/g,
+                "$1$2\n<em>$3</em>\n"
               );
 
               for (const { id, attributes } of inlineMedia?.data || []) {
@@ -146,13 +146,15 @@ const preconvert = (markdown, { showIndex = false, inlineMedia } = {}) => {
                       const file =
                         xlarge?.webp?.url || xlarge?.gif?.url || attributes.url;
                       const poster =
-                        xlarge?.poster?.webp?.url || xlarge?.poster?.png?.url;
+                        xlarge?.poster?.webp?.url ||
+                        xlarge?.poster?.png?.url ||
+                        "";
                       const color = metadata?.meta?.averageColorHex || "";
                       const brightness =
                         metadata?.meta?.averageColorBrightness || "";
                       return `<Video width="${xlarge?.width || ""}" height="${
                         xlarge?.height || ""
-                      }" color="${color}" brightness="${brightness}" poster="${poster}"><source src="${
+                      }" background="${color}" brightness="${brightness}" poster="${poster}"><source src="${
                         xlarge?.mp4?.url || attributes.url
                       }" type="video/mp4" />${
                         xlarge?.webm?.url
@@ -283,14 +285,14 @@ const preconvert = (markdown, { showIndex = false, inlineMedia } = {}) => {
 
   // Remove <p> tags around `<p><Video>...</Video></p>`
   html = html.replace(
-    /<p><Video((?:(?!<\/Video>).)*)<\/Video><\/p>/gi,
-    "<Video$1</Video>"
+    /<p><Video((?:(?!<\/Video>).)*)<\/Video>(\n.+)<\/p>/gi,
+    "<Video$1</Video>$2"
   );
 
   // Remove <p> tags around `<p><Gif...</Gif></p>`
   html = html.replace(
-    /<p><Gif((?:(?!<\/Gif>).)*)<\/Gif><\/p>/gi,
-    "<Gif$1</Gif>"
+    /<p><Gif((?:(?!<\/Gif>).)*)<\/Gif>(\n.+)<\/p>/gi,
+    "<Gif$1</Gif>$2"
   );
 
   if (!showIndex) {

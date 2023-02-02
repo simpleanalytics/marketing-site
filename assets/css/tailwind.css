@@ -420,6 +420,10 @@ article table td img {
 article p img + em {
   @apply text-center block -mt-6;
 }
+article div[data-gif] + em,
+article div[data-video] + em {
+  @apply text-center block mt-2;
+}
 
 article details + details {
   @apply mt-4;

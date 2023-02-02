@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-gif>
     <div
       class="relative rounded-xl w-[480px] max-w-full mx-auto overflow-hidden not-prose"
       :style="style"
