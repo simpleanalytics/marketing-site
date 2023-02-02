@@ -285,13 +285,13 @@ const preconvert = (markdown, { showIndex = false, inlineMedia } = {}) => {
 
   // Remove <p> tags around `<p><Video>...</Video></p>`
   html = html.replace(
-    /<p><Video((?:(?!<\/Video>).)*)<\/Video>(\n.+)<\/p>/gi,
+    /<p><Video((?:(?!<\/Video>).)*)<\/Video>(\n.+)?<\/p>/gi,
     "<Video$1</Video>$2"
   );
 
   // Remove <p> tags around `<p><Gif...</Gif></p>`
   html = html.replace(
-    /<p><Gif((?:(?!<\/Gif>).)*)<\/Gif>(\n.+)<\/p>/gi,
+    /<p><Gif((?:(?!<\/Gif>).)*)<\/Gif>(\n.+)?<\/p>/gi,
     "<Gif$1</Gif>$2"
   );
 
