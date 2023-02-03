@@ -94,7 +94,7 @@
       </Html>
 
       <div
-        class="text-gray-300 bg-gradient-to-b from-blue-100 dark:from-gray-900 relative"
+        class="text-gray-300 bg-gradient-to-b from-blue-100 dark:from-gray-900 relative md:pb-16"
       >
         <div class="relative pt-6 pb-16 sm:pb-8">
           <Popover>

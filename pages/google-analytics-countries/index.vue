@@ -8,21 +8,33 @@
         {{ $t("ga_countries.overview_description") }}
       </p>
 
-      <ul class="flex flex-wrap items-center justify-center mx-2 mt-6">
-        <li
-          class="inline-flex mx-2 my-2"
-          v-for="item of legend"
-          :key="item.class"
+      <SwitchGroup as="div" class="flex items-center justify-center mt-6">
+        <SwitchLabel as="p" class="mr-3">
+          <span>Simple Analytics</span>
+        </SwitchLabel>
+        <Switch
+          v-model="isGoogleAnalytics"
+          :class="[
+            isGoogleAnalytics
+              ? 'bg-red-500 dark:bg-red-600 focus:ring-red-500 dark:focus:ring-red-600'
+              : 'bg-gray-200 dark:bg-gray-600 focus:ring-green-500 dark:focus:ring-green-600',
+            'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 dark:ring-offset-gray-700',
+          ]"
         >
-          <div
-            :class="item.class"
-            class="w-6 h-6 rounded-full mr-2 flex-none"
-          ></div>
-          {{ $t(`ga_countries.labels.${item.translation}`) }}
-        </li>
-      </ul>
+          <span
+            aria-hidden="true"
+            :class="[
+              isGoogleAnalytics ? 'translate-x-5' : 'translate-x-0',
+              'pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white dark:bg-gray-300 shadow ring-0 transition duration-200 ease-in-out',
+            ]"
+          />
+        </Switch>
+        <SwitchLabel as="p" class="ml-3">
+          <span>Google Analytics</span>
+        </SwitchLabel>
+      </SwitchGroup>
 
-      <p class="mt-6">
+      <p class="mt-6" :class="isGoogleAnalytics ? '' : 'invisible'">
         {{ $t("ga_countries.click_country_to_learn_more") }}
       </p>
     </div>
@@ -30,9 +42,20 @@
 
   <Map
     class="mt-6 mb-6"
+    :allGreen="!isGoogleAnalytics"
     @click:country="clickedCountry"
     :countries="countries"
   />
+
+  <ul class="flex flex-wrap items-center justify-center mx-2 mb-10">
+    <li class="inline-flex mx-2 my-2" v-for="item of legend" :key="item.class">
+      <div
+        :class="item.class"
+        class="w-6 h-6 rounded-full mr-2 flex-none"
+      ></div>
+      {{ $t(`ga_countries.labels.${item.translation}`) }}
+    </li>
+  </ul>
 
   <div class="px-4 mx-auto max-w-4xl" v-if="countries.length">
     <div class="flex flex-wrap items-center justify-center mx-2 mt-6">
@@ -53,6 +76,8 @@
 </template>
 
 <script setup>
+import { Switch, SwitchGroup, SwitchLabel } from "@headlessui/vue";
+
 import {
   ChartBarSquareIcon,
   ComputerDesktopIcon,
@@ -68,6 +93,8 @@ const router = useRouter();
 const localePath = useLocalePath();
 const route = useRoute();
 const { t, locale } = useI18n();
+
+const isGoogleAnalytics = ref(true);
 
 const { articles, pending, error } = await useArticle({
   routeName: "google-analytics-countries-slug",

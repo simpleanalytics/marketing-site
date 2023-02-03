@@ -1971,15 +1971,25 @@ const props = defineProps({
     required: false,
     default: () => [],
   },
+  allGreen: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 });
 
 const emit = defineEmits(["click:country"]);
 
 const clickedCountry = ({ code }) => {
+  if (props.allGreen) return;
   return emit("click:country", { code });
 };
 
 const getClassForCountry = ({ code }) => {
+  if (props.allGreen && code?.toLowerCase() !== "kp") {
+    return "fill-green-500 dark:fill-green-500 stroke-white dark:stroke-gray-800";
+  }
+
   const country = props.countries.find(
     (country) =>
       country.code &&
