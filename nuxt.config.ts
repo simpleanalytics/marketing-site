@@ -72,6 +72,11 @@ const privateKeys = {
   strapiToken: process.env.STRAPI_TOKEN,
   trelloPersonalKey: process.env.TRELLO_PERSONAL_KEY,
   trelloPersonalToken: process.env.TRELLO_PERSONAL_TOKEN,
+  adminIps: process.env.ADMIN_IPS
+    ? process.env.ADMIN_IPS.split(",")
+        .map((ip) => ip.trim())
+        .filter(Boolean)
+    : [],
 };
 
 // https://nuxt.com/docs/migration/configuration/#nuxtconfig

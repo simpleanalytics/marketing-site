@@ -23,6 +23,7 @@ const populateMediaField = {
     "height",
     "url",
     "formats",
+    "mime",
     "provider_metadata",
   ],
 };
@@ -118,7 +119,10 @@ const preconvert = (markdown, { showIndex = false, inlineMedia } = {}) => {
                 part = part.replace(
                   /!\[(?:[^\]]*)\]\(([^\)]+)\)/g,
                   (match, url) => {
-                    if (url === attributes.url) {
+                    if (
+                      url === attributes.url &&
+                      attributes.mime === "image/gif"
+                    ) {
                       const metadata = attributes.provider_metadata;
                       const medium = metadata?.formats?.medium;
                       const file =
@@ -140,7 +144,10 @@ const preconvert = (markdown, { showIndex = false, inlineMedia } = {}) => {
                 part = part.replace(
                   /\[(?:[^\]]*)\]\(([^\)]+)\)/g,
                   (match, url) => {
-                    if (url === attributes.url) {
+                    if (
+                      url === attributes.url &&
+                      attributes.mime?.startsWith("video/")
+                    ) {
                       const metadata = attributes.provider_metadata;
                       const xlarge = metadata?.formats?.xlarge;
                       const file =
@@ -511,6 +518,7 @@ export default defineEventHandler(async (event) => {
         ? url.searchParams.get("pagination[pageSize]")
         : "500",
     },
+    publicationState: url.searchParams.has("drafts") ? "preview" : "live", // preview
   };
 
   const query = qsStringify(params, {

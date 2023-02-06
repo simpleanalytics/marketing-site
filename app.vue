@@ -94,7 +94,7 @@
       </Html>
 
       <div
-        class="text-gray-300 bg-gradient-to-b from-blue-100 dark:from-gray-900 relative md:pb-16"
+        class="text-gray-300 bg-gradient-to-b from-blue-100 dark:from-gray-900 relative md:pb-12"
       >
         <div class="relative pt-6 pb-16 sm:pb-8">
           <Popover>
@@ -793,7 +793,6 @@ import MoonSun from "./components/MoonSun.vue";
 import { getPathFromBlogUrl, labelAgo, getSlugFromBlogUrl } from "./utils/blog";
 
 const route = useRoute();
-
 const config = useRuntimeConfig();
 const { BASE_URL, MAIN_URL, CDN_URL, BLOG_URL, LOCALES } = config.public;
 
@@ -878,15 +877,19 @@ const scripts = [];
 
 if (process.server) {
   scripts.push(
+    // {
+    //   id: "my-path-overwriter",
+    //   children:
+    //     "function myPathOverwriter({ path }) { console.log({ path }); return path; }",
+    // },
     {
       src: "https://scripts.simpleanalyticscdn.com/latest.js",
+      // ["data-path-overwriter"]: "myPathOverwriter",
       async: true,
-      defer: true,
     },
     {
       src: "https://scripts.simpleanalyticscdn.com/auto-events.js",
       async: true,
-      defer: true,
     }
   );
 }

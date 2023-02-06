@@ -9,6 +9,28 @@
       </p>
     </div>
 
+    <div v-if="isAdmin" class="mt-4 flex">
+      <div
+        class="flex items-center mx-auto bg-orange-200 dark:bg-orange-900 rounded-xl text-sm py-2 px-2"
+      >
+        <EyeSlashIcon
+          class="w-6 h-6 ml-1 mr-2 stroke-orange-600 dark:stroke-gray-700"
+        />
+        <div class="space-x-2">
+          <NuxtLink
+            class="text-orange-500 dark:text-orange-700 bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded-lg underline"
+            :to="`https://cms.simpleanalytics.com/admin/content-manager/collectionType/api::article.article?page=1&pageSize=50&sort=updatedAt:DESC&plugins[i18n][locale]=${locale}&filters[$and][0][articleType][$eq]=blog`"
+            target="_blank"
+            >Go to CMS</NuxtLink
+          >
+        </div>
+        <XCircleIcon
+          @click="isAdmin = false"
+          class="w-6 h-6 ml-1 stroke-orange-600 dark:stroke-gray-700 hover:stroke-white dark:hover:stroke-white cursor-pointer"
+        />
+      </div>
+    </div>
+
     <div class="max-w-7xl px-6 mx-auto mt-8">
       <p v-if="pending" class="mt-5 text-lg text-center">
         {{ $t("home.loading_posts") }}...
@@ -31,7 +53,7 @@
           </div>
           <div
             v-else
-            class="flex w-full flex-col shadow-xl overflow-hidden rounded-lg bg-blue-100 dark:bg-gray-700"
+            class="flex w-full flex-col shadow-xl overflow-hidden rounded-lg bg-blue-100 dark:bg-gray-700 relative"
           >
             <div>
               <NuxtLink
@@ -41,7 +63,14 @@
                     params: { slug: post.slug },
                   })
                 "
+                :rel="post.publishedAt ? '' : 'nofollow'"
               >
+                <div
+                  v-if="!post.publishedAt"
+                  class="absolute flex justify-center items-center top-4 -rotate-45 -left-9 w-36 h-10 text-xl shadow-xl bg-yellow-300 text-gray-800"
+                >
+                  <span>Draft</span>
+                </div>
                 <img
                   v-if="post.cover?.small"
                   :src="post.cover.small"
@@ -83,18 +112,21 @@
                       params: { slug: post.slug },
                     })
                   "
+                  :rel="post.publishedAt ? '' : 'nofollow'"
                   class="dark:text-gray-300 text-gray-600"
                 >
-                  {{ post.title }}
+                  {{ post.title }} ({{ post.publishedAt }})
                 </NuxtLink>
               </h2>
               <NuxtLink
+                v-if="post.excerpt"
                 :to="
                   localePath({
                     name: 'blog-slug',
                     params: { slug: post.slug },
                   })
                 "
+                :rel="post.publishedAt ? '' : 'nofollow'"
                 class="block mt-3 mb-8 leading-relaxed text-md text-gray-700 dark:text-gray-300"
               >
                 {{
@@ -153,7 +185,7 @@
 import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
 import SubscribeForm from "~/components/SubscribeForm.vue";
 import Avatar from "~/components/Avatar.vue";
-
+import { EyeSlashIcon, XCircleIcon } from "@heroicons/vue/24/outline";
 import {
   getPathFromBlogUrl,
   labelAgo,
@@ -165,7 +197,9 @@ const i18n = useI18n();
 const { t, locale } = i18n;
 const localePath = useLocalePath();
 const config = useRuntimeConfig();
-const { BLOG_URL, BASE_URL } = config.public;
+const { BLOG_URL, BASE_URL, NODE_ENV } = config.public;
+
+const isAdmin = useAdmin();
 
 const route = useRoute();
 const { articles, pending, error } = await useArticle({

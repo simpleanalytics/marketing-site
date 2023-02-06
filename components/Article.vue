@@ -17,7 +17,7 @@
         <!-- Show published date with avatar -->
         <div
           class="flex items-center justify-center mt-4"
-          v-if="article.authorSlug"
+          v-if="article.authorSlug && article.publishedAt"
         >
           <div class="flex items-center">
             <Avatar :slug="article.authorSlug" />
@@ -37,6 +37,49 @@
                 }}
               </p>
             </div>
+          </div>
+        </div>
+
+        <div v-if="!article.publishedAt" class="my-4 mb-8 flex">
+          <span
+            class="flex items-center mx-auto bg-orange-200 dark:bg-orange-900 dark:text-orange-100 rounded-xl text-lg py-3 px-5"
+            >This is still a draft. Please don't share, yet.</span
+          >
+        </div>
+
+        <div v-if="isAdmin" class="mt-4 flex">
+          <div
+            class="flex items-center mx-auto bg-orange-200 dark:bg-orange-900 rounded-xl text-sm py-2 px-2"
+          >
+            <EyeSlashIcon
+              class="w-6 h-6 ml-1 mr-2 stroke-orange-600 dark:stroke-gray-700"
+            />
+            <div class="space-x-2">
+              <NuxtLink
+                v-if="article?.id"
+                class="text-orange-500 dark:text-orange-200 bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded-lg underline"
+                :to="`https://cms.simpleanalytics.com/admin/content-manager/collectionType/api::article.article/${article.id}?plugins[i18n][locale]=${article.locale}`"
+                target="_blank"
+                >Edit in CMS</NuxtLink
+              >
+              <NuxtLink
+                v-if="image"
+                class="text-orange-500 dark:text-orange-200 bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded-lg underline"
+                :to="image"
+                target="_blank"
+                >Social image</NuxtLink
+              >
+              <NuxtLink
+                class="text-orange-500 dark:text-orange-200 bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded-lg underline"
+                :to="`https://simpleanalytics.com/simpleanalytics.com/${article.locale}/blog/${article.slug}`"
+                target="_blank"
+                >Stats</NuxtLink
+              >
+            </div>
+            <XCircleIcon
+              @click="isAdmin = false"
+              class="w-6 h-6 ml-1 stroke-orange-600 dark:stroke-gray-700 hover:stroke-orange-200 dark:hover:stroke-white cursor-pointer"
+            />
           </div>
         </div>
 
@@ -84,18 +127,22 @@
 </template>
 
 <script setup>
-const props = defineProps(["type", "name", "slug", "articleType"]);
+const props = defineProps(["type", "name", "slug", "articleType", "drafts"]);
 
 import { categories } from "@/data/glossary";
 import SubscribePopup from "@/components/SubscribePopup.vue";
 import Avatar from "@/components/Avatar.vue";
 import HtmlBlock from "@/components/HtmlBlock.vue";
+import { EyeSlashIcon, XCircleIcon } from "@heroicons/vue/24/outline";
+
+const config = useRuntimeConfig();
+const { BASE_URL, MAIN_URL, NODE_ENV } = config.public;
 
 const route = useRoute();
 const { t, locale } = useI18n();
 const localePath = useLocalePath();
-const config = useRuntimeConfig();
-const { BASE_URL, MAIN_URL } = config.public;
+
+const isAdmin = useAdmin();
 
 const { article } = await useArticle({
   keys: [
@@ -111,6 +158,7 @@ const { article } = await useArticle({
   slug: props.slug,
   articleType: props.articleType,
   type: props.type,
+  drafts: props.drafts,
 });
 
 if (!article?.value && process.server) {
@@ -172,6 +220,12 @@ useSeoMeta({
   ogDescription: () => article.value?.excerpt,
   ogImage: image,
   twitterCard: "summary_large_image",
+  robots() {
+    if (article?.value?.title && !article?.value?.publishedAt) {
+      return "noindex";
+    }
+    return null;
+  },
 });
 
 const routeParts = props.name

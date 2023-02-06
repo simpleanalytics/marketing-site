@@ -4,6 +4,7 @@ export const useArticle = async ({
   slug,
   articleType,
   keys: extraKeys = [],
+  drafts = false,
 }) => {
   const route = useRoute();
   const { locale } = useI18n();
@@ -13,14 +14,18 @@ export const useArticle = async ({
     public: { BASE_URL },
   } = useRuntimeConfig();
 
+  const isAdmin = useAdmin();
+
   const url = new URL("/api/cms", BASE_URL);
   url.searchParams.set(
     "path",
     type === "key-terms" ? "/key-terms" : "/articles"
   );
-  if (slug) url.searchParams.set(`filters[slug][$eq]`, slug);
+  if (slug) url.searchParams.set("filters[slug][$eq]", slug);
   if (articleType)
-    url.searchParams.set(`filters[articleType][$eq]`, articleType);
+    url.searchParams.set("filters[articleType][$eq]", articleType);
+  if (isAdmin.value || drafts)
+    url.searchParams.set("drafts", isAdmin.value || drafts);
 
   const keys = [
     ...extraKeys,
