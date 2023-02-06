@@ -115,7 +115,7 @@
                   :rel="post.publishedAt ? '' : 'nofollow'"
                   class="dark:text-gray-300 text-gray-600"
                 >
-                  {{ post.title }} ({{ post.publishedAt }})
+                  {{ post.title }}
                 </NuxtLink>
               </h2>
               <NuxtLink
