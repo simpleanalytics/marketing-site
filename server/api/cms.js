@@ -358,7 +358,7 @@ const replacer = ({
 
   const html = `<ContentEditable ${attributes} parent="${parent || ""}" tag="${
     tag || ""
-  }" articleId="${id}">${content}</ContentEditable>`;
+  }" articleId="${id || ""}">${content}</ContentEditable>`;
 
   if (parent)
     return `<${parent}${
@@ -377,7 +377,7 @@ const convert = (markdown, attributes) => {
   html = html.replace(ctaOneRegex, ctas ? "<CtaOne />" : "");
   html = html.replace(ctaTwoRegex, ctas ? "<CtaTwo />" : "");
 
-  const id = attributes.id || "";
+  const id = attributes.id;
 
   html = html
     // Replace handlebar variables with html characters
@@ -425,6 +425,9 @@ const convert = (markdown, attributes) => {
 
 const parse = ({ type, response }) => {
   response.data = response.data.map((item) => {
+    // Add ID to attributes
+    if (item.id) item.attributes.id = item.id;
+
     for (const iterator of TYPES[type].markdown) {
       if (item.attributes[iterator]) {
         item.attributes[iterator + "Html"] = convert(
@@ -433,9 +436,6 @@ const parse = ({ type, response }) => {
         );
       }
     }
-
-    // Add ID to attributes
-    if (item.id) item.attributes.id = item.id;
 
     if (item.attributes.localizations.data.length > 0) {
       item.attributes.localizations.data.forEach((localization) => {

@@ -71,9 +71,9 @@ export default defineEventHandler(async (event) => {
   const idMember =
     locale === "it"
       ? users.carlo
-      : author.includes("adriaan")
+      : author?.includes("adriaan")
       ? users.adriaan
-      : author.includes("carlo")
+      : author?.includes("carlo")
       ? users.carlo
       : users.iron;
 
@@ -92,17 +92,17 @@ export default defineEventHandler(async (event) => {
     "### Suggestion",
     `> ${suggestion}`,
     "",
-    "### Links",
-    "",
-    `- [Update article #${articleId} in our CMS](${cms})`,
-    `- [Reported on this page](${location})`,
-  ];
+    articleId || location ? "### Links" : null,
+    articleId || location ? "" : null,
+    articleId ? `- [Update article #${articleId} in our CMS](${cms})` : null,
+    location ? `- [Reported on this page](${location})` : null,
+  ].filter((line) => line !== null);
 
   const card = {
     pos: "top",
-    name: `${changes} changes in ${
-      title ? `"${title}"` : "content"
-    } (${locale})`,
+    name: `${changes} changes in ${title ? `"${title}"` : "content"}${
+      locale ? ` (${locale})` : ""
+    }`,
     desc: description.join("\n"),
     idMembers: [idMember],
     idList: lists.typosAndGrammar,
