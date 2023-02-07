@@ -435,7 +435,7 @@ const parse = ({ type, response }) => {
     }
 
     // Add ID to attributes
-    item.attributes.id = item.id;
+    if (item.id) item.attributes.id = item.id;
 
     if (item.attributes.localizations.data.length > 0) {
       item.attributes.localizations.data.forEach((localization) => {
