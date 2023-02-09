@@ -72,13 +72,14 @@ export default defineEventHandler(async (event) => {
 
     for (const post of posts) {
       const author = getAuthorFromSlug(post.authorSlug).name;
-      const image = post.image;
       const created = new Date(post.created || post.createdAt);
       const updated = new Date(post.updatedAt || created);
 
       if (lastUpdatedAt === null || updated > lastUpdatedAt) {
         lastUpdatedAt = updated;
       }
+
+      const localePath = locale === "en" ? "" : `/${locale}`;
 
       entries.push(
         `
@@ -89,8 +90,8 @@ export default defineEventHandler(async (event) => {
         <published>${rfc822date(created)}</published>
         <updated>${rfc822date(updated)}</updated>
         <modified>${rfc822date(updated)}</modified>
-        <id>https://www.simpleanalytics.com/${locale}/blog/${post.slug}</id>
-        <content type="html" xml:base="https://www.simpleanalytics.com/${locale}/blog/${
+        <id>https://www.simpleanalytics.com${localePath}/blog/${post.slug}</id>
+        <content type="html" xml:base="https://www.simpleanalytics.com${localePath}/blog/${
           post.slug
         }">${sanitize(post.content?.trim())}</content>
         <author><name>${author}</name></author>
@@ -109,7 +110,7 @@ export default defineEventHandler(async (event) => {
     let xml = `
       <?xml version="1.0" encoding="utf-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom">
         <link href="https://www.simpleanalytics.com/rss.xml" rel="self" type="application/atom+xml" />
-        <link href="https://www.simpleanalytics.com/${locale}/blog/" rel="alternate" type="text/html" />
+        <link href="https://www.simpleanalytics.com${localePath}/blog" rel="alternate" type="text/html" />
         <updated>${rfc822date(lastUpdatedAt)}</updated>
         <id>https://www.simpleanalytics.com/rss.xml</id>
         <title type="html">Blog of Simple Analytics</title>
