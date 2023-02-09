@@ -110,7 +110,7 @@
                     class="flex items-center justify-between w-full md:w-auto"
                   >
                     <NuxtLink
-                      :to="localePath('index')"
+                      :to="localePath({ name: 'index' })"
                       class="flex items-center"
                     >
                       <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />

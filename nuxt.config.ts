@@ -86,9 +86,6 @@ export default defineNuxtConfig({
   experimental: {
     treeshakeClientOnly: true,
   },
-  build: {
-    transpile: ["@heroicons/vue"],
-  },
   app: {
     baseURL: "/",
     buildAssetsDir: "/_nuxt/",
@@ -115,7 +112,7 @@ export default defineNuxtConfig({
   i18n: {
     baseUrl: BASE_URL,
     locales,
-    strategy: "prefix",
+    strategy: "prefix_except_default",
     defaultLocale: "en",
     langDir: "locales",
     customRoutes: "config",
@@ -197,10 +194,10 @@ export default defineNuxtConfig({
       },
     },
     detectBrowserLanguage: {
-      alwaysRedirect: false,
-      fallbackLocale: "en",
-      redirectOn: "no prefix",
       useCookie: true,
+      alwaysRedirect: true,
+      fallbackLocale: "en",
+      redirectOn: "root",
       cookieKey: "locale",
       cookieSecure: false,
     },
