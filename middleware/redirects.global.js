@@ -61,7 +61,12 @@ const redirects = [
   },
 ];
 
-const options = { redirectCode: 308 }; // 308 Permanent Redirect
+const HTTP_CODES = {
+  permanent: 308,
+  temporary: 307,
+};
+
+const options = { redirectCode: HTTP_CODES.permanent };
 
 export default defineNuxtRouteMiddleware(({ path, query, hash }) => {
   for (const redirect of redirects) {

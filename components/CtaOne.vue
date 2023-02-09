@@ -7,7 +7,7 @@
       <span class="mx-6 text-gray-800 dark:text-gray-200"
         >The UK Government choose Simple Analytics</span
       >
-      <NuxtLink class="button no-underline" :to="{ name: 'index' }"
+      <NuxtLink class="button no-underline" :to="localePath({ name: 'index' })"
         >Join them</NuxtLink
       >
     </div>
@@ -16,4 +16,5 @@
 
 <script setup>
 import GovUK from "@/components/logos/GovUK.vue";
+const localePath = useLocalePath();
 </script>
