@@ -78,4 +78,11 @@ export default defineNuxtRouteMiddleware(({ path, query, hash }) => {
       return navigateTo({ path: nextPath, query, hash }, options);
     }
   }
+
+  if (path.slice(0, 2) === "//") {
+    while (path.slice(0, 2) === "//") {
+      path = path.slice(1);
+    }
+    return navigateTo({ path, query, hash }, options);
+  }
 });
