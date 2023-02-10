@@ -95,6 +95,9 @@ const preconvert = (markdown, { showIndex = false, inlineMedia } = {}) => {
             if (index % 2 === 0) {
               // Sanitize the text outside of the code blocks
 
+              // Change ![optional text](<https://example.com>) into ![optional text](https://example.com)
+              part = part.replace(/\[([^\]]*)\]\(<([^\>]+)>\)/g, "[$1]($2)");
+
               // Sanitize only the p, img, and a tags
               part = part.replace(
                 /<((?!\/?(span|details|summary|code|mark|p|img|a))[^>]+)>/g,
