@@ -1,5 +1,25 @@
 const redirects = [
   {
+    type: "regex",
+    from: /^\/en\/glossary\/?$/i,
+    to: "/en/glossaries",
+  },
+  {
+    type: "regex",
+    from: /^\/glossary\/?$/i,
+    to: "/glossaries",
+  },
+  {
+    type: "regex",
+    from: /^\/nl\/glossary\/?$/i,
+    to: "/nl/begrippenlijst",
+  },
+  {
+    type: "regex",
+    from: /^\/practical-privacy-tips-for-your-business\/?$/i,
+    to: "/blog/practical-privacy-tips-for-your-business",
+  },
+  {
     type: "replace",
     from: "/stop-using-google-analytics-if-you-care-about-your-page-rank",
     to: "/google-analytics-performance-impact-using-google-lighthouse",
@@ -28,16 +48,6 @@ const redirects = [
     type: "replace",
     from: "/google-analytics-countries",
     to: "/google-analytics-is-illegal-in-these-countries",
-  },
-  {
-    type: "regex",
-    from: /\/en\/glossary\/?$/i,
-    to: "/en/glossaries",
-  },
-  {
-    type: "regex",
-    from: /\/nl\/glossary\/?$/i,
-    to: "/nl/begrippenlijst",
   },
   {
     type: "replace",
