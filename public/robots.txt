@@ -1,14 +1,2 @@
 User-agent: *
-Disallow: /glossaries
-Disallow: /glossary/
-Disallow: /de/glossar/
-Disallow: /de/glossare
-Disallow: /es/glosario/
-Disallow: /es/glosarios
-Disallow: /fr/glossaire/
-Disallow: /fr/glossaires
-Disallow: /it/glossari
-Disallow: /it/glossario/
-Disallow: /nl/begrippenlijst/
-Disallow: /nl/begrippenlijsten
 Sitemap: https://simpleanalytics.com/sitemap.xml
