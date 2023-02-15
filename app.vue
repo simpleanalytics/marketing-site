@@ -876,22 +876,10 @@ const image = route.meta.title
 const scripts = [];
 
 if (process.server) {
-  scripts.push(
-    // {
-    //   id: "my-path-overwriter",
-    //   children:
-    //     "function myPathOverwriter({ path }) { console.log({ path }); return path; }",
-    // },
-    {
-      src: "https://scripts.simpleanalyticscdn.com/latest.js",
-      // ["data-path-overwriter"]: "myPathOverwriter",
-      async: true,
-    },
-    {
-      src: "https://scripts.simpleanalyticscdn.com/auto-events.js",
-      async: true,
-    }
-  );
+  scripts.push({
+    src: "https://scripts.simpleanalyticscdn.com/auto-events.js",
+    async: true,
+  });
 }
 
 const link = [
