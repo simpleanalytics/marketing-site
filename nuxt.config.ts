@@ -176,6 +176,22 @@ export default defineNuxtConfig({
         it: "/glossario/[category]/[slug]",
         fr: "/glossaire/[category]/[slug]",
       },
+      "glossary/[category]/key-terms/index": {
+        en: "/glossary/[category]/key-terms",
+        nl: "/begrippenlijst/[category]/kernbegrippen",
+        es: "/glosario/[category]/terminos-clave",
+        de: "/glossar/[category]/schlusselbegriffe",
+        it: "/glossario/[category]/termini-chiave",
+        fr: "/glossaire/[category]/termes-cles",
+      },
+      "glossary/[category]/key-terms/[slug]": {
+        en: "/glossary/[category]/key-term/[slug]",
+        nl: "/begrippenlijst/[category]/kernbegrip/[slug]",
+        es: "/glosario/[category]/termino-clave/[slug]",
+        de: "/glossar/[category]/schlusselbegriff/[slug]",
+        it: "/glossario/[category]/termine-chiave/[slug]",
+        fr: "/glossaire/[category]/terme-cle/[slug]",
+      },
       "google-analytics-countries/index": {
         en: "/google-analytics-is-illegal-in-these-countries",
         nl: "/google-analytics-verboden-in-deze-landen",

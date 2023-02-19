@@ -320,6 +320,8 @@
     "title": "Begrippenlijst",
     "overview": "Begrippenlijsten",
     "overview_description": "Deze begrippenlijsten bevatten de meeste termen die worden gebruikt in Google Analytics en andere algemene analytics op het web. Klik op een woordenlijst om er meer over te lezen.",
+    "key_terms_title": "Belangrijke termen",
+    "key_terms_description": "Een lijst van belangrijke termen voor {0}.",
     "categories": {
       "googleanalytics": {
         "title": "Google Analytics",

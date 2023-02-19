@@ -321,6 +321,8 @@
     "title": "Glossaire",
     "overview": "Aperçu du glossaire",
     "overview_description": "Ces glossaires contiennent la plupart des termes utilisés dans Google Analytics et d'autres analyses générales sur le web. Cliquez sur un glossaire pour en savoir plus à ce sujet.",
+    "key_terms_title": "Termes clés",
+    "key_terms_description": "Une liste de termes clés pour {0}.",
     "categories": {
       "googleanalytics": {
         "title": "Google Analytics",

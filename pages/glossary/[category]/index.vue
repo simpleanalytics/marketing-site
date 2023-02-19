@@ -38,7 +38,13 @@
           {{ $t("glossary.key_terms_title") }} <Arrow />
         </h3>
         <p class="mt-2 text-sm text-gray-500 leading-relaxed">
-          {{ $t("glossary.key_terms_description") }}
+          {{
+            $t("glossary.key_terms_description", [
+              route.params.category === "google-analytics"
+                ? $t(`glossary.categories.googleanalytics.title`)
+                : $t(`glossary.categories.analytics.title`),
+            ])
+          }}
         </p>
       </NuxtLink>
       <NuxtLink

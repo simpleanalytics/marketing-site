@@ -322,7 +322,7 @@
     "overview": "Glossary overview",
     "overview_description": "These glossaries contains most terms that are used in Google Analytics and other general analytics on the web. Click on a glossary to read more about it.",
     "key_terms_title": "Key terms",
-    "key_terms_description": "A list of key terms for Google Analytics.",
+    "key_terms_description": "A list of key terms for {0}.",
     "categories": {
       "googleanalytics": {
         "title": "Google Analytics",
