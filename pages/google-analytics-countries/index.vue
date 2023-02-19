@@ -159,6 +159,17 @@ const fixedCountries = [
     code: "it",
     class: classes.yes,
   },
+  {
+    link: localePath({
+      name: "blog-slug",
+      params: {
+        slug: "finland-is-latest-eu-country-to-crack-down-on-google-analytics",
+      },
+    }),
+    locale: "en",
+    code: "fi",
+    class: classes.yes,
+  },
 ];
 
 const countriesList = computed(() => {
