@@ -20,6 +20,11 @@ const redirects = [
     to: "/blog/practical-privacy-tips-for-your-business",
   },
   {
+    type: "regex",
+    from: /^\/google-analytics-illegal\/is-google-analytics-illegal-in-finland$/i,
+    to: "/blog/finland-is-latest-eu-country-to-crack-down-on-google-analytics",
+  },
+  {
     type: "replace",
     from: "/stop-using-google-analytics-if-you-care-about-your-page-rank",
     to: "/google-analytics-performance-impact-using-google-lighthouse",
