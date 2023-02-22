@@ -27,25 +27,85 @@
             href="https://scripts.simpleanalyticscdn.com/"
             crossorigin
           />
+
+          <!-- Icons -->
           <Link
-            rel="apple-touch-icon"
+            rel="apple-touch-icon-precomposed"
             sizes="180x180"
-            href="/apple-touch-icon.png"
+            :href="BASE_URL + '/apple-touch-icon-180x180.png'"
+          />
+          <Link
+            rel="apple-touch-icon-precomposed"
+            sizes="152x152"
+            :href="BASE_URL + '/apple-touch-icon-152x152.png'"
+          />
+          <Link
+            rel="apple-touch-icon-precomposed"
+            sizes="120x120"
+            :href="BASE_URL + '/apple-touch-icon-120x120.png'"
+          />
+          <Link
+            rel="apple-touch-icon-precomposed"
+            sizes="114x114"
+            :href="BASE_URL + '/apple-touch-icon-114x114.png'"
+          />
+          <Link
+            rel="apple-touch-icon-precomposed"
+            sizes="76x76"
+            :href="BASE_URL + '/apple-touch-icon-76x76.png'"
+          />
+          <Link
+            rel="apple-touch-icon-precomposed"
+            sizes="72x72"
+            :href="BASE_URL + '/apple-touch-icon-72x72.png'"
+          />
+          <Link
+            rel="apple-touch-icon-precomposed"
+            sizes="60x60"
+            :href="BASE_URL + '/apple-touch-icon-60x60.png'"
+          />
+          <Link
+            rel="apple-touch-icon-precomposed"
+            sizes="57x57"
+            :href="BASE_URL + '/apple-touch-icon-57x57.png'"
+          />
+          <Link
+            rel="icon"
+            type="image/png"
+            sizes="196x196"
+            :href="BASE_URL + '/favicon-196x196.png?v=2'"
+          />
+          <Link
+            rel="icon"
+            type="image/png"
+            sizes="128x128"
+            :href="BASE_URL + '/favicon-128x128.png?v=2'"
+          />
+          <Link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            :href="BASE_URL + '/favicon-96x96.png?v=2'"
           />
           <Link
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="/favicon-32x32.png"
+            :href="BASE_URL + '/favicon-32x32.png?v=2'"
           />
           <Link
             rel="icon"
             type="image/png"
             sizes="16x16"
-            href="/favicon-16x16.png"
+            :href="BASE_URL + '/favicon-16x16.png?v=2'"
           />
-          <Link rel="manifest" href="/site.webmanifest" />
-          <Link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff4f64" />
+          <Link rel="manifest" :href="BASE_URL + '/site.webmanifest?v=2'" />
+          <Link
+            rel="mask-icon"
+            :href="BASE_URL + '/safari-pinned-tab.svg?v=2'"
+            color="#ff4f64"
+          />
+          <Link rel="shortcut icon" :href="BASE_URL + '/favicon.ico?v=2'" />
           <Meta name="apple-mobile-web-app-title" content="Simple Analytics" />
           <Meta name="application-name" content="Simple Analytics" />
           <Meta name="msapplication-TileColor" content="#ff4f64" />
@@ -54,7 +114,11 @@
             :content="theme === 'dark' ? '#2a373a' : '#eef9ff'"
           />
           <Meta name="apple-mobile-web-app-capable" content="yes" />
+
+          <!-- Privacy -->
           <Meta name="referrer" content="strict-origin-when-cross-origin" />
+
+          <!-- Twitter -->
           <Meta name="twitter:site" content="@SimpleAnalytic" />
           <Meta name="twitter:creator" content="@SimpleAnalytic" />
 

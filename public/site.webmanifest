@@ -1,19 +1,19 @@
 {
-    "name": "Simple Analytics",
-    "short_name": "Simple Analytics",
-    "icons": [
-        {
-            "src": "/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ],
-    "theme_color": "#eef9ff",
-    "background_color": "#eef9ff",
-    "display": "standalone"
+  "name": "Simple Analytics",
+  "short_name": "Simple Analytics",
+  "icons": [
+    {
+      "src": "https://www.simpleanalytics.com/android-chrome-192x192.png?v=2",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://www.simpleanalytics.com/android-chrome-512x512.png?v=2",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ff4f64",
+  "display": "standalone"
 }
