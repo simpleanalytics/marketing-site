@@ -186,18 +186,13 @@ import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
 import SubscribeForm from "~/components/SubscribeForm.vue";
 import Avatar from "~/components/Avatar.vue";
 import { EyeSlashIcon, XCircleIcon } from "@heroicons/vue/24/outline";
-import {
-  getPathFromBlogUrl,
-  labelAgo,
-  getAuthorFromSlug,
-  getSlugFromBlogUrl,
-} from "~/utils/blog";
+import { labelAgo, getAuthorFromSlug } from "~/utils/blog";
 
 const i18n = useI18n();
 const { t, locale } = i18n;
 const localePath = useLocalePath();
 const config = useRuntimeConfig();
-const { BLOG_URL, BASE_URL, NODE_ENV } = config.public;
+const { BASE_URL, NODE_ENV } = config.public;
 
 const isAdmin = useAdmin();
 

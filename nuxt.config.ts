@@ -61,9 +61,6 @@ const env = {
     process.env.DEPLOYING === "true"
       ? "https://www-cdn.simpleanalytics.com"
       : undefined,
-  BLOG_URL: isProduction
-    ? "https://blogold.simpleanalytics.com"
-    : "http://localhost:4001",
   LOCALES: locales,
 };
 

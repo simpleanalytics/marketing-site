@@ -98,7 +98,7 @@ const getCover = ({ coverImageWithText, coverImageWithoutText }) => {
   return null;
 };
 
-export default ({ data, locale = "en", keys = [] }) => {
+export default ({ data, locale = "en", keys = [], limit }) => {
   const languages = {
     en: {},
     de: {},
@@ -198,32 +198,35 @@ export default ({ data, locale = "en", keys = [] }) => {
     return bDate - aDate;
   });
 
-  return preferred.filter(Boolean).map(({ attributes }) => {
-    if (keys.includes("coverImageWithoutText"))
-      attributes.coverImageWithoutText = getMedia(
-        attributes.coverImageWithoutText
-      );
+  return preferred
+    .filter(Boolean)
+    .map(({ attributes }) => {
+      if (keys.includes("coverImageWithoutText"))
+        attributes.coverImageWithoutText = getMedia(
+          attributes.coverImageWithoutText
+        );
 
-    if (keys.includes("coverImageWithText"))
-      attributes.coverImageWithText = getMedia(attributes.coverImageWithText);
+      if (keys.includes("coverImageWithText"))
+        attributes.coverImageWithText = getMedia(attributes.coverImageWithText);
 
-    if (attributes.coverImageWithText || attributes.coverImageWithoutText) {
-      keys.push("cover");
-      attributes.cover = getCover({
-        coverImageWithText: attributes.coverImageWithText,
-        coverImageWithoutText: attributes.coverImageWithoutText,
-      });
-    }
-
-    if (!keys.includes("languages")) return filterAttributes(attributes);
-
-    if (languages.en?.slug) {
-      for (const key in languages) {
-        if (languages[key].slug) continue;
-        languages[key].slug = languages.en.slug;
+      if (attributes.coverImageWithText || attributes.coverImageWithoutText) {
+        keys.push("cover");
+        attributes.cover = getCover({
+          coverImageWithText: attributes.coverImageWithText,
+          coverImageWithoutText: attributes.coverImageWithoutText,
+        });
       }
-    }
 
-    return { ...filterAttributes(attributes), languages };
-  });
+      if (!keys.includes("languages")) return filterAttributes(attributes);
+
+      if (languages.en?.slug) {
+        for (const key in languages) {
+          if (languages[key].slug) continue;
+          languages[key].slug = languages.en.slug;
+        }
+      }
+
+      return { ...filterAttributes(attributes), languages };
+    })
+    .slice(0, Math.min(Math.abs(limit) || 10000));
 };

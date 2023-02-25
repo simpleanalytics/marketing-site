@@ -222,7 +222,7 @@
                     >
                       {{ $t(item.translation) }}
                     </NuxtLink>
-                    <Popover class="relative z-20" v-slot="{ open }" v-else>
+                    <Popover class="relative z-30" v-slot="{ open }" v-else>
                       <PopoverButton
                         :class="[
                           open ? 'text-gray-600' : '',
@@ -248,7 +248,7 @@
                         leave-to-class="opacity-0 translate-y-1"
                       >
                         <PopoverPanel
-                          class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0"
+                          class="absolute z-30 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0"
                         >
                           <div class="shadow-lg overflow-hidden">
                             <div
@@ -337,7 +337,9 @@
                                     >
                                       <span
                                         class="inline-block text-sm bg-red-500 dark:bg-red-600 px-1 text-white dark:text-gray-700 rounded-md align-text-top mr-1"
-                                        >{{ labelAgo($t, post.created) }}</span
+                                        >{{
+                                          labelAgo($t, post.publishedAt)
+                                        }}</span
                                       >
                                       {{ post.title }}
                                     </PopoverButton>
@@ -395,7 +397,7 @@
             >
               <PopoverPanel
                 focus
-                class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+                class="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
               >
                 <div
                   class="rounded-lg bg-white dark:bg-gray-700 ring-1 ring-black ring-opacity-5 overflow-hidden"
@@ -765,9 +767,9 @@
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded-md block group text-left"
                   >
                     <span
-                      v-if="labelAgo($t, post.created)"
+                      v-if="labelAgo($t, post.publishedAt)"
                       class="inline-block text-sm bg-red-500 dark:bg-red-600 px-1 text-white rounded-md align-text-top mr-1"
-                      >{{ labelAgo($t, post.created) }}</span
+                      >{{ labelAgo($t, post.publishedAt) }}</span
                     >
                     <span
                       class="hover:group-hover:text-red-500 dark:hover:group-hover:text-gray-300"
@@ -781,10 +783,10 @@
                       </span>
                     </span>
                     <img
-                      v-if="index === 0 && (post.image_no_text || post.image)"
+                      v-if="index === 0 && post.cover?.small"
                       class="rounded-lg shadow-md mt-1 mb-1 dark:brightness-90"
-                      :src="post.image_no_text || post.image"
-                      :alt="post.title"
+                      :src="post.cover.small"
+                      :alt="post.cover.alt"
                       loading="lazy"
                     />
                   </NuxtLink>
@@ -854,11 +856,11 @@ import PlausibleIcon from "./components/icons/Plausible.vue";
 import ArrowLink from "./components/ArrowLink.vue";
 import MoonSun from "./components/MoonSun.vue";
 
-import { getPathFromBlogUrl, labelAgo, getSlugFromBlogUrl } from "./utils/blog";
+import { labelAgo } from "./utils/blog";
 
 const route = useRoute();
 const config = useRuntimeConfig();
-const { BASE_URL, MAIN_URL, CDN_URL, BLOG_URL, LOCALES } = config.public;
+const { BASE_URL, MAIN_URL, CDN_URL, LOCALES } = config.public;
 
 const localePath = useLocalePath();
 
@@ -1033,20 +1035,11 @@ const toggleTheme = () => {
   themeCookie.value = theme.value;
 };
 
-const { pending, data: recentPostsAll } = useLazyFetch(
-  `${BLOG_URL}/recent-posts.json`
-);
-
-const recentPosts = computed(() => {
-  if (Array.isArray(recentPostsAll.value))
-    return recentPostsAll.value.slice(0, 3).map((post) => {
-      return {
-        ...post,
-        path: getPathFromBlogUrl(post.url),
-        slug: getSlugFromBlogUrl(post.url),
-      };
-    });
-  return [];
+const { articles: recentPosts, pending } = await useArticle({
+  routeName: "blog-slug",
+  articleType: "blog",
+  keys: ["coverImageWithText", "coverImageWithoutText"],
+  limit: 3,
 });
 
 const year = new Date().getFullYear();

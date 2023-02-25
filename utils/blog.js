@@ -1,22 +1,5 @@
 import ms from "~~/utils/ms";
 
-export const getPathFromBlogUrl = (url) => {
-  const pathname = url.startsWith("/") ? url : new URL(url).pathname;
-  if (pathname.startsWith("/blog/")) return pathname;
-  return "/blog" + pathname;
-};
-
-export const getSlugFromBlogUrl = (url) => {
-  const path = getPathFromBlogUrl(url);
-  return path.split("/").pop();
-};
-
-export const replaceinlineMedia = (BLOG_URL, article) => {
-  const url = BLOG_URL.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const regexp = new RegExp(`(src)="${url}\/blog\/`, "g");
-  return article.replace(regexp, `$1="${BLOG_URL}/`);
-};
-
 const numpad = (number) => ("" + number).padStart(2, "0");
 
 const getTZOString = (timezoneOffset) => {

@@ -5,6 +5,7 @@ export const useArticle = async ({
   articleType,
   keys: extraKeys = [],
   drafts = false,
+  limit = 1000,
 }) => {
   const route = useRoute();
   const { locale } = useI18n();
@@ -55,12 +56,13 @@ export const useArticle = async ({
     pending,
     error,
   } = await useFetch(url.toString(), {
-    key: `${routeName}-${articleType}-${slug}-${locale.value}`,
+    key: `${routeName}-${articleType}-${slug}-${limit}-${locale.value}`,
     transform: ({ data }) =>
       transformer({
         data,
         locale: locale.value,
         keys,
+        limit,
       }),
   });
 
