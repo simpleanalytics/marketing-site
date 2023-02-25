@@ -74,9 +74,15 @@
                 <img
                   v-if="post.cover?.small"
                   :src="post.cover.small"
-                  :alt="post.cover?.alt || post.title"
-                  style="aspect-ratio: 1200/628"
-                  class="object-cover object-center w-full"
+                  :alt="post.cover?.alt || post.cover?.caption || post.title"
+                  :style="
+                    'display: block; aspect-ratio: 1200/628; ' +
+                    (post.cover.averageColorHex
+                      ? `background-color: #${post.cover.averageColorHex};`
+                      : '')
+                  "
+                  class="object-cover object-center w-full text-center"
+                  :class="post.cover.isDark ? 'text-gray-300' : 'text-gray-900'"
                   loading="lazy"
                 />
                 <img
@@ -92,7 +98,7 @@
                   )}&author-slug=${post.authorSlug}`"
                   :alt="post.title"
                   style="aspect-ratio: 1200/628"
-                  class="object-cover object-center w-full"
+                  class="object-cover object-center w-full text-center"
                   loading="lazy"
                 />
                 <div

@@ -71,7 +71,8 @@ const getMedia = (media) => {
   const formats = media?.data?.attributes?.formats;
   if (!formats) return null;
 
-  const { alternativeText, caption, name, url } = media.data.attributes;
+  const { alternativeText, caption, name, url, provider_metadata } =
+    media.data.attributes;
 
   const alt = alternativeText
     ? alternativeText
@@ -89,7 +90,16 @@ const getMedia = (media) => {
   const medium = formats.medium?.url;
   const large = formats.large?.url;
 
-  return { alt, caption, small, medium, large, original: url };
+  return {
+    alt,
+    caption,
+    small,
+    medium,
+    large,
+    original: url,
+    averageColorHex: provider_metadata?.meta?.averageColorHex,
+    isDark: provider_metadata?.meta?.averageColorBrightness < 256 / 2,
+  };
 };
 
 const getCover = ({ coverImageWithText, coverImageWithoutText }) => {
