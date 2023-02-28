@@ -63,6 +63,13 @@
                 >Edit in CMS</NuxtLink
               >
               <NuxtLink
+                v-if="article?.sourceDocumentUrl"
+                class="text-orange-500 dark:text-orange-200 bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded-lg underline"
+                :to="article.sourceDocumentUrl"
+                target="_blank"
+                >{{ getHostname(article.sourceDocumentUrl) }}</NuxtLink
+              >
+              <NuxtLink
                 v-if="image"
                 class="text-orange-500 dark:text-orange-200 bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded-lg underline"
                 :to="image"
@@ -201,6 +208,14 @@ const showEditedBy = computed(() => {
     new Date(article.value?.publishedAt) - new Date(article.value?.updatedAt);
   return Math.abs(diff) > week;
 });
+
+const getHostname = (link) => {
+  if (!link) return;
+  const url = new URL(link);
+  if (url.hostname === "docs.google.com") return "Google Docs";
+  if (url.hostname === "notion.so") return "Notion";
+  return url.hostname;
+};
 
 const image = computed(
   () =>

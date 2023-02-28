@@ -16,6 +16,7 @@ export const useArticle = async ({
   } = useRuntimeConfig();
 
   const isAdmin = useAdmin();
+  const showDrafts = isAdmin.value || drafts;
 
   const url = new URL("/api/cms", BASE_URL);
   url.searchParams.set(
@@ -25,8 +26,7 @@ export const useArticle = async ({
   if (slug) url.searchParams.set("filters[slug][$eq]", slug);
   if (articleType)
     url.searchParams.set("filters[articleType][$eq]", articleType);
-  if (isAdmin.value || drafts)
-    url.searchParams.set("drafts", isAdmin.value || drafts);
+  if (showDrafts) url.searchParams.set("drafts", showDrafts);
 
   const keys = [
     ...extraKeys,
@@ -40,6 +40,10 @@ export const useArticle = async ({
     "publishedAt",
     "updatedAt",
   ];
+
+  if (showDrafts) {
+    keys.push("sourceDocumentUrl");
+  }
 
   if (type === "key-terms") {
   } else {
@@ -56,7 +60,7 @@ export const useArticle = async ({
     pending,
     error,
   } = await useFetch(url.toString(), {
-    key: `${routeName}-${articleType}-${slug}-${limit}-${locale.value}`,
+    key: `${routeName}-${articleType}-${slug}-${limit}-${locale.value}-${showDrafts}`,
     transform: ({ data }) =>
       transformer({
         data,
