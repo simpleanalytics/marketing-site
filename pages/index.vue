@@ -1298,16 +1298,13 @@
 <script setup>
 import DuckDuckGoLogo from "../components/logos/DuckDuckGo.vue";
 import FastCompanyLogo from "../components/logos/FastCompany.vue";
-import CapterraLogo from "../components/logos/Capterra.vue";
 
 import EuropeanFlag from "../components/logos/EuropeanFlag.vue";
 import GoogleAnalyticsIcon from "../components/icons/GoogleAnalytics.vue";
 import DataConnections from "../components/images/DataConnections.vue";
-import ListIcon from "../components/images/ListIcon.vue";
 import BackgroundChart from "../components/images/BackgroundChart.vue";
 
 import Arrow from "../components/Arrow.vue";
-import ArrowLink from "../components/ArrowLink.vue";
 import Quote from "../components/Quote.vue";
 import Video from "../components/Video.vue";
 import StartTrial from "../components/StartTrial.vue";
@@ -1316,13 +1313,9 @@ import Pricing from "../components/Pricing.vue";
 import FAQ from "../components/FAQ.vue";
 
 import { useI18n } from "vue-i18n";
-const { t, locale } = useI18n();
-
 import {
-  ArrowSmallRightIcon,
   CheckIcon,
   PlayIcon,
-  PauseIcon,
   ArrowRightCircleIcon,
 } from "@heroicons/vue/24/solid";
 
@@ -1339,6 +1332,9 @@ import {
   GlobeAmericasIcon,
   TableCellsIcon,
 } from "@heroicons/vue/24/outline";
+
+const { t, locale } = useI18n();
+const localePath = useLocalePath();
 
 definePageMeta({
   title: "The privacy-first Google Analytics alternative",

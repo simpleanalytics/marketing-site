@@ -89,6 +89,7 @@ import {
 
 const route = useRoute();
 const { locale, getBrowserLocale } = useI18n();
+const localePath = useLocalePath();
 const browserLocale = getBrowserLocale();
 const {
   public: { LOCALES },

@@ -27,6 +27,7 @@ import { categories } from "@/data/glossary";
 import Article from "@/components/Article.vue";
 
 const route = useRoute();
+const localePath = useLocalePath();
 
 const category = computed(() => {
   const category = categories.find(
