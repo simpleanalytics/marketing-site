@@ -170,27 +170,42 @@ const fixedCountries = [
     code: "fi",
     class: classes.yes,
   },
+  {
+    link: localePath({
+      name: "blog-slug",
+      params: {
+        slug: "norway-takes-a-stance-against-google-analytics",
+      },
+    }),
+    locale: "en",
+    code: "no",
+    class: classes.yes,
+  },
 ];
 
 const countriesList = computed(() => {
   if (!articles?.value?.length) return fixedCountries;
 
-  const databaseCountries = articles.value.map((country) => ({
-    link: localePath({
-      name: "google-analytics-countries-slug",
-      params: { slug: country.slug },
-    }),
-    locale: country.locale,
-    code: country.metadata?.country_code,
-    class:
-      country.metadata?.illegal === "yes"
-        ? classes.yes
-        : country.metadata?.illegal === "no"
-        ? classes.no
-        : country.metadata?.illegal === "maybe"
-        ? classes.maybe
-        : classes.unknown,
-  }));
+  const fixedCountryCodes = fixedCountries.map(({ code }) => code);
+
+  const databaseCountries = articles.value
+    .map((country) => ({
+      link: localePath({
+        name: "google-analytics-countries-slug",
+        params: { slug: country.slug },
+      }),
+      locale: country.locale,
+      code: country.metadata?.country_code,
+      class:
+        country.metadata?.illegal === "yes"
+          ? classes.yes
+          : country.metadata?.illegal === "no"
+          ? classes.no
+          : country.metadata?.illegal === "maybe"
+          ? classes.maybe
+          : classes.unknown,
+    }))
+    .filter(({ code }) => !fixedCountryCodes.includes(code));
 
   return [...fixedCountries, ...databaseCountries];
 });

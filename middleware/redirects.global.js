@@ -25,6 +25,11 @@ const redirects = [
     to: "/blog/finland-is-latest-eu-country-to-crack-down-on-google-analytics",
   },
   {
+    type: "regex",
+    from: /^\/google-analytics-illegal\/is-google-analytics-illegal-in-norway$/i,
+    to: "/blog/norway-takes-a-stance-against-google-analytics",
+  },
+  {
     type: "replace",
     from: "/stop-using-google-analytics-if-you-care-about-your-page-rank",
     to: "/google-analytics-performance-impact-using-google-lighthouse",
