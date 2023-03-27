@@ -345,6 +345,27 @@
       "not_researched": "Niet onderzocht"
     }
   },
+  "utm_generator": {
+    "title": "UTM-generator",
+    "intro": "Onze UTM-generator is een handig hulpmiddel voor iedereen die zijn online campagnes wil volgen en analyseren. Of je nu een marketeer, contentmaker of bedrijfseigenaar bent, deze generator helpt je om je marketingkanalen beter te begrijpen.",
+    "disclaimer": "We waarderen je privacy en bewaren geen informatie die je invoert, en bieden zo een eenvoudige en veilige manier om UTM-parameters voor je URL's te maken.",
+    "base_url": "Basis-URL",
+    "base_url_placeholder": "Bijv.: https://example.com",
+    "generated_url": "Gegenereerde URL",
+    "generate_url": "URL genereren",
+    "copy": "URL kopiëren",
+    "copied": "Gekopieerd!",
+    "utm_source": "UTM-bron",
+    "utm_source_placeholder": "Bijv.: nieuwsbrief",
+    "utm_medium": "UTM-medium",
+    "utm_medium_placeholder": "Bijv.: e-mail",
+    "utm_content": "UTM-content",
+    "utm_content_placeholder": "Bijv.: voettekst_link",
+    "utm_campaign": "UTM-campagne",
+    "utm_campaign_placeholder": "Bijv.: voorjaarsuitverkoop",
+    "utm_term": "UTM-term",
+    "utm_term_placeholder": "Bijv.: schoenen met lichtjes"
+  },
   "time": {
     "intl_locale": "nl-NL",
     "now": "nu",

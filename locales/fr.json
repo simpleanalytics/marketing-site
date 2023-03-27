@@ -346,6 +346,27 @@
       "not_researched": "Non recherché"
     }
   },
+  "utm_generator": {
+    "title": "Générateur UTM",
+    "intro": "Notre générateur UTM est un outil utile pour toute personne souhaitant suivre et analyser ses campagnes en ligne. Que vous soyez un marketeur, un créateur de contenu ou un chef d'entreprise, ce générateur peut vous aider à mieux comprendre vos canaux de marketing.",
+    "disclaimer": "Nous accordons de l'importance à votre vie privée et ne stockons aucune information que vous saisissez, offrant ainsi un moyen simple et sécurisé de créer des paramètres UTM pour vos URL.",
+    "base_url": "URL de base",
+    "base_url_placeholder": "Ex. : https://example.com",
+    "generated_url": "URL générée",
+    "generate_url": "Générer l'URL",
+    "copy": "Copier l'URL",
+    "copied": "Copié !",
+    "utm_source": "Source UTM",
+    "utm_source_placeholder": "Ex. : newsletter",
+    "utm_medium": "Moyen UTM",
+    "utm_medium_placeholder": "Ex. : email",
+    "utm_content": "Contenu UTM",
+    "utm_content_placeholder": "Ex. : lien_pied_de_page",
+    "utm_campaign": "Campagne UTM",
+    "utm_campaign_placeholder": "Ex. : vente_de_printemps",
+    "utm_term": "Terme UTM",
+    "utm_term_placeholder": "Ex. : chaussures à lumières"
+  },
   "time": {
     "intl_locale": "fr-FR",
     "now": "maintenant",

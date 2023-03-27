@@ -347,6 +347,27 @@
       "not_researched": "Nicht untersucht"
     }
   },
+  "utm_generator": {
+    "title": "UTM-Generator",
+    "intro": "Unser UTM-Generator ist ein nützliches Tool für alle, die ihre Online-Kampagnen verfolgen und analysieren möchten. Egal, ob Sie Vermarkter, Content-Ersteller oder Geschäftsinhaber sind, dieser Generator hilft Ihnen, Ihre Marketingkanäle besser zu verstehen.",
+    "disclaimer": "Wir schätzen Ihre Privatsphäre und speichern keine eingegebenen Informationen, um eine einfache und sichere Möglichkeit zur Erstellung von UTM-Parametern für Ihre URLs zu bieten.",
+    "base_url": "Basis-URL",
+    "base_url_placeholder": "Z.B.: https://example.com",
+    "generated_url": "Generierte URL",
+    "generate_url": "URL generieren",
+    "copy": "URL kopieren",
+    "copied": "Kopiert!",
+    "utm_source": "UTM-Quelle",
+    "utm_source_placeholder": "Z.B.: newsletter",
+    "utm_medium": "UTM-Medium",
+    "utm_medium_placeholder": "Z.B.: email",
+    "utm_content": "UTM-Inhalt",
+    "utm_content_placeholder": "Z.B.: footer_link",
+    "utm_campaign": "UTM-Kampagne",
+    "utm_campaign_placeholder": "Z.B.: fruhjahrsverkauf",
+    "utm_term": "UTM-Begriff",
+    "utm_term_placeholder": "Z.B.: schuhe mit lichtern"
+  },
   "time": {
     "intl_locale": "de-DE",
     "now": "jetzt",
