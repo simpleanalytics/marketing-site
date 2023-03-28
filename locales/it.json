@@ -360,7 +360,7 @@
     "utm_medium": "Mezzo UTM",
     "utm_medium_placeholder": "Esempio: email",
     "utm_content": "Contenuto UTM",
-    "utm_content_placeholder": "Esempio: link_piede",
+    "utm_content_placeholder": "Esempio: footer_link",
     "utm_campaign": "Campagna UTM",
     "utm_campaign_placeholder": "Esempio: sconti-primavera",
     "utm_term": "Termine UTM",
