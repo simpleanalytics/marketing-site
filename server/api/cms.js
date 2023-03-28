@@ -1,5 +1,6 @@
 import { marked } from "marked";
 import { parse as qsParse, stringify as qsStringify } from "qs";
+import hljs from "highlight.js";
 
 const TYPES = {
   articles: {
@@ -216,8 +217,20 @@ const preconvert = (markdown, { showIndex = false, inlineMedia } = {}) => {
           })
           .join("");
       } else {
-        // Leave the code block unchanged
-        return "```" + nonCode + "```";
+        const languages = hljs.listLanguages();
+
+        const firstLine = nonCode.split("\n")[0];
+        const language = firstLine === "html" ? "xml" : firstLine;
+        const validLanuage = languages.includes(language);
+
+        // Remove the first line if it is a language
+        if (validLanuage) nonCode = nonCode.split("\n").slice(1).join("\n");
+
+        const code = validLanuage
+          ? hljs.highlight(nonCode, { language })?.value
+          : hljs.highlightAuto(nonCode)?.value;
+
+        return `<pre class="not-prose bg-gray-100 dark:bg-gray-700"><code class="hljs">${code}</code></pre>`;
       }
     })
     .join("");
@@ -277,12 +290,6 @@ const preconvert = (markdown, { showIndex = false, inlineMedia } = {}) => {
   html = html.replace(
     /<ul>\s?<li>\s?<a\sid\=\"note\-/,
     '<ul class="not-prose list-none mt-8 pt-6 border-t-2 border-gray-300 dark:border-gray-600 pl-0 text-sm text-red-600"><li><a id="note-'
-  );
-
-  // Replace <pre><code> with <pre class="no-prose"><code>
-  html = html.replace(
-    /<pre>\s?<code(?:\sclass="([^"]*)")?>/g,
-    '<pre class="not-prose bg-gray-600 dark:bg-gray-900"><code class="$1 text-gray-100 dark:text-gray-100">'
   );
 
   html = html.replace(
