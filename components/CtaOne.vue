@@ -5,7 +5,7 @@
     <div class="flex items-center justify-center">
       <GovUK class="w-8 h-8 dark:!fill-gray-200" />
       <span class="mx-6 text-gray-800 dark:text-gray-200"
-        >The UK Government choose Simple Analytics</span
+        >The UK Government chose Simple Analytics</span
       >
       <NuxtLink class="button no-underline" :to="localePath({ name: 'index' })"
         >Join them</NuxtLink

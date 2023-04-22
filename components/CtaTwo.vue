@@ -5,7 +5,7 @@
     <div class="flex items-center justify-center">
       <Michelin class="w-12 h-12 dark:!fill-gray-200" />
       <span class="mx-6 text-gray-800 dark:text-gray-200"
-        >Michelin choose Simple Analytics</span
+        >Michelin chose Simple Analytics</span
       >
       <NuxtLink class="button no-underline" :to="localePath({ name: 'index' })"
         >Join them</NuxtLink
