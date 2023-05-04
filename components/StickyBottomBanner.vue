@@ -15,17 +15,15 @@
         class="text-white dark:text-red-50 text-sm md:text-base text-left md:text-center mr-10"
       >
         {{ $t("home.banners.import_ga.cta") }}
-        <NuxtLink
+        <a
           class="!hidden sm:!inline-block ml-1 button white"
-          @click.native="sendEvent"
-          :to="welcomeUrl"
-          >{{ $t("home.banners.import_ga.button") }}</NuxtLink
+          @click="sendEvent"
+          >{{ $t("home.banners.import_ga.button") }}</a
         >
-        <NuxtLink
+        <a
           class="!inline-block sm:!hidden ml-1 button tiny white"
-          @click.native="sendEvent"
-          :to="welcomeUrl"
-          >{{ $t("home.banners.import_ga.button") }}</NuxtLink
+          @click="sendEvent"
+          >{{ $t("home.banners.import_ga.button") }}</a
         >
       </p>
       <a
@@ -56,11 +54,18 @@ const showBottomBanner = useBottomBanner();
 const welcomeUrl = `${MAIN_URL}/welcome`;
 
 const sendEvent = () => {
-  if (!window.sa_event) return;
-  window.sa_event("click_bottom_banner", {
-    type: "ga_import",
-    app: "marketing_site",
-  });
+  if (!window.sa_loaded) return (window.location.href = welcomeUrl);
+
+  window.sa_event(
+    "click_bottom_banner",
+    {
+      type: "ga_import",
+      app: "marketing_site",
+    },
+    () => {
+      window.location.href = welcomeUrl;
+    }
+  );
 };
 
 const hideBottomBannerCookie = useCookie("hide_bottom_banner", {
