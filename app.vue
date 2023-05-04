@@ -473,11 +473,15 @@
         </div>
       </div>
 
-      <main class="flex flex-col flex-grow mb-20">
-        <NuxtLoadingIndicator
-          :color="theme === 'dark' ? '#DE3243' : '#FF4F64'"
-        />
-        <NuxtPage />
+      <main class="flex flex-col flex-grow">
+        <div class="mb-20">
+          <NuxtLoadingIndicator
+            :color="theme === 'dark' ? '#DE3243' : '#FF4F64'"
+          />
+          <NuxtPage />
+        </div>
+
+        <StickyBottomBanner />
       </main>
 
       <!-- End of what is in viewport -->
@@ -853,7 +857,6 @@ import GoogleAnalyticsIcon from "./components/icons/GoogleAnalytics.vue";
 import MatomoIcon from "./components/icons/Matomo.vue";
 import PlausibleIcon from "./components/icons/Plausible.vue";
 
-import ArrowLink from "./components/ArrowLink.vue";
 import MoonSun from "./components/MoonSun.vue";
 
 import { labelAgo } from "./utils/blog";

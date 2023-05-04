@@ -17,6 +17,12 @@
     "see_feature_video_below": "Bekijk alle features",
     "go_back": "Ga terug",
     "automatic_translated_switch_to_english": "Deze website is automatisch vertaald. {0}Ga naar de Engelse versie{1} voor het origineel.",
+    "banners": {
+      "import_ga": {
+        "cta": "Importeer je GA-gegevens en bekijk je statistieken binnen enkele minuten",
+        "button": "Start gratis proefperiode"
+      }
+    },
     "footer": {
       "comparisons": "Vergelijkingen",
       "learn": "Ontdek",
@@ -335,7 +341,7 @@
   },
   "ga_countries": {
     "overview": "Landen waar Google Analytics illegaal is",
-    "overview_description": "In sommige landen is Google Analytics illegaal. Dit komt doordat Google Analytics niet GDPR-compliant is. In deze landen kunt u in plaats daarvan Simple Analytics gebruiken. We zijn GDPR-compliant en we gebruiken geen cookies.",
+    "overview_description": "In sommige landen is Google Analytics illegaal. Dit komt doordat Google Analytics niet GDPR-compliant is. In deze landen kunt je in plaats daarvan Simple Analytics gebruiken. We zijn GDPR-compliant en we gebruiken geen cookies.",
     "map_generated_with": "Kaart gemaakt met",
     "click_country_to_learn_more": "Klik op een land om meer te weten te komen.",
     "labels": {

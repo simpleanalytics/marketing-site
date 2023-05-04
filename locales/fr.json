@@ -17,6 +17,12 @@
     "see_feature_video_below": "Voir la vidéo de fonctionnalité",
     "go_back": "Retour",
     "automatic_translated_switch_to_english": "Ce site Web est traduit automatiquement. {0}Passe à la version anglaise{1} pour l'original.",
+    "banners": {
+      "import_ga": {
+        "cta": "Importez vos données GA et consultez vos statistiques en quelques minutes",
+        "button": "Commencer l'essai gratuit"
+      }
+    },
     "footer": {
       "comparisons": "Comparaisons",
       "learn": "Apprendre",

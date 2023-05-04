@@ -8,7 +8,8 @@
     leave-to-class="opacity-0 translate-y-10"
   >
     <div
-      class="z-10 sticky bottom-6 left-0 overflow-hidden rounded-lg shadow-lg mx-6 md:w-80"
+      class="z-10 sticky transition-all bottom-6 left-0 overflow-hidden rounded-lg shadow-lg mx-6 md:w-80"
+      :class="showBottomBanner ? 'bottom-20' : 'bottom-6'"
       v-if="show"
     >
       <a @click="hide" class="absolute top-0 right-0 p-4 group">
@@ -24,12 +25,8 @@
 
 <script setup>
 import SubscribeForm from "~/components/SubscribeForm.vue";
+import { useBottomBanner } from "~/composables/booleans";
 import { XMarkIcon } from "@heroicons/vue/24/outline";
-
-const i18n = useI18n();
-const { t } = i18n;
-
-const route = useRoute();
 
 const hidePopupCookie = useCookie("hide_subscribe_popup", {
   secure: process.env.NODE_ENV === "production",
@@ -37,6 +34,7 @@ const hidePopupCookie = useCookie("hide_subscribe_popup", {
 });
 
 const show = ref(false);
+const showBottomBanner = useBottomBanner();
 
 const start = Date.now();
 
