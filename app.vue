@@ -368,21 +368,24 @@
                 <div
                   class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0"
                 >
-                  <NuxtLink
-                    :to="welcomeUrl"
+                  <a
+                    @click="navigateToWelcome('click_signup_top_nav')"
                     class="font-medium text-gray-500 dark:text-gray-400 mx-3 dark:hover:text-gray-600"
                   >
                     {{ $t("nav.signup") }}
-                  </NuxtLink>
-                  <NuxtLink
-                    :to="
-                      'https://simpleanalytics.com/login' +
-                      (theme === 'dark' ? '?theme=dark' : '')
+                  </a>
+                  <a
+                    @click="
+                      sendEventAndRedirect(
+                        'click_login_top_nav',
+                        {},
+                        MAIN_URL + '/login'
+                      )
                     "
                     class="inline-flex items-center px-4 py-2 button"
                   >
                     {{ $t("nav.login") }}
-                  </NuxtLink>
+                  </a>
                 </div>
               </nav>
             </div>
@@ -437,10 +440,10 @@
                         {{ $t(item.mobile?.translation || item.translation) }}
                       </PopoverButton>
                     </template>
-                    <NuxtLink
-                      :to="welcomeUrl"
+                    <a
+                      @click="navigateToWelcome('click_signup_top_nav')"
                       class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
-                      >{{ $t("nav.signup") }}</NuxtLink
+                      >{{ $t("nav.signup") }}</a
                     >
                     <a
                       @click="setLocale(switchTo)"
@@ -457,15 +460,18 @@
                       Switch to English
                     </a>
                   </div>
-                  <NuxtLink
-                    :to="
-                      'https://simpleanalytics.com/login' +
-                      (theme === 'dark' ? '?theme=dark' : '')
+                  <a
+                    @click="
+                      sendEventAndRedirect(
+                        'click_login_top_nav',
+                        {},
+                        MAIN_URL + '/login'
+                      )
                     "
                     class="block w-full px-5 py-3 text-center font-medium text-red-500 bg-gray-50 hover:bg-gray-100 dark:bg-gray-500 dark:text-gray-100"
                   >
                     {{ $t("nav.login") }}
-                  </NuxtLink>
+                  </a>
                 </div>
               </PopoverPanel>
             </transition>
@@ -863,12 +869,12 @@ import { labelAgo } from "./utils/blog";
 
 const route = useRoute();
 const config = useRuntimeConfig();
-const { BASE_URL, MAIN_URL, CDN_URL, LOCALES } = config.public;
+const { BASE_URL, MAIN_URL, CDN_URL } = config.public;
 
 const localePath = useLocalePath();
 
 const i18n = useI18n();
-const { t, locale, locales, getBrowserLocale, setLocale } = i18n;
+const { locale, locales, getBrowserLocale, setLocale } = i18n;
 
 const switchTo = computed(() => {
   const browserLocale = getBrowserLocale();
@@ -932,15 +938,6 @@ const navigation = [
   { translation: "nav.docs", href: "https://docs.simpleanalytics.com" },
   { translation: "nav.contact", href: "https://simpleanalytics.com/contact" },
 ];
-
-const generateParams = new URLSearchParams({
-  url: BASE_URL + route.path,
-  title: route.meta.title || "Click here for more information",
-});
-
-const image = route.meta.title
-  ? `${MAIN_URL}/generate-image.png?${generateParams}`
-  : "https://assets.simpleanalytics.com/social-media/dark-chart.png";
 
 const scripts = [];
 
@@ -1008,16 +1005,11 @@ const head = {
 useHead(head);
 
 const theme = useTheme();
-const open = ref(false);
 
 const themeCookie = useCookie("theme", {
   secure: process.env.NODE_ENV === "production",
   sameSite: true,
 });
-
-const isMobile = process.client
-  ? !window.matchMedia("(min-width: 768px)").matches
-  : null;
 
 if (process.client) {
   if (!themeCookie.value) themeCookie.value = theme.value;
@@ -1031,31 +1023,10 @@ if (process.client) {
     });
 }
 
-const toggleTheme = () => {
-  if (theme.value === "light") theme.value = "dark";
-  else theme.value = "light";
-
-  themeCookie.value = theme.value;
-};
-
 const { articles: recentPosts, pending } = await useArticle({
   routeName: "blog-slug",
   articleType: "blog",
   keys: ["coverImageWithText", "coverImageWithoutText"],
   limit: 3,
-});
-
-const year = new Date().getFullYear();
-
-// Code to create welcome URL
-const currency = useState("currency");
-const affiliate = useState("affiliate");
-
-const welcomeUrl = computed(() => {
-  const params = new URLSearchParams();
-  if (currency?.value?.code) params.set("currency", currency.value.code);
-  if (affiliate?.value?.slug) params.set("affiliate", affiliate?.value?.slug);
-  if (theme.value === "dark") params.set("theme", "dark");
-  return `${MAIN_URL}/welcome?${params}`;
 });
 </script>

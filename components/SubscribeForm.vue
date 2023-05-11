@@ -100,10 +100,8 @@
 <script setup>
 import { ref, watch } from "vue";
 
-const mainAppUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://simpleanalytics.com"
-    : "http://localhost:3000";
+const config = useRuntimeConfig();
+const { MAIN_URL } = config.public;
 
 const email = ref("");
 const errorSlug = ref("");
@@ -150,7 +148,7 @@ const onSubmit = async () => {
   // Select at least one checkbox
   if (!type) return setError("blog.subscribe.errors.select_at_least_one");
 
-  const response = await fetch(mainAppUrl + "/subscribe", {
+  const response = await fetch(MAIN_URL + "/subscribe", {
     method: "POST",
     headers: { "Content-Type": "text/plain; charset=UTF-8" },
     body: JSON.stringify({

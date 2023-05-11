@@ -42,7 +42,7 @@
 
         <NuxtLink
           :href="
-            mainAppUrl + '/contact' + (theme === 'dark' ? '?theme=dark' : '')
+            MAIN_URL + '/contact' + (theme === 'dark' ? '?theme=dark' : '')
           "
           target="_blank"
           class="text-white underline ml-1"
@@ -93,9 +93,12 @@
           class="max-w-xl flex flex-wrap mt-8 justify-center md:justify-start"
         >
           <div class="mt-4 sm:mr-4">
-            <NuxtLink :to="welcomeUrl" class="button large primary">
+            <a
+              @click="navigateToWelcome('click_signup_above_fold')"
+              class="button large primary"
+            >
               {{ $t("home.start_trial_now") }}
-            </NuxtLink>
+            </a>
             <p class="mb-8 sm:mb-0 text-xs mt-2 text-center">
               <CheckIcon class="fill-green-500 w-4 inline align-text-top" />
               {{ $t("home.no_creditcard") }}
@@ -119,10 +122,12 @@
           class="absolute z-30 flex flex-col items-center justify-center w-full h-full"
         >
           <a
-            :href="
-              mainAppUrl +
-              '/simpleanalytics.com?from=landing' +
-              (theme === 'dark' ? '&theme=dark' : '')
+            @click="
+              sendEventAndRedirect(
+                'click_demo_above_fold',
+                {},
+                MAIN_URL + '/simpleanalytics.com?from=landing'
+              )
             "
             class="group button large shadow-xl bg-white dark:bg-gray-800 hover:dark:bg-gray-900"
           >
@@ -679,7 +684,7 @@
         <p class="my-4">
           <a
             :href="
-              mainAppUrl + '/welcome' + (theme === 'dark' ? '?theme=dark' : '')
+              MAIN_URL + '/welcome' + (theme === 'dark' ? '?theme=dark' : '')
             "
             >{{ $t("home.why_switch_from_ga.try_us_button") }}.</a
           >
@@ -1208,9 +1213,9 @@
           class="prose leading-loose"
           v-html="
             $t('home.why_most_privacy.business_model.html', [
-              `<a href='${mainAppUrl}/roadmap'>`,
+              `<a href='${MAIN_URL}/roadmap'>`,
               `</a>`,
-              `<a href='${mainAppUrl}/open'>`,
+              `<a href='${MAIN_URL}/open'>`,
               `</a>`,
             ])
           "
@@ -1414,23 +1419,10 @@ const translationParts = t("home.automatic_translated_switch_to_english", [
   "---",
 ]).split("---");
 
-const mainAppUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://simpleanalytics.com"
-    : "http://localhost:3000";
+const config = useRuntimeConfig();
+const { MAIN_URL } = config.public;
 
-// Code to create welcome URL
-// TODO: move this to a better place
-const currency = useState("currency");
 const affiliate = useState("affiliate");
-
-const welcomeUrl = computed(() => {
-  const params = new URLSearchParams();
-  if (currency?.value?.code) params.set("currency", currency.value.code);
-  if (affiliate?.value?.slug) params.set("affiliate", affiliate.value.slug);
-  if (theme.value === "dark") params.set("theme", "dark");
-  return `${mainAppUrl}/welcome?${params}`;
-});
 
 const removeEmailReport = (report) => {
   const message = t("home.reports.confirm", [

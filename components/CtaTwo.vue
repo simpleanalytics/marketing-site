@@ -7,8 +7,10 @@
       <span class="mx-6 text-gray-800 dark:text-gray-200"
         >Michelin chose Simple Analytics</span
       >
-      <NuxtLink class="button no-underline" :to="welcomeUrl"
-        >Join them</NuxtLink
+      <a
+        class="button no-underline"
+        @click="navigateToWelcome('click_signup_michelin')"
+        >Join them</a
       >
     </div>
   </div>
@@ -16,9 +18,4 @@
 
 <script setup>
 import Michelin from "@/components/logos/Michelin.vue";
-
-const config = useRuntimeConfig();
-const { MAIN_URL } = config.public;
-
-const welcomeUrl = `${MAIN_URL}/welcome`;
 </script>

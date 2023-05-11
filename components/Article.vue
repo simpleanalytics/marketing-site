@@ -129,6 +129,47 @@
       <HtmlBlock :html="article.contentHtml" :articleId="article.id" />
     </div>
 
+    <MovingGradient
+      class="max-w-6xl mt-10 mx-auto text-center"
+      v-if="article.showCallToActions"
+    >
+      <h2
+        class="text-xl md:text-3xl font-bold leading-loose md:leading-loose text-white dark:text-gray-100"
+      >
+        {{
+          article.ctaTitle && article.ctaDescription
+            ? article.ctaTitle
+            : $t(`ctas.${ctaTranslation}.title`)
+        }}
+      </h2>
+      <p
+        class="md:text-xl leading-loose md:leading-loose max-w-3xl mx-auto text-white dark:text-gray-200"
+      >
+        {{
+          article.ctaTitle && article.ctaDescription
+            ? article.ctaDescription
+            : $t(`ctas.${ctaTranslation}.description`)
+        }}
+      </p>
+      <a
+        @click="
+          navigateToWelcome('click_big_banner_cta', {
+            title:
+              article.ctaTitle && article.ctaDescription
+                ? article.ctaTitle
+                : $t(`ctas.${ctaTranslation}.title`),
+            description:
+              article.ctaTitle && article.ctaDescription
+                ? article.ctaDescription
+                : $t(`ctas.${ctaTranslation}.description`),
+            button: article.ctaButton || $t(`ctas.${ctaTranslation}.button`),
+          })
+        "
+        class="button white-bg mt-5"
+        >{{ article.ctaButton || $t(`ctas.${ctaTranslation}.button`) }}</a
+      >
+    </MovingGradient>
+
     <SubscribePopup />
   </div>
 </template>
@@ -138,6 +179,7 @@ const props = defineProps(["type", "name", "slug", "articleType", "drafts"]);
 
 import { categories } from "@/data/glossary";
 import SubscribePopup from "@/components/SubscribePopup.vue";
+import MovingGradient from "@/components/MovingGradient.vue";
 import Avatar from "@/components/Avatar.vue";
 import HtmlBlock from "@/components/HtmlBlock.vue";
 import { EyeSlashIcon, XCircleIcon } from "@heroicons/vue/24/outline";
@@ -322,4 +364,9 @@ if (article?.value?.question) {
 } else {
   useSchemaOrg([defineBreadcrumb(breadcrumb)]);
 }
+
+const ctaTranslation =
+  new Date() < new Date(2023, 6, 1)
+    ? "import_ga_before_july"
+    : "import_ga_after_july";
 </script>

@@ -14,16 +14,26 @@
       <p
         class="text-white dark:text-red-50 text-sm md:text-base text-left md:text-center mr-10"
       >
-        {{ $t("home.banners.import_ga.cta") }}
+        {{ $t("banners.import_ga.cta") }}
         <a
           class="!hidden sm:!inline-block ml-1 button white"
-          @click="sendEvent"
-          >{{ $t("home.banners.import_ga.button") }}</a
+          @click="
+            navigateToWelcome('click_bottom_banner', {
+              type: 'ga_import',
+              app: 'marketing_site',
+            })
+          "
+          >{{ $t("banners.import_ga.button") }}</a
         >
         <a
           class="!inline-block sm:!hidden ml-1 button tiny white"
-          @click="sendEvent"
-          >{{ $t("home.banners.import_ga.button") }}</a
+          @click="
+            navigateToWelcome('click_bottom_banner', {
+              type: 'ga_import',
+              app: 'marketing_site',
+            })
+          "
+          >{{ $t("banners.import_ga.button") }}</a
         >
       </p>
       <a
@@ -46,27 +56,7 @@ import { XMarkIcon } from "@heroicons/vue/24/outline";
 const i18n = useI18n();
 const { t } = i18n;
 
-const config = useRuntimeConfig();
-const { MAIN_URL } = config.public;
-
 const showBottomBanner = useBottomBanner();
-
-const welcomeUrl = `${MAIN_URL}/welcome`;
-
-const sendEvent = () => {
-  if (!window.sa_loaded) return (window.location.href = welcomeUrl);
-
-  window.sa_event(
-    "click_bottom_banner",
-    {
-      type: "ga_import",
-      app: "marketing_site",
-    },
-    () => {
-      window.location.href = welcomeUrl;
-    }
-  );
-};
 
 const hideBottomBannerCookie = useCookie("hide_bottom_banner", {
   secure: process.env.NODE_ENV === "production",

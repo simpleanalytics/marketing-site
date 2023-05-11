@@ -39,6 +39,10 @@ export const useArticle = async ({
     "automaticTranslated",
     "publishedAt",
     "updatedAt",
+    "showCallToActions",
+    "ctaTitle",
+    "ctaDescription",
+    "ctaButton",
   ];
 
   if (showDrafts) {

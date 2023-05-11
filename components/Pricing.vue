@@ -267,15 +267,13 @@ const affiliateCookie = useCookie("affiliate", {
 
 const theme = useTheme();
 
-const mainAppUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://simpleanalytics.com"
-    : "http://localhost:3000";
+const config = useRuntimeConfig();
+const { MAIN_URL } = config.public;
 
 const clickEnterprise = () => {
   const params = new URLSearchParams();
   if (theme.value === "dark") params.set("theme", "dark");
-  const url = `${mainAppUrl}/contact?${params}`;
+  const url = `${MAIN_URL}/contact?${params}`;
 
   // Send event before redirecting to contact page
   if (window.sa_event && window.sa_loaded) {
@@ -295,7 +293,7 @@ const goToWelcome = ({ plan, interval }) => {
   if (interval) params.set("interval", interval);
   if (theme.value === "dark") params.set("theme", "dark");
 
-  const url = `${mainAppUrl}/welcome?${params}`;
+  const url = `${MAIN_URL}/welcome?${params}`;
 
   // Send event before redirecting to welcome page
   if (window.sa_event && window.sa_loaded) {

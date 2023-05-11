@@ -380,12 +380,12 @@ const replacer = ({
 
 const convert = (markdown, attributes) => {
   let html = preconvert(markdown, attributes);
-  const ctaTwo = ctaTwoRegex.test(html) ? "" : "{{ctatwo}}";
-  html = html + ctaTwo;
+
+  const randomCta = Math.random() < 0.5 ? "CtaOne" : "CtaTwo";
 
   const ctas = attributes.showCallToActions !== false;
-  html = html.replace(ctaOneRegex, ctas ? "<CtaOne />" : "");
-  html = html.replace(ctaTwoRegex, ctas ? "<CtaTwo />" : "");
+  html = html.replace(ctaOneRegex, ctas ? `<${randomCta} />` : "");
+  html = html.replace(ctaTwoRegex, ctas ? `<${randomCta} />` : "");
 
   const id = attributes.id;
 

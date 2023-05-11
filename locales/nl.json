@@ -17,12 +17,6 @@
     "see_feature_video_below": "Bekijk alle features",
     "go_back": "Ga terug",
     "automatic_translated_switch_to_english": "Deze website is automatisch vertaald. {0}Ga naar de Engelse versie{1} voor het origineel.",
-    "banners": {
-      "import_ga": {
-        "cta": "Importeer je GA-gegevens en bekijk je statistieken binnen enkele minuten",
-        "button": "Start gratis proefperiode"
-      }
-    },
     "footer": {
       "comparisons": "Vergelijkingen",
       "learn": "Ontdek",
@@ -144,6 +138,24 @@
     "free_trial": "Gratis voor 14 dagen",
     "no_credit_card": "Geen creditcard nodig",
     "cancel_anytime": "Annuleer elk moment"
+  },
+  "banners": {
+    "import_ga": {
+      "cta": "Importeer je GA-gegevens en bekijk je statistieken binnen enkele minuten",
+      "button": "Start gratis proefperiode"
+    }
+  },
+  "ctas": {
+    "import_ga_before_july": {
+      "title": "Importeer je Google Analytics gegevens",
+      "description": "De huidige versie van Google Analytics is vanaf 1 juli niet meer beschikbaar. Je moet migreren. Probeer ons in plaats daarvan",
+      "button": "Start 14-dagen proefperiode"
+    },
+    "import_ga_after_july": {
+      "title": "GA4 is complex. Probeer Simple Analytics",
+      "description": "GA4 is als in de cockpit van een vliegtuig zitten zonder een pilotenlicentie",
+      "button": "Start 14-dagen proefperiode"
+    }
   },
   "seek": {
     "presents": "Simple Analytics presenteert",

@@ -17,12 +17,6 @@
     "see_feature_video_below": "Vedi il video delle funzionalità",
     "go_back": "Torna indietro",
     "automatic_translated_switch_to_english": "Questo sito web viene tradotto automaticamente. {0}Passa alla versione inglese{1} per l'originale.",
-    "banners": {
-      "import_ga": {
-        "cta": "Importa i tuoi dati GA e visualizza le tue statistiche in pochi minuti",
-        "button": "Inizia la prova gratuita"
-      }
-    },
     "footer": {
       "comparisons": "Confronta",
       "learn": "Impara",
@@ -144,6 +138,24 @@
     "free_trial": "Prova gratuita di 14 giorni",
     "no_credit_card": "Nessuna carta di credito richiesta",
     "cancel_anytime": "Annulla in qualsiasi momento"
+  },
+  "banners": {
+    "import_ga": {
+      "cta": "Importa i tuoi dati GA e visualizza le tue statistiche in pochi minuti",
+      "button": "Inizia la prova gratuita"
+    }
+  },
+  "ctas": {
+    "import_ga_before_july": {
+      "title": "Importa i tuoi dati di Google Analytics",
+      "description": "La versione attuale di Google Analytics non sarà disponibile dal 1° luglio. Devi migrare. Prova noi invece",
+      "button": "Inizia prova di 14 giorni"
+    },
+    "import_ga_after_july": {
+      "title": "GA4 è complesso. Prova Simple Analytics",
+      "description": "GA4 è come sedersi in cabina di un aereo senza licenza di pilota",
+      "button": "Inizia prova di 14 giorni"
+    }
   },
   "seek": {
     "presents": "Simple Analytics presenta",

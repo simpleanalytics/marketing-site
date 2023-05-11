@@ -17,12 +17,6 @@
     "see_feature_video_below": "See feature video",
     "go_back": "Go back",
     "automatic_translated_switch_to_english": "This website is automatically translated. {0}Switch to the English version{1} for the original.",
-    "banners": {
-      "import_ga": {
-        "cta": "Import your GA data and see your stats in minutes",
-        "button": "Start free trial"
-      }
-    },
     "footer": {
       "comparisons": "Comparisons",
       "learn": "Learn",
@@ -145,6 +139,24 @@
     "free_trial": "Free 14-day trial",
     "no_credit_card": "No credit card required",
     "cancel_anytime": "Cancel anytime"
+  },
+  "banners": {
+    "import_ga": {
+      "cta": "Import your GA data and see your stats in minutes",
+      "button": "Start free trial"
+    }
+  },
+  "ctas": {
+    "import_ga_before_july": {
+      "title": "Import your Google Analytics data",
+      "description": "The current version of Google Analytics will not be available from the 1st of July. You need to migrate. Try us instead",
+      "button": "Start 14-day trial"
+    },
+    "import_ga_after_july": {
+      "title": "GA4 is complex. Try Simple Analytics",
+      "description": "GA4 is like sitting in an airplane cockpit without a pilot license",
+      "button": "Start 14-day trial"
+    }
   },
   "seek": {
     "presents": "Simple Analytics presents",

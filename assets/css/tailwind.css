@@ -48,7 +48,10 @@ a code,
   @apply text-white dark:text-red-50 dark:hover:text-red-100 bg-red-500 dark:bg-red-600 hover:bg-red-600  hover:border-red-600 hover:text-white;
 }
 .button.white {
-  @apply !text-red-50  border-red-50 bg-transparent hover:bg-red-50 hover:border-red-50 hover:!text-red-600;
+  @apply !text-red-50 border-red-50 bg-transparent hover:bg-red-50 hover:border-red-50 hover:!text-red-600;
+}
+.button.white-bg {
+  @apply hover:!text-red-50 hover:border-red-50 hover:bg-transparent bg-red-50 border-red-50 !text-red-600;
 }
 
 select {

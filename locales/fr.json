@@ -17,12 +17,6 @@
     "see_feature_video_below": "Voir la vidéo de fonctionnalité",
     "go_back": "Retour",
     "automatic_translated_switch_to_english": "Ce site Web est traduit automatiquement. {0}Passe à la version anglaise{1} pour l'original.",
-    "banners": {
-      "import_ga": {
-        "cta": "Importez vos données GA et consultez vos statistiques en quelques minutes",
-        "button": "Commencer l'essai gratuit"
-      }
-    },
     "footer": {
       "comparisons": "Comparaisons",
       "learn": "Apprendre",
@@ -139,12 +133,29 @@
       "paranoid_caption": "Est-il devenu paranoïaque ?"
     }
   },
-
   "start_trial": {
     "button": "Commencez l'essai gratuit maintenant",
     "free_trial": "Essai gratuit de 14 jours",
     "no_credit_card": "Aucune carte de crédit requise",
     "cancel_anytime": "Annuler à tout moment"
+  },
+  "banners": {
+    "import_ga": {
+      "cta": "Importez vos données GA et consultez vos statistiques en quelques minutes",
+      "button": "Commencer l'essai gratuit"
+    }
+  },
+  "ctas": {
+    "import_ga_before_july": {
+      "title": "Importez vos données Google Analytics",
+      "description": "La version actuelle de Google Analytics ne sera pas disponible à partir du 1er juillet. Vous devez migrer. Essayez-nous à la place",
+      "button": "Commencer l'essai de 14 jours"
+    },
+    "import_ga_after_july": {
+      "title": "GA4 est complexe. Essayez Simple Analytics",
+      "description": "GA4 c'est comme être dans un cockpit d'avion sans licence de pilote",
+      "button": "Commencer l'essai de 14 jours"
+    }
   },
   "seek": {
     "presents": "Simple Analytics présente",
