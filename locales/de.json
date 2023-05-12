@@ -157,6 +157,15 @@
       "button": "14-Tage-Testversion starten"
     }
   },
+  "popups": {
+    "exitpopup": {
+      "title": "Wusstest du, dass es wirklich einfach ist?",
+      "step_1": "1. Füge unser Skript hinzu",
+      "step_2": "2. Importiere deine GA-Daten",
+      "step_3": "3. Sieh dir deine Statistiken in Minuten an",
+      "button": "Probiere Simple Analytics kostenlos aus"
+    }
+  },
   "seek": {
     "presents": "Simple Analytics präsentiert",
     "overview": "Übersicht der Website",

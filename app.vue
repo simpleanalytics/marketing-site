@@ -1029,4 +1029,14 @@ const { articles: recentPosts, pending } = await useArticle({
   keys: ["coverImageWithText", "coverImageWithoutText"],
   limit: 3,
 });
+
+onMounted(() => {
+  const title = document.title;
+  window.addEventListener("blur", () => {
+    document.title = "We miss you...";
+  });
+  window.addEventListener("focus", () => {
+    document.title = title;
+  });
+});
 </script>

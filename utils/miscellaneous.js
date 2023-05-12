@@ -1,4 +1,6 @@
-export const sendEventAndRedirect = (event, metadata = {}, url) => {
+export const sendEventAndRedirect = (event, metadata, url) => {
+  if (!metadata) metadata = {};
+
   const theme = useTheme();
 
   metadata = {
@@ -18,7 +20,9 @@ export const sendEventAndRedirect = (event, metadata = {}, url) => {
   return (window.location.href = url);
 };
 
-export const navigateToWelcome = (event, metadata = {}) => {
+export const navigateToWelcome = (event, metadata) => {
+  if (!metadata) metadata = {};
+
   const config = useRuntimeConfig();
   const { MAIN_URL } = config.public;
   const theme = useTheme();

@@ -170,7 +170,9 @@
       >
     </MovingGradient>
 
-    <SubscribePopup />
+    <ExitPopup name="hide_subscribe_popup">
+      <SubscribeForm />
+    </ExitPopup>
   </div>
 </template>
 
@@ -178,11 +180,12 @@
 const props = defineProps(["type", "name", "slug", "articleType", "drafts"]);
 
 import { categories } from "@/data/glossary";
-import SubscribePopup from "@/components/SubscribePopup.vue";
 import MovingGradient from "@/components/MovingGradient.vue";
 import Avatar from "@/components/Avatar.vue";
 import HtmlBlock from "@/components/HtmlBlock.vue";
 import { EyeSlashIcon, XCircleIcon } from "@heroicons/vue/24/outline";
+import ExitPopup from "@/components/ExitPopup.vue";
+import SubscribeForm from "@/components/SubscribeForm.vue";
 
 const config = useRuntimeConfig();
 const { BASE_URL, MAIN_URL, NODE_ENV } = config.public;

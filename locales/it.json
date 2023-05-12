@@ -157,6 +157,15 @@
       "button": "Inizia prova di 14 giorni"
     }
   },
+  "popups": {
+    "exitpopup": {
+      "title": "Sapevi che è davvero semplice?",
+      "step_1": "1. Aggiungi il nostro script",
+      "step_2": "2. Importa i tuoi dati GA",
+      "step_3": "3. Vedi le tue statistiche in pochi minuti",
+      "button": "Prova Simple Analytics gratuitamente"
+    }
+  },
   "seek": {
     "presents": "Simple Analytics presenta",
     "overview": "Panoramica del sito web",

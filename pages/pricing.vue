@@ -21,12 +21,18 @@
         <StartTrial />
       </div>
     </div>
+
+    <ExitPopup name="hide_exit_popup">
+      <ExitPopupPricing />
+    </ExitPopup>
   </div>
 </template>
 
 <script setup>
 import Pricing from "../components/Pricing.vue";
 import FAQ from "../components/FAQ.vue";
+import ExitPopup from "@/components/ExitPopup.vue";
+import ExitPopupPricing from "@/components/ExitPopupPricing.vue";
 
 definePageMeta({
   title: "Pricing",

@@ -157,6 +157,15 @@
       "button": "Start 14-dagen proefperiode"
     }
   },
+  "popups": {
+    "exitpopup": {
+      "title": "Wist je dat het echt eenvoudig is?",
+      "step_1": "1. Voeg ons script toe",
+      "step_2": "2. Importeer je GA gegevens",
+      "step_3": "3. Bekijk je statistieken binnen enkele minuten",
+      "button": "Probeer Simple Analytics gratis"
+    }
+  },
   "seek": {
     "presents": "Simple Analytics presenteert",
     "overview": "Overzicht",

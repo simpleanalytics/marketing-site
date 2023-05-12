@@ -18,17 +18,18 @@
           aria-hidden="true"
         />
       </a>
-      <SubscribeForm />
+      <slot></slot>
     </div>
   </transition>
 </template>
 
 <script setup>
-import SubscribeForm from "~/components/SubscribeForm.vue";
 import { useBottomBanner } from "~/composables/booleans";
 import { XMarkIcon } from "@heroicons/vue/24/outline";
 
-const hidePopupCookie = useCookie("hide_subscribe_popup", {
+const props = defineProps(["name"]);
+
+const hidePopupCookie = useCookie(props.name, {
   secure: process.env.NODE_ENV === "production",
   sameSite: true,
 });

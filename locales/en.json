@@ -158,6 +158,15 @@
       "button": "Start 14-day trial"
     }
   },
+  "popups": {
+    "exitpopup": {
+      "title": "Did you know it's really simple?",
+      "step_1": "1. Add our script",
+      "step_2": "2. Import your GA data",
+      "step_3": "3. See your stats in minutes",
+      "button": "Try Simple Analytics for free"
+    }
+  },
   "seek": {
     "presents": "Simple Analytics presents",
     "overview": "Website overview",
