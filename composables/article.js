@@ -39,7 +39,6 @@ export const useArticle = async ({
     "automaticTranslated",
     "publishedAt",
     "updatedAt",
-    "showCallToActions",
     "ctaTitle",
     "ctaDescription",
     "ctaButton",
@@ -50,6 +49,7 @@ export const useArticle = async ({
   }
 
   if (type === "key-terms") {
+    keys.push("showCallToActions");
   } else {
     keys.push("showIndex");
     keys.push("showCallToActions");
