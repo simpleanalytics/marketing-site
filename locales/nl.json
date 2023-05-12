@@ -72,7 +72,7 @@
       "import_data": "Importeer je gegevens uit Google Analytics",
       "use_gtm": "Gebruik Google Tag Manager, WordPress,<br />of onze vele frontend",
       "framework_plugins": "framework plug-ins",
-      "export_to": "Exporteer naar je eigen systemen,<br />Power BI, Google Data Studio, of {0}data lakes{1}",
+      "export_to": "Exporteer naar je eigen systemen,<br />Power BI, Google Looker Studio, of {0}data lakes{1}",
       "export_as": "Exporteer als {0}onbewerkte gegevens{1} of geaggregeerd"
     },
     "why_switch_from_ga": {

@@ -72,7 +72,7 @@
       "import_data": "Importa i tuoi dati da Google Analytics",
       "use_gtm": "Usa Google Tag Manager, WordPress,<br />o i nostri numerosi plugin frontend",
       "framework_plugins": "per framework",
-      "export_to": "Esporta verso tuoi sistemi, Power BI,<br />Google Data Studio, o {0}data lakes{1}",
+      "export_to": "Esporta verso tuoi sistemi, Power BI,<br />Google Looker Studio, o {0}data lakes{1}",
       "export_as": "Esporta come {0}dati grezzi{1} o aggregati"
     },
     "why_switch_from_ga": {
