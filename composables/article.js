@@ -76,7 +76,11 @@ export const useArticle = async ({
 
   const article = computed(() => {
     if (!articles?.value?.[0]) return {};
-    return articles.value[0];
+
+    return {
+      showCallToActions: true,
+      ...articles.value[0],
+    };
   });
 
   const languages = articles?.value?.[0]?.languages;
