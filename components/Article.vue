@@ -170,9 +170,9 @@
       >
     </MovingGradient>
 
-    <ExitPopup name="hide_subscribe_popup">
+    <EindePopup name="hide_subscribe_popup">
       <SubscribeForm />
-    </ExitPopup>
+    </EindePopup>
   </div>
 </template>
 
@@ -184,7 +184,7 @@ import MovingGradient from "@/components/MovingGradient.vue";
 import Avatar from "@/components/Avatar.vue";
 import HtmlBlock from "@/components/HtmlBlock.vue";
 import { EyeSlashIcon, XCircleIcon } from "@heroicons/vue/24/outline";
-import ExitPopup from "@/components/ExitPopup.vue";
+import EindePopup from "@/components/EindePopup.vue";
 import SubscribeForm from "@/components/SubscribeForm.vue";
 
 const config = useRuntimeConfig();

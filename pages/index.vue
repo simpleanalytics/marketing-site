@@ -1286,9 +1286,9 @@
       </div>
     </div>
 
-    <ExitPopup name="hide_exit_popup" class="-mb-48">
-      <ExitPopupPricing />
-    </ExitPopup>
+    <EindePopup name="hide_exit_popup" class="-mb-48">
+      <EindePopupPricing />
+    </EindePopup>
 
     <div class="max-w-3xl -mb-20 px-6 mx-auto animated-background">
       <div class="flex items-center justify-center">

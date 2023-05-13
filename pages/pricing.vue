@@ -22,17 +22,17 @@
       </div>
     </div>
 
-    <ExitPopup name="hide_exit_popup">
-      <ExitPopupPricing />
-    </ExitPopup>
+    <EindePopup name="hide_exit_popup">
+      <EindePopupPricing />
+    </EindePopup>
   </div>
 </template>
 
 <script setup>
 import Pricing from "../components/Pricing.vue";
 import FAQ from "../components/FAQ.vue";
-import ExitPopup from "@/components/ExitPopup.vue";
-import ExitPopupPricing from "@/components/ExitPopupPricing.vue";
+import EindePopup from "@/components/EindePopup.vue";
+import EindePopupPricing from "@/components/EindePopupPricing.vue";
 
 definePageMeta({
   title: "Pricing",
