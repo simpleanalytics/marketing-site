@@ -1,7 +1,7 @@
 <template>
   <div class="bg-blue-50 dark:bg-gray-800 flex flex-col min-h-screen">
     <!-- Begin of what is in viewport -->
-    <div class="flex flex-col min-h-screen">
+    <div class="flex flex-col">
       <Html
         :lang="localeHead.htmlAttrs.lang"
         :dir="localeHead.htmlAttrs.dir"
