@@ -17,14 +17,21 @@
         class="border-2 bg-white dark:bg-gray-900 border-red-500 dark:border-red-600 rounded-lg text-center p-4 shadow"
       >
         <p class="mb-2">
-          You are here via
-          <strong>{{ affiliate.name }}</strong
-          >. To give you the first month for free and give
-          {{ affiliate.name }} a reward, we ask you to place a cookie for 30
-          days.
+          <span v-if="affiliate.name"
+            >You are here via <strong>{{ affiliate.name }}</strong
+            >.</span
+          >
+          <span v-else-if="affiliate.slug">
+            You are here via the affiliate code
+            <strong>{{ affiliate.slug }}</strong
+            >.
+          </span>
+          To give you the first month for free and give
+          {{ affiliate.name || "the promoter" }} their reward, we ask you to
+          place a cookie for 30 days.
         </p>
 
-        <a @click="acceptAffiliate(affiliate)" class="button"
+        <a @click="acceptAffiliate(affiliate)" class="button primary"
           >Accept affiliate deal</a
         >
       </div>
