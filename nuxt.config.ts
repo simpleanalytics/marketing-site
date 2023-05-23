@@ -205,6 +205,22 @@ export default defineNuxtConfig({
         it: "/google-analytics-paesi/[slug]",
         fr: "/google-analytics-pays/[slug]",
       },
+      "utm-generator/index": {
+        en: "/utm-generator",
+        nl: "/utm-generatoren",
+        es: "/Generadores-de-UTM",
+        de: "/utm-generatoren",
+        it: "/generatori-di-utm",
+        fr: "/generateurs-utm",
+      },
+      "utm-generator/[slug]": {
+        en: "/utm-generator/[slug]",
+        nl: "/utm-generatoren/[slug]",
+        es: "/Generadores-de-UTM/[slug]",
+        de: "/utm-generatoren/[slug]",
+        it: "/generatori-di-utm/[slug]",
+        fr: "/generateurs-utm/[slug]",
+      }
     },
     detectBrowserLanguage: {
       useCookie: true,
