@@ -10,7 +10,7 @@
       <div class="justify-center block sm:flex sm:flex-wrap">
         <div v-for="generator in utmGeneratorChannels" class="flex p-6 w-full sm:w-1/2 lg:w-1/3">
           <div class="flex w-full flex-col shadow-xl overflow-hidden rounded-lg bg-blue-100 dark:bg-gray-700 relative">
-            <NuxtLink :to="`/utm-generator/${generator.name.split(' ').join('-')}`" class="flex h-80 p-4 shadow-md">
+            <NuxtLink :to="`/utm-generator/${generator.name.split(' ').join('-')}`" class="flex h-80 p-4 shadow-md" :class="`bg-[${generator.bg}]`">
               <div class="flex h-full justify-center items-center w-full">
                 <component :is="generator.imageComponent" class="max-h-full max-w-full"/>
               </div>
@@ -35,32 +35,40 @@ import GoogleSheets from '@/components/logos/GoogleSheets.vue';
 import Excel from '@/components/logos/Excel.vue';
 import Tiktok from '@/components/logos/Tiktok.vue';
 
-definePageMeta({
-  title: "UTM generator",
-  description: "Simple Analytics UTM generator",
-});
 
 /** utm generator objects */
 const utmGeneratorChannels = ref([
   {
     name: 'facebook',
+    bg: '#add8e6',
     imageComponent: Facebook
   },
   {
     name: 'google',
+    bg: '#add8e6',
     imageComponent: Google
   },
   {
     name: 'google sheets',
+    bg: '#e6f5ea',
     imageComponent: GoogleSheets
   },
   {
     name: 'spreadsheets',
+    bg: '#add8e6',
     imageComponent: Excel
   },
   {
     name: 'tiktok',
+    bg: '#add8e6',
     imageComponent: Tiktok
   }
 ]);
+
+
+/** top page layout */
+definePageMeta({
+  title: "UTM generator",
+  description: "Simple Analytics UTM generator",
+});
 </script>
