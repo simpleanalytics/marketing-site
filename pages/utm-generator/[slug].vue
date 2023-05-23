@@ -42,20 +42,12 @@ import Google from '@/components/logos/Google.vue';
 import GoogleSheets from '@/components/logos/GoogleSheets.vue';
 import Excel from '@/components/logos/Excel.vue';
 import Tiktok from '@/components/logos/Tiktok.vue';
-
 import GeneratorForm from "@/components/GeneratorForm.vue";
 
 
 /** get utm generator channel from route */
 const route = useRoute();
 const { slug } = route.params;
-
-const slugString = ref(`${slug.charAt(0).toUpperCase()}${slug.slice(1)}`);
-
-// definePageMeta({
-//   title: `UTM generator for ${slugString.value}`,
-//   description: `Simple Analytics UTM generator for ${slugString.value}`,
-// });
 
 
 /** utm generator objects */
@@ -88,4 +80,11 @@ const currentChannelImage = computed(() => {
   if (channelExists) return channelExists.imageComponent;
   else return null;
 }); 
+
+
+/** top page properties  */
+definePageMeta({
+  title: `UTM generator`,
+  description: `Simple Analytics UTM generator`,
+});
 </script>
