@@ -83,8 +83,10 @@ const currentChannelImage = computed(() => {
 
 
 /** top page properties  */
-definePageMeta({
-  title: `UTM generator`,
-  description: `Simple Analytics UTM generator`,
+const slugString = `${slug.charAt(0).toUpperCase()}${slug.slice(1)}`;
+
+useHead({
+  title: `UTM Generator for ${slugString}`,
+  description: `Simple Analytics UTM generator for ${slugString}`
 });
 </script>
