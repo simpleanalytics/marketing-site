@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="flex flex-col items-center m-auto">
-      <div class="w-60 lg:w-96">
-        <div class="flex justify-center items-center h-80 w-full">
+      <div class="p-4 w-60 lg:w-96">
+        <div class="flex justify-center items-center h-56 w-full">
           <component :is="currentChannelImage" class="max-h-full max-w-full"/>
         </div>
       </div>

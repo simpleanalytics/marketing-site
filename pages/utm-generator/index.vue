@@ -10,9 +10,9 @@
       <div class="justify-center block sm:flex sm:flex-wrap">
         <div v-for="generator in utmGeneratorChannels" class="flex p-6 w-full sm:w-1/2 lg:w-1/3">
           <div class="flex w-full flex-col shadow-xl overflow-hidden rounded-lg bg-blue-100 dark:bg-gray-700 relative">
-            <NuxtLink :to="`/utm-generator/${generator.name}`" :class="`flex h-80 p-4 shadow-md bg-${generator.name}`">
-              <div class="flex h-full justify-center items-center w-full">
-                <component :is="generator.imageComponent" class="max-h-full max-w-full"/>
+            <NuxtLink :to="`/utm-generator/${generator.name}`" :class="`flex h-60 justify-center items-center p-4 shadow-md bg-${generator.name}`">
+              <div class="flex h-1/2 w-1/2">
+                <component :is="generator.imageComponent" class="h-full w-full"/>
               </div>
             </NuxtLink>
 
@@ -69,23 +69,4 @@ definePageMeta({
 </script>
 
 <style>
-.bg-facebook {
-  @apply bg-[#add8e6]
-}
-
-.bg-google {
-  @apply bg-[#f4b300ec]
-}
-
-.bg-google-sheets {
-  @apply bg-[#e6f5ea]
-}
-
-.bg-spreadsheets {
-  @apply bg-[#90ee90]
-}
-
-.bg-tiktok {
-  @apply bg-[#aaaaaa]
-}
 </style>

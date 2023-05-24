@@ -590,3 +590,23 @@ article blockquote.warning p {
   color: var(--hljs-link);
   font-style: underline;
 }
+
+.bg-facebook {
+  @apply bg-[#add8e6]
+}
+
+.bg-google {
+  @apply bg-[#F9AB00]
+}
+
+.bg-google-sheets {
+  @apply bg-[#e6f5ea]
+}
+
+.bg-spreadsheets {
+  @apply bg-[#88e088]
+}
+
+.bg-tiktok {
+  @apply bg-[#aaaaaa]
+}
