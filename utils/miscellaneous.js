@@ -9,10 +9,15 @@ export const sendEventAndRedirect = (event, metadata, url) => {
     theme: theme.value,
   };
 
-  if (window.sa_loaded && event) {
-    return window.sa_event(event, metadata, () => {
+  if (typeof window.sa_event === "function" && window.sa_loaded && event) {
+    let sent = false;
+    window.sa_event(event, metadata, () => {
+      sent = true;
       window.location.href = url;
     });
+    setTimeout(() => {
+      if (!sent) window.location.href = url;
+    }, 4000);
   } else if (event) {
     console.warn("Simple Analytics not loaded yet to send event:", event);
   }
