@@ -51,20 +51,20 @@ The translations of the interface is done via the [locales/en.json](locales/en.j
 
 You can translate the routes in [nuxt.config.ts](nuxt.config.ts), we use ChatGPT for translations. You can use this prompt to translate from English to all other languages:
 
-```
+````
 Return 5 JSON structures with 2 spaces of indenting and translate the values informaly in German, Spanish from Spain, French, Italian, and Dutch. Do not translate the keys of the JSON. It's for an online product called Simple Analytics. A privacy-first Google Analytics alternative. Keep it informal. The following input is JSON in English.
 
 Return 5 files, one for every language:
 
-\`\`\`
+```
 "popups": {
   "exitpopup": {
     "title": "Did you know it's really simple?",
     "button": "Try Simple Analytics for free"
   }
 },
-\`\`\`
 ```
+````
 
 You can copy the results to the [locales/en.json](locales/en.json), [locales/de.json](locales/de.json), ... files.
 
