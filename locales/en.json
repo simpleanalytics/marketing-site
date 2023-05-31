@@ -361,6 +361,27 @@
       }
     }
   },
+  "resources": {
+    "title": "Resources",
+    "overview": "Resource overview",
+    "overview_description": "These resources contain alternatives, reviews, pricing, and comparisons of various competitors.",
+    "key_terms_title": "Key terms",
+    "key_terms_description": "A list of key terms for {0}.",
+    "categories": {
+      "alternatives": {
+        "title": "Alternatives"
+      },
+      "comparisons": {
+        "title": "Comparisons"
+      },
+      "analytics_review": {
+        "title": "Analytics Reviews"
+      },
+      "analytics_pricing": {
+        "title": "Analytics Pricing"
+      }
+    }
+  },
   "ga_countries": {
     "overview": "Countries where Google Analytics is declared illegal",
     "overview_description": "In some countries, Google Analytics is declared illegal. This is because Google Analytics is not GDPR-compliant. In these countries, you can use Simple Analytics instead. We are GDPR-compliant, and we don't use cookies.",
