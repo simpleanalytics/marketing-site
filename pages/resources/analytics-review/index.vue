@@ -1,78 +1,93 @@
 <template>
   <div class="max-w-3xl px-4 mx-auto">
     <div class="text-center mx-4">
-      <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
-        {{ $t("resources.overview") }}
+      <h2 class="text-2xl sm:text-2xl md:text-3xl text-gray-500">
+        <NuxtLink :to="localePath({ name: 'resources' })" data-no-style>{{
+          $t("resources.title")
+        }}</NuxtLink>
+      </h2>
+      <h1 class="mt-4 text-4xl font-medium sm:text-5xl md:text-6xl">
+        {{ $t(section.titleTranslation) }}
       </h1>
-      <p class="mt-8 text-lg">
-        {{ $t("resources.overview_description") }}
-      </p>
     </div>
-
-    <!-- <div class="mt-10 mb-20 grid gap-4 grid-cols-1 md:grid-cols-2">
+    <p v-if="pending" class="text-center">{{ $t("blog.loading_post") }}</p>
+    <p
+      v-else-if="error"
+      class="bg-red-500 dark:bg-red-600 text-white dark:text-white rounded-lg text-center p-4 shadow dark:shadow-none"
+    >
+      {{ error }}
+    </p>
+    <div
+      v-else-if="articles.length"
+      class="mt-10 mb-20 grid gap-4 grid-cols-1 md:grid-cols-2"
+    >
       <NuxtLink
-        v-for="action in actions"
-        :key="action.title"
+        v-for="article in articles"
+        :key="article.title"
         :to="
           localePath({
-            name: action.categories,
+            name: 'resources-analytics-review-slug',
+            params: { section: article.articleType, slug: article.slug },
           })
         "
         class="group bg-white dark:bg-gray-700 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-red-500 dark:focus-within:ring-red-600 flex flex-col rounded-lg shadow dark:shadow-none"
       >
-        <div :class="action.iconBackground" class="rounded-lg w-12 inline-flex">
-          <span class="inline-flex p-3">
-            <svg
-              v-if="action.iconSlug === 'google-analytics'"
-              xmlns="http://www.w3.org/2000/svg"
-              xml:space="preserve"
-              viewBox="0 0 2196 2431"
-              class="h-6 w-6"
-              :class="action.iconFill || ''"
-              aria-hidden="true"
-            >
-              <path
-                d="M2196 2127a302 302 0 0 1-338 301 310 310 0 0 1-264-314V316A310 310 0 0 1 1859 2a302 302 0 0 1 337 302v1823z"
-                fill="#F9AB00"
-              />
-              <path
-                d="M301 1829a301 301 0 1 1 0 602 301 301 0 0 1 0-602zm792-913a310 310 0 0 0-293 317v809c1 219 97 352 239 381a302 302 0 0 0 361-297v-907a302 302 0 0 0-307-303z"
-                fill="#E37400"
-              />
-            </svg>
-            <ComputerDesktopIcon
-              v-else
-              class="h-6 w-6"
-              :class="action.iconForeground || ''"
-              aria-hidden="true"
+        <h3 class="text-lg font-medium text-link">
+          <ClientOnly v-if="article.locale !== locale && getFlagUrl(article.locale)">
+            <img
+              :src="getFlagUrl(article.locale)"
+              class="h-4 align-baseline translate-y-px inline mr-1"
             />
-          </span>
-        </div>
-        <div class="mt-4">
-          <h3 class="text-lg font-medium text-link">
-            {{ $t(action.titleTranslation) }} <Arrow />
-          </h3>
-        </div>
+          </ClientOnly>
+          {{ article.title }} <Arrow />
+        </h3>
+        <p class="mt-2 text-sm text-gray-500 leading-relaxed">
+          {{ article.excerpt }}
+        </p>
       </NuxtLink>
-    </div> -->
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ChartBarSquareIcon, ComputerDesktopIcon } from "@heroicons/vue/24/outline";
-
-import GoogleAnalyticsIcon from "@/components/icons/GoogleAnalytics.vue";
 import Arrow from "@/components/Arrow.vue";
-import { categories } from "@/data/resources";
-
+import { sections } from "@/data/resources";
+const route = useRoute();
+const { locale, getBrowserLocale } = useI18n();
 const localePath = useLocalePath();
+const browserLocale = getBrowserLocale();
+const {
+  public: { LOCALES },
+} = useRuntimeConfig();
 
-const actions = categories;
+const section = computed(() => {
+  const currentPagePath = route.path.split("/resources/")[1];
+  if (currentPagePath) {
+    const section = sections.find((section) => section.type == currentPagePath);
+    return section || {};
+  }
+  return {};
+});
 
-onMounted(() => {
-    const path = localePath({
-            name: 'resources',
-          })
-    console.log('--path---', path)
-})
+const { articles, pending, error } = await useArticle({
+  routeName: "resources-analytics-review",
+  articleType: "resources-analytics-review",
+});
+
+const getFlagUrl = (locale) => {
+  const url = "https://assets.simpleanalytics.com/images/flags/";
+
+  if (locale === "en" && process.client) {
+    const found = navigator?.languages.find((lang) => lang.startsWith("en-"));
+    if (found) {
+      const [, region] = found.split("-");
+      return `${url}${region.toUpperCase()}.svg`;
+    }
+  }
+
+  const found = LOCALES.find((lang) => lang.code === locale);
+  if (found) {
+    return `${url}${found.flag.toUpperCase()}.svg`;
+  }
+};
 </script>

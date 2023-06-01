@@ -1,28 +1,36 @@
-export const categories = [
+export const sections = [
     {
-      titleTranslation: "resources.categories.alternatives.title",
-      category: "alternatives",
+      titleTranslation: "resources.sections.alternatives.title",
+      section: "resources-alternatives",
       iconSlug: "alternatives",
-      iconBackground: "bg-[#fff1d3] dark:bg-[#5c3f03]",
-    },
-    {
-      titleTranslation: "resources.categories.comparisons.title",
-      category: "comparisons",
+      type: "alternatives",
       iconForeground: "text-green-600 dark:text-green-500",
       iconBackground: "bg-green-50 dark:bg-green-900",
     },
     {
-        titleTranslation: "resources.categories.analytics_review.title",
-        category: "analytics-review",
-        iconForeground: "text-green-600 dark:text-green-500",
-        iconBackground: "bg-green-50 dark:bg-green-900",
-      },
-      {
-        titleTranslation: "resources.categories.analytics_pricing.title",
-        category: "analytics-pricing",
-        iconForeground: "text-green-600 dark:text-green-500",
-        iconBackground: "bg-green-50 dark:bg-green-900",
-      },
+      titleTranslation: "resources.sections.comparisons.title",
+      section: "resources-comparisons",
+      iconSlug: "comparisons",
+      type: "comparisons",
+      iconForeground: "text-green-600 dark:text-green-500",
+      iconBackground: "bg-green-50 dark:bg-green-900",
+    },
+    {
+      titleTranslation: "resources.sections.analytics_review.title",
+      section: "resources-analytics-review",
+      iconSlug: "analytics-review",
+      type: "analytics-review",
+      iconForeground: "text-green-600 dark:text-green-500",
+      iconBackground: "bg-green-50 dark:bg-green-900",
+    },
+    {
+      titleTranslation: "resources.sections.analytics_pricing.title",
+      section: "resources-analytics-pricing",
+      iconSlug: "analytics-pricing",
+      type: "analytics-pricing",
+      iconForeground: "text-green-600 dark:text-green-500",
+      iconBackground: "bg-green-50 dark:bg-green-900",
+    },
 ];
 
   

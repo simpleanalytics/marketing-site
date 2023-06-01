@@ -640,6 +640,17 @@
                     <span>{{ $t("home.footer.status") }}</span>
                   </a>
                 </li>
+                 <li>
+                  <NuxtLink
+                    :to="localePath({ name: 'resources' })"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
+                  >
+                    <BuildingLibraryIcon
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
+                    />
+                    <span>{{ $t("home.footer.resources") }}</span>
+                  </NuxtLink>
+                </li>
               </ul>
             </div>
 
@@ -851,6 +862,7 @@ import {
   ClipboardDocumentCheckIcon,
   NewspaperIcon,
   AcademicCapIcon,
+  BuildingLibraryIcon
 } from "@heroicons/vue/24/outline";
 
 import MenuLink from "./components/MenuLink.vue";

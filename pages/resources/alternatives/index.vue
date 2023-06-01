@@ -26,7 +26,7 @@
         :key="article.title"
         :to="
           localePath({
-            name: 'resources-analytics-pricing-slug',
+            name: 'resources-alternatives-slug',
             params: { section: article.articleType, slug: article.slug },
           })
         "
@@ -50,6 +50,7 @@
 </template>
 
 <script setup>
+import GoogleAnalyticsIcon from "@/components/icons/GoogleAnalytics.vue";
 import Arrow from "@/components/Arrow.vue";
 import { sections } from "@/data/resources";
 const route = useRoute();
@@ -70,8 +71,8 @@ const section = computed(() => {
 });
 
 const { articles, pending, error } = await useArticle({
-  routeName: "resources-analytics-pricing",
-  articleType: "resources-analytics-pricing",
+  routeName: "resources-alternatives",
+  articleType: "resources-alternatives",
 });
 
 const getFlagUrl = (locale) => {

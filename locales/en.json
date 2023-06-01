@@ -31,7 +31,8 @@
       "privacy_policy": "Privacy policy",
       "cookie_statement": "Cookie statement",
       "tos": "Terms & conditions",
-      "company_details": "Company details"
+      "company_details": "Company details",
+      "resources": "Resources"
     },
     "why_most_privacy": {
       "title": "Why is Simple Analytics the {0}most privacy-first{1} analytics?",
@@ -363,11 +364,11 @@
   },
   "resources": {
     "title": "Resources",
-    "overview": "Resource overview",
-    "overview_description": "These resources contain alternatives, reviews, pricing, and comparisons of various competitors.",
+    "overview": "Resources overview",
+    "overview_description": "This page offers a comprehensive overview of various competitors, including reviews, pricing, and comparisons.",
     "key_terms_title": "Key terms",
     "key_terms_description": "A list of key terms for {0}.",
-    "categories": {
+    "sections": {
       "alternatives": {
         "title": "Alternatives"
       },
