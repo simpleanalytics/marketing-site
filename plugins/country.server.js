@@ -2,7 +2,7 @@ import { Reader } from "@maxmind/geoip2-node";
 import { readFileSync } from "fs";
 import { resolve } from "path";
 
-// const dbBuffer = readFileSync(resolve("server/data/geolite-country.mmdb"));
+const dbBuffer = readFileSync(resolve("server/data/geolite-country.mmdb"));
 
 const euroCountries = [
   // EU countries
@@ -72,18 +72,18 @@ export default defineNuxtPlugin(() => {
   const ip = headers["x-real-ip"] || headers["x-forwarded-for"];
 
   saveCountry('in');
-  // if (ip && dbBuffer) {
-  //   try {
-  //     const reader = Reader.openBuffer(dbBuffer);
-  //     const response = reader.country(ip);
-  //     if (response?.country?.isoCode) {
-  //       saveCountry(response.country.isoCode);
-  //     }
-  //   } catch (error) {
-  //     if (/The address (.*) is not in the database/i.test(error?.message))
-  //       return;
+  if (ip && dbBuffer) {
+    try {
+      const reader = Reader.openBuffer(dbBuffer);
+      const response = reader.country(ip);
+      if (response?.country?.isoCode) {
+        saveCountry(response.country.isoCode);
+      }
+    } catch (error) {
+      if (/The address (.*) is not in the database/i.test(error?.message))
+        return;
 
-  //     console.error(error);
-  //   }
-  // }
+      console.error(error);
+    }
+  }
 });
