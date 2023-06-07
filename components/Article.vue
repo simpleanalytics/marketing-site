@@ -369,7 +369,7 @@ if (article?.value?.question) {
 }
 
 const showGlossary = computed(()=>{
-  const isArticleTypeResource = props?.name?.indexOf('resources') > -1 || false;
+  const isArticleTypeResource = props.name.includes('resources') || false;
   return !isArticleTypeResource ;
 })
 
