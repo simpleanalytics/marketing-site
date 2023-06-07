@@ -34,13 +34,13 @@
               :class="action.iconForeground || ''"
               aria-hidden="true"
             />
-             <ScaleIcon
+            <ScaleIcon
               v-else-if="action.iconSlug === 'comparisons'"
               class="h-6 w-6"
               :class="action.iconForeground || ''"
               aria-hidden="true"
             />
-             <BanknotesIcon
+            <BanknotesIcon
               v-else
               class="h-6 w-6"
               :class="action.iconForeground || ''"
@@ -59,8 +59,6 @@
 </template>
 
 <script setup>
-import { ChartBarSquareIcon, ComputerDesktopIcon, QueueListIcon, BanknotesIcon, ScaleIcon } from "@heroicons/vue/24/outline";
-
 import GoogleAnalyticsIcon from "@/components/icons/GoogleAnalytics.vue";
 import Arrow from "@/components/Arrow.vue";
 import { sections } from "@/data/resources";
@@ -68,5 +66,4 @@ import { sections } from "@/data/resources";
 const localePath = useLocalePath();
 
 const actions = sections;
-
 </script>

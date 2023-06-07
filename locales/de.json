@@ -362,6 +362,27 @@
       }
     }
   },
+  "resources": {
+    "title": "Ressourcen",
+    "overview": "Ressourcenübersicht",
+    "overview_description": "Diese Seite bietet einen umfassenden Überblick über verschiedene Wettbewerber, einschließlich Bewertungen, Preisen und Vergleichen.",
+    "key_terms_title": "Schlüsselbegriffe",
+    "key_terms_description": "Eine Liste von Schlüsselbegriffen für {0}.",
+    "sections": {
+      "alternatives": {
+        "title": "Alternativen"
+      },
+      "comparisons": {
+        "title": "Vergleiche"
+      },
+      "analytics_review": {
+        "title": "Analytics-Bewertungen"
+      },
+      "analytics_pricing": {
+        "title": "Analytics-Preise"
+      }
+    }
+  },
   "ga_countries": {
     "overview": "Länder, in denen Google Analytics verboten ist",
     "overview_description": "In einigen Ländern ist Google Analytics verboten. Das liegt daran, dass Google Analytics nicht den GDPR-Richtlinien entspricht. In diesen Ländern kannst du stattdessen Simple Analytics verwenden. Wir sind GDPR-konform und verwenden keine Cookies.",

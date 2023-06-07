@@ -1,10 +1,10 @@
 <template>
-<Article
+  <Article
     name="resources-comparisons-slug"
     :slug="route.params.slug"
     :articleType="route.params.comparisons"
     :drafts="true"
-  />  
+  />
 </template>
 
 <script setup>

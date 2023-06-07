@@ -38,10 +38,10 @@
       >
         <h3 class="text-lg font-medium text-link">
           <ClientOnly
-            v-if="article.locale !== locale && getFlagUrl(article.locale)"
+            v-if="article.locale !== locale && getFlagUrl(article.locale, LOCALES)"
           >
             <img
-              :src="getFlagUrl(article.locale)"
+              :src="getFlagUrl(article.locale, LOCALES)"
               class="h-4 align-baseline translate-y-px inline mr-1"
             />
           </ClientOnly>
@@ -86,20 +86,4 @@ const category = computed(() => {
   return category || {};
 });
 
-const getFlagUrl = (locale) => {
-  const url = "https://assets.simpleanalytics.com/images/flags/";
-
-  if (locale === "en" && process.client) {
-    const found = navigator?.languages.find((lang) => lang.startsWith("en-"));
-    if (found) {
-      const [, region] = found.split("-");
-      return `${url}${region.toUpperCase()}.svg`;
-    }
-  }
-
-  const found = LOCALES.find((lang) => lang.code === locale);
-  if (found) {
-    return `${url}${found.flag.toUpperCase()}.svg`;
-  }
-};
 </script>

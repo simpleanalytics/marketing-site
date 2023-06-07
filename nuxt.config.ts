@@ -205,6 +205,78 @@ export default defineNuxtConfig({
         it: "/google-analytics-paesi/[slug]",
         fr: "/google-analytics-pays/[slug]",
       },
+      "resources/index":{
+        en: "/resources",
+        nl: "/bronnen",
+        es: "/recursos",
+        de: "/ressourcen",
+        it: "/risorse",
+        fr: "/ressources"
+      },
+      "comparisons/index" : {
+        en: "/comparisons",
+        nl: "/vergelijkingen",
+        es: "/comparaciones",
+        de: "/vergleiche",
+        it: "/confronti",
+        fr: "/comparaisons"
+      },
+      "comparisons/[slug]": {
+        en: "/comparions/[slug]",
+        nl: "/vergelijkingen/[slug]",
+        es: "/comparaciones/[slug]",
+        de: "/vergleiche/[slug]",
+        it: "/confronti/[slug]",
+        fr: "/comparaisons/[slug]"
+      },
+      "analytics-review/index": {
+        en: "/analytics-review",
+        nl: "/analyse-beoordeling",
+        es: "/revisiones-de-analiticas",
+        de: "/analysebewertung",
+        it: "/recensione-analitica",
+        fr: "/avis-analytiques"
+      },
+      "analytics-review/[slug]": {
+        en: "/analytics-review/[slug]",
+        nl: "/analyse-beoordeling/[slug]",
+        es: "/revisiones-de-analiticas/[slug]",
+        de: "/analysebewertung/[slug]",
+        it: "/recensione-analitica/[slug]",
+        fr: "/avis-analytiques/[slug]"
+      },
+      "analytics-pricing/index": {
+        en: "/analytics-pricing",
+        nl: "/analyse-prijzen",
+        es: "/precios-de-analiticas",
+        de: "/analysepreise",
+        it: "/prezzo-analitico",
+        fr: "/prix-analytiques"
+      },
+      "analytics-pricing/[slug]": {
+        en: "/analytics-pricing/[slug]",
+        nl: "/analyse-prijzen/[slug]",
+        es: "/precios-de-analiticas/[slug]",
+        de: "/analysepreise/[slug]",
+        it: "/prezzo-analitico/[slug]",
+        fr: "/prix-analytiques/[slug]"
+      },
+      "alternatives/index": {
+        en: "/alternatives",
+        nl: "/alternatieven",
+        es: "/alternativas",
+        de: "/alternativen",
+        it: "/alternative",
+        fr: "/alternatives"
+      },
+      "alternatives/[slug]": {
+        en: "/alternatives/[slug]",
+        nl: "/alternatieven/[slug]",
+        es: "/alternativas/[slug]",
+        de: "/alternativen/[slug]",
+        it: "/alternative/[slug]",
+        fr: "/alternatives/[slug]"
+      }
     },
     detectBrowserLanguage: {
       useCookie: true,

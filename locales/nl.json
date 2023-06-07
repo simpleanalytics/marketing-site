@@ -360,6 +360,27 @@
       }
     }
   },
+  "resources": {
+    "title": "Bronnen",
+    "overview": "Overzicht van bronnen",
+    "overview_description": "Deze pagina biedt een uitgebreid overzicht van verschillende concurrenten, inclusief beoordelingen, prijzen en vergelijkingen.",
+    "key_terms_title": "Belangrijke termen",
+    "key_terms_description": "Een lijst met belangrijke termen voor {0}.",
+    "sections": {
+      "alternatives": {
+        "title": "Alternatieven"
+      },
+      "comparisons": {
+        "title": "Vergelijkingen"
+      },
+      "analytics_review": {
+        "title": "Analysebeoordelingen"
+      },
+      "analytics_pricing": {
+        "title": "Analyseprijzen"
+      }
+    }
+  },
   "ga_countries": {
     "overview": "Landen waar Google Analytics illegaal is",
     "overview_description": "In sommige landen is Google Analytics illegaal. Dit komt doordat Google Analytics niet GDPR-compliant is. In deze landen kunt je in plaats daarvan Simple Analytics gebruiken. We zijn GDPR-compliant en we gebruiken geen cookies.",

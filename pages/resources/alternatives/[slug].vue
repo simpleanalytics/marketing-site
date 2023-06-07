@@ -1,10 +1,10 @@
 <template>
-<Article
+  <Article
     name="resources-alternatives-slug"
     :slug="route.params.slug"
     :articleType="route.params.section"
     :drafts="true"
-  />  
+  />
 </template>
 
 <script setup>

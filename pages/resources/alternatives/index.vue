@@ -33,9 +33,11 @@
         class="group bg-white dark:bg-gray-700 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-red-500 dark:focus-within:ring-red-600 flex flex-col rounded-lg shadow dark:shadow-none"
       >
         <h3 class="text-lg font-medium text-link">
-          <ClientOnly v-if="article.locale !== locale && getFlagUrl(article.locale)">
+          <ClientOnly
+            v-if="article.locale !== locale && getFlagUrl(article.locale, LOCALES)"
+          >
             <img
-              :src="getFlagUrl(article.locale)"
+              :src="getFlagUrl(article.locale, LOCALES)"
               class="h-4 align-baseline translate-y-px inline mr-1"
             />
           </ClientOnly>
@@ -53,6 +55,7 @@
 import GoogleAnalyticsIcon from "@/components/icons/GoogleAnalytics.vue";
 import Arrow from "@/components/Arrow.vue";
 import { sections } from "@/data/resources";
+
 const route = useRoute();
 const { locale, getBrowserLocale } = useI18n();
 const localePath = useLocalePath();
@@ -75,20 +78,4 @@ const { articles, pending, error } = await useArticle({
   articleType: "resources-alternatives",
 });
 
-const getFlagUrl = (locale) => {
-  const url = "https://assets.simpleanalytics.com/images/flags/";
-
-  if (locale === "en" && process.client) {
-    const found = navigator?.languages.find((lang) => lang.startsWith("en-"));
-    if (found) {
-      const [, region] = found.split("-");
-      return `${url}${region.toUpperCase()}.svg`;
-    }
-  }
-
-  const found = LOCALES.find((lang) => lang.code === locale);
-  if (found) {
-    return `${url}${found.flag.toUpperCase()}.svg`;
-  }
-};
 </script>
