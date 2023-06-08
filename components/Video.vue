@@ -21,12 +21,12 @@
         <PauseIcon
           v-if="playing"
           @click="pause()"
-          class="mx-auto w-24 fill-white dark:fill-gray-200 drop-shadow-lg scale-125 cursor-pointer"
+          class="mx-auto w-24 fill-red-500 drop-shadow-lg scale-125 cursor-pointer"
         />
         <PlayIcon
           v-else
           @click="play()"
-          class="mx-auto w-24 fill-white/95 dark:fill-gray-200/95 hover:group-hover:fill-white dark:hover:group-hover:fill-gray-200 drop-shadow-lg transition hover:group-hover:scale-125 cursor-pointer"
+          class="mx-auto w-24 fill-red-500/95 hover:group-hover:fill-red-500 dark:hover:group-hover:fill-red-500 drop-shadow-lg transition hover:group-hover:scale-125 cursor-pointer"
         />
       </div>
       <div class="grow basis-1/2"></div>

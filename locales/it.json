@@ -360,6 +360,27 @@
       }
     }
   },
+  "resources": {
+    "title": "Risorse",
+    "overview": "Panoramica delle risorse",
+    "overview_description": "Questa pagina offre una panoramica completa di vari concorrenti, incluse recensioni, prezzi e confronti.",
+    "key_terms_title": "Termini chiave",
+    "key_terms_description": "Un elenco di termini chiave per {0}.",
+    "sections": {
+      "alternatives": {
+        "title": "Alternative"
+      },
+      "comparisons": {
+        "title": "Confronti"
+      },
+      "analytics_review": {
+        "title": "Recensioni di analisi"
+      },
+      "analytics_pricing": {
+        "title": "Prezzi di analisi"
+      }
+    }
+  },
   "ga_countries": {
     "overview": "Paesi dove Google Analytics è illegale",
     "overview_description": "In alcuni paesi, Google Analytics è illegale. Questo perché Google Analytics non è conforme al RGPD. In questi paesi, puoi usare invece Simple Analytics. Siamo conformi al RGPD e non usiamo cookies.",

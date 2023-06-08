@@ -42,3 +42,20 @@ export const navigateToWelcome = (event, metadata) => {
   const welcomeUrl = `${MAIN_URL}/welcome?${params}`;
   return sendEventAndRedirect(event, metadata, welcomeUrl);
 };
+
+export const getFlagUrl = (locale, availableLocales) => {
+  const url = "https://assets.simpleanalytics.com/images/flags/";
+
+  if (locale === "en" && process.client) {
+    const found = navigator?.languages.find((lang) => lang.startsWith("en-"));
+    if (found) {
+      const [, region] = found.split("-");
+      return `${url}${region.toUpperCase()}.svg`;
+    }
+  }
+
+  const found = availableLocales.find((lang) => lang.code === locale);
+  if (found) {
+    return `${url}${found.flag.toUpperCase()}.svg`;
+  }
+};

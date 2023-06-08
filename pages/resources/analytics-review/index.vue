@@ -1,19 +1,15 @@
 <template>
   <div class="max-w-3xl px-4 mx-auto">
-    <div class="text-center mb-8">
+    <div class="text-center mx-4">
       <h2 class="text-2xl sm:text-2xl md:text-3xl text-gray-500">
-        <NuxtLink :to="localePath({ name: 'glossary' })" data-no-style>{{
-          $t("glossary.title")
+        <NuxtLink :to="localePath({ name: 'resources' })" data-no-style>{{
+          $t("resources.title")
         }}</NuxtLink>
       </h2>
       <h1 class="mt-4 text-4xl font-medium sm:text-5xl md:text-6xl">
-        {{ $t("glossary.key_terms_title") }}
+        {{ $t(section.titleTranslation) }}
       </h1>
-      <p class="mt-6 text-lg">
-        {{ $t(category.descriptionTranslation) }}
-      </p>
     </div>
-
     <p v-if="pending" class="text-center">{{ $t("blog.loading_post") }}</p>
     <p
       v-else-if="error"
@@ -30,8 +26,8 @@
         :key="article.title"
         :to="
           localePath({
-            name: 'glossary-category-key-terms-slug',
-            params: { category: article.articleType, slug: article.slug },
+            name: 'resources-analytics-review-slug',
+            params: { section: article.articleType, slug: article.slug },
           })
         "
         class="group bg-white dark:bg-gray-700 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-red-500 dark:focus-within:ring-red-600 flex flex-col rounded-lg shadow dark:shadow-none"
@@ -56,34 +52,28 @@
 </template>
 
 <script setup>
-import GoogleAnalyticsIcon from "@/components/icons/GoogleAnalytics.vue";
 import Arrow from "@/components/Arrow.vue";
-import transformer from "@/utils/transformer";
-import { categories } from "@/data/glossary";
-import {
-  ChartBarSquareIcon,
-  ComputerDesktopIcon,
-} from "@heroicons/vue/24/outline";
-
+import { sections } from "@/data/resources";
 const route = useRoute();
 const { locale, getBrowserLocale } = useI18n();
-const browserLocale = getBrowserLocale();
 const localePath = useLocalePath();
+const browserLocale = getBrowserLocale();
 const {
   public: { LOCALES },
 } = useRuntimeConfig();
 
-const { articles, pending, error } = await useArticle({
-  routeName: "glossary-category-key-terms",
-  type: "key-terms",
-  articleType: route.params.category,
+const section = computed(() => {
+  const currentPagePath = route.path.split("/resources/")[1];
+  if (currentPagePath) {
+    const section = sections.find((section) => section.type == currentPagePath);
+    return section || {};
+  }
+  return {};
 });
 
-const category = computed(() => {
-  const category = categories.find(
-    (category) => category.category === route.params.category
-  );
-  return category || {};
+const { articles, pending, error } = await useArticle({
+  routeName: "resources-analytics-review",
+  articleType: "resources-analytics-review",
 });
 
 </script>
