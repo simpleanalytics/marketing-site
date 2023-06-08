@@ -59,8 +59,12 @@
 </template>
 
 <script setup>
-import { ChartBarSquareIcon, ComputerDesktopIcon, QueueListIcon, BanknotesIcon, ScaleIcon } from "@heroicons/vue/24/outline";
-import GoogleAnalyticsIcon from "@/components/icons/GoogleAnalytics.vue";
+import {
+  ComputerDesktopIcon,
+  QueueListIcon,
+  BanknotesIcon,
+  ScaleIcon,
+} from "@heroicons/vue/24/outline";
 import Arrow from "@/components/Arrow.vue";
 import { sections } from "@/data/resources";
 

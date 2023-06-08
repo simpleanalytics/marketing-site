@@ -480,7 +480,7 @@
       </div>
 
       <main class="flex flex-col flex-grow">
-        <div class="mb-20">
+        <div class="mb-20 flex-grow">
           <NuxtLoadingIndicator
             :color="theme === 'dark' ? '#DE3243' : '#FF4F64'"
           />
@@ -640,7 +640,7 @@
                     <span>{{ $t("home.footer.status") }}</span>
                   </a>
                 </li>
-                 <li>
+                <li>
                   <NuxtLink
                     :to="localePath({ name: 'resources' })"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
@@ -862,7 +862,7 @@ import {
   ClipboardDocumentCheckIcon,
   NewspaperIcon,
   AcademicCapIcon,
-  BuildingLibraryIcon
+  BuildingLibraryIcon,
 } from "@heroicons/vue/24/outline";
 
 import MenuLink from "./components/MenuLink.vue";
