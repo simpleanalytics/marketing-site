@@ -383,6 +383,37 @@
       }
     }
   },
+  "utm_builder": {
+    "title": "UTM Builder",
+    "overview": "UTM Builder overview",
+    "overview_description": "This webpage presents a UTM builder designed for various applications, such as TikTok, Google Analytics, spreadsheets, Twitter, and Facebook.",
+    "sections": {
+      "twitter": {
+        "title": "Twitter",
+        "description": "Create UTM tags specifically for Twitter."
+      },
+      "tiktok": {
+        "title": "TikTok",
+        "description": "Create UTM tags for TikTok"
+      },
+      "google_spreadsheet": {
+        "title": "Google Spreadsheet",
+        "description": "Create UTM tags for Google Spreadsheet"
+      },
+      "google": {
+        "title": "Google",
+        "description": "Create UTM tags for Google"
+      },
+      "facebook": {
+        "title": "Facebook",
+        "description": "Create UTM tags for Facebook"
+      },
+      "spreadsheet": {
+        "title": "Spreadsheet",
+        "description": "Create UTM tags for Spreadsheet"
+      }
+    }
+  },
   "ga_countries": {
     "overview": "Countries where Google Analytics is declared illegal",
     "overview_description": "In some countries, Google Analytics is declared illegal. This is because Google Analytics is not GDPR-compliant. In these countries, you can use Simple Analytics instead. We are GDPR-compliant, and we don't use cookies.",
@@ -395,7 +426,7 @@
       "not_researched": "Not researched"
     }
   },
-  "utm_generator": {
+  "utm_generator_form": {
     "title": "UTM generator",
     "intro": "Our UTM generator is a useful tool for anyone who wants to track and analyze their online campaigns. Whether you're a marketer, content creator, or business owner, this generator can help you better understand your marketing channels.",
     "disclaimer": "We value your privacy and do not store any information you enter, providing a simple and secure way to create UTM parameters for your URLs.",

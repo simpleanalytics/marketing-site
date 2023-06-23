@@ -395,7 +395,7 @@
       "not_researched": "Nicht untersucht"
     }
   },
-  "utm_generator": {
+  "utm_generator_form": {
     "title": "UTM-Generator",
     "intro": "Unser UTM-Generator ist ein nützliches Tool für alle, die ihre Online-Kampagnen verfolgen und analysieren möchten. Egal, ob Sie Vermarkter, Content-Ersteller oder Geschäftsinhaber sind, dieser Generator hilft Ihnen, Ihre Marketingkanäle besser zu verstehen.",
     "disclaimer": "Wir schätzen Ihre Privatsphäre und speichern keine eingegebenen Informationen, um eine einfache und sichere Möglichkeit zur Erstellung von UTM-Parametern für Ihre URLs zu bieten.",

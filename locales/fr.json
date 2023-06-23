@@ -393,7 +393,7 @@
       "not_researched": "Non recherché"
     }
   },
-  "utm_generator": {
+  "utm_generator_form": {
     "title": "Générateur UTM",
     "intro": "Notre générateur UTM est un outil utile pour toute personne souhaitant suivre et analyser ses campagnes en ligne. Que vous soyez un marketeur, un créateur de contenu ou un chef d'entreprise, ce générateur peut vous aider à mieux comprendre vos canaux de marketing.",
     "disclaimer": "Nous accordons de l'importance à votre vie privée et ne stockons aucune information que vous saisissez, offrant ainsi un moyen simple et sécurisé de créer des paramètres UTM pour vos URL.",
