@@ -7,6 +7,7 @@
         <slot name="title">
           <h1
             class="mt-4 text-4xl font-medium sm:text-5xl md:text-6xl md:leading-normal sm:leading-normal"
+            v-if="!props.hideTitle"
           >
             <span v-if="article?.question">{{ article.question }}</span>
             <span v-else-if="article?.title">{{ article.title }}</span>
@@ -17,7 +18,7 @@
         <!-- Show published date with avatar -->
         <div
           class="flex items-center justify-center mt-4"
-          v-if="article.authorSlug && article.publishedAt"
+          v-if="article.authorSlug && article.publishedAt && !props.hideAuthor"
         >
           <div class="flex items-center">
             <Avatar :slug="article.authorSlug" />
@@ -177,7 +178,7 @@
 </template>
 
 <script setup>
-const props = defineProps(["type", "name", "slug", "articleType", "drafts"]);
+const props = defineProps(["type", "name", "slug", "articleType", "drafts", "hideTitle", "hideAuthor", "hideSeoMeta"]);
 
 import { categories } from "@/data/glossary";
 import MovingGradient from "@/components/MovingGradient.vue";
@@ -195,6 +196,9 @@ const { t, locale } = useI18n();
 const localePath = useLocalePath();
 
 const isAdmin = useAdmin();
+
+
+console.log('---props inside article----', props)
 
 const { article } = await useArticle({
   keys: [
@@ -273,6 +277,7 @@ const image = computed(
       : null)
 );
 
+if(!props.hideSeoMeta){
 useSeoMeta({
   title: () => article.value?.title,
   ogTitle: () => article.value?.title,
@@ -287,6 +292,7 @@ useSeoMeta({
     return null;
   },
 });
+}
 
 const routeParts = props.name
   .replace(/key\-terms/, "keyterms")

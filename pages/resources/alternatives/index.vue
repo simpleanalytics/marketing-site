@@ -78,4 +78,6 @@ const { articles, pending, error } = await useArticle({
   articleType: "resources-alternatives",
 });
 
+console.log('--articles---', articles)
+
 </script>

@@ -1,17 +1,5 @@
 <template>
   <div>
-    <div class="text-center">
-      <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
-        {{ $t("utm_generator_form.title") }}.
-      </h1>
-    </div>
-
-    <div class="max-w-2xl px-6 mx-auto mt-8">
-      <p class="mb-4 leading-loose text-md text-center">
-        {{ $t("utm_generator_form.intro") }}
-      </p>
-    </div>
-
     <div class="max-w-xl px-6 mx-auto mt-8">
       <!-- UTM generator form -->
       <form @submit.prevent="generateUrl">
