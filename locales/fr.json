@@ -393,6 +393,50 @@
       "not_researched": "Non recherché"
     }
   },
+  "utm_builder": {
+    "title": "Constructeur UTM",
+    "overview": "Aperçu du constructeur UTM",
+    "overview_description": "Cette page présente un constructeur UTM conçu pour différentes applications, telles que TikTok, Google Analytics, les feuilles de calcul, Twitter et Facebook.",
+    "sections": {
+      "twitter": {
+        "title": "Twitter",
+        "description": "Créez des balises UTM spécifiquement pour Twitter.",
+        "intro_text": "Twitter est une plateforme puissante permettant aux entreprises d'interagir avec leur public cible et de promouvoir leur marque. Lorsqu'elles sont intégrées à une stratégie marketing sur Twitter, les balises UTM permettent aux spécialistes du marketing d'obtenir des informations précieuses sur les performances de leurs campagnes, ce qui aide à optimiser les efforts de marketing pour de meilleurs résultats. Cet article de blog discutera des balises UTM, de leur importance pour le marketing sur Twitter et de leur mise en œuvre efficace. <br/> <br/> Cependant, générer des balises UTM n'est pas toujours aussi simple qu'il y paraît. Certaines personnes utilisent même des outils comme Excel pour suivre leurs UTM. Chez Simple Analytics, nous avons créé un générateur de balises UTM gratuit pour vous faciliter la vie.",
+        "generator_info": "Dans le reste de cet article de blog, nous explorerons ce que sont les balises UTM, pourquoi elles sont essentielles pour le marketing sur Twitter et comment les mettre en œuvre efficacement."
+      },
+      "tiktok": {
+        "title": "TikTok",
+        "description": "Créez des balises UTM pour TikTok.",
+        "intro_text": "La popularité croissante de TikTok en tant que plateforme de marketing offre de nombreuses opportunités aux entreprises pour atteindre de nouveaux publics et suivre l'efficacité de leurs campagnes. Les balises UTM fournissent des informations précieuses sur les performances des efforts de marketing sur TikTok. <br/> <br/> Cependant, elles ne sont pas toujours utilisées correctement. Générer des balises UTM n'est pas toujours aussi simple qu'il y paraît. Certaines personnes utilisent même des outils comme Google Sheets pour suivre leurs UTM. Chez Simple Analytics, nous avons créé un générateur de balises UTM gratuit pour vous faciliter la vie.",
+        "generator_info": "Dans cet article de blog, nous discuterons de ce que sont les balises UTM, de leur importance pour un marketing TikTok réussi et de la manière de les mettre en œuvre pour des résultats optimaux."
+      },
+      "google_spreadsheet": {
+        "title": "Google Sheets",
+        "description": "Créez des balises UTM pour Google Sheets.",
+        "intro_text": "Les balises UTM sont un outil puissant pour suivre et optimiser les campagnes de marketing en ligne. Cependant, il est parfois difficile de suivre vos balises UTM si vous les utilisez pour toutes vos campagnes. Certaines personnes utilisent Google Sheets pour générer et stocker des balises UTM. <br/> <br/> C'est une méthode sujette aux erreurs humaines et ce n'est pas la manière la plus efficace de générer des balises UTM. Nous avons créé un générateur UTM spécifiquement dans ce but. Utiliser un générateur UTM comme celui ci-dessous permet de créer facilement et efficacement des balises UTM précises. Facilitez-vous la vie en utilisant notre UTM-builder gratuitement ici.",
+        "generator_info": "Dans le reste de cet article, nous discuterons de ce que sont les balises UTM, de leur importance pour un marketing efficace, de la façon de les utiliser dans Google Sheets (si vous le souhaitez) et des éventuels inconvénients de la création d'URL à l'aide de cette méthode."
+      },
+      "google": {
+        "title": "Google",
+        "description": "Créez des balises UTM pour Google.",
+        "intro_text": "Les balises UTM jouent un rôle essentiel dans le marketing numérique, permettant aux entreprises de suivre l'efficacité de leurs campagnes de marketing sur plusieurs canaux. Ces balises fonctionnent parfaitement avec des outils d'analyse tels que Simple Analytics et Google Analytics, fournissant des informations précieuses pour améliorer les stratégies marketing. <br/> <br/> Cependant, générer des balises UTM n'est pas toujours aussi simple qu'il y paraît. Certaines personnes utilisent même des outils tels que Google Sheets pour suivre leurs UTM. Chez Simple Analytics, nous avons créé un générateur UTM gratuit pour faciliter votre vie.",
+        "generator_info": "Le reste de cet article expliquera comment mettre en œuvre efficacement les balises UTM à l'aide de notre UTM builder pour Google."
+      },
+      "facebook": {
+        "title": "Facebook",
+        "description": "Créez des balises UTM pour Facebook.",
+        "intro_text": "Facebook continue de dominer le paysage des médias sociaux, offrant d'exceptionnelles opportunités aux entreprises pour se connecter avec leur public cible. En intégrant des balises UTM à votre stratégie marketing sur Facebook, vous pouvez obtenir des informations précieuses sur les performances de vos campagnes, vous permettant d'optimiser vos efforts pour de meilleurs résultats. <br/> <br/> Cependant, générer des balises UTM n'est pas toujours aussi simple qu'il y paraît. Certaines personnes utilisent même des outils tels que Google Sheets pour suivre leurs UTM. Chez Simple Analytics, nous avons créé un générateur de UTM gratuit pour vous faciliter la vie.",
+        "generator_info": "Dans le reste de cet article de blog, nous explorerons ce que sont les balises UTM, pourquoi elles sont essentielles pour le marketing sur Facebook et comment les mettre en œuvre de manière efficace."
+      },
+      "spreadsheet": {
+        "title": "Feuille de calcul",
+        "description": "Créez des balises UTM pour les feuilles de calcul.",
+        "intro_text": "Les balises UTM sont devenues un outil indispensable pour les spécialistes du marketing afin de suivre les performances des campagnes en ligne et de prendre des décisions basées sur les données. Cependant, générer des balises UTM et les suivre n'est pas aussi simple qu'il n'y paraît. Certaines personnes utilisent des feuilles de calcul pour générer et stocker des balises UTM. C'est une méthode sujette aux erreurs humaines et ce n'est pas la manière la plus efficace de générer des balises UTM. Nous avons créé un générateur de UTM spécifiquement à cet effet. <br/> <br/> Utiliser un générateur de UTM comme celui ci-dessous facilite grandement la création de balises UTM précises et efficaces. Simplifiez votre vie en utilisant notre constructeur de UTM gratuitement ici.",
+        "generator_info": "Dans le reste de l'article, nous aborderons ce que sont les balises UTM, pourquoi elles sont essentielles, comment les utiliser dans les feuilles de calcul et les éventuels inconvénients de la création d'URL dans les feuilles de calcul."
+      }
+    }
+  },
+
   "utm_generator_form": {
     "title": "Générateur UTM",
     "intro": "Notre générateur UTM est un outil utile pour toute personne souhaitant suivre et analyser ses campagnes en ligne. Que vous soyez un marketeur, un créateur de contenu ou un chef d'entreprise, ce générateur peut vous aider à mieux comprendre vos canaux de marketing.",
@@ -406,7 +450,14 @@
     "utm_source": "Source UTM",
     "utm_source_placeholder": "Ex. : newsletter",
     "utm_medium": "Moyen UTM",
-    "utm_medium_placeholder": "Ex. : email",
+    "utm_medium_placeholder": {
+      "tiktok": "Par ex. : tiktok",
+      "google": "Par ex. : google",
+      "facebook": "Par ex. : facebook",
+      "twitter": "Par ex. : twitter",
+      "google_spreadsheet": "Par ex. : google",
+      "spreadsheet": "Par ex. : feuille"
+    },
     "utm_content": "Contenu UTM",
     "utm_content_placeholder": "Ex. : lien_pied_de_page",
     "utm_campaign": "Campagne UTM",

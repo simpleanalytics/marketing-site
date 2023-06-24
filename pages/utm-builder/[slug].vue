@@ -4,26 +4,34 @@
       <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
         UTM generator for {{ $t(`utm_builder.sections.${type}.title`) }}
       </h1>
-      <p class="mt-8 text-md" v-html="$t(`utm_builder.sections.${type}.intro_text`)"></p>
+      <p
+        class="mt-8 text-md"
+        v-html="$t(`utm_builder.sections.${type}.intro_text`)"
+      ></p>
     </div>
 
-    <UtmGeneratorForm :type="slug" />
+    <UtmGeneratorForm :type="type" />
+
+    <Article
+      :name="`utm-builder-${slug}`"
+      :slug="articleSlug"
+      :articleType="articleType"
+      :drafts="false"
+      :hideAuthor="true"
+      :hideTitle="true"
+      :hideSeoMeta="true"
+    />
   </div>
 </template>
 
 <script setup>
-import GoogleLogo from "@/components/logos/Google.vue";
-import FacebookLogo from "@/components/logos/Facebook.vue";
-import GoogleSheetLogo from "@/components/logos/GoogleSheet.vue";
-import SpreadSheetLogo from "@/components/logos/SpreadSheet.vue";
-import TikTokLogo from "@/components/logos/TikTop.vue";
-import TwitterLogo from "@/components/logos/Twitter.vue";
-import Arrow from "@/components/Arrow.vue";
-
 import UtmGeneratorForm from "@/components/UtmGeneratorForm.vue";
+import Article from "@/components/Article.vue";
+
+const articleType = "utm-builder";
 
 const route = useRoute();
-let { slug } = route.params;
+let { slug, articleSlug } = route.params;
 
 const type = computed(() => {
   return route.params.slug;

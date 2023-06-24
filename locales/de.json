@@ -395,6 +395,49 @@
       "not_researched": "Nicht untersucht"
     }
   },
+  "utm_builder": {
+    "title": "UTM-Generator",
+    "overview": "Übersicht über den UTM-Generator",
+    "overview_description": "Diese Webseite präsentiert einen UTM-Generator, der für verschiedene Anwendungen wie TikTok, Google Analytics, Tabellenkalkulationen, Twitter und Facebook entwickelt wurde.",
+    "sections": {
+      "twitter": {
+        "title": "Twitter",
+        "description": "Erstelle speziell für Twitter UTM-Tags.",
+        "intro_text": "Twitter ist eine leistungsstarke Plattform für Unternehmen, um mit ihrer Zielgruppe in Kontakt zu treten und ihre Marke zu fördern. Wenn UTM-Tags in eine Twitter-Marketingstrategie integriert werden, ermöglichen sie Marketern wertvolle Einblicke in die Leistung ihrer Kampagnen und helfen, Marketingmaßnahmen für bessere Ergebnisse zu optimieren. In diesem Blogbeitrag werden UTM-Tags, warum sie für das Twitter-Marketing wichtig sind, und wie man sie effektiv implementiert, diskutiert. <br/> <br/> Das Generieren von UTM-Tags ist jedoch nicht immer so einfach, wie es scheint. Einige Leute verwenden sogar etwas wie Excel, um ihre UTM-Tags im Auge zu behalten. Bei Simple Analytics haben wir einen kostenlosen UTM-Builder entwickelt, um dir das Leben zu erleichtern.",
+        "generator_info": "Im weiteren Verlauf dieses Blogbeitrags werden wir erläutern, was UTM-Tags sind, warum sie für das Twitter-Marketing wichtig sind und wie man sie effektiv implementiert."
+      },
+      "tiktok": {
+        "title": "TikTok",
+        "description": "Erstelle UTM-Tags für TikTok.",
+        "intro_text": "Die steigende Beliebtheit von TikTok als Marketingplattform bietet Unternehmen reichlich Möglichkeiten, neue Zielgruppen zu erreichen und die Wirksamkeit ihrer Kampagnen zu verfolgen. UTM-Tags liefern wertvolle Einblicke in die Leistung von Marketingmaßnahmen auf TikTok. <br/> <br/> Sie werden jedoch nicht immer korrekt verwendet. Das Generieren von UTM-Tags ist nicht immer so einfach, wie es scheint. Einige Leute verwenden sogar etwas wie Google Sheets, um ihre UTM-Tags im Auge zu behalten. Bei Simple Analytics haben wir einen kostenlosen UTM-Builder entwickelt, um dir das Leben zu erleichtern.",
+        "generator_info": "In diesem Blogbeitrag werden wir besprechen, was UTM-Tags sind, warum sie für erfolgreiches TikTok-Marketing wichtig sind und wie man sie für optimale Ergebnisse implementiert."
+      },
+      "google_spreadsheet": {
+        "title": "Google Tabellen",
+        "description": "Erstellen Sie UTM-Tags für Google Tabellen.",
+        "intro_text": "UTM-Tags sind ein leistungsstarkes Werkzeug zur Verfolgung und Optimierung von Online-Marketingkampagnen. Es ist jedoch manchmal schwierig, den Überblick über Ihre UTM-Tags zu behalten, wenn Sie sie für alle Ihre Kampagnen verwenden. Einige Personen verwenden Google Tabellen, um UTM-Tags zu generieren und zu speichern. <br/> <br/> Dies ist eine Methode, die anfällig für menschliche Fehler ist und nicht der effizienteste Weg, um UTM-Tags zu generieren. Wir haben speziell für diesen Zweck einen UTM-Generator entwickelt. Die Verwendung eines UTM-Generators wie dem unten stehenden ermöglicht es Ihnen, präzise UTM-Tags effizient zu erstellen. Vereinfachen Sie Ihr Leben, indem Sie unseren kostenlosen UTM-Builder hier verwenden.",
+        "generator_info": "In diesem Artikel werden wir besprechen, was UTM-Tags sind, warum sie für effektives Marketing unerlässlich sind, wie Sie sie in Google Tabellen verwenden können (falls gewünscht), und mögliche Nachteile bei der Erstellung von URLs mit dieser Methode."
+      },
+      "google": {
+        "title": "Google",
+        "description": "Erstellen Sie UTM-Tags für Google.",
+        "intro_text": "UTM-Tags spielen eine wichtige Rolle im digitalen Marketing und ermöglichen es Unternehmen, die Wirksamkeit ihrer Marketingkampagnen über mehrere Kanäle hinweg zu verfolgen. Diese Tags funktionieren nahtlos mit Analysetools wie Simple Analytics und Google Analytics und liefern wertvolle Erkenntnisse zur Verbesserung von Marketingstrategien. <br/> <br/> Die Generierung von UTM-Tags ist jedoch nicht immer so einfach, wie es scheint. Einige Personen verwenden sogar etwas wie Google Tabellen, um ihre UTM-Tags im Auge zu behalten. Bei Simple Analytics haben wir einen kostenlosen UTM-Builder entwickelt, um Ihnen das Leben zu erleichtern.",
+        "generator_info": "In diesem Artikel wird erläutert, wie Sie UTM-Tags effektiv mithilfe unseres UTM-Builders für Google implementieren können."
+      },
+      "facebook": {
+        "title": "Facebook",
+        "description": "Erstellen Sie UTM-Tags für Facebook.",
+        "intro_text": "Facebook dominiert weiterhin die Social-Media-Landschaft und bietet außergewöhnliche Möglichkeiten für Unternehmen, um mit ihrer Zielgruppe in Kontakt zu treten. Durch die Integration von UTM-Tags in Ihre Facebook-Marketingstrategie können Sie wertvolle Einblicke in die Leistung Ihrer Kampagnen gewinnen und Ihre Bemühungen für bessere Ergebnisse optimieren. <br/> <br/> Das Generieren von UTM-Tags ist jedoch nicht immer so einfach, wie es scheint. Einige Menschen verwenden sogar Tools wie Google Tabellen, um ihre UTM-Tags zu verfolgen. Bei Simple Analytics haben wir einen kostenlosen UTM-Builder entwickelt, um Ihnen das Leben zu erleichtern.",
+        "generator_info": "Im weiteren Verlauf dieses Blog-Beitrags werden wir untersuchen, was UTM-Tags sind, warum sie für das Facebook-Marketing unverzichtbar sind und wie Sie sie effektiv implementieren können."
+      },
+      "spreadsheet": {
+        "title": "Tabellenkalkulation",
+        "description": "Erstellen Sie UTM-Tags für Tabellenkalkulationen.",
+        "intro_text": "UTM-Tags sind zu einem unverzichtbaren Instrument für Vermarkter geworden, um die Leistung von Online-Kampagnen zu verfolgen und datenbasierte Entscheidungen zu treffen. Das Generieren und Verfolgen von UTM-Tags ist jedoch nicht so einfach, wie es scheint. Einige Menschen verwenden Tabellenkalkulationen, um UTM-Tags zu generieren und zu speichern. Dies ist eine Methode, die anfällig für menschliche Fehler ist und nicht der effizienteste Weg, um UTM-Tags zu generieren. Wir haben speziell für diesen Zweck einen UTM-Generator entwickelt. <br/> <br/> Die Verwendung eines UTM-Generators wie dem untenstehenden ist viel einfacher, um präzise UTM-Tags effizient zu erstellen. Vereinfachen Sie Ihr Leben, indem Sie unseren kostenlosen UTM-Builder hier verwenden.",
+        "generator_info": "Im weiteren Verlauf des Artikels werden wir erläutern, was UTM-Tags sind, warum sie wichtig sind, wie Sie sie in Tabellenkalkulationen verwenden und die möglichen Nachteile beim Erstellen von URLs in Tabellenkalkulationen."
+      }
+    }
+  },
   "utm_generator_form": {
     "title": "UTM-Generator",
     "intro": "Unser UTM-Generator ist ein nützliches Tool für alle, die ihre Online-Kampagnen verfolgen und analysieren möchten. Egal, ob Sie Vermarkter, Content-Ersteller oder Geschäftsinhaber sind, dieser Generator hilft Ihnen, Ihre Marketingkanäle besser zu verstehen.",
@@ -408,7 +451,14 @@
     "utm_source": "UTM-Quelle",
     "utm_source_placeholder": "Z.B.: newsletter",
     "utm_medium": "UTM-Medium",
-    "utm_medium_placeholder": "Z.B.: email",
+    "utm_medium_placeholder": {
+      "tiktok": "Z. B.: tiktok",
+      "google": "Z. B.: google",
+      "facebook": "Z. B.: facebook",
+      "twitter": "Z. B.: twitter",
+      "google_spreadsheet": "Z. B.: google",
+      "spreadsheet": "Z. B.: Tabelle"
+    },
     "utm_content": "UTM-Inhalt",
     "utm_content_placeholder": "Z.B.: footer_link",
     "utm_campaign": "UTM-Kampagne",

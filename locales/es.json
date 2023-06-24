@@ -393,6 +393,50 @@
       "not_researched": "Sin investigar"
     }
   },
+  "utm_builder": {
+    "title": "Constructor de UTM",
+    "overview": "Descripción del Constructor de UTM",
+    "overview_description": "Esta página web presenta un constructor de UTM diseñado para diversas aplicaciones, como TikTok, Google Analytics, hojas de cálculo, Twitter y Facebook.",
+    "sections": {
+      "twitter": {
+        "title": "Twitter",
+        "description": "Crea etiquetas UTM específicamente para Twitter.",
+        "intro_text": "Twitter es una plataforma poderosa para que las empresas interactúen con su audiencia objetivo y promocionen su marca. Cuando se integran en una estrategia de marketing en Twitter, las etiquetas UTM permiten a los especialistas en marketing obtener información valiosa sobre el rendimiento de sus campañas, lo que ayuda a optimizar los esfuerzos de marketing para obtener mejores resultados. En esta publicación del blog se discutirán las etiquetas UTM, por qué son esenciales para el marketing en Twitter y cómo implementarlas de manera efectiva. <br/> <br/> Sin embargo, generar etiquetas UTM no siempre es tan sencillo como parece. Algunas personas incluso usan algo como Excel para realizar un seguimiento de sus UTM. En Simple Analytics, creamos un generador de UTM gratuito para facilitarte la vida.",
+        "generator_info": "En el resto de esta publicación del blog, exploraremos qué son las etiquetas UTM, por qué son esenciales para el marketing en Twitter y cómo implementarlas de manera efectiva."
+      },
+      "tiktok": {
+        "title": "TikTok",
+        "description": "Crea etiquetas UTM para TikTok.",
+        "intro_text": "La creciente popularidad de TikTok como plataforma de marketing presenta amplias oportunidades para que las empresas lleguen a nuevas audiencias y realicen un seguimiento de la efectividad de sus campañas. Las etiquetas UTM proporcionan información valiosa sobre el rendimiento de los esfuerzos de marketing en TikTok. <br/> <br/> Sin embargo, no siempre se utilizan correctamente. Generar etiquetas UTM no siempre es tan sencillo como parece. Algunas personas incluso usan algo como Google Sheets para realizar un seguimiento de sus UTM. En Simple Analytics, creamos un generador de UTM gratuito para facilitarte la vida.",
+        "generator_info": "En esta publicación del blog, discutiremos qué son las etiquetas UTM, por qué son esenciales para el marketing exitoso en TikTok y cómo implementarlas para obtener resultados óptimos."
+      },
+      "google_spreadsheet": {
+        "title": "Google Hojas de cálculo",
+        "description": "Crea etiquetas UTM para Google Hojas de cálculo.",
+        "intro_text": "Las etiquetas UTM son una herramienta poderosa para rastrear y optimizar campañas de marketing en línea. Sin embargo, llevar un seguimiento de tus etiquetas UTM a veces es difícil si las usas para todas tus campañas. Algunas personas utilizan Google Hojas de cálculo para generar y almacenar etiquetas UTM. <br/> <br/> Es un método propenso a errores humanos y no es la forma más eficiente de generar etiquetas UTM. Hemos creado un generador de UTM específicamente para este propósito. Utilizar un generador de UTM como el que se muestra a continuación es mucho más fácil para crear etiquetas UTM precisas de manera eficiente. Facilita tu vida utilizando nuestro UTM builder de forma gratuita aquí.",
+        "generator_info": "En el resto de este artículo, discutiremos qué son las etiquetas UTM, por qué son esenciales para el marketing efectivo, cómo usarlas en Google Hojas de cálculo (si aún lo deseas) y las posibles desventajas de construir URL utilizando este método."
+      },
+      "google": {
+        "title": "Google",
+        "description": "Crea etiquetas UTM para Google.",
+        "intro_text": "Las etiquetas UTM desempeñan un papel esencial en el marketing digital, permitiendo a las empresas rastrear la efectividad de sus campañas de marketing en varios canales. Estas etiquetas funcionan perfectamente con herramientas de análisis como Simple Analytics y Google Analytics, brindando información valiosa para mejorar las estrategias de marketing. <br/> <br/> Sin embargo, generar etiquetas UTM no siempre es tan sencillo como parece. Incluso algunas personas utilizan herramientas como Google Hojas de cálculo para llevar un seguimiento de sus UTM. En Simple Analytics, creamos un generador de UTM gratuito para facilitarte la vida.",
+        "generator_info": "El resto de este artículo describirá cómo implementar etiquetas UTM de manera efectiva utilizando nuestro UTM builder para Google."
+      },
+      "facebook": {
+        "title": "Facebook",
+        "description": "Crea etiquetas UTM para Facebook.",
+        "intro_text": "Facebook sigue dominando el panorama de las redes sociales, brindando excepcionales oportunidades para que las empresas se conecten con su público objetivo. Al integrar etiquetas UTM en tu estrategia de marketing en Facebook, puedes obtener valiosos insights sobre el rendimiento de tus campañas, lo que te permite optimizar tus esfuerzos para obtener mejores resultados. <br/> <br/> Sin embargo, generar etiquetas UTM no siempre es tan sencillo como parece. Incluso algunas personas utilizan herramientas como Google Sheets para llevar un registro de sus UTM. En Simple Analytics, creamos un constructor de UTM gratuito para facilitarte la vida.",
+        "generator_info": "En el resto de esta publicación del blog, exploraremos qué son las etiquetas UTM, por qué son esenciales para el marketing en Facebook y cómo implementarlas de manera efectiva."
+      },
+      "spreadsheet": {
+        "title": "Hoja de cálculo",
+        "description": "Crea etiquetas UTM para hojas de cálculo.",
+        "intro_text": "Las etiquetas UTM se han convertido en una herramienta indispensable para los profesionales del marketing para realizar un seguimiento del rendimiento de las campañas en línea y tomar decisiones basadas en datos. Sin embargo, generar etiquetas UTM y hacerles seguimiento no es tan sencillo como parece. Algunas personas utilizan hojas de cálculo para generar y almacenar etiquetas UTM. Es un método propenso a errores humanos y no es la forma más eficiente de generar etiquetas UTM. Hemos creado un generador de UTM específicamente con este propósito. <br/> <br/> Utilizar un generador de UTM como el que se muestra a continuación facilita mucho la creación de etiquetas UTM precisas y eficientes. Simplifica tu vida utilizando nuestro constructor de UTM de forma gratuita aquí.",
+        "generator_info": "En el resto del artículo, discutiremos qué son las etiquetas UTM, por qué son esenciales, cómo usarlas en hojas de cálculo y las posibles desventajas de crear URLs en hojas de cálculo."
+      }
+    }
+  },
+
   "utm_generator_form": {
     "title": "Generador de UTM",
     "intro": "Nuestro generador de UTM es una herramienta útil para cualquiera que quiera rastrear y analizar sus campañas en línea. Ya sea que seas un comercializador, creador de contenido o propietario de un negocio, este generador te puede ayudar a comprender mejor tus canales de marketing.",
@@ -406,7 +450,14 @@
     "utm_source": "Fuente UTM",
     "utm_source_placeholder": "Ej.: newsletter",
     "utm_medium": "Medio UTM",
-    "utm_medium_placeholder": "Ej.: email",
+    "utm_medium_placeholder": {
+      "tiktok": "Ej.: tiktok",
+      "google": "Ej.: google",
+      "facebook": "Ej.: facebook",
+      "twitter": "Ej.: twitter",
+      "google_spreadsheet": "Ej.: google",
+      "spreadsheet": "Ej.: hoja"
+    },
     "utm_content": "Contenido UTM",
     "utm_content_placeholder": "Ej.: enlace_pie",
     "utm_campaign": "Campaña UTM",

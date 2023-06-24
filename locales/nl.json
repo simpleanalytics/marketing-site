@@ -393,6 +393,50 @@
       "not_researched": "Niet onderzocht"
     }
   },
+  "utm_builder": {
+    "title": "UTM-builder",
+    "overview": "Overzicht UTM-builder",
+    "overview_description": "Deze webpagina presenteert een UTM-builder die is ontworpen voor verschillende toepassingen, zoals TikTok, Google Analytics, spreadsheets, Twitter en Facebook.",
+    "sections": {
+      "twitter": {
+        "title": "Twitter",
+        "description": "Maak specifieke UTM-tags voor Twitter.",
+        "intro_text": "Twitter is een krachtig platform voor bedrijven om in contact te komen met hun doelgroep en hun merk te promoten. Wanneer ze worden geïntegreerd in een Twitter-marketingstrategie, stellen UTM-tags marketeers in staat waardevolle inzichten te krijgen in de prestaties van hun campagnes, wat helpt bij het optimaliseren van marketinginspanningen voor betere resultaten. In deze blogpost worden UTM-tags besproken, waarom ze essentieel zijn voor Twitter-marketing en hoe ze effectief kunnen worden geïmplementeerd. <br/> <br/> Het genereren van UTM-tags is echter niet altijd zo eenvoudig als het lijkt. Sommige mensen gebruiken zelfs tools zoals Excel om hun UTM's bij te houden. Bij Simple Analytics hebben we een gratis UTM-builder gemaakt om je leven gemakkelijker te maken.",
+        "generator_info": "In de rest van deze blogpost zullen we bespreken wat UTM-tags zijn, waarom ze essentieel zijn voor Twitter-marketing en hoe ze effectief kunnen worden geïmplementeerd."
+      },
+      "tiktok": {
+        "title": "TikTok",
+        "description": "Maak UTM-tags voor TikTok.",
+        "intro_text": "De toenemende populariteit van TikTok als marketingplatform biedt volop kansen voor bedrijven om nieuwe doelgroepen te bereiken en de effectiviteit van hun campagnes te volgen. UTM-tags bieden waardevolle inzichten in de prestaties van marketinginspanningen op TikTok. <br/> <br/> Ze worden echter niet altijd correct gebruikt. Het genereren van UTM-tags is niet altijd zo eenvoudig als het lijkt. Sommige mensen gebruiken zelfs tools zoals Google Sheets om hun UTM's bij te houden. Bij Simple Analytics hebben we een gratis UTM-builder gemaakt om je leven gemakkelijker te maken.",
+        "generator_info": "In deze blogpost bespreken we wat UTM-tags zijn, waarom ze essentieel zijn voor succesvolle TikTok-marketing en hoe ze kunnen worden geïmplementeerd voor optimale resultaten."
+      },
+      "google_spreadsheet": {
+        "title": "Google Spreadsheets",
+        "description": "Maak UTM-tags voor Google Spreadsheets.",
+        "intro_text": "UTM-tags zijn een krachtige tool om online marketingcampagnes te volgen en te optimaliseren. Het kan echter soms lastig zijn om het overzicht te bewaren als je UTM-tags gebruikt voor al je campagnes. Sommige mensen gebruiken Google Spreadsheets om UTM-tags te genereren en op te slaan. <br/> <br/> Dit is een methode die gevoelig is voor menselijke fouten en niet de meest efficiënte manier is om UTM-tags te genereren. Wij hebben specifiek voor dit doel een UTM-generator gebouwd. Het gebruik van een UTM-generator zoals degene hieronder is veel eenvoudiger om nauwkeurige UTM-tags efficiënt te genereren. Vereenvoudig je leven door onze gratis UTM-builder hier te gebruiken.",
+        "generator_info": "In de rest van dit artikel zullen we bespreken wat UTM-tags zijn, waarom ze essentieel zijn voor effectieve marketing, hoe je ze kunt gebruiken in Google Spreadsheets (indien gewenst) en de mogelijke nadelen van het opbouwen van URL's met deze methode."
+      },
+      "google": {
+        "title": "Google",
+        "description": "Maak UTM-tags voor Google.",
+        "intro_text": "UTM-tags spelen een essentiële rol in digitale marketing, waardoor bedrijven de effectiviteit van hun marketingcampagnes over meerdere kanalen kunnen volgen. Deze tags werken naadloos samen met analysetools zoals Simple Analytics en Google Analytics, en bieden waardevolle inzichten om marketingstrategieën te verbeteren. <br/> <br/> Het genereren van UTM-tags is echter niet altijd zo eenvoudig als het lijkt. Sommige mensen gebruiken zelfs tools zoals Google Spreadsheets om hun UTM-tags bij te houden. Bij Simple Analytics hebben we een gratis UTM-builder ontwikkeld om je leven gemakkelijker te maken.",
+        "generator_info": "De rest van dit artikel zal beschrijven hoe je UTM-tags effectief kunt implementeren met behulp van onze UTM-builder voor Google."
+      },
+      "facebook": {
+        "title": "Facebook",
+        "description": "Maak UTM-tags voor Facebook.",
+        "intro_text": "Facebook blijft domineren in het sociale medialandschap en biedt uitstekende kansen voor bedrijven om in contact te komen met hun doelgroep. Door UTM-tags te integreren in je Facebook-marketingstrategie, kun je waardevolle inzichten krijgen in de prestaties van je campagnes, waardoor je je inspanningen kunt optimaliseren voor betere resultaten. <br/> <br/> Het genereren van UTM-tags is echter niet altijd zo eenvoudig als het lijkt. Sommige mensen gebruiken zelfs tools zoals Google Sheets om hun UTM-tags bij te houden. Bij Simple Analytics hebben we een gratis UTM-builder gemaakt om je leven gemakkelijker te maken.",
+        "generator_info": "In de rest van deze blogpost zullen we bespreken wat UTM-tags zijn, waarom ze essentieel zijn voor Facebook-marketing en hoe je ze effectief kunt implementeren."
+      },
+      "spreadsheet": {
+        "title": "Spreadsheet",
+        "description": "Maak UTM-tags voor spreadsheets.",
+        "intro_text": "UTM-tags zijn een onmisbare tool geworden voor marketeers om de prestaties van online campagnes bij te houden en datagestuurde beslissingen te nemen. Het genereren en bijhouden van UTM-tags is echter niet zo eenvoudig als het lijkt. Sommige mensen gebruiken spreadsheets om UTM-tags te genereren en op te slaan. Dit is een methode die gevoelig is voor menselijke fouten en niet de meest efficiënte manier om UTM-tags te genereren. We hebben specifiek voor dit doel een UTM-generator gebouwd. <br/> <br/> Het gebruik van een UTM-generator zoals degene hieronder is veel eenvoudiger om nauwkeurige UTM-tags efficiënt te genereren. Maak je leven gemakkelijker door onze gratis UTM-builder hier te gebruiken.",
+        "generator_info": "In de rest van het artikel zullen we bespreken wat UTM-tags zijn, waarom ze essentieel zijn, hoe je ze kunt gebruiken in spreadsheets en de mogelijke nadelen van het bouwen van URL's in spreadsheets."
+      }
+    }
+  },
+
   "utm_generator_form": {
     "title": "UTM-generator",
     "intro": "Onze UTM-generator is een handig hulpmiddel voor iedereen die zijn online campagnes wil volgen en analyseren. Of je nu een marketeer, contentmaker of bedrijfseigenaar bent, deze generator helpt je om je marketingkanalen beter te begrijpen.",
@@ -406,7 +450,14 @@
     "utm_source": "UTM-bron",
     "utm_source_placeholder": "Bijv.: nieuwsbrief",
     "utm_medium": "UTM-medium",
-    "utm_medium_placeholder": "Bijv.: e-mail",
+    "utm_medium_placeholder": {
+      "tiktok": "Bijv.: tiktok",
+      "google": "Bijv.: google",
+      "facebook": "Bijv.: facebook",
+      "twitter": "Bijv.: twitter",
+      "google_spreadsheet": "Bijv.: google",
+      "spreadsheet": "Bijv.: sheet"
+    },
     "utm_content": "UTM-content",
     "utm_content_placeholder": "Bijv.: voettekst_link",
     "utm_campaign": "UTM-campagne",

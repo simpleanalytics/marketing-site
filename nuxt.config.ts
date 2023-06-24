@@ -276,6 +276,22 @@ export default defineNuxtConfig({
         de: "/alternativen/[slug]",
         it: "/alternative/[slug]",
         fr: "/alternatives/[slug]"
+      },
+      "utm-builder/index": {
+        en: "/utm-builder",
+        nl: "/utm-builder",
+        es: "/constructor-de-utm",
+        de: "/utm-generator",
+        it: "/generatore-utm",
+        fr: "/constructeur-utm"
+      },
+      "utm-builder/[slug]": {
+        en: "utm-builder/[slug]",
+        nl: "utm-builder/[slug]",
+        es: "constructor-de-utm/[slug]",
+        de: "utm-generator/[slug]",
+        it: "generatore-utm/[slug]",
+        fr: "constructeur-utm/[slug]"
       }
     },
     detectBrowserLanguage: {

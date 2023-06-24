@@ -16,7 +16,7 @@
         :to="
           localePath({
             name: 'utm-builder-slug',
-            params: { section: action.type, slug: action.type },
+            params: { slug: action.type, articleSlug: action.articleSlug },
           })
         "
         class="group bg-white dark:bg-gray-700 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-red-500 dark:focus-within:ring-red-600 flex flex-col rounded-lg shadow dark:shadow-none"
@@ -25,7 +25,7 @@
           <span class="inline-flex p-3">
             <GoogleLogo v-if="action.type === 'google'" class="h-6 w-6" />
             <GoogleSheetLogo
-              v-else-if="action.type === 'google-spreadsheet'"
+              v-else-if="action.type === 'google_spreadsheet'"
               class="h-6 w-6"
             />
 
