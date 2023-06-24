@@ -62,7 +62,7 @@ import GoogleLogo from "@/components/logos/Google.vue";
 import FacebookLogo from "@/components/logos/Facebook.vue";
 import GoogleSheetLogo from "@/components/logos/GoogleSheet.vue";
 import SpreadSheetLogo from "@/components/logos/SpreadSheet.vue";
-import TikTokLogo from "@/components/logos/TikTop.vue";
+import TikTokLogo from "@/components/logos/TikTok.vue";
 import TwitterLogo from "@/components/logos/Twitter.vue";
 import Arrow from "@/components/Arrow.vue";
 import { types } from "@/data/utmBuilders.js";
