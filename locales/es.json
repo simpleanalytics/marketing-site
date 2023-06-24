@@ -31,7 +31,8 @@
       "privacy_policy": "Política de privacidad",
       "cookie_statement": "Declaración de cookies",
       "tos": "Términos y condiciones",
-      "company_details": "Detalles de la empresa"
+      "company_details": "Detalles de la empresa",
+      "utm_builder": "Generador de UTM"
     },
     "why_most_privacy": {
       "title": "¿Por qué Simple Analytics es la {0}solución más privada{1} para análisis?",

@@ -31,7 +31,8 @@
       "privacy_policy": "Privacybeleid",
       "cookie_statement": "Cookieverklaring",
       "tos": "Algemene voorwaarden",
-      "company_details": "Bedrijfsgegevens"
+      "company_details": "Bedrijfsgegevens",
+      "utm_builder": "UTM-builder"
     },
     "why_most_privacy": {
       "title": "Waarom is Simple Analytics {0}de meest privacy-first{1} analytics?",
