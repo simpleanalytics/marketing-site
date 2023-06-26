@@ -36,7 +36,7 @@ jobs:
           persist-credentials: false
 
       - name: Fail on forbidden words
-        uses: actions/fail-on-found-action@v2
+        uses: simpleanalytics/fail-on-found-action@v2
         with:
           query: "console.log"
           exclude: "node_modules,.git"
