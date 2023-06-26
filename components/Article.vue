@@ -118,8 +118,12 @@
           {{ $t("blog.content_not_translated") }}
         </p>
         <p v-else-if="!article.contentHtml" class="mt-6">
-          <NuxtLink class="button" :to="localePath({ name: showGlossary ? 'glossary' : 'resources' })"
-            >{{ showGlossary ? $t("glossary.overview") :  $t("resources.overview")}}
+          <NuxtLink
+            class="button"
+            :to="localePath({ name: showGlossary ? 'glossary' : 'resources' })"
+            >{{
+              showGlossary ? $t("glossary.overview") : $t("resources.overview")
+            }}
           </NuxtLink>
         </p>
       </div>
@@ -368,10 +372,10 @@ if (article?.value?.question) {
   useSchemaOrg([defineBreadcrumb(breadcrumb)]);
 }
 
-const showGlossary = computed(()=>{
-  const isArticleTypeResource = props.name.includes('resources') || false;
-  return !isArticleTypeResource ;
-})
+const showGlossary = computed(() => {
+  const isArticleTypeResource = props.name.includes("resources") || false;
+  return !isArticleTypeResource;
+});
 
 const ctaTranslation =
   new Date() < new Date(2023, 6, 1)

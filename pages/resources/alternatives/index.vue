@@ -34,7 +34,9 @@
       >
         <h3 class="text-lg font-medium text-link">
           <ClientOnly
-            v-if="article.locale !== locale && getFlagUrl(article.locale, LOCALES)"
+            v-if="
+              article.locale !== locale && getFlagUrl(article.locale, LOCALES)
+            "
           >
             <img
               :src="getFlagUrl(article.locale, LOCALES)"
@@ -77,5 +79,4 @@ const { articles, pending, error } = await useArticle({
   routeName: "resources-alternatives",
   articleType: "resources-alternatives",
 });
-
 </script>
