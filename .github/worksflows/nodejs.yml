@@ -1,0 +1,64 @@
+name: Test
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  push:
+    branches:
+      - main
+
+# Kill already running jobs after a new push
+concurrency:
+  group: ${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+env:
+  node-version: "18"
+
+jobs:
+  lint:
+    name: Lint with Prettier
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout pull request
+        uses: actions/checkout@v2
+        if: github.event_name == 'pull_request'
+        with:
+          ref: ${{ github.head_ref }}
+          persist-credentials: false
+
+      - name: Checkout main branch
+        uses: actions/checkout@v2
+        if: github.ref == 'refs/heads/main'
+        with:
+          persist-credentials: false
+
+      - name: Fail on forbidden words
+        uses: actions/fail-on-found-action@v2
+        with:
+          query: "console.log"
+          exclude: "node_modules,.git"
+
+      - name: Prettier Action on PR
+        if: github.event_name == 'pull_request'
+        uses: creyD/prettier_action@v4.3
+        with:
+          prettier_version: "2.6.2"
+          prettier_options: "--write {,!(static|.github)/**/}*.{js,html,json,md,yml,css,scss} static/js/**/*.js"
+          commit_message: "Run prettier via GitHub Action"
+          file_pattern: "."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Prettier Action on main
+        if: github.ref == 'refs/heads/main'
+        uses: creyD/prettier_action@v4.3
+        with:
+          prettier_version: "2.6.2"
+          prettier_options: "--write {,!(static|.github)/**/}*.{js,html,json,md,yml,css,scss} static/js/**/*.js"
+          commit_message: "Run prettier via GitHub Action"
+          file_pattern: "."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
