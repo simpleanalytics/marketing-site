@@ -46,7 +46,7 @@ jobs:
         uses: creyD/prettier_action@v4.3
         with:
           prettier_version: "2.6.2"
-          prettier_options: "--write {,!(static|.github)/**/}*.{js,html,json,md,yml,css,scss} static/js/**/*.js"
+          prettier_options: "--write {,!(static|.github)/**/}*.{js,vue,html,json,md,yml,css,scss}"
           commit_message: "Run prettier via GitHub Action"
           file_pattern: "."
         env:
@@ -57,7 +57,7 @@ jobs:
         uses: creyD/prettier_action@v4.3
         with:
           prettier_version: "2.6.2"
-          prettier_options: "--write {,!(static|.github)/**/}*.{js,html,json,md,yml,css,scss} static/js/**/*.js"
+          prettier_options: "--write {,!(static|.github)/**/}*.{js,vue,html,json,md,yml,css,scss}"
           commit_message: "Run prettier via GitHub Action"
           file_pattern: "."
         env:
