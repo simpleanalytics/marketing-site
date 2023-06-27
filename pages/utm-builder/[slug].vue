@@ -1,7 +1,9 @@
 <template>
   <div class="max-w-3xl px-4 mx-auto">
     <div class="text-center mx-4">
-      <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
+      <h1
+        class="text-4xl font-medium sm:text-5xl md:text-6xl md:leading-snug leading-relaxed"
+      >
         UTM generator for {{ $t(`utm_builder.sections.${type}.title`) }}
       </h1>
       <p

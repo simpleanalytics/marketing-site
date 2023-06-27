@@ -119,8 +119,26 @@
           {{ $t("blog.content_not_translated") }}
         </p>
         <p v-else-if="!article.contentHtml" class="mt-6">
-          <NuxtLink class="button" :to="localePath({ name: getTypeFromArticleName() === 'glossary' ? 'glossary' : getTypeFromArticleName() === 'resources' ? 'resources' : 'utm-builder' })"
-            >{{ getTypeFromArticleName() === 'glossary' ? $t("glossary.overview") : getTypeFromArticleName() === 'resources' ? $t("resources.overview") : $t("utm_builder.overview")}}
+          <NuxtLink
+            class="button"
+            v-if="getTypeFromArticleName() === 'glossary'"
+            :to="localePath({ name: 'glossary' })"
+          >
+            {{ $t("glossary.overview") }}
+          </NuxtLink>
+          <NuxtLink
+            class="button"
+            v-else-if="getTypeFromArticleName() === 'resources'"
+            :to="localePath({ name: 'resources' })"
+          >
+            {{ $t("glossary.overview") }}
+          </NuxtLink>
+          <NuxtLink
+            class="button"
+            v-else-if="getTypeFromArticleName() === 'utm-builder'"
+            :to="localePath({ name: 'utm-builder' })"
+          >
+            {{ $t("utm_builder.overview") }}
           </NuxtLink>
         </p>
       </div>
@@ -178,7 +196,16 @@
 </template>
 
 <script setup>
-const props = defineProps(["type", "name", "slug", "articleType", "drafts", "hideTitle", "hideAuthor", "hideSeoMeta"]);
+const props = defineProps([
+  "type",
+  "name",
+  "slug",
+  "articleType",
+  "drafts",
+  "hideTitle",
+  "hideAuthor",
+  "hideSeoMeta",
+]);
 
 import { categories } from "@/data/glossary";
 import MovingGradient from "@/components/MovingGradient.vue";
@@ -274,21 +301,21 @@ const image = computed(
       : null)
 );
 
-if(!props.hideSeoMeta){
-useSeoMeta({
-  title: () => article.value?.title,
-  ogTitle: () => article.value?.title,
-  description: () => article.value?.excerpt,
-  ogDescription: () => article.value?.excerpt,
-  ogImage: image,
-  twitterCard: "summary_large_image",
-  robots() {
-    if (article?.value?.title && !article?.value?.publishedAt) {
-      return "noindex";
-    }
-    return null;
-  },
-});
+if (!props.hideSeoMeta) {
+  useSeoMeta({
+    title: () => article.value?.title,
+    ogTitle: () => article.value?.title,
+    description: () => article.value?.excerpt,
+    ogDescription: () => article.value?.excerpt,
+    ogImage: image,
+    twitterCard: "summary_large_image",
+    robots() {
+      if (article?.value?.title && !article?.value?.publishedAt) {
+        return "noindex";
+      }
+      return null;
+    },
+  });
 }
 
 const routeParts = props.name
@@ -371,13 +398,11 @@ if (article?.value?.question) {
   useSchemaOrg([defineBreadcrumb(breadcrumb)]);
 }
 
-const getTypeFromArticleName = ()=>{
-  if(props.name.includes('resources'))
-    return "resources";
-  else if (props.name.includes('utm-builder'))
-    return "utm-builder";
+const getTypeFromArticleName = () => {
+  if (props.name.includes("resources")) return "resources";
+  else if (props.name.includes("utm-builder")) return "utm-builder";
   else return "glossary";
-}
+};
 
 const ctaTranslation =
   new Date() < new Date(2023, 6, 1)
