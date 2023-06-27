@@ -131,7 +131,7 @@
             v-else-if="getTypeFromArticleName() === 'resources'"
             :to="localePath({ name: 'resources' })"
           >
-            {{ $t("glossary.overview") }}
+            {{ $t("resources.overview") }}
           </NuxtLink>
           <NuxtLink
             class="button"
