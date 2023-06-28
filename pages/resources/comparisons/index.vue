@@ -71,12 +71,8 @@ const {
 } = useRuntimeConfig();
 
 const section = computed(() => {
-  const currentPagePath = route.path.split("/resources/")[1];
-  if (currentPagePath) {
-    const section = sections.find((section) => section.type == currentPagePath);
-    return section || {};
-  }
-  return {};
+  const section = sections.find((section) => section.type === "comparisons");
+  return section || {};
 });
 
 const { articles, pending, error } = await useArticle({

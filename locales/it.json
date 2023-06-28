@@ -31,7 +31,9 @@
       "privacy_policy": "Informativa sulla privacy",
       "cookie_statement": "Informativa sui cookie",
       "tos": "Termini e condizioni",
-      "company_details": "Dettagli azienda"
+      "company_details": "Dettagli azienda",
+      "resources": "Risorse",
+      "utm_builder": "Generatore di UTM"
     },
     "why_most_privacy": {
       "title": "Perché Simple Analytics è {0}la soluzione più rispettosa della privacy{1} per analizzare i dati?",
@@ -393,7 +395,57 @@
       "not_researched": "Ignoto"
     }
   },
-  "utm_generator": {
+  "utm_builder": {
+    "title": "Generatore UTM",
+    "overview": "Panoramica del generatore UTM",
+    "overview_description": "Questa pagina web presenta un generatore UTM progettato per diverse applicazioni, come TikTok, Google Analytics, fogli di calcolo, Twitter e Facebook.",
+    "sections": {
+      "twitter": {
+        "title": "Twitter",
+        "intro_title": "Generatore di UTM per Twitter",
+        "description": "Crea tag UTM specifici per Twitter.",
+        "intro_text": "Twitter è una piattaforma potente per le aziende per interagire con il proprio pubblico target e promuovere il proprio marchio. Quando vengono integrate in una strategia di marketing su Twitter, i tag UTM consentono ai marketer di ottenere preziose informazioni sulle prestazioni delle loro campagne, contribuendo ad ottimizzare gli sforzi di marketing per ottenere migliori risultati. In questo articolo del blog verranno discussi i tag UTM, perché sono essenziali per il marketing su Twitter e come implementarli in modo efficace. <br/> <br/> Tuttavia, generare tag UTM non è sempre semplice come sembra. Alcune persone utilizzano addirittura strumenti come Excel per tenere traccia dei loro UTM. Presso Simple Analytics, abbiamo creato un generatore di UTM gratuito per semplificarti la vita.",
+        "generator_info": "Nel resto di questo articolo del blog, esploreremo cosa sono i tag UTM, perché sono essenziali per il marketing su Twitter e come implementarli in modo efficace."
+      },
+      "tiktok": {
+        "title": "TikTok",
+        "intro_title": "Generatore di UTM per TikTok",
+        "description": "Crea tag UTM per TikTok.",
+        "intro_text": "La crescente popolarità di TikTok come piattaforma di marketing offre ampie opportunità alle aziende per raggiungere nuovi pubblici e tracciare l'efficacia delle proprie campagne. I tag UTM forniscono preziose informazioni sulle prestazioni degli sforzi di marketing su TikTok. <br/> <br/> Tuttavia, non vengono sempre utilizzati correttamente. Generare tag UTM non è sempre semplice come sembra. Alcune persone utilizzano addirittura strumenti come Google Sheets per tenere traccia dei loro UTM. Presso Simple Analytics, abbiamo creato un generatore di UTM gratuito per semplificarti la vita.",
+        "generator_info": "In questo articolo del blog, discuteremo cosa sono i tag UTM, perché sono essenziali per un marketing di successo su TikTok e come implementarli per ottenere risultati ottimali."
+      },
+      "google_spreadsheet": {
+        "title": "Google Fogli",
+        "intro_title": "Generatore di UTM per Google Spreadsheet",
+        "description": "Crea tag UTM per Google Fogli.",
+        "intro_text": "I tag UTM sono uno strumento potente per tracciare e ottimizzare le campagne di marketing online. Tuttavia, tenere traccia dei tuoi tag UTM a volte è difficile se li usi per tutte le tue campagne. Alcune persone utilizzano Google Fogli per generare e memorizzare i tag UTM. <br/> <br/> È un metodo soggetto a errori umani e non è il modo più efficiente per generare tag UTM. Abbiamo creato un generatore di UTM appositamente per questo scopo. Utilizzare un generatore di UTM come quello riportato di seguito è molto più semplice per creare tag UTM accurati in modo efficiente. Rendi la tua vita più facile utilizzando gratuitamente il nostro UTM builder qui.",
+        "generator_info": "Nel resto di questo articolo, discuteremo di cosa sono i tag UTM, perché sono essenziali per il marketing efficace, come utilizzarli in Google Fogli (se lo desideri) e i potenziali svantaggi della creazione di URL utilizzando questo metodo."
+      },
+      "google": {
+        "title": "Google",
+        "intro_title": "Generatore di UTM per Google",
+        "description": "Crea tag UTM per Google.",
+        "intro_text": "I tag UTM svolgono un ruolo essenziale nel marketing digitale, consentendo alle aziende di tracciare l'efficacia delle loro campagne di marketing su più canali. Questi tag funzionano perfettamente con strumenti di analisi come Simple Analytics e Google Analytics, fornendo informazioni preziose per migliorare le strategie di marketing. <br/> <br/> Tuttavia, generare tag UTM non è sempre semplice come sembra. Alcune persone utilizzano addirittura strumenti come Google Fogli per tenere traccia dei loro UTM. Presso Simple Analytics, abbiamo creato un UTM builder gratuito per semplificarti la vita.",
+        "generator_info": "Il resto di questo articolo illustrerà come implementare efficacemente i tag UTM utilizzando il nostro UTM builder per Google."
+      },
+      "facebook": {
+        "title": "Facebook",
+        "intro_title": "Generatore di UTM per Facebook",
+        "description": "Crea tag UTM per Facebook.",
+        "intro_text": "Facebook continua a dominare il panorama dei social media, offrendo eccezionali opportunità alle aziende per connettersi con il proprio pubblico di riferimento. Integrando i tag UTM nella tua strategia di marketing su Facebook, puoi ottenere preziosi insights sulle performance delle tue campagne, consentendoti di ottimizzare i tuoi sforzi per ottenere migliori risultati. <br/> <br/> Tuttavia, generare tag UTM non è sempre semplice come sembra. Alcune persone utilizzano addirittura strumenti come Google Sheets per tenere traccia dei loro UTM. Presso Simple Analytics, abbiamo creato un generatore di UTM gratuito per semplificarti la vita.",
+        "generator_info": "Nel resto di questo articolo del blog, esploreremo cosa sono i tag UTM, perché sono essenziali per il marketing su Facebook e come implementarli in modo efficace."
+      },
+      "spreadsheet": {
+        "title": "Foglio di calcolo",
+        "intro_title": "Generatore di UTM per Spreadsheet",
+        "description": "Crea tag UTM per fogli di calcolo.",
+        "intro_text": "I tag UTM sono diventati uno strumento indispensabile per i marketer per tracciare le performance delle campagne online e prendere decisioni basate sui dati. Tuttavia, generare tag UTM e tenerne traccia non è così semplice come sembra. Alcune persone utilizzano fogli di calcolo per generare e archiviare i tag UTM. È un metodo soggetto a errori umani e non è il modo più efficiente per generare tag UTM. Abbiamo creato un generatore di UTM appositamente a tal scopo. <br/> <br/> Utilizzare un generatore di UTM come quello riportato di seguito rende molto più facile creare tag UTM accurati ed efficienti. Semplifica la tua vita utilizzando il nostro costruttore di UTM gratuitamente qui.",
+        "generator_info": "Nel resto dell'articolo, discuteremo cosa sono i tag UTM, perché sono essenziali, come utilizzarli nei fogli di calcolo e i potenziali svantaggi nella creazione di URL nei fogli di calcolo."
+      }
+    }
+  },
+
+  "utm_generator_form": {
     "title": "Generatore UTM",
     "intro": "Il nostro generatore UTM è uno strumento utile per chiunque desideri monitorare e analizzare le proprie campagne online. Che tu sia un marketer, un creatore di contenuti o un imprenditore, questo generatore può aiutarti a comprendere meglio i tuoi canali di marketing.",
     "disclaimer": "Valorizziamo la tua privacy e non conserviamo nessuna informazione che inserisci, fornendo un modo semplice e sicuro per creare parametri UTM per i tuoi URL.",
@@ -406,7 +458,14 @@
     "utm_source": "Sorgente UTM",
     "utm_source_placeholder": "Esempio: newsletter",
     "utm_medium": "Mezzo UTM",
-    "utm_medium_placeholder": "Esempio: email",
+    "utm_medium_placeholder": {
+      "tiktok": "Esempio: tiktok",
+      "google": "Esempio: google",
+      "facebook": "Esempio: facebook",
+      "twitter": "Esempio: twitter",
+      "google_spreadsheet": "Esempio: google",
+      "spreadsheet": "Esempio: foglio"
+    },
     "utm_content": "Contenuto UTM",
     "utm_content_placeholder": "Esempio: footer_link",
     "utm_campaign": "Campagna UTM",

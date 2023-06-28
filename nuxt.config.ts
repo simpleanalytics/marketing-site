@@ -205,7 +205,7 @@ export default defineNuxtConfig({
         it: "/google-analytics-paesi/[slug]",
         fr: "/google-analytics-pays/[slug]",
       },
-      "resources/index":{
+      "resources/index": {
         en: "/resources",
         nl: "/bronnen",
         es: "/recursos",
@@ -213,69 +213,85 @@ export default defineNuxtConfig({
         it: "/risorse",
         fr: "/ressources"
       },
-      "comparisons/index" : {
-        en: "/comparisons",
-        nl: "/vergelijkingen",
-        es: "/comparaciones",
-        de: "/vergleiche",
-        it: "/confronti",
-        fr: "/comparaisons"
+      "resources/comparisons/index": {
+        en: "/resources/comparisons",
+        nl: "/bronnen/vergelijkingen",
+        es: "/recursos/comparaciones",
+        de: "/ressourcen/vergleiche",
+        it: "/risorse/confronti",
+        fr: "/ressources/comparaisons"
       },
-      "comparisons/[slug]": {
-        en: "/comparions/[slug]",
-        nl: "/vergelijkingen/[slug]",
-        es: "/comparaciones/[slug]",
-        de: "/vergleiche/[slug]",
-        it: "/confronti/[slug]",
-        fr: "/comparaisons/[slug]"
+      "resources/comparisons/[slug]": {
+        en: "/resources/comparions/[slug]",
+        nl: "/bronnen/vergelijkingen/[slug]",
+        es: "/recursos/comparaciones/[slug]",
+        de: "/ressourcen/vergleiche/[slug]",
+        it: "/risorse/confronti/[slug]",
+        fr: "/ressources/comparaisons/[slug]"
       },
-      "analytics-review/index": {
-        en: "/analytics-review",
-        nl: "/analyse-beoordeling",
-        es: "/revisiones-de-analiticas",
-        de: "/analysebewertung",
-        it: "/recensione-analitica",
-        fr: "/avis-analytiques"
+      "resources/analytics-review/index": {
+        en: "/resources/analytics-review",
+        nl: "/bronnen/analyse-beoordeling",
+        es: "/recursos/revisiones-de-analiticas",
+        de: "/ressourcen/analysebewertung",
+        it: "/risorse/recensione-analitica",
+        fr: "/ressources/avis-analytiques"
       },
-      "analytics-review/[slug]": {
-        en: "/analytics-review/[slug]",
-        nl: "/analyse-beoordeling/[slug]",
-        es: "/revisiones-de-analiticas/[slug]",
-        de: "/analysebewertung/[slug]",
-        it: "/recensione-analitica/[slug]",
-        fr: "/avis-analytiques/[slug]"
+      "resources/analytics-review/[slug]": {
+        en: "/resources/analytics-review/[slug]",
+        nl: "/bronnen/analyse-beoordeling/[slug]",
+        es: "/recursos/revisiones-de-analiticas/[slug]",
+        de: "/ressourcen/analysebewertung/[slug]",
+        it: "/risorse/recensione-analitica/[slug]",
+        fr: "/ressources/avis-analytiques/[slug]"
       },
-      "analytics-pricing/index": {
-        en: "/analytics-pricing",
-        nl: "/analyse-prijzen",
-        es: "/precios-de-analiticas",
-        de: "/analysepreise",
-        it: "/prezzo-analitico",
-        fr: "/prix-analytiques"
+      "resources/analytics-pricing/index": {
+        en: "/resources/analytics-pricing",
+        nl: "/bronnen/analyse-prijzen",
+        es: "/recursos/precios-de-analiticas",
+        de: "/ressourcen/analysepreise",
+        it: "/risorse/prezzo-analitico",
+        fr: "/ressources/prix-analytiques"
       },
-      "analytics-pricing/[slug]": {
-        en: "/analytics-pricing/[slug]",
-        nl: "/analyse-prijzen/[slug]",
-        es: "/precios-de-analiticas/[slug]",
-        de: "/analysepreise/[slug]",
-        it: "/prezzo-analitico/[slug]",
-        fr: "/prix-analytiques/[slug]"
+      "resources/analytics-pricing/[slug]": {
+        en: "/resources/analytics-pricing/[slug]",
+        nl: "/bronnen/analyse-prijzen/[slug]",
+        es: "/recursos/precios-de-analiticas/[slug]",
+        de: "/ressourcen/analysepreise/[slug]",
+        it: "/risorse/prezzo-analitico/[slug]",
+        fr: "/ressources/prix-analytiques/[slug]"
       },
-      "alternatives/index": {
-        en: "/alternatives",
-        nl: "/alternatieven",
-        es: "/alternativas",
-        de: "/alternativen",
-        it: "/alternative",
-        fr: "/alternatives"
+      "resources/alternatives/index": {
+        en: "/resources/alternatives",
+        nl: "/bronnen/alternatieven",
+        es: "/recursos/alternativas",
+        de: "/ressourcen/alternativen",
+        it: "/risorse/alternative",
+        fr: "/ressources/alternatives"
       },
-      "alternatives/[slug]": {
-        en: "/alternatives/[slug]",
-        nl: "/alternatieven/[slug]",
-        es: "/alternativas/[slug]",
-        de: "/alternativen/[slug]",
-        it: "/alternative/[slug]",
-        fr: "/alternatives/[slug]"
+      "resources/alternatives/[slug]": {
+        en: "/resources/alternatives/[slug]",
+        nl: "/bronnen/alternatieven/[slug]",
+        es: "/recursos/alternativas/[slug]",
+        de: "/ressourcen/alternativen/[slug]",
+        it: "/risorse/alternative/[slug]",
+        fr: "/ressources/alternatives/[slug]"
+      },
+      "utm-builder/index": {
+        en: "/utm-builder",
+        nl: "/utm-builder",
+        es: "/constructor-de-utm",
+        de: "/utm-generator",
+        it: "/generatore-utm",
+        fr: "/constructeur-utm"
+      },
+      "utm-builder/[slug]": {
+        en: "/utm-builder/[slug]",
+        nl: "/utm-builder/[slug]",
+        es: "/constructor-de-utm/[slug]",
+        de: "/utm-generator/[slug]",
+        it: "/generatore-utm/[slug]",
+        fr: "/constructeur-utm/[slug]"
       }
     },
     detectBrowserLanguage: {

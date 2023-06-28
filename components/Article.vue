@@ -7,6 +7,7 @@
         <slot name="title">
           <h1
             class="mt-4 text-4xl font-medium sm:text-5xl md:text-6xl md:leading-normal sm:leading-normal"
+            v-if="!props.hideTitle"
           >
             <span v-if="article?.question">{{ article.question }}</span>
             <span v-else-if="article?.title">{{ article.title }}</span>
@@ -17,7 +18,7 @@
         <!-- Show published date with avatar -->
         <div
           class="flex items-center justify-center mt-4"
-          v-if="article.authorSlug && article.publishedAt"
+          v-if="article.authorSlug && article.publishedAt && !props.hideAuthor"
         >
           <div class="flex items-center">
             <Avatar :slug="article.authorSlug" />
@@ -120,10 +121,24 @@
         <p v-else-if="!article.contentHtml" class="mt-6">
           <NuxtLink
             class="button"
-            :to="localePath({ name: showGlossary ? 'glossary' : 'resources' })"
-            >{{
-              showGlossary ? $t("glossary.overview") : $t("resources.overview")
-            }}
+            v-if="getTypeFromArticleName() === 'glossary'"
+            :to="localePath({ name: 'glossary' })"
+          >
+            {{ $t("glossary.overview") }}
+          </NuxtLink>
+          <NuxtLink
+            class="button"
+            v-else-if="getTypeFromArticleName() === 'resources'"
+            :to="localePath({ name: 'resources' })"
+          >
+            {{ $t("resources.overview") }}
+          </NuxtLink>
+          <NuxtLink
+            class="button"
+            v-else-if="getTypeFromArticleName() === 'utm-builder'"
+            :to="localePath({ name: 'utm-builder' })"
+          >
+            {{ $t("utm_builder.overview") }}
           </NuxtLink>
         </p>
       </div>
@@ -181,7 +196,16 @@
 </template>
 
 <script setup>
-const props = defineProps(["type", "name", "slug", "articleType", "drafts"]);
+const props = defineProps([
+  "type",
+  "name",
+  "slug",
+  "articleType",
+  "drafts",
+  "hideTitle",
+  "hideAuthor",
+  "hideSeoMeta",
+]);
 
 import { categories } from "@/data/glossary";
 import MovingGradient from "@/components/MovingGradient.vue";
@@ -277,20 +301,22 @@ const image = computed(
       : null)
 );
 
-useSeoMeta({
-  title: () => article.value?.title,
-  ogTitle: () => article.value?.title,
-  description: () => article.value?.excerpt,
-  ogDescription: () => article.value?.excerpt,
-  ogImage: image,
-  twitterCard: "summary_large_image",
-  robots() {
-    if (article?.value?.title && !article?.value?.publishedAt) {
-      return "noindex";
-    }
-    return null;
-  },
-});
+if (!props.hideSeoMeta) {
+  useSeoMeta({
+    title: () => article.value?.title,
+    ogTitle: () => article.value?.title,
+    description: () => article.value?.excerpt,
+    ogDescription: () => article.value?.excerpt,
+    ogImage: image,
+    twitterCard: "summary_large_image",
+    robots() {
+      if (article?.value?.title && !article?.value?.publishedAt) {
+        return "noindex";
+      }
+      return null;
+    },
+  });
+}
 
 const routeParts = props.name
   .replace(/key\-terms/, "keyterms")
@@ -372,10 +398,12 @@ if (article?.value?.question) {
   useSchemaOrg([defineBreadcrumb(breadcrumb)]);
 }
 
-const showGlossary = computed(() => {
-  const isArticleTypeResource = props.name.includes("resources") || false;
-  return !isArticleTypeResource;
-});
+
+const getTypeFromArticleName = () => {
+  if (props.name.includes("resources")) return "resources";
+  else if (props.name.includes("utm-builder")) return "utm-builder";
+  else return "glossary";
+};
 
 const ctaTranslation =
   new Date() < new Date(2023, 6, 1)

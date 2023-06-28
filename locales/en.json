@@ -32,7 +32,8 @@
       "cookie_statement": "Cookie statement",
       "tos": "Terms & conditions",
       "company_details": "Company details",
-      "resources": "Resources"
+      "resources": "Resources",
+      "utm_builder": "UTM Builder"
     },
     "why_most_privacy": {
       "title": "Why is Simple Analytics the {0}most privacy-first{1} analytics?",
@@ -383,6 +384,55 @@
       }
     }
   },
+  "utm_builder": {
+    "title": "UTM Builder",
+    "overview": "UTM Builder overview",
+    "overview_description": "This webpage presents a UTM builder designed for various applications, such as TikTok, Google Analytics, spreadsheets, Twitter, and Facebook.",
+    "sections": {
+      "twitter": {
+        "title": "Twitter",
+        "intro_title": "UTM generator for Twitter",
+        "description": "Create UTM tags specifically for Twitter.",
+        "intro_text": "Twitter is a powerful platform for businesses to engage with their target audience and promote their brand. When integrated into a Twitter marketing strategy, UTM tags allow marketers to gain valuable insights into the performance of their campaigns, helping to optimize marketing efforts for better results.This blog post will discuss UTM tags, why they are essential for Twitter marketing, and how to implement them effectively. <br/>  <br/> However, generating UTM tags is not always as straightforward as it seems. Some people even use something like Excel to keep track of their UTMs. At Simple Analytics, we created a free UTM builder to make your life easier. ",
+        "generator_info": " In the rest of this blog post, we will explore what UTM tags are, why they are essential for Twitter marketing, and how to implement them effectively."
+      },
+      "tiktok": {
+        "title": "TikTok",
+        "intro_title": "UTM generator for TikTok",
+        "description": "Create UTM tags for TikTok.",
+        "intro_text": "The increasing popularity of TikTok as a marketing platform presents ample opportunities for businesses to reach new audiences and track the effectiveness of their campaigns. UTM tags provide valuable insights into the performance of marketing efforts on TikTok. <br/>  <br/>  However, they are not always used correctly. Generating UTM tags is not always as straightforward as it seems. Some people even use something like Google Sheets to keep track of their UTMs. At Simple Analytics, we created a free UTM builder to make your life easier.",
+        "generator_info": "In this blog post, we will discuss what UTM tags are, why they are essential for successful TikTok marketing, and how to implement them for optimal results.        "
+      },
+      "google_spreadsheet": {
+        "title": "Google Spreadsheet",
+        "intro_title": "UTM generator for Google Spreadsheet",
+        "description": "Create UTM tags for Google Spreadsheet.",
+        "intro_text": "UTM tags are a powerful tool for tracking and optimizing online marketing campaigns. However, keeping track of your UTM tags is sometimes difficult if you use them for all your campaigns. Some people use Google Sheets to generate and store UTM tags. <br/>  <br/> It’s a method prone to human error and not the most efficient way to generate UTM tags. We built a UTM generator specifically for this purpose. Using a UTM generator like the one below is much easier to create accurate UTM tags efficiently. Make your life easier by using our UTM-builder for free here. ",
+        "generator_info": "In the rest of this article, we will discuss what UTM tags are, why they are essential for effective marketing, how to use them in Google Sheets (if you still want this), and the potential drawbacks of building URLs using this method.        "
+      },
+      "google": {
+        "title": "Google",
+        "intro_title": "UTM generator for Google",
+        "description": "Create UTM tags for Google.",
+        "intro_text": "UTM tags play an essential role in digital marketing, allowing businesses to track the effectiveness of their marketing campaigns across multiple channels. These tags work seamlessly with analytics tools like Simple Analytics and Google Analytics, providing valuable insights to improve marketing strategies.<br/>  <br/> However, generating UTM tags is not always as straightforward as it seems. Some people even use something like Google Sheets to keep track of their UTMs. At Simple Analytics, we created a free UTM builder to make your life easier.",
+        "generator_info": "The rest of this article will outline how to implement UTM tags effectively using our UTM builder for Google. "
+      },
+      "facebook": {
+        "title": "Facebook",
+        "intro_title": "UTM generator for Facebook",
+        "description": "Create UTM tags for Facebook.",
+        "intro_text": "Facebook continues to dominate the social media landscape, providing exceptional opportunities for businesses to connect with their target audience. By integrating UTM tags into your Facebook marketing strategy, you can gain valuable insights into your campaigns' performance, allowing you to optimize your efforts for better results. <br/>  <br/> However, generating UTM tags is not always as straightforward as it seems. Some people even use something like Google Sheets to keep track of their UTMs. At Simple Analytics, we created a free UTM-builder to make your life easier",
+        "generator_info": "In the rest of this blog post, we will explore what UTM tags are, why they are essential for Facebook marketing, and how to implement them effectively."
+      },
+      "spreadsheet": {
+        "title": "Spreadsheet",
+        "intro_title": "UTM generator for Spreadsheet",
+        "description": "Create UTM tags for Spreadsheet.",
+        "intro_text": "UTM tags have become an indispensable tool for marketers to track online campaign performance and make data-driven decisions. However, generating UTM tags and tracking them is not as straightforward as it seems. Some people use spreadsheets to generate and store UTM tags. It’s a method prone to human error and not the most efficient way to generate UTM tags. We built a UTM generator specifically for this purpose. <br/>  <br/> Using a UTM generator like the one below is much easier to create accurate UTM tags efficiently. Make your life easier by using our UTM-builder for free here. ",
+        "generator_info": "In the rest of the article, we will discuss what UTM tags are, why they are essential, how to use them in spreadsheets, and the potential drawbacks of building URLs in spreadsheets."
+      }
+    }
+  },
   "ga_countries": {
     "overview": "Countries where Google Analytics is declared illegal",
     "overview_description": "In some countries, Google Analytics is declared illegal. This is because Google Analytics is not GDPR-compliant. In these countries, you can use Simple Analytics instead. We are GDPR-compliant, and we don't use cookies.",
@@ -395,7 +445,7 @@
       "not_researched": "Not researched"
     }
   },
-  "utm_generator": {
+  "utm_generator_form": {
     "title": "UTM generator",
     "intro": "Our UTM generator is a useful tool for anyone who wants to track and analyze their online campaigns. Whether you're a marketer, content creator, or business owner, this generator can help you better understand your marketing channels.",
     "disclaimer": "We value your privacy and do not store any information you enter, providing a simple and secure way to create UTM parameters for your URLs.",
@@ -408,9 +458,16 @@
     "utm_source": "UTM source",
     "utm_source_placeholder": "E.g.: newsletter",
     "utm_medium": "UTM medium",
-    "utm_medium_placeholder": "E.g.: email",
+    "utm_medium_placeholder": {
+      "tiktok": "E.g.: tiktok",
+      "google": "E.g.: google",
+      "facebook": "E.g.: facebook",
+      "twitter": "E.g.: twitter",
+      "google_spreadsheet": "E.g.: google",
+      "spreadsheet": "E.g.: sheet"
+    },
     "utm_content": "UTM content",
-    "utm_content_placeholder": "E.g.: footer_link",
+    "utm_content_placeholder": "E.g.: video_ad",
     "utm_campaign": "UTM campaign",
     "utm_campaign_placeholder": "E.g.: spring-sale",
     "utm_term": "UTM term",

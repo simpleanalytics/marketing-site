@@ -1,0 +1,51 @@
+export const types = [
+  {
+    titleTranslation: "utm_builder.sections.twitter.title",
+    descriptionTranslation: "utm_builder.sections.twitter.description",
+    iconSlug: "twitter",
+    type: "twitter",
+    iconBackground: "bg-sky-50 dark:bg-sky-200",
+    articleSlug: "utm-builder-twitter",
+  },
+  {
+    titleTranslation: "utm_builder.sections.tiktok.title",
+    descriptionTranslation: "utm_builder.sections.tiktok.description",
+    iconSlug: "tiktok",
+    type: "tiktok",
+    iconBackground: "bg-slate-50 dark:bg-slate-700",
+    articleSlug: "utm-builder-tiktok",
+  },
+  {
+    titleTranslation: "utm_builder.sections.google_spreadsheet.title",
+    descriptionTranslation:
+      "utm_builder.sections.google_spreadsheet.description",
+    iconSlug: "google-spreadsheet",
+    type: "google-spreadsheet",
+    iconBackground: "bg-green-50 dark:bg-green-900",
+    articleSlug: "utm-builder-google-spreadsheet",
+  },
+  {
+    titleTranslation: "utm_builder.sections.google.title",
+    descriptionTranslation: "utm_builder.sections.google.description",
+    iconSlug: "google",
+    type: "google",
+    iconBackground: "bg-orange-50 dark:bg-[#5c3f03]",
+    articleSlug: "utm-builder-google",
+  },
+  {
+    titleTranslation: "utm_builder.sections.facebook.title",
+    descriptionTranslation: "utm_builder.sections.facebook.description",
+    iconSlug: "facebook",
+    type: "facebook",
+    iconBackground: "bg-cyan-50 dark:bg-cyan-900",
+    articleSlug: "utm-builder-facebook",
+  },
+  {
+    titleTranslation: "utm_builder.sections.spreadsheet.title",
+    descriptionTranslation: "utm_builder.sections.spreadsheet.description",
+    iconSlug: "spreadsheet",
+    type: "spreadsheet",
+    iconBackground: "bg-green-50 dark:bg-green-900",
+    articleSlug: "utm-builder-spreadsheet",
+  },
+];

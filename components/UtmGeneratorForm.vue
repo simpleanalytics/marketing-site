@@ -1,107 +1,95 @@
 <template>
   <div>
-    <div class="text-center">
-      <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
-        {{ $t("utm_generator.title") }}.
-      </h1>
-    </div>
-
-    <div class="max-w-2xl px-6 mx-auto mt-8">
-      <p class="mb-4 leading-loose text-md text-center">
-        {{ $t("utm_generator.intro") }}
-      </p>
-    </div>
-
     <div class="max-w-xl px-6 mx-auto mt-8">
       <!-- UTM generator form -->
       <form @submit.prevent="generateUrl">
         <div class="mb-4">
           <label for="baseUrl" class="block text-sm font-medium mb-2">
-            {{ $t("utm_generator.base_url") }}
+            {{ $t("utm_generator_form.base_url") }}
           </label>
           <input
             v-model="baseUrl"
             type="text"
             id="baseUrl"
             class="block w-full dark:border-none border border-gray-300 dark:text-gray-200 text-gray-700 rounded py-2 px-3 dark:bg-gray-600"
-            :placeholder="$t('utm_generator.base_url_placeholder')"
+            :placeholder="$t('utm_generator_form.base_url_placeholder')"
             required
           />
         </div>
 
         <div class="mb-4">
           <label for="utmSource" class="block text-sm font-medium mb-2">
-            {{ $t("utm_generator.utm_source") }}
+            {{ $t("utm_generator_form.utm_source") }}
           </label>
           <input
             v-model="utmSource"
             type="text"
             id="utmSource"
             class="block w-full dark:border-none border border-gray-300 dark:text-gray-200 text-gray-700 rounded py-2 px-3 dark:bg-gray-600"
-            :placeholder="$t('utm_generator.utm_source_placeholder')"
+            :placeholder="$t('utm_generator_form.utm_source_placeholder')"
           />
         </div>
 
         <div class="mb-4">
           <label for="utmMedium" class="block text-sm font-medium mb-2">
-            {{ $t("utm_generator.utm_medium") }}
+            {{ $t("utm_generator_form.utm_medium") }}
           </label>
           <input
             v-model="utmMedium"
             type="text"
             id="utmMedium"
             class="block w-full dark:border-none border border-gray-300 dark:text-gray-200 text-gray-700 rounded py-2 px-3 dark:bg-gray-600"
-            :placeholder="$t('utm_generator.utm_medium_placeholder')"
+            :placeholder="$t(`utm_generator_form.utm_medium_placeholder.${type}`)"
           />
         </div>
 
         <div class="mb-4">
           <label for="utmContent" class="block text-sm font-medium mb-2">
-            {{ $t("utm_generator.utm_content") }}
+            {{ $t("utm_generator_form.utm_content") }}
           </label>
           <input
             v-model="utmContent"
             type="text"
             id="utmContent"
             class="block w-full dark:border-none border border-gray-300 dark:text-gray-200 text-gray-700 rounded py-2 px-3 dark:bg-gray-600"
-            :placeholder="$t('utm_generator.utm_content_placeholder')"
+            :placeholder="$t('utm_generator_form.utm_content_placeholder')"
           />
         </div>
 
         <div class="mb-4">
           <label for="utmCampaign" class="block text-sm font-medium mb-2">
-            {{ $t("utm_generator.utm_campaign") }}
+            {{ $t("utm_generator_form.utm_campaign") }}
           </label>
           <input
             v-model="utmCampaign"
             type="text"
             id="utmCampaign"
             class="block w-full dark:border-none border border-gray-300 dark:text-gray-200 text-gray-700 rounded py-2 px-3 dark:bg-gray-600"
-            :placeholder="$t('utm_generator.utm_campaign_placeholder')"
+            :placeholder="$t('utm_generator_form.utm_campaign_placeholder')"
           />
         </div>
 
         <div class="mb-4">
           <label for="utmTerm" class="block text-sm font-medium mb-2">
-            {{ $t("utm_generator.utm_term") }}
+            {{ $t("utm_generator_form.utm_term") }}
           </label>
           <input
             v-model="utmTerm"
             type="text"
             id="utmTerm"
             class="block w-full dark:border-none border border-gray-300 dark:text-gray-200 text-gray-700 rounded py-2 px-3 dark:bg-gray-600"
-            :placeholder="$t('utm_generator.utm_term_placeholder')"
+            :placeholder="$t('utm_generator_form.utm_term_placeholder')"
           />
         </div>
 
         <button type="submit" class="button">
-          {{ $t("utm_generator.generate_url") }}
+          {{ $t("utm_generator_form.generate_url") }}
         </button>
       </form>
 
       <div v-if="generatedUrl" class="mt-4">
         <label for="generatedUrlInput" class="block text-sm font-medium mb-2">
-          {{ $t("utm_generator.generated_url") }}
+          {{ $t("utm_generator_form.generated_url") }}
         </label>
         <div class="flex items-center space-x-2">
           <input
@@ -119,7 +107,7 @@
             ]"
           >
             {{
-              isCopied ? $t("utm_generator.copied") : $t("utm_generator.copy")
+              isCopied ? $t("utm_generator_form.copied") : $t("utm_generator_form.copy")
             }}
           </button>
         </div>
@@ -128,7 +116,7 @@
 
     <div class="max-w-2xl px-6 mx-auto mt-8">
       <p class="mb-4 leading-loose text-md text-center">
-        {{ $t("utm_generator.disclaimer") }}
+        {{ $t("utm_generator_form.disclaimer") }}
       </p>
     </div>
   </div>
@@ -137,10 +125,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-definePageMeta({
-  title: "UTM generator",
-  description: "Simple Analytics UTM generator",
-});
+const { type } = defineProps(["type"]);
 
 const baseUrl = ref("");
 const utmSource = ref("");
