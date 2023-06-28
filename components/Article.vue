@@ -398,7 +398,6 @@ if (article?.value?.question) {
   useSchemaOrg([defineBreadcrumb(breadcrumb)]);
 }
 
-
 const getTypeFromArticleName = () => {
   if (props.name.includes("resources")) return "resources";
   else if (props.name.includes("utm-builder")) return "utm-builder";

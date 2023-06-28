@@ -39,7 +39,9 @@
             type="text"
             id="utmMedium"
             class="block w-full dark:border-none border border-gray-300 dark:text-gray-200 text-gray-700 rounded py-2 px-3 dark:bg-gray-600"
-            :placeholder="$t(`utm_generator_form.utm_medium_placeholder.${type}`)"
+            :placeholder="
+              $t(`utm_generator_form.utm_medium_placeholder.${type}`)
+            "
           />
         </div>
 
@@ -107,7 +109,9 @@
             ]"
           >
             {{
-              isCopied ? $t("utm_generator_form.copied") : $t("utm_generator_form.copy")
+              isCopied
+                ? $t("utm_generator_form.copied")
+                : $t("utm_generator_form.copy")
             }}
           </button>
         </div>
