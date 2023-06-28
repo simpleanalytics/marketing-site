@@ -874,7 +874,7 @@ import {
   NewspaperIcon,
   AcademicCapIcon,
   BuildingLibraryIcon,
-  LinkIcon
+  LinkIcon,
 } from "@heroicons/vue/24/outline";
 
 import MenuLink from "./components/MenuLink.vue";

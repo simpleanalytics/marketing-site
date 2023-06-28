@@ -1,10 +1,12 @@
 <template>
   <div class="max-w-3xl px-4 mx-auto">
     <div class="text-center mx-4">
-      <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
+      <h1
+        class="text-4xl font-medium sm:text-5xl md:text-6xl md:leading-snug leading-relaxed"
+      >
         {{ $t("utm_builder.overview") }}
       </h1>
-      <p class="mt-8 text-lg">
+      <p class="mt-8 text-lg leading-relaxed">
         {{ $t("utm_builder.overview_description") }}
       </p>
     </div>
@@ -25,7 +27,7 @@
           <span class="inline-flex p-3">
             <GoogleLogo v-if="action.type === 'google'" class="h-6 w-6" />
             <GoogleSheetLogo
-              v-else-if="action.type === 'google_spreadsheet'"
+              v-else-if="action.type === 'google-spreadsheet'"
               class="h-6 w-6"
             />
 

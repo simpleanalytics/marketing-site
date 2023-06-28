@@ -20,7 +20,7 @@ export const types = [
     descriptionTranslation:
       "utm_builder.sections.google_spreadsheet.description",
     iconSlug: "google-spreadsheet",
-    type: "google_spreadsheet",
+    type: "google-spreadsheet",
     iconBackground: "bg-green-50 dark:bg-green-900",
     articleSlug: "utm-builder-google-spreadsheet",
   },

@@ -4,10 +4,10 @@
       <h1
         class="text-4xl font-medium sm:text-5xl md:text-6xl md:leading-snug leading-relaxed"
       >
-        UTM generator for {{ $t(`utm_builder.sections.${type}.title`) }}
+        {{ $t(`utm_builder.sections.${type}.intro_title`) }}
       </h1>
       <p
-        class="mt-8 text-md"
+        class="mt-8 text-md leading-relaxed"
         v-html="$t(`utm_builder.sections.${type}.intro_text`)"
       ></p>
     </div>
@@ -36,7 +36,8 @@ const route = useRoute();
 let { slug, articleSlug } = route.params;
 
 const type = computed(() => {
-  return route.params.slug;
+  if (route.params.slug === "google-spreadsheet") return "google_spreadsheet";
+  else return route.params.slug;
 });
 
 slug = `${slug.charAt(0).toUpperCase()}${slug.slice(1)}`;
