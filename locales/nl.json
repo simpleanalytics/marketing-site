@@ -473,6 +473,10 @@
     "utm_term": "UTM-term",
     "utm_term_placeholder": "Bijv.: schoenen met lichtjes"
   },
+  "press": {
+    "title": "Pers",
+    "description": "Vermeldingen van Simple Analytics in de pers."
+  },
   "time": {
     "intl_locale": "nl-NL",
     "now": "nu",

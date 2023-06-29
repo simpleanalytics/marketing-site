@@ -473,6 +473,10 @@
     "utm_term": "Termine UTM",
     "utm_term_placeholder": "Esempio: scarpe con luci"
   },
+  "press": {
+    "title": "Stampa",
+    "description": "Menzioni di Simple Analytics sulla stampa."
+  },
   "time": {
     "intl_locale": "it-IT",
     "now": "ora",
