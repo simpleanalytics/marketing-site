@@ -474,6 +474,10 @@
     "utm_term": "UTM-Begriff",
     "utm_term_placeholder": "Z.B.: schuhe mit lichtern"
   },
+  "press": {
+    "title": "Presse",
+    "description": "Erwähnungen von Simple Analytics in der Presse."
+  },
   "time": {
     "intl_locale": "de-DE",
     "now": "jetzt",

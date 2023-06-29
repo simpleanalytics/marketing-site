@@ -473,6 +473,10 @@
     "utm_term": "Terme UTM",
     "utm_term_placeholder": "Ex. : chaussures à lumières"
   },
+  "press": {
+    "title": "Presse",
+    "description": "Mentions de Simple Analytics dans la presse."
+  },
   "time": {
     "intl_locale": "fr-FR",
     "now": "maintenant",

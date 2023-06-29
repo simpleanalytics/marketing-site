@@ -149,6 +149,14 @@ export default defineNuxtConfig({
         it: "/blog/[slug]",
         fr: "/blog/[slug]",
       },
+      "press/index": {
+        en: "/press",
+        nl: "/pers",
+        es: "/prensa",
+        de: "/presse",
+        it: "/stampa",
+        fr: "/presse",
+      },
       "glossary/index": {
         en: "/glossaries",
         nl: "/begrippenlijsten",
@@ -211,7 +219,7 @@ export default defineNuxtConfig({
         es: "/recursos",
         de: "/ressourcen",
         it: "/risorse",
-        fr: "/ressources"
+        fr: "/ressources",
       },
       "resources/comparisons/index": {
         en: "/resources/comparisons",
@@ -219,7 +227,7 @@ export default defineNuxtConfig({
         es: "/recursos/comparaciones",
         de: "/ressourcen/vergleiche",
         it: "/risorse/confronti",
-        fr: "/ressources/comparaisons"
+        fr: "/ressources/comparaisons",
       },
       "resources/comparisons/[slug]": {
         en: "/resources/comparions/[slug]",
@@ -227,7 +235,7 @@ export default defineNuxtConfig({
         es: "/recursos/comparaciones/[slug]",
         de: "/ressourcen/vergleiche/[slug]",
         it: "/risorse/confronti/[slug]",
-        fr: "/ressources/comparaisons/[slug]"
+        fr: "/ressources/comparaisons/[slug]",
       },
       "resources/analytics-review/index": {
         en: "/resources/analytics-review",
@@ -235,7 +243,7 @@ export default defineNuxtConfig({
         es: "/recursos/revisiones-de-analiticas",
         de: "/ressourcen/analysebewertung",
         it: "/risorse/recensione-analitica",
-        fr: "/ressources/avis-analytiques"
+        fr: "/ressources/avis-analytiques",
       },
       "resources/analytics-review/[slug]": {
         en: "/resources/analytics-review/[slug]",
@@ -243,7 +251,7 @@ export default defineNuxtConfig({
         es: "/recursos/revisiones-de-analiticas/[slug]",
         de: "/ressourcen/analysebewertung/[slug]",
         it: "/risorse/recensione-analitica/[slug]",
-        fr: "/ressources/avis-analytiques/[slug]"
+        fr: "/ressources/avis-analytiques/[slug]",
       },
       "resources/analytics-pricing/index": {
         en: "/resources/analytics-pricing",
@@ -251,7 +259,7 @@ export default defineNuxtConfig({
         es: "/recursos/precios-de-analiticas",
         de: "/ressourcen/analysepreise",
         it: "/risorse/prezzo-analitico",
-        fr: "/ressources/prix-analytiques"
+        fr: "/ressources/prix-analytiques",
       },
       "resources/analytics-pricing/[slug]": {
         en: "/resources/analytics-pricing/[slug]",
@@ -259,7 +267,7 @@ export default defineNuxtConfig({
         es: "/recursos/precios-de-analiticas/[slug]",
         de: "/ressourcen/analysepreise/[slug]",
         it: "/risorse/prezzo-analitico/[slug]",
-        fr: "/ressources/prix-analytiques/[slug]"
+        fr: "/ressources/prix-analytiques/[slug]",
       },
       "resources/alternatives/index": {
         en: "/resources/alternatives",
@@ -267,7 +275,7 @@ export default defineNuxtConfig({
         es: "/recursos/alternativas",
         de: "/ressourcen/alternativen",
         it: "/risorse/alternative",
-        fr: "/ressources/alternatives"
+        fr: "/ressources/alternatives",
       },
       "resources/alternatives/[slug]": {
         en: "/resources/alternatives/[slug]",
@@ -275,7 +283,7 @@ export default defineNuxtConfig({
         es: "/recursos/alternativas/[slug]",
         de: "/ressourcen/alternativen/[slug]",
         it: "/risorse/alternative/[slug]",
-        fr: "/ressources/alternatives/[slug]"
+        fr: "/ressources/alternatives/[slug]",
       },
       "utm-builder/index": {
         en: "/utm-builder",
@@ -283,7 +291,7 @@ export default defineNuxtConfig({
         es: "/constructor-de-utm",
         de: "/utm-generator",
         it: "/generatore-utm",
-        fr: "/constructeur-utm"
+        fr: "/constructeur-utm",
       },
       "utm-builder/[slug]": {
         en: "/utm-builder/[slug]",
@@ -291,8 +299,8 @@ export default defineNuxtConfig({
         es: "/constructor-de-utm/[slug]",
         de: "/utm-generator/[slug]",
         it: "/generatore-utm/[slug]",
-        fr: "/constructeur-utm/[slug]"
-      }
+        fr: "/constructeur-utm/[slug]",
+      },
     },
     detectBrowserLanguage: {
       useCookie: true,
