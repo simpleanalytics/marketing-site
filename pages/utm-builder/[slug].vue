@@ -7,7 +7,7 @@
         {{ $t(`utm_builder.sections.${type}.intro_title`) }}
       </h1>
       <p
-        class="mt-8 text-md leading-relaxed"
+        class="mt-8 text-md leading-loose text-left"
         v-html="$t(`utm_builder.sections.${type}.intro_text`)"
       ></p>
     </div>
@@ -29,11 +29,17 @@
 <script setup>
 import UtmGeneratorForm from "@/components/UtmGeneratorForm.vue";
 import Article from "@/components/Article.vue";
+import { types } from "@/data/utmBuilders.js";
 
 const articleType = "utm-builder";
 
 const route = useRoute();
-let { slug, articleSlug } = route.params;
+let { slug } = route.params;
+
+const articleSlug = computed(() => {
+  const article = types.find((v) => v?.type === slug.toLowerCase());
+  return article?.articleSlug;
+});
 
 const type = computed(() => {
   if (route.params.slug === "google-spreadsheet") return "google_spreadsheet";
