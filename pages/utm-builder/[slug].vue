@@ -37,7 +37,7 @@ const route = useRoute();
 let { slug } = route.params;
 
 const articleSlug = computed(() => {
-  const article = types.find((v) => v?.type === slug.toLowerCase());
+  const article = types.find(({ type }) => type === slug.toLowerCase());
   return article?.articleSlug;
 });
 
