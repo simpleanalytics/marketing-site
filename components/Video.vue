@@ -1,7 +1,7 @@
 <template>
   <div
     data-video
-    class="not-prose group relative dark:shadow-gray-600/10 shadow-lg rounded-lg overflow-hidden"
+    class="not-prose group relative dark:shadow-gray-600/10 shadow-lg rounded-lg overflow-hidden max-h-[30rem]"
     :class="
       brightness && brightness < 80 ? 'dark:border dark:border-gray-600' : ''
     "
@@ -35,7 +35,7 @@
       ref="video"
       loop
       :poster="poster"
-      class="relative z-10"
+      class="relative z-10 max-h-[30rem]"
       :preload="poster ? 'none' : 'auto'"
       playsinline
       :muted="autoPlay()"
