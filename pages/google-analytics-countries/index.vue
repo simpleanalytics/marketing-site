@@ -78,25 +78,15 @@
 <script setup>
 import { Switch, SwitchGroup, SwitchLabel } from "@headlessui/vue";
 
-import {
-  ChartBarSquareIcon,
-  ComputerDesktopIcon,
-} from "@heroicons/vue/24/outline";
-
-import GoogleAnalyticsIcon from "@/components/icons/GoogleAnalytics.vue";
-import Arrow from "@/components/Arrow.vue";
 import Map from "@/components/Map.vue";
-import { categories } from "@/data/glossary";
-import transformer from "@/utils/transformer";
 
 const router = useRouter();
 const localePath = useLocalePath();
-const route = useRoute();
-const { t, locale } = useI18n();
+const { t } = useI18n();
 
 const isGoogleAnalytics = ref(true);
 
-const { articles, pending, error } = await useArticle({
+const { articles } = await useArticle({
   routeName: "google-analytics-countries-slug",
   articleType: "google-analytics-countries",
   keys: ["metadata"],
@@ -179,6 +169,17 @@ const fixedCountries = [
     }),
     locale: "en",
     code: "no",
+    class: classes.yes,
+  },
+  {
+    link: localePath({
+      name: "blog-slug",
+      params: {
+        slug: "sweden-declares-google-analytics-illegal",
+      },
+    }),
+    locale: "en",
+    code: "se",
     class: classes.yes,
   },
 ];
