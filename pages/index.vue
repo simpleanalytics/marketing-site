@@ -111,15 +111,39 @@
               {{ $t("home.no_creditcard") }}
             </p>
           </div>
-          <div class="sm:mt-4">
-            <a
-              @click="scrollToSeekVideo('seek.overview')"
-              class="button px-8 py-3 md:py-4 md:text-lg md:px-6"
-            >
-              <ChevronDoubleDownIcon class="w-3 inline-block" />
-              <span class="mx-2">{{ $t("home.see_feature_video_below") }}</span>
-              <ChevronDoubleDownIcon class="w-3 inline-block" />
-            </a>
+          <div class="sm:mt-4 ml-4">
+            <ol class="text-left">
+              <li class="flex my-3">
+                <GlobeAltIcon
+                  class="h-6 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+                />
+                <p class="leading-relaxed ml-2 -indent-2.5">
+                  <span>
+                    {{ $t("home.featured_options.add_website") }}
+                  </span>
+                </p>
+              </li>
+              <li class="flex my-3">
+                <TagIcon
+                  class="h-6 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+                />
+                <p class="leading-relaxed ml-2 -indent-2.5">
+                  <span>
+                    {{ $t("home.featured_options.import_ga") }}
+                  </span>
+                </p>
+              </li>
+              <li class="flex my-3">
+                <ChartBarSquareIcon
+                  class="h-6 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+                />
+                <p class="leading-relaxed ml-2 -indent-2.5">
+                  <span>
+                    {{ $t("home.featured_options.see_stats") }}
+                  </span>
+                </p>
+              </li>
+            </ol>
           </div>
         </div>
       </div>
@@ -1347,6 +1371,9 @@ import {
   KeyIcon,
   GlobeAmericasIcon,
   TableCellsIcon,
+  GlobeAltIcon,
+  TagIcon,
+  ChartBarSquareIcon,
 } from "@heroicons/vue/24/outline";
 
 const { t, locale } = useI18n();

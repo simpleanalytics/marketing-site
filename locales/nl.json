@@ -3,7 +3,7 @@
     "title": "Het {0}privacy-first{1}<br />Google Analytics alternatief.",
     "subtitle": "In de EU gevestigd & gehost. Geen cookies en een {0}directe&nbsp;ja{1} van je compliance team.",
     "no_creditcard": "Geen betaalmethode nodig",
-    "start_trial_now": "Probeer nu gratis",
+    "start_trial_now": "Start gratis proefperiode",
     "go_to_live_demo": "Ga naar de demo",
     "see_live_demo": "Bekijk de demo",
     "recent_blog_posts": "Recente blogposts",
@@ -15,6 +15,11 @@
     "did_not_find_any_posts": "Geen berichten gevonden",
     "could_not_connect": "Kon niet verbinden met {0}onze blog{1}.",
     "see_feature_video_below": "Bekijk alle features",
+    "featured_options": {
+      "add_website": "Website toevoegen",
+      "import_ga": "Importeer GA-gegevens",
+      "see_stats": "Bekijk statistieken direct"
+    },
     "go_back": "Ga terug",
     "automatic_translated_switch_to_english": "Deze website is automatisch vertaald. {0}Ga naar de Engelse versie{1} voor het origineel.",
     "footer": {
@@ -185,7 +190,7 @@
   "nav": {
     "login": "Inloggen",
     "pricing": "Prijzen",
-    "signup": "Aanmelden",
+    "start_trial": "Start proefperiode",
     "resources": "Info",
     "docs": "Docs",
     "blog": "Blog",

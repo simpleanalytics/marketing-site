@@ -3,7 +3,7 @@
     "title": "L'alternative {0}privacy-first{1} à<br />Google Analytics.",
     "subtitle": "Basé et hébergé en UE. Aucun cookie et un {0}oui direct{1} de votre équipe juridique.",
     "no_creditcard": "Aucune carte de crédit nécessaire",
-    "start_trial_now": "Commencez dès maintenant avec Simple Analytics",
+    "start_trial_now": "Commencer l'essai gratuit",
     "go_to_live_demo": "Aller à la démo en direct",
     "see_live_demo": "Voir la démo en direct",
     "recent_blog_posts": "Articles récents du blog",
@@ -15,6 +15,11 @@
     "did_not_find_any_posts": "Aucun article trouvé",
     "could_not_connect": "Impossible de se connecter à {0}notre blog{1}.",
     "see_feature_video_below": "Voir la vidéo de fonctionnalité",
+    "featured_options": {
+      "add_website": "Ajouter un site web",
+      "import_ga": "Importer les données de GA",
+      "see_stats": "Voir les statistiques instantanément"
+    },
     "go_back": "Retour",
     "automatic_translated_switch_to_english": "Ce site Web est traduit automatiquement. {0}Passe à la version anglaise{1} pour l'original.",
     "footer": {
@@ -185,7 +190,7 @@
   "nav": {
     "login": "Se connecter",
     "pricing": "Tarifs",
-    "signup": "S'inscrire",
+    "start_trial": "Démarrer l'essai",
     "resources": "Ressources",
     "docs": "Documentation",
     "blog": "Blog",
