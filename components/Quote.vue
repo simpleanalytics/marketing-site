@@ -85,7 +85,7 @@
                 >
                   {{ subtitle
                   }}<ArrowSmallRightIcon
-                    class="inline ml-1 w-4 fill-blue-500"
+                    class="inline ml-1 w-4 fill-blue-500 transition-transform hover:rotate-0 -rotate-45"
                   />
                 </a>
                 <div

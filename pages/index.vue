@@ -678,7 +678,7 @@
           <a
             href="/blog/google-to-sunset-universal-analytics-in-2023"
             target="_blank"
-            class="ml-1 group"
+            class="ml-1 group underline"
             ><span
               v-html="$t('home.why_switch_from_ga.paragraph_3_link')"
             ></span
@@ -695,7 +695,7 @@
           <a
             href="/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics"
             target="_blank"
-            class="ml-1 mr-1 group"
+            class="ml-1 mr-1 group underline"
             ><span
               v-html="$t('home.why_switch_from_ga.paragraph_6_link')"
             ></span
@@ -709,8 +709,9 @@
             :href="
               MAIN_URL + '/welcome' + (theme === 'dark' ? '?theme=dark' : '')
             "
-            >{{ $t("home.why_switch_from_ga.try_us_button") }}.</a
-          >
+            class="group underline"
+            >{{ $t("home.why_switch_from_ga.try_us_button") }}<Arrow
+          /></a>
         </p>
       </div>
 
