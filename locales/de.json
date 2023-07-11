@@ -41,14 +41,13 @@
       "utm_builder": "UTM-Generator"
     },
     "why_most_privacy": {
-      "title": "Warum ist Simple Analytics das {0}privatsphäre-freundlichste{1} Analyse-Tool?",
+      "title": "Warum Simple Analytics die {0}beste Alternative zu Google Analytics{1} ist?",
       "x_reasons": "Hier sind {0} einfache Gründe, die das zusammenfassen.",
       "reason_1": "Datenschutz ist {0}unser Geschäftsmodell{1}. Wir halten uns von Haus aus an alle Datenschutzrichtlinien. Dazu gehören: DSGVO, PECR, CCPA und mehr.",
-      "reason_2": "Ihre Daten sind immer verschlüsselt.",
+      "reason_2": "Einfache Benutzeroberfläche. Wir liefern Ihnen die Informationen, die Sie in einem benutzerfreundlichen Dashboard benötigen.",
       "reason_3": "Wir speichern niemals, unter keinen Umständen, personenbezogene Daten über Ihre Besucher. Keine {0}Cookie-Banner{1}.",
-      "reason_4": "Wir sind ein {0}in der EU ansässiges Unternehmen{1} mit EU-basierten Servern.",
-      "reason_5": "Sie besitzen {0}Ihre Daten{1}. Wir verkaufen keine Besucherdaten",
-      "see_what_we_collect": "sehen Sie was wir sammeln",
+      "reason_4": "Unser {0}Ziel-Tracker{1} und {0}Events-Explorer{1} ermöglichen es Ihnen, Ihre wichtigsten Ereignisse und Conversion-Funnels im Auge zu behalten.",
+      "reason_5": "Unser {0}leichtgewichtiges Skript{1} erhöht die Geschwindigkeit Ihrer Website.",
       "read_detailed_reasons": "Lesen Sie die ausführlichen Gründe",
       "business_model": {
         "title": "Datenschutz ist unser Geschäftsmodell.",

@@ -41,14 +41,13 @@
       "utm_builder": "Générateur d'UTM"
     },
     "why_most_privacy": {
-      "title": "Pourquoi Simple Analytics est-il {0}la solution la plus respectueuse de la vie privée{1} pour l'analyse de données ?",
+      "title": "Pourquoi Simple Analytics est la {0}meilleure alternative à Google Analytics{1} ?",
       "x_reasons": "Voici quelques {0} raisons simples qui le résument.",
       "reason_1": "La protection de la vie privée est {0}notre modèle d'affaires{1}. Nous respectons par conception toutes les politiques de confidentialité. Y compris : le RGPD, PECR, CCPA et autres.",
-      "reason_2": "Vos données sont toujours chiffrées.",
+      "reason_2": "Interface simple. Nous vous fournissons les informations dont vous avez besoin dans un tableau de bord facile à utiliser.",
       "reason_3": "Nous n'enregistrons jamais, absolument jamais, aucune {0}donnée personnelle{1} sur vos visiteurs. Aucun {0}banderole de cookie{1}.",
-      "reason_4": "Nous sommes une {0}société basée dans l'UE{1} avec des serveurs situés dans l'UE.",
-      "reason_5": "Vous êtes {0}propriétaire de vos données{1}. Nous ne {0}vendons{1} aucune donnée concernant les visiteurs.",
-      "see_what_we_collect": "voir ce que nous collectons",
+      "reason_4": "Notre {0}Suivi des objectifs{1} et {0}Explorateur d'événements{1} vous permettent de suivre vos événements les plus importants et vos tunnels de conversion.",
+      "reason_5": "Notre {0}script léger{1} augmente la vitesse de votre site web.",
       "read_detailed_reasons": "Lisez les raisons détaillées",
       "business_model": {
         "title": "La protection de la vie privée est notre modèle d'affaires.",

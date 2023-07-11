@@ -41,14 +41,13 @@
       "utm_builder": "UTM Builder"
     },
     "why_most_privacy": {
-      "title": "Why is Simple Analytics the {0}most privacy-first{1} analytics?",
+      "title": "Why Simple Analytics is the {0}best Google Analytics{1} alternative? ",
       "x_reasons": "Here are {0} simple reasons that sum it up.",
       "reason_1": "Privacy protection is {0}our business model{1}. We comply by design with all privacy policies. Including: GDPR, PECR, CCPA and more.",
-      "reason_2": "Your data is always encrypted.",
+      "reason_2": "Simple UI. We give you the insights you need in an easy-to-use dashboard.",
       "reason_3": "We never, ever, ever store any {0}personal data{1} about your visitors. No {0}cookie banners{1}.",
-      "reason_4": "We are an {0}EU-based company{1} with EU-based servers.",
-      "reason_5": "You own {0}your data{1}. We don't {0}sell{1} any visitor data",
-      "see_what_we_collect": "see what we collect",
+      "reason_4": "Our {0}Goals-tracker{1} and {0}Events Explorer{1} lets you keep track of your most important events and conversion funnels.",
+      "reason_5": "Our {0}lightweight script{1} increases your website speed",
       "read_detailed_reasons": "Read detailed reasons",
       "business_model": {
         "title": "Privacy protection is our business model.",

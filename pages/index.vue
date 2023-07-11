@@ -322,7 +322,7 @@
               </p>
             </li>
             <li class="flex my-3">
-              <KeyIcon
+              <CursorArrowRaysIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
@@ -355,22 +355,14 @@
               </p>
             </li>
             <li class="flex my-3">
-              <TableCellsIcon
+              <BoltIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
                 <span class="inline-block w-2.5">5. </span
                 ><span
                   v-html="$t('home.why_most_privacy.reason_5', tColorsRed)"
-                ></span
-                >,
-                <a
-                  class="underline group"
-                  href="https://docs.simpleanalytics.com/what-we-collect"
-                  target="_blank"
-                  >{{ $t("home.why_most_privacy.see_what_we_collect")
-                  }}<Arrow />
-                </a>
+                ></span>
               </p>
             </li>
           </ol>
@@ -1374,6 +1366,8 @@ import {
   GlobeAltIcon,
   TagIcon,
   ChartBarSquareIcon,
+  CursorArrowRaysIcon,
+  BoltIcon,
 } from "@heroicons/vue/24/outline";
 
 const { t, locale } = useI18n();
