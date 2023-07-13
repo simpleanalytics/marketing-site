@@ -101,7 +101,7 @@ const preconvert = (markdown, { showIndex = false, inlineMedia } = {}) => {
 
               // Sanitize only the p, img, and a tags
               part = part.replace(
-                /<((?!\/?(span|details|summary|code|mark|p|img|a))[^>]+)>/g,
+                /<((?!\/?(span|details|summary|code|mark|p|img|a|br|hr))[^>]+)>/g,
                 "&lt;$1&gt;"
               );
 
