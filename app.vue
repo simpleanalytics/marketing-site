@@ -1057,7 +1057,7 @@ const { articles: recentPosts, pending } = await useArticle({
 onMounted(() => {
   const title = document.title;
   window.addEventListener("blur", () => {
-    document.title = "We miss you...";
+    document.title = "We miss you... - " + title;
   });
   window.addEventListener("focus", () => {
     document.title = title;
