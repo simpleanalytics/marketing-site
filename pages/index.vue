@@ -113,31 +113,31 @@
           </div>
           <div class="sm:mt-4 ml-4">
             <ol class="text-left">
-              <li class="flex my-3">
-                <GlobeAltIcon
-                  class="h-6 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+              <li class="flex mb-3">
+                <PlusIcon
+                  class="h-5 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
                 />
-                <p class="leading-relaxed ml-2 -indent-2.5">
+                <p class="leading-relaxed ml-2 -indent-2.5 text-sm">
                   <span>
                     {{ $t("home.featured_options.add_website") }}
                   </span>
                 </p>
               </li>
               <li class="flex my-3">
-                <TagIcon
-                  class="h-6 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+                <GoogleAnalyticsIcon
+                  class="inline stroke-1 h-5 mr-3 stroke-red-500 dark:stroke-red-600 hover:group-hover:stroke-red-500"
                 />
-                <p class="leading-relaxed ml-2 -indent-2.5">
+                <p class="leading-relaxed ml-2 -indent-2.5 text-sm">
                   <span>
                     {{ $t("home.featured_options.import_ga") }}
                   </span>
                 </p>
               </li>
               <li class="flex my-3">
-                <ChartBarSquareIcon
-                  class="h-6 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+                <PresentationChartBarIcon
+                  class="h-5 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
                 />
-                <p class="leading-relaxed ml-2 -indent-2.5">
+                <p class="leading-relaxed ml-2 -indent-2.5 text-sm">
                   <span>
                     {{ $t("home.featured_options.see_stats") }}
                   </span>
@@ -1364,9 +1364,8 @@ import {
   KeyIcon,
   GlobeAmericasIcon,
   TableCellsIcon,
-  GlobeAltIcon,
-  TagIcon,
-  ChartBarSquareIcon,
+  PlusIcon,
+  PresentationChartBarIcon,
   CursorArrowRaysIcon,
   BoltIcon,
 } from "@heroicons/vue/24/outline";

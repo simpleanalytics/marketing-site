@@ -376,13 +376,13 @@
                         MAIN_URL + '/login'
                       )
                     "
-                    class="inline-flex items-center px-4 py-2 button"
+                    class="inline-flex items-center px-4 py-2 text-gray-500 dark:text-gray-400 dark:hover:text-gray-600"
                   >
                     {{ $t("nav.login") }}
                   </a>
                   <a
                     @click="navigateToWelcome('click_signup_top_nav')"
-                    class="font-medium text-gray-500 dark:text-gray-400 mx-3 dark:hover:text-gray-600"
+                    class="font-medium mx-3 button"
                   >
                     {{ $t("nav.start_trial") }}
                   </a>
