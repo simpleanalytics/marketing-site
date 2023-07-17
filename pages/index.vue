@@ -111,15 +111,39 @@
               {{ $t("home.no_creditcard") }}
             </p>
           </div>
-          <div class="sm:mt-4">
-            <a
-              @click="scrollToSeekVideo('seek.overview')"
-              class="button px-8 py-3 md:py-4 md:text-lg md:px-6"
-            >
-              <ChevronDoubleDownIcon class="w-3 inline-block" />
-              <span class="mx-2">{{ $t("home.see_feature_video_below") }}</span>
-              <ChevronDoubleDownIcon class="w-3 inline-block" />
-            </a>
+          <div class="sm:mt-4 ml-4">
+            <ol class="text-left">
+              <li class="flex mb-3">
+                <PlusIcon
+                  class="h-5 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+                />
+                <p class="leading-relaxed ml-2 -indent-2.5 text-sm">
+                  <span>
+                    {{ $t("home.featured_options.add_website") }}
+                  </span>
+                </p>
+              </li>
+              <li class="flex my-3">
+                <GoogleAnalyticsIcon
+                  class="inline stroke-1 h-5 mr-3 stroke-red-500 dark:stroke-red-600 hover:group-hover:stroke-red-500"
+                />
+                <p class="leading-relaxed ml-2 -indent-2.5 text-sm">
+                  <span>
+                    {{ $t("home.featured_options.import_ga") }}
+                  </span>
+                </p>
+              </li>
+              <li class="flex my-3">
+                <PresentationChartBarIcon
+                  class="h-5 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
+                />
+                <p class="leading-relaxed ml-2 -indent-2.5 text-sm">
+                  <span>
+                    {{ $t("home.featured_options.see_stats") }}
+                  </span>
+                </p>
+              </li>
+            </ol>
           </div>
         </div>
       </div>
@@ -298,7 +322,7 @@
               </p>
             </li>
             <li class="flex my-3">
-              <KeyIcon
+              <CursorArrowRaysIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
@@ -331,22 +355,14 @@
               </p>
             </li>
             <li class="flex my-3">
-              <TableCellsIcon
+              <BoltIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
                 <span class="inline-block w-2.5">5. </span
                 ><span
                   v-html="$t('home.why_most_privacy.reason_5', tColorsRed)"
-                ></span
-                >,
-                <a
-                  class="underline group"
-                  href="https://docs.simpleanalytics.com/what-we-collect"
-                  target="_blank"
-                  >{{ $t("home.why_most_privacy.see_what_we_collect")
-                  }}<Arrow />
-                </a>
+                ></span>
               </p>
             </li>
           </ol>
@@ -662,7 +678,7 @@
           <a
             href="/blog/google-to-sunset-universal-analytics-in-2023"
             target="_blank"
-            class="ml-1 group"
+            class="ml-1 group underline"
             ><span
               v-html="$t('home.why_switch_from_ga.paragraph_3_link')"
             ></span
@@ -679,7 +695,7 @@
           <a
             href="/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics"
             target="_blank"
-            class="ml-1 mr-1 group"
+            class="ml-1 mr-1 group underline"
             ><span
               v-html="$t('home.why_switch_from_ga.paragraph_6_link')"
             ></span
@@ -693,8 +709,9 @@
             :href="
               MAIN_URL + '/welcome' + (theme === 'dark' ? '?theme=dark' : '')
             "
-            >{{ $t("home.why_switch_from_ga.try_us_button") }}.</a
-          >
+            class="group underline"
+            >{{ $t("home.why_switch_from_ga.try_us_button") }}<Arrow
+          /></a>
         </p>
       </div>
 
@@ -1347,6 +1364,10 @@ import {
   KeyIcon,
   GlobeAmericasIcon,
   TableCellsIcon,
+  PlusIcon,
+  PresentationChartBarIcon,
+  CursorArrowRaysIcon,
+  BoltIcon,
 } from "@heroicons/vue/24/outline";
 
 const { t, locale } = useI18n();

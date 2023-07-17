@@ -369,12 +369,6 @@
                   class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0"
                 >
                   <a
-                    @click="navigateToWelcome('click_signup_top_nav')"
-                    class="font-medium text-gray-500 dark:text-gray-400 mx-3 dark:hover:text-gray-600"
-                  >
-                    {{ $t("nav.signup") }}
-                  </a>
-                  <a
                     @click="
                       sendEventAndRedirect(
                         'click_login_top_nav',
@@ -382,9 +376,15 @@
                         MAIN_URL + '/login'
                       )
                     "
-                    class="inline-flex items-center px-4 py-2 button"
+                    class="inline-flex items-center px-4 py-2 text-gray-500 dark:text-gray-400 dark:hover:text-gray-600"
                   >
                     {{ $t("nav.login") }}
+                  </a>
+                  <a
+                    @click="navigateToWelcome('click_signup_top_nav')"
+                    class="font-medium mx-3 button"
+                  >
+                    {{ $t("nav.start_trial") }}
                   </a>
                 </div>
               </nav>
@@ -443,7 +443,7 @@
                     <a
                       @click="navigateToWelcome('click_signup_top_nav')"
                       class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
-                      >{{ $t("nav.signup") }}</a
+                      >{{ $t("nav.start_trial") }}</a
                     >
                     <a
                       @click="setLocale(switchTo)"

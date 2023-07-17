@@ -3,7 +3,7 @@
     "title": "Het {0}privacy-first{1}<br />Google Analytics alternatief.",
     "subtitle": "In de EU gevestigd & gehost. Geen cookies en een {0}directe&nbsp;ja{1} van je compliance team.",
     "no_creditcard": "Geen betaalmethode nodig",
-    "start_trial_now": "Probeer nu gratis",
+    "start_trial_now": "Start gratis proefperiode",
     "go_to_live_demo": "Ga naar de demo",
     "see_live_demo": "Bekijk de demo",
     "recent_blog_posts": "Recente blogposts",
@@ -15,6 +15,11 @@
     "did_not_find_any_posts": "Geen berichten gevonden",
     "could_not_connect": "Kon niet verbinden met {0}onze blog{1}.",
     "see_feature_video_below": "Bekijk alle features",
+    "featured_options": {
+      "add_website": "Website toevoegen",
+      "import_ga": "Importeer GA-gegevens",
+      "see_stats": "Bekijk statistieken direct"
+    },
     "go_back": "Ga terug",
     "automatic_translated_switch_to_english": "Deze website is automatisch vertaald. {0}Ga naar de Engelse versie{1} voor het origineel.",
     "footer": {
@@ -36,14 +41,13 @@
       "utm_builder": "UTM-builder"
     },
     "why_most_privacy": {
-      "title": "Waarom is Simple Analytics {0}de meest privacy-first{1} analytics?",
+      "title": "Waarom is Simple Analytics de {0}beste alternatief voor Google Analytics{1}?",
       "x_reasons": "Hier zijn {0} simpele redenen die het samenvatten.",
       "reason_1": "Privacybescherming is {0}ons bedrijfsmodel{1}. We houden ons standaard aan alle privacybeleidsregels. Waaronder: GDPR, PECR, CCPA en meer.",
-      "reason_2": "Je gegevens zijn {0}altijd encrypted{1}.",
+      "reason_2": "Simpele interface. Wij geven je de inzichten die je nodig hebt in een gebruiksvriendelijk dashboard.",
       "reason_3": "We slaan nooit, maar dan ook nooit, {0}persoonlijke gegevens{1} van je bezoekers op. Geen {0}cookie banners{1}.",
-      "reason_4": "We zijn een in de {0}EU gevestigd{1} bedrijf met in de {0}EU gevestigde{1} servers.",
-      "reason_5": "Je bent zelf de {0}eigenaar{1} van de gegevens. We {0}verkopen{1} geen bezoekersgegevens",
-      "see_what_we_collect": "bekijk wat we verzamelen",
+      "reason_4": "Onze {0}Doelen-tracker{1} en {0}Evenementenverkenner{1} stellen u in staat om uw belangrijkste gebeurtenissen en conversietrechters bij te houden.",
+      "reason_5": "Ons {0}lichtgewicht script{1} verhoogt de snelheid van je website.",
       "read_detailed_reasons": "Lees de gedetailleerde redenen",
       "business_model": {
         "title": "Privacybescherming is ons bedrijfsmodel.",
@@ -185,7 +189,7 @@
   "nav": {
     "login": "Inloggen",
     "pricing": "Prijzen",
-    "signup": "Aanmelden",
+    "start_trial": "Start proefperiode",
     "resources": "Info",
     "docs": "Docs",
     "blog": "Blog",

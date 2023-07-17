@@ -3,7 +3,7 @@
     "title": "L'alternative {0}privacy-first{1} à<br />Google Analytics.",
     "subtitle": "Basé et hébergé en UE. Aucun cookie et un {0}oui direct{1} de votre équipe juridique.",
     "no_creditcard": "Aucune carte de crédit nécessaire",
-    "start_trial_now": "Commencez dès maintenant avec Simple Analytics",
+    "start_trial_now": "Commencer l'essai gratuit",
     "go_to_live_demo": "Aller à la démo en direct",
     "see_live_demo": "Voir la démo en direct",
     "recent_blog_posts": "Articles récents du blog",
@@ -15,6 +15,11 @@
     "did_not_find_any_posts": "Aucun article trouvé",
     "could_not_connect": "Impossible de se connecter à {0}notre blog{1}.",
     "see_feature_video_below": "Voir la vidéo de fonctionnalité",
+    "featured_options": {
+      "add_website": "Ajouter un site web",
+      "import_ga": "Importer les données de GA",
+      "see_stats": "Voir les statistiques instantanément"
+    },
     "go_back": "Retour",
     "automatic_translated_switch_to_english": "Ce site Web est traduit automatiquement. {0}Passe à la version anglaise{1} pour l'original.",
     "footer": {
@@ -36,14 +41,13 @@
       "utm_builder": "Générateur d'UTM"
     },
     "why_most_privacy": {
-      "title": "Pourquoi Simple Analytics est-il {0}la solution la plus respectueuse de la vie privée{1} pour l'analyse de données ?",
+      "title": "Pourquoi Simple Analytics est la {0}meilleure alternative à Google Analytics{1} ?",
       "x_reasons": "Voici quelques {0} raisons simples qui le résument.",
       "reason_1": "La protection de la vie privée est {0}notre modèle d'affaires{1}. Nous respectons par conception toutes les politiques de confidentialité. Y compris : le RGPD, PECR, CCPA et autres.",
-      "reason_2": "Vos données sont toujours chiffrées.",
+      "reason_2": "Interface simple. Nous vous fournissons les informations dont vous avez besoin dans un tableau de bord facile à utiliser.",
       "reason_3": "Nous n'enregistrons jamais, absolument jamais, aucune {0}donnée personnelle{1} sur vos visiteurs. Aucun {0}banderole de cookie{1}.",
-      "reason_4": "Nous sommes une {0}société basée dans l'UE{1} avec des serveurs situés dans l'UE.",
-      "reason_5": "Vous êtes {0}propriétaire de vos données{1}. Nous ne {0}vendons{1} aucune donnée concernant les visiteurs.",
-      "see_what_we_collect": "voir ce que nous collectons",
+      "reason_4": "Notre {0}Suivi des objectifs{1} et {0}Explorateur d'événements{1} vous permettent de suivre vos événements les plus importants et vos tunnels de conversion.",
+      "reason_5": "Notre {0}script léger{1} augmente la vitesse de votre site web.",
       "read_detailed_reasons": "Lisez les raisons détaillées",
       "business_model": {
         "title": "La protection de la vie privée est notre modèle d'affaires.",
@@ -185,7 +189,7 @@
   "nav": {
     "login": "Se connecter",
     "pricing": "Tarifs",
-    "signup": "S'inscrire",
+    "start_trial": "Démarrer l'essai",
     "resources": "Ressources",
     "docs": "Documentation",
     "blog": "Blog",
