@@ -9,6 +9,11 @@ export default defineEventHandler(async (event) => {
   const staticPageRoutes = [],
     dynamicPageRoutes = [];
 
+  /*
+    getting local_pages from environment and checking if only static paths i.e paths without slug or category are present
+    if so then creating a new entry for the sitemap
+    otherwise adding that route to dynamicroutes for later use
+  */
   Object.keys(LOCALE_PAGES).forEach((path) => {
     if (path.indexOf("slug") === -1 && path.indexOf("category") == -1) {
       Object.keys(LOCALE_PAGES[path]).forEach((language) => {
@@ -23,6 +28,10 @@ export default defineEventHandler(async (event) => {
 
   event.res.setHeader("Content-Type", "application/xml");
 
+  /*
+   getting data for articles endpoint
+   and computing the sitemap paths
+  */
   let articleSitemap = [];
   const articles = await getAllData(strapiToken, "articles");
   articleSitemap = computeSitemapPaths(
@@ -32,6 +41,10 @@ export default defineEventHandler(async (event) => {
     false
   );
 
+  /*
+   getting data for key-terms endpoint
+   and computing the sitemap paths
+  */
   let keyTermsSitemap = [];
   const keyTerms = await getAllData(strapiToken, "key-terms");
 
@@ -45,6 +58,7 @@ export default defineEventHandler(async (event) => {
   return [...staticPageRoutes, ...articleSitemap, ...keyTermsSitemap];
 });
 
+// computing sitemap paths for the provided pages
 const computeSitemapPaths = (
   pages,
   dynamicPageRoutes,
@@ -55,12 +69,17 @@ const computeSitemapPaths = (
 
   const pageRoutesToMatch = {};
 
+  // for key-terms directly adding the key to be analytics and google-analytics
   if (isPathKeyTerms) {
     pageRoutesToMatch["analytics"] =
       LOCALE_PAGES["glossary/analytics/key-terms/[slug]"];
     pageRoutesToMatch["google-analytics"] =
       LOCALE_PAGES["glossary/google-analytics/key-terms/[slug]"];
   } else {
+    /* 
+        for dynamic routes, iterating and adding keys in the format: analytics,
+        which is used to directly access the LOCALE_PAGES values
+    */
     dynamicPageRoutes.forEach((route) => {
       let url = route.split("/");
       url = url.slice(0, url.length - 1);
@@ -72,6 +91,9 @@ const computeSitemapPaths = (
     });
   }
 
+  /* 
+    once we have valid keys then, iterating on the pages getting the keys and adding a valid sitemap entry
+  */
   pages.forEach((value) => {
     if (value.attributes.articleType) {
       if (
@@ -98,6 +120,7 @@ const computeSitemapPaths = (
   return sitemapPaths;
 };
 
+// fetching data for all pages and returning
 const getAllData = async (strapiToken, type = "articles") => {
   let allResponses = [],
     response;
