@@ -26,7 +26,7 @@ export default defineEventHandler(async (event) => {
     } else dynamicPageRoutes.push(path);
   });
 
-  event.res.setHeader("Content-Type", "application/xml");
+  event.node.res.setHeader("Content-Type", "application/xml");
 
   /*
    getting data for articles endpoint
