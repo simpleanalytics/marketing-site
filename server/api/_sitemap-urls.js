@@ -11,17 +11,34 @@ export default defineEventHandler(async (event) => {
 
   /*
     getting local_pages from environment and checking if only static paths i.e paths without slug or category are present
-    if so then creating a new entry for the sitemap
+    if so then creating a new entry for the sitemap and an alternatives array used as entry for xhtml:link
     otherwise adding that route to dynamicroutes for later use
   */
   Object.keys(LOCALE_PAGES).forEach((path) => {
     if (path.indexOf("slug") === -1 && path.indexOf("category") == -1) {
-      Object.keys(LOCALE_PAGES[path]).forEach((language) => {
-        if (language !== "en")
-          staticPageRoutes.push({
-            loc: `https://wwww.simpleanalytics.com/${language}${LOCALE_PAGES[path][language]}`,
-            lastmod: new Date(),
+      let alternatives = [];
+      const transformedURLs = Object.keys(LOCALE_PAGES[path]).map(
+        (language) => {
+          let url = `https://wwww.simpleanalytics.com/`;
+          if (language === "en") url = `${url}${LOCALE_PAGES[path][language]}`;
+          else url = `${url}${language}${LOCALE_PAGES[path][language]}`;
+
+          alternatives.push({
+            hreflang: language,
+            href: url,
           });
+          if (language !== "en") {
+            return url;
+          }
+        }
+      );
+
+      transformedURLs.forEach((url) => {
+        staticPageRoutes.push({
+          loc: url,
+          lastmod: new Date(),
+          alternatives: alternatives,
+        });
       });
     } else dynamicPageRoutes.push(path);
   });
@@ -92,7 +109,7 @@ const computeSitemapPaths = (
   }
 
   /* 
-    once we have valid keys then, iterating on the pages getting the keys and adding a valid sitemap entry
+    once we have valid keys then, iterating on the pages getting the keys, adding a valid sitemap entry and an alternatives array used as entry for xhtml:link
   */
   pages.forEach((value) => {
     if (value.attributes.articleType) {
@@ -101,16 +118,26 @@ const computeSitemapPaths = (
         -1
       ) {
         const page = pageRoutesToMatch[value.attributes.articleType];
-
-        Object.keys(page).forEach((language) => {
+        let alternatives = [];
+        const transformedURLs = Object.keys(page).map((language) => {
           let url = `https://www.simpleanalytics.com`;
           if (language !== "en") url = `${url}/${language}${page[language]}`;
           else url = `${url}${page[language]}`;
 
           url = url.replace(/\[slug\]/g, value.attributes.slug);
+          alternatives.push({
+            hreflang: language,
+            href: url,
+          });
+
+          return url;
+        });
+
+        transformedURLs.forEach((url) => {
           sitemapPaths.push({
             loc: url,
             lastmod: new Date(),
+            alternatives: alternatives,
           });
         });
       }

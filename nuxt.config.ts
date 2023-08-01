@@ -338,7 +338,7 @@ export default defineNuxtConfig({
       { label: 'URL', width: '50%' },
       { label: 'Last Modified', select: 'sitemap:lastmod', width: '25%' },
       { label: 'Hreflangs', select: 'count(xhtml)', width: '25%' },
-    ],
+    ], // to view actual sitemap replace this array with false
   },
   schemaOrg: { host: BASE_URL },
   i18n: {
