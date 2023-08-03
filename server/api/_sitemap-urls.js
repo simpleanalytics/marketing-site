@@ -156,6 +156,9 @@ const computeSitemapPaths = (
           return url;
         });
 
+        /* 
+          if localizations exists for the current value then iterating and replacing the urls with the translated ones.
+        */
         if (value.attributes?.localizations?.data?.length > 0) {
           value.attributes.localizations.data.forEach((data) => {
             if (data?.attributes?.locale) {
