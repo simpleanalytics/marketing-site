@@ -3,11 +3,35 @@ import { stringify as qsStringify } from "qs";
 export default defineEventHandler(async (event) => {
   const {
     strapiToken,
-    public: { LOCALE_PAGES },
+    public: { LOCALE_PAGES, LOCALES },
   } = useRuntimeConfig();
 
   const staticPageRoutes = [],
     dynamicPageRoutes = [];
+
+  /*
+   adding base path with alernatives
+  */
+  let initalPathAlternatives = [];
+  const intitalPaths = LOCALES.map((locale) => {
+    let url = `https://www.simpleanalytics.com`;
+    if (locale?.code !== "en") url = `${url}/${locale.code}`;
+
+    initalPathAlternatives.push({
+      hreflang: locale?.code,
+      href: url,
+    });
+
+    return url;
+  });
+
+  intitalPaths.forEach((path) => {
+    staticPageRoutes.push({
+      loc: path,
+      lastmod: new Date(),
+      alternatives: initalPathAlternatives,
+    });
+  });
 
   /*
     getting local_pages from environment and checking if only static paths i.e paths without slug or category are present
@@ -19,10 +43,9 @@ export default defineEventHandler(async (event) => {
       let alternatives = [];
       const transformedURLs = Object.keys(LOCALE_PAGES[path]).map(
         (language) => {
-          let url = `https://wwww.simpleanalytics.com/`;
+          let url = `https://www.simpleanalytics.com`;
           if (language === "en") url = `${url}${LOCALE_PAGES[path][language]}`;
-          else url = `${url}${language}${LOCALE_PAGES[path][language]}`;
-
+          else url = `${url}/${language}${LOCALE_PAGES[path][language]}`;
           alternatives.push({
             hreflang: language,
             href: url,
@@ -119,7 +142,7 @@ const computeSitemapPaths = (
       ) {
         const page = pageRoutesToMatch[value.attributes.articleType];
         let alternatives = [];
-        const transformedURLs = Object.keys(page).map((language) => {
+        let transformedURLs = Object.keys(page).map((language) => {
           let url = `https://www.simpleanalytics.com`;
           if (language !== "en") url = `${url}/${language}${page[language]}`;
           else url = `${url}${page[language]}`;
@@ -132,6 +155,35 @@ const computeSitemapPaths = (
 
           return url;
         });
+
+        if (value.attributes?.localizations?.data?.length > 0) {
+          value.attributes.localizations.data.forEach((data) => {
+            if (data?.attributes?.locale) {
+              const localeOfUrlToBeReplaced = `/${data.attributes.locale}/`;
+
+              transformedURLs = transformedURLs.map((url) => {
+                if (url.indexOf(localeOfUrlToBeReplaced) > -1) {
+                  url = url.replace(
+                    value.attributes.slug,
+                    data.attributes.slug
+                  );
+                }
+                return url;
+              });
+
+              alternatives = alternatives.map((alt) => {
+                if (alt.hreflang === data.attributes.locale) {
+                  alt.href = alt.href.replace(
+                    value.attributes.slug,
+                    data.attributes.slug
+                  );
+                }
+
+                return alt;
+              });
+            }
+          });
+        }
 
         transformedURLs.forEach((url) => {
           sitemapPaths.push({
@@ -177,9 +229,29 @@ const fetchDataFromStrapi = async (
     "https://cms.simpleanalytics.com"
   );
 
+  const fields = [
+    "id",
+    "title",
+    "locale",
+    "slug",
+    "publishedAt",
+    "articleType",
+  ];
+
   let params = {
-    fields: ["title", "slug", "publishedAt", "locale", "articleType"],
+    fields: fields,
+    drafts: false,
     sort: "publishedAt:desc",
+    locale: "en",
+    populate: {
+      localizations: {
+        fields: fields,
+      },
+    },
+    pagination: {
+      pageSize: "500",
+    },
+    publicationState: "live", // to fetch only live content
   };
 
   if (currentPageIndex > 1) {
@@ -187,7 +259,6 @@ const fetchDataFromStrapi = async (
   }
 
   url.search = qsStringify(params, { encodeValuesOnly: true });
-
   const response = await $fetch(url, {
     method: "GET",
     headers: {

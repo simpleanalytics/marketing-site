@@ -330,10 +330,13 @@ export default defineNuxtConfig({
     "nuxt-simple-sitemap",
   ],
   site: {
-    url: 'https://simpleanalytics.com',
+    url: 'https://www.simpleanalytics.com',
   },
   sitemap: {
-    inferStaticPagesAsRoutes: false,
+    inferStaticPagesAsRoutes: true,
+    exclude: [
+      "/"
+    ],
     xslColumns: [
       { label: 'URL', width: '50%' },
       { label: 'Last Modified', select: 'sitemap:lastmod', width: '25%' },
