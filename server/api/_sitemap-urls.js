@@ -3,35 +3,10 @@ import { stringify as qsStringify } from "qs";
 export default defineEventHandler(async (event) => {
   const {
     strapiToken,
-    public: { LOCALE_PAGES, LOCALES },
+    public: { LOCALE_PAGES, BASE_URL },
   } = useRuntimeConfig();
 
-  const staticPageRoutes = [],
-    dynamicPageRoutes = [];
-
-  /*
-   adding base path with alernatives
-  */
-  let initalPathAlternatives = [];
-  const intitalPaths = LOCALES.map((locale) => {
-    let url = `https://www.simpleanalytics.com`;
-    if (locale?.code !== "en") url = `${url}/${locale.code}`;
-
-    initalPathAlternatives.push({
-      hreflang: locale?.code,
-      href: url,
-    });
-
-    return url;
-  });
-
-  intitalPaths.forEach((path) => {
-    staticPageRoutes.push({
-      loc: path,
-      lastmod: new Date(),
-      alternatives: initalPathAlternatives,
-    });
-  });
+  const dynamicPageRoutes = [];
 
   /*
     getting local_pages from environment and checking if only static paths i.e paths without slug or category are present
@@ -39,31 +14,11 @@ export default defineEventHandler(async (event) => {
     otherwise adding that route to dynamicroutes for later use
   */
   Object.keys(LOCALE_PAGES).forEach((path) => {
-    if (path.indexOf("slug") === -1 && path.indexOf("category") == -1) {
-      let alternatives = [];
-      const transformedURLs = Object.keys(LOCALE_PAGES[path]).map(
-        (language) => {
-          let url = `https://www.simpleanalytics.com`;
-          if (language === "en") url = `${url}${LOCALE_PAGES[path][language]}`;
-          else url = `${url}/${language}${LOCALE_PAGES[path][language]}`;
-          alternatives.push({
-            hreflang: language,
-            href: url,
-          });
-          if (language !== "en") {
-            return url;
-          }
-        }
-      );
-
-      transformedURLs.forEach((url) => {
-        staticPageRoutes.push({
-          loc: url,
-          lastmod: new Date(),
-          alternatives: alternatives,
-        });
-      });
-    } else dynamicPageRoutes.push(path);
+    if (!path.includes("slug") && !path.includes("category")) {
+      return;
+    } else {
+      dynamicPageRoutes.push(path);
+    }
   });
 
   event.node.res.setHeader("Content-Type", "application/xml");
@@ -73,11 +28,14 @@ export default defineEventHandler(async (event) => {
    and computing the sitemap paths
   */
   let articleSitemap = [];
+
   const articles = await getAllData(strapiToken, "articles");
+
   articleSitemap = computeSitemapPaths(
     articles,
     dynamicPageRoutes,
     LOCALE_PAGES,
+    BASE_URL,
     false
   );
 
@@ -86,16 +44,18 @@ export default defineEventHandler(async (event) => {
    and computing the sitemap paths
   */
   let keyTermsSitemap = [];
+
   const keyTerms = await getAllData(strapiToken, "key-terms");
 
   keyTermsSitemap = computeSitemapPaths(
     keyTerms,
     dynamicPageRoutes,
     LOCALE_PAGES,
+    BASE_URL,
     true
   );
 
-  return [...staticPageRoutes, ...articleSitemap, ...keyTermsSitemap];
+  return [...articleSitemap, ...keyTermsSitemap];
 });
 
 // computing sitemap paths for the provided pages
@@ -103,6 +63,7 @@ const computeSitemapPaths = (
   pages,
   dynamicPageRoutes,
   LOCALE_PAGES,
+  BASE_URL,
   isPathKeyTerms = false
 ) => {
   const sitemapPaths = [];
@@ -123,7 +84,7 @@ const computeSitemapPaths = (
     dynamicPageRoutes.forEach((route) => {
       let url = route.split("/");
       url = url.slice(0, url.length - 1);
-      if (url.length > 1 && url.indexOf("resources") === -1) {
+      if (url.length > 1 && !url.includes("resources")) {
         url = url.slice(1);
       }
       url = url.join("-");
@@ -137,13 +98,13 @@ const computeSitemapPaths = (
   pages.forEach((value) => {
     if (value.attributes.articleType) {
       if (
-        Object.keys(pageRoutesToMatch).indexOf(value.attributes.articleType) >
-        -1
+        Object.keys(pageRoutesToMatch).includes(value.attributes.articleType)
       ) {
         const page = pageRoutesToMatch[value.attributes.articleType];
+
         let alternatives = [];
         let transformedURLs = Object.keys(page).map((language) => {
-          let url = `https://www.simpleanalytics.com`;
+          let url = BASE_URL;
           if (language !== "en") url = `${url}/${language}${page[language]}`;
           else url = `${url}${page[language]}`;
 
@@ -165,7 +126,7 @@ const computeSitemapPaths = (
               const localeOfUrlToBeReplaced = `/${data.attributes.locale}/`;
 
               transformedURLs = transformedURLs.map((url) => {
-                if (url.indexOf(localeOfUrlToBeReplaced) > -1) {
+                if (url.includes(localeOfUrlToBeReplaced)) {
                   url = url.replace(
                     value.attributes.slug,
                     data.attributes.slug

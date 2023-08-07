@@ -1,2 +1,3 @@
 User-agent: *
-Sitemap: https://simpleanalytics.com/sitemap.xml
+
+Sitemap: https://www.simpleanalytics.com/sitemap_index.xml

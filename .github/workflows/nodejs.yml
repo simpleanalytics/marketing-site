@@ -38,7 +38,7 @@ jobs:
         uses: simpleanalytics/fail-on-found-action@v2
         with:
           query: "console.log"
-          exclude: "node_modules,.git"
+          exclude: 'node_modules,.git,.indexOf(",.indexOf('''
 
       - name: Prettier Action on PR
         if: github.event_name == 'pull_request'

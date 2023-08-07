@@ -47,7 +47,6 @@ const locales = [
   },
 ];
 
-
 const LOCALE_PAGES = {
   pricing: {
     en: "/pricing",
@@ -267,7 +266,7 @@ const LOCALE_PAGES = {
     it: "/generatore-utm/[slug]",
     fr: "/constructeur-utm/[slug]",
   },
-}
+};
 
 const BASE_URL = isProduction
   ? "https://www.simpleanalytics.com"
@@ -284,7 +283,7 @@ const env = {
       ? "https://www-cdn.simpleanalytics.com"
       : undefined,
   LOCALES: locales,
-  LOCALE_PAGES: LOCALE_PAGES
+  LOCALE_PAGES: LOCALE_PAGES,
 };
 
 const privateKeys = {
@@ -330,18 +329,27 @@ export default defineNuxtConfig({
     "nuxt-simple-sitemap",
   ],
   site: {
-    url: 'https://www.simpleanalytics.com',
+    url: BASE_URL,
+    name: "Simple Analytics",
   },
   sitemap: {
-    inferStaticPagesAsRoutes: true,
-    exclude: [
-      "/"
-    ],
+    sitemapName: "sitemap.xml",
+    xslTips: false,
+    credits: false,
+    sitemaps: {
+      marketing: {
+        dynamicUrlsApiEndpoint: "server/api/_sitemap-urls.js",
+      },
+      index: [
+        { sitemap: "https://simpleanalytics.com/dashboard-sitemap.xml" },
+        { sitemap: "https://docs.simpleanalytics.com/sitemap.xml" },
+      ],
+    },
     xslColumns: [
-      { label: 'URL', width: '50%' },
-      { label: 'Last Modified', select: 'sitemap:lastmod', width: '25%' },
-      { label: 'Hreflangs', select: 'count(xhtml)', width: '25%' },
-    ], // to view actual sitemap replace this array with false
+      { label: "URL", width: "50%" },
+      { label: "Last Modified", select: "sitemap:lastmod", width: "25%" },
+      { label: "Hreflangs", select: "count(xhtml)", width: "25%" },
+    ],
   },
   schemaOrg: { host: BASE_URL },
   i18n: {
