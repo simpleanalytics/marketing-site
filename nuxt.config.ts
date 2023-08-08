@@ -324,7 +324,6 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxtjs/i18n",
-    "nuxt-runtime-compiler",
     "nuxt-schema-org",
     "nuxt-simple-sitemap",
   ],
@@ -380,5 +379,8 @@ export default defineNuxtConfig({
   },
   nitro: {
     timing: false,
+  },
+  vue: {
+    runtimeCompiler: true,
   },
 });
