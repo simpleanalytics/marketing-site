@@ -1,0 +1,10 @@
+/.nuxt
+/.output
+/node_modules
+
+.env*
+.nvmrc
+*.zip
+deploy.sh
+.gitignore
+README.md
