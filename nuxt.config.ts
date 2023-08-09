@@ -278,16 +278,12 @@ const env = {
   MAIN_URL: isProduction
     ? "https://simpleanalytics.com"
     : "http://localhost:3000",
-  CDN_URL:
-    process.env.DEPLOYING === "true"
-      ? "https://www-cdn.simpleanalytics.com"
-      : undefined,
+  CDN_URL: "https://www-cdn.simpleanalytics.com",
   LOCALES: locales,
   LOCALE_PAGES: LOCALE_PAGES,
 };
 
 const privateKeys = {
-  deploying: process.env.DEPLOYING === "true",
   strapiToken: process.env.STRAPI_TOKEN,
   trelloPersonalKey: process.env.TRELLO_PERSONAL_KEY,
   trelloPersonalToken: process.env.TRELLO_PERSONAL_TOKEN,

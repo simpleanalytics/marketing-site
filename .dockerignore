@@ -5,6 +5,5 @@
 .env*
 .nvmrc
 *.zip
-deploy.sh
 .gitignore
 README.md

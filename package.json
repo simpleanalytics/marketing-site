@@ -3,8 +3,7 @@
   "scripts": {
     "dev": "NODE_NO_WARNINGS=1 nuxi dev -p 3005",
     "build": "nuxi build",
-    "start": "node .output/server/index.mjs",
-    "deploy": "./deploy.sh"
+    "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
     "@headlessui/vue": "^1.7.9",
