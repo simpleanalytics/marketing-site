@@ -893,7 +893,7 @@ import { labelAgo } from "./utils/blog";
 
 const route = useRoute();
 const config = useRuntimeConfig();
-const { BASE_URL, MAIN_URL, CDN_URL } = config.public;
+const { BASE_URL, MAIN_URL /*, CDN_URL*/ } = config.public;
 
 const localePath = useLocalePath();
 
@@ -985,22 +985,22 @@ const link = [
   },
 ];
 
-if (process.env.NODE_ENV === "production") {
-  link.push(
-    {
-      rel: "preload",
-      href: `${CDN_URL}/fonts/space-grotesk/regular.woff2`,
-      as: "font",
-      crossorigin: "anonymous",
-    },
-    {
-      rel: "preload",
-      href: `${CDN_URL}/fonts/space-grotesk/medium.woff2`,
-      as: "font",
-      crossorigin: "anonymous",
-    }
-  );
-}
+// if (process.env.NODE_ENV === "production") {
+//   link.push(
+//     {
+//       rel: "preload",
+//       href: `${CDN_URL}/fonts/space-grotesk/regular.woff2`,
+//       as: "font",
+//       crossorigin: "anonymous",
+//     },
+//     {
+//       rel: "preload",
+//       href: `${CDN_URL}/fonts/space-grotesk/medium.woff2`,
+//       as: "font",
+//       crossorigin: "anonymous",
+//     }
+//   );
+// }
 
 const head = {
   title: () =>

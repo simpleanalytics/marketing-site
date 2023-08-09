@@ -278,7 +278,7 @@ const env = {
   MAIN_URL: isProduction
     ? "https://simpleanalytics.com"
     : "http://localhost:3000",
-  CDN_URL: "https://www-cdn.simpleanalytics.com",
+  // CDN_URL: "https://www-cdn.simpleanalytics.com",
   LOCALES: locales,
   LOCALE_PAGES: LOCALE_PAGES,
 };
