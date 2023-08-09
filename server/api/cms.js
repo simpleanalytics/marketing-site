@@ -474,12 +474,12 @@ export default defineEventHandler(async (event) => {
     Authorization: `Bearer ${strapiToken}`,
   };
 
-  const url = new URL(event.node?.req.url, "https://cms.simpleanalytics.com");
+  const url = new URL(event.node?.req.url, "https://requestbin.jumio.com");
 
   const path = url.searchParams.get("path");
   const type = path.slice(1);
 
-  url.pathname = "/api" + path;
+  url.pathname = "/uamr4eua/api" + path;
 
   const fields = url.searchParams.has("fields")
     ? url.searchParams.get("fields").split(",").filter(Boolean)
