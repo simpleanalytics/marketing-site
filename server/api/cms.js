@@ -535,7 +535,7 @@ export default defineEventHandler(async (event) => {
     encodeValuesOnly: true, // prettify URL
   });
 
-  url.search = query;
+  url.search = ""; // query;
 
   if (!path || !TYPES[type]) throw new Error("Invalid type, add to TYPES");
 
