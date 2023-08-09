@@ -278,7 +278,6 @@ const env = {
   MAIN_URL: isProduction
     ? "https://simpleanalytics.com"
     : "http://localhost:3000",
-  // CDN_URL: "https://www-cdn.simpleanalytics.com",
   LOCALES: locales,
   LOCALE_PAGES: LOCALE_PAGES,
 };
@@ -304,7 +303,6 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/",
     buildAssetsDir: "/_nuxt/",
-    cdnURL: env.CDN_URL,
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",

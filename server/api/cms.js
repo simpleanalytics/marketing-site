@@ -474,12 +474,12 @@ export default defineEventHandler(async (event) => {
     Authorization: `Bearer ${strapiToken}`,
   };
 
-  const url = new URL(event.node?.req.url, "https://requestbin.jumio.com");
+  const url = new URL(event.node?.req.url, "https://cms.simpleanalytics.com");
 
   const path = url.searchParams.get("path");
   const type = path.slice(1);
 
-  url.pathname = "/uamr4eua/api" + path;
+  url.pathname = "/api" + path;
 
   const fields = url.searchParams.has("fields")
     ? url.searchParams.get("fields").split(",").filter(Boolean)
@@ -535,7 +535,7 @@ export default defineEventHandler(async (event) => {
     encodeValuesOnly: true, // prettify URL
   });
 
-  url.search = ""; // query;
+  url.search = query;
 
   if (!path || !TYPES[type]) throw new Error("Invalid type, add to TYPES");
 
