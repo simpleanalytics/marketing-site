@@ -21,6 +21,10 @@ Start the development server on http://localhost:3000
 npm run dev
 ```
 
+## Deploy
+
+We automatically deploy from the `main` branch to production. We build a Docker image and push this to the GitHub registry. Via SSH we run a deploy command on the server which pulls in the latest image and restarts the app.
+
 ## Dev Q&A
 
 ### How can we retrieve possible subcategories for resources from Strapi?
