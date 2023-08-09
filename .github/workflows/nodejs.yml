@@ -82,6 +82,14 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Cache Docker layers
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v4
@@ -90,8 +98,8 @@ jobs:
           file: ./Dockerfile
           push: ${{ github.ref == 'refs/heads/main' }}
           tags: ghcr.io/simpleanalytics/marketing-site:latest
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
           build-args: |
             "BUILD_REV=${{ github.sha }}"
           secrets: |
