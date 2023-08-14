@@ -44,8 +44,9 @@
         <div v-if="!article.publishedAt" class="my-4 mb-8 flex">
           <span
             class="flex items-center mx-auto bg-orange-200 dark:bg-orange-900 dark:text-orange-100 rounded-xl text-lg py-3 px-5"
-            >This is still a draft. Please don't share, yet.</span
           >
+            {{ $t("blog.draft_warning") }}
+          </span>
         </div>
 
         <div v-if="isAdmin" class="mt-4 flex">
