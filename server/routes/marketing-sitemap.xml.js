@@ -133,8 +133,6 @@ const computeSitemapPaths = (
     }
   }
 
-  console.log({ pageRoutesToMatch });
-
   /* 
     once we have valid keys then, iterating on the pages getting the keys, adding a valid sitemap entry and an alternatives array used as entry for xhtml:link
   */
@@ -147,11 +145,6 @@ const computeSitemapPaths = (
     const page = pageRoutesToMatch[value.attributes.articleType];
 
     let alternatives = [];
-
-    if (!page) {
-      console.log(JSON.stringify({ pageRoutesToMatch, value }, null, 2));
-      throw new Error("page is not defined in sitemap");
-    }
 
     let transformedURLs = Object.keys(page).map((language) => {
       let url = `https://www.simpleanalytics.com`;
@@ -286,13 +279,11 @@ const fetchDataFromStrapi = async (
 
 const generateSitemapXml = (routes) => {
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+  xml += '<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>\n';
   xml +=
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n';
 
   for (const { loc, updatedAt, alternatives } of routes) {
-    if (!loc) {
-      console.log(JSON.stringify({ loc, updatedAt, alternatives }, null, 2));
-    }
     xml += `  <url>\n    <loc>${loc}</loc>\n`;
 
     if (updatedAt) {
