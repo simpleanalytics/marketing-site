@@ -346,6 +346,7 @@ export default defineNuxtConfig({
   },
   schemaOrg: { host: BASE_URL },
   i18n: {
+    vueI18n: "./i18n.config.ts",
     baseUrl: BASE_URL,
     locales,
     strategy: "prefix_except_default",
@@ -362,13 +363,9 @@ export default defineNuxtConfig({
       cookieKey: "locale",
       cookieSecure: false,
     },
-    vueI18n: {
-      legacy: false,
-      locale: "en",
-      fallbackLocale: {
-        be: ["nl"],
-        default: ["en"],
-      },
+    compilation: {
+      strictMessage: false,
+      escapeHtml: false,
     },
   },
   nitro: {
