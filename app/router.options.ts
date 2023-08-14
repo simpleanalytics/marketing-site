@@ -1,5 +1,5 @@
 export default {
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(to: any, from: any, savedPosition: any) {
     if (to.hash) {
       return {
         el: to.hash,
