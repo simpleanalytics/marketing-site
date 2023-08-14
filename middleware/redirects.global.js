@@ -16,6 +16,16 @@ const redirects = [
   },
   {
     type: "regex",
+    from: /^\/glossary\/analytics\/key-term\/key-term-1\/?$/i,
+    to: "/glossary/analytics/key-term/conversion-funnel",
+  },
+  {
+    type: "regex",
+    from: /^\/sitemap.xml$/i,
+    to: "/sitemap_index.xml",
+  },
+  {
+    type: "regex",
     from: /^\/practical-privacy-tips-for-your-business\/?$/i,
     to: "/blog/practical-privacy-tips-for-your-business",
   },

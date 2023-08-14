@@ -302,6 +302,7 @@
     "automatic_translated_switch_to_english": "Questo articolo è stato tradotto automaticamente. {0}Passa alla versione inglese{1} per l'originale.",
     "go_to_overview": "Vai alla panoramica del blog",
     "content_not_translated": "Questo contenuto non è ancora tradotto in italiano. Di seguito la versione in inglese.",
+    "draft_warning": "Questo è ancora una bozza. Per favore, non condividerlo ancora.",
     "subscribe": {
       "title": "Newsletter sulla privacy",
       "description": "Ciao, mi chiamo Adriaan, sono il fondatore di Simple Analytics. Circa una volta al mese condivido informazioni e aggiornamenti sulla privacy nella nostra newsletter. Disiscriviti con 1 click.",

@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
   const { strapiToken } = useRuntimeConfig();
   const locale = "en";
 
-  event.res.setHeader("Content-Type", "application/xml");
+  event.node.res.setHeader("Content-Type", "application/xml");
 
   const url = new URL(`/api/articles`, "https://cms.simpleanalytics.com");
   const params = {
