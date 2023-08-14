@@ -94,12 +94,7 @@ export default defineNuxtConfig({
       "postcss-hover-media-feature": {},
     },
   },
-  modules: [
-    "@nuxtjs/tailwindcss",
-    "@nuxtjs/i18n",
-    "nuxt-schema-org",
-    "nuxt-simple-sitemap",
-  ],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n", "nuxt-schema-org"],
   schemaOrg: { host: BASE_URL },
   i18n: {
     vueI18n: "./i18n.config.ts",
