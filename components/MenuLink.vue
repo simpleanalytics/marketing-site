@@ -12,8 +12,6 @@ const props = defineProps(["href", "target", "to"]);
 
 const router = useRouter();
 
-const localePath = useLocalePath();
-
 const clickHandler = () => {
   if (props.to) router.push({ path: props.to });
   else if (props.href?.startsWith("/")) router.push({ path: props.href });

@@ -33,8 +33,6 @@ export const useArticle = async ({
     url.searchParams.set("filters[articleType][$eq]", articleType);
   if (showDrafts) url.searchParams.set("drafts", showDrafts);
 
-  if (!slug && !nonUniqueSlug) return {};
-
   const keys = [
     ...extraKeys,
     "id",

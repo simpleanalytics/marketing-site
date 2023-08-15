@@ -27,7 +27,7 @@
         :to="
           localePath({
             name: 'resources-analytics-pricing-slug',
-            params: { section: article.articleType, slug: article.slug },
+            params: { slug: article.slug },
           })
         "
         class="group bg-white dark:bg-gray-700 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-red-500 dark:focus-within:ring-red-600 flex flex-col rounded-lg shadow dark:shadow-none"

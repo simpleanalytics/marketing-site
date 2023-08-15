@@ -163,9 +163,7 @@ const fixedCountries = [
   {
     link: localePath({
       name: "blog-slug",
-      params: {
-        slug: "norway-takes-a-stance-against-google-analytics",
-      },
+      params: { slug: "norway-takes-a-stance-against-google-analytics" },
     }),
     locale: "en",
     code: "no",
@@ -174,9 +172,7 @@ const fixedCountries = [
   {
     link: localePath({
       name: "blog-slug",
-      params: {
-        slug: "sweden-declares-google-analytics-illegal",
-      },
+      params: { slug: "sweden-declares-google-analytics-illegal" },
     }),
     locale: "en",
     code: "se",
