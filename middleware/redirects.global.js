@@ -86,6 +86,11 @@ const redirects = [
   },
   {
     type: "replace",
+    from: "/resources/comparions/",
+    to: "/resources/comparisons/",
+  },
+  {
+    type: "replace",
     from: "/stop-using-google-analytics-if-you-care-about-your-page-rank",
     to: "/google-penalizes-you-for-using-google-analytics",
   },

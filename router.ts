@@ -114,7 +114,7 @@ export default {
     fr: "/ressources/comparaisons",
   },
   "resources/comparisons/[slug]": {
-    en: "/resources/comparions/[slug]",
+    en: "/resources/comparisons/[slug]",
     nl: "/bronnen/vergelijkingen/[slug]",
     es: "/recursos/comparaciones/[slug]",
     de: "/ressourcen/vergleiche/[slug]",
