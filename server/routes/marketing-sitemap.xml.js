@@ -1,5 +1,6 @@
 import { stringify as qsStringify } from "qs";
-import localePages from "../../router";
+import localePages from "~/router";
+import { categories } from "~/data/glossary";
 
 export default defineEventHandler(async (event) => {
   const {
@@ -113,10 +114,10 @@ const computeSitemapPaths = (
 
   // for key-terms directly adding the key to be analytics and google-analytics
   if (isPathKeyTerms) {
-    pageRoutesToMatch["analytics"] =
-      localePages["glossary/[category]/key-terms/[slug]"];
-    pageRoutesToMatch["google-analytics"] =
-      localePages["glossary/[category]/key-terms/[slug]"];
+    for (const { category } of categories) {
+      pageRoutesToMatch[category] =
+        localePages["glossary/[category]/key-terms/[slug]"];
+    }
   } else {
     /* 
       for dynamic routes, iterating and adding keys in the format: analytics,
