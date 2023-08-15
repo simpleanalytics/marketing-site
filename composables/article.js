@@ -4,6 +4,7 @@ export const useArticle = async ({
   routeName,
   type = "articles",
   slug,
+  nonUniqueSlug,
   articleType,
   keys: extraKeys = [],
   drafts = false,
@@ -26,9 +27,13 @@ export const useArticle = async ({
     type === "key-terms" ? "/key-terms" : "/articles"
   );
   if (slug) url.searchParams.set("filters[slug][$eq]", slug);
+  if (nonUniqueSlug)
+    url.searchParams.set("filters[nonUniqueSlug][$eq]", nonUniqueSlug);
   if (articleType)
     url.searchParams.set("filters[articleType][$eq]", articleType);
   if (showDrafts) url.searchParams.set("drafts", showDrafts);
+
+  if (!slug && !nonUniqueSlug) return {};
 
   const keys = [
     ...extraKeys,
@@ -45,6 +50,10 @@ export const useArticle = async ({
     "ctaDescription",
     "ctaButton",
   ];
+
+  if (nonUniqueSlug) {
+    keys.push("nonUniqueSlug");
+  }
 
   if (showDrafts) {
     keys.push("sourceDocumentUrl");

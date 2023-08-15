@@ -201,6 +201,7 @@ const props = defineProps([
   "type",
   "name",
   "slug",
+  "nonUniqueSlug",
   "articleType",
   "drafts",
   "hideTitle",
@@ -216,8 +217,9 @@ import { EyeSlashIcon, XCircleIcon } from "@heroicons/vue/24/outline";
 import EindePopup from "@/components/EindePopup.vue";
 import SubscribeForm from "@/components/SubscribeForm.vue";
 
+const event = useRequestEvent();
 const config = useRuntimeConfig();
-const { BASE_URL, MAIN_URL, NODE_ENV } = config.public;
+const { BASE_URL, MAIN_URL } = config.public;
 
 const route = useRoute();
 const { t, locale } = useI18n();
@@ -237,13 +239,14 @@ const { article } = await useArticle({
   ],
   routeName: props.name,
   slug: props.slug,
+  nonUniqueSlug: props.nonUniqueSlug,
   articleType: props.articleType,
   type: props.type,
   drafts: props.drafts,
 });
 
 if (!article?.value && process.server) {
-  setResponseStatus(404, "Page Not Found");
+  setResponseStatus(event, 404, "Page Not Found");
 }
 
 const translationParts = t("blog.automatic_translated_switch_to_english", [
