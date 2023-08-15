@@ -166,7 +166,12 @@ export default ({ data, locale = "en", keys = [], limit }) => {
     const articles = flattened.filter((article) => array.includes(article.id));
 
     if (articles.length === 0) return null;
-    if (articles.length === 1) return articles[0];
+    if (articles.length === 1) {
+      const article = articles[0];
+      if (article.attributes.locale === locale) return article;
+      if (article.attributes.locale === "en") return article;
+      return null;
+    }
 
     // Get English version to find the publishAt date
     const inEnglish = articles.find(
@@ -177,6 +182,7 @@ export default ({ data, locale = "en", keys = [], limit }) => {
     const inLocale = articles.find(
       ({ attributes }) => attributes.locale === locale
     );
+
     if (inLocale) {
       return {
         ...inLocale,

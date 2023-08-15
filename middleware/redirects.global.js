@@ -86,8 +86,8 @@ const redirects = [
   },
   {
     type: "replace",
-    from: "/resources/comparions/",
-    to: "/resources/comparisons/",
+    from: "/resources/comparions",
+    to: "/resources/comparisons",
   },
   {
     type: "replace",

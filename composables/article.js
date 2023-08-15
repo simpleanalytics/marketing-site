@@ -1,5 +1,3 @@
-import { useI18n } from "#i18n";
-
 export const useArticle = async ({
   routeName,
   type = "articles",
@@ -92,20 +90,24 @@ export const useArticle = async ({
     };
   });
 
-  const languages = articles?.value?.[0]?.languages;
-  if (languages && slug) {
-    if (!localePath)
-      throw new Error("localePath is not defined in article composable");
+  try {
+    const languages = articles?.value?.[0]?.languages;
+    if (languages && slug) {
+      if (typeof localePath !== "function")
+        throw new Error("localePath is not defined in article composable");
 
-    if (slug !== languages[locale.value].slug) {
-      const path = localePath({
-        name: routeName,
-        params: { slug: languages[locale.value].slug },
-      });
-      navigateTo(path, { redirectCode: 308 }); // 308 Permanent Redirect
+      if (slug !== languages[locale.value].slug) {
+        const path = localePath({
+          name: routeName,
+          params: { slug: languages[locale.value].slug },
+        });
+        navigateTo(path, { redirectCode: 308 }); // 308 Permanent Redirect
+      }
+
+      route.meta.nuxtI18n = languages;
     }
-
-    route.meta.nuxtI18n = languages;
+  } catch (error) {
+    console.error(error);
   }
 
   return {
