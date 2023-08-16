@@ -308,7 +308,7 @@
       "description": "Salut, je m'appelle Adriaan, je suis le fondateur de Simple Analytics. Environ une fois par mois, je partage des informations et des mises à jour sur la confidentialité dans notre lettre d'information. Se désabonner avec 1 click.",
       "checkbox_newsletter": "Lettre d'information",
       "checkbox_blog_posts": "Notifiez-moi des nouveaux articles de blog",
-      "email_placeholder": "Par ex.: eric { '@' } google.com",
+      "email_placeholder": "Par ex.: eric{'@'}google.com",
       "button": "S'abonner",
       "thank_you": "Vérifiez votre boîte de réception pour confirmer votre abonnement. Merci de vous être abonné!",
       "errors": {
