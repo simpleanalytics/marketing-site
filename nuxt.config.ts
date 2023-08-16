@@ -65,6 +65,7 @@ const privateKeys = {
   strapiToken: process.env.STRAPI_TOKEN,
   trelloPersonalKey: process.env.TRELLO_PERSONAL_KEY,
   trelloPersonalToken: process.env.TRELLO_PERSONAL_TOKEN,
+  cmsUrl: process.env.CMS_URL || "https://cms.simpleanalytics.com",
 };
 
 // https://nuxt.com/docs/migration/configuration/#nuxtconfig
@@ -131,10 +132,17 @@ export default defineNuxtConfig({
     runtimeCompiler: true,
   },
   security: {
+    headers: {
+      contentSecurityPolicy: false,
+      crossOriginEmbedderPolicy: false,
+      crossOriginOpenerPolicy: false,
+      crossOriginResourcePolicy: false,
+    },
     rateLimiter: {
       tokensPerInterval: 80,
       interval: "minute",
-      throwError: false,
+      throwError: true,
     },
+    corsHandler: false,
   },
 });

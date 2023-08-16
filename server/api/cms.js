@@ -467,14 +467,14 @@ const parse = ({ type, response }) => {
 };
 
 export default defineEventHandler(async (event) => {
-  const { strapiToken } = useRuntimeConfig();
+  const { strapiToken, cmsUrl } = useRuntimeConfig();
 
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${strapiToken}`,
   };
 
-  const url = new URL(event.node?.req.url, "https://cms.simpleanalytics.com");
+  const url = new URL(event.node?.req.url, cmsUrl);
 
   const path = url.searchParams.get("path");
   const type = path.slice(1);
