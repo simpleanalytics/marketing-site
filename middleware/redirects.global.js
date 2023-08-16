@@ -41,6 +41,11 @@ const redirects = [
   },
   {
     type: "replace",
+    from: "/utm-generator",
+    to: "/utm-builder",
+  },
+  {
+    type: "replace",
     from: "/stop-using-google-analytics-if-you-care-about-your-page-rank",
     to: "/google-analytics-performance-impact-using-google-lighthouse",
   },
