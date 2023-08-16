@@ -94,7 +94,12 @@ export default defineNuxtConfig({
       "postcss-hover-media-feature": {},
     },
   },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n", "nuxt-schema-org"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/i18n",
+    "nuxt-schema-org",
+    "nuxt-security",
+  ],
   schemaOrg: { host: BASE_URL },
   i18n: {
     vueI18n: "./i18n.config.ts",
@@ -124,5 +129,12 @@ export default defineNuxtConfig({
   },
   vue: {
     runtimeCompiler: true,
+  },
+  security: {
+    rateLimiter: {
+      tokensPerInterval: 80,
+      interval: "minute",
+      throwError: false,
+    },
   },
 });

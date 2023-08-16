@@ -20,6 +20,7 @@
     "marked": "^4.2.12",
     "nuxt": "^3.6.5",
     "nuxt-schema-org": "^2.1.1",
+    "nuxt-security": "^0.14.4",
     "postcss-hover-media-feature": "^1.0.2",
     "qs": "^6.11.0",
     "simple-analytics-vue": "^3.0.1"
