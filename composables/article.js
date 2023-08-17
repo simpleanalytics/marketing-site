@@ -21,8 +21,10 @@ export const useArticle = async ({
   const showDrafts = isAdmin.value || drafts;
 
   const url = new URL("/api/cms", BASE_URL);
-  url.searchParams.set("userAgent", event.node.req?.headers?.["user-agent"]);
-  url.searchParams.set("userPath", event.node.req?.url);
+  if (event?.node?.req?.headers?.["user-agent"])
+    url.searchParams.set("userAgent", event.node.req.headers["user-agent"]);
+  if (event?.node?.req?.url)
+    url.searchParams.set("userPath", event.node.req.url);
   url.searchParams.set(
     "path",
     type === "key-terms" ? "/key-terms" : "/articles"
