@@ -138,11 +138,6 @@ export default defineNuxtConfig({
       crossOriginOpenerPolicy: false,
       crossOriginResourcePolicy: false,
     },
-    rateLimiter: {
-      tokensPerInterval: 80,
-      interval: "minute",
-      throwError: true,
-    },
     corsHandler: false,
   },
 });
