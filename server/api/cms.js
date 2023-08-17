@@ -507,6 +507,11 @@ export default defineEventHandler(async (event) => {
         }
       : {};
 
+  const userAgent = url.searchParams.get("userAgent");
+  url.searchParams.delete("userAgent");
+  const userPath = url.searchParams.get("userPath");
+  url.searchParams.delete("userPath");
+
   const params = {
     ...qsParse(url.search.slice(1)),
     locale: url.searchParams.has("locale")
@@ -539,9 +544,7 @@ export default defineEventHandler(async (event) => {
 
   if (!path || !TYPES[type]) throw new Error("Invalid type, add to TYPES");
 
-  // log user agent
-  const userAgent = event.node?.req?.headers?.["user-agent"];
-  if (userAgent) console.log(`User agent: ${userAgent}`);
+  if (userAgent) console.log(`USER: ${userAgent}: ${userPath}`);
 
   const response = await $fetch(url, { method: "GET", headers });
 

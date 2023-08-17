@@ -11,6 +11,7 @@ export const useArticle = async ({
   const route = useRoute();
   const { locale } = useI18n();
   const localePath = useLocalePath();
+  const event = useRequestEvent();
 
   const {
     public: { BASE_URL },
@@ -20,6 +21,8 @@ export const useArticle = async ({
   const showDrafts = isAdmin.value || drafts;
 
   const url = new URL("/api/cms", BASE_URL);
+  url.searchParams.set("userAgent", event.node.req?.headers?.["user-agent"]);
+  url.searchParams.set("userPath", event.node.req?.url);
   url.searchParams.set(
     "path",
     type === "key-terms" ? "/key-terms" : "/articles"
