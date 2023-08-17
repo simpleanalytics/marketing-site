@@ -35,6 +35,7 @@ export const useArticle = async ({
   if (articleType)
     url.searchParams.set("filters[articleType][$eq]", articleType);
   if (showDrafts) url.searchParams.set("drafts", showDrafts);
+  if (limit) url.searchParams.set("pagination[pageSize]", limit);
 
   const keys = [
     ...extraKeys,
@@ -71,12 +72,16 @@ export const useArticle = async ({
 
   url.searchParams.set("fields", keys.join(","));
 
+  const key = [routeName, articleType, slug, limit, locale.value, showDrafts]
+    .filter(Boolean)
+    .join("_");
+
   const {
     data: articles,
     pending,
     error,
   } = await useFetch(url.toString(), {
-    key: `${routeName}-${articleType}-${slug}-${limit}-${locale.value}-${showDrafts}`,
+    key,
     transform: ({ data }) =>
       transformer({
         data,
