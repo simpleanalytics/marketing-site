@@ -544,7 +544,7 @@ export default defineEventHandler(async (event) => {
 
   if (!path || !TYPES[type]) throw new Error("Invalid type, add to TYPES");
 
-  if (userAgent) console.log(`USER: ${userAgent}: ${userPath}`);
+  console.log(`USER: ${userAgent || "(no agent)"}: ${userPath || "(no path)"}`);
 
   const response = await $fetch(url, { method: "GET", headers });
 
