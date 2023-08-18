@@ -42,6 +42,7 @@
       :width="width ? width : 'auto'"
       :height="height ? height : 'auto'"
       :style="ratio"
+      crossorigin="anonymous"
     >
       <slot />
     </video>
