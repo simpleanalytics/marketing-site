@@ -1,12 +1,19 @@
+const blocklist = []; // [/tag.?parrot/i];
+
 export default defineNuxtPlugin(async (nuxtApp) => {
-  // const { event } = nuxtApp.ssrContext;
-  // const userAgent = event.node?.req?.headers?.["user-agent"];
-  const isBlocked = false; // userAgent?.match(/(tagparrot)/i);
+  const { event } = nuxtApp.ssrContext;
+  const url = event?.node?.req?.url;
+  const userAgent = event.node?.req?.headers?.["user-agent"];
+
+  // Do not block sitemap.xml, robots.txt, etc.
+  if (url?.match(/\.(xml|xsl|txt|css|js)$/i)) return;
+
+  // Block based on user-agent
+  const isBlocked = blocklist.some((regex) => userAgent?.match(regex));
 
   if (isBlocked)
     throw createError({
       statusCode: 429,
-      statusMessage:
-        "You are blocked because you're hitting our servers way to hard.",
+      statusMessage: "Please contact us about crawling our website.",
     });
 });
