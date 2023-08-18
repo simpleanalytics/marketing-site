@@ -113,7 +113,7 @@ export const useArticle = async ({
           name: routeName,
           params: { slug: languages[locale.value].slug },
         });
-        navigateTo(path, { redirectCode: 308 }); // 308 Permanent Redirect
+        navigateTo(path, { redirectCode: 307 }); // 308 Permanent Redirect
       }
 
       route.meta.nuxtI18n = languages;
