@@ -2,6 +2,7 @@ export const useArticle = async ({
   routeName,
   type = "articles",
   slug,
+  useLocale = false,
   nonUniqueSlug,
   articleType,
   keys: extraKeys = [],
@@ -36,6 +37,7 @@ export const useArticle = async ({
     url.searchParams.set("filters[articleType][$eq]", articleType);
   if (showDrafts) url.searchParams.set("drafts", showDrafts);
   if (limit) url.searchParams.set("pagination[pageSize]", limit);
+  if (useLocale) url.searchParams.set("locale", locale.value);
 
   const keys = [
     ...extraKeys,

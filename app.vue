@@ -1052,6 +1052,7 @@ const { articles: recentPosts, pending } = await useArticle({
   articleType: "blog",
   keys: ["coverImageWithText", "coverImageWithoutText"],
   limit: 3,
+  useLocale: true,
 });
 
 onMounted(() => {

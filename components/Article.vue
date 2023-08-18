@@ -243,6 +243,7 @@ const { article } = await useArticle({
   articleType: props.articleType,
   type: props.type,
   drafts: props.drafts,
+  useLocale: props.useLocale,
 });
 
 if (!article?.value && process.server) {
