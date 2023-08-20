@@ -41,6 +41,7 @@ export const useArticle = async ({
 
   const keys = [
     ...extraKeys,
+    "tables",
     "id",
     "title",
     "excerpt",

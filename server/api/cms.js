@@ -29,6 +29,10 @@ const populateMediaField = {
   ],
 };
 
+const populateTableComponentField = {
+  fields: ["title", "tableContent"],
+};
+
 const tableOfContents = (html) => {
   const toc = [];
   var level = 0;
@@ -378,6 +382,52 @@ const replacer = ({
   return html;
 };
 
+const getCustomTable = ({
+  match,
+  tag,
+  attributes,
+  content,
+  parent,
+  parentAttributes,
+  id,
+  tables,
+}) => {
+  console.log("--inside get custom tables---");
+  console.log(
+    "--values---",
+    // match,
+    tag
+    // attributes,
+    // content,
+    // parent,
+    // parentAttributes,
+    // id
+  );
+  // console.log('--matchedValue--', matchedValue)
+  console.log("--attributes===", tables);
+
+
+      // <ContentEditable id="${table.title}" parent="${parent || ""}" tag="h3" 
+      // articleId="${id || ""}">${table.title}</ContentEditable>
+
+
+  let html = "";
+
+  for (const table of tables) {
+    const key = `table-${table.title.toLowerCase().split(" ").join("-")}`;
+    if (key === tag) {
+      html = `<div>
+      <p id='${table.title}' class="text-center font-semibold ">${table.title}</p>
+        ${preconvert(table.tableContent)}
+      </div>`;
+    }
+  }
+
+  console.log("--final html changed--", html);
+
+  return html;
+};
+
 const convert = (markdown, attributes) => {
   let html = preconvert(markdown, attributes);
 
@@ -388,6 +438,12 @@ const convert = (markdown, attributes) => {
   html = html.replace(ctaTwoRegex, ctas ? `<${randomCta} />` : "");
 
   const id = attributes.id;
+
+  const tables = attributes?.tables;
+
+  // console.log('--inside convert function---', markdown)
+  // console.log('---attributes---', attributes)
+  // console.log('---html proccessed---', html)
 
   html = html
     // Replace handlebar variables with html characters
@@ -401,6 +457,18 @@ const convert = (markdown, attributes) => {
         }>${text}</NuxtLink>`;
       }
     )
+    // replace and add table tags as per there order of occurences
+    .replace(/<p>&lt;-(.+?)-&gt;<\/p>/g, (match, tag, attributes, content) => {
+      // return getCustomTable({matchedValue, tables, id, match, tag, attributes})
+      return getCustomTable({
+        match,
+        tag,
+        attributes,
+        content,
+        id,
+        tables,
+      });
+    })
     .replace(
       /(?<!(?:<blockquote(?:[^>]*)>\n?))<(p)([^>]*)>((?:(?!<\/p>).)*)<\/p>/g,
       (match, tag, attributes, content) =>
@@ -429,6 +497,8 @@ const convert = (markdown, attributes) => {
       (match, tag, attributes, content) =>
         replacer({ match, tag, attributes, content, id })
     );
+
+  console.log("---html proccessedd----", html);
 
   return html;
 };
@@ -499,11 +569,13 @@ export default defineEventHandler(async (event) => {
   const populate =
     fields.includes("coverImageWithoutText") ||
     fields.includes("coverImageWithText") ||
-    fields.includes("inlineMedia")
+    fields.includes("inlineMedia") ||
+    fields.includes("tables")
       ? {
           coverImageWithoutText: populateMediaField,
           coverImageWithText: populateMediaField,
           inlineMedia: populateMediaField,
+          tables: populateTableComponentField,
         }
       : {};
 
