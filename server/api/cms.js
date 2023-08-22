@@ -382,48 +382,20 @@ const replacer = ({
   return html;
 };
 
-const getCustomTable = ({
-  match,
-  tag,
-  attributes,
-  content,
-  parent,
-  parentAttributes,
-  id,
-  tables,
-}) => {
-  console.log("--inside get custom tables---");
-  console.log(
-    "--values---",
-    // match,
-    tag
-    // attributes,
-    // content,
-    // parent,
-    // parentAttributes,
-    // id
-  );
-  // console.log('--matchedValue--', matchedValue)
-  console.log("--attributes===", tables);
-
-
-      // <ContentEditable id="${table.title}" parent="${parent || ""}" tag="h3" 
-      // articleId="${id || ""}">${table.title}</ContentEditable>
-
-
+const getCustomTable = ({ matchedValue, tables }) => {
   let html = "";
 
   for (const table of tables) {
     const key = `table-${table.title.toLowerCase().split(" ").join("-")}`;
-    if (key === tag) {
-      html = `<div>
-      <p id='${table.title}' class="text-center font-semibold ">${table.title}</p>
+    if (key === matchedValue) {
+      html = `<div id="custom-tables">
+      <p id='${table.title}' class="text-center font-semibold bg-[#F3F9FB] dark:bg-[#2a373a]">${
+        table.title
+      }</p>
         ${preconvert(table.tableContent)}
       </div>`;
     }
   }
-
-  console.log("--final html changed--", html);
 
   return html;
 };
@@ -441,10 +413,6 @@ const convert = (markdown, attributes) => {
 
   const tables = attributes?.tables;
 
-  // console.log('--inside convert function---', markdown)
-  // console.log('---attributes---', attributes)
-  // console.log('---html proccessed---', html)
-
   html = html
     // Replace handlebar variables with html characters
     .replace(/{{/g, "&lbrace;&lbrace;")
@@ -458,14 +426,9 @@ const convert = (markdown, attributes) => {
       }
     )
     // replace and add table tags as per there order of occurences
-    .replace(/<p>&lt;-(.+?)-&gt;<\/p>/g, (match, tag, attributes, content) => {
-      // return getCustomTable({matchedValue, tables, id, match, tag, attributes})
+    .replace(/<p>&lt;-(.+?)-&gt;<\/p>/g, (_, matchedValue) => {
       return getCustomTable({
-        match,
-        tag,
-        attributes,
-        content,
-        id,
+        matchedValue,
         tables,
       });
     })
@@ -497,8 +460,6 @@ const convert = (markdown, attributes) => {
       (match, tag, attributes, content) =>
         replacer({ match, tag, attributes, content, id })
     );
-
-  console.log("---html proccessedd----", html);
 
   return html;
 };
