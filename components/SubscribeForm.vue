@@ -167,6 +167,11 @@ const onSubmit = async () => {
     if (/email(.*)invalid/i.test(message))
       return setError("blog.subscribe.errors.invalid_email");
 
+    if (/already subscribed/i.test(message))
+      return setError("blog.subscribe.errors.already_subscribed");
+
+    if (message) return setError(message);
+
     setError("general.errors.something_went_wrong");
   }
 };

@@ -314,7 +314,8 @@
       "errors": {
         "no_email": "Vul een e-mailadres in.",
         "invalid_email": "Vul een geldig e-mailadres in",
-        "select_at_least_one": "Selecteer minstens één optie."
+        "select_at_least_one": "Selecteer minstens één optie.",
+        "already_subscribed": "Dit e-mailadres is al ingeschreven"
       }
     }
   },

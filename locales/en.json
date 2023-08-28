@@ -315,7 +315,8 @@
       "errors": {
         "no_email": "Please fill in an email address",
         "invalid_email": "Please fill in a valid email address",
-        "select_at_least_one": "Please select at least one checkbox"
+        "select_at_least_one": "Please select at least one checkbox",
+        "already_subscribed": "This email address is already subscribed"
       }
     }
   },
