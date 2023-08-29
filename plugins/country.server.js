@@ -85,5 +85,4 @@ export default defineNuxtPlugin(() => {
       console.error(error);
     }
   }
-
 });
