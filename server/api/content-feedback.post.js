@@ -28,8 +28,7 @@ export default defineEventHandler(async (event) => {
 
   const cmsUrl = new URL(
     `/api/articles/${articleId}`,
-    // "https://cms.simpleanalytics.com"
-    "http://127.0.0.1:1337"
+    "https://cms.simpleanalytics.com"
   );
   const cmsParams = {
     fields: ["id", "title", "slug", "authorSlug", "locale"],
