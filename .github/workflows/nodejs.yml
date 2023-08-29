@@ -41,6 +41,8 @@ jobs:
           prettier_options: "--write {,!(static|.github)/**/}*.{js,vue,html,json,md,yml,css,scss}"
           commit_message: "Run prettier via GitHub Action"
           file_pattern: "."
+        env:
+          github_token: ${{ secrets.MARKETING_SITE_PERSONAL_ACCESS_TOKEN }}
 
   build:
     runs-on: ubuntu-latest
