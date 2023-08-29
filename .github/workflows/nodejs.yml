@@ -33,6 +33,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           persist-credentials: false
+          ref: ${{ github.head_ref }}
 
       - name: Fail on forbidden words
         uses: simpleanalytics/fail-on-found-action@v2
@@ -48,7 +49,6 @@ jobs:
           prettier_options: "--write {,!(static|.github)/**/}*.{js,vue,html,json,md,yml,css,scss}"
           commit_message: "Run prettier via GitHub Action"
           file_pattern: "."
-          ref: ${{ github.head_ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -60,7 +60,6 @@ jobs:
           prettier_options: "--write {,!(static|.github)/**/}*.{js,vue,html,json,md,yml,css,scss}"
           commit_message: "Run prettier via GitHub Action"
           file_pattern: "."
-          ref: ${{ github.head_ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
