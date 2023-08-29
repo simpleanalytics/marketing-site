@@ -41,7 +41,6 @@ export const useArticle = async ({
 
   const keys = [
     ...extraKeys,
-    "tables",
     "id",
     "title",
     "excerpt",
@@ -54,6 +53,8 @@ export const useArticle = async ({
     "ctaTitle",
     "ctaDescription",
     "ctaButton",
+    "tables",
+    "reviews"
   ];
 
   if (nonUniqueSlug) {

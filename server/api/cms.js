@@ -33,6 +33,29 @@ const populateTableComponentField = {
   fields: ["title", "tableContent"],
 };
 
+const populateReviewComponentField = {
+  fields: [
+    "reviewTitle",
+    "reviewLink",
+    "sourceName",
+    "sourceLink",
+    "userName",
+    "userLink",
+    "userDesignation",
+    "content",
+  ],
+};
+
+const sanitize = (text = "") => {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;")
+    .replace(/`/g, "&#96");
+};
+
 const tableOfContents = (html) => {
   const toc = [];
   var level = 0;
@@ -384,19 +407,98 @@ const replacer = ({
 
 const getCustomTable = ({ matchedValue, tables }) => {
   let html = "";
-
-  for (const table of tables) {
-    const key = `table-${table.title.toLowerCase().split(" ").join("-")}`;
-    if (key === matchedValue) {
-      html = `<div id="custom-tables">
-      <p id='${table.title}' class="text-center font-semibold bg-[#F3F9FB] dark:bg-[#2a373a]">${
-        table.title
-      }</p>
-        ${preconvert(table.tableContent)}
-      </div>`;
+  if (tables) {
+    for (const table of tables) {
+      const key = table.title.toLowerCase().split(" ").join("-");
+      if (key === matchedValue) {
+        html = `
+        <div id="custom-tables">
+          <p id='${sanitize(
+            table.title
+          )}' class="text-center font-semibold bg-[#F3F9FB] dark:bg-[#2a373a]">${sanitize(
+          table.title.trim()
+        )}</p>
+          ${preconvert(table.tableContent)}
+        </div>
+      `;
+      }
     }
   }
+  return html;
+};
 
+
+const getReviews = ({ matchedValue, reviews }) => {
+  let html = "";
+  if (reviews) {
+    for (const review of reviews) {
+      const key = review.reviewTitle.toLowerCase().split(" ").join("-");
+      if (key === matchedValue.toLowerCase()) {
+        html = `
+        <div class="border border-2 border-red-600 rounded-lg h-auto w-auto mb-4">
+          <div class="px-12 mb-12">
+            <div class="px-3 py-1.5 text-white text-base w-auto max-w-full font-semibold bg-gradient-to-b from-red-400 to-red-500 dark:from-red-600 dark:to-red-600 rounded-b-lg inline-block truncate">
+              <span>${sanitize(review.reviewTitle.trim())}</span>
+            </div>
+            ${preconvert(review.content.trim())}
+          </div>
+          <div class="flex items-center justify-between w-full px-12 py-2 rounded-b-md bg-gradient-to-b from-red-400 to-red-500 dark:from-red-600 dark:to-red-600">
+            <div class="font-semibold text-base text-white max-w-[70%] truncate">
+            ${
+              review.userLink
+                ? `
+                <NuxtLink
+                  target="_blank"
+                  to="${sanitize(review.userLink)}"
+                  class="font-semibold text-base text-white truncate"
+                >${sanitize(review.userName.trim())}</NuxtLink>
+                `
+                : `
+                <span class="font-semibold text-base text-white/75 truncate">
+                ${sanitize(
+                  review.userName.trim()
+                )}
+                </span>
+                `
+            }
+            ${
+              review.userDesignation
+                ? `<span class="font-semibold text-base text-white/75 truncate">, ${sanitize(
+                    review.userDesignation.trim()
+                  )}</span>`
+                : ""
+            }
+            </div>
+            ${
+              review.sourceName
+                ? `
+                <div class="text-base text-white font-semibold inline-flex items-center truncate max-w-[50%]">
+                  <span>Source: ${sanitize(review.sourceName.trim())}</span>
+                  ${
+                    review.sourceLink
+                      ? `
+                    <NuxtLink
+                      target="_blank"
+                      to="${sanitize(review.sourceLink)}"
+                      class=" ml-2 w-5 h-5 text-white"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                      </svg>
+                    </NuxtLink>
+                  `
+                      : ""
+                  }
+                </div>
+              `
+                : ""
+            }
+          </div>
+        </div>
+      `;
+      }
+    }
+  }
   return html;
 };
 
@@ -412,6 +514,7 @@ const convert = (markdown, attributes) => {
   const id = attributes.id;
 
   const tables = attributes?.tables;
+  const reviews = attributes?.reviews;
 
   html = html
     // Replace handlebar variables with html characters
@@ -425,11 +528,18 @@ const convert = (markdown, attributes) => {
         }>${text}</NuxtLink>`;
       }
     )
-    // replace and add table tags as per there order of occurences
-    .replace(/<p>&lt;-(.+?)-&gt;<\/p>/g, (_, matchedValue) => {
+    // replace and add table tags as per the order of occurences
+    .replace(/<p>&lt;-table-(.+?)-&gt;<\/p>/g, (_, matchedValue) => {
       return getCustomTable({
         matchedValue,
         tables,
+      });
+    })
+    // replace and add review tags as per there occurence
+    .replace(/<p>&lt;-reviews-(.+?)-&gt;<\/p>/g, (_, matchedValue) => {
+      return getReviews({
+        matchedValue,
+        reviews,
       });
     })
     .replace(
@@ -531,12 +641,14 @@ export default defineEventHandler(async (event) => {
     fields.includes("coverImageWithoutText") ||
     fields.includes("coverImageWithText") ||
     fields.includes("inlineMedia") ||
-    fields.includes("tables")
+    fields.includes("tables") ||
+    fields.includes("reviews")
       ? {
           coverImageWithoutText: populateMediaField,
           coverImageWithText: populateMediaField,
           inlineMedia: populateMediaField,
           tables: populateTableComponentField,
+          reviews: populateReviewComponentField,
         }
       : {};
 
