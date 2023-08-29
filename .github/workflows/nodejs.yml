@@ -33,7 +33,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           persist-credentials: false
-          ref: ${{ github.head_ref }}
+          ref: ${{ github.ref_name }}
 
       - name: Fail on forbidden words
         uses: simpleanalytics/fail-on-found-action@v2
