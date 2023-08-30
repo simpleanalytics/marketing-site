@@ -426,7 +426,6 @@ const getCustomTable = ({ matchedValue, tables }) => {
   return html;
 };
 
-
 const getReviews = ({ matchedValue, reviews }) => {
   let html = "";
   if (reviews) {
@@ -453,9 +452,7 @@ const getReviews = ({ matchedValue, reviews }) => {
                 `
                 : `
                 <span class="font-semibold text-base text-white/75 truncate">
-                ${sanitize(
-                  review.userName.trim()
-                )}
+                ${sanitize(review.userName.trim())}
                 </span>
                 `
             }
@@ -471,7 +468,9 @@ const getReviews = ({ matchedValue, reviews }) => {
               review.sourceName
                 ? `
                 <div class="text-base text-white font-semibold inline-flex items-center max-w-[50%]">
-                  <span class="truncate max-w-[calc(100%-1.5rem)]">Source: ${sanitize(review.sourceName.trim())}</span>
+                  <span class="truncate max-w-[calc(100%-1.5rem)]">Source: ${sanitize(
+                    review.sourceName.trim()
+                  )}</span>
                   ${
                     review.sourceLink
                       ? `
@@ -527,19 +526,25 @@ const convert = (markdown, attributes) => {
       }
     )
     // replace and add table tags as per the order of occurences
-    .replace(/<p>&lbrace;&lbrace;table &quot;([^&]+)&quot;&rbrace;&rbrace;<\/p>/g, (_, matchedValue) => {
-      return getCustomTable({
-        matchedValue,
-        tables,
-      });
-    })
+    .replace(
+      /<p>&lbrace;&lbrace;table &quot;([^&]+)&quot;&rbrace;&rbrace;<\/p>/g,
+      (_, matchedValue) => {
+        return getCustomTable({
+          matchedValue,
+          tables,
+        });
+      }
+    )
     // replace and add review tags as per there occurence
-    .replace(/<p>&lbrace;&lbrace;review &quot;([^&]+)&quot;&rbrace;&rbrace;<\/p>/g, (_, matchedValue) => {
-      return getReviews({
-        matchedValue,
-        reviews,
-      });
-    })
+    .replace(
+      /<p>&lbrace;&lbrace;review &quot;([^&]+)&quot;&rbrace;&rbrace;<\/p>/g,
+      (_, matchedValue) => {
+        return getReviews({
+          matchedValue,
+          reviews,
+        });
+      }
+    )
     .replace(
       /(?<!(?:<blockquote(?:[^>]*)>\n?))<(p)([^>]*)>((?:(?!<\/p>).)*)<\/p>/g,
       (match, tag, attributes, content) =>
