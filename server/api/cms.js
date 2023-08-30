@@ -413,10 +413,10 @@ const getCustomTable = ({ matchedValue, tables }) => {
         html = `
         <div id="custom-tables">
           <p id='${sanitize(
-            table.title
+            table.title,
           )}' class="text-center font-semibold bg-[#F3F9FB] dark:bg-[#2a373a]">${sanitize(
-          table.title.trim()
-        )}</p>
+            table.title.trim(),
+          )}</p>
           ${preconvert(table.tableContent)}
         </div>
       `;
@@ -459,7 +459,7 @@ const getReviews = ({ matchedValue, reviews }) => {
             ${
               review.userDesignation
                 ? `<span class="font-semibold text-base text-white/75 truncate">, ${sanitize(
-                    review.userDesignation.trim()
+                    review.userDesignation.trim(),
                   )}</span>`
                 : ""
             }
@@ -469,7 +469,7 @@ const getReviews = ({ matchedValue, reviews }) => {
                 ? `
                 <div class="text-base text-white font-semibold inline-flex items-center max-w-[50%]">
                   <span class="truncate max-w-[calc(100%-1.5rem)]">Source: ${sanitize(
-                    review.sourceName.trim()
+                    review.sourceName.trim(),
                   )}</span>
                   ${
                     review.sourceLink
