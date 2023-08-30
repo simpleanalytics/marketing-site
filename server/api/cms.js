@@ -409,8 +409,7 @@ const getCustomTable = ({ matchedValue, tables }) => {
   let html = "";
   if (tables) {
     for (const table of tables) {
-      const key = table.title.toLowerCase().split(" ").join("-");
-      if (key === matchedValue) {
+      if (table.title?.toLowerCase() === matchedValue?.toLowerCase()) {
         html = `
         <div id="custom-tables">
           <p id='${sanitize(
@@ -432,18 +431,17 @@ const getReviews = ({ matchedValue, reviews }) => {
   let html = "";
   if (reviews) {
     for (const review of reviews) {
-      const key = review.reviewTitle.toLowerCase().split(" ").join("-");
-      if (key === matchedValue.toLowerCase()) {
+      if (review.reviewTitle?.toLowerCase() === matchedValue?.toLowerCase()) {
         html = `
-        <div class="border border-2 border-red-600 rounded-lg h-auto w-auto mb-4">
-          <div class="px-12 mb-12">
+        <div class="border-2 border-red-600 rounded-lg h-auto w-auto mb-4">
+          <div class="px-4 md:px-8 lg:px-12 mb-12">
             <div class="px-3 py-1.5 text-white text-base w-auto max-w-full font-semibold bg-gradient-to-b from-red-400 to-red-500 dark:from-red-600 dark:to-red-600 rounded-b-lg inline-block truncate">
               <span>${sanitize(review.reviewTitle.trim())}</span>
             </div>
             ${preconvert(review.content.trim())}
           </div>
-          <div class="flex items-center justify-between w-full px-12 py-2 rounded-b-md bg-gradient-to-b from-red-400 to-red-500 dark:from-red-600 dark:to-red-600">
-            <div class="font-semibold text-base text-white max-w-[70%] truncate">
+          <div class="flex items-center justify-between w-full px-4 md:px-8 lg:px-12 py-2 rounded-b-md bg-gradient-to-b from-red-400 to-red-500 dark:from-red-600 dark:to-red-600">
+            <div class="font-semibold text-base text-white max-w-[50%] truncate">
             ${
               review.userLink
                 ? `
@@ -472,17 +470,17 @@ const getReviews = ({ matchedValue, reviews }) => {
             ${
               review.sourceName
                 ? `
-                <div class="text-base text-white font-semibold inline-flex items-center truncate max-w-[50%]">
-                  <span>Source: ${sanitize(review.sourceName.trim())}</span>
+                <div class="text-base text-white font-semibold inline-flex items-center max-w-[50%]">
+                  <span class="truncate max-w-[calc(100%-1.5rem)]">Source: ${sanitize(review.sourceName.trim())}</span>
                   ${
                     review.sourceLink
                       ? `
                     <NuxtLink
                       target="_blank"
                       to="${sanitize(review.sourceLink)}"
-                      class=" ml-2 w-5 h-5 text-white"
+                      class="ml-1 w-5 h-5 text-white"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-full w-full">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                       </svg>
                     </NuxtLink>
@@ -529,14 +527,14 @@ const convert = (markdown, attributes) => {
       }
     )
     // replace and add table tags as per the order of occurences
-    .replace(/<p>&lt;-table-(.+?)-&gt;<\/p>/g, (_, matchedValue) => {
+    .replace(/<p>&lbrace;&lbrace;table &quot;([^&]+)&quot;&rbrace;&rbrace;<\/p>/g, (_, matchedValue) => {
       return getCustomTable({
         matchedValue,
         tables,
       });
     })
     // replace and add review tags as per there occurence
-    .replace(/<p>&lt;-reviews-(.+?)-&gt;<\/p>/g, (_, matchedValue) => {
+    .replace(/<p>&lbrace;&lbrace;review &quot;([^&]+)&quot;&rbrace;&rbrace;<\/p>/g, (_, matchedValue) => {
       return getReviews({
         matchedValue,
         reviews,
