@@ -314,7 +314,8 @@
       "errors": {
         "no_email": "Por favor, rellena una dirección de correo electrónico",
         "invalid_email": "Por favor, rellena una dirección de correo electrónico válida",
-        "select_at_least_one": "Por favor, selecciona al menos una casilla de verificación"
+        "select_at_least_one": "Por favor, selecciona al menos una casilla de verificación",
+        "already_subscribed": "Este correo ya está suscrito"
       }
     }
   },

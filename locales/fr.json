@@ -314,7 +314,8 @@
       "errors": {
         "no_email": "Veuillez entrer une adresse e-mail",
         "invalid_email": "Veuillez entrer une adresse e-mail valide",
-        "select_at_least_one": "Veuillez sélectionner au moins une case à cocher"
+        "select_at_least_one": "Veuillez sélectionner au moins une case à cocher",
+        "already_subscribed": "Cette adresse e-mail est déjà abonnée"
       }
     }
   },

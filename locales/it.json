@@ -314,7 +314,8 @@
       "errors": {
         "no_email": "Per favore, inserisci un indirizzo email",
         "invalid_email": "Per favore, inserisci un indirizzo email valido",
-        "select_at_least_one": "Per favore, seleziona almeno una casella di controllo"
+        "select_at_least_one": "Per favore, seleziona almeno una casella di controllo",
+        "already_subscribed": "Questa email è già iscritta"
       }
     }
   },
