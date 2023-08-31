@@ -409,7 +409,7 @@ const getCustomTable = ({ matchedValue, tables }) => {
   let html = "";
   if (tables) {
     for (const table of tables) {
-      if (table.title?.toLowerCase() === matchedValue?.toLowerCase()) {
+      if (table.title?.trim().toLowerCase() === matchedValue?.trim().toLowerCase()) {
         html = `
         <div id="custom-tables">
           <p id='${sanitize(
@@ -430,7 +430,7 @@ const getReviews = ({ matchedValue, reviews }) => {
   let html = "";
   if (reviews) {
     for (const review of reviews) {
-      if (review.reviewTitle?.toLowerCase() === matchedValue?.toLowerCase()) {
+      if (review.reviewTitle?.trim().toLowerCase() === matchedValue?.trim().toLowerCase()) {
         html = `
         <div class="border-2 border-red-600 rounded-lg h-auto w-auto mb-4">
           <div class="px-4 md:px-8 lg:px-12 mb-12">
