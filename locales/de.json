@@ -403,6 +403,9 @@
       "not_researched": "Nicht untersucht"
     }
   },
+  "case_study":{
+    "title": "Fallstudie"
+  },
   "utm_builder": {
     "title": "UTM-Generator",
     "overview": "Übersicht über den UTM-Generator",
