@@ -401,6 +401,9 @@
       "not_researched": "Niet onderzocht"
     }
   },
+  "case_study":{
+    "title": "Casestudie"
+  },
   "utm_builder": {
     "title": "UTM-builder",
     "overview": "Overzicht UTM-builder",

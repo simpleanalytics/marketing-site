@@ -185,4 +185,20 @@ export default {
     it: "/generatore-utm/[slug]",
     fr: "/constructeur-utm/[slug]",
   },
+  "case-study/index": {
+    en: "/case-study",
+    de: "/fallstudie",
+    es: "/estudio-de-caso",
+    fr: "/etude-de-cas",
+    it: "/studio-di-caso",
+    nl: "/casestudie",
+  },
+  "case-study/[slug]": {
+    en: "/case-study/[slug]",
+    de: "/fallstudie/[slug]",
+    es: "/estudio-de-caso/[slug]",
+    fr: "/etude-de-cas/[slug]",
+    it: "/studio-di-caso/[slug]",
+    nl: "/casestudie/[slug]",
+  },
 };

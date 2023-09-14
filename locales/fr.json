@@ -401,6 +401,9 @@
       "not_researched": "Non recherché"
     }
   },
+  "case_study":{
+    "title": "Étude de cas"
+  },
   "utm_builder": {
     "title": "Constructeur UTM",
     "overview": "Aperçu du constructeur UTM",
