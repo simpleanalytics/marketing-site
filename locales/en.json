@@ -369,6 +369,9 @@
       }
     }
   },
+  "case_study": {
+    "title": "Case Study"
+  },
   "resources": {
     "title": "Resources",
     "overview": "Resources overview",

@@ -401,6 +401,9 @@
       "not_researched": "Ignoto"
     }
   },
+  "case_study": {
+    "title": "Studio di caso"
+  },
   "utm_builder": {
     "title": "Generatore UTM",
     "overview": "Panoramica del generatore UTM",
