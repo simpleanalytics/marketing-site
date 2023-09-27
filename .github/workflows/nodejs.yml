@@ -12,11 +12,6 @@ concurrency:
   group: ${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
-permissions:
-  pull-requests: write
-  contents: write
-  repository-projects: write
-
 env:
   node-version: "18.17.0"
 
