@@ -90,7 +90,7 @@ jobs:
           build-args: |
             "BUILD_REV=${{ github.sha }}"
           secrets: |
-            "github_pat=${{ secrets.MARKETING_SITE_PERSONAL_ACCESS_TOKEN }}"
+            "github_pat=${{ secrets.PERSONAL_ACCESS_TOKEN_ADRIAAN_READ_PACKAGES }}"
 
   deploy:
     runs-on: ubuntu-latest
