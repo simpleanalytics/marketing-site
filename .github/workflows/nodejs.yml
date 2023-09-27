@@ -37,6 +37,7 @@ jobs:
       - name: Prettier Action
         uses: creyD/prettier_action@v4.3
         with:
+          dry: ${{ github.event.pull_request.head.repo.owner.login != 'simpleanalytics' }}
           prettier_version: "2.6.2"
           prettier_options: "--write {,!(static|.github)/**/}*.{js,vue,html,json,md,yml,css,scss}"
           commit_message: "Run prettier via GitHub Action"
@@ -89,7 +90,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [lint, build]
     if: github.ref == 'refs/heads/main'
 
     steps:
