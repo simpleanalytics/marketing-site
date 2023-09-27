@@ -84,7 +84,10 @@ function createIndentedList(items) {
   return html;
 }
 
-const preconvert = (markdown, { showIndex = false, inlineMedia } = {}) => {
+const preconvert = (
+  markdown,
+  { showIndex = false, inlineMedia, doFollowLinks = false } = {}
+) => {
   // Replace HTML tags with &lt; and &gt; except in ``` blocks in markdown
   markdown = markdown
     .split("```")
@@ -252,19 +255,35 @@ const preconvert = (markdown, { showIndex = false, inlineMedia } = {}) => {
     /<a href="([^"]+)"([^>]*)>([^<]+)<\/a>/g,
     function (match, href, attributes, text) {
       try {
-        const url = new URL(href);
+        const url = new URL(href, "https://www.simpleanalytics.com");
+        const isHttp = /^https?:\/\//i.test(href);
+
         if (url.hostname === "www.simpleanalytics.com") {
           const path = href.split("/").slice(3).join("/");
           return `<a href="/${path}" ${attributes}>${text}</a>`;
         }
-        if (
-          href.startsWith("http") &&
-          !url.hostname.includes("simpleanalytics")
-        ) {
-          return `<a href="${href}"${attributes} target="_blank" rel="noopener noreferrer nofollow">${text}</a>`;
+
+        if (isHttp && url.hostname.includes("simpleanalytics"))
+          return `<a href="${href}"${attributes} referrerpolicy="unsafe-url" rel="">${text}</a>`;
+
+        if (isHttp) {
+          if (!url.searchParams.has("utm_source"))
+            url.searchParams.set("utm_source", "simpleanalytics.com");
+
+          const rels = ["noopener"];
+          if (!doFollowLinks) rels.push("nofollow");
+
+          const referrerpolicy = doFollowLinks
+            ? "unsafe-url"
+            : "strict-origin-when-cross-origin";
+
+          return `<a referrerpolicy="${referrerpolicy}" href="${url.toString()}"${attributes} target="_blank" rel="${rels.join(
+            " "
+          )}">${text}</a>`;
         }
         return match;
       } catch (error) {
+        console.error(error);
         return match;
       }
     }
