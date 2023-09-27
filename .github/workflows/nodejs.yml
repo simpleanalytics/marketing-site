@@ -89,6 +89,8 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache
           build-args: |
             "BUILD_REV=${{ github.sha }}"
+          secrets: |
+            "github_pat=${{ secrets.STRAPI_DEPLOY_PERSONAL_ACCESS_TOKEN }}"
 
   deploy:
     runs-on: ubuntu-latest
