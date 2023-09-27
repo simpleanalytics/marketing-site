@@ -54,8 +54,8 @@ export const useArticle = async ({
     "ctaDescription",
     "ctaButton",
     "tables",
-    "reviews"
-    "doFollowLinks",
+    "reviews",
+    "doFollowLinks"
   ];
 
   if (nonUniqueSlug) {
