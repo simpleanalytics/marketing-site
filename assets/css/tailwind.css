@@ -590,3 +590,7 @@ article blockquote.warning p {
   color: var(--hljs-link);
   font-style: underline;
 }
+
+#custom-tables tr:nth-child(even) {
+  @apply bg-[#F3F9FB] dark:bg-[#2a373a];
+}

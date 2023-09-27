@@ -12,6 +12,11 @@ concurrency:
   group: ${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
+permissions:
+  pull-requests: write
+  contents: write
+  repository-projects: write
+
 env:
   node-version: "18.17.0"
 
@@ -22,17 +27,11 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - name: Checkout pull request (${{ github.head_ref }})
+      - name: Checkout "${{ github.event.pull_request.head.repo.full_name }}:${{ github.head_ref }}" branch
         uses: actions/checkout@v3
-        if: github.event_name == 'pull_request'
         with:
-          persist-credentials: false
-
-      - name: Checkout main branch
-        uses: actions/checkout@v3
-        if: github.ref == 'refs/heads/main'
-        with:
-          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
 
       - name: Fail on forbidden words
         uses: simpleanalytics/fail-on-found-action@v2
@@ -40,8 +39,7 @@ jobs:
           query: "console.log"
           exclude: 'node_modules,.git,.indexOf(",.indexOf('''
 
-      - name: Prettier Action on PR
-        if: github.event_name == 'pull_request'
+      - name: Prettier Action
         uses: creyD/prettier_action@v4.3
         with:
           prettier_version: "2.6.2"
@@ -49,18 +47,7 @@ jobs:
           commit_message: "Run prettier via GitHub Action"
           file_pattern: "."
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Prettier Action on main
-        if: github.ref == 'refs/heads/main'
-        uses: creyD/prettier_action@v4.3
-        with:
-          prettier_version: "2.6.2"
-          prettier_options: "--write {,!(static|.github)/**/}*.{js,vue,html,json,md,yml,css,scss}"
-          commit_message: "Run prettier via GitHub Action"
-          file_pattern: "."
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.MARKETING_SITE_FORKS_PERSONAL_ACCESS_TOKEN }}
 
   build:
     runs-on: ubuntu-latest
