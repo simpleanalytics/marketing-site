@@ -79,7 +79,7 @@ jobs:
 
       - name: Build and push
         id: docker_build
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         with:
           context: ./
           file: ./Dockerfile
@@ -89,8 +89,6 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache
           build-args: |
             "BUILD_REV=${{ github.sha }}"
-          secrets: |
-            "github_pat=${{ secrets.PERSONAL_ACCESS_TOKEN_ADRIAAN_READ_PACKAGES }}"
 
   deploy:
     runs-on: ubuntu-latest
