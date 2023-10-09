@@ -11,6 +11,15 @@
           >
             <span v-if="article?.question">{{ article.question }}</span>
             <span v-else-if="article?.title">{{ article.title }}</span>
+            <span v-else-if="error?.statusCode === 429">
+              {{ $t("general.httpcodes.429.title") }}
+            </span>
+            <p v-else-if="error?.statusMessage" class="my-4 mb-8">
+              {{ error?.statusMessage }}.
+            </p>
+            <span v-else-if="error">{{
+              $t("general.errors.an_error_happened")
+            }}</span>
             <span v-else>{{ $t("blog.article_not_found") }}</span>
           </h1>
         </slot>
@@ -41,7 +50,17 @@
           </div>
         </div>
 
-        <div v-if="!article.publishedAt" class="my-4 mb-8 flex">
+        <p v-if="error?.statusCode === 4291" class="my-4 mb-8">
+          {{ $t("general.httpcodes.429.description") }}
+        </p>
+        <p v-else-if="error" class="my-4 mb-8">
+          {{ $t("general.errors.something_went_wrong") }}
+        </p>
+
+        <div
+          v-if="!article.publishedAt && !error && article.slug"
+          class="my-4 mb-8 flex"
+        >
           <span
             class="flex items-center mx-auto bg-orange-200 dark:bg-orange-900 dark:text-orange-100 rounded-xl text-lg py-3 px-5"
           >
@@ -118,6 +137,13 @@
           class="inline-block mt-6 px-4 py-2 rounded-lg bg-[#ffd9cb] dark:bg-[#592b1b]"
         >
           {{ $t("blog.content_not_translated") }}
+        </p>
+
+        <!-- Show buttons where needed -->
+        <p v-if="error?.statusCode === 429" class="mt-6">
+          <a class="button" href="?">
+            {{ $t("blog.reload_page") }}
+          </a>
         </p>
         <p v-else-if="!article.contentHtml" class="mt-6">
           <NuxtLink
@@ -227,7 +253,7 @@ const localePath = useLocalePath();
 
 const isAdmin = useAdmin();
 
-const { article } = await useArticle({
+const { article, pending, error } = await useArticle({
   keys: [
     "contentHtml",
     "languages",
@@ -248,6 +274,10 @@ const { article } = await useArticle({
 
 if (!article?.value && process.server) {
   setResponseStatus(event, 404, "Page Not Found");
+}
+
+if (error?.value?.statusCode === 429) {
+  setResponseStatus(event, 429, "Too Many Requests");
 }
 
 const translationParts = t("blog.automatic_translated_switch_to_english", [

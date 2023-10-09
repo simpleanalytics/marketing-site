@@ -303,6 +303,7 @@
     "go_to_overview": "Ga naar blog overzicht",
     "content_not_translated": "Deze inhoud is nog niet vertaald in het Nederlands. Hieronder staat de Engelse versie.",
     "draft_warning": "Dit is nog een concept. Deel het alsjeblieft nog niet.",
+    "reload_page": "Herlaad deze pagina",
     "subscribe": {
       "title": "The Privacy Newsletter",
       "description": "Hoi, mijn naam is Adriaan, ik ben de oprichter van Simple Analytics. Ongeveer elke maand deel ik inzichten en privacy updates in onze nieuwsbrief. Uitschrijven kan met 1 klik.",
@@ -503,7 +504,15 @@
   },
   "general": {
     "errors": {
-      "something_went_wrong": "Er is iets misgegaan. Probeer het later opnieuw."
+      "an_error_happened": "Er is een fout opgetreden.",
+      "too_many_requests": "Te veel bezoeken. Probeer het later opnieuw.",
+      "something_went_wrong": "Er ging iets mis. Probeer het later opnieuw."
+    },
+    "httpcodes": {
+      "429": {
+        "title": "Te veel bezoeken",
+        "description": "Je bezoekt onze website te veel in een korte tijd. Probeer het later opnieuw."
+      }
     }
   },
   "countries": {

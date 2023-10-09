@@ -303,6 +303,7 @@
     "go_to_overview": "Vai alla panoramica del blog",
     "content_not_translated": "Questo contenuto non è ancora tradotto in italiano. Di seguito la versione in inglese.",
     "draft_warning": "Questo è ancora una bozza. Per favore, non condividerlo ancora.",
+    "reload_page": "Ricarica questa pagina",
     "subscribe": {
       "title": "Newsletter sulla privacy",
       "description": "Ciao, mi chiamo Adriaan, sono il fondatore di Simple Analytics. Circa una volta al mese condivido informazioni e aggiornamenti sulla privacy nella nostra newsletter. Disiscriviti con 1 click.",
@@ -503,7 +504,15 @@
   },
   "general": {
     "errors": {
-      "something_went_wrong": "Qualcosa non funziona. Riprova più tardi."
+      "an_error_happened": "Si è verificato un errore.",
+      "too_many_requests": "Troppe richieste. Per favore riprova più tardi.",
+      "something_went_wrong": "Qualcosa è andato storto. Per favore riprova più tardi."
+    },
+    "httpcodes": {
+      "429": {
+        "title": "Troppe richieste",
+        "description": "Stai inviando troppe richieste in breve tempo. Per favore riprova più tardi."
+      }
     }
   },
   "countries": {

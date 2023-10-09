@@ -303,6 +303,7 @@
     "go_to_overview": "Aller à la vue d'ensemble du blog",
     "content_not_translated": "Ce contenu n'est pas encore traduit en français. Vous trouverez ci-dessous la version anglaise.",
     "draft_warning": "Ceci est encore un brouillon. S'il vous plaît, ne le partagez pas encore.",
+    "reload_page": "Rechargez cette page",
     "subscribe": {
       "title": "Lettre d'information sur la confidentialité",
       "description": "Salut, je m'appelle Adriaan, je suis le fondateur de Simple Analytics. Environ une fois par mois, je partage des informations et des mises à jour sur la confidentialité dans notre lettre d'information. Se désabonner avec 1 click.",
@@ -503,7 +504,15 @@
   },
   "general": {
     "errors": {
-      "something_went_wrong": "Une erreur est survenue. Veuillez réessayer plus tard."
+      "an_error_happened": "Une erreur s'est produite.",
+      "too_many_requests": "Trop de demandes. Veuillez réessayer plus tard.",
+      "something_went_wrong": "Quelque chose s'est mal passé. Veuillez réessayer plus tard."
+    },
+    "httpcodes": {
+      "429": {
+        "title": "Trop de demandes",
+        "description": "Vous envoyez trop de demandes en peu de temps. Veuillez réessayer plus tard."
+      }
     }
   },
   "countries": {

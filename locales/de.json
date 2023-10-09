@@ -305,6 +305,7 @@
     "go_to_overview": "Gehe zur Blog-Übersicht",
     "content_not_translated": "Dieser Inhalt ist noch nicht ins Deutsche übersetzt. Unten finden Sie die englische Version.",
     "draft_warning": "Das ist noch ein Entwurf. Bitte noch nicht teilen.",
+    "reload_page": "Lade diese Seite neu",
     "subscribe": {
       "title": "Der Privacy Newsletter",
       "description": "Hey, mein Name ist Adriaan, ich bin der Gründer von Simple Analytics. Ungefähr einmal im Monat teile ich Einblicke und Updates zur Privatsphäre in unserem Newsletter. Abmelden mit 1 Klick.",
@@ -504,7 +505,15 @@
   },
   "general": {
     "errors": {
-      "something_went_wrong": "Da ist etwas schiefgelaufen. Bitte versuche es später erneut."
+      "an_error_happened": "Es ist ein Fehler aufgetreten.",
+      "too_many_requests": "Zu viele Anfragen. Bitte versuche es später noch einmal.",
+      "something_went_wrong": "Etwas ist schief gelaufen. Bitte versuche es später noch einmal."
+    },
+    "httpcodes": {
+      "429": {
+        "title": "Zu viele Anfragen",
+        "description": "Du sendest zu viele Anfragen in kurzer Zeit. Bitte versuche es später noch einmal."
+      }
     }
   },
   "countries": {

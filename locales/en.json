@@ -304,6 +304,7 @@
     "go_to_overview": "Go to overview",
     "content_not_translated": "This content is not translated yet. Below is the English version.",
     "draft_warning": "This is still a draft. Please don't share, yet.",
+    "reload_page": "Reload this page",
     "subscribe": {
       "title": "The Privacy Newsletter",
       "description": "Hey, my name is Adriaan, I'm the founder of Simple Analytics. About once a month, I share insights and privacy updates in our newsletter. Unsubscribe with 1 click.",
@@ -503,7 +504,15 @@
   },
   "general": {
     "errors": {
+      "an_error_happened": "An error happened.",
+      "too_many_requests": "Too many requests. Please try again later.",
       "something_went_wrong": "Something went wrong. Please try again later."
+    },
+    "httpcodes": {
+      "429": {
+        "title": "Too many requests",
+        "description": "You are sending too many requests in a short period of time. Please try again later."
+      }
     }
   },
   "countries": {
