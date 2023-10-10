@@ -50,7 +50,7 @@
           </div>
         </div>
 
-        <p v-if="error?.statusCode === 4291" class="my-4 mb-8">
+        <p v-if="error?.statusCode === 429" class="my-4 mb-8">
           {{ $t("general.httpcodes.429.description") }}
         </p>
         <p v-else-if="error" class="my-4 mb-8">
@@ -115,7 +115,8 @@
           v-if="
             article.slug &&
             article.locale !== 'en' &&
-            article.automaticTranslated !== false
+            article.automaticTranslated !== false &&
+            !error
           "
           class="inline-block mt-6 px-4 py-2 rounded-lg bg-[#ffd9cb] dark:bg-[#592b1b]"
         >
@@ -133,7 +134,7 @@
           </template>
         </p>
         <p
-          v-else-if="article.locale !== locale && locale !== 'en'"
+          v-else-if="article.locale !== locale && locale !== 'en' && !error"
           class="inline-block mt-6 px-4 py-2 rounded-lg bg-[#ffd9cb] dark:bg-[#592b1b]"
         >
           {{ $t("blog.content_not_translated") }}
