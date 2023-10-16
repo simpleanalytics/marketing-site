@@ -245,8 +245,8 @@ const tiers = [
   {
     slug: "enterprise",
     name: "pricing.plans.enterprise.title",
-    priceMonthly: 99,
-    priceYearly: 99,
+    priceMonthly: 500,
+    priceYearly: 5000,
     from: true,
     description: "pricing.plans.enterprise.description",
     includedIntro: ["pricing.everything_plus", "pricing.plans.business.title"],
