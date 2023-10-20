@@ -1310,6 +1310,14 @@
       </div>
     </div>
 
+    <p v-if="locale === 'fr'" class="text-center leading-loose">
+      Merci à
+      <NuxtLink to="https://www.linkedin.com/in/fredericthu"
+        >Frédéric Thu</NuxtLink
+      >
+      d'avoir corrigé la traduction française.
+    </p>
+
     <EindePopup name="hide_exit_popup" class="-mb-48">
       <EindePopupPricing />
     </EindePopup>

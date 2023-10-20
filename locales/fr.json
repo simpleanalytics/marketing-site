@@ -2,7 +2,7 @@
   "home": {
     "title": "L'alternative {0}privacy-first{1} à<br />Google Analytics.",
     "subtitle": "Basé et hébergé en UE. Aucun cookie et un {0}oui direct{1} de votre équipe juridique.",
-    "no_creditcard": "Aucune carte de crédit nécessaire",
+    "no_creditcard": "Aucune carte de crédit requise",
     "start_trial_now": "Commencer l'essai gratuit",
     "go_to_live_demo": "Aller à la démo en direct",
     "see_live_demo": "Voir la démo en direct",
@@ -18,10 +18,10 @@
     "featured_options": {
       "add_website": "Ajouter un site web",
       "import_ga": "Importer les données de GA",
-      "see_stats": "Voir les statistiques instantanément"
+      "see_stats": "Consulter les statistiques"
     },
     "go_back": "Retour",
-    "automatic_translated_switch_to_english": "Ce site Web est traduit automatiquement. {0}Passe à la version anglaise{1} pour l'original.",
+    "automatic_translated_switch_to_english": "Des parties de ce site Web sont traduites automatiquement. {0}Passez à la version anglaise{1} pour l'original.",
     "footer": {
       "comparisons": "Comparaisons",
       "learn": "Apprendre",
@@ -30,10 +30,10 @@
       "roadmap": "Feuille de route",
       "pricing": "Tarifs",
       "status": "Statut",
-      "privacy": "Confidentialité",
+      "privacy": "Vie privée",
       "what_we_collect": "Ce que nous collectons",
       "we_dont_track_you": "Nous ne vous suivons pas",
-      "privacy_policy": "Politique de confidentialité",
+      "privacy_policy": "Politique de protection de la vie privée",
       "cookie_statement": "Déclaration de cookies",
       "tos": "Conditions d'utilisation",
       "company_details": "Détails de l'entreprise",
@@ -42,79 +42,79 @@
     },
     "why_most_privacy": {
       "title": "Pourquoi Simple Analytics est la {0}meilleure alternative à Google Analytics{1} ?",
-      "x_reasons": "Voici quelques {0} raisons simples qui le résument.",
-      "reason_1": "La protection de la vie privée est {0}notre modèle d'affaires{1}. Nous respectons par conception toutes les politiques de confidentialité. Y compris : le RGPD, PECR, CCPA et autres.",
+      "x_reasons": "Voici {0} raisons simples qui le résument.",
+      "reason_1": "{0}Notre modèle d'affaires{1} est la protection de la vie privée. Nous respectons par conception toutes les politiques de protection : RGPD, PECR, CCPA et autres.",
       "reason_2": "Interface simple. Nous vous fournissons les informations dont vous avez besoin dans un tableau de bord facile à utiliser.",
-      "reason_3": "Nous n'enregistrons jamais, absolument jamais, aucune {0}donnée personnelle{1} sur vos visiteurs. Aucun {0}banderole de cookie{1}.",
-      "reason_4": "Notre {0}Suivi des objectifs{1} et {0}Explorateur d'événements{1} vous permettent de suivre vos événements les plus importants et vos tunnels de conversion.",
-      "reason_5": "Notre {0}script léger{1} augmente la vitesse de votre site web.",
+      "reason_3": "Nous n'enregistrons jamais, absolument jamais, aucune {0}donnée personnelle{1} sur vos visiteurs. Aucun {0}banderole de cookie{1} n'est nécessaire.",
+      "reason_4": "Notre {0}Suivi des objectifs{1} et l'{0}Explorateur d'événements{1} vous permettent de suivre vos événements les plus importants et vos tunnels de conversion.",
+      "reason_5": "Notre {0}script est léger{1} et ne ralentit pas votre site web.",
       "read_detailed_reasons": "Lisez les raisons détaillées",
       "business_model": {
-        "title": "La protection de la vie privée est notre modèle d'affaires.",
-        "html": "<p>Les grandes entreprises technologiques ont été collectant des données personnelles pendant des années pour réaliser des profits. Les utilisateurs obtiennent un produit «gratuit», et les grandes entreprises technologiques sont payées par des annonceurs qui veulent acheter leur attention.</p><ul><li>Pendant que vous utilisez le produit «gratuit», les entreprises technologiques rassemblent des quantités effrayantes de données pour créer un profil spécifique de vos données démographiques, ethniques, préférences politiques, intérêts, désirs, goûts et aversions.</li><li>Les grandes entreprises technologiques vendront cela aux plus offrants en tant que leur modèle d'affaires. Sans vous le dire ouvertement.</li></ul><p>Nous dégoûtons de telles pratiques. Puisque Simple Analytics est un service payant, nous sommes indépendants et n'avons aucune préférence ni conflit d'intérêt. Pas de deuxièmes agendas ici.</p><p>Notre mission est simple:</p><ul><li>Nous vous offrons les plus rapides, les plus simples et les plus éthiques insights sur la performance de votre site web tout en respectant les plus hauts standards de confidentialité.</li><li>Pour y parvenir, Simple Analytics a un {0}roadmap ouvert{1} pour que vous puissiez voir les prochaines étapes ou demander des fonctionnalités. De plus, nous opérons {2}entièrement de manière transparente{3} en partageant nos métriques (y compris les revenus, les coûts, le nombre de clients et le trafic).</li></ul>"
+        "title": "Notre modèle d'affaires est la protection de la vie privée.",
+        "html": "<p>Les grandes entreprises technologiques collectent des données personnelles depuis des années pour réaliser des profits. Les utilisateurs obtiennent un produit «gratuit», et les grandes entreprises technologiques sont payées par des annonceurs qui veulent obtenir l'attention des utilisateurs.</p><ul><li>Lorsque vous utilisez le produit «gratuit», les entreprises technologiques collectent des quantités effrayantes de données pour créer un profil spécifique de vos données démographiques, ethniques, préférences politiques, intérêts, désirs, goûts et aversions.</li><li>Ces entreprises vendent ensuite ces données aux plus offrants - sans vous le dire ouvertement.</li></ul><p>Nous détestons de telles pratiques. Simple Analytics est un service payant, nous sommes donc indépendants et n'avons aucune préférence ni conflit d'intérêt. Chez nous, il n'y a pas d'objectif caché.</p><p>Notre mission est simple:</p><ul><li>Nous vous offrons les indicateurs les plus rapides, les plus simples et les plus éthiques sur la performance de votre site web, tout en respectant les plus hauts standards de protection de la vie privée.</li><li>Pour y parvenir, Simple Analytics a une {0}roadmap en libre accès{1} pour que vous puissiez voir les prochaines étapes ou demander des fonctionnalités. De plus, nous opérons {2}de manière totalement transparente{3} en partageant nos métriques (y compris les revenus, les coûts, le nombre de clients et le trafic).</li></ul>"
       },
       "encrypted": {
         "title": "Vos données sont chiffrées.",
-        "html": "<p>Nous ne stockons aucune information personnelle et collectons des quantités minimales de données pour protéger la vie privée de vos visiteurs, mais cela n'enlève rien à l'importance de vos données d'analyse. C'est pourquoi vos données sont toujours chiffrées sur nos serveurs. Chiffré en transit et chiffré à l'arrêt.</p><p>Les disques stockant vos données ne contiennent rien d'autre que des lignes chiffrées de code. Si quelqu'un parvenait à voler ces disques, ils seraient inutiles. La clé de chiffrement est stockée en dehors des serveurs dans un coffre-fort virtuel protégé par une authentification à deux facteurs.</p>"
+        "html": "<p>Bien que nous ne stockions aucune information personnelle et que nous collections le strict minimum de données pour protéger la vie privée de vos visiteurs, vos données d'analyse ont de la valeur. C'est pourquoi vos données sont toujours chiffrées sur nos serveurs - en transit et au repos.</p><p>Les disques stockant vos données ne contiennent rien d'autre que des valeurs chiffrées: si quelqu'un parvenait à voler ces disques, ils seraient inutiles. La clé de chiffrement est stockée en dehors des serveurs dans un coffre-fort virtuel protégé par une authentification à deux facteurs.</p>"
       },
       "personal_data": {
         "title": "Nous ne stockons jamais, au grand jamais, de données personnelles sur vos visiteurs.",
-        "html": "<p>Certaines outils d'analyse axés sur la vie privée utilisent des données personnellement identifiables et les suppriment après un jour.</p><p>Par exemple :</p><ul><li>Ils recueillent l'adresse IP d'un visiteur, ajoutent une date et la transforment en un hachage à chaque fois que vous avez une visite de page.</li><li>Ces hachages relient les pages visitées. Bien que cela soit certainement mieux que les grandes entreprises technologiques essayant de collecter autant de données personnelles que possible à vendre aux annonceurs, ce n'est pas à 100% étanche et c'est une zone grise.</li><li>Les hachages expirent une fois par jour seulement, donc pour moins de 24 heures, <em>il y a toujours des informations personnellement identifiables stockées sur vos visiteurs.</em> Les politiques de confidentialité comme le RGPD expliquent que vous devez obtenir le consentement des visiteurs pour stocker des informations personnellement identifiables (PII).</li></ul><p>Simple Analytics ne compromet jamais la vie privée. C'est pourquoi nous n'utilisons que des visiteurs uniques sans suivi d'adresses IP. Nous le faisons en fonction du référent du navigateur, de sorte qu'aucune PII n'est stockée. Lorsque vous utilisez Simple Analytics, {0}il est donc à 100% garanti que aucune des informations personnellement identifiables de vos visiteurs n'est stockée.{1} En raison de cela, aucun consentement n'est nécessaire. Adieu aux bannières ennuyeuses !</p><p>Astuce : certains clients remplacent leurs bannières de cookies par des bannières \"nous sommes fiers de protéger votre vie privée\" pour obtenir un avantage concurrentiel.</p>"
+        "html": "<p>Certaines outils d'analyse axés sur la vie privée utilisent des données permettant l'identification des personnes et les suppriment après un jour.</p><p>Par exemple :</p><ul><li>Ils recueillent l'adresse IP d'un visiteur, ajoutent une date et la transforment en un hachage à chaque fois que vous avez une visite de page.</li><li>Ces hachages relient les pages visitées. Bien que cela soit certainement mieux que les grandes entreprises technologiques essayant de collecter autant de données personnelles que possible à vendre aux annonceurs, ce n'est pas à 100% étanche et c'est une zone grise.</li><li>Les hachages expirent une fois par jour seulement, soit 24 heures, <em>il y a toujours des informations identifiantes sur vos visiteurs.</em> Les politiques de protection de la vie privée telles que le RGPD expliquent que vous devez obtenir le consentement des visiteurs pour stocker de telles informations identifiantes (PII).</li></ul><p>Simple Analytics ne compromet jamais la vie privée. C'est pourquoi nous calculons les visiteurs uniques sans suivi d'adresses IP. Nous le faisons en en utilisant les informations du navigateur, de sorte qu'aucune information identifiante n'est stockée. Lorsque vous utilisez Simple Analytics, {0}il est donc à 100% garanti qu'aucune des informations relatives à vos visiteurs n'est stockée.{1} En raison de cela, aucun consentement n'est nécessaire. Adieu aux bannières omniprésentes !</p><p>Astuce : certains clients remplacent leurs bannières de cookies par des bannières \"Nous sommes fiers de protéger votre vie privée\" pour obtenir un avantage concurrentiel.</p>"
       },
       "eu_based": {
         "title": "Nous sommes une entreprise basée dans l'UE avec des serveurs basés dans l'UE.",
-        "html": "<p>Nous faisons tout ce qui est en notre pouvoir pour protéger vos données. Nous recueillons le minimum de données nécessaires pour vous offrir une image complète des visiteurs de votre site Web et, en plus des trois points cités ci-dessus, nous allons même plus loin.</p><ul><li>Par rapport aux autres continents, l'UE s'est préoccupée de la vie privée de ses citoyens depuis longtemps et fournit des règles strictes en matière de vie privée.</li><li>Nos serveurs sont situés aux Pays-Bas et notre fournisseur d'hébergement est néerlandais car cela offre un emplacement physique sûr, une excellente connectivité réseau mondiale et des normes légales élevées pour le traitement des données (aucun fournisseur de cloud n'a à fournir de rapport à un gouvernement étranger).</li><li>Nous choisissons de placer notre entreprise aux Pays-Bas car un environnement soucieux de la vie privée nous aide à maintenir nos hauts standards éthiques et de confidentialité.</li></ul>"
+        "html": "<p>Nous faisons tout ce qui est en notre pouvoir pour protéger vos données. Nous recueillons le minimum de données nécessaires pour vous offrir une image complète des visiteurs de votre site Web et, en plus des trois points cités ci-dessus, nous allons même plus loin.</p><ul><li>Par rapport aux autres continents, l'UE s'est préoccupée de la vie privée de ses citoyens depuis longtemps et fournit des règles strictes en matière de vie privée.</li><li>Nos serveurs sont situés aux Pays-Bas et notre fournisseur d'hébergement est néerlandais car cela offre un emplacement physique sûr, une excellente connectivité réseau mondiale et des normes légales élevées pour le traitement des données (aucun fournisseur de cloud n'a à fournir de rapport à un gouvernement étranger).</li><li>Nous avons choisi de placer notre entreprise aux Pays-Bas, dans un environnement respecteux de la vie privée qui nous aide à maintenir nos hauts standards éthiques et de confidentialité.</li></ul>"
       },
       "own_data": {
-        "title": "Vous possédez vos données.",
-        "html": "<p>Nous nous soucions de vos données. Nous prenons soin de vos données. Pourtant, vous possédez vos données. Nous ne les vendrons jamais. Vous êtes maître de vos données et vous pouvez les télécharger ou les supprimer à tout moment.</p>"
+        "title": "Vos données vous appartiennent.",
+        "html": "<p>Nous nous soucions de <em>vos</em> données. Nous prenons soin de <em>vos</em> données. Pourtant, vous possédez vos données. Nous ne les vendrons jamais. Vous êtes maître de vos données et vous pouvez les télécharger ou les supprimer à tout moment.</p>"
       }
     },
     "simple_title": "Simple",
-    "simple_description": "Simple Analytics est une alternative simple à Google Analytics. Un tableau de bord pour voir instantanément combien de visiteurs viennent sur votre site web, d'où ils viennent et ce qu'ils font une fois là-bas. Sans cookies. Sans harcèlement. Toujours léger.",
+    "simple_description": "Simple Analytics est une alternative simple à Google Analytics. Un tableau de bord pour voir instantanément combien de visiteurs viennent sur votre site web, d'où ils viennent et ce qu'ils font. Sans cookies. Sans harcèlement. Toujours léger.",
     "see_if_for_yourself": "Voyez par vous-même, cliquez sur un bouton",
     "connect": {
-      "title": "Connectez {0}vos données{1} à votre flux de travail unique.",
+      "title": "Connectez {0}vos données{1} à votre flux de travail.",
       "import_data": "Importez vos données depuis Google Analytics",
       "use_gtm": "Utilisez Google Tag Manager, WordPress,<br />ou nos nombreux plugins",
       "framework_plugins": "pour les frameworks",
-      "export_to": "Exportez vers vos propres systèmes, Power BI,<br />Google Looker Studio, ou {0}lacs de données{1}",
+      "export_to": "Exportez vers vos propres systèmes, Power BI,<br />Google Looker Studio, ou {0}autres datalakes{1}",
       "export_as": "Exportez sous forme de {0}données brutes{1} ou agrégées"
     },
     "why_switch_from_ga": {
-      "title": "Pourquoi vous devriez passer de Google Analytics",
-      "try_us_button": "Donnez-nous une chance",
-      "paragraph_1": "Google est l'une des plus grandes machines à manger de données au monde, en vendant les données des visiteurs de votre site Web pour en tirer profit. D'un point de vue éthique, les organisations devraient viser à protéger la vie privée de leurs visiteurs. Pourtant, {0}85% des sites Web{1} utilisent encore Google Analytics, mais cela va changer pour le mieux. L'appel à une alternative à Google Analytics est lancé.",
-      "paragraph_2": "Des lois sur la protection des données comme le RGPD sont mises en place pour préserver la confidentialité des utilisateurs d'Internet. Les agences de protection des données font pression sur des services invasifs de la vie privée tels que Google Analytics. La France (CNIL) et l'Autriche (DSB) ont déjà déclaré que l'utilisation de Google Analytics violait la loi RGPD dans leurs pays. D'autres pays de l'UE devraient suivre cet exemple.",
+      "title": "Pourquoi vous devriez quitter Google Analytics",
+      "try_us_button": "Essayez nous",
+      "paragraph_1": "Google est l'un des plus gros ingesteurs de données au monde, et vend les données des visiteurs de votre site Web pour en tirer profit. D'un point de vue éthique, les organisations devraient viser à protéger la vie privée de leurs visiteurs. Pourtant, {0}85% des sites Web{1} utilisent encore Google Analytics, mais cela va changer pour le mieux. Le mouvement pour remplacer Google Analytics est lancé.",
+      "paragraph_2": "Des lois de protection des données comme le RGPD visent à protéger la vie privée des utilisateurs d'Internet. Les autorités de protection des données font pression sur des services violant la vie privée tels que Google Analytics. La France (CNIL) et l'Autriche (DSB) ont déjà déclaré que l'utilisation de Google Analytics violait le RGPD dans leurs pays. D'autres pays de l'UE s'apprêtent à suivre cet exemple.",
       "paragraph_3": "Google Analytics est un outil d'analyse Web complexe qui a été l'outil d'analyse par défaut, mais cela est en train de changer, et Google le reconnaît également. C'est pourquoi ils vont passer à une nouvelle version appelée",
-      "paragraph_3_link": "GA4 qui vise à être respectueux des données privées mais ne l'est pas",
+      "paragraph_3_link": "GA4 qui vise meix respecter les données - mais ne l'est pas",
       "paragraph_4": "De plus, les navigateurs limitent les mécanismes de suivi et les bloqueurs de publicités sont utilisés pour bloquer Google Analytics, ce qui rend leurs données de moins en moins précises.",
-      "paragraph_5": "L'environnement commercial mondial évolue vers la confidentialité, et vous devriez en faire autant!",
-      "paragraph_6_1": "Voici pourquoi Simple Analytics est le numéro un",
-      "paragraph_6_link": "alternative à Google Analytics respectueuses des données privées",
-      "paragraph_6_2": "Plus de 600 clients payants nous font confiance pour fournir les informations dont ils ont besoin tout en protégeant la vie privée de leurs visiteurs de site Web"
+      "paragraph_5": "L'environnement commercial mondial évolue vers la protection de la vie privée, et vous devriez en faire autant!",
+      "paragraph_6_1": "Ces raisons font que Simple Analytics est l'",
+      "paragraph_6_link": "alternative n° 1 à Google Analytics sur le sujet du respect des données personnelles",
+      "paragraph_6_2": "Plus de 600 clients payants nous font confiance pour obtenir les informations dont ils ont besoin tout en protégeant la vie privée des visiteurs de leur site Web"
     },
     "events": {
       "title": "Suivi des événements sans traçage des individus",
-      "auto_collect_link": "Collecte automatique des événements",
-      "auto_collect_description": "comme des téléchargements, des liens sortants et des clics sur les e-mails. Vérifiez les performances de chaque bouton, clic et visite de page que vous souhaitez.",
+      "auto_collect_link": "Collectez automatiquement les événements",
+      "auto_collect_description": "comme les téléchargements, les liens sortants et les clics sur les e-mails. Vérifiez les performances de chaque bouton, clic et page.",
       "see_events_in_action": "Voir les événements en action"
     },
     "reports": {
-      "title": "Automatiser les rapports",
-      "description": "Gagnez du temps tout en mettant les autres au courant de vos résultats. Programmez vos rapports pour être partagés automatiquement à tout moment que vous souhaitez.",
+      "title": "Automatisez les rapports",
+      "description": "Gagnez du temps en informant les autres de vos résultats. Programmez vos rapports pour être partagés automatiquement quand vous le souhaitez.",
       "email_reports": "Rapports par e-mail",
-      "instructions": "Envoyez-vous et à d'autres un rapport par e-mail de SimpleAnalytics.com. Vous pouvez ajouter autant d'adresses e-mail que vous le souhaitez. Voir un exemple de rapport par e-mail dans {0}notre documentation{1}.",
+      "instructions": "Envoyez un rapport par e-mail de SimpleAnalytics.com à vos collègues et à vous-même. Vous pouvez ajouter autant de destinataires que vous le souhaitez. Voir un exemple de rapport par e-mail dans {0}notre documentation{1}.",
       "recipient": "Destinataire",
-      "period": "Période",
-      "last_emailed": "Dernier envoyé par e-mail",
+      "period": "Fréquence",
+      "last_emailed": "Dernier envoi",
       "email_placeholder": "Ex. : client{'@'}example.com",
       "add_recipient": "Ajouter un destinataire",
       "remove": "Retirer",
-      "week": "semaine",
-      "month": "mois",
+      "week": "hebdo",
+      "month": "mens.",
       "weekly": "chaque semaine",
-      "monthly": "mensuellement",
+      "monthly": "chaque mois",
       "a_day_ago": "il y a un jour",
       "six_days_ago": "il y a 6 jours",
       "confirm": "Êtes-vous sûr de désactiver les rapports par e-mail {0} pour {1} ?",
@@ -127,11 +127,11 @@
       "toggle_button": "Activer/désactiver le mode sombre"
     },
     "mobile": {
-      "title": "Emmène-le partout",
+      "title": "Emmenez le partout",
       "point_1": "{0}Gardez un œil{1} sur votre tableau de bord via votre iPhone",
-      "point_2": "Ajoutez {0}widgets{1} à votre écran d'accueil",
-      "point_3": "{0}Bloquez les visites{1} de vous-même",
-      "point_4": "Voir les {0}spikes{1} lorsqu'ils se produisent"
+      "point_2": "Ajoutez les {0}widgets{1} à votre écran d'accueil",
+      "point_3": "{0}Bloquez{1} vos propres visites",
+      "point_4": "Réagissez en cas de {0}pics{1}"
     },
     "videos": {
       "title": "Quand vous demandez aux vidéastes de créer quelque chose de fun",
@@ -143,7 +143,7 @@
     "button": "Commencez l'essai gratuit maintenant",
     "free_trial": "Essai gratuit de 14 jours",
     "no_credit_card": "Aucune carte de crédit requise",
-    "cancel_anytime": "Annuler à tout moment"
+    "cancel_anytime": "Annulez à tout moment"
   },
   "banners": {
     "import_ga": {
@@ -154,12 +154,12 @@
   "ctas": {
     "import_ga_before_july": {
       "title": "Importez vos données Google Analytics",
-      "description": "La version actuelle de Google Analytics ne sera pas disponible à partir du 1er juillet. Vous devez migrer. Essayez-nous à la place",
+      "description": "La nouvelle version de Google Analytics ne sera disponible qu'à partir du 1er juillet. Vous devez migrer. Essayez-nous à la place",
       "button": "Commencer l'essai de 14 jours"
     },
     "import_ga_after_july": {
       "title": "GA4 est complexe. Essayez Simple Analytics",
-      "description": "GA4 c'est comme être dans un cockpit d'avion sans licence de pilote",
+      "description": "GA4 c'est comme être dans un cockpit d'avion sans brevet de pilote",
       "button": "Commencer l'essai de 14 jours"
     }
   },
@@ -204,7 +204,7 @@
         "description": "Lisez ce qui se dit sur le sujet de la vie privée."
       },
       "privacy": {
-        "title": "Confidentialité et traitement des données",
+        "title": "Vie privée et traitement des données",
         "description": "Comprenez comment nous prenons la vie privée très à cœur."
       },
       "api": {
@@ -224,7 +224,7 @@
     "switch_to_dutch": "Passer au néerlandais"
   },
   "pricing": {
-    "title": "Tarifs simples",
+    "title": "Nos Tarifs sont simples",
     "yearly_billing": "Facturation annuelle",
     "monthly_billing": "Facturation mensuelle",
     "from": "à partir de",
@@ -233,22 +233,22 @@
     "per_month_short": "mois",
     "yearly": "annuellement",
     "buy": "Acheter",
-    "everything_plus": "Tout du plan {0}, plus:",
-    "what_is_included": "Ce qui est inclus",
+    "everything_plus": "Tout le plan {0}, plus:",
+    "what_is_included": "Inclut",
     "contact_us": "Contactez-nous",
     "affiliate_description": "Vous obtiendrez le premier mois + {0} jours gratuitement parce que vous utilisez un lien d'affiliation.",
     "plans": {
       "starter": {
         "title": "Starter",
-        "description": "Tout ce dont vous avez besoin pour commencer"
+        "description": "Tout ce qu'il faut pour commencer"
       },
       "business": {
         "title": "Business",
-        "description": "Travaillez ensemble pour faire croître votre entreprise"
+        "description": "Travaillez ensemble pour faire grandir votre entreprise"
       },
       "enterprise": {
         "title": "Enterprise",
-        "description": "Obtenez tout ce dont vous avez besoin pour faire croître votre entreprise"
+        "description": "Tout ce dont vous avez besoin pour faire grandir votre entreprise"
       }
     },
     "features": {
@@ -267,12 +267,12 @@
     "title": "Questions fréquemment posées",
     "need_help": "Besoin d'aide supplémentaire? Veuillez nous envoyer votre(vos) question(s) via {0}notre page de support{1}.",
     "datapoints": {
-      "title": "Qu'est-ce que les datapoints?",
+      "title": "Qu'est-ce qu'un datapoint?",
       "description": "Vous pouvez recueillir deux types de données avec Simple Analytics: les vues de page et les événements. Le terme combiné pour les deux est datapoint. Si vous n'utilisez pas les événements, les datapoints seront uniquement des vues de page. Si vous utilisez des événements, les datapoints seront également des événements."
     },
     "trial_expires": {
       "title": "Vais-je être facturé lorsque mon essai expire?",
-      "description": "Non. Après l'expiration de votre essai, votre plan descendra automatiquement à la version gratuite de base. Mettez à niveau à tout moment le plan qui répond le mieux à vos besoins."
+      "description": "Non. A l'expiration de votre essai, votre plan repasse automatiquement à la version gratuite de base. Mettez à niveau à tout moment le plan qui répond le mieux à vos besoins."
     },
     "cancel": {
       "title": "Puis-je annuler à tout moment?",
@@ -283,32 +283,32 @@
       "description": "Nous acceptons les cartes de crédit, les cartes de débit, Bitcoin {0}+10% & annuellement{1}, Apple Pay et Google Pay comme modes de paiement pour tous nos plans payants. Vous pouvez payer en euros, en dollars américains ou en livres sterling. Les factures de {2}500 peuvent être payées par virement bancaire et coûtent {0}10&#37;{1} supplémentaires en frais bancaires et de service."
     },
     "traffic_change": {
-      "title": "Qu'arrivera-t-il à mes charges lorsque mon trafic augmente / diminue?",
-      "description_1": "Vous ne payez que ce dont vous avez réellement besoin. Cela signifie que si vous dépassez la limite de vues de votre plan, des frais supplémentaires seront facturés. Simple Analytics calcule automatiquement votre prix en fonction de votre nombre moyen de vues (en regardant d'abord en arrière un mois, puis la moyenne des trois derniers mois).",
-      "description_2": "Donc, si vous avez eu une augmentation du trafic au cours des trois derniers mois, vous payez un peu plus le mois prochain. De même, vous payez automatiquement un peu moins lorsque votre nombre moyen de vues a diminué au cours des derniers mois."
+      "title": "Qu'arrivera-t-il à ma facture lorsque mon trafic augmente / diminue?",
+      "description_1": "Vous ne payez que ce dont vous avez réellement besoin. Cela signifie que si vous dépassez la limite de vues de votre plan, des frais supplémentaires seront facturés. Simple Analytics calcule automatiquement votre prix en fonction de votre nombre moyen de vues (le mois dernier, puis la moyenne des trois derniers mois).",
+      "description_2": "Donc, si vous avez eu une augmentation du trafic au cours des trois derniers mois, vous paierez un peu plus le mois prochain. De même, vous paierez automatiquement un peu moins si votre nombre moyen de vues a diminué au cours des derniers mois."
     }
   },
   "video": {
-    "title": "Pourquoi Simple Analytics est-il le {0}plus respectueux de la vie privée{1} analytics?"
+    "title": "Pourquoi Simple Analytics est-il le {0}plus respectueux de la vie privée{1}?"
   },
   "blog": {
     "title": "Blog",
-    "description": "Suivez notre parcours pour lutter en faveur de la confidentialité et contre Google Analytics.",
+    "description": "Suivez notre parcours pour lutter en faveur de la protection de la vie privée et contre Google Analytics.",
     "loading_post": "Chargement...",
     "article_not_found": "Article introuvable.",
     "back_to_top": "Retour vers le haut.",
     "published_on_by": "Publié le {0} par {1}",
     "published_and_edited_on_by": "Publié le {0} et modifié le {1} par {2}",
-    "automatic_translated_switch_to_english": "Cet article est traduit automatiquement. {0}Passe à la version anglaise{1} pour l'original.",
+    "automatic_translated_switch_to_english": "Cet article est traduit automatiquement. {0}Passer à la version anglaise{1} pour l'original.",
     "go_to_overview": "Aller à la vue d'ensemble du blog",
     "content_not_translated": "Ce contenu n'est pas encore traduit en français. Vous trouverez ci-dessous la version anglaise.",
     "draft_warning": "Ceci est encore un brouillon. S'il vous plaît, ne le partagez pas encore.",
     "reload_page": "Rechargez cette page",
     "subscribe": {
-      "title": "Lettre d'information sur la confidentialité",
-      "description": "Salut, je m'appelle Adriaan, je suis le fondateur de Simple Analytics. Environ une fois par mois, je partage des informations et des mises à jour sur la confidentialité dans notre lettre d'information. Se désabonner avec 1 click.",
+      "title": "Lettre d'information sur la protection de la vie privée",
+      "description": "Salut, je m'appelle Adriaan, je suis le fondateur de Simple Analytics. Environ une fois par mois, je partage des informations et des mises à jour sur la vie privée dans notre lettre d'information. Vous pouvez vous désabonner en 1 clic.",
       "checkbox_newsletter": "Lettre d'information",
-      "checkbox_blog_posts": "Notifiez-moi des nouveaux articles de blog",
+      "checkbox_blog_posts": "Prévenez-moi des nouveaux articles du blog",
       "email_placeholder": "Par ex.: eric{'@'}google.com",
       "button": "S'abonner",
       "thank_you": "Vérifiez votre boîte de réception pour confirmer votre abonnement. Merci de vous être abonné!",
@@ -321,35 +321,35 @@
     }
   },
   "testimonials": {
-    "trusted_by": "Fiable de plus de 600 {0}gouvernements{1}, {0}ONG{1} et petites et moyennes {0}entreprises{1}.",
+    "trusted_by": "Plus de 600 {0}gouvernements{1}, {0}ONG{1} et petites et moyennes {0}entreprises{1} nous font confiance.",
     "duckduckgo": {
       "name": "DuckDuckGo",
-      "role": "Plus grand moteur de recherche respectueux de la vie privée",
-      "quote": "Passer à Simple Analytics vous donnera encore une visibilité sur comment les visiteurs utilisent votre site Web, mais vous respecterez également leur droit à la vie privée."
+      "role": "LE moteur de recherche qui respecte la vie privée",
+      "quote": "En passant à Simple Analytics, vous conserverez la vision de l'utilisation de votre site Web, mais vous respecterez également leur droit à la vie privée."
     },
     "rosie": {
       "role": "Gestionnaire de communauté Indie Hackers",
-      "quote": "Ma concentration a été sur l'utilisation d'outils éthiques. J'ai dit au revoir à Google Analytics et bonjour à Simple Analytics. {0}En 1-2 clics{1}, je peux obtenir toutes les informations dont j'ai besoin."
+      "quote": "Je ne veux utiliser que des outils éthiques. J'ai largué Google Analytics et adopté Simple Analytics. {0}En 1 ou 2 clics{1}, j'obtiens toutes les informations dont j'ai besoin."
     },
     "fastcompany": {
-      "role": "Mis en avant sur Fast Company",
+      "role": "Vu sur Fast Company",
       "quote": "Il est temps de quitter Google Analytics."
     },
     "missive": {
       "role": "PDG chez Missive",
-      "quote": "Nous avons remplacé un tableau de bord d'analyse gratuit, sans confidentialité et complexe par un tableau de bord payant, avec la confidentialité comme priorité et simple. Nous ne pourrions pas être plus heureux. {0}La meilleure suite d'analyse axée sur la confidentialité que j'ai trouvée.{1} Nous sommes fiers de pouvoir dire à nos clients que nous ne les pistons pas du tout."
+      "quote": "Nous avons remplacé un tableau de bord d'analyse gratuit, mais attentatoire à la vie privée et complexe, par un tableau de bord payant, simple et priorisant la vie privée. Nous ne pourrions pas être plus heureux. {0}Le meilleur outil d'analyse axée sur la protection de la vie privée que j'ai trouvé.{1} Nous sommes fiers de pouvoir dire à nos clients que nous ne les pistons pas du tout."
     },
     "hannah": {
       "role": "Fondatrice Design SaaS",
-      "quote": "Après avoir changé de GA, j'ai essayé une autre solution d'analyse axée sur la confidentialité, mais elle s'est avérée trop minimaliste et ne m'a pas donné ce dont j'avais besoin. Je prends des décisions basées sur des données. Heureusement, Simple Analytics {0}montre les métriques exactes dont j'ai besoin pour faire grandir mon entreprise{1}, tout en respectant la confidentialité de mes visiteurs. ET elle se charge extrêmement rapidement, ce qui la rend SEO-friendly"
+      "quote": "Après avoir laissé tomber GA, j'ai essayé une autre solution d'analyse respectant mieux la vie privée, mais elle s'est avérée trop minimaliste et ne m'a pas fourni ce dont j'avais besoin. Mes décisions sont basées sur des données. Heureusement, Simple Analytics {0}affiche les métriques exactes dont j'ai besoin pour faire grandir mon entreprise{1}, tout en respectant la vie privée de mes visiteurs. ET elle se charge extrêmement rapidement, ce qui la rend SEO-friendly"
     },
     "evan": {
       "role": "Ingénieur logiciel",
-      "quote": "C'est génial pour suivre tous les produits que je lance. J'utilise également {0}l'API pour m'envoyer un message bot{1} chaque matin avec des statistiques sur la semaine et des statistiques journalières de la veille"
+      "quote": "C'est génial pour suivre tous les produits que je lance. J'utilise également {0}l'API pour m'envoyer un message bot{1} chaque matin avec les statistiques hebdomadaires et de la veille"
     },
     "stefaan": {
       "role": "Marketeur",
-      "quote": "Excellente alternative à Google Analytics. Oui, vous payez une petite souscription, mais vous obtenez beaucoup en retour: {0}analyse conforme à la RGPD{1} et {0}sans cookie{1}, {0}précises{1} et graphiques clairs."
+      "quote": "Excellente alternative à Google Analytics. Certes, on paye une petite souscription, mais on obtient beaucoup en échange: {0}analyse conforme au RGPD{1} et {0}sans cookie{1}, {0}précise{1} et des graphiques clairs."
     }
   },
   "glossary": {
@@ -392,7 +392,7 @@
   },
   "ga_countries": {
     "overview": "Pays où Google Analytics est illégal",
-    "overview_description": "Dans certains pays, Google Analytics est illégal. C'est parce que Google Analytics n'est pas conforme au RGPD. Dans ces pays, vous pouvez utiliser Simple Analytics à la place. Nous sommes conformes au RGPD et nous n'utilisons pas de cookies.",
+    "overview_description": "Dans certains pays, Google Analytics est illégal car il n'est pas conforme au RGPD. Dans ces pays, vous pouvez utiliser Simple Analytics à la place. Nous sommes conformes au RGPD et nous n'utilisons pas de cookies.",
     "map_generated_with": "Carte générée avec",
     "click_country_to_learn_more": "Cliquez sur un pays pour en savoir plus.",
     "labels": {
