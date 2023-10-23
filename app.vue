@@ -1028,6 +1028,14 @@ const head = {
 
 useHead(head);
 
+useSeoMeta({
+  ogTitle: head.title,
+  ogDescription: () => route.meta.description || defaultDescription,
+  ogImage: "https://assets.simpleanalytics.com/social-media/dark-chart.png",
+  ogType: "website",
+  twitterCard: "summary_large_image",
+});
+
 const theme = useTheme();
 
 const themeCookie = useCookie("theme", {

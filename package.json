@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "NODE_NO_WARNINGS=1 nuxi dev -p 3005",
     "build": "nuxi build",
-    "start": "node .output/server/index.mjs"
+    "start": "node .output/server/index.mjs",
+    "prettier": "npx prettier --write --ignore-path .gitignore \"**/*.{js,jsx,json,md,mdx,ts,tsx,yaml,yml,css,scss,less,graphql,md}\""
   },
   "devDependencies": {
     "@headlessui/vue": "^1.7.9",
