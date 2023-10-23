@@ -157,7 +157,7 @@
               sendEventAndRedirect(
                 'click_demo_above_fold',
                 {},
-                MAIN_URL + '/simpleanalytics.com?from=landing'
+                MAIN_URL + '/simpleanalytics.com?from=landing',
               )
             "
             class="group button large shadow-xl bg-white dark:bg-gray-800 hover:dark:bg-gray-900"
@@ -1516,7 +1516,7 @@ const theme = useTheme();
 
 // Initiate video seeks
 const videoSeeks = ref(
-  theme.value === "dark" ? videoSeeksDark : videoSeeksLight
+  theme.value === "dark" ? videoSeeksDark : videoSeeksLight,
 );
 
 // Update video seeks when theme changes
@@ -1623,7 +1623,7 @@ const scrollToSeekVideo = (seek) => {
 
   if (seek) {
     const found = videoSeeks.value?.find(
-      ({ translation }) => seek === translation
+      ({ translation }) => seek === translation,
     );
     if (found) jumpToTime(found);
   }

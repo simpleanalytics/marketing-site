@@ -31,7 +31,7 @@ const localePath = useLocalePath();
 
 const category = computed(() => {
   const category = categories.find(
-    (category) => category.category === route.params.category
+    (category) => category.category === route.params.category,
   );
   return category || {};
 });

@@ -27,11 +27,11 @@ onMounted(() => {
   if (hasMouse) {
     popoverbutton.value?.addEventListener(
       "mouseenter",
-      () => (open.value = true)
+      () => (open.value = true),
     );
     popoverbutton.value?.addEventListener(
       "mouseleave",
-      () => (open.value = false)
+      () => (open.value = false),
     );
   }
 });

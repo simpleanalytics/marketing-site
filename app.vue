@@ -373,7 +373,7 @@
                       sendEventAndRedirect(
                         'click_login_top_nav',
                         {},
-                        MAIN_URL + '/login'
+                        MAIN_URL + '/login',
                       )
                     "
                     class="inline-flex items-center px-4 py-2 text-gray-500 dark:text-gray-400 dark:hover:text-gray-600"
@@ -465,7 +465,7 @@
                       sendEventAndRedirect(
                         'click_login_top_nav',
                         {},
-                        MAIN_URL + '/login'
+                        MAIN_URL + '/login',
                       )
                     "
                     class="block w-full px-5 py-3 text-center font-medium text-red-500 bg-gray-50 hover:bg-gray-100 dark:bg-gray-500 dark:text-gray-100"
