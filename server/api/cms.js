@@ -71,7 +71,7 @@ const tableOfContents = (html) => {
         level++;
       }
       toc.push({ id, level, text });
-    },
+    }
   );
 
   return toc;
@@ -113,7 +113,7 @@ function createIndentedList(items) {
 
 const preconvert = (
   markdown,
-  { showIndex = false, inlineMedia, doFollowLinks = false } = {},
+  { showIndex = false, inlineMedia, doFollowLinks = false } = {}
 ) => {
   // Replace HTML tags with &lt; and &gt; except in ``` blocks in markdown
   markdown = markdown
@@ -132,7 +132,7 @@ const preconvert = (
               // Sanitize only the p, img, and a tags
               part = part.replace(
                 /<((?!\/?(span|details|summary|code|mark|p|img|a|br|hr))[^>]+)>/g,
-                "&lt;$1&gt;",
+                "&lt;$1&gt;"
               );
 
               // A underscore direct after a new line after an image.
@@ -145,7 +145,7 @@ const preconvert = (
               // _caption (source [link](https://exmaple.com))_
               part = part.replace(
                 /(\n|^)(!?\[[^\]]+\]\([^\)]+\))\n(.+)\n/g,
-                "$1$2\n<em>$3</em>\n",
+                "$1$2\n<em>$3</em>\n"
               );
 
               for (const { id, attributes } of inlineMedia?.data || []) {
@@ -172,7 +172,7 @@ const preconvert = (
                       }" background="${color}" src="${file}" />`;
                     }
                     return match;
-                  },
+                  }
                 );
 
                 part = part.replace(
@@ -204,7 +204,7 @@ const preconvert = (
                       }Video not supported, you can <a href="${file}">download it</a>.</Video>`;
                     }
                     return match;
-                  },
+                  }
                 );
               }
 
@@ -213,12 +213,12 @@ const preconvert = (
                 /(\n|^)(\[\^)([^\]]+)(\]:)/g,
                 function (match, _1, _2, id, _3) {
                   return `${_1}- ${_2}${id}${_3}`;
-                },
+                }
               );
 
               part = part.replace(
                 /{% include gif\.html slug="([^"]+)" alt="([^"]+)"(?:.*?)%}/g,
-                "![$2](https://assets.simpleanalytics.com/gifs/$1.gif)",
+                "![$2](https://assets.simpleanalytics.com/gifs/$1.gif)"
               );
 
               // Replace markdown footnotes like [^1] or [^note] with <sup id="ref-1"><a href="#note-1">1</a></sup>
@@ -228,7 +228,7 @@ const preconvert = (
                 function (match, _1, id, _2) {
                   const ref = id.replace(/[^a-z0-9]/gi, "-");
                   return `<sup id="ref-${ref}"><a class="no-underline p-1" href="#note-${ref}">${id}</a></sup>`;
-                },
+                }
               );
 
               // Replace \n\n>>text\n\n with <blockquote>text</blockquote>
@@ -236,7 +236,7 @@ const preconvert = (
                 /(\n\n|^)(\>\>)(.+?)(\n\n)/g,
                 function (match, prefix, _indent, text, suffix) {
                   return `${prefix}<blockquote class="warning"><p>${text}</p></blockquote>${suffix}`;
-                },
+                }
               );
 
               return part;
@@ -268,7 +268,7 @@ const preconvert = (
   // In the markdown links are formatted like this: [text](<url>), replace those with [text](url)
   markdown = markdown.replace(
     /\[([^\]]+)\]\((<|&lt;)(>|.+?(?=&gt;))(>|&gt;)\)/g,
-    "[$1]($3)",
+    "[$1]($3)"
   );
 
   // Convert markdown to html
@@ -305,7 +305,7 @@ const preconvert = (
             : "strict-origin-when-cross-origin";
 
           return `<a referrerpolicy="${referrerpolicy}" href="${url.toString()}"${attributes} target="_blank" rel="${rels.join(
-            " ",
+            " "
           )}">${text}</a>`;
         }
         return match;
@@ -313,7 +313,7 @@ const preconvert = (
         console.error(error);
         return match;
       }
-    },
+    }
   );
 
   // Replace GIF images with VueFreezeframe component
@@ -329,18 +329,18 @@ const preconvert = (
     function (match, _1, id, _2, text) {
       const ref = id.replace(/[^a-z0-9]/gi, "-");
       return `<a id="note-${ref}" class="no-underline" href="#ref-${ref}">#${id}</a> ${text.trim()}`;
-    },
+    }
   );
 
   // Add classes
   html = html.replace(
     /<ul>\s?<li>\s?<a\sid\=\"note\-/,
-    '<ul class="not-prose list-none mt-8 pt-6 border-t-2 border-gray-300 dark:border-gray-600 pl-0 text-sm text-red-600"><li><a id="note-',
+    '<ul class="not-prose list-none mt-8 pt-6 border-t-2 border-gray-300 dark:border-gray-600 pl-0 text-sm text-red-600"><li><a id="note-'
   );
 
   html = html.replace(
     /<li>\s?<a\sid\=\"note\-/g,
-    '<li class="text-gray-400 dark:text-gray-500 mb-2"><a id="note-',
+    '<li class="text-gray-400 dark:text-gray-500 mb-2"><a id="note-'
   );
 
   // Remove <p> tags around `<p>{{tableofcontents}}</p>`
@@ -349,13 +349,13 @@ const preconvert = (
   // Remove <p> tags around `<p><Video>...</Video></p>`
   html = html.replace(
     /<p><Video((?:(?!<\/Video>).)*)<\/Video>(\n.+)?<\/p>/gi,
-    "<Video$1</Video>$2",
+    "<Video$1</Video>$2"
   );
 
   // Remove <p> tags around `<p><Gif...</Gif></p>`
   html = html.replace(
     /<p><Gif((?:(?!<\/Gif>).)*)<\/Gif>(\n.+)?<\/p>/gi,
-    "<Gif$1</Gif>$2",
+    "<Gif$1</Gif>$2"
   );
 
   if (!showIndex) {
@@ -372,7 +372,7 @@ const preconvert = (
   // Add class to first <ol> to make it a counter
   const index = createIndentedList(toc).replace(
     "<ol>",
-    '<ol class="counters">',
+    '<ol class="counters">'
   );
 
   const ctaOne = ctaOneRegex.test(html) ? "" : "{{ctaone}}";
@@ -392,7 +392,7 @@ const preconvert = (
   if (hasPBeforeH2)
     return html.replace(
       /(<p>([^<]{0,100})<\/p>\n)<h2/,
-      `${index}${ctaOne}$1<h2`,
+      `${index}${ctaOne}$1<h2`
     );
 
   // Insert before first <h2> if it exists
@@ -460,7 +460,7 @@ const getReviews = ({ matchedValue, reviews }) => {
             ${
               review.userDesignation
                 ? `<span class="font-semibold text-base text-white/75 truncate">, ${sanitize(
-                    review.userDesignation.trim(),
+                    review.userDesignation.trim()
                   )}</span>`
                 : ""
             }
@@ -470,7 +470,7 @@ const getReviews = ({ matchedValue, reviews }) => {
                 ? `
                 <div class="text-base text-white font-semibold inline-flex items-center max-w-[50%]">
                   <span class="truncate max-w-[calc(100%-1.5rem)]">Source: ${sanitize(
-                    review.sourceName.trim(),
+                    review.sourceName.trim()
                   )}</span>
                   ${
                     review.sourceLink
@@ -524,7 +524,7 @@ const convert = (markdown, attributes) => {
         return `<NuxtLink to="${href}"${
           attributes ? ` ${attributes}` : ""
         }>${text}</NuxtLink>`;
-      },
+      }
     )
     // replace and add review tags as per there occurence
     .replace(
@@ -534,17 +534,17 @@ const convert = (markdown, attributes) => {
           matchedValue,
           reviews,
         });
-      },
+      }
     )
     .replace(
       /(?<!(?:<blockquote(?:[^>]*)>\n?))<(p)([^>]*)>((?:(?!<\/p>).)*)<\/p>/g,
       (match, tag, attributes, content) =>
-        replacer({ match, tag, attributes, content, id }),
+        replacer({ match, tag, attributes, content, id })
     )
     .replace(
       /<(summary)([^>]*)>((?:(?!<\/summary>).)*)<\/summary>/g,
       (match, tag, attributes, content) =>
-        replacer({ match, tag, attributes, content, id }),
+        replacer({ match, tag, attributes, content, id })
     )
     .replace(
       /<(blockquote)([^>]*)>(?:[ \r\n]*)<(p)([^>]*)>((?:(?!<\/p>).)*)<\/p>(?:[ \r\n]*)<\/blockquote>/g,
@@ -557,12 +557,12 @@ const convert = (markdown, attributes) => {
           attributes,
           content,
           id,
-        }),
+        })
     )
     .replace(
       /<(h[1-9])([^>]*)>((?:(?!<\/h[1-9]>).)*)<\/h[1-9]>/g,
       (match, tag, attributes, content) =>
-        replacer({ match, tag, attributes, content, id }),
+        replacer({ match, tag, attributes, content, id })
     );
 
   return html;
@@ -577,7 +577,7 @@ const parse = ({ type, response }) => {
       if (item.attributes[iterator]) {
         item.attributes[iterator + "Html"] = convert(
           item.attributes[iterator],
-          item.attributes,
+          item.attributes
         );
       }
     }
@@ -588,7 +588,7 @@ const parse = ({ type, response }) => {
           if (localization.attributes[iterator]) {
             localization.attributes[iterator + "Html"] = convert(
               localization.attributes[iterator],
-              item.attributes,
+              item.attributes
             );
           }
         }
@@ -628,7 +628,7 @@ export default defineEventHandler(async (event) => {
         "inlineMedia",
         "contentHtml",
         "languages",
-      ].includes(field),
+      ].includes(field)
   );
 
   const populate =

@@ -175,12 +175,12 @@ export default ({ data, locale = "en", keys = [], limit }) => {
 
     // Get English version to find the publishAt date
     const inEnglish = articles.find(
-      ({ attributes }) => attributes.locale === "en",
+      ({ attributes }) => attributes.locale === "en"
     );
 
     // Find the preferred locale
     const inLocale = articles.find(
-      ({ attributes }) => attributes.locale === locale,
+      ({ attributes }) => attributes.locale === locale
     );
 
     if (inLocale) {
@@ -219,7 +219,7 @@ export default ({ data, locale = "en", keys = [], limit }) => {
     .map(({ attributes }) => {
       if (keys.includes("coverImageWithoutText"))
         attributes.coverImageWithoutText = getMedia(
-          attributes.coverImageWithoutText,
+          attributes.coverImageWithoutText
         );
 
       if (keys.includes("coverImageWithText"))
