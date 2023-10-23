@@ -8,7 +8,7 @@
     leave-to-class="opacity-0 translate-y-10"
   >
     <div
-      class="z-10 sticky transition-all bottom-6 left-0 overflow-hidden rounded-lg shadow-lg mx-6 md:w-80"
+      class="z-50 sticky transition-all bottom-6 left-0 overflow-hidden rounded-lg shadow-lg mx-6 md:w-80"
       :class="showBottomBanner ? 'bottom-20' : 'bottom-6'"
       v-if="show"
     >
