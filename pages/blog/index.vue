@@ -88,13 +88,13 @@
                 <img
                   v-else-if="post.title"
                   :src="`https://simpleanalytics.com/generate-image.png?title=${encodeURIComponent(
-                    post.title
+                    post.title,
                   )}&url=${encodeURIComponent(
                     BASE_URL +
                       localePath({
                         name: 'blog-slug',
                         params: { slug: post.slug },
-                      })
+                      }),
                   )}&author-slug=${post.authorSlug}`"
                   :alt="post.title"
                   style="aspect-ratio: 1200/628"
