@@ -951,8 +951,19 @@ img {
   float: none;
 }
 .sans-serif {
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
-    helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    avenir next,
+    avenir,
+    helvetica neue,
+    helvetica,
+    ubuntu,
+    roboto,
+    noto,
+    segoe ui,
+    arial,
+    sans-serif;
 }
 .serif {
   font-family: georgia, times, serif;
@@ -968,13 +979,22 @@ code {
   font-family: Consolas, monaco, monospace;
 }
 .courier {
-  font-family: Courier Next, courier, monospace;
+  font-family:
+    Courier Next,
+    courier,
+    monospace;
 }
 .helvetica {
-  font-family: helvetica neue, helvetica, sans-serif;
+  font-family:
+    helvetica neue,
+    helvetica,
+    sans-serif;
 }
 .avenir {
-  font-family: avenir next, avenir, sans-serif;
+  font-family:
+    avenir next,
+    avenir,
+    sans-serif;
 }
 .athelas {
   font-family: athelas, georgia, serif;
@@ -986,10 +1006,14 @@ code {
   font-family: times, serif;
 }
 .bodoni {
-  font-family: Bodoni MT, serif;
+  font-family:
+    Bodoni MT,
+    serif;
 }
 .calisto {
-  font-family: Calisto MT, serif;
+  font-family:
+    Calisto MT,
+    serif;
 }
 .garamond {
   font-family: garamond, serif;
@@ -2775,7 +2799,9 @@ code {
   -webkit-transition: -webkit-transform 0.25s ease-out;
   transition: -webkit-transform 0.25s ease-out;
   transition: transform 0.25s ease-out;
-  transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
+  transition:
+    transform 0.25s ease-out,
+    -webkit-transform 0.25s ease-out;
 }
 .grow:focus,
 .grow:hover {
@@ -2795,7 +2821,9 @@ code {
   -webkit-transition: -webkit-transform 0.25s ease-in-out;
   transition: -webkit-transform 0.25s ease-in-out;
   transition: transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+  transition:
+    transform 0.25s ease-in-out,
+    -webkit-transform 0.25s ease-in-out;
 }
 .grow-large:focus,
 .grow-large:hover {

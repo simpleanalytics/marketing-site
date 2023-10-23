@@ -13,7 +13,7 @@ We use:
 npm install
 ```
 
-2. Downlaod the geolite-country.mmdb [here](https://assets.simpleanalytics.com/files/2022-05-17-geolite-country.mmdb) and copy it to `server/data/geolite-country.mmdb`
+2. Download the geolite-country.mmdb [here](https://assets.simpleanalytics.com/files/2022-05-17-geolite-country.mmdb) and copy it to `server/data/geolite-country.mmdb`
 
 ## Development
 
