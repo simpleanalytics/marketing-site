@@ -31,8 +31,8 @@ jobs:
       - name: Fail on forbidden words
         uses: simpleanalytics/fail-on-found-action@v2
         with:
-          query: "console.log"
-          exclude: 'node_modules,.git,.indexOf(",.indexOf('''
+          query: 'console.log,.indexOf(",.indexOf('''
+          exclude: "node_modules,.git"
 
       - name: Prettier Action
         uses: creyD/prettier_action@v4.3
