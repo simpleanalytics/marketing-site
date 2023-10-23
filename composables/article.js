@@ -28,7 +28,7 @@ export const useArticle = async ({
     url.searchParams.set("userPath", event.node.req.url);
   url.searchParams.set(
     "path",
-    type === "key-terms" ? "/key-terms" : "/articles"
+    type === "key-terms" ? "/key-terms" : "/articles",
   );
   if (slug) url.searchParams.set("filters[slug][$eq]", slug);
   if (nonUniqueSlug)
