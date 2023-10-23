@@ -105,7 +105,7 @@ export default defineEventHandler(async (event) => {
                 <media:content xmlns:media="http://search.yahoo.com/mrss/" medium="image" url="${post.image}" />`
             : ""
         }
-      `.trim()
+      `.trim(),
       );
     }
 

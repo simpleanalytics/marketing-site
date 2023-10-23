@@ -33,7 +33,7 @@ export const useAdmin = (to = {}) => {
         }`;
       }
     },
-    { immediate: true }
+    { immediate: true },
   );
 
   return adminState;
