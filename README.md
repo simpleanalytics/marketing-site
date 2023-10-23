@@ -7,11 +7,13 @@ We use:
 
 ## Setup
 
-Make sure to install the dependencies
+1. Make sure to install the dependencies
 
 ```bash
 npm install
 ```
+
+2. Downlaod the geolite-country.mmdb [here](https://assets.simpleanalytics.com/files/2022-05-17-geolite-country.mmdb) and copy it to `server/data/geolite-country.mmdb`
 
 ## Development
 
