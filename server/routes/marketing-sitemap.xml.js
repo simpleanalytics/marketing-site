@@ -77,7 +77,7 @@ export default defineEventHandler(async (event) => {
     articles,
     dynamicPageRoutes,
     localePages,
-    false,
+    false
   );
 
   /*
@@ -91,7 +91,7 @@ export default defineEventHandler(async (event) => {
     keyTerms,
     dynamicPageRoutes,
     localePages,
-    true,
+    true
   );
 
   const routes = [...staticPageRoutes, ...articleSitemap, ...keyTermsSitemap];
@@ -106,7 +106,7 @@ const computeSitemapPaths = (
   pages,
   dynamicPageRoutes,
   localePages,
-  isPathKeyTerms = false,
+  isPathKeyTerms = false
 ) => {
   const sitemapPaths = [];
 
@@ -183,7 +183,7 @@ const computeSitemapPaths = (
             if (alt.hreflang === data.attributes.locale) {
               alt.href = alt.href.replace(
                 value.attributes.slug,
-                data.attributes.slug,
+                data.attributes.slug
               );
               alt.updatedAt = data.attributes?.updatedAt;
             }
@@ -216,7 +216,7 @@ const getAllData = async (strapiToken, type = "articles") => {
     response = await fetchDataFromStrapi(
       strapiToken,
       type === "articles" ? "articles" : "key-terms",
-      page,
+      page
     );
     if (response.data) allResponses = [...allResponses, ...response.data];
 
@@ -229,11 +229,11 @@ const getAllData = async (strapiToken, type = "articles") => {
 const fetchDataFromStrapi = async (
   strapiToken,
   pathSearchValue = "articles",
-  currentPageIndex = 1,
+  currentPageIndex = 1
 ) => {
   const url = new URL(
     `/api/${pathSearchValue}`,
-    "https://cms.simpleanalytics.com",
+    "https://cms.simpleanalytics.com"
   );
 
   const fields = [
