@@ -50,7 +50,7 @@ watch(
   () => playing.value,
   (value) => {
     loaded.value = true;
-  }
+  },
 );
 
 onMounted(() => {
@@ -58,7 +58,7 @@ onMounted(() => {
 
   // Detect hover support
   const isHoverSupported = window.matchMedia(
-    "(hover: hover) and (pointer: fine)"
+    "(hover: hover) and (pointer: fine)",
   ).matches;
 
   if (isHoverSupported) {

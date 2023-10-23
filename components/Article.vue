@@ -334,7 +334,7 @@ const image = computed(
     article.value?.cover?.small ||
     (article.value?.title
       ? `${MAIN_URL}/generate-image.png?${generateParams}`
-      : null)
+      : null),
 );
 
 if (!props.hideSeoMeta) {
@@ -383,7 +383,7 @@ const breadcrumb = {
 
       if (page === "category") {
         const category = categories.find(
-          ({ category }) => category === route.params.category
+          ({ category }) => category === route.params.category,
         );
         acc.push({
           name: category?.titleTranslation
@@ -417,7 +417,7 @@ const breadcrumb = {
 
       return acc;
     },
-    [{ name: "Home", item: localePath({ name: "index" }) }]
+    [{ name: "Home", item: localePath({ name: "index" }) }],
   ),
 };
 

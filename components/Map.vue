@@ -1994,7 +1994,7 @@ const getClassForCountry = ({ code }) => {
     (country) =>
       country.code &&
       code &&
-      country.code?.toLowerCase() === code?.toLowerCase()
+      country.code?.toLowerCase() === code?.toLowerCase(),
   );
   if (country?.class) {
     return country.class + " cursor-pointer";

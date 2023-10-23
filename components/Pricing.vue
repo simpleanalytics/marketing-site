@@ -114,7 +114,7 @@
               v-html="
                 $t('pricing.features.datapoints', [
                   new Intl.NumberFormat($t('time.intl_locale')).format(
-                    tier.includedFeatures.datapoints
+                    tier.includedFeatures.datapoints,
                   ) + (tier.amountsAreMinimum ? '+' : ''),
                 ])
               "
@@ -132,7 +132,7 @@
               v-html="
                 $t('pricing.features.users', [
                   new Intl.NumberFormat($t('time.intl_locale')).format(
-                    tier.includedFeatures.users
+                    tier.includedFeatures.users,
                   ) + (tier.amountsAreMinimum ? '+' : ''),
                 ])
               "
@@ -150,7 +150,7 @@
               v-html="
                 $t('pricing.features.websites', [
                   new Intl.NumberFormat($t('time.intl_locale')).format(
-                    tier.includedFeatures.websites
+                    tier.includedFeatures.websites,
                   ) + (tier.amountsAreMinimum ? '+' : ''),
                 ])
               "

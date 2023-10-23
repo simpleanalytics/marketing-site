@@ -233,7 +233,9 @@ const clickedCountry = ({ code }) => {
   if (!countries?.value?.length) return;
   const found = countries.value.find(
     (country) =>
-      country.code && code && country.code?.toLowerCase() === code.toLowerCase()
+      country.code &&
+      code &&
+      country.code?.toLowerCase() === code.toLowerCase(),
   );
   if (!found) return;
   router.push({ path: found.link });

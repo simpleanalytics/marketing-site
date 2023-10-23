@@ -66,7 +66,7 @@ const {
 
 const section = computed(() => {
   const section = sections.find(
-    (section) => section.type === "analytics-pricing"
+    (section) => section.type === "analytics-pricing",
   );
   return section || {};
 });
