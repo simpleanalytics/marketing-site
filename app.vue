@@ -1028,12 +1028,16 @@ const head = {
 
 useHead(head);
 
+const ogImage =
+  "https://assets.simpleanalytics.com/social-media/dark-chart.png";
+
 useSeoMeta({
   ogTitle: head.title,
   ogDescription: () => route.meta.description || defaultDescription,
-  ogImage: "https://assets.simpleanalytics.com/social-media/dark-chart.png",
+  ogImage,
   ogType: "website",
   twitterCard: "summary_large_image",
+  twitterImage: ogImage,
 });
 
 const theme = useTheme();
