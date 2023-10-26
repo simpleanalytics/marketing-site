@@ -1,7 +1,7 @@
 <template>
   <client-only>
     <p class="text-base sm:text-lg lg:text-md md:leading-normal leading-normal">
-      {{ text }}: {{ formattedNumber }}
+      {{ text }}: <span class="tabular-nums">{{ formattedNumber }}</span>
     </p>
   </client-only>
 </template>
@@ -49,7 +49,7 @@ export default {
         );
         const data = await response.json();
 
-        this.counterValue = 6456395964; //data.count;
+        this.counterValue = data.count;
         this.medianRatePerMinute = data.medianRatePerMinute;
       } catch (error) {
         console.error("Error fetching initial data:", error);
