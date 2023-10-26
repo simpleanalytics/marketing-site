@@ -15,6 +15,7 @@
     "did_not_find_any_posts": "Keine Beiträge gefunden",
     "could_not_connect": "Verbindung zu {0}unserem Blog{1} konnte nicht hergestellt werden.",
     "see_feature_video_below": "Feature-Video unten ansehen",
+    "datapoints_collected": "Gesammelte Datenpunkte",
     "featured_options": {
       "add_website": "Website hinzufügen",
       "import_ga": "GA-Daten importieren",

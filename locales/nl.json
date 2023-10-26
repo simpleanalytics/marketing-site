@@ -15,6 +15,7 @@
     "did_not_find_any_posts": "Geen berichten gevonden",
     "could_not_connect": "Kon niet verbinden met {0}onze blog{1}.",
     "see_feature_video_below": "Bekijk alle features",
+    "datapoints_collected": "Totaal verzamelde datapunten",
     "featured_options": {
       "add_website": "Website toevoegen",
       "import_ga": "Importeer GA-gegevens",
