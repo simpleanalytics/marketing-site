@@ -1,6 +1,13 @@
 <template>
   <client-only>
+<<<<<<< Updated upstream
     <p class="text-base sm:text-lg lg:text-md md:leading-normal leading-normal">
+=======
+    <p
+      v-if="counterValue > 0"
+      class="text-base sm:text-lg lg:text-md md:leading-normal leading-normal"
+    >
+>>>>>>> Stashed changes
       {{ text }}: <span class="tabular-nums">{{ formattedNumber }}</span>
     </p>
   </client-only>
