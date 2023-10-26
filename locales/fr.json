@@ -15,6 +15,7 @@
     "did_not_find_any_posts": "Aucun article trouvé",
     "could_not_connect": "Impossible de se connecter à {0}notre blog{1}.",
     "see_feature_video_below": "Voir la vidéo de fonctionnalité",
+    "datapoints_collected": "Points de données collectés au total",
     "featured_options": {
       "add_website": "Ajouter un site web",
       "import_ga": "Importer les données de GA",

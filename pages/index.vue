@@ -86,6 +86,14 @@
           ></span>
         </p>
 
+        <div class="mt-4 md:mt-8 opacity-60">
+          <ClientCounter
+            :intlLocale="t('time.intl_locale')"
+            :text="t('home.datapoints_collected')"
+            :endpoint="MAIN_URL"
+          />
+        </div>
+
         <div
           class="flex items-center justify-center md:justify-start mt-10 sm:mt-12 max-w-full"
         >

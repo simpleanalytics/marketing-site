@@ -15,6 +15,7 @@
     "did_not_find_any_posts": "Non sono stati trovati post",
     "could_not_connect": "Impossibile connettersi al {0}nostro blog{1}.",
     "see_feature_video_below": "Vedi il video delle funzionalità",
+    "datapoints_collected": "Punti dati totali raccolti",
     "featured_options": {
       "add_website": "Aggiungi sito web",
       "import_ga": "Importa dati GA",
