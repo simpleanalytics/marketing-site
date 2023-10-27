@@ -1,13 +1,9 @@
 <template>
   <client-only>
-<<<<<<< Updated upstream
-    <p class="text-base sm:text-lg lg:text-md md:leading-normal leading-normal">
-=======
     <p
       v-if="counterValue > 0"
       class="text-base sm:text-lg lg:text-md md:leading-normal leading-normal"
     >
->>>>>>> Stashed changes
       {{ text }}: <span class="tabular-nums">{{ formattedNumber }}</span>
     </p>
   </client-only>
@@ -19,6 +15,7 @@ export default {
     return {
       counterValue: 0,
       medianRatePerMinute: 0,
+      fetchedAt: new Date(),
     };
   },
   props: {
@@ -37,7 +34,8 @@ export default {
   },
   async mounted() {
     await this.fetchInitialData();
-    this.updateInterval = setInterval(this.updateCounter, 334);
+    this.updateInterval = setInterval(this.updateCounter, 200);
+    this.fetchInterval = setInterval(this.fetchInitialData, 1000 * 60 * 5);
   },
   beforeDestroy() {
     clearInterval(this.updateInterval);
@@ -56,6 +54,7 @@ export default {
         );
         const data = await response.json();
 
+        this.fetchedAt = new Date();
         this.counterValue = data.count;
         this.medianRatePerMinute = data.medianRatePerMinute;
       } catch (error) {
@@ -63,9 +62,12 @@ export default {
       }
     },
     updateCounter() {
-      // Convert the rate from "per minute" to "per 20ms"
-      const ratePer20ms = this.medianRatePerMinute / ((60 * 1000) / 334);
-      this.counterValue = Math.round(this.counterValue + ratePer20ms);
+      const currentTime = new Date();
+      const elapsedMinutes = (currentTime - this.fetchedAt) / (1000 * 60);
+
+      const updatedValue =
+        this.counterValue + elapsedMinutes * this.medianRatePerMinute;
+      this.counterValue = Math.round(updatedValue);
     },
   },
 };

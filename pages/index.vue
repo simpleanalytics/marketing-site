@@ -86,7 +86,7 @@
           ></span>
         </p>
 
-        <div class="mt-4 md:mt-8 opacity-60">
+        <div class="mt-6 md:mt-8 opacity-60">
           <ClientCounter
             :intlLocale="t('time.intl_locale')"
             :text="t('home.datapoints_collected')"
