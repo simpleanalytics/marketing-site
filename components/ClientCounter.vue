@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       counterValue: 0,
+      counterValueStart: 0,
       medianRatePerMinute: 0,
       fetchedAt: new Date(),
     };
@@ -55,6 +56,7 @@ export default {
         const data = await response.json();
 
         this.fetchedAt = new Date();
+        this.counterValueStart = data.count;
         this.counterValue = data.count;
         this.medianRatePerMinute = data.medianRatePerMinute;
       } catch (error) {
@@ -66,7 +68,7 @@ export default {
       const elapsedMinutes = (currentTime - this.fetchedAt) / (1000 * 60);
 
       const updatedValue =
-        this.counterValue + elapsedMinutes * this.medianRatePerMinute;
+        this.counterValueStart + elapsedMinutes * this.medianRatePerMinute;
       this.counterValue = Math.round(updatedValue);
     },
   },
