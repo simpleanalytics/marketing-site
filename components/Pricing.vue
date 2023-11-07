@@ -47,7 +47,14 @@
         <p class="mt-4 text-sm text-gray-500 leading-relaxed">
           {{ $t(tier.description) }}
         </p>
-        <p class="mt-2">
+        <p class="mt-2" v-if="tier.name.includes('enterprise')">
+          <span
+            class="text-4xl font-extrabold text-gray-600 dark:text-gray-300"
+          >
+            {{ $t("pricing.contact") }}
+          </span>
+        </p>
+        <p class="mt-2" v-else>
           <span class="text-base text-gray-300 block">
             <span v-if="tier.from">{{ $t("pricing.from") }}</span>
             <span v-else>&nbsp;</span></span
@@ -245,8 +252,6 @@ const tiers = [
   {
     slug: "enterprise",
     name: "pricing.plans.enterprise.title",
-    priceMonthly: 500,
-    priceYearly: 5000,
     from: true,
     description: "pricing.plans.enterprise.description",
     includedIntro: ["pricing.everything_plus", "pricing.plans.business.title"],
