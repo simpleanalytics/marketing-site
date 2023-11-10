@@ -439,6 +439,20 @@
       }
     }
   },
+  "ai_suggestor": {
+    "title": "Analytics Suggester by Simple Analytics",
+    "sub_title": "Unlock Instant Privacy-Friendly Analytics Recommendations for Your App",
+    "help_text" : "Help us understand your application",
+    "app_input": {
+      "label": "What does your application does?",
+      "placeholder": "Eg: Payment collection tool, Ecommerce store" 
+    },
+    "platform_input": {
+      "label": "Which platforms does your application support? ",
+      "placeholder": "Eg: Website, Android app, desktop app"
+    },
+    "generateAction": "Generate Results"
+  },
   "ga_countries": {
     "overview": "Countries where Google Analytics is declared illegal",
     "overview_description": "In some countries, Google Analytics is declared illegal. This is because Google Analytics is not GDPR-compliant. In these countries, you can use Simple Analytics instead. We are GDPR-compliant, and we don't use cookies.",

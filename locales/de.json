@@ -391,6 +391,20 @@
       }
     }
   },
+  "ai_suggestor": {
+    "title": "Analytics Suggestor von Simple Analytics",
+    "sub_title": "Schalten Sie sofort Datenschutzfreundliche Analyseempfehlungen für Ihre App frei",
+    "help_text" : "Helfen Sie uns, Ihre Anwendung zu verstehen",
+    "app_input": {
+      "label": "Was macht Ihre Anwendung?",
+      "placeholder": "Z.B.: Zahlungssammlungstool, E-Commerce-Shop"
+    },
+    "platform_input": {
+      "label": "Welche Plattformen unterstützt Ihre Anwendung?",
+      "placeholder": "Z.B.: Website, Android-App, Desktop-App"
+    },
+    "generateAction": "Ergebnisse generieren"
+  },
   "ga_countries": {
     "overview": "Länder, in denen Google Analytics verboten ist",
     "overview_description": "In einigen Ländern ist Google Analytics verboten. Das liegt daran, dass Google Analytics nicht den GDPR-Richtlinien entspricht. In diesen Ländern kannst du stattdessen Simple Analytics verwenden. Wir sind GDPR-konform und verwenden keine Cookies.",

@@ -389,6 +389,20 @@
       }
     }
   },
+  "ai_suggestor": {
+    "title": "Analytics Suggestor door Simple Analytics",
+    "sub_title": "Ontgrendel Direct Privacyvriendelijke Analyse Aanbevelingen voor Jouw App",
+    "help_text" : "Help ons jouw applicatie te begrijpen",
+    "app_input": {
+      "label": "Wat doet jouw applicatie?",
+      "placeholder": "Bijv.: Betalingsverzameltool, E-commerce winkel"
+    },
+    "platform_input": {
+      "label": "Welke platforms ondersteunt jouw applicatie?",
+      "placeholder": "Bijv.: Website, Android-app, Desktop-app"
+    },
+    "generateAction": "Resultaten Genereren"
+  },
   "ga_countries": {
     "overview": "Landen waar Google Analytics illegaal is",
     "overview_description": "In sommige landen is Google Analytics illegaal. Dit komt doordat Google Analytics niet GDPR-compliant is. In deze landen kunt je in plaats daarvan Simple Analytics gebruiken. We zijn GDPR-compliant en we gebruiken geen cookies.",

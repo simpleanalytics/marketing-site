@@ -389,6 +389,20 @@
       }
     }
   },
+  "ai_suggestor": {
+    "title": "Sugeridor de Analítica por Simple Analytics",
+    "sub_title": "Desbloquea Recomendaciones Instantáneas de Analítica Respetuosas con la Privacidad para Tu Aplicación",
+    "help_text" : "Ayúdanos a entender tu aplicación",
+    "app_input": {
+      "label": "¿Qué hace tu aplicación?",
+      "placeholder": "Ej.: Herramienta de cobro, Tienda en línea"
+    },
+    "platform_input": {
+      "label": "¿Qué plataformas soporta tu aplicación?",
+      "placeholder": "Ej.: Sitio web, Aplicación Android, Aplicación de escritorio"
+    },
+    "generateAction": "Generar Resultados"
+  },
   "ga_countries": {
     "overview": "Países donde Google Analytics es ilegal",
     "overview_description": "En algunos países, Google Analytics es ilegal. Esto se debe a que Google Analytics no es compatible con el RGPD. En estos países, puedes usar Simple Analytics en su lugar. Somos compatibles con el RGPD y no usamos cookies.",
