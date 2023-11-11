@@ -16,7 +16,7 @@ export default {
       counterValue: 0,
       counterValueStart: 0,
       medianRatePerMinute: 0,
-      fetchedAt: new Date(),
+      fetchedAt: new Date().getTime(),
     };
   },
   props: {
@@ -55,7 +55,7 @@ export default {
         );
         const data = await response.json();
 
-        this.fetchedAt = new Date();
+        this.fetchedAt = new Date().getTime();
         this.counterValueStart = data.count;
         this.counterValue = data.count;
         this.medianRatePerMinute = data.medianRatePerMinute;
@@ -64,11 +64,12 @@ export default {
       }
     },
     updateCounter() {
-      const currentTime = new Date();
+      const currentTime = new Date().getTime();
       const elapsedMinutes = (currentTime - this.fetchedAt) / (1000 * 60);
 
       const updatedValue =
         this.counterValueStart + elapsedMinutes * this.medianRatePerMinute;
+
       this.counterValue = Math.round(updatedValue);
     },
   },
