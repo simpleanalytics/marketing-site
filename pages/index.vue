@@ -86,6 +86,7 @@
           ></span>
         </p>
 
+        <!--
         <div class="mt-6 md:mt-8 opacity-60">
           <ClientCounter
             :intlLocale="t('time.intl_locale')"
@@ -93,6 +94,7 @@
             :endpoint="MAIN_URL"
           />
         </div>
+        -->
 
         <div
           class="flex items-center justify-center md:justify-start mt-10 sm:mt-12 max-w-full"
