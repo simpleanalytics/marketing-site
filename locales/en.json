@@ -40,7 +40,9 @@
       "tos": "Terms & conditions",
       "company_details": "Company details",
       "resources": "Resources",
-      "utm_builder": "UTM Builder"
+      "utm_builder": "UTM Builder",
+      "guides": "Guides",
+      "case_studies": "Case studies"
     },
     "why_most_privacy": {
       "title": "Why Simple Analytics is the {0}best Google Analytics{1} alternative? ",
@@ -373,8 +375,12 @@
       }
     }
   },
-  "case_study": {
-    "title": "Case Study"
+  "case_studies": {
+    "title": "Case studies"
+  },
+  "guides": {
+    "title": "Guides",
+    "none_found": "No guides found"
   },
   "resources": {
     "title": "Resources",

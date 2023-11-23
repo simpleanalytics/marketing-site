@@ -28,8 +28,8 @@ onMounted(() => {
 
 <style>
 #slot {
-  --gradient-from: #dd4352;
-  --gradient-to: #e38e97;
+  --gradient-from: #db3347;
+  --gradient-to: #ff5065;
 
   padding: 2rem 3rem;
   width: 100%;

@@ -40,16 +40,18 @@
       "tos": "Algemene voorwaarden",
       "company_details": "Bedrijfsgegevens",
       "resources": "Bronnen",
-      "utm_builder": "UTM-builder"
+      "utm_builder": "UTM-builder",
+      "guides": "Handleidingen",
+      "case_studies": "Casestudies"
     },
     "why_most_privacy": {
-      "title": "Waarom is Simple Analytics de {0}beste alternatief voor Google Analytics{1}?",
+      "title": "Waarom is Simple Analytics het {0}beste alternatief voor Google Analytics{1}?",
       "x_reasons": "Hier zijn {0} simpele redenen die het samenvatten.",
-      "reason_1": "Privacybescherming is {0}ons bedrijfsmodel{1}. We houden ons standaard aan alle privacybeleidsregels. Waaronder: GDPR, PECR, CCPA en meer.",
+      "reason_1": "Privacybescherming is {0}ons bedrijfsmodel{1}. We houden ons standaard aan alle privacyregels. Waaronder: GDPR, PECR, CCPA en meer.",
       "reason_2": "Simpele interface. Wij geven je de inzichten die je nodig hebt in een gebruiksvriendelijk dashboard.",
       "reason_3": "We slaan nooit, maar dan ook nooit, {0}persoonlijke gegevens{1} van je bezoekers op. Geen {0}cookie banners{1}.",
-      "reason_4": "Onze {0}Doelen-tracker{1} en {0}Evenementenverkenner{1} stellen u in staat om uw belangrijkste gebeurtenissen en conversietrechters bij te houden.",
-      "reason_5": "Ons {0}lichtgewicht script{1} verhoogt de snelheid van je website.",
+      "reason_4": "Onze {0}Goals{1} en {0}Event verkenner{1} stellen je in staat om uw belangrijkste gebeurtenissen en conversie bij te houden.",
+      "reason_5": "Ons {0}lightweight script{1} verhoogt de snelheid van je website.",
       "read_detailed_reasons": "Lees de gedetailleerde redenen",
       "business_model": {
         "title": "Privacybescherming is ons bedrijfsmodel.",
@@ -405,8 +407,12 @@
       "not_researched": "Niet onderzocht"
     }
   },
-  "case_study": {
-    "title": "Casestudie"
+  "case_studies": {
+    "title": "Casestudies"
+  },
+  "guides": {
+    "title": "Handleidingen",
+    "none_found": "Geen handleidingen gevonden"
   },
   "utm_builder": {
     "title": "UTM-builder",

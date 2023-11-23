@@ -185,20 +185,36 @@ export default {
     it: "/generatore-utm/[slug]",
     fr: "/constructeur-utm/[slug]",
   },
-  "case-study/index": {
-    en: "/case-study",
-    de: "/fallstudie",
-    es: "/estudio-de-caso",
-    fr: "/etude-de-cas",
-    it: "/studio-di-caso",
-    nl: "/casestudie",
+  "case-studies/index": {
+    en: "/case-studies",
+    de: "/fallstudien",
+    es: "/estudios-de-caso",
+    fr: "/etudes-de-cas",
+    it: "/studi-di-caso",
+    nl: "/casestudies",
   },
-  "case-study/[slug]": {
-    en: "/case-study/[slug]",
-    de: "/fallstudie/[slug]",
-    es: "/estudio-de-caso/[slug]",
-    fr: "/etude-de-cas/[slug]",
-    it: "/studio-di-caso/[slug]",
-    nl: "/casestudie/[slug]",
+  "case-studies/[slug]": {
+    en: "/case-studies/[slug]",
+    de: "/fallstudien/[slug]",
+    es: "/estudios-de-caso/[slug]",
+    fr: "/etudes-de-cas/[slug]",
+    it: "/studi-di-caso/[slug]",
+    nl: "/casestudies/[slug]",
+  },
+  "guides/index": {
+    en: "/guides",
+    de: "/anleitungen", // German: "Anleitungen" is suitable for tutorials or how-to guides.
+    es: "/tutoriales", // Spanish: "Tutoriales" specifically refers to tutorials.
+    fr: "/tutoriels", // French: "Tutoriels" is the direct translation for tutorials.
+    it: "/guide-pratiche", // Italian: "Guide pratiche" can be used for practical guides or tutorials.
+    nl: "/handleidingen", // Dutch: "Handleidingen" typically refers to manuals or detailed guides.
+  },
+  "guides/[slug]": {
+    en: "/guides/[slug]",
+    de: "/anleitungen/[slug]",
+    es: "/tutoriales/[slug]",
+    fr: "/tutoriels/[slug]",
+    it: "/guide-pratiche/[slug]",
+    nl: "/handleidingen/[slug]",
   },
 };

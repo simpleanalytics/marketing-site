@@ -3,7 +3,7 @@
     name="resources-alternatives-slug"
     :slug="route.params.slug"
     :articleType="route.params.section"
-    :drafts="true"
+    :keys="['reviews']"
   />
 </template>
 

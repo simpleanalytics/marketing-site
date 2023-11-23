@@ -40,7 +40,9 @@
       "tos": "Términos y condiciones",
       "company_details": "Detalles de la empresa",
       "resources": "Recursos",
-      "utm_builder": "Generador de UTM"
+      "utm_builder": "Generador de UTM",
+      "guides": "Tutoriales",
+      "case_studies": "Estudios de casos"
     },
     "why_most_privacy": {
       "title": "¿Por qué Simple Analytics es la {0}mejor alternativa a Google Analytics{1}?",
@@ -405,8 +407,12 @@
       "not_researched": "Sin investigar"
     }
   },
-  "case_study": {
-    "title": "Estudio de caso"
+  "case_studies": {
+    "title": "Estudios de casos"
+  },
+  "guides": {
+    "title": "Tutoriales",
+    "none_found": "No se encontraron tutoriales"
   },
   "utm_builder": {
     "title": "Constructor de UTM",

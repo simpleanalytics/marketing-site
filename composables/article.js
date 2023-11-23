@@ -53,8 +53,6 @@ export const useArticle = async ({
     "ctaTitle",
     "ctaDescription",
     "ctaButton",
-    "tables",
-    "reviews",
     "doFollowLinks",
   ];
 

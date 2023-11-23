@@ -1,8 +1,9 @@
 <template>
   <Article
-    name="case-study-slug"
+    name="case-studies-slug"
     :slug="route.params.slug"
     :articleType="route.params.section"
+    :keys="['reviews']"
   />
 </template>
 

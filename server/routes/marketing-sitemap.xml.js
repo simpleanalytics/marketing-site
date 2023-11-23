@@ -73,6 +73,7 @@ export default defineEventHandler(async (event) => {
   */
   let articleSitemap = [];
   const articles = await getAllData(strapiToken, "articles");
+
   articleSitemap = computeSitemapPaths(
     articles,
     dynamicPageRoutes,
@@ -130,6 +131,8 @@ const computeSitemapPaths = (
         url = url.slice(1);
       }
       url = url.join("-");
+      if (url === "case-studies") url = "case-study";
+      if (url === "guides") url = "guide";
       pageRoutesToMatch[url] = localePages[route];
     }
   }

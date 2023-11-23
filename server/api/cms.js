@@ -683,7 +683,14 @@ export default defineEventHandler(async (event) => {
 
   if (!path || !TYPES[type]) throw new Error("Invalid type, add to TYPES");
 
-  const response = await $fetch(url, { method: "GET", headers });
+  const response = await $fetch(url, {
+    method: "GET",
+    headers,
+    ignoreResponseError: true,
+  });
+
+  if (response?.error)
+    throw new Error(response.error.message || response.error);
 
   return parse({ type, response });
 });

@@ -20,7 +20,7 @@
       name="utm-builder-slug"
       :nonUniqueSlug="articleSlug"
       articleType="utm-builder"
-      :drafts="false"
+      :keys="['reviews']"
       :hideAuthor="true"
       :hideTitle="true"
       :hideSeoMeta="true"

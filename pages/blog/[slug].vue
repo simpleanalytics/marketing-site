@@ -3,7 +3,7 @@
     name="blog-slug"
     :slug="route.params.slug"
     articleType="blog"
-    :drafts="true"
+    :keys="['reviews']"
   />
 </template>
 

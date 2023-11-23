@@ -3,6 +3,7 @@
     name="glossary-category-slug"
     :slug="route.params.slug"
     :articleType="route.params.category"
+    :keys="['reviews']"
   >
     <template #pretitle>
       <h2 class="text-2xl sm:text-2xl md:text-3xl text-gray-500">

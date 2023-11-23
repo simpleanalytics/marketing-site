@@ -2,8 +2,8 @@
   <div class="max-w-3xl px-4 mx-auto">
     <div class="text-center mx-4">
       <h2 class="text-2xl sm:text-2xl md:text-3xl text-gray-500">
-        <NuxtLink :to="localePath({ name: 'case_study' })" data-no-style>{{
-          $t("case_study.title")
+        <NuxtLink :to="localePath({ name: 'guides' })" data-no-style>{{
+          $t("guides.title")
         }}</NuxtLink>
       </h2>
     </div>
@@ -23,7 +23,7 @@
         :key="article.title"
         :to="
           localePath({
-            name: 'case-study-slug',
+            name: 'guides-slug',
             params: { slug: article.slug },
           })
         "
@@ -47,6 +47,9 @@
         </p>
       </NuxtLink>
     </div>
+    <div v-else>
+      <p class="text-center mt-8">{{ $t("guides.none_found") }}.</p>
+    </div>
   </div>
 </template>
 
@@ -61,7 +64,7 @@ const {
 } = useRuntimeConfig();
 
 const { articles, pending, error } = await useArticle({
-  routeName: "case-study",
-  articleType: "case-study",
+  routeName: "guides-slug",
+  articleType: "guide",
 });
 </script>

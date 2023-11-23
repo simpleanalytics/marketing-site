@@ -1,8 +1,8 @@
 <template>
   <Article
-    name="google-analytics-countries-slug"
+    name="guides-slug"
     :slug="route.params.slug"
-    articleType="google-analytics-countries"
+    :articleType="route.params.section"
     :keys="['reviews']"
   />
 </template>

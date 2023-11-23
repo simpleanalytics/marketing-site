@@ -40,7 +40,9 @@
       "tos": "Conditions d'utilisation",
       "company_details": "Détails de l'entreprise",
       "resources": "Ressources",
-      "utm_builder": "Générateur d'UTM"
+      "utm_builder": "Générateur d'UTM",
+      "guides": "Tutoriels",
+      "case_studies": "Études de cas"
     },
     "why_most_privacy": {
       "title": "Pourquoi Simple Analytics est la {0}meilleure alternative à Google Analytics{1} ?",
@@ -405,8 +407,12 @@
       "not_researched": "Non recherché"
     }
   },
-  "case_study": {
-    "title": "Étude de cas"
+  "case_studies": {
+    "title": "Études de cas"
+  },
+  "guides": {
+    "title": "Tutoriels",
+    "none_found": "Aucun tutoriel trouvé"
   },
   "utm_builder": {
     "title": "Constructeur UTM",
