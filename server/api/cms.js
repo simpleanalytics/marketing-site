@@ -689,8 +689,11 @@ export default defineEventHandler(async (event) => {
     ignoreResponseError: true,
   });
 
-  if (response?.error)
-    throw new Error(response.error.message || response.error);
+  if (response?.error) {
+    const error = response.error.message || response.error;
+    console.error(error, { userPath });
+    throw new Error(error);
+  }
 
   return parse({ type, response });
 });
