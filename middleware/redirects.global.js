@@ -135,11 +135,11 @@ export default defineNuxtRouteMiddleware(({ path, query, hash }) => {
   for (const redirect of redirects) {
     if (redirect.type === "replace" && path.includes(redirect.from)) {
       const nextPath = path.replace(redirect.from, redirect.to);
-      console.log("=> redirecting", path, "to", nextPath);
+      console.info("=> redirecting", path, "to", nextPath);
       return navigateTo({ path: nextPath, query, hash }, options);
     } else if (redirect.type === "regex" && redirect.from.test(path)) {
       const nextPath = path.replace(redirect.from, redirect.to);
-      console.log("=> redirecting", path, "to", nextPath);
+      console.info("=> redirecting", path, "to", nextPath);
       return navigateTo({ path: nextPath, query, hash }, options);
     }
   }
