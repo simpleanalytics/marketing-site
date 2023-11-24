@@ -8,6 +8,8 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   // Do not block sitemap.xml, robots.txt, etc.
   if (url?.match(/\.(xml|xsl|txt|css|js)$/i)) return;
 
+  console.log("User-Agent:", userAgent, url);
+
   // Block based on user-agent
   const isBlocked = blocklist.some((regex) => userAgent?.match(regex));
 
