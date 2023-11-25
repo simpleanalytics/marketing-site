@@ -1,46 +1,41 @@
 const redirects = [
   {
     type: "regex",
-    from: /^\/en\/glossary(\/|$)$/i,
-    to: "/en/glossaries",
-  },
-  {
-    type: "regex",
-    from: /^\/glossary(\/|$)/i,
+    from: /^\/glossary\/?$/i,
     to: "/glossaries",
   },
   {
     type: "regex",
-    from: /^\/(case-?study|use-?cases|use-?case)(\/|$)/i,
-    to: "/case-studies",
+    from: /^\/(?:case-?study|use-?cases|use-?case)(\/|$)/i,
+    to: "/case-studies$1",
   },
-  { type: "regex", from: /^\/case-study(\/|$)/i, to: "/case-studies" },
-  { type: "regex", from: /^\/de\/fallstudie(\/|$)/i, to: "/de/fallstudien" },
+  { type: "regex", from: /^\/case-study(\/|$)/i, to: "/case-studies$1" },
+  { type: "regex", from: /^\/de\/fallstudie(\/|$)/i, to: "/de/fallstudien$1" },
   {
     type: "regex",
     from: /^\/es\/estudio-de-caso(\/|$)/i,
-    to: "/es/estudios-de-caso",
+    to: "/es/estudios-de-caso$1",
   },
   {
     type: "regex",
     from: /^\/fr\/etude-de-cas(\/|$)/i,
-    to: "/fr/etudes-de-cas",
+    to: "/fr/etudes-de-cas$1",
   },
   {
     type: "regex",
     from: /^\/it\/studio-di-caso(\/|$)/i,
-    to: "/it/studi-di-caso",
+    to: "/it/studi-di-caso$1",
   },
-  { type: "regex", from: /^\/nl\/casestudie(\/|$)/i, to: "/nl/casestudies" },
+  { type: "regex", from: /^\/nl\/casestudie(\/|$)/i, to: "/nl/casestudies$1" },
   {
     type: "regex",
     from: /^\/nl\/glossary(\/|$)/i,
-    to: "/nl/begrippenlijst",
+    to: "/nl/begrippenlijst$1",
   },
   {
     type: "regex",
     from: /^\/glossary\/analytics\/key-term\/key-term-1(\/|$)/i,
-    to: "/glossary/analytics/key-term/conversion-funnel",
+    to: "/glossary/analytics/key-term/conversion-funnel$1",
   },
   {
     type: "regex",
@@ -50,7 +45,7 @@ const redirects = [
   {
     type: "regex",
     from: /^\/practical-privacy-tips-for-your-business\/?$/i,
-    to: "/blog/practical-privacy-tips-for-your-business",
+    to: "/blog/practical-privacy-tips-for-your-business$1",
   },
   {
     type: "regex",
@@ -139,7 +134,7 @@ export default defineNuxtRouteMiddleware(({ path, query, hash }) => {
       return navigateTo({ path: nextPath, query, hash }, options);
     } else if (redirect.type === "regex" && redirect.from.test(path)) {
       const nextPath = path.replace(redirect.from, redirect.to);
-      console.info("=> redirecting", path, "to", nextPath);
+      console.info(`=> redirecting (${redirect.from})`, path, "to", nextPath);
       return navigateTo({ path: nextPath, query, hash }, options);
     }
   }

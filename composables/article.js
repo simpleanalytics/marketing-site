@@ -20,6 +20,7 @@ export const useArticle = async ({
 
   const isAdmin = useAdmin();
   const showDrafts = isAdmin.value || drafts;
+  const isArticle = type === "articles";
 
   const url = new URL("/api/cms", BASE_URL);
   if (event?.node?.req?.headers?.["user-agent"])
@@ -50,11 +51,11 @@ export const useArticle = async ({
     "automaticTranslated",
     "publishedAt",
     "updatedAt",
-    "ctaTitle",
-    "ctaDescription",
-    "ctaButton",
-    "doFollowLinks",
   ];
+
+  if (isArticle) {
+    keys.push("ctaTitle", "ctaDescription", "ctaButton", "doFollowLinks");
+  }
 
   if (nonUniqueSlug) {
     keys.push("nonUniqueSlug");
@@ -65,7 +66,7 @@ export const useArticle = async ({
   }
 
   if (type === "key-terms") {
-    keys.push("showCallToActions");
+    // keys.push("showCallToActions");
   } else {
     keys.push("showIndex");
     keys.push("showCallToActions");
