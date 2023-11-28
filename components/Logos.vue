@@ -34,10 +34,16 @@ import HavasMediaLogo from "../components/logos/HavasMedia.vue";
 import GovScotLogo from "../components/logos/GovScot.vue";
 import GovUKLogo from "../components/logos/GovUK.vue";
 import HyundaiLogo from "../components/logos/Hyundai.vue";
+import BankOfEnglandLogo from "../components/logos/BankOfEngland.vue";
 
 const props = defineProps(["limit", "tooltipclass", "imageclass"]);
 
 const list = [
+  {
+    name: "Bank of England",
+    url: "https://www.bankofengland.co.uk/",
+    component: BankOfEnglandLogo,
+  },
   {
     name: "Michelin",
     url: "https://www.michelin.com/",

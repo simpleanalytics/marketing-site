@@ -4,7 +4,7 @@
     aria-label="Logo of Trustly"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
-    class="transition-colors fill-gray-600 dark:fill-gray-500 hover:group-hover:fill-[#0ee06e]"
+    class="transition-colors fill-gray-600 dark:fill-gray-500 group-hover:fill-[#0ee06e]"
     viewBox="125 125 1002 210"
   >
     <title>Logo of Trustly</title>

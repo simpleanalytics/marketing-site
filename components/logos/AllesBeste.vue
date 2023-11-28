@@ -4,7 +4,7 @@
     aria-label="Logo of AllesBeste.de"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
-    class="transition-colors fill-gray-600 dark:fill-gray-500 hover:group-hover:fill-[#e10000]"
+    class="transition-colors fill-gray-600 dark:fill-gray-500 group-hover:fill-[#e10000]"
     viewBox="0 0 112 112"
   >
     <title>Logo of AllesBeste.de</title>

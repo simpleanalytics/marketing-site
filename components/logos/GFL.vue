@@ -3,7 +3,7 @@
     role="img"
     aria-label="Logo of Green For Life"
     xmlns="http://www.w3.org/2000/svg"
-    class="transition-colors fill-gray-600 dark:fill-gray-500 hover:group-hover:fill-[#97d700]"
+    class="transition-colors fill-gray-600 dark:fill-gray-500 group-hover:fill-[#97d700]"
     viewBox="0 0 376 334"
   >
     <title>Logo of Green For Life</title>

@@ -6,7 +6,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     fill="none"
     viewBox="0 0 604 352"
-    class="transition-colors fill-gray-600 dark:fill-gray-500 hover:group-hover:fill-[#023163] dark:hover:group-hover:fill-[#227cdd]"
+    class="transition-colors fill-gray-600 dark:fill-gray-500 group-hover:fill-[#023163] dark:group-hover:fill-[#227cdd]"
   >
     <title>Logo of Hyundai</title>
     <path
