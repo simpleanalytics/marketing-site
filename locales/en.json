@@ -496,6 +496,13 @@
     "title": "Press",
     "description": "Mentions of Simple Analytics in the press."
   },
+  "ai": {
+    "title": "Simple Analytics' {0}AI{1}",
+    "subtitle": "Chat with {0}your{1} analytics",
+    "description": "Gone are the days of navigating through dashboards and reports. Now, you can simply ask questions and get insights in real-time. We use natural language processing to understand your queries and provide precise, actionable answers. Including charts!",
+    "not_really": "not really",
+    "choose_above_examples": "Choose one of the above examples"
+  },
   "time": {
     "intl_locale": "en-US",
     "now": "now",
