@@ -74,15 +74,15 @@
               :key="index"
               :class="
                 chatItem.type === 'question'
-                  ? 'rounded-lg px-4 py-3 bg-[#e6f2dd] dark:bg-gray-700 mr-auto mb-6 md:max-w-[70%] max-w-[90%]'
-                  : 'rounded-lg px-4 py-3 md:max-w-[70%] max-w-[90%] ml-auto bg-[#eef9ff] dark:bg-gray-800 mb-6'
+                  ? 'question rounded-lg px-4 py-3 bg-[#e6f2dd] dark:bg-gray-700 mr-auto mb-6 md:max-w-[70%] max-w-[90%]'
+                  : 'answer rounded-lg px-4 py-3 md:max-w-[70%] max-w-[90%] ml-auto bg-[#eef9ff] dark:bg-gray-800 mb-6'
               "
             >
               <p v-if="chatItem.text">{{ chatItem.text }}</p>
               <div
                 v-else-if="chatItem.html"
                 v-html="chatItem.html"
-                class="prose prose-ul:-mt-4"
+                class="prose prose-ul:mt-0 prose-li:m-0"
               ></div>
               <p v-else>...</p>
               <img
@@ -201,7 +201,7 @@
 </template>
 
 <script setup>
-import { ref, watch, nextTick } from "vue";
+import { ref, watch, nextTick, computed } from "vue";
 import BackgroundChart from "~/components/images/BackgroundChart.vue";
 
 definePageMeta({
@@ -215,25 +215,68 @@ const tColorsRed = [`<span class='text-red-500 dark:text-red-600'>`, `</span>`];
 const examples = [
   {
     id: "1",
-    title: "Yearly Google traffic",
-    description: "Traffic from Google for past year",
+    title: "Insights",
+    description: "Get insights into your traffic",
     chat: [
       {
         type: "question",
-        text: "Create a bar chart that shows traffic from Google per month over the past year",
+        text: "Give me insights into my traffic last month",
       },
       {
         type: "answer",
-        text: "Here is the bar chart showing traffic from Google per month over the past year:",
-        image: "/images/bar-chart.png",
+        html: `<p>Last month (October 2023), your website simpleanalytics.com had the following traffic:</p>
+<ul>
+<li>Pageviews: 36,593</li>
+<li>Visitors: 21,798</li>
+</ul>
+
+<p>Comparing this to the previous month (September 2023), where you had:</p>
+<ul>
+<li>Pageviews: 46,085</li>
+<li>Visitors: 29,743</li>
+</ul>
+
+<p>There has been a decrease in traffic from September to October:</p>
+
+<ul>
+<li>Pageviews decreased by 9,492 (-20.62%)</li>
+<li>Visitors decreased by 7,945 (-26.71%)</li>
+</ul>
+
+<p>Based on this data, you might want to analyze what events took place between September and October that may have influenced the drop in traffic. You could consider examining changes to your marketing strategies, any site issues, or external factors such as seasonality or industry trends. Investigating the cause and then addressing it would be beneficial to regain the traction lost.</p>
+
+<p>Would you like to dive deeper into specifics, like page performance, traffic sources, or visitor demographics?</p>`,
       },
       {
         type: "question",
-        text: "Thanks",
+        text: "Yes, show me top 5 growing traffic sources.",
       },
       {
         type: "answer",
-        text: "You're welcome my love",
+        html: `<p>Based on the data from Simple Analytics, here are the top 5 growing traffic sources during the period from 2023-10-29 to 2023-11-29 compared to the previous period:</p>
+<ol>
+<li><strong>Google</strong>:<ul>
+<li>Visitors increased from 4864 to 5712 (+17.45%)</li>
+</ul>
+</li>
+<li><strong>Twitter</strong>:<ul>
+<li>Visitors increased from 1032 to 2899 (+181.01%)</li>
+</ul>
+</li>
+<li><strong>Bing</strong>:<ul>
+<li>Visitors increased from 226 to 293 (+29.65%)</li>
+</ul>
+</li>
+<li><strong>Docs (Simple Analytics Documentation)</strong>:<ul>
+<li>Visitors increased from 227 to 269 (+18.50%)</li>
+</ul>
+</li>
+<li><strong>Reddit</strong>:<ul>
+<li>Visitors increased from 211 to 259 (+22.75%)</li>
+</ul>
+</li>
+</ol>
+<p>These sources are the ones that showed the most growth in traffic when comparing the last month&#39;s data with the data from the month before. It would be beneficial for your website to focus on these sources and possibly increase marketing efforts or engage more with the audience coming from these channels.</p>`,
       },
     ],
   },
@@ -244,7 +287,7 @@ const examples = [
     chat: [
       {
         type: "question",
-        text: "Compare my visitors between this week to last week",
+        text: "Compare my visitors between this week and last week",
       },
       {
         type: "answer",
@@ -284,6 +327,8 @@ const selectedExample = ref();
 const displayChats = ref([]);
 const typingText = ref(""); // Holds the current state of the typing animation
 const textInput = ref(null); // Ref to the text input element
+
+const displayChatsLength = computed(() => displayChats.value.length);
 
 const typeText = async (text) => {
   typingText.value = ""; // Reset typing text
@@ -335,4 +380,41 @@ watch(selectedExample, (newVal, oldVal) => {
     addChatsSequentially();
   }
 });
+
+// Scroll to button of last message
+watch(
+  displayChatsLength,
+  (newVal, oldVal) => {
+    if (newVal !== oldVal && newVal) {
+      nextTick(() => {
+        const lastChat = document.querySelector(
+          "ul.chat-list li.answer:last-child",
+        );
+
+        if (!lastChat) return;
+
+        // Detect if the last chat is visible
+        const lastChatRect = lastChat.getBoundingClientRect();
+        const lastChatVisible =
+          lastChatRect.top >= 0 &&
+          lastChatRect.left >= 0 &&
+          lastChatRect.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+          lastChatRect.right <=
+            (window.innerWidth || document.documentElement.clientWidth);
+
+        if (!lastChatVisible) {
+          lastChat.scrollIntoView({ behavior: "smooth", block: "end" });
+        }
+      });
+    }
+  },
+  { deep: true },
+);
 </script>
+
+<style>
+div.prose p + ul {
+  margin-top: -1rem;
+}
+</style>
