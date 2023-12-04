@@ -52,10 +52,15 @@
       "reason_3": "Non memorizziamo mai, assolutamente mai, nessun {0}dato personale{1} sui tuoi visitatori. Non serve {0}un cookie banner{1}.",
       "reason_4": "Il nostro {0}Tracciamento degli obiettivi{1} e {0}Esploratore degli eventi{1} ti consentono di tenere traccia dei tuoi eventi più importanti e dei percorsi di conversione.",
       "reason_5": "Il nostro {0}script leggero{1} aumenta la velocità del tuo sito web.",
+      "reason_6": "{0}Chatta con l'IA{1} e {0}le tue analisi{1} invece di scavare tra i rapporti",
       "read_detailed_reasons": "Leggi le ragioni nel dettaglio",
       "business_model": {
         "title": "La protezione della privacy è il nostro modello di business.",
         "html": "<p>Da anni le grandi aziende tecnologiche accumulano dati personali per trarne profitto: gli utenti ottengono un prodotto \"gratuito\", e le grandi aziende tecnologiche vendono i dati a inserzionisti, che li usano per attirare l’attenzione degli utenti.</p><ul><li>Mentre utilizzi un prodotto \"gratuito\", l’azienda raccoglie quantità enorm di dati per creare un tuo profilo specifico, che include i tuoi dati demografici, la tua etnia, le tue preferenze politiche, i tuoi interessi e desideri.</li><li>Le grandi aziende  vendono questi profili al miglior offerente, senza dirlo apertamente- è il loro business model. </li></ul><p>Non sopportiamo queste pratiche.. Simple Analytics è un servizio a pagamento: siamo indipendenti e non abbiamo alcunconflitto d'interesse. Qui non ci sono secondi fini.</p><p>La nostra missione è semplice:</p><ul><li>Ti offriamo informazioni sulle prestazioni del tuo sito web in modo semplice, veloce ed etico, e nel rispetto dei più alti standard di privacy.</li><li>Per raggiungere questo obiettivo, Simple Analytics ha una {0}open roadmap{1} per seguire lo sviluppo e richiedere funzionalità. Inoltre, operiamo {2}in modo totalmente trasparente{3} e pubblichiamo le nostre metriche (inclusi ricavi, costi, numero di clienti e traffico).</li></ul>"
+      },
+      "ai": {
+        "title": "Ottieni insight con la nostra IA senza sfogliare report.",
+        "html": "<p>Immergiti nell'analitica del tuo sito web senza sforzo con la nostra tecnologia guidata dall'IA. Dì addio al compito tedioso di navigare attraverso molteplici report e grafici. Il nostro sistema IA intuitivo semplifica la tua analisi dei dati, offrendoti report perspicaci e facili da comprendere con solo pochi clic – o anche nessuno.</p><p>Immagina di avere una conversazione con le tue analisi. Fai una domanda e la nostra IA risponde con insight precisi e su misura. Hai bisogno di un aggiornamento rapido sulle ultime tendenze di traffico o un confronto dell'impegno degli utenti di questa settimana rispetto all'ultima? {0}Chiedi semplicemente{1}.</p>"
       },
       "encrypted": {
         "title": "I tuoi dati sono criptati.",
@@ -153,6 +158,10 @@
     "import_ga": {
       "cta": "Importa i tuoi dati GA e visualizza le tue statistiche in pochi minuti",
       "button": "Inizia la prova gratuita"
+    },
+    "ai_launched": {
+      "link": "Usa l'IA per chattare con le tue analisi",
+      "text": "invece di cliccare per ore. Appena lanciato."
     }
   },
   "ctas": {
@@ -198,6 +207,7 @@
     "docs": "Documentazione",
     "blog": "Blog",
     "contact": "Contattaci",
+    "ai": "AI",
     "resources_dropdown": {
       "docs": {
         "title": "Documentazione",
@@ -262,6 +272,9 @@
       "user": "<strong>{0}</strong> utente",
       "websites": "<strong>{0}</strong> siti web",
       "events": "eventi",
+      "ai_one_month": "IA per <strong>1 mese</strong>",
+      "ai_unlimited": "IA <strong>illimitata</strong>",
+      "ai_limited": "IA <strong>limitata</strong>",
       "aggregated_export": "esportazione aggregata",
       "raw_level_export": "<strong>livello grezzo</strong> esportazione",
       "email_support": "supporto email",

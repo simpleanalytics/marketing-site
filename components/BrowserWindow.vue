@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="browserWindow"
     class="bg-gray-50 dark:bg-gray-900 max-w-5xl mx-auto rounded md:rounded-xl lg:rounded-2xl overflow-hidden shadow-xl"
   >
     <!-- SVG with Tailwind classes and dark mode variants -->
@@ -7,7 +8,7 @@
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       fill="none"
-      viewBox="0 0 1234 82"
+      :viewBox="`0 0 ${browserWidth} 82`"
       class="bg-gray-200 dark:bg-gray-700"
     >
       <!-- Top left circles with Tailwind colors and dark mode variants -->
@@ -32,17 +33,19 @@
 
       <!-- Other SVG elements with responsive and dark mode styles -->
       <rect
-        width="842"
+        :width="842 - reduceBy"
         height="36"
         x="298"
         y="25"
         class="fill-white dark:fill-gray-900"
         rx="18"
       />
+
+      <!-- Hamburger manu -->
       <rect
         width="40"
         height="6"
-        x="1166"
+        :x="1166 - reduceBy"
         y="25"
         class="fill-white dark:fill-gray-900"
         rx="3"
@@ -50,7 +53,7 @@
       <rect
         width="40"
         height="6"
-        x="1166"
+        :x="1166 - reduceBy"
         y="55"
         class="fill-white dark:fill-gray-900"
         rx="3"
@@ -58,11 +61,12 @@
       <rect
         width="40"
         height="6"
-        x="1166"
+        :x="1166 - reduceBy"
         y="40"
         class="fill-white dark:fill-gray-900"
         rx="3"
       />
+
       <circle cx="259" cy="43" r="18" class="fill-white dark:fill-gray-900" />
       <circle cx="201" cy="43" r="18" class="fill-white dark:fill-gray-900" />
 
@@ -78,6 +82,7 @@
         fill-rule="evenodd"
         d="M1121.9 45.7a7.5 7.5 0 1 0-2.2 2.2l4 4a1.5 1.5 0 1 0 2.2-2.2l-4-4Zm-3.1-7.3a4.5 4.5 0 1 1-6.4 6.4 4.5 4.5 0 0 1 6.4-6.4Z"
         clip-rule="evenodd"
+        :transform="`translate(-${reduceBy}, 0)`"
       />
     </svg>
     <div class="min-h-[200px] md:min-h-[500px] flex flex-col">
@@ -86,4 +91,29 @@
   </div>
 </template>
 
-<style></style>
+<script setup>
+const browserWidth = ref(1234);
+const browserWindow = ref();
+
+const reduceBy = computed(() => {
+  return 1234 - browserWidth.value;
+});
+
+// set width to 700px on mobile
+onMounted(() => {
+  const element = browserWindow.value;
+  // detect element changeing size
+  const resizeObserver = new ResizeObserver((entries) => {
+    for (let entry of entries) {
+      const { width } = entry.contentRect;
+      if (width < 700) {
+        browserWidth.value = 700;
+      } else {
+        browserWidth.value = 1234;
+      }
+    }
+  });
+
+  resizeObserver.observe(element);
+});
+</script>

@@ -931,7 +931,7 @@ import { labelAgo } from "./utils/blog";
 
 const route = useRoute();
 const config = useRuntimeConfig();
-const { BASE_URL, MAIN_URL /*, CDN_URL*/ } = config.public;
+const { BASE_URL, MAIN_URL, NODE_ENV /*, CDN_URL*/ } = config.public;
 
 const localePath = useLocalePath();
 
@@ -989,6 +989,7 @@ const defaultDescription =
 
 const navigation = [
   { translation: "nav.pricing", to: "pricing" },
+  launchedAi({ NODE_ENV }) ? { translation: "nav.ai", to: "ai" } : null,
   {
     translation: "nav.resources",
     popover: true,
@@ -999,7 +1000,7 @@ const navigation = [
   },
   { translation: "nav.docs", href: "https://docs.simpleanalytics.com" },
   { translation: "nav.contact", href: "https://simpleanalytics.com/contact" },
-];
+].filter(Boolean);
 
 const scripts = [];
 
@@ -1022,23 +1023,6 @@ const link = [
     href: BASE_URL + "/feed.xml",
   },
 ];
-
-// if (process.env.NODE_ENV === "production") {
-//   link.push(
-//     {
-//       rel: "preload",
-//       href: `${CDN_URL}/fonts/space-grotesk/regular.woff2`,
-//       as: "font",
-//       crossorigin: "anonymous",
-//     },
-//     {
-//       rel: "preload",
-//       href: `${CDN_URL}/fonts/space-grotesk/medium.woff2`,
-//       as: "font",
-//       crossorigin: "anonymous",
-//     }
-//   );
-// }
 
 const head = {
   title: () =>

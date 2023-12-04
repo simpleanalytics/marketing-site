@@ -52,10 +52,15 @@
       "reason_3": "Nous n'enregistrons jamais, absolument jamais, aucune {0}donnée personnelle{1} sur vos visiteurs. Aucun {0}banderole de cookie{1} n'est nécessaire.",
       "reason_4": "Notre {0}Suivi des objectifs{1} et l'{0}Explorateur d'événements{1} vous permettent de suivre vos événements les plus importants et vos tunnels de conversion.",
       "reason_5": "Notre {0}script est léger{1} et ne ralentit pas votre site web.",
+      "reason_6": "{0}Discute avec l'IA{1} et {0}tes analyses{1} au lieu de fouiller dans les rapports",
       "read_detailed_reasons": "Lisez les raisons détaillées",
       "business_model": {
         "title": "Notre modèle d'affaires est la protection de la vie privée.",
         "html": "<p>Les grandes entreprises technologiques collectent des données personnelles depuis des années pour réaliser des profits. Les utilisateurs obtiennent un produit «gratuit», et les grandes entreprises technologiques sont payées par des annonceurs qui veulent obtenir l'attention des utilisateurs.</p><ul><li>Lorsque vous utilisez le produit «gratuit», les entreprises technologiques collectent des quantités effrayantes de données pour créer un profil spécifique de vos données démographiques, ethniques, préférences politiques, intérêts, désirs, goûts et aversions.</li><li>Ces entreprises vendent ensuite ces données aux plus offrants - sans vous le dire ouvertement.</li></ul><p>Nous détestons de telles pratiques. Simple Analytics est un service payant, nous sommes donc indépendants et n'avons aucune préférence ni conflit d'intérêt. Chez nous, il n'y a pas d'objectif caché.</p><p>Notre mission est simple:</p><ul><li>Nous vous offrons les indicateurs les plus rapides, les plus simples et les plus éthiques sur la performance de votre site web, tout en respectant les plus hauts standards de protection de la vie privée.</li><li>Pour y parvenir, Simple Analytics a une {0}roadmap en libre accès{1} pour que vous puissiez voir les prochaines étapes ou demander des fonctionnalités. De plus, nous opérons {2}de manière totalement transparente{3} en partageant nos métriques (y compris les revenus, les coûts, le nombre de clients et le trafic).</li></ul>"
+      },
+      "ai": {
+        "title": "Obtiens des insights avec notre IA sans cliquer à travers des rapports.",
+        "html": "<p>Plonge dans l'analytique de ton site web sans effort avec notre technologie pilotée par IA. Dis adieu à la tâche fastidieuse de naviguer à travers plusieurs rapports et graphiques. Notre système IA intuitif simplifie ton analyse de données, te fournissant des rapports perspicaces et faciles à comprendre avec juste quelques clics – ou même aucun.</p><p>Imagine avoir une conversation avec tes analyses. Pose une question, et notre IA répond avec des insights précis et adaptés. Besoin d'une mise à jour rapide sur tes dernières tendances de trafic ou une comparaison de l'engagement des utilisateurs de cette semaine avec la dernière? {0}Demande simplement{1}.</p>"
       },
       "encrypted": {
         "title": "Vos données sont chiffrées.",
@@ -153,6 +158,10 @@
     "import_ga": {
       "cta": "Importez vos données GA et consultez vos statistiques en quelques minutes",
       "button": "Commencer l'essai gratuit"
+    },
+    "ai_launched": {
+      "link": "Utilisez l'IA pour discuter avec vos analyses",
+      "text": "au lieu de cliquer pendant des heures. Tout juste lancé."
     }
   },
   "ctas": {
@@ -198,6 +207,7 @@
     "docs": "Documentation",
     "blog": "Blog",
     "contact": "Contactez-nous",
+    "ai": "AI",
     "resources_dropdown": {
       "docs": {
         "title": "Documentation",
@@ -262,6 +272,9 @@
       "user": "<strong>{0}</strong> utilisateur",
       "websites": "<strong>{0}</strong> sites web",
       "events": "événements",
+      "ai_one_month": "IA pour <strong>1 mois</strong>",
+      "ai_unlimited": "IA <strong>illimitée</strong>",
+      "ai_limited": "IA <strong>limitée</strong>",
       "aggregated_export": "exportation agrégée",
       "raw_level_export": "<strong>niveau brut</strong> exportation",
       "email_support": "support email",

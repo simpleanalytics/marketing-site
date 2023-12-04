@@ -59,6 +59,22 @@
       </p>
     </div>
 
+    <div
+      v-else-if="showAIBanner"
+      class="py-4 max-w-7xl mx-auto px-6 mb-4 -mt-4 sm:-mt-10"
+    >
+      <p
+        class="bg-red-400 text-white dark:bg-gray-900 border-red-500 dark:border-red-600 rounded-lg text-center p-4 shadow"
+      >
+        <SparklesIcon class="inline h-6 w-6 mr-2" />
+
+        <NuxtLink href="/ai" class="underline text-white dark:text-red-600">{{
+          $t("banners.ai_launched.link")
+        }}</NuxtLink>
+        {{ $t("banners.ai_launched.text") }}
+      </p>
+    </div>
+
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center">
       <div class="text-center md:text-left flex-shrink basis-2/4 md:mr-8">
         <h1 class="text-3xl font-medium sm:text-4xl lg:text-4xl">
@@ -283,7 +299,7 @@
           class="my-4 mb-8 text-xl text-center"
           v-html="
             $t('home.why_most_privacy.x_reasons', [
-              `5<span class='text-red-500 dark:text-red-600'>+1</span>`,
+              `6<span class='text-red-500 dark:text-red-600'>+1</span>`,
             ])
           "
         ></h4>
@@ -343,11 +359,22 @@
               </p>
             </li>
             <li class="flex my-3">
+              <AIChatIcon
+                class="h-8 mr-3 shrink-0 stroke-0 fill-red-500 dark:fill-red-600"
+              />
+              <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
+                <span class="inline-block w-2.5">3. </span
+                ><span
+                  v-html="$t('home.why_most_privacy.reason_6', tColorsRed)"
+                ></span>
+              </p>
+            </li>
+            <li class="flex my-3">
               <FingerPrintIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
-                <span class="inline-block w-2.5">3. </span
+                <span class="inline-block w-2.5">4. </span
                 ><span
                   v-html="$t('home.why_most_privacy.reason_3', tColorsRed)"
                 ></span>
@@ -358,7 +385,7 @@
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
-                <span class="inline-block w-2.5">4. </span
+                <span class="inline-block w-2.5">5. </span
                 ><span
                   v-html="$t('home.why_most_privacy.reason_4', tColorsRed)"
                 ></span>
@@ -369,7 +396,7 @@
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
-                <span class="inline-block w-2.5">5. </span
+                <span class="inline-block w-2.5">6. </span
                 ><span
                   v-html="$t('home.why_most_privacy.reason_5', tColorsRed)"
                 ></span>
@@ -1255,6 +1282,23 @@
           "
         ></div>
 
+        <IconsAiChat
+          class="mx-auto mt-12 h-12 fill-red-500 dark:fill-red-600"
+        />
+
+        <h5
+          class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
+        >
+          2. {{ $t("home.why_most_privacy.ai.title") }}
+        </h5>
+
+        <div
+          class="prose leading-loose"
+          v-html="
+            $t('home.why_most_privacy.ai.html', [`<a href='/ai'>`, `</a>`])
+          "
+        ></div>
+
         <KeyIcon
           class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
         />
@@ -1262,7 +1306,7 @@
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
         >
-          2. {{ $t("home.why_most_privacy.encrypted.title") }}
+          3. {{ $t("home.why_most_privacy.encrypted.title") }}
         </h5>
 
         <div
@@ -1277,7 +1321,7 @@
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
         >
-          3. {{ $t("home.why_most_privacy.personal_data.title") }}
+          4. {{ $t("home.why_most_privacy.personal_data.title") }}
         </h5>
 
         <div
@@ -1292,7 +1336,7 @@
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
         >
-          4. {{ $t("home.why_most_privacy.eu_based.title") }}
+          5. {{ $t("home.why_most_privacy.eu_based.title") }}
         </h5>
 
         <div
@@ -1307,7 +1351,7 @@
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
         >
-          5. {{ $t("home.why_most_privacy.own_data.title") }}
+          6. {{ $t("home.why_most_privacy.own_data.title") }}
         </h5>
         <div
           class="prose leading-loose"
@@ -1352,6 +1396,7 @@ import FastCompanyLogo from "../components/logos/FastCompany.vue";
 
 import EuropeanFlag from "../components/logos/EuropeanFlag.vue";
 import GoogleAnalyticsIcon from "../components/icons/GoogleAnalytics.vue";
+import AIChatIcon from "../components/icons/AIChat.vue";
 import DataConnections from "../components/images/DataConnections.vue";
 import BackgroundChart from "../components/images/BackgroundChart.vue";
 
@@ -1386,6 +1431,7 @@ import {
   PresentationChartBarIcon,
   CursorArrowRaysIcon,
   BoltIcon,
+  SparklesIcon,
 } from "@heroicons/vue/24/outline";
 
 const { t, locale } = useI18n();
@@ -1470,7 +1516,7 @@ const translationParts = t("home.automatic_translated_switch_to_english", [
 ]).split("---");
 
 const config = useRuntimeConfig();
-const { MAIN_URL } = config.public;
+const { MAIN_URL, NODE_ENV } = config.public;
 
 const affiliate = useState("affiliate");
 
@@ -1645,6 +1691,15 @@ const scrollToHash = (hash) => {
   window.location.hash = hash;
   currentHash.value = hash;
 };
+
+const launched = launchedAi({ NODE_ENV });
+
+const showAIBanner = computed(() => {
+  const now = new Date();
+  const end = new Date("2024-01-01");
+  if (now < end && launched) return true;
+  return false;
+});
 
 onMounted(() => {
   emailReportEmailField.value?.addEventListener("focus", () => {

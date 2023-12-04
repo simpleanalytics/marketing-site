@@ -3,7 +3,7 @@
     <a
       @click="navigateToWelcome('click_signup_start_trial')"
       class="button primary"
-      >{{ $t("start_trial.button") }}</a
+      >{{ props.buttonText || $t("start_trial.button") }}</a
     >
   </p>
   <p class="mb-8 sm:mb-0 text-xs mt-4">
@@ -24,4 +24,6 @@
 
 <script setup>
 import { CheckIcon } from "@heroicons/vue/24/solid";
+
+const props = defineProps(["buttonText"]);
 </script>

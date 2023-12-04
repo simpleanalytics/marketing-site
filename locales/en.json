@@ -51,11 +51,16 @@
       "reason_2": "Simple UI. We give you the insights you need in an easy-to-use dashboard.",
       "reason_3": "We never, ever, ever store any {0}personal data{1} about your visitors. No {0}cookie banners{1}.",
       "reason_4": "Our {0}Goals-tracker{1} and {0}Events Explorer{1} lets you keep track of your most important events and conversion funnels.",
-      "reason_5": "Our {0}lightweight script{1} increases your website speed",
+      "reason_5": "Our {0}lightweight script{1} increases your website speed.",
+      "reason_6": "{0}Chat with AI{1} and {0}your analytics{1} instead of digging through reports.",
       "read_detailed_reasons": "Read detailed reasons",
       "business_model": {
         "title": "Privacy protection is our business model.",
         "html": "<p>Big tech companies have been collecting personal data for years to make a profit. Users get a \"free\" product, and big tech companies get paid by advertisers that want to buy your attention.</p><ul><li>While you use the \"free\" product, the tech companies gather creepily huge amounts of data to create a specific profile of your demographics, ethnicity, political preferences, interests, desires, likes, and dislikes.</li><li>Big tech companies will sell that to the highest bidders as their business model. Without openly telling you.</li></ul><p>We despise such practices. Because Simple Analytics is a paid service, we are independent and have no bias or conflict of interest. No second agendas here.</p><p>Our mission is simple:</p><ul><li>We give you the fastest, easiest, and most ethical insights about your website performance while upholding the highest privacy standards.</li><li>To achieve this, Simple Analytics has an {0}open roadmap{1} for you to see the next steps or request features. Furthermore, we operate {2}fully transparently{3} by sharing our metrics (including revenue, costs, number of customers, and traffic).</li></ul>"
+      },
+      "ai": {
+        "title": "Get insights with our AI without clicking through reports.",
+        "html": "<p>Dive into your website analytics effortlessly with our AI-driven technology. Say goodbye to the tedious task of navigating through multiple reports and charts. Our intuitive AI system simplifies your data analysis, offering you insightful, easy-to-understand reports with just a few clicks – or even none at all.</p><p>Imagine having a conversation with your analytics. Ask a question, and our AI responds with precise, tailored insights. Need a quick update on your latest traffic trends or a comparison of this week's user engagement with the last? {0}Just ask{1}.</p>"
       },
       "encrypted": {
         "title": "Your data is encrypted.",
@@ -148,12 +153,17 @@
     "button": "Start free trial now",
     "free_trial": "Free 14-day trial",
     "no_credit_card": "No credit card required",
-    "cancel_anytime": "Cancel anytime"
+    "cancel_anytime": "Cancel anytime",
+    "try_it_with_your_analytics": "Try it with your analytics"
   },
   "banners": {
     "import_ga": {
       "cta": "Import your GA data and see your stats in minutes",
       "button": "Start free trial"
+    },
+    "ai_launched": {
+      "link": "Use AI to chat with your analytics",
+      "text": "instead of clicking around for hours. Just launched."
     }
   },
   "ctas": {
@@ -199,6 +209,7 @@
     "docs": "Docs",
     "blog": "Blog",
     "contact": "Get in touch",
+    "ai": "AI",
     "resources_dropdown": {
       "docs": {
         "title": "Documentation",
@@ -263,6 +274,9 @@
       "user": "<strong>{0}</strong> user",
       "websites": "<strong>{0}</strong> websites",
       "events": "events",
+      "ai_one_month": "AI for <strong>1 month</strong>",
+      "ai_unlimited": "AI <strong>unlimited</strong>",
+      "ai_limited": "AI <strong>limited</strong>",
       "aggregated_export": "aggregated export",
       "raw_level_export": "<strong>raw level</strong> export",
       "email_support": "support email",
@@ -497,9 +511,9 @@
     "description": "Mentions of Simple Analytics in the press."
   },
   "ai": {
-    "title": "Simple Analytics' {0}AI{1}",
-    "subtitle": "Chat with {0}your{1} analytics",
-    "description": "Gone are the days of navigating through dashboards and reports. Now, you can simply ask questions and get insights in real-time. We use natural language processing to understand your queries and provide precise, actionable answers. Including charts!",
+    "title": "Chat with {0}your{1} analytics",
+    "subtitle": "Powered by Simple Analytics {0}AI{1}",
+    "description": "We started Simple Analytics to make analytics easy. Now we're taking this to the next level: Ask your analytics questions and get insights in real time. Try our demo!",
     "not_really": "not really",
     "choose_above_examples": "Choose one of the above examples"
   },

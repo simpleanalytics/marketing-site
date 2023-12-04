@@ -52,10 +52,15 @@
       "reason_3": "We slaan nooit, maar dan ook nooit, {0}persoonlijke gegevens{1} van je bezoekers op. Geen {0}cookie banners{1}.",
       "reason_4": "Onze {0}Goals{1} en {0}Event verkenner{1} stellen je in staat om uw belangrijkste gebeurtenissen en conversie bij te houden.",
       "reason_5": "Ons {0}lightweight script{1} verhoogt de snelheid van je website.",
+      "reason_6": "{0}Klets met AI{1} en {0}je analyses{1} in plaats van door rapporten te graven",
       "read_detailed_reasons": "Lees de gedetailleerde redenen",
       "business_model": {
         "title": "Privacybescherming is ons bedrijfsmodel.",
         "html": "<p>Grote techbedrijven verzamelen al jaren persoonlijke gegevens om winst te maken. Gebruikers krijgen een \"gratis\" product, en grote techbedrijven worden betaald door adverteerders die je aandacht willen kopen.</p><ul><li>Terwijl je het \"gratis\" product gebruikt, verzamelen de techbedrijven griezelig veel gegevens om een specifiek profiel te maken van je demografische gegevens, etniciteit, politieke voorkeuren, interesses, verlangens, voorkeuren en antipathieën.</li><li>Grote techbedrijven zullen dat verkopen aan de hoogste bieders als hun bedrijfsmodel. Zonder het je openlijk te vertellen.</li></ul><p>We verafschuwen dergelijke praktijken. Omdat Simple Analytics een betaalde dienst is, zijn we onafhankelijk en hebben geen vooringenomenheid of belangenconflict. Geen tweede agenda's hier.</p><p>Onze missie is eenvoudig:</p><ul><li>We geven je de snelste, gemakkelijkste en meest ethische inzichten over de prestaties van je website, terwijl we de hoogste privacystandaarden handhaven.</li><li>Om dit te bereiken, heeft Simple Analytics een {0}open roadmap{1} voor je om de volgende stappen te zien of functies aan te vragen. Ook werken we {2}volledig transparant{3} door het delen van onze statistieken (inclusief inkomsten, kosten, aantal klanten en verkeer).</li></ul>"
+      },
+      "ai": {
+        "title": "Krijg inzichten met onze AI zonder door rapporten te klikken.",
+        "html": "<p>Duik moeiteloos in je website-analyse met onze AI-gestuurde technologie. Zeg vaarwel tegen de vervelende taak van het navigeren door meerdere rapporten en grafieken. Ons intuïtieve AI-systeem vereenvoudigt je data-analyse, en biedt je inzichtelijke, makkelijk te begrijpen rapporten met slechts een paar klikken – of zelfs helemaal geen.</p><p>Stel je voor dat je een gesprek hebt met je analytics. Stel een vraag, en onze AI reageert met precieze, op maat gemaakte inzichten. Snel een update nodig over je laatste verkeerstrends of een vergelijking van de gebruikersbetrokkenheid van deze week met de vorige? {0}Vraag het gewoon{1}.</p>"
       },
       "encrypted": {
         "title": "Jouw gegevens zijn versleuteld.",
@@ -153,6 +158,10 @@
     "import_ga": {
       "cta": "Importeer je GA-gegevens en bekijk je statistieken binnen enkele minuten",
       "button": "Start gratis proefperiode"
+    },
+    "ai_launched": {
+      "link": "Gebruik AI om met je analytics te chatten",
+      "text": "in plaats van urenlang te klikken. Zojuist gelanceerd."
     }
   },
   "ctas": {
@@ -198,6 +207,7 @@
     "docs": "Docs",
     "blog": "Blog",
     "contact": "Neem contact op",
+    "ai": "AI",
     "resources_dropdown": {
       "docs": {
         "title": "Docs",
@@ -262,6 +272,9 @@
       "user": "<strong>{0}</strong> gebruiker",
       "websites": "<strong>{0}</strong> websites",
       "events": "events",
+      "ai_one_month": "AI voor <strong>1 maand</strong>",
+      "ai_unlimited": "AI <strong>onbeperkt</strong>",
+      "ai_limited": "AI <strong>beperkt</strong>",
       "aggregated_export": "geaggregeerde export",
       "raw_level_export": "<strong>raw level</strong> export",
       "email_support": "e-mail support",

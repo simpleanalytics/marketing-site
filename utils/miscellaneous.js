@@ -59,3 +59,6 @@ export const getFlagUrl = (locale, availableLocales) => {
     return `${url}${found.flag.toUpperCase()}.svg`;
   }
 };
+
+export const launchedAi = ({ NODE_ENV }) =>
+  NODE_ENV === "development" || new Date() > new Date("2023-12-05");

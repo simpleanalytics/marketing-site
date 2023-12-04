@@ -175,6 +175,24 @@
           </li>
           <li
             class="flex space-x-3 text-sm text-gray-500"
+            v-if="tier.includedFeatures.ai"
+          >
+            <CheckIcon
+              class="flex-shrink-0 h-5 w-5 text-green-500"
+              aria-hidden="true"
+            />
+            <span
+              v-if="tier.includedFeatures.ai === 'one_month'"
+              v-html="$t('pricing.features.ai_one_month')"
+            ></span>
+            <span
+              v-else-if="tier.includedFeatures.ai === 'unlimited'"
+              v-html="$t('pricing.features.ai_unlimited')"
+            ></span>
+            <span v-else v-html="$t('pricing.features.ai_limited')"></span>
+          </li>
+          <li
+            class="flex space-x-3 text-sm text-gray-500"
             v-if="tier.includedFeatures.aggregated_export"
           >
             <CheckIcon
@@ -230,6 +248,7 @@ const tiers = [
       datapoints: 100000,
       users: 1,
       websites: 10,
+      ai: "one_month",
       events: true,
       aggregated_export: true,
       email_support: true,
@@ -246,6 +265,7 @@ const tiers = [
       datapoints: 1000000,
       users: 10,
       websites: 100,
+      ai: "unlimited",
       raw_level_export: true,
     },
   },

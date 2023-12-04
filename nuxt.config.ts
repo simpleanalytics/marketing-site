@@ -79,6 +79,7 @@ export default defineNuxtConfig({
   },
   experimental: {
     treeshakeClientOnly: true,
+    writeEarlyHints: false,
   },
   app: {
     baseURL: "/",

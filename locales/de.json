@@ -52,10 +52,15 @@
       "reason_3": "Wir speichern niemals, unter keinen Umständen, personenbezogene Daten über Ihre Besucher. Keine {0}Cookie-Banner{1}.",
       "reason_4": "Unser {0}Ziel-Tracker{1} und {0}Events-Explorer{1} ermöglichen es Ihnen, Ihre wichtigsten Ereignisse und Conversion-Funnels im Auge zu behalten.",
       "reason_5": "Unser {0}leichtgewichtiges Skript{1} erhöht die Geschwindigkeit Ihrer Website.",
+      "reason_6": "{0}Plaudere mit KI{1} und {0}deine Analysen{1} anstatt durch Berichte zu wühlen",
       "read_detailed_reasons": "Lesen Sie die ausführlichen Gründe",
       "business_model": {
         "title": "Datenschutz ist unser Geschäftsmodell.",
         "html": "<p>Große Technologieunternehmen sammeln seit Jahren personenbezogene Daten, um Gewinne zu erzielen. Nutzer erhalten ein „kostenloses“ Produkt und große Technologieunternehmen werden von Werbekunden bezahlt, die Ihre Aufmerksamkeit kaufen möchten.</p><ul><li>Während Sie das „kostenlose“ Produkt nutzen, sammeln die Technologieunternehmen unheimlich große Mengen an Daten, um ein spezifisches Profil Ihrer Demografie, Ethnizität, politischen Präferenzen, Interessen, Wünsche, Vorlieben und Abneigungen zu erstellen.</li><li>Große Technologieunternehmen verkaufen diese Daten an die Höchstbietenden als ihr Geschäftsmodell. Ohne Sie offen darüber zu informieren.</li></ul><p>Wir verabscheuen solche Praktiken. Da Simple Analytics ein kostenpflichtiger Service ist, sind wir unabhängig und haben keine Vorurteile oder Interessenkonflikte. Keine Hintergedanken hier.</p><p>Unsere Mission ist einfach:</p><ul><li>Wir geben Ihnen die schnellsten, einfachsten und ethischsten Einblicke in die Leistung Ihrer Website unter Wahrung der höchsten Datenschutzstandards.</li><li>Um dies zu erreichen, hat Simple Analytics eine {0}offene Roadmap{1} für Sie, um die nächsten Schritte oder Funktionsanforderungen zu sehen. Außerdem arbeiten wir {2}vollständig transparent{3}, indem wir unsere Metriken (einschließlich Umsatz, Kosten, Anzahl der Kunden und Traffic) teilen.</li></ul>"
+      },
+      "ai": {
+        "title": "Erhalte Einblicke mit unserer KI, ohne durch Berichte zu klicken.",
+        "html": "<p>Tauche mühelos in deine Website-Analytik ein mit unserer KI-gesteuerten Technologie. Sag auf Wiedersehen zur mühsamen Aufgabe, durch mehrere Berichte und Diagramme zu navigieren. Unser intuitives KI-System vereinfacht deine Datenanalyse und bietet dir aufschlussreiche, leicht verständliche Berichte mit nur ein paar Klicks – oder sogar ganz ohne.</p><p>Stell dir vor, du führst ein Gespräch mit deiner Analytik. Stelle eine Frage und unsere KI antwortet mit präzisen, maßgeschneiderten Einblicken. Brauchst du ein schnelles Update über deine neuesten Traffic-Trends oder einen Vergleich des Benutzerengagements dieser Woche mit dem der letzten? {0}Frag einfach{1}.</p>"
       },
       "encrypted": {
         "title": "Ihre Daten sind verschlüsselt.",
@@ -153,6 +158,10 @@
     "import_ga": {
       "cta": "Importieren Sie Ihre GA-Daten und sehen Sie Ihre Statistiken in Minuten",
       "button": "Kostenlose Testversion starten"
+    },
+    "ai_launched": {
+      "link": "Nutze KI, um mit deiner Analyse zu chatten",
+      "text": "anstatt stundenlang herumzuklicken. Eben eingeführt."
     }
   },
   "ctas": {
@@ -198,6 +207,7 @@
     "docs": "Dokumentation",
     "blog": "Blog",
     "contact": "Kontakt aufnehmen",
+    "ai": "KI",
     "resources_dropdown": {
       "docs": {
         "title": "Dokumentation",
@@ -263,6 +273,9 @@
       "user": "<strong>{0}</strong> Benutzer",
       "websites": "<strong>{0}</strong> Websites",
       "events": "Ereignisse",
+      "ai_one_month": "KI für <strong>1 Monat</strong>",
+      "ai_unlimited": "KI <strong>unbegrenzt</strong>",
+      "ai_limited": "KI <strong>begrenzt</strong>",
       "aggregated_export": "aggregierter Export",
       "raw_level_export": "<strong>Rohlevel</strong> Export",
       "email_support": "Support-E-Mail",
