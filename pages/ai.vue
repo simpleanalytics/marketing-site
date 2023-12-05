@@ -307,7 +307,7 @@ const examples = [
 <li>Despite the overall decrease, the patterns of visitor numbers throughout the weeks are similar, with peaks around the beginning and the middle of the week, and troughs during the weekend.</li>
 </ul>
 <p>Here is the visual representation of this comparison:</p>`,
-        image: "/images/line-chart.png",
+        image: "https://assets.simpleanalytics.com/images/line-chart.png",
       },
     ],
   },
@@ -323,7 +323,8 @@ const examples = [
       {
         type: "answer",
         text: `Here's a pie chart showing the distribution of traffic sources categorized as "Organic," "Social," and "Other":`,
-        image: "/images/pie-chart.png",
+        image:
+          "https://assets.simpleanalytics.com/images/homepage/pie-chart.png",
       },
     ],
   },
@@ -349,7 +350,7 @@ const examples = [
           </ol>
           <p>Find them all on <a href="https://dogs.ie/?utm_source=simpleanalytics.com&utm_medium=ai" target="_blank">dogs.ie</a> #DogLovers #PetSale #TopDogs</p>
         `,
-        image: "/images/tweet.png",
+        image: "https://assets.simpleanalytics.com/images/homepage/tweet.png",
       },
     ],
   },
