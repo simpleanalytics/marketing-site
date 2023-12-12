@@ -116,7 +116,7 @@
           <Meta name="apple-mobile-web-app-capable" content="yes" />
 
           <!-- Privacy -->
-          <Meta name="referrer" content="strict-origin-when-cross-origin" />
+          <Meta name="referrer" content="unsafe-url" />
 
           <!-- Twitter -->
           <Meta name="twitter:site" content="@SimpleAnalytic" />
