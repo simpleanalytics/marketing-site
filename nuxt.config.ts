@@ -138,6 +138,7 @@ export default defineNuxtConfig({
       crossOriginEmbedderPolicy: false,
       crossOriginOpenerPolicy: false,
       crossOriginResourcePolicy: false,
+      referrerPolicy: "unsafe-url",
     },
     corsHandler: false,
   },
