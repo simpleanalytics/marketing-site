@@ -322,9 +322,13 @@ const goToWelcome = ({ plan, interval }) => {
 
   // Send event before redirecting to welcome page
   if (window.sa_event && window.sa_loaded) {
-    window.sa_event("click_buy", { currency, plan, interval }, () => {
-      window.location.href = url;
-    });
+    window.sa_event(
+      "click_buy",
+      { currency: currency?.value?.code, plan, interval },
+      () => {
+        window.location.href = url;
+      },
+    );
   } else {
     window.location.href = url;
   }
