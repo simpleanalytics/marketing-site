@@ -39,8 +39,8 @@
       :preload="poster ? 'none' : 'auto'"
       playsinline
       :muted="autoPlay()"
-      :width="width ? width : 'auto'"
-      :height="height ? height : 'auto'"
+      :width="width > 0 ? width : 'auto'"
+      :height="height > 0 ? height : 'auto'"
       :style="ratio"
       crossorigin="anonymous"
     >
