@@ -105,7 +105,7 @@
             >
               <p>Hi there 👋</p>
               <p class="mt-2">
-                I'm am the Simple Analytics' AI and here to help you with your
+                I'm the Simple Analytics' AI and here to help you with your
                 data.
               </p>
               <p>
