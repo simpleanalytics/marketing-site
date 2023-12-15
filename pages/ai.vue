@@ -212,6 +212,21 @@ definePageMeta({
   title: "Simple Analytics' AI",
   description:
     "Chat with your analytics data and generate insights and beautiful charts.",
+  image: "https://assets.simpleanalytics.com/social-media/ai-social-image.png",
+});
+
+useSeoMeta({
+  title: "Simple Analytics' AI - Chat with your analytics",
+  ogTitle: "Simple Analytics' AI - Chat with your analytics",
+  description:
+    "Chat with your analytics data and generate insights and beautiful charts.",
+  ogDescription:
+    "Chat with your analytics data and generate insights and beautiful charts.",
+  ogImage:
+    "https://assets.simpleanalytics.com/social-media/ai-social-image.png",
+  twitterImage:
+    "https://assets.simpleanalytics.com/social-media/ai-social-image.png",
+  twitterCard: "summary_large_image",
 });
 
 const tColorsRed = [`<span class='text-red-500 dark:text-red-600'>`, `</span>`];
