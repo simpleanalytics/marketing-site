@@ -178,7 +178,7 @@
 
     <MovingGradient
       class="max-w-6xl mt-10 mx-auto text-center"
-      v-if="article.showCallToActions"
+      v-if="article.showCallToActions !== false"
     >
       <h2
         class="text-xl md:text-3xl font-bold leading-loose md:leading-loose text-white dark:text-gray-100"

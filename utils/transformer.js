@@ -121,7 +121,8 @@ export default ({ data, locale = "en", keys = [], limit }) => {
   const filterAttributes = (attributes) => {
     const filtered = {};
     keys.forEach((key) => {
-      if (attributes[key]) filtered[key] = attributes[key];
+      if (typeof attributes[key] !== "undefined" && attributes[key] !== null)
+        filtered[key] = attributes[key];
     });
     return filtered;
   };
