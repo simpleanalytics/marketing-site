@@ -269,18 +269,19 @@
       }
     },
     "features": {
+      "max_company_size": "Up to <strong>{0}</strong> employees",
       "datapoints": "<strong>{0}</strong> datapoints per month",
       "users": "<strong>{0}</strong> users",
       "user": "<strong>{0}</strong> user",
       "websites": "<strong>{0}</strong> websites",
-      "events": "events",
+      "events": "Events",
       "ai_one_month": "AI for <strong>1 month</strong>",
       "ai_unlimited": "AI <strong>unlimited</strong>",
       "ai_limited": "AI <strong>limited</strong>",
-      "aggregated_export": "aggregated export",
-      "raw_level_export": "<strong>raw level</strong> export",
-      "email_support": "support email",
-      "prio_email_support": "<strong>prio</strong> email support"
+      "aggregated_export": "Aggregated export",
+      "raw_level_export": "<strong>Raw level</strong> export",
+      "email_support": "Support email",
+      "prio_email_support": "<strong>Prio</strong> email support"
     }
   },
   "pricing_faq": {

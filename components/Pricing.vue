@@ -221,6 +221,24 @@
             />
             <span v-html="$t('pricing.features.prio_email_support')"></span>
           </li>
+          <li
+            class="flex space-x-3 text-sm text-gray-500"
+            v-if="tier.includedFeatures.maxCompanySize"
+          >
+            <NoSymbolIcon
+              class="flex-shrink-0 h-5 w-5 text-red-500"
+              aria-hidden="true"
+            />
+            <span
+              v-html="
+                $t('pricing.features.max_company_size', [
+                  new Intl.NumberFormat($t('time.intl_locale')).format(
+                    tier.includedFeatures.maxCompanySize,
+                  ),
+                ])
+              "
+            ></span>
+          </li>
         </ul>
       </div>
     </div>
@@ -228,7 +246,7 @@
 </template>
 
 <script setup>
-import { CheckIcon } from "@heroicons/vue/24/solid";
+import { CheckIcon, NoSymbolIcon } from "@heroicons/vue/24/solid";
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
@@ -248,6 +266,7 @@ const tiers = [
       datapoints: 100000,
       users: 1,
       websites: 10,
+      maxCompanySize: 10,
       ai: "one_month",
       events: true,
       aggregated_export: true,
@@ -265,6 +284,7 @@ const tiers = [
       datapoints: 1000000,
       users: 10,
       websites: 100,
+      maxCompanySize: 50,
       ai: "unlimited",
       raw_level_export: true,
     },
