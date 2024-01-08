@@ -13,34 +13,60 @@
         <div id="slider-tooltip" class="tooltip">50</div>
       </div>
       <div class="flex justify-between font-light">
-        <p>{{ format(props.options[0]) }}</p>
-        <p>{{ format(props.options[props.options.length - 1]) }}</p>
+        <p>{{ formatDatapoints(props.options[0], $t("time.intl_locale")) }}</p>
+        <p>
+          {{
+            formatDatapoints(
+              props.options[props.options.length - 1],
+              $t("time.intl_locale"),
+            )
+          }}
+        </p>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { formatDatapoints } from "@/utils/miscellaneous";
 const { t } = useI18n();
 
-const sliderIndex = ref(5);
+const sliderIndex = ref(0);
 
 const props = defineProps(["options"]);
-
-const format = (value) => {
-  if (value >= 1_000_000) return `${value / 1_000_000}M`;
-  if (value >= 10_000) return `${(value / 10_000) * 10}k`;
-  const formatter = new Intl.NumberFormat(t("time.intl_locale"));
-  return formatter.format(value);
-};
+const emit = defineEmits(["updateValue"]);
 
 onMounted(() => {
+  emit("updateValue", parseFloat(props.options[sliderIndex.value]));
+
+  const steps =
+    props.options.length <= 3
+      ? 3
+      : Math.min(3, Math.round(props.options.length / 3));
+
+  // Update sliderIndex the slider thumb on to steps and back
+  let forward = true;
+  const interval = setInterval(() => {
+    if (forward) {
+      sliderIndex.value += 1;
+      if (sliderIndex.value >= steps) forward = false;
+    } else {
+      sliderIndex.value -= 1;
+      if (sliderIndex.value <= 0) {
+        clearInterval(interval);
+      }
+    }
+  }, 80);
+
   const rangeSlider = document.getElementById("range-slider");
   const tooltip = document.getElementById("slider-tooltip");
   const thumbWidth = 32; // Width of the slider thumb
 
   function updateTooltip() {
-    tooltip.innerHTML = format(props.options[sliderIndex.value]);
+    tooltip.innerHTML = formatDatapoints(
+      props.options[sliderIndex.value],
+      t("time.intl_locale"),
+    );
     const percent =
       (rangeSlider.value - rangeSlider.min) /
       (rangeSlider.max - rangeSlider.min);
@@ -50,6 +76,10 @@ onMounted(() => {
 
   rangeSlider.addEventListener("input", updateTooltip);
   updateTooltip(); // Initial update
+});
+
+watch(sliderIndex, () => {
+  emit("updateValue", parseFloat(props.options[sliderIndex.value]));
 });
 </script>
 
