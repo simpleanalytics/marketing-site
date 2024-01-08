@@ -62,3 +62,10 @@ export const getFlagUrl = (locale, availableLocales) => {
 
 export const launchedAi = ({ NODE_ENV }) =>
   NODE_ENV === "development" || new Date() > new Date("2023-12-05");
+
+export const formatDatapoints = (value, locale) => {
+  if (value >= 1_000_000) return `${value / 1_000_000}M`;
+  if (value >= 10_000) return `${(value / 10_000) * 10}k`;
+  const formatter = new Intl.NumberFormat(locale);
+  return formatter.format(value);
+};

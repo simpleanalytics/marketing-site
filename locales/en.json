@@ -269,18 +269,124 @@
       }
     },
     "features": {
-      "datapoints": "<strong>{0}</strong> datapoints per month",
-      "users": "<strong>{0}</strong> users",
-      "user": "<strong>{0}</strong> user",
-      "websites": "<strong>{0}</strong> websites",
-      "events": "events",
-      "ai_one_month": "AI for <strong>1 month</strong>",
-      "ai_unlimited": "AI <strong>unlimited</strong>",
-      "ai_limited": "AI <strong>limited</strong>",
-      "aggregated_export": "aggregated export",
-      "raw_level_export": "<strong>raw level</strong> export",
-      "email_support": "support email",
-      "prio_email_support": "<strong>prio</strong> email support"
+      "datapoints": {
+        "title": "Datapoints",
+        "number": "<strong>{0}</strong> datapoints p/m"
+      },
+      "users": {
+        "title": "Users",
+        "number": "<strong>{0}</strong> users",
+        "one": "<strong>1</strong> user"
+      },
+      "websites": {
+        "title": "Websites",
+        "number": "<strong>{0}</strong> websites",
+        "one": "<strong>1</strong> website"
+      },
+      "email_reports": {
+        "title": "Email reports",
+        "number": "<strong>{0}</strong> email reports"
+      },
+      "look_back_days": {
+        "title": "Look back days",
+        "number": "<strong>{0}</strong> look back days"
+      },
+      "data_retention_days": {
+        "title": "Retention days",
+        "number": "<strong>{0}</strong> retention days"
+      },
+
+      "separated_data_storage": {
+        "title": "Separated data storage"
+      },
+
+      "goals": {
+        "title": "Goals dashboard"
+      },
+      "events": {
+        "title": "Collect events"
+      },
+      "automated_events": {
+        "title": "Automated events"
+      },
+      "metadata": {
+        "title": "Metadata analysis"
+      },
+
+      "admin_api": {
+        "title": "Admin API"
+      },
+      "stats_api": {
+        "title": "Stats API"
+      },
+      "export_api": {
+        "title": "Export API"
+      },
+
+      "multiple_teams": {
+        "title": "Multiple teams (agency)"
+      },
+      "combined_invoicing": {
+        "title": "Combined invoicing"
+      },
+      "manual_invoicing": {
+        "title": "Manual invoicing"
+      },
+      "redlining_contracts": {
+        "title": "Contract redlining"
+      },
+      "roles_based_access_control": {
+        "title": "Role-based access"
+      },
+      "uptime_sla": {
+        "title": "Uptime SLA"
+      },
+
+      "trendlines": {
+        "title": "Trendlines"
+      },
+      "annotations": {
+        "title": "Annotations"
+      },
+      "custom_website_views": {
+        "title": "Custom views"
+      },
+      "block_ip_range": {
+        "title": "IP range blocking"
+      },
+      "bypass_via_dns_cname": {
+        "title": "DNS CNAME bypass"
+      },
+      "bypass_via_new_domain": {
+        "title": "New domain bypass"
+      },
+      "data_proxy": {
+        "title": "Data proxy"
+      },
+
+      "badge_requirement": {
+        "title": "Badge required",
+        "description": "When using the Free plan you need to add a Simple Analytics badge to your website. {0}See our badges{1} (customizable)"
+      },
+      "public_dashboard_requirement": {
+        "title": "Public dashboard",
+        "description": "When using the Free plan you need to make your dashboard public. Everybody can see your public stats."
+      },
+
+      "community_support": {
+        "title": "Community support"
+      },
+      "email_support": {
+        "title": "Support email"
+      },
+      "video_support": {
+        "title": "Video support"
+      },
+      "legal_support": {
+        "title": "Legal support"
+      },
+
+      "enterprise_only": "Enterprise only"
     }
   },
   "pricing_faq": {

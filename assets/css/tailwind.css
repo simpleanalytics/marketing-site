@@ -1,3 +1,5 @@
+@import "range.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,6 +17,8 @@ p,
 li,
 th,
 td,
+dt,
+dd,
 label,
 strong,
 code,
