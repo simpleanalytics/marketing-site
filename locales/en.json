@@ -255,17 +255,59 @@
     "affiliate_description": "You get the first month + {0} days for free because you're using an affiliate link.",
     "contact": "Contact",
     "plans": {
+      "free": {
+        "title": "Free",
+        "description": "For hobby projects and personal websites."
+      },
+      "simple": {
+        "title": "Simple",
+        "description": "Everything you need to get you started."
+      },
+      "team": {
+        "title": "Team",
+        "description": "Work together on growing your business."
+      },
       "starter": {
         "title": "Starter",
-        "description": "Everything you need to get you started"
+        "description": "Everything you need to get you started."
       },
       "business": {
         "title": "Business",
-        "description": "Work together on growing your business"
+        "description": "Work together on growing your business."
       },
       "enterprise": {
         "title": "Enterprise",
-        "description": "Get everything needed to grow your business"
+        "description": "Get everything needed to grow your business."
+      }
+    },
+    "sections": {
+      "data": {
+        "title": "Data",
+        "description": "The amount of data you can collect."
+      },
+      "events": {
+        "title": "Events",
+        "description": "The amount of events you can collect."
+      },
+      "apis": {
+        "title": "APIs",
+        "description": "The amount of API calls you can make."
+      },
+      "admin": {
+        "title": "Admin",
+        "description": "Features for Enterprise or agencies."
+      },
+      "features": {
+        "title": "Features",
+        "description": "What you can use in this plan."
+      },
+      "support": {
+        "title": "Support",
+        "description": "The support you get."
+      },
+      "requirements": {
+        "title": "Requirements",
+        "description": "What you need to do to use this plan."
       }
     },
     "features": {

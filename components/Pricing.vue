@@ -4,7 +4,7 @@
       {{ $t("pricing.affiliate_description", [14]) }}
     </p>
 
-    <p class="text-center mt-8 sm:-mb-6 max-w-3xl leading-loose mx-auto">
+    <p class="text-center px-4 mt-8 sm:-mb-6 max-w-3xl leading-loose mx-auto">
       Fair pricing: pay per datapoint (pageview or event). Don't worry about
       traffic spikes, we use the average usage of the last 3 months. Free trial,
       no credit card needed.
@@ -48,16 +48,24 @@
           </RadioGroupOption>
         </RadioGroup>
       </div>
+    </div>
+  </div>
 
-      <div
-        class="border dark:border-none bg-gray-50 dark:bg-gray-700 rounded-xl max-w-3xl mx-auto pt-5 pb-2 px-4 mt-8"
-      >
-        <p class="text-center">
-          Select the expected monthly datapoints (pageviews + events)
-        </p>
-        <Slider :options="sliderOptions" @updateValue="handleSliderValue" />
-      </div>
+  <div
+    class="sm:border border-y dark:border-none bg-gray-50 dark:bg-gray-700 sm:rounded-xl max-w-3xl mx-auto pt-5 pb-2 px-4 mt-8 z-50 sticky top-0 overflow-hidden w-full sm:relative -translate-y-px"
+  >
+    <p class="text-center text-sm sm:text-base">
+      Select the expected monthly datapoints (pageviews + events)
+    </p>
+    <Slider
+      :options="sliderOptions"
+      :sliderIndexInitial="sliderIndexInitial"
+      @updateValue="handleSliderValue"
+    />
+  </div>
 
+  <div>
+    <div class="mx-6 sm:mx-8 sm:flex sm:flex-col sm:align-center">
       <div
         class="isolate mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8"
       >
@@ -128,8 +136,11 @@
             >
           </p>
           <a
-            :href="subscription.href"
-            :aria-describedby="subscription.slug"
+            @click="
+              subscription.slug === 'enterprise'
+                ? clickEnterprise()
+                : goToWelcome({ plan: subscription.slug })
+            "
             :class="[
               subscription.featured
                 ? 'bg-green-500 dark:bg-green-600 text-white shadow-sm hover:bg-green-500'
@@ -222,7 +233,7 @@
                   ? 1
                   : 2,
               )"
-              :key="feature"
+              :key="feature.feature"
               class="flex gap-x-3"
             >
               <ExclamationTriangleIcon
@@ -243,6 +254,7 @@
 
               <TooltipPopover
                 :text="$t(`pricing.features.${feature.feature}.title`)"
+                :key="feature.feature"
                 v-if="featureHasDescription(feature.feature)"
               >
                 <span
@@ -301,13 +313,58 @@
     </a>
   </p>
 
-  <div class="sticky top-0 bg-green-200">sticky</div>
+  <div
+    class="sticky hidden lg:block top-0 z-50 mt-10 bg-gradient-to-b from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-900 border-b border-gray-200 dark:border-gray-600"
+    v-if="featuresOpen"
+  >
+    <div class="mx-auto max-w-7xl px-6 py-8 sm:pb-8 sm:bt-8 lg:px-8">
+      <h2 id="comparison-heading" class="sr-only">Feature comparison</h2>
+
+      <div class="grid grid-cols-4 gap-x-8 before:block">
+        <div
+          v-for="subscription in showInPlanFeaturesSubscriptions"
+          :key="subscription.slug"
+          aria-hidden="true"
+          class="-mt-px"
+        >
+          <div
+            :class="[
+              subscription.featured
+                ? 'border-red-500 dark:border-red-600'
+                : 'border-transparent',
+              'text-center px-4',
+            ]"
+          >
+            <p
+              :class="[
+                subscription.featured
+                  ? 'text-red-500 dark:text-red-600'
+                  : 'text-gray-900',
+                'text-xl font-semibold leading-6',
+              ]"
+            >
+              {{ $t(`pricing.plans.${subscription.translation_key}.title`) }}
+            </p>
+            <p class="mt-1 text-sm leading-6">
+              {{
+                $t(`pricing.plans.${subscription.translation_key}.description`)
+              }}
+            </p>
+
+            <a
+              class="button mt-6 block text-sm font-semibold leading-6"
+              href="#"
+              >Start now</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="isolate overflow-hidden" v-if="featuresOpen">
     <div class="relative">
-      <div class="sticky top-0 border-2 border-red-400">Stickdy top</div>
-
-      <div class="mx-auto max-w-7xl px-6 py-8 sm:py-16 lg:px-8 border-2">
+      <div class="mx-auto max-w-7xl px-6 py-8 sm:pb-16 sm:bt-4 lg:px-8">
         <!-- Feature comparison (up to lg) -->
         <section aria-labelledby="mobile-comparison-heading" class="lg:hidden">
           <h2 id="mobile-comparison-heading" class="sr-only">
@@ -316,9 +373,8 @@
 
           <div class="mx-auto max-w-2xl space-y-16">
             <div
-              v-for="(subscription, index) in filteredSubscriptions"
+              v-for="(subscription, index) in showInPlanFeaturesSubscriptions"
               :key="subscription.slug"
-              class="border-t border-gray-900/10"
             >
               <div
                 :class="[
@@ -328,27 +384,36 @@
                   '-mt-px w-72 border-t-2 pt-10 md:w-80',
                 ]"
               >
-                <h3
-                  :class="[
-                    subscription.featured
-                      ? 'text-red-500 dark:text-red-600'
-                      : 'text-gray-900 dark:text-gray-200',
-                    'text-sm font-semibold leading-6',
-                  ]"
-                >
-                  {{ subscription.name }}
+                <h3 class="text-lg font-semibold leading-6">
+                  {{
+                    $t(`pricing.plans.${subscription.translation_key}.title`)
+                  }}
                 </h3>
-                <p class="mt-1 text-sm leading-6">
-                  {{ subscription.description }}
+                <p class="mt-4 -mb-6 text-sm leading-6">
+                  {{
+                    $t(
+                      `pricing.plans.${subscription.translation_key}.description`,
+                    )
+                  }}
                 </p>
               </div>
 
               <div class="mt-10 space-y-10">
                 <div v-for="section in sections" :key="section.name">
-                  <h4 class="text-sm font-semibold leading-6 text-gray-900">
-                    {{ section.name }}
+                  <h4
+                    class="text-sm font-semibold leading-6 text-gray-900"
+                    v-if="section.name !== 'basics'"
+                  >
+                    {{ $t(`pricing.sections.${section.name}.title`) }}
                   </h4>
-                  <div class="relative mt-6">
+                  <p
+                    class="mt-2 text-sm leading-6 text-gray-900"
+                    v-if="section.name !== 'basics'"
+                  >
+                    {{ $t(`pricing.sections.${section.name}.description`) }}
+                  </p>
+
+                  <div class="relative mt-4">
                     <!-- Fake card background -->
                     <div
                       aria-hidden="true"
@@ -449,50 +514,22 @@
           aria-labelledby="comparison-heading"
           class="hidden lg:block top-0"
         >
-          <h2 id="comparison-heading" class="sr-only">Feature comparison</h2>
-
-          <div
-            class="grid grid-cols-4 gap-x-8 border-t border-gray-900/10 before:block"
-          >
-            <div
-              v-for="subscription in showInPlanFeaturesSubscriptions"
-              :key="subscription.slug"
-              aria-hidden="true"
-              class="-mt-px"
-            >
-              <div
-                :class="[
-                  subscription.featured
-                    ? 'border-red-500 dark:border-red-600'
-                    : 'border-transparent',
-                  'border-t-2 pt-10',
-                ]"
-              >
-                <p
-                  :class="[
-                    subscription.featured
-                      ? 'text-red-500 dark:text-red-600'
-                      : 'text-gray-900',
-                    'text-sm font-semibold leading-6',
-                  ]"
-                >
-                  {{ subscription.name }}
-                </p>
-                <p class="mt-1 text-sm leading-6">
-                  {{ subscription.description }}
-                </p>
-              </div>
-            </div>
-          </div>
-
           <div class="-mt-6 space-y-16">
             <div v-for="section in sections" :key="section.name">
               <h3
                 class="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400"
+                v-if="section.name !== 'basics'"
               >
-                {{ section.name }}
+                {{ $t(`pricing.sections.${section.name}.title`) }}
               </h3>
-              <div class="relative -mx-8 mt-10">
+              <p
+                class="mt-2 text-sm leading-6 text-gray-900"
+                v-if="section.name !== 'basics'"
+              >
+                {{ $t(`pricing.sections.${section.name}.description`) }}
+              </p>
+
+              <div class="relative -mx-8 mt-6">
                 <!-- Fake card backgrounds -->
                 <div
                   class="absolute inset-x-8 inset-y-0 grid grid-cols-4 gap-x-8 before:block"
@@ -648,7 +685,7 @@ const theme = useTheme();
 const config = useRuntimeConfig();
 const { MAIN_URL } = config.public;
 
-const featuresOpen = ref(true);
+const featuresOpen = ref(false);
 const planListExpanded = ref(false);
 const sliderValue = ref(0);
 const currency = useState("currency");
@@ -659,6 +696,10 @@ const handleSliderValue = (value) => {
 };
 
 const sliderOptions = ref([
+  "100",
+  "250",
+  "500",
+  "750",
   "1000",
   "2500",
   "5000",
@@ -683,6 +724,10 @@ const sliderOptions = ref([
   "9000000",
   "10000000",
 ]);
+
+const sliderIndexInitial = computed(() => {
+  return sliderOptions.value.findIndex((option) => option == 1000);
+});
 
 const affiliateCookie = useCookie("affiliate", {
   secure: process.env.NODE_ENV === "production",
@@ -862,9 +907,29 @@ const filteredSubscriptions = computed(() => {
           return 0;
         });
 
+      const slug = subscription.plan_slug;
+      const translation_key = slug.includes("free")
+        ? "free"
+        : slug.includes("team")
+        ? "team"
+        : slug.includes("enterprise")
+        ? "enterprise"
+        : slug.includes("simple")
+        ? "simple"
+        : slug.includes("starter")
+        ? "starter"
+        : slug.includes("business")
+        ? "business"
+        : slug;
+
+      if (!translation_key) {
+        console.log("No translation key for", slug);
+      }
+
       return {
         name: subscription.plan_name,
-        slug: subscription.plan_slug,
+        slug,
+        translation_key,
         datapoints_graduated_pricing: subscription.datapoints_graduated_pricing,
         featured: subscription.plan_slug.includes("team"),
         showInPlanFeatures: true,

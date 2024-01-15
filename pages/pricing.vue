@@ -6,23 +6,21 @@
       </h1>
     </div>
 
-    <div class="">
-      <Pricing />
+    <Pricing />
 
-      <div class="max-w-5xl mx-auto px-6 mt-8">
-        <h3
-          class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-32 sm:mb-8 font-medium text-center"
-        >
-          {{ $t("pricing_faq.title") }}.
-        </h3>
+    <div class="max-w-5xl mx-auto px-6 mt-8">
+      <h3
+        class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-32 sm:mb-8 font-medium text-center"
+      >
+        {{ $t("pricing_faq.title") }}.
+      </h3>
 
-        <div class="max-w-3xl mx-auto">
-          <FAQ />
-        </div>
+      <div class="max-w-3xl mx-auto">
+        <FAQ />
+      </div>
 
-        <div class="py-12 text-center">
-          <StartTrial />
-        </div>
+      <div class="py-12 text-center">
+        <StartTrial />
       </div>
     </div>
 

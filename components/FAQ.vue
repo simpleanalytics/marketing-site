@@ -7,7 +7,7 @@
       <p class="mx-6 leading-loose text-center text-red-400 dark:text-red-600">
         {{ $t("pricing_faq.datapoints.title") }}
       </p>
-      <p class="my-4 leading-loose mx-6">
+      <p class="my-4 leading-loose mx-6 text-sm sm:text-base sm:leading-loose">
         {{ $t("pricing_faq.datapoints.description") }}
       </p>
 
@@ -17,7 +17,7 @@
       <p class="mx-6 leading-loose text-center text-red-400 dark:text-red-600">
         {{ $t("pricing_faq.trial_expires.title") }}
       </p>
-      <p class="my-4 leading-loose mx-6">
+      <p class="my-4 leading-loose mx-6 text-sm sm:text-base sm:leading-loose">
         {{ $t("pricing_faq.trial_expires.description") }}
       </p>
 
@@ -28,7 +28,7 @@
         {{ $t("pricing_faq.payment_methods.title") }}
       </p>
       <p
-        class="my-4 leading-loose mx-6"
+        class="my-4 leading-loose mx-6 text-sm sm:text-base sm:leading-loose"
         v-html="
           $t('pricing_faq.payment_methods.description', [
             ...tBorderRed,
@@ -45,16 +45,16 @@
         {{ $t("pricing_faq.traffic_change.title") }}
       </p>
       <p
-        class="my-4 leading-loose mx-6"
+        class="my-4 leading-loose mx-6 text-sm sm:text-base sm:leading-loose"
         v-html="$t('pricing_faq.traffic_change.description_1')"
       ></p>
 
       <AverageChart
-        class="mx-6 rounded-lg dark:border-none bg-red-50 dark:bg-gray-700"
+        class="mx-6 max-w-full rounded-lg dark:border-none bg-red-50 dark:bg-gray-700"
       />
 
       <p
-        class="my-4 leading-loose mx-6"
+        class="my-4 leading-loose mx-6 text-sm sm:text-base sm:leading-loose"
         v-html="$t('pricing_faq.traffic_change.description_2')"
       ></p>
 
@@ -64,12 +64,12 @@
       <p class="leading-loose text-center mx-6 text-red-400 dark:text-red-600">
         {{ $t("pricing_faq.cancel.title") }}
       </p>
-      <p class="my-4 leading-loose mx-6">
+      <p class="my-4 leading-loose mx-6 text-sm sm:text-base sm:leading-loose">
         {{ $t("pricing_faq.cancel.description") }}
       </p>
 
       <p
-        class="my-4 leading-loose mx-6"
+        class="my-4 leading-loose mx-6 text-sm sm:text-base sm:leading-loose"
         v-html="
           $t('pricing_faq.need_help', [
             `<a href='https://simpleanalytics.com/contact'>`,

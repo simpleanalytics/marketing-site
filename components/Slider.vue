@@ -14,6 +14,12 @@
       </div>
       <div class="flex justify-between font-light">
         <p>{{ formatDatapoints(props.options[0], $t("time.intl_locale")) }}</p>
+        <p class="text-gray-400 dark:text-gray-500">
+          {{
+            formatDatapoints(props.options[sliderIndex], $t("time.intl_locale"))
+          }}
+          datapoints
+        </p>
         <p>
           {{
             formatDatapoints(
@@ -31,32 +37,24 @@
 import { formatDatapoints } from "@/utils/miscellaneous";
 const { t } = useI18n();
 
-const sliderIndex = ref(0);
+const props = defineProps({
+  options: {
+    type: Array,
+    required: true,
+  },
+  sliderIndexInitial: {
+    type: Number,
+    required: false,
+    default: 0,
+  },
+});
 
-const props = defineProps(["options"]);
+const sliderIndex = ref(props.sliderIndexInitial);
+
 const emit = defineEmits(["updateValue"]);
 
 onMounted(() => {
   emit("updateValue", parseFloat(props.options[sliderIndex.value]));
-
-  const steps =
-    props.options.length <= 3
-      ? 3
-      : Math.min(3, Math.round(props.options.length / 3));
-
-  // Update sliderIndex the slider thumb on to steps and back
-  let forward = true;
-  const interval = setInterval(() => {
-    if (forward) {
-      sliderIndex.value += 1;
-      if (sliderIndex.value >= steps) forward = false;
-    } else {
-      sliderIndex.value -= 1;
-      if (sliderIndex.value <= 0) {
-        clearInterval(interval);
-      }
-    }
-  }, 80);
 
   const rangeSlider = document.getElementById("range-slider");
   const tooltip = document.getElementById("slider-tooltip");
@@ -74,8 +72,13 @@ onMounted(() => {
     tooltip.style.left = `calc(${percent * 100}% - ${offset}px)`;
   }
 
-  rangeSlider.addEventListener("input", updateTooltip);
-  updateTooltip(); // Initial update
+  const canHover = window.matchMedia("(hover: hover)").matches;
+  if (canHover) {
+    rangeSlider.addEventListener("input", updateTooltip);
+    updateTooltip();
+  } else {
+    tooltip.style.display = "none";
+  }
 });
 
 watch(sliderIndex, () => {
