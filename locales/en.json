@@ -240,7 +240,7 @@
     "switch_to_dutch": "Switch to Dutch"
   },
   "pricing": {
-    "title": "Simple pricing",
+    "title": "Fair pricing",
     "yearly_billing": "Yearly billing",
     "monthly_billing": "Monthly billing",
     "from": "starting at",
@@ -313,21 +313,21 @@
     "features": {
       "datapoints": {
         "title": "Datapoints",
-        "number": "<strong>{0}</strong> datapoints p/m"
+        "number": "Up to <strong>{0}</strong> monthly datapoints"
       },
       "users": {
         "title": "Users",
-        "number": "<strong>{0}</strong> users",
+        "number": "Up to <strong>{0}</strong> users",
         "one": "<strong>1</strong> user"
       },
       "websites": {
         "title": "Websites",
-        "number": "<strong>{0}</strong> websites",
+        "number": "Up to <strong>{0}</strong> websites",
         "one": "<strong>1</strong> website"
       },
       "email_reports": {
         "title": "Email reports",
-        "number": "<strong>{0}</strong> email reports"
+        "number": "Up to <strong>{0}</strong> email reports"
       },
       "look_back_days": {
         "title": "Look back days",
@@ -404,6 +404,9 @@
       },
       "data_proxy": {
         "title": "Data proxy"
+      },
+      "ai_chat": {
+        "title": "AI chat"
       },
 
       "badge_requirement": {

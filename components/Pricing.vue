@@ -5,9 +5,7 @@
     </p>
 
     <p class="text-center px-4 mt-8 sm:-mb-6 max-w-3xl leading-loose mx-auto">
-      Fair pricing: pay per datapoint (pageview or event). Don't worry about
-      traffic spikes, we use the average usage of the last 3 months. Free trial,
-      no credit card needed.
+      Pay per pageview and event. Average usage of the last 3 months.
     </p>
 
     <div
@@ -65,7 +63,9 @@
   </div>
 
   <div>
-    <div class="mx-6 sm:mx-8 sm:flex sm:flex-col sm:align-center">
+    <div
+      class="sm:mx-auto max-w-7xl sm:px-8 py-8 mx-6 sm:flex sm:flex-col sm:align-center"
+    >
       <div
         class="isolate mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8"
       >
