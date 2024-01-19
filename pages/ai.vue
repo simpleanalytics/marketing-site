@@ -76,8 +76,8 @@
               :key="index"
               :class="
                 chatItem.type === 'question'
-                  ? 'question rounded-lg px-4 py-3 bg-[#e6f2dd] dark:bg-gray-700 mr-auto mb-6 md:max-w-[70%] max-w-[90%]'
-                  : 'answer rounded-lg px-4 py-3 md:max-w-[70%] max-w-[90%] ml-auto bg-[#eef9ff] dark:bg-gray-800 mb-6'
+                  ? 'question rounded-lg px-4 py-3 bg-[#e6f2dd] dark:bg-gray-700 ml-auto mb-6 md:max-w-[70%] max-w-[90%]'
+                  : 'answer rounded-lg px-4 py-3 md:max-w-[70%] max-w-[90%] mr-auto bg-[#eef9ff] dark:bg-gray-800 mb-6'
               "
             >
               <p v-if="chatItem.text">{{ chatItem.text }}</p>
