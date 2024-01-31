@@ -1,17 +1,17 @@
 <template>
   <Popover class="relative" v-slot="{ open }">
     <PopoverButton
-      class="gap-x-1 outline-none rounded px-2 -mx-2 py-1 -my-1 hover:ring-1 dark:hover:ring-0 dark:hover:bg-gray-600 ring-gray-200"
+      class="gap-x-1 text-left outline-none rounded px-2 -mx-2 py-1 -my-1 hover:ring-1 dark:hover:ring-0 dark:hover:bg-gray-600 ring-gray-200"
       :class="{
         'bg-blue-100 dark:bg-gray-600 dark:hover:bg-gray-600 dark:ring-0 dark:focus:ring-0 ring-1 focus:ring-1 ':
           open,
       }"
     >
-      <span>{{ text }}</span>
       <InformationCircleIcon
-        class="h-5 w-5 inline-block ml-1 -mt-[2px] fill-current opacity-30"
+        class="h-5 w-5 inline-block mr-1 -mt-[2px] stroke-current"
         aria-hidden="true"
       />
+      <span>{{ text }}</span>
     </PopoverButton>
 
     <transition
@@ -42,10 +42,10 @@ import {
   XMarkIcon,
   PlusIcon,
   MinusIcon,
-  InformationCircleIcon,
 } from "@heroicons/vue/20/solid";
 
 import {
+  InformationCircleIcon,
   QuestionMarkCircleIcon,
   ExclamationTriangleIcon,
 } from "@heroicons/vue/24/outline";

@@ -11,6 +11,16 @@
         {{ $t("pricing_faq.datapoints.description") }}
       </p>
 
+      <BanknotesIcon
+        class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
+      />
+      <p class="mx-6 leading-loose text-center text-red-400 dark:text-red-600">
+        {{ $t("pricing_faq.free_websites.title") }}
+      </p>
+      <p class="my-4 leading-loose mx-6 text-sm sm:text-base sm:leading-loose">
+        {{ $t("pricing_faq.free_websites.description") }}
+      </p>
+
       <ShieldExclamationIcon
         class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
       />
@@ -58,6 +68,17 @@
         v-html="$t('pricing_faq.traffic_change.description_2')"
       ></p>
 
+      <CalendarDaysIcon
+        class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
+      />
+      <p class="leading-loose text-center mx-6 text-red-400 dark:text-red-600">
+        {{ $t("pricing_faq.yearly_plans.title") }}
+      </p>
+      <p
+        class="my-4 leading-loose mx-6 text-sm sm:text-base sm:leading-loose"
+        v-html="$t('pricing_faq.yearly_plans.description')"
+      ></p>
+
       <NoSymbolIcon
         class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
       />
@@ -87,8 +108,9 @@ import {
   NoSymbolIcon,
   CreditCardIcon,
   ArrowTrendingUpIcon,
-  EnvelopeOpenIcon,
+  BanknotesIcon,
   CursorArrowRaysIcon,
+  CalendarDaysIcon,
 } from "@heroicons/vue/24/outline";
 
 import AverageChart from "./images/AverageChart.vue";

@@ -232,9 +232,13 @@
 
             <li
               v-if="
-                (typeof subscription.limit_free_websites === 'number' &&
+                (filteredSubscriptions[index - 1]?.limit_free_websites !==
+                  null ||
+                  filteredSubscriptions[index - 1]?.translation_key ===
+                    'free') &&
+                ((typeof subscription.limit_free_websites === 'number' &&
                   subscription.limit_free_websites !== 0) ||
-                subscription.limit_free_websites === null
+                  subscription.limit_free_websites === null)
               "
               class="flex gap-x-3"
             >
@@ -242,8 +246,8 @@
                 class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
                 aria-hidden="true"
               />
-              <span
-                v-html="
+              <TooltipPopover
+                :text="
                   $t(
                     subscription.limit_free_websites === 1
                       ? 'pricing.features.free_websites.one'
@@ -253,7 +257,12 @@
                     [subscription.limit_free_websites],
                   )
                 "
-              ></span>
+                key="free_websites"
+              >
+                <span>
+                  {{ $t(`pricing.features.free_websites.description`) }}
+                </span>
+              </TooltipPopover>
             </li>
 
             <li
@@ -262,11 +271,11 @@
                 index === 0 || planListExpanded
                   ? 100
                   : subscription.slug === 'enterprise'
-                  ? 4
+                  ? 5
                   : index !== 0 &&
                     !filteredSubscriptions[index - 1]?.slug?.includes('free')
                   ? 1
-                  : 2,
+                  : 1,
               )"
               :key="feature.feature"
               class="flex gap-x-3"
@@ -800,7 +809,7 @@ const affiliateCookie = useCookie("affiliate", {
 const groups = [
   // Basics
   { group: "basics", limit: "users" },
-  { group: "basics", limit: "free_websites" },
+  { group: "basics", limit: "free_websites", description: true },
   { group: "basics", limit: "paid_websites" },
   { group: "basics", limit: "email_reports" },
 
@@ -987,7 +996,7 @@ const filteredSubscriptions = computed(() => {
         : slug;
 
       if (!translation_key) {
-        console.log("No translation key for", slug);
+        console.error("No translation key for", slug);
       }
 
       return {

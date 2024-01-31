@@ -322,9 +322,10 @@
       },
       "free_websites": {
         "title": "Free websites",
-        "unlimited": "Unlimited free websites",
-        "number": "Up to <strong>{0}</strong> free websites",
-        "one": "<strong>1</strong> free website"
+        "unlimited": "Unlimited free sites",
+        "number": "Up to <strong>{0}</strong> free sites",
+        "one": "<strong>1</strong> free site",
+        "description": "Requires our footer badge and a public dashboard. Badge checked on addition and periodically; non-compliance leads to deletion after a grace period."
       },
       "paid_websites": {
         "title": "Paid websites",
@@ -418,11 +419,11 @@
 
       "badge_requirement": {
         "title": "Badge required",
-        "description": "When using the Free plan you need to add a Simple Analytics badge to your website. {0}See our badges{1} (customizable)"
+        "description": "When using the Free plan you need to add a Simple Analytics badge to your websites. {0}See our badges{1} (customizable)"
       },
       "public_dashboard_requirement": {
         "title": "Public dashboard",
-        "description": "When using the Free plan you need to make your dashboard public. Everybody can see your public stats."
+        "description": "When using the Free plan you need to make your dashboards public. Everybody can see your public stats."
       },
 
       "community_support": {
@@ -446,11 +447,15 @@
     "need_help": "Need more help? Please send us your question(s) via {0}our support page{1}.",
     "datapoints": {
       "title": "What are datapoints?",
-      "description": "You can collect two types of data with Simple Analytics: page views and events. The combined term for both is datapoint. If you don't use events, the datapoints will only be page views. If you do use events, the datapoints will also be events."
+      "description": "You can collect two types of data witçh Simple Analytics: page views and events. The combined term for both is datapoint. If you don't use events, the datapoints will only be page views. If you do use events, the datapoints will also be events."
+    },
+    "free_websites": {
+      "title": "What are free websites?",
+      "description": "As part of using a free website, it's required to display our badge in the footer and your dashboard must be public. While çadding our script, you should also add the badge. When you add the website to our dashboard we check for the badge. When your badge is missing later on, we will warn you and give you a grace period to add it. If you don't add it, we will delete the website and its data."
     },
     "trial_expires": {
       "title": "Will I be charged when my trial expires?",
-      "description": "No. After your trial expires, your plan downgrades automatically to the basic free version. Upgrade whenever you want to the plan that fits your needs."
+      "description": "No. After your trial expires, your plan downgrades automatically to the free plan. If you're exceeding usage limits of the free plan, we disable your dashboards until you are within the limits of the free plan, or when you select a plan."
     },
     "cancel": {
       "title": "Can I cancel anytime?",
@@ -462,8 +467,12 @@
     },
     "traffic_change": {
       "title": "What will happen to my charges when my traffic grows / declines?",
-      "description_1": "You only pay for what you actually need. This means that if your plan's page view limit is exceeded, you will be charged for overages. Simple Analytics automatically calculates your price based on your average amount of page views (first looking back one month, then the average of the previous three months).",
+      "description_1": "You monthly fee will match your usage. Drag the slider to see what you pay for a certain amount of data points. Simple Analytics automatically calculates your data points (first looking back one month, then the average of the previous three months).",
       "description_2": "So, if you had an increase in traffic during the past three months, you pay only a little more next month. Likewise, you automatically pay a little less when your average amount of page views decreased during the last months."
+    },
+    "yearly_plans": {
+      "title": "How does that work with the yearly plans?",
+      "description": "When you choose yearly, you estimate your traffic after your trial. We send you an email when you go over your limit, you have one week to increase your limit. Otherwise, we'll do it for you. To prevent extra invoices during the year, set your limit high enough. After the year, your datapoints will be reset to zero."
     }
   },
   "video": {
