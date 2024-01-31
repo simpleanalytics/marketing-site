@@ -204,7 +204,14 @@
               ></span>
             </li>
 
-            <li v-if="subscription.limit_websites" class="flex gap-x-3">
+            <li
+              v-if="
+                (typeof subscription.limit_paid_websites === 'number' &&
+                  subscription.limit_paid_websites !== 0) ||
+                subscription.limit_paid_websites === null
+              "
+              class="flex gap-x-3"
+            >
               <CheckIcon
                 class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
                 aria-hidden="true"
@@ -212,10 +219,38 @@
               <span
                 v-html="
                   $t(
-                    subscription.limit_websites === 1
-                      ? 'pricing.features.websites.one'
-                      : 'pricing.features.websites.number',
-                    [subscription.limit_websites],
+                    subscription.limit_paid_websites === 1
+                      ? 'pricing.features.paid_websites.one'
+                      : subscription.limit_paid_websites === null
+                      ? 'pricing.features.paid_websites.unlimited'
+                      : 'pricing.features.paid_websites.number',
+                    [subscription.limit_paid_websites],
+                  )
+                "
+              ></span>
+            </li>
+
+            <li
+              v-if="
+                (typeof subscription.limit_free_websites === 'number' &&
+                  subscription.limit_free_websites !== 0) ||
+                subscription.limit_free_websites === null
+              "
+              class="flex gap-x-3"
+            >
+              <CheckIcon
+                class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
+                aria-hidden="true"
+              />
+              <span
+                v-html="
+                  $t(
+                    subscription.limit_free_websites === 1
+                      ? 'pricing.features.free_websites.one'
+                      : subscription.limit_free_websites === null
+                      ? 'pricing.features.free_websites.unlimited'
+                      : 'pricing.features.free_websites.number',
+                    [subscription.limit_free_websites],
                   )
                 "
               ></span>
@@ -605,9 +640,28 @@
                             >{{ feature.subscriptions[index]?.value }}</span
                           >
                           <template v-else>
+                            <svg
+                              v-if="
+                                feature.subscriptions[index]?.value === null ||
+                                (feature.subscriptions[index]?.value ===
+                                  undefined &&
+                                  feature.subscriptions[index]?.type ===
+                                    'limit')
+                              "
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              class="mx-auto h-5 w-5 fill-red-500 dark:fill-red-600"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M18.571 6c-2.853 0-4.608 2.164-6.571 4.201-1.963-2.037-3.718-4.201-6.571-4.201-3.197 0-5.429 2.455-5.429 6s2.232 6 5.429 6c2.854 0 4.608-2.164 6.571-4.201 1.963 2.037 3.718 4.201 6.571 4.201 3.197 0 5.429-2.455 5.429-6s-2.232-6-5.429-6zm-13.142 10c-2.114 0-3.479-1.578-3.479-4s1.366-4 3.479-4c2.311 0 3.719 2.05 5.365 4-1.647 1.95-3.055 4-5.365 4zm13.142 0c-2.311 0-3.719-2.05-5.365-4 1.646-1.95 3.054-4 5.365-4 2.114 0 3.479 1.578 3.479 4s-1.365 4-3.479 4z"
+                              />
+                            </svg>
                             <span
                               class="text-xs text-gray-400"
-                              v-if="
+                              v-else-if="
                                 feature.subscriptions.every(
                                   ({ value }) => !value,
                                 )
@@ -628,7 +682,16 @@
                               aria-hidden="true"
                             />
                             <span class="sr-only">{{
-                              feature.subscriptions[index]?.value === true
+                              feature.subscriptions[index]?.value === null ||
+                              (typeof feature.subscriptions[index]?.value ===
+                                "undefined" &&
+                                feature.subscriptions[index]?.type === "limit")
+                                ? "Unlimited"
+                                : feature.subscriptions.every(
+                                    ({ value }) => !value,
+                                  )
+                                ? ""
+                                : feature.subscriptions[index]?.value === true
                                 ? "Yes"
                                 : "No"
                             }}</span>
@@ -737,7 +800,8 @@ const affiliateCookie = useCookie("affiliate", {
 const groups = [
   // Basics
   { group: "basics", limit: "users" },
-  { group: "basics", limit: "websites" },
+  { group: "basics", limit: "free_websites" },
+  { group: "basics", limit: "paid_websites" },
   { group: "basics", limit: "email_reports" },
 
   // Data
@@ -936,7 +1000,8 @@ const filteredSubscriptions = computed(() => {
         features,
         unique_features: features,
         limit_users: subscription.limit_users,
-        limit_websites: subscription.limit_websites,
+        limit_free_websites: subscription.limit_free_websites,
+        limit_paid_websites: subscription.limit_paid_websites,
         limit_email_reports: subscription.limit_email_reports,
         limit_look_back_days: subscription.limit_look_back_days,
         limit_data_retention_days: subscription.limit_data_retention_days,

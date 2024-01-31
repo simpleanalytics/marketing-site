@@ -320,8 +320,15 @@
         "number": "Up to <strong>{0}</strong> users",
         "one": "<strong>1</strong> user"
       },
-      "websites": {
-        "title": "Websites",
+      "free_websites": {
+        "title": "Free websites",
+        "unlimited": "Unlimited free websites",
+        "number": "Up to <strong>{0}</strong> free websites",
+        "one": "<strong>1</strong> free website"
+      },
+      "paid_websites": {
+        "title": "Paid websites",
+        "unlimited": "Unlimited websites",
         "number": "Up to <strong>{0}</strong> websites",
         "one": "<strong>1</strong> website"
       },
