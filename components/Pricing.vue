@@ -880,7 +880,7 @@ const clickEnterprise = () => {
   }
 };
 
-const goToWelcome = ({ plan, interval }) => {
+const goToWelcome = ({ plan }) => {
   const params = new URLSearchParams();
   if (currency?.value?.code) params.set("currency", currency.value.code);
   if (affiliate?.value?.slug) params.set("affiliate", affiliate?.value?.slug);
