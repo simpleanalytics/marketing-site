@@ -752,7 +752,6 @@ import {
 } from "@heroicons/vue/24/outline";
 import { ArrowLeftIcon } from "@heroicons/vue/24/solid";
 
-const { t } = useI18n();
 const theme = useTheme();
 const config = useRuntimeConfig();
 const { MAIN_URL } = config.public;
@@ -886,10 +885,16 @@ const goToWelcome = ({ plan, interval }) => {
   if (currency?.value?.code) params.set("currency", currency.value.code);
   if (affiliate?.value?.slug) params.set("affiliate", affiliate?.value?.slug);
   if (plan) params.set("plan", plan);
-  if (interval) params.set("interval", interval);
   if (theme.value === "dark") params.set("theme", "dark");
 
   const url = `${MAIN_URL}/welcome?${params}`;
+
+  // plan can be starter-monthly, business-yealy, etc
+  const interval = /monthly/.test(plan)
+    ? "monthly"
+    : /yearly/.test(plan)
+    ? "yearly"
+    : null;
 
   // Send event before redirecting to welcome page
   if (window.sa_event && window.sa_loaded) {
