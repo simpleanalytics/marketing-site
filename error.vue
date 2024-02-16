@@ -23,7 +23,11 @@ import { isProxy, toRaw } from "vue";
 
 const props = defineProps(["error"]);
 
-console.error("Error from Nuxt:", isProxy ? toRaw(props.error) : props.error);
+const error = isProxy ? toRaw(props.error) : props.error;
+
+if (error?.statusCode == 404 && error.statusMessage)
+  console.error("Error from Nuxt:", error.statusMessage);
+else console.warn("Error from Nuxt:", error);
 
 onMounted(() => {
   if (window.matchMedia("(prefers-color-scheme: dark)").matches)
