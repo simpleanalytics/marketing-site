@@ -23,9 +23,9 @@ import { isProxy, toRaw } from "vue";
 
 const props = defineProps(["error"]);
 
-const error = isProxy ? toRaw(props.error) : props.error;
+const error = isProxy(props.error) ? toRaw(props.error) : props.error;
 
-if (error?.statusCode == 404 && error.statusMessage)
+if (["404", 404].includes(error?.statusCode) && error.statusMessage)
   console.error("Error from Nuxt:", error.statusMessage);
 else console.warn("Error from Nuxt:", error);
 
