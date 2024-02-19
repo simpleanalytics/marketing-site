@@ -53,6 +53,33 @@ const locales = [
   },
 ];
 
+const prerender = [
+  "/",
+  "/nl",
+  "/de",
+  "/es",
+  "/fr",
+  "/it",
+  "/pricing",
+  "/nl/prijzen",
+  "/es/precios",
+  "/de/preise",
+  "/it/prezzi",
+  "/fr/tarifs",
+  "/ai",
+  "/resources",
+  "/glossaries",
+  "/utm-builder",
+  "/google-analytics-is-illegal-in-these-countries",
+  "/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics",
+  "/blog/why-simple-analytics-is-a-great-alternative-to-matomo",
+  "/blog/why-simple-analytics-is-a-great-alternative-to-plausible",
+  "/blog/why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics",
+].reduce((acc, route) => {
+  acc[route] = { prerender: true };
+  return acc;
+}, {});
+
 const BASE_URL = isProduction
   ? "https://www.simpleanalytics.com"
   : "http://localhost:3005";
@@ -83,26 +110,9 @@ export default defineNuxtConfig({
     public: env,
   },
   routeRules: {
-    "/": { prerender: true },
-    "/pricing": { prerender: true },
-    "/ai": { prerender: true },
-    "/resources": { prerender: true },
-    "/glossaries": { prerender: true },
-    "/utm-builder": { prerender: true },
-    "/google-analytics-is-illegal-in-these-countries": { prerender: true },
+    ...prerender,
     "/blog": { swr: seconds.hour },
     "/blog/**": { swr: seconds.day },
-    "/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics": {
-      prerender: true,
-    },
-    "/blog/why-simple-analytics-is-a-great-alternative-to-matomo": {
-      prerender: true,
-    },
-    "/blog/why-simple-analytics-is-a-great-alternative-to-plausible": {
-      prerender: true,
-    },
-    "/blog/why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics":
-      { prerender: true },
   },
   experimental: {
     treeshakeClientOnly: true,
