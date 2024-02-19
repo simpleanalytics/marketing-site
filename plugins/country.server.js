@@ -2,7 +2,7 @@ import { Reader } from "@maxmind/geoip2-node";
 import { readFileSync } from "fs";
 import { resolve } from "path";
 
-console.log(
+console.info(
   "country.server.js",
   JSON.stringify({
     __dirname,
