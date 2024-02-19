@@ -1,7 +1,17 @@
 import { Reader } from "@maxmind/geoip2-node";
 import { readFileSync } from "fs";
+import { resolve } from "path";
 
-const dbBuffer = readFileSync("server/data/geolite-country.mmdb");
+console.log(
+  "country.server.js",
+  JSON.stringify({
+    __dirname,
+    cwd: resolve.cwd(),
+    pwd: resolve.pwd(),
+  }),
+);
+
+const dbBuffer = readFileSync(resolve("server/data/geolite-country.mmdb"));
 
 const euroCountries = [
   // EU countries
