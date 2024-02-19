@@ -1,26 +1,10 @@
 import { Reader } from "@maxmind/geoip2-node";
-import { readFileSync, readdirSync } from "fs";
+import { readFileSync } from "fs";
 import { resolve } from "path";
 
-console.info(
-  "country.server.js",
-  JSON.stringify({
-    import: import.meta.url,
-    prerender: import.meta.prerender,
-    file: resolve("server/data/geolite-country.mmdb"),
-  }),
-);
-
-// log files recursively
-readdirSync(resolve("server")).forEach((file) => {
-  console.info({ server: file });
-});
-
-readdirSync(resolve("server/data")).forEach((file) => {
-  console.info({ data: file });
-});
-
-const dbBuffer = readFileSync(resolve("server/data/geolite-country.mmdb"));
+const dbBuffer = import.meta.prerender
+  ? null
+  : readFileSync(resolve("server/data/geolite-country.mmdb"));
 
 const euroCountries = [
   // EU countries
