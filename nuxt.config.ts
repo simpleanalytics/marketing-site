@@ -86,6 +86,10 @@ export default defineNuxtConfig({
     "/": { prerender: true },
     "/pricing": { prerender: true },
     "/ai": { prerender: true },
+    "/resources": { prerender: true },
+    "/glossaries": { prerender: true },
+    "/utm-builder": { prerender: true },
+    "/google-analytics-is-illegal-in-these-countries": { prerender: true },
     "/blog": { swr: seconds.hour },
     "/blog/**": { swr: seconds.day },
     "/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics": {
