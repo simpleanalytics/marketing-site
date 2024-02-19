@@ -3,6 +3,11 @@ import pages from "./router";
 
 const isProduction = process.env.NODE_ENV === "production";
 
+const seconds = {
+  hour: 3600,
+  day: 3600 * 24,
+};
+
 const locales = [
   {
     code: "en",
@@ -77,6 +82,12 @@ export default defineNuxtConfig({
     // Public keys that are exposed to the client
     public: env,
   },
+  routeRules: {
+    "/": { prerender: true },
+    "/pricing": { prerender: true },
+    "/blog": { swr: seconds.hour },
+    "/blog/**": { swr: seconds.day },
+  },
   experimental: {
     treeshakeClientOnly: true,
     writeEarlyHints: false,
@@ -89,11 +100,15 @@ export default defineNuxtConfig({
       viewport: "width=device-width, initial-scale=1",
     },
   },
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-      "postcss-hover-media-feature": {},
+  site: {
+    url: BASE_URL,
+    name: "Simple Analytics",
+  },
+  build: {
+    postcss: {
+      plugins: {
+        "postcss-hover-media-feature": {},
+      },
     },
   },
   modules: [
@@ -102,7 +117,9 @@ export default defineNuxtConfig({
     "nuxt-schema-org",
     "nuxt-security",
   ],
-  schemaOrg: { host: BASE_URL },
+  tailwindcss: {
+    viewer: false,
+  },
   i18n: {
     vueI18n: "./i18n.config.ts",
     baseUrl: BASE_URL,
@@ -111,7 +128,6 @@ export default defineNuxtConfig({
     defaultLocale: "en",
     langDir: "locales",
     customRoutes: "config",
-    dynamicRouteParams: true,
     pages,
     detectBrowserLanguage: {
       useCookie: true,

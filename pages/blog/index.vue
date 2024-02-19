@@ -139,8 +139,8 @@
                   post.excerpt?.length > 200
                     ? post.excerpt.substring(0, 200) + "..."
                     : [".", "?", "!"].includes(post.excerpt.trim().slice(-1))
-                    ? post.excerpt
-                    : post.excerpt + "."
+                      ? post.excerpt
+                      : post.excerpt + "."
                 }}
               </NuxtLink>
 
@@ -192,18 +192,17 @@ import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
 import SubscribeForm from "~/components/SubscribeForm.vue";
 import Avatar from "~/components/Avatar.vue";
 import { EyeSlashIcon, XCircleIcon } from "@heroicons/vue/24/outline";
-import { labelAgo, getAuthorFromSlug } from "~/utils/blog";
+import { labelAgo } from "~/utils/blog";
 
 const i18n = useI18n();
 const { t, locale } = i18n;
 const localePath = useLocalePath();
 const config = useRuntimeConfig();
-const { BASE_URL, NODE_ENV } = config.public;
+const { BASE_URL } = config.public;
 
 const isAdmin = useAdmin();
 
-const route = useRoute();
-const { articles, pending, error } = await useArticle({
+const { articles, pending } = await useArticle({
   routeName: "blog-slug",
   articleType: "blog",
   keys: ["coverImageWithText", "coverImageWithoutText"],

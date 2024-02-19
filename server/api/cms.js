@@ -1,6 +1,10 @@
 import { marked } from "marked";
+import { gfmHeadingId } from "marked-gfm-heading-id";
 import { parse as qsParse, stringify as qsStringify } from "qs";
 import hljs from "highlight.js";
+
+marked.use(gfmHeadingId());
+marked.use({ gfm: true });
 
 const TYPES = {
   articles: {
@@ -272,10 +276,7 @@ const preconvert = (
   );
 
   // Convert markdown to html
-  let html = marked(markdown, {
-    headerIds: true,
-    gfm: true,
-  });
+  let html = marked.parse(markdown);
 
   // Replace external links with target="_blank"
   html = html.replace(

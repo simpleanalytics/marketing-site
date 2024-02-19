@@ -1282,9 +1282,7 @@
           "
         ></div>
 
-        <IconsAiChat
-          class="mx-auto mt-12 h-12 fill-red-500 dark:fill-red-600"
-        />
+        <AIChatIcon class="mx-auto mt-12 h-12 fill-red-500 dark:fill-red-600" />
 
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"

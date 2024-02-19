@@ -104,8 +104,10 @@ export const useArticle = async ({
     };
   });
 
+  let languages = {};
+
   try {
-    const languages = articles?.value?.[0]?.languages;
+    languages = articles?.value?.[0]?.languages;
     if (languages && slug) {
       if (typeof localePath !== "function")
         throw new Error("localePath is not defined in article composable");
@@ -117,8 +119,6 @@ export const useArticle = async ({
         });
         navigateTo(path, { redirectCode: 307 }); // 308 Permanent Redirect
       }
-
-      route.meta.nuxtI18n = languages;
     }
   } catch (error) {
     console.error(error);
@@ -129,5 +129,6 @@ export const useArticle = async ({
     articles,
     pending,
     error,
+    languages,
   };
 };

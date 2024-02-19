@@ -53,12 +53,16 @@
 import {
   Listbox,
   ListboxButton,
-  ListboxLabel,
   ListboxOption,
   ListboxOptions,
+  provideUseId,
 } from "@headlessui/vue";
-import { CheckIcon, ChevronDownIcon } from "@heroicons/vue/24/solid";
+import { ChevronDownIcon } from "@heroicons/vue/24/solid";
 import EuropeanFlag from "./logos/EuropeanFlag.vue";
+
+// Fix for hydration errors based on wrong IDs
+// See https://github.com/tailwindlabs/headlessui/issues/2913
+provideUseId(() => useId());
 
 const { locale, locales, setLocale, getBrowserLocale } = useI18n();
 

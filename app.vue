@@ -266,8 +266,8 @@
                                   !item.href
                                     ? undefined
                                     : /^https?:\/\//.test(item.href)
-                                    ? item.href
-                                    : localePath(item.href)
+                                      ? item.href
+                                      : localePath(item.href)
                                 "
                                 :to="
                                   item.to
@@ -891,8 +891,12 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
-
-import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
+import {
+  Popover,
+  PopoverButton,
+  PopoverPanel,
+  provideUseId,
+} from "@headlessui/vue";
 import { ChevronDownIcon } from "@heroicons/vue/24/solid";
 import {
   Bars3Icon,
@@ -904,7 +908,6 @@ import {
   EyeSlashIcon,
   CreditCardIcon,
   BookOpenIcon,
-  MapPinIcon,
   ClipboardDocumentCheckIcon,
   NewspaperIcon,
   AcademicCapIcon,
@@ -932,6 +935,10 @@ import { labelAgo } from "./utils/blog";
 const route = useRoute();
 const config = useRuntimeConfig();
 const { BASE_URL, MAIN_URL, NODE_ENV /*, CDN_URL*/ } = config.public;
+
+// Fix for hydration errors based on wrong IDs
+// See https://github.com/tailwindlabs/headlessui/issues/2913
+provideUseId(() => useId());
 
 const localePath = useLocalePath();
 
@@ -1029,8 +1036,8 @@ const head = {
     route.meta.title?.includes("Simple Analytics")
       ? route.meta.title
       : route.meta.title
-      ? `${route.meta.title} - Simple Analytics`
-      : "Simple Analytics",
+        ? `${route.meta.title} - Simple Analytics`
+        : "Simple Analytics",
   link,
   script: scripts,
   meta: () => [

@@ -254,7 +254,7 @@ const localePath = useLocalePath();
 
 const isAdmin = useAdmin();
 
-const { article, pending, error } = await useArticle({
+const { article, languages, error } = await useArticle({
   keys: [
     "contentHtml",
     "languages",
@@ -272,6 +272,9 @@ const { article, pending, error } = await useArticle({
   drafts: props.drafts,
   useLocale: props.useLocale,
 });
+
+const setI18nParams = useSetI18nParams();
+setI18nParams(languages);
 
 if (!article?.value && process.server) {
   setResponseStatus(event, 404, "Page Not Found");
@@ -366,8 +369,8 @@ const breadcrumb = {
         part === "keyterms"
           ? "key-terms"
           : part === "googleanalytics"
-          ? "google-analytics"
-          : part;
+            ? "google-analytics"
+            : part;
       const sliced = routeParts.slice(0, routeParts.indexOf(part) + 1);
       const pathName = sliced
         .join("-")
