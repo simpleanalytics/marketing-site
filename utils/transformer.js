@@ -77,14 +77,14 @@ const getMedia = (media) => {
   const alt = alternativeText
     ? alternativeText
     : caption
-    ? caption
-    : name
-    ? name
-        .replace(/(\-no\-text|\-text)/g, "")
-        .split("-")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ")
-    : null;
+      ? caption
+      : name
+        ? name
+            .replace(/(\-no\-text|\-text)/g, "")
+            .split("-")
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(" ")
+        : null;
 
   const small = formats.small?.url;
   const medium = formats.medium?.url;

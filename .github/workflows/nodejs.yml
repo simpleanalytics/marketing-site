@@ -38,7 +38,7 @@ jobs:
         uses: creyD/prettier_action@v4.3
         with:
           dry: true
-          prettier_version: "3.0.3"
+          prettier_version: "3.2.5"
           prettier_options: "--check --write {,!(static|.github)/**/}*.{js,vue,html,json,md,yml,css,scss}"
           commit_message: "Run prettier via GitHub Action"
           file_pattern: "."

@@ -8,18 +8,18 @@
         ? 'ring-8 bg-orange-200 ring-orange-200 dark:bg-orange-900 dark:ring-orange-900' +
           (enable ? ' enabled' : '')
         : didSucceed
-        ? 'ring-8 bg-green-200 ring-green-200 dark:bg-green-900 dark:ring-green-900' +
-          (enable ? ' enabled' : '')
-        : didError
-        ? 'ring-8 bg-red-200 ring-red-200 dark:bg-red-900 dark:ring-red-900' +
-          (enable ? ' enabled' : '')
-        : editing
-        ? 'ring-8 bg-blue-200 ring-blue-200 dark:bg-gray-900 dark:ring-gray-900' +
-          (enable ? ' enabled' : '')
-        : enable
-        ? 'hover:ring-8 hover:bg-blue-100 hover:ring-blue-100 dark:hover:bg-gray-700  dark:hover:ring-gray-700' +
-          (enable ? ' enabled' : '')
-        : ''
+          ? 'ring-8 bg-green-200 ring-green-200 dark:bg-green-900 dark:ring-green-900' +
+            (enable ? ' enabled' : '')
+          : didError
+            ? 'ring-8 bg-red-200 ring-red-200 dark:bg-red-900 dark:ring-red-900' +
+              (enable ? ' enabled' : '')
+            : editing
+              ? 'ring-8 bg-blue-200 ring-blue-200 dark:bg-gray-900 dark:ring-gray-900' +
+                (enable ? ' enabled' : '')
+              : enable
+                ? 'hover:ring-8 hover:bg-blue-100 hover:ring-blue-100 dark:hover:bg-gray-700  dark:hover:ring-gray-700' +
+                  (enable ? ' enabled' : '')
+                : ''
     "
     ><span
       :contenteditable="contenteditable"
@@ -29,10 +29,10 @@
         parent === 'blockquote'
           ? ''
           : tag === 'p'
-          ? 'block'
-          : /^h[0-9]$/.test(tag)
-          ? 'inline'
-          : 'inline-block'
+            ? 'block'
+            : /^h[0-9]$/.test(tag)
+              ? 'inline'
+              : 'inline-block'
       "
       ><slot></slot></span
     ><span
@@ -43,8 +43,8 @@
         didSucceed
           ? `dark:bg-green-800 bg-green-100 visible`
           : didError
-          ? `dark:bg-red-800 bg-red-100 visible`
-          : `dark:bg-gray-900 bg-blue-200 ${editing ? 'visible' : 'invisible'}`
+            ? `dark:bg-red-800 bg-red-100 visible`
+            : `dark:bg-gray-900 bg-blue-200 ${editing ? 'visible' : 'invisible'}`
       "
       @click="toggleEditing"
       ><svg
@@ -54,8 +54,8 @@
           didSucceed
             ? 'dark:fill-gray-900 fill-green-500'
             : didError
-            ? 'dark:fill-gray-900 fill-red-500'
-            : 'dark:fill-blue-300 fill-blue-800'
+              ? 'dark:fill-gray-900 fill-red-500'
+              : 'dark:fill-blue-300 fill-blue-800'
         "
         xmlns="http://www.w3.org/2000/svg"
       >

@@ -72,10 +72,10 @@ export default defineEventHandler(async (event) => {
     locale === "it"
       ? users.carlo
       : author?.includes("adriaan")
-      ? users.adriaan
-      : author?.includes("carlo")
-      ? users.carlo
-      : users.iron;
+        ? users.adriaan
+        : author?.includes("carlo")
+          ? users.carlo
+          : users.iron;
 
   const cms = `https://cms.simpleanalytics.com/admin/content-manager/collectionType/api::article.article/${articleId}`;
 

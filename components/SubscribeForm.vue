@@ -140,10 +140,10 @@ const onSubmit = async () => {
     newsletter.value && notify.value
       ? "newsletter,notify"
       : newsletter.value
-      ? "newsletter"
-      : notify.value
-      ? "notify"
-      : null;
+        ? "newsletter"
+        : notify.value
+          ? "notify"
+          : null;
 
   // Select at least one checkbox
   if (!type) return setError("blog.subscribe.errors.select_at_least_one");
