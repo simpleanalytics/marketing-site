@@ -5,7 +5,7 @@ import { resolve } from "path";
 console.info(
   "country.server.js",
   JSON.stringify({
-    __dirname,
+    import: import.meta.url,
     cwd: resolve.cwd(),
     pwd: resolve.pwd(),
   }),
