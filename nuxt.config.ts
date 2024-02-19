@@ -85,8 +85,20 @@ export default defineNuxtConfig({
   routeRules: {
     "/": { prerender: true },
     "/pricing": { prerender: true },
+    "/ai": { prerender: true },
     "/blog": { swr: seconds.hour },
     "/blog/**": { swr: seconds.day },
+    "/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics": {
+      prerender: true,
+    },
+    "/blog/why-simple-analytics-is-a-great-alternative-to-matomo": {
+      prerender: true,
+    },
+    "/blog/why-simple-analytics-is-a-great-alternative-to-plausible": {
+      prerender: true,
+    },
+    "/blog/why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics":
+      { prerender: true },
   },
   experimental: {
     treeshakeClientOnly: true,
