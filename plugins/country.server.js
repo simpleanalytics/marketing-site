@@ -6,10 +6,18 @@ console.info(
   "country.server.js",
   JSON.stringify({
     import: import.meta.url,
-    cwd: resolve.cwd(),
-    pwd: resolve.pwd(),
+    file: resolve("server/data/geolite-country.mmdb"),
   }),
 );
+
+// log files recursively
+fs.readdirSync(resolve("server")).forEach((file) => {
+  console.info({ server: file });
+});
+
+fs.readdirSync(resolve("server/data")).forEach((file) => {
+  console.info({ data: file });
+});
 
 const dbBuffer = readFileSync(resolve("server/data/geolite-country.mmdb"));
 
