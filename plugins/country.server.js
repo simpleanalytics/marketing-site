@@ -1,21 +1,22 @@
 import { Reader } from "@maxmind/geoip2-node";
-import { readFileSync } from "fs";
+import { readFileSync, readdirSync } from "fs";
 import { resolve } from "path";
 
 console.info(
   "country.server.js",
   JSON.stringify({
     import: import.meta.url,
+    prerender: import.meta.prerender,
     file: resolve("server/data/geolite-country.mmdb"),
   }),
 );
 
 // log files recursively
-fs.readdirSync(resolve("server")).forEach((file) => {
+readdirSync(resolve("server")).forEach((file) => {
   console.info({ server: file });
 });
 
-fs.readdirSync(resolve("server/data")).forEach((file) => {
+readdirSync(resolve("server/data")).forEach((file) => {
   console.info({ data: file });
 });
 
