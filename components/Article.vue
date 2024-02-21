@@ -79,7 +79,7 @@
               <NuxtLink
                 v-if="article?.id"
                 class="text-orange-500 dark:text-orange-200 bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded-lg underline"
-                :to="`https://cms.simpleanalytics.com/admin/content-manager/collectionType/api::article.article/${article.id}?plugins[i18n][locale]=${article.locale}`"
+                :to="`https://cms.simpleanalytics.com/admin/content-manager/collection-types/api::article.article/${article.id}?plugins[i18n][locale]=${article.locale}`"
                 target="_blank"
                 >Edit in CMS</NuxtLink
               >
@@ -186,7 +186,7 @@
         {{
           article.ctaTitle && article.ctaDescription
             ? article.ctaTitle
-            : $t(`ctas.${ctaTranslation}.title`)
+            : $t(`ctas.import_ga_after_july.title`)
         }}
       </h2>
       <p
@@ -195,7 +195,7 @@
         {{
           article.ctaTitle && article.ctaDescription
             ? article.ctaDescription
-            : $t(`ctas.${ctaTranslation}.description`)
+            : $t(`ctas.import_ga_after_july.description`)
         }}
       </p>
       <a
@@ -204,16 +204,16 @@
             title:
               article.ctaTitle && article.ctaDescription
                 ? article.ctaTitle
-                : $t(`ctas.${ctaTranslation}.title`),
+                : $t(`ctas.import_ga_after_july.title`),
             description:
               article.ctaTitle && article.ctaDescription
                 ? article.ctaDescription
-                : $t(`ctas.${ctaTranslation}.description`),
-            button: article.ctaButton || $t(`ctas.${ctaTranslation}.button`),
+                : $t(`ctas.import_ga_after_july.description`),
+            button: article.ctaButton || $t(`ctas.import_ga_after_july.button`),
           })
         "
         class="button white-bg mt-5"
-        >{{ article.ctaButton || $t(`ctas.${ctaTranslation}.button`) }}</a
+        >{{ article.ctaButton || $t(`ctas.import_ga_after_july.button`) }}</a
       >
     </MovingGradient>
 
@@ -424,27 +424,30 @@ const breadcrumb = {
   ),
 };
 
-if (article?.value?.question) {
-  useSchemaOrg([
-    defineWebPage({ "@type": "FAQPage" }),
-    defineQuestion({
-      name: article.value.question,
-      acceptedAnswer: article.value.content,
-    }),
-    defineBreadcrumb(breadcrumb),
-  ]);
-} else {
-  useSchemaOrg([defineBreadcrumb(breadcrumb)]);
-}
+// We got this error in the Google Search Console:
+// Either "name" or "item.name" should be specified (in "itemListElement")
+// Items with this issue are invalid. Invalid items are not eligible for Google Search's rich results
+// https://developers.google.com/search/docs/appearance/structured-data/breadcrumb#list-item
+const isBreadcrumbComplete =
+  !!breadcrumb.itemListElement[breadcrumb.itemListElement.length - 1]?.name;
+
+const schemas = article?.value?.question
+  ? [
+      defineWebPage({ "@type": "FAQPage" }),
+      defineQuestion({
+        name: article.value.question,
+        acceptedAnswer: article.value.content,
+      }),
+    ]
+  : [];
+
+if (isBreadcrumbComplete) schemas.push(defineBreadcrumb(breadcrumb));
+
+if (schemas.length) useSchemaOrg(schemas);
 
 const getTypeFromArticleName = () => {
   if (props.name.includes("resources")) return "resources";
   else if (props.name.includes("utm-builder")) return "utm-builder";
   else return "glossary";
 };
-
-const ctaTranslation =
-  new Date() < new Date(2023, 6, 1)
-    ? "import_ga_before_july"
-    : "import_ga_after_july";
 </script>

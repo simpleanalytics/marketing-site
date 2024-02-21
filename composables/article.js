@@ -9,7 +9,6 @@ export const useArticle = async ({
   drafts = false,
   limit = 1000,
 }) => {
-  const route = useRoute();
   const { locale } = useI18n();
   const localePath = useLocalePath();
   const event = useRequestEvent();
@@ -94,6 +93,13 @@ export const useArticle = async ({
         limit,
       }),
   });
+
+  if (!articles.value.length && !pending.value) {
+    setResponseStatus(event, 404);
+  }
+  if (error.value) {
+    setResponseStatus(event, 500);
+  }
 
   const article = computed(() => {
     if (!articles?.value?.[0]) return {};

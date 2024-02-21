@@ -77,7 +77,7 @@ export default defineEventHandler(async (event) => {
           ? users.carlo
           : users.iron;
 
-  const cms = `https://cms.simpleanalytics.com/admin/content-manager/collectionType/api::article.article/${articleId}`;
+  const cms = `https://cms.simpleanalytics.com/admin/content-manager/collection-types/api::article.article/${articleId}`;
 
   const changes = diff.reduce((changes, [operation, text]) => {
     if (operation === 0) return changes;

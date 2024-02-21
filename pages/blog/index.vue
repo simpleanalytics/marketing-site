@@ -19,7 +19,7 @@
         <div class="space-x-2">
           <NuxtLink
             class="text-orange-500 dark:text-orange-700 bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded-lg underline"
-            :to="`https://cms.simpleanalytics.com/admin/content-manager/collectionType/api::article.article?page=1&pageSize=50&sort=updatedAt:DESC&plugins[i18n][locale]=${locale}&filters[$and][0][articleType][$eq]=blog`"
+            :to="`https://cms.simpleanalytics.com/admin/content-manager/collection-types/api::article.article?page=1&pageSize=50&sort=updatedAt:DESC&plugins[i18n][locale]=${locale}&filters[$and][0][articleType][$eq]=blog`"
             target="_blank"
             >Go to CMS</NuxtLink
           >
