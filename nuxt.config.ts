@@ -112,7 +112,17 @@ export default defineNuxtConfig({
   routeRules: {
     ...prerender,
     "/blog": { swr: seconds.hour },
+    "/nl/blog": { swr: seconds.hour },
+    "/de/blog": { swr: seconds.hour },
+    "/es/blog": { swr: seconds.hour },
+    "/fr/blog": { swr: seconds.hour },
+    "/it/blog": { swr: seconds.hour },
     "/blog/**": { swr: seconds.day },
+    "/nl/blog/**": { swr: seconds.day },
+    "/de/blog/**": { swr: seconds.day },
+    "/es/blog/**": { swr: seconds.day },
+    "/fr/blog/**": { swr: seconds.day },
+    "/it/blog/**": { swr: seconds.day },
   },
   experimental: {
     treeshakeClientOnly: true,
