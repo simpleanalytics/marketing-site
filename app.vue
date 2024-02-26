@@ -294,7 +294,7 @@
                               </PopoverButton>
                             </div>
                             <div
-                              class="px-5 py-5 bg-blue-100 dark:bg-gray-700 sm:px-8 sm:py-8"
+                              class="hidden px-5 py-5 bg-blue-100 dark:bg-gray-700 sm:px-8 sm:py-8"
                               v-if="pending || recentPosts?.length"
                             >
                               <div>
@@ -794,7 +794,7 @@
               </ul>
             </div>
 
-            <div class="mb-10 lg:mb-0 lg:row-span-3 max-w-[400px]">
+            <div class="hidden mb-10 lg:mb-0 lg:row-span-3 max-w-[400px]">
               <h5
                 class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
               >
@@ -1088,13 +1088,16 @@ if (process.client) {
     });
 }
 
-const { articles: recentPosts, pending } = await useArticle({
-  routeName: "blog-slug",
-  articleType: "blog",
-  keys: ["coverImageWithText", "coverImageWithoutText"],
-  limit: 3,
-  useLocale: true,
-});
+const pending = false;
+const recentPosts = [];
+
+// const { articles: recentPosts, pending } = await useArticle({
+//   routeName: "blog-slug",
+//   articleType: "blog",
+//   keys: ["coverImageWithText", "coverImageWithoutText"],
+//   limit: 3,
+//   useLocale: true,
+// });
 
 onMounted(() => {
   const title = document.title;
