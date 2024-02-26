@@ -97,9 +97,9 @@ export const useArticle = async ({
   if (!articles.value.length && !pending.value) {
     setResponseStatus(event, 404);
   }
-  if (error.value) {
-    setResponseStatus(event, 500);
-  }
+  // if (error.value) {
+  //   setResponseStatus(event, 500);
+  // }
 
   const article = computed(() => {
     if (!articles?.value?.[0]) return {};
