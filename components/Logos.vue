@@ -27,7 +27,7 @@ import HomeyLogo from "../components/logos/Homey.vue";
 import AllesBesteLogo from "../components/logos/AllesBeste.vue";
 import TrustlyLogo from "../components/logos/Trustly.vue";
 import CleanshotLogo from "../components/logos/Cleanshot.vue";
-import GFLLogo from "../components/logos/GFL.v
+import GFLLogo from "../components/logos/GFL.vue";
 
 import HavasMediaLogo from "../components/logos/HavasMedia.vue";
 import GovScotLogo from "../components/logos/GovScot.vue";
