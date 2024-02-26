@@ -117,12 +117,6 @@ const list = [
     component: GFLLogo,
     countries: ["ca", "us"],
   },
-  {
-    name: "Bannerbear",
-    url: "https://www.bannerbear.com/",
-    component: BannerbearLogo,
-    class: "col-span-2 sm:col-auto",
-  },
 ];
 
 const filtered = props.limit ? [...list].slice(0, props.limit) : list;

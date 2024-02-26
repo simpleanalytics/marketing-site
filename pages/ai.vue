@@ -166,19 +166,6 @@
             </a>
             <a
               class="w-full sm:w-1/2 lg:w-1/3 p-4 group cursor-pointer"
-              href="https://simpleanalytics.com/ai/bannerbear.com"
-              target="_blank"
-            >
-              <div
-                class="bg-blue-100 dark:bg-gray-700 p-4 rounded-lg transform transition-transform group-hover:scale-105"
-              >
-                <LogosBannerbear class="h-16 w-auto mx-auto mt-4 mb-6" />
-                <h2 class="text-lg font-semibold mb-2">Bannerbear</h2>
-                <p>API for social media images</p>
-              </div>
-            </a>
-            <a
-              class="w-full sm:w-1/2 lg:w-1/3 p-4 group cursor-pointer"
               href="https://simpleanalytics.com/ai/nomadlist.com"
               target="_blank"
             >
