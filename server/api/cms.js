@@ -264,7 +264,10 @@ const preconvert = (
           ? hljs.highlight(nonCode, { language })?.value
           : hljs.highlightAuto(nonCode)?.value;
 
-        return `<pre class="not-prose bg-gray-100 dark:bg-gray-700"><code class="hljs">${code}</code></pre>`;
+        // Remove first and last \n
+        const trimmedCode = code.replace(/^\n/, "").replace(/\n$/, "");
+
+        return `<pre class="not-prose px-2 py-1 rounded-lg whitespace-pre-wrap text-base bg-gray-100 dark:bg-gray-700"><code class="hljs">${trimmedCode}</code></pre>`;
       }
     })
     .join("");
