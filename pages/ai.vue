@@ -149,7 +149,9 @@
           <h2 class="text-2xl md:text-3xl font-medium mt-8">
             Play with public data yourself
           </h2>
-          <p class="mt-4">Opens a Simple Analytics' chat window in a new tab</p>
+          <p class="mt-4">
+            Opens a Simple Analytics' AI chat window in a new tab
+          </p>
           <div class="-mx-4 mt-5 flex flex-wrap">
             <a
               class="w-full sm:w-1/2 lg:w-1/3 p-4 group cursor-pointer"
@@ -159,9 +161,9 @@
               <div
                 class="bg-blue-100 dark:bg-gray-700 p-4 rounded-lg transform transition-transform group-hover:scale-105"
               >
-                <LogosSimpleAnalytics class="h-20 w-auto mx-auto mt-2 mb-4" />
+                <SimpleAnalyticsLogo class="h-20 w-auto mx-auto mt-2 mb-4" />
                 <h2 class="text-lg font-semibold mb-2">Simple Analytics</h2>
-                <p>Privacy-first web analytics</p>
+                <p>Play with our own public data</p>
               </div>
             </a>
             <a
@@ -172,10 +174,24 @@
               <div
                 class="bg-blue-100 dark:bg-gray-700 p-4 rounded-lg transform transition-transform group-hover:scale-105"
               >
-                <LogosNomadList class="h-20 w-auto mx-auto mt-2 mb-4" />
+                <NomadListLogo class="h-20 w-auto mx-auto mt-2 mb-4" />
 
                 <h2 class="text-lg font-semibold mb-2">Nomad List</h2>
                 <p>Find cities to live remotely</p>
+              </div>
+            </a>
+            <a
+              class="w-full sm:w-1/2 lg:w-1/3 p-4 group cursor-pointer"
+              href="https://simpleanalytics.com/ai/wip.co"
+              target="_blank"
+            >
+              <div
+                class="bg-blue-100 dark:bg-gray-700 p-4 rounded-lg transform transition-transform group-hover:scale-105"
+              >
+                <WipLogo class="h-20 w-auto mx-auto mt-2 mb-4" />
+
+                <h2 class="text-lg font-semibold mb-2">WIP</h2>
+                <p>Makers shipping together</p>
               </div>
             </a>
           </div>
@@ -194,6 +210,9 @@
 <script setup>
 import { ref, watch, nextTick, computed } from "vue";
 import BackgroundChart from "~/components/images/BackgroundChart.vue";
+import WipLogo from "~/components/logos/Wip.vue";
+import NomadListLogo from "~/components/logos/NomadList.vue";
+import SimpleAnalyticsLogo from "~/components/logos/SimpleAnalytics.vue";
 
 definePageMeta({
   title: "Simple Analytics' AI",

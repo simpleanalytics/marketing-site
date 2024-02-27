@@ -34,6 +34,7 @@ import GovScotLogo from "../components/logos/GovScot.vue";
 import GovUKLogo from "../components/logos/GovUK.vue";
 import HyundaiLogo from "../components/logos/Hyundai.vue";
 import BankOfEnglandLogo from "../components/logos/BankOfEngland.vue";
+import WipLogo from "../components/logos/Wip.vue";
 
 const props = defineProps(["limit", "tooltipclass", "imageclass"]);
 
@@ -42,6 +43,7 @@ const list = [
     name: "Bank of England",
     url: "https://www.bankofengland.co.uk/",
     component: BankOfEnglandLogo,
+    countries: ["uk"],
   },
   {
     name: "Michelin",
@@ -115,6 +117,12 @@ const list = [
     url: "https://gflenv.com/",
     component: GFLLogo,
     countries: ["ca", "us"],
+  },
+  {
+    name: "Work in Progress",
+    url: "https://wip.co/",
+    component: WipLogo,
+    countries: ["nl"],
   },
 ];
 
