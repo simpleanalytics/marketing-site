@@ -77,14 +77,14 @@ const getMedia = (media) => {
   const alt = alternativeText
     ? alternativeText
     : caption
-    ? caption
-    : name
-    ? name
-        .replace(/(\-no\-text|\-text)/g, "")
-        .split("-")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ")
-    : null;
+      ? caption
+      : name
+        ? name
+            .replace(/(\-no\-text|\-text)/g, "")
+            .split("-")
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(" ")
+        : null;
 
   const small = formats.small?.url;
   const medium = formats.medium?.url;
@@ -121,7 +121,8 @@ export default ({ data, locale = "en", keys = [], limit }) => {
   const filterAttributes = (attributes) => {
     const filtered = {};
     keys.forEach((key) => {
-      if (attributes[key]) filtered[key] = attributes[key];
+      if (typeof attributes[key] !== "undefined" && attributes[key] !== null)
+        filtered[key] = attributes[key];
     });
     return filtered;
   };

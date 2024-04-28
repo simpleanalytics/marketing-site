@@ -76,8 +76,8 @@
               :key="index"
               :class="
                 chatItem.type === 'question'
-                  ? 'question rounded-lg px-4 py-3 bg-[#e6f2dd] dark:bg-gray-700 mr-auto mb-6 md:max-w-[70%] max-w-[90%]'
-                  : 'answer rounded-lg px-4 py-3 md:max-w-[70%] max-w-[90%] ml-auto bg-[#eef9ff] dark:bg-gray-800 mb-6'
+                  ? 'question rounded-lg px-4 py-3 bg-[#e6f2dd] dark:bg-gray-700 ml-auto mb-6 md:max-w-[70%] max-w-[90%]'
+                  : 'answer rounded-lg px-4 py-3 md:max-w-[70%] max-w-[90%] mr-auto bg-[#eef9ff] dark:bg-gray-800 mb-6'
               "
             >
               <p v-if="chatItem.text">{{ chatItem.text }}</p>
@@ -105,7 +105,7 @@
             >
               <p>Hi there 👋</p>
               <p class="mt-2">
-                I'm am the Simple Analytics' AI and here to help you with your
+                I'm the Simple Analytics' AI and here to help you with your
                 data.
               </p>
               <p>
@@ -149,7 +149,9 @@
           <h2 class="text-2xl md:text-3xl font-medium mt-8">
             Play with public data yourself
           </h2>
-          <p class="mt-4">Opens a Simple Analytics' chat window in a new tab</p>
+          <p class="mt-4">
+            Opens a Simple Analytics' AI chat window in a new tab
+          </p>
           <div class="-mx-4 mt-5 flex flex-wrap">
             <a
               class="w-full sm:w-1/2 lg:w-1/3 p-4 group cursor-pointer"
@@ -159,22 +161,9 @@
               <div
                 class="bg-blue-100 dark:bg-gray-700 p-4 rounded-lg transform transition-transform group-hover:scale-105"
               >
-                <LogosSimpleAnalytics class="h-20 w-auto mx-auto mt-2 mb-4" />
+                <SimpleAnalyticsLogo class="h-20 w-auto mx-auto mt-2 mb-4" />
                 <h2 class="text-lg font-semibold mb-2">Simple Analytics</h2>
-                <p>Privacy-first web analytics</p>
-              </div>
-            </a>
-            <a
-              class="w-full sm:w-1/2 lg:w-1/3 p-4 group cursor-pointer"
-              href="https://simpleanalytics.com/ai/bannerbear.com"
-              target="_blank"
-            >
-              <div
-                class="bg-blue-100 dark:bg-gray-700 p-4 rounded-lg transform transition-transform group-hover:scale-105"
-              >
-                <LogosBannerbear class="h-16 w-auto mx-auto mt-4 mb-6" />
-                <h2 class="text-lg font-semibold mb-2">Bannerbear</h2>
-                <p>API for social media images</p>
+                <p>Play with our own public data</p>
               </div>
             </a>
             <a
@@ -185,10 +174,24 @@
               <div
                 class="bg-blue-100 dark:bg-gray-700 p-4 rounded-lg transform transition-transform group-hover:scale-105"
               >
-                <LogosNomadList class="h-20 w-auto mx-auto mt-2 mb-4" />
+                <NomadListLogo class="h-20 w-auto mx-auto mt-2 mb-4" />
 
                 <h2 class="text-lg font-semibold mb-2">Nomad List</h2>
                 <p>Find cities to live remotely</p>
+              </div>
+            </a>
+            <a
+              class="w-full sm:w-1/2 lg:w-1/3 p-4 group cursor-pointer"
+              href="https://simpleanalytics.com/ai/wip.co"
+              target="_blank"
+            >
+              <div
+                class="bg-blue-100 dark:bg-gray-700 p-4 rounded-lg transform transition-transform group-hover:scale-105"
+              >
+                <WipLogo class="h-20 w-auto mx-auto mt-2 mb-4" />
+
+                <h2 class="text-lg font-semibold mb-2">WIP</h2>
+                <p>Makers shipping together</p>
               </div>
             </a>
           </div>
@@ -207,11 +210,29 @@
 <script setup>
 import { ref, watch, nextTick, computed } from "vue";
 import BackgroundChart from "~/components/images/BackgroundChart.vue";
+import WipLogo from "~/components/logos/Wip.vue";
+import NomadListLogo from "~/components/logos/NomadList.vue";
+import SimpleAnalyticsLogo from "~/components/logos/SimpleAnalytics.vue";
 
 definePageMeta({
   title: "Simple Analytics' AI",
   description:
     "Chat with your analytics data and generate insights and beautiful charts.",
+  image: "https://assets.simpleanalytics.com/social-media/ai-social-image.png",
+});
+
+useSeoMeta({
+  title: "Simple Analytics' AI - Chat with your analytics",
+  ogTitle: "Simple Analytics' AI - Chat with your analytics",
+  description:
+    "Chat with your analytics data and generate insights and beautiful charts.",
+  ogDescription:
+    "Chat with your analytics data and generate insights and beautiful charts.",
+  ogImage:
+    "https://assets.simpleanalytics.com/social-media/ai-social-image.png",
+  twitterImage:
+    "https://assets.simpleanalytics.com/social-media/ai-social-image.png",
+  twitterCard: "summary_large_image",
 });
 
 const tColorsRed = [`<span class='text-red-500 dark:text-red-600'>`, `</span>`];

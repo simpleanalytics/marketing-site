@@ -3,6 +3,11 @@ import pages from "./router";
 
 const isProduction = process.env.NODE_ENV === "production";
 
+const seconds = {
+  hour: 3600,
+  day: 3600 * 24,
+};
+
 const locales = [
   {
     code: "en",
@@ -48,6 +53,33 @@ const locales = [
   },
 ];
 
+const prerender = [
+  "/",
+  "/nl",
+  "/de",
+  "/es",
+  "/fr",
+  "/it",
+  "/pricing",
+  "/nl/prijzen",
+  "/es/precios",
+  "/de/preise",
+  "/it/prezzi",
+  "/fr/tarifs",
+  "/ai",
+  "/resources",
+  "/glossaries",
+  "/utm-builder",
+  "/google-analytics-is-illegal-in-these-countries",
+  "/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics",
+  "/blog/why-simple-analytics-is-a-great-alternative-to-matomo",
+  "/blog/why-simple-analytics-is-a-great-alternative-to-plausible",
+  "/blog/why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics",
+].reduce((acc, route) => {
+  acc[route] = { prerender: true };
+  return acc;
+}, {});
+
 const BASE_URL = isProduction
   ? "https://www.simpleanalytics.com"
   : "http://localhost:3005";
@@ -77,6 +109,23 @@ export default defineNuxtConfig({
     // Public keys that are exposed to the client
     public: env,
   },
+  routeRules: isProduction
+    ? {
+        ...prerender,
+        "/blog": { swr: seconds.hour },
+        "/nl/blog": { swr: seconds.hour },
+        "/de/blog": { swr: seconds.hour },
+        "/es/blog": { swr: seconds.hour },
+        "/fr/blog": { swr: seconds.hour },
+        "/it/blog": { swr: seconds.hour },
+        "/blog/**": { swr: seconds.day },
+        "/nl/blog/**": { swr: seconds.day },
+        "/de/blog/**": { swr: seconds.day },
+        "/es/blog/**": { swr: seconds.day },
+        "/fr/blog/**": { swr: seconds.day },
+        "/it/blog/**": { swr: seconds.day },
+      }
+    : {},
   experimental: {
     treeshakeClientOnly: true,
     writeEarlyHints: false,
@@ -89,11 +138,15 @@ export default defineNuxtConfig({
       viewport: "width=device-width, initial-scale=1",
     },
   },
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-      "postcss-hover-media-feature": {},
+  site: {
+    url: "https://simpleanalytics.com",
+    name: "Simple Analytics",
+  },
+  build: {
+    postcss: {
+      plugins: {
+        "postcss-hover-media-feature": {},
+      },
     },
   },
   modules: [
@@ -102,7 +155,9 @@ export default defineNuxtConfig({
     "nuxt-schema-org",
     "nuxt-security",
   ],
-  schemaOrg: { host: BASE_URL },
+  tailwindcss: {
+    viewer: false,
+  },
   i18n: {
     vueI18n: "./i18n.config.ts",
     baseUrl: BASE_URL,
@@ -111,7 +166,6 @@ export default defineNuxtConfig({
     defaultLocale: "en",
     langDir: "locales",
     customRoutes: "config",
-    dynamicRouteParams: true,
     pages,
     detectBrowserLanguage: {
       useCookie: true,

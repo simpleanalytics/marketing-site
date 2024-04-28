@@ -19,7 +19,7 @@
         <div class="space-x-2">
           <NuxtLink
             class="text-orange-500 dark:text-orange-700 bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded-lg underline"
-            :to="`https://cms.simpleanalytics.com/admin/content-manager/collectionType/api::article.article?page=1&pageSize=50&sort=updatedAt:DESC&plugins[i18n][locale]=${locale}&filters[$and][0][articleType][$eq]=blog`"
+            :to="`https://cms.simpleanalytics.com/admin/content-manager/collection-types/api::article.article?page=1&pageSize=50&sort=updatedAt:DESC&plugins[i18n][locale]=${locale}&filters[$and][0][articleType][$eq]=blog`"
             target="_blank"
             >Go to CMS</NuxtLink
           >
@@ -139,8 +139,8 @@
                   post.excerpt?.length > 200
                     ? post.excerpt.substring(0, 200) + "..."
                     : [".", "?", "!"].includes(post.excerpt.trim().slice(-1))
-                    ? post.excerpt
-                    : post.excerpt + "."
+                      ? post.excerpt
+                      : post.excerpt + "."
                 }}
               </NuxtLink>
 
@@ -192,18 +192,17 @@ import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
 import SubscribeForm from "~/components/SubscribeForm.vue";
 import Avatar from "~/components/Avatar.vue";
 import { EyeSlashIcon, XCircleIcon } from "@heroicons/vue/24/outline";
-import { labelAgo, getAuthorFromSlug } from "~/utils/blog";
+import { labelAgo } from "~/utils/blog";
 
 const i18n = useI18n();
 const { t, locale } = i18n;
 const localePath = useLocalePath();
 const config = useRuntimeConfig();
-const { BASE_URL, NODE_ENV } = config.public;
+const { BASE_URL } = config.public;
 
 const isAdmin = useAdmin();
 
-const route = useRoute();
-const { articles, pending, error } = await useArticle({
+const { articles, pending } = await useArticle({
   routeName: "blog-slug",
   articleType: "blog",
   keys: ["coverImageWithText", "coverImageWithoutText"],

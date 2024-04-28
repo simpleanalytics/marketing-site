@@ -40,8 +40,8 @@
                 quote?.length > 300
                   ? 'text-lg'
                   : quote?.length > 100
-                  ? 'text-xl'
-                  : 'text-2xl'
+                    ? 'text-xl'
+                    : 'text-2xl'
               "
             >
               <slot

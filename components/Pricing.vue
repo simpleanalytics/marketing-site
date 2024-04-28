@@ -222,8 +222,8 @@
                     subscription.limit_paid_websites === 1
                       ? 'pricing.features.paid_websites.one'
                       : subscription.limit_paid_websites === null
-                      ? 'pricing.features.paid_websites.unlimited'
-                      : 'pricing.features.paid_websites.number',
+                        ? 'pricing.features.paid_websites.unlimited'
+                        : 'pricing.features.paid_websites.number',
                     [subscription.limit_paid_websites],
                   )
                 "
@@ -252,8 +252,8 @@
                     subscription.limit_free_websites === 1
                       ? 'pricing.features.free_websites.one'
                       : subscription.limit_free_websites === null
-                      ? 'pricing.features.free_websites.unlimited'
-                      : 'pricing.features.free_websites.number',
+                        ? 'pricing.features.free_websites.unlimited'
+                        : 'pricing.features.free_websites.number',
                     [subscription.limit_free_websites],
                   )
                 "
@@ -271,11 +271,13 @@
                 index === 0 || planListExpanded
                   ? 100
                   : subscription.slug === 'enterprise'
-                  ? 5
-                  : index !== 0 &&
-                    !filteredSubscriptions[index - 1]?.slug?.includes('free')
-                  ? 1
-                  : 1,
+                    ? 5
+                    : index !== 0 &&
+                        !filteredSubscriptions[index - 1]?.slug?.includes(
+                          'free',
+                        )
+                      ? 1
+                      : 1,
               )"
               :key="feature.feature"
               class="flex gap-x-3"
@@ -697,12 +699,12 @@
                                 feature.subscriptions[index]?.type === "limit")
                                 ? "Unlimited"
                                 : feature.subscriptions.every(
-                                    ({ value }) => !value,
-                                  )
-                                ? ""
-                                : feature.subscriptions[index]?.value === true
-                                ? "Yes"
-                                : "No"
+                                      ({ value }) => !value,
+                                    )
+                                  ? ""
+                                  : feature.subscriptions[index]?.value === true
+                                    ? "Yes"
+                                    : "No"
                             }}</span>
                           </template>
                         </span>
@@ -893,8 +895,8 @@ const goToWelcome = ({ plan }) => {
   const interval = /monthly/.test(plan)
     ? "monthly"
     : /yearly/.test(plan)
-    ? "yearly"
-    : null;
+      ? "yearly"
+      : null;
 
   // Send event before redirecting to welcome page
   if (window.sa_event && window.sa_loaded) {
@@ -989,16 +991,16 @@ const filteredSubscriptions = computed(() => {
       const translation_key = slug.includes("free")
         ? "free"
         : slug.includes("team")
-        ? "team"
-        : slug.includes("enterprise")
-        ? "enterprise"
-        : slug.includes("simple")
-        ? "simple"
-        : slug.includes("starter")
-        ? "starter"
-        : slug.includes("business")
-        ? "business"
-        : slug;
+          ? "team"
+          : slug.includes("enterprise")
+            ? "enterprise"
+            : slug.includes("simple")
+              ? "simple"
+              : slug.includes("starter")
+                ? "starter"
+                : slug.includes("business")
+                  ? "business"
+                  : slug;
 
       if (!translation_key) {
         console.error("No translation key for", slug);

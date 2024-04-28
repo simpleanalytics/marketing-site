@@ -292,8 +292,8 @@
                                   !item.href
                                     ? undefined
                                     : /^https?:\/\//.test(item.href)
-                                    ? item.href
-                                    : localePath(item.href)
+                                      ? item.href
+                                      : localePath(item.href)
                                 "
                                 :to="
                                   item.to
@@ -320,7 +320,7 @@
                               </PopoverButton>
                             </div>
                             <div
-                              class="px-5 py-5 bg-blue-100 dark:bg-gray-700 sm:px-8 sm:py-8"
+                              class="hidden px-5 py-5 bg-blue-100 dark:bg-gray-700 sm:px-8 sm:py-8"
                               v-if="pending || recentPosts?.length"
                             >
                               <div>
@@ -820,7 +820,7 @@
               </ul>
             </div>
 
-            <div class="mb-10 lg:mb-0 lg:row-span-3 max-w-[400px]">
+            <div class="hidden mb-10 lg:mb-0 lg:row-span-3 max-w-[400px]">
               <h5
                 class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
               >
@@ -917,8 +917,12 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
-
-import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
+import {
+  Popover,
+  PopoverButton,
+  PopoverPanel,
+  provideUseId,
+} from "@headlessui/vue";
 import { ChevronDownIcon } from "@heroicons/vue/24/solid";
 import {
   Bars3Icon,
@@ -930,7 +934,6 @@ import {
   EyeSlashIcon,
   CreditCardIcon,
   BookOpenIcon,
-  MapPinIcon,
   ClipboardDocumentCheckIcon,
   NewspaperIcon,
   AcademicCapIcon,
@@ -958,6 +961,10 @@ import { labelAgo } from "./utils/blog";
 const route = useRoute();
 const config = useRuntimeConfig();
 const { BASE_URL, MAIN_URL, NODE_ENV /*, CDN_URL*/ } = config.public;
+
+// Fix for hydration errors based on wrong IDs
+// See https://github.com/tailwindlabs/headlessui/issues/2913
+provideUseId(() => useId());
 
 const localePath = useLocalePath();
 
@@ -1055,8 +1062,8 @@ const head = {
     route.meta.title?.includes("Simple Analytics")
       ? route.meta.title
       : route.meta.title
-      ? `${route.meta.title} - Simple Analytics`
-      : "Simple Analytics",
+        ? `${route.meta.title} - Simple Analytics`
+        : "Simple Analytics",
   link,
   script: scripts,
   meta: () => [
@@ -1107,13 +1114,16 @@ if (process.client) {
     });
 }
 
-const { articles: recentPosts, pending } = await useArticle({
-  routeName: "blog-slug",
-  articleType: "blog",
-  keys: ["coverImageWithText", "coverImageWithoutText"],
-  limit: 3,
-  useLocale: true,
-});
+const pending = false;
+const recentPosts = [];
+
+// const { articles: recentPosts, pending } = await useArticle({
+//   routeName: "blog-slug",
+//   articleType: "blog",
+//   keys: ["coverImageWithText", "coverImageWithoutText"],
+//   limit: 3,
+//   useLocale: true,
+// });
 
 onMounted(() => {
   if (NODE_ENV !== "production") return;

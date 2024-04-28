@@ -1,6 +1,6 @@
 # syntax = docker/dockerfile:1
 
-ARG NODE_VERSION=18.17.0
+ARG NODE_VERSION=20.11.1
 
 FROM node:${NODE_VERSION}-slim as base
 
@@ -46,4 +46,8 @@ COPY --from=build /src/.output /src/.output
 
 ADD https://assets.simpleanalytics.com/files/2022-05-17-geolite-country.mmdb /src/server/data/geolite-country.mmdb
 
-CMD [ "node", ".output/server/index.mjs" ]
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

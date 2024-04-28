@@ -9,7 +9,6 @@ export const useArticle = async ({
   drafts = false,
   limit = 1000,
 }) => {
-  const route = useRoute();
   const { locale } = useI18n();
   const localePath = useLocalePath();
   const event = useRequestEvent();
@@ -95,6 +94,13 @@ export const useArticle = async ({
       }),
   });
 
+  if (!articles.value.length && !pending.value) {
+    setResponseStatus(event, 404);
+  }
+  // if (error.value) {
+  //   setResponseStatus(event, 500);
+  // }
+
   const article = computed(() => {
     if (!articles?.value?.[0]) return {};
 
@@ -104,8 +110,10 @@ export const useArticle = async ({
     };
   });
 
+  let languages = {};
+
   try {
-    const languages = articles?.value?.[0]?.languages;
+    languages = articles?.value?.[0]?.languages;
     if (languages && slug) {
       if (typeof localePath !== "function")
         throw new Error("localePath is not defined in article composable");
@@ -117,8 +125,6 @@ export const useArticle = async ({
         });
         navigateTo(path, { redirectCode: 307 }); // 308 Permanent Redirect
       }
-
-      route.meta.nuxtI18n = languages;
     }
   } catch (error) {
     console.error(error);
@@ -129,5 +135,6 @@ export const useArticle = async ({
     articles,
     pending,
     error,
+    languages,
   };
 };

@@ -1246,7 +1246,7 @@
       <div class="leading-loose max-w-lg mx-auto">
         <h4
           class="my-4 text-2xl text-center"
-          v-html="$t('home.why_most_privacy.x_reasons', [`5`])"
+          v-html="$t('home.why_most_privacy.x_reasons', ['6'])"
         ></h4>
 
         <p class="text-center" v-if="currentHash === 'why'">
@@ -1282,9 +1282,7 @@
           "
         ></div>
 
-        <IconsAiChat
-          class="mx-auto mt-12 h-12 fill-red-500 dark:fill-red-600"
-        />
+        <AIChatIcon class="mx-auto mt-12 h-12 fill-red-500 dark:fill-red-600" />
 
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"

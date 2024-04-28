@@ -76,9 +76,17 @@
 </template>
 
 <script setup>
-import { Switch, SwitchGroup, SwitchLabel } from "@headlessui/vue";
-
+import {
+  Switch,
+  SwitchGroup,
+  SwitchLabel,
+  provideUseId,
+} from "@headlessui/vue";
 import Map from "@/components/Map.vue";
+
+// Fix for hydration errors based on wrong IDs
+// See https://github.com/tailwindlabs/headlessui/issues/2913
+provideUseId(() => useId());
 
 const router = useRouter();
 const localePath = useLocalePath();
@@ -197,10 +205,10 @@ const countriesList = computed(() => {
         country.metadata?.illegal === "yes"
           ? classes.yes
           : country.metadata?.illegal === "no"
-          ? classes.no
-          : country.metadata?.illegal === "maybe"
-          ? classes.maybe
-          : classes.unknown,
+            ? classes.no
+            : country.metadata?.illegal === "maybe"
+              ? classes.maybe
+              : classes.unknown,
     }))
     .filter(({ code }) => !fixedCountryCodes.includes(code));
 

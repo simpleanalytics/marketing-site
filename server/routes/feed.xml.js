@@ -55,8 +55,8 @@ export default defineEventHandler(async (event) => {
     const cover = attributes.coverImageWithoutText?.data
       ? attributes.coverImageWithoutText.data
       : attributes.coverImageWithText?.data
-      ? attributes.coverImageWithText.data
-      : null;
+        ? attributes.coverImageWithText.data
+        : null;
     const formats = cover?.attributes?.formats;
     const url =
       formats?.medium?.url || formats?.small?.url || formats?.thumbnail?.url;

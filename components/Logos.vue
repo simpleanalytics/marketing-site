@@ -28,13 +28,13 @@ import AllesBesteLogo from "../components/logos/AllesBeste.vue";
 import TrustlyLogo from "../components/logos/Trustly.vue";
 import CleanshotLogo from "../components/logos/Cleanshot.vue";
 import GFLLogo from "../components/logos/GFL.vue";
-import BannerbearLogo from "../components/logos/Bannerbear.vue";
 
 import HavasMediaLogo from "../components/logos/HavasMedia.vue";
 import GovScotLogo from "../components/logos/GovScot.vue";
 import GovUKLogo from "../components/logos/GovUK.vue";
 import HyundaiLogo from "../components/logos/Hyundai.vue";
 import BankOfEnglandLogo from "../components/logos/BankOfEngland.vue";
+import WipLogo from "../components/logos/Wip.vue";
 
 const props = defineProps(["limit", "tooltipclass", "imageclass"]);
 
@@ -43,6 +43,7 @@ const list = [
     name: "Bank of England",
     url: "https://www.bankofengland.co.uk/",
     component: BankOfEnglandLogo,
+    countries: ["uk"],
   },
   {
     name: "Michelin",
@@ -118,10 +119,10 @@ const list = [
     countries: ["ca", "us"],
   },
   {
-    name: "Bannerbear",
-    url: "https://www.bannerbear.com/",
-    component: BannerbearLogo,
-    class: "col-span-2 sm:col-auto",
+    name: "Work in Progress",
+    url: "https://wip.co/",
+    component: WipLogo,
+    countries: ["nl"],
   },
 ];
 

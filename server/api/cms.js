@@ -1,6 +1,10 @@
 import { marked } from "marked";
+import { gfmHeadingId } from "marked-gfm-heading-id";
 import { parse as qsParse, stringify as qsStringify } from "qs";
 import hljs from "highlight.js";
+
+marked.use(gfmHeadingId());
+marked.use({ gfm: true });
 
 const TYPES = {
   articles: {
@@ -260,7 +264,10 @@ const preconvert = (
           ? hljs.highlight(nonCode, { language })?.value
           : hljs.highlightAuto(nonCode)?.value;
 
-        return `<pre class="not-prose bg-gray-100 dark:bg-gray-700"><code class="hljs">${code}</code></pre>`;
+        // Remove first and last \n
+        const trimmedCode = code.replace(/^\n/, "").replace(/\n$/, "");
+
+        return `<pre class="not-prose px-2 py-1 rounded-lg whitespace-pre-wrap text-base bg-gray-100 dark:bg-gray-700"><code class="hljs">${trimmedCode}</code></pre>`;
       }
     })
     .join("");
@@ -272,10 +279,7 @@ const preconvert = (
   );
 
   // Convert markdown to html
-  let html = marked(markdown, {
-    headerIds: true,
-    gfm: true,
-  });
+  let html = marked.parse(markdown);
 
   // Replace external links with target="_blank"
   html = html.replace(
