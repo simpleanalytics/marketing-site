@@ -90,10 +90,16 @@
           >
             {{ subscription.name }}
           </h3>
-          <p class="mt-4 text-sm leading-6">
+          <p
+            class="mt-4 text-sm leading-6"
+            v-if="
+              subscription.translation_key || subscription.slug === 'enterprise'
+            "
+          >
             {{
-              subscription.description ||
-              "All your essential business finances, taken care of."
+              $t(
+                `pricing.plans.${subscription.translation_key || subscription.slug}.description`,
+              )
             }}
           </p>
           <p
