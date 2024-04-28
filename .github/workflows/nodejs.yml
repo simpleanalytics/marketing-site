@@ -100,10 +100,10 @@ jobs:
           DEPLOY_SSH_KEY: "${{ secrets.DEPLOY_SSH_KEY }}"
           # If server changes keys, update this variable with "ssh-keyscan cms.simpleanalytics.com | grep ed25519"
           # Saving the server public key protects against MITM attacks.
-          KNOWN_HOSTS: "simpleanalytics.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBRvG5ld8OWPVR/7/PpsG46QwKXff6wA72VMySgFZ0JG"
+          KNOWN_HOSTS: "www.simpleanalytics.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBRvG5ld8OWPVR/7/PpsG46QwKXff6wA72VMySgFZ0JG"
         run: |
           mkdir -p ~/.ssh
           echo "$KNOWN_HOSTS" >> ~/.ssh/known_hosts
           echo "$DEPLOY_SSH_KEY" > /tmp/ssh_key
           chmod 600 /tmp/ssh_key
-          ssh -i /tmp/ssh_key -T app@simpleanalytics.com
+          ssh -i /tmp/ssh_key -T app@www.simpleanalytics.com
