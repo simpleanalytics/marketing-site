@@ -18,7 +18,7 @@
           {{
             formatDatapoints(props.options[sliderIndex], $t("time.intl_locale"))
           }}
-          datapoints
+          pageviews / events
         </p>
         <p>
           {{

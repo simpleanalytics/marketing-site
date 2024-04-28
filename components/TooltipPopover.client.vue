@@ -11,7 +11,7 @@
         class="h-5 w-5 inline-block mr-1 -mt-[2px] stroke-current"
         aria-hidden="true"
       />
-      <span>{{ text }}</span>
+      <span v-html="text"></span>
     </PopoverButton>
 
     <transition

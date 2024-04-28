@@ -101,7 +101,7 @@
 import { ref, watch } from "vue";
 
 const config = useRuntimeConfig();
-const { MAIN_URL } = config.public;
+const { DASHBOARD_URL } = config.public;
 
 const email = ref("");
 const errorSlug = ref("");
@@ -148,7 +148,7 @@ const onSubmit = async () => {
   // Select at least one checkbox
   if (!type) return setError("blog.subscribe.errors.select_at_least_one");
 
-  const response = await fetch(MAIN_URL + "/subscribe", {
+  const response = await fetch(DASHBOARD_URL + "/subscribe", {
     method: "POST",
     headers: { "Content-Type": "text/plain; charset=UTF-8" },
     body: JSON.stringify({

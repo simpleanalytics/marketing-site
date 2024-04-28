@@ -87,8 +87,8 @@ const BASE_URL = isProduction
 const env = {
   NODE_ENV: process.env.NODE_ENV,
   BASE_URL,
-  MAIN_URL: isProduction
-    ? "https://simpleanalytics.com"
+  DASHBOARD_URL: isProduction
+    ? "https://dashboard.simpleanalytics.com"
     : "http://localhost:3000",
   LOCALES: locales.map(({ code, flag }) => ({ code, flag })),
 };

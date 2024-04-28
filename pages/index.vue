@@ -49,7 +49,7 @@
 
         <NuxtLink
           :href="
-            MAIN_URL + '/contact' + (theme === 'dark' ? '?theme=dark' : '')
+            DASHBOARD_URL + '/contact' + (theme === 'dark' ? '?theme=dark' : '')
           "
           target="_blank"
           class="text-white underline ml-1"
@@ -107,7 +107,7 @@
           <ClientCounter
             :intlLocale="t('time.intl_locale')"
             :text="t('home.datapoints_collected')"
-            :endpoint="MAIN_URL"
+            :endpoint="DASHBOARD_URL"
           />
         </div>
         -->
@@ -183,7 +183,7 @@
               sendEventAndRedirect(
                 'click_demo_above_fold',
                 {},
-                MAIN_URL + '/simpleanalytics.com?from=landing',
+                DASHBOARD_URL + '/simpleanalytics.com?from=landing',
               )
             "
             class="group button large shadow-xl bg-white dark:bg-gray-800 hover:dark:bg-gray-900"
@@ -744,7 +744,9 @@
         <p class="my-4">
           <a
             :href="
-              MAIN_URL + '/welcome' + (theme === 'dark' ? '?theme=dark' : '')
+              DASHBOARD_URL +
+              '/welcome' +
+              (theme === 'dark' ? '?theme=dark' : '')
             "
             class="group underline"
             >{{ $t("home.why_switch_from_ga.try_us_button") }}<Arrow
@@ -1274,9 +1276,9 @@
           class="prose leading-loose"
           v-html="
             $t('home.why_most_privacy.business_model.html', [
-              `<a href='${MAIN_URL}/roadmap'>`,
+              `<a href='${DASHBOARD_URL}/roadmap'>`,
               `</a>`,
-              `<a href='${MAIN_URL}/open'>`,
+              `<a href='${DASHBOARD_URL}/open'>`,
               `</a>`,
             ])
           "
@@ -1514,7 +1516,7 @@ const translationParts = t("home.automatic_translated_switch_to_english", [
 ]).split("---");
 
 const config = useRuntimeConfig();
-const { MAIN_URL, NODE_ENV } = config.public;
+const { DASHBOARD_URL, NODE_ENV } = config.public;
 
 const affiliate = useState("affiliate");
 

@@ -53,7 +53,7 @@
     class="sm:border border-y dark:border-none bg-gray-50 dark:bg-gray-700 sm:rounded-xl max-w-3xl mx-auto pt-5 pb-2 px-4 mt-8 z-50 sticky top-0 overflow-hidden w-full sm:relative -translate-y-px"
   >
     <p class="text-center text-sm sm:text-base">
-      Select the expected monthly datapoints (pageviews + events)
+      Select the expected monthly pageviews
     </p>
     <Slider
       :options="sliderOptions"
@@ -179,6 +179,11 @@
                 aria-hidden="true"
               />
               <span
+                v-if="subscription?.slug?.includes('free')"
+                v-html="$t('pricing.features.datapoints.unlimited')"
+              ></span>
+              <span
+                v-else
                 v-html="
                   $t('pricing.features.datapoints.number', [
                     formatDatapoints(sliderValue, $t('time.intl_locale')),
@@ -756,7 +761,7 @@ import { ArrowLeftIcon } from "@heroicons/vue/24/solid";
 
 const theme = useTheme();
 const config = useRuntimeConfig();
-const { MAIN_URL } = config.public;
+const { DASHBOARD_URL } = config.public;
 
 const featuresOpen = ref(false);
 const planListExpanded = ref(false);
@@ -854,7 +859,6 @@ const groups = [
   { group: "support", feature: "legal_support" },
 
   // Requirements
-  { group: "requirements", feature: "badge_requirement", description: true },
   {
     group: "requirements",
     feature: "public_dashboard_requirement",
@@ -870,7 +874,7 @@ const featureHasDescription = (feature) => {
 const clickEnterprise = () => {
   const params = new URLSearchParams();
   if (theme.value === "dark") params.set("theme", "dark");
-  const url = `${MAIN_URL}/contact?${params}`;
+  const url = `${DASHBOARD_URL}/contact?${params}`;
 
   // Send event before redirecting to contact page
   if (window.sa_event && window.sa_loaded) {
@@ -889,7 +893,7 @@ const goToWelcome = ({ plan }) => {
   if (plan) params.set("plan", plan);
   if (theme.value === "dark") params.set("theme", "dark");
 
-  const url = `${MAIN_URL}/welcome?${params}`;
+  const url = `${DASHBOARD_URL}/welcome?${params}`;
 
   // plan can be starter-monthly, business-yealy, etc
   const interval = /monthly/.test(plan)
@@ -919,7 +923,10 @@ const frequencies = [
 
 const frequency = ref(frequencies[0]);
 
-const url = new URL("/api/utils/default-subscriptions", MAIN_URL).toString();
+const url = new URL(
+  "/api/utils/default-subscriptions",
+  DASHBOARD_URL,
+).toString();
 
 const { data, error } = await useFetch(url);
 

@@ -312,8 +312,9 @@
     },
     "features": {
       "datapoints": {
-        "title": "Datapoints",
-        "number": "Up to <strong>{0}</strong> monthly datapoints"
+        "title": "Pageviews / events",
+        "unlimited": "Fair use pageviews / events",
+        "number": "Up to <strong>{0}</strong> monthly pageviews / events"
       },
       "users": {
         "title": "Users",
@@ -321,14 +322,14 @@
         "one": "<strong>1</strong> user"
       },
       "free_websites": {
-        "title": "Free websites",
-        "unlimited": "Unlimited free sites",
-        "number": "Up to <strong>{0}</strong> free sites",
-        "one": "<strong>1</strong> free site",
-        "description": "Requires our footer badge and a public dashboard. Badge checked on addition and periodically; non-compliance leads to deletion after a grace period."
+        "title": "Public websites",
+        "unlimited": "Unlimited public sites",
+        "number": "Up to <strong>{0}</strong> public sites",
+        "one": "<strong>1</strong> public site",
+        "description": "Requires dashboard set to public. Retention and look back days are limited."
       },
       "paid_websites": {
-        "title": "Paid websites",
+        "title": "Private websites",
         "unlimited": "Unlimited websites",
         "number": "Up to <strong>{0}</strong> websites",
         "one": "<strong>1</strong> website"
