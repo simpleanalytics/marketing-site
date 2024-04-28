@@ -29,7 +29,7 @@ export const navigateToWelcome = (event, metadata) => {
   if (!metadata) metadata = {};
 
   const config = useRuntimeConfig();
-  const { MAIN_URL } = config.public;
+  const { DASHBOARD_URL } = config.public;
   const theme = useTheme();
   const currency = useState("currency");
   const affiliate = useState("affiliate");
@@ -39,7 +39,7 @@ export const navigateToWelcome = (event, metadata) => {
   if (affiliate?.value?.slug) params.set("affiliate", affiliate?.value?.slug);
   if (theme.value === "dark") params.set("theme", "dark");
 
-  const welcomeUrl = `${MAIN_URL}/welcome?${params}`;
+  const welcomeUrl = `${DASHBOARD_URL}/welcome?${params}`;
   return sendEventAndRedirect(event, metadata, welcomeUrl);
 };
 
@@ -62,3 +62,10 @@ export const getFlagUrl = (locale, availableLocales) => {
 
 export const launchedAi = ({ NODE_ENV }) =>
   NODE_ENV === "development" || new Date() > new Date("2023-12-05");
+
+export const formatDatapoints = (value, locale) => {
+  if (value >= 1_000_000) return `${value / 1_000_000}M`;
+  if (value >= 10_000) return `${(value / 10_000) * 10}k`;
+  const formatter = new Intl.NumberFormat(locale);
+  return formatter.format(value);
+};

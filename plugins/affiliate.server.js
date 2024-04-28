@@ -1,6 +1,6 @@
 export default defineNuxtPlugin(async (nuxtApp) => {
   const config = useRuntimeConfig();
-  const { BASE_URL, MAIN_URL } = config.public;
+  const { BASE_URL, DASHBOARD_URL } = config.public;
 
   const affiliate = useState("affiliate");
 
@@ -14,7 +14,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
   if (slug) {
     try {
-      const url = `${MAIN_URL}/api/referral-validator?referral=${slug}`;
+      const url = `${DASHBOARD_URL}/api/referral-validator?referral=${slug}`;
       const data = await $fetch(url);
 
       affiliate.value = {

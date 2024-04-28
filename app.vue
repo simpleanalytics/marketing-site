@@ -29,83 +29,109 @@
           />
 
           <!-- Icons -->
+          <link
+            rel="icon"
+            type="image/svg+xml"
+            :href="BASE_URL + '/favicon-black.svg'"
+            v-if="NODE_ENV === 'development'"
+          />
+          <Link
+            rel="shortcut icon"
+            :href="BASE_URL + '/favicon-black.ico'"
+            v-if="NODE_ENV === 'development'"
+          />
+          <Link rel="shortcut icon" :href="BASE_URL + '/favicon.ico'" v-else />
+
           <Link
             rel="apple-touch-icon-precomposed"
             sizes="180x180"
             :href="BASE_URL + '/apple-touch-icon-180x180.png'"
+            v-if="NODE_ENV === 'production'"
           />
           <Link
             rel="apple-touch-icon-precomposed"
             sizes="152x152"
             :href="BASE_URL + '/apple-touch-icon-152x152.png'"
+            v-if="NODE_ENV === 'production'"
           />
           <Link
             rel="apple-touch-icon-precomposed"
             sizes="120x120"
             :href="BASE_URL + '/apple-touch-icon-120x120.png'"
+            v-if="NODE_ENV === 'production'"
           />
           <Link
             rel="apple-touch-icon-precomposed"
             sizes="114x114"
             :href="BASE_URL + '/apple-touch-icon-114x114.png'"
+            v-if="NODE_ENV === 'production'"
           />
           <Link
             rel="apple-touch-icon-precomposed"
             sizes="76x76"
             :href="BASE_URL + '/apple-touch-icon-76x76.png'"
+            v-if="NODE_ENV === 'production'"
           />
           <Link
             rel="apple-touch-icon-precomposed"
             sizes="72x72"
             :href="BASE_URL + '/apple-touch-icon-72x72.png'"
+            v-if="NODE_ENV === 'production'"
           />
           <Link
             rel="apple-touch-icon-precomposed"
             sizes="60x60"
             :href="BASE_URL + '/apple-touch-icon-60x60.png'"
+            v-if="NODE_ENV === 'production'"
           />
           <Link
             rel="apple-touch-icon-precomposed"
             sizes="57x57"
             :href="BASE_URL + '/apple-touch-icon-57x57.png'"
+            v-if="NODE_ENV === 'production'"
           />
           <Link
             rel="icon"
             type="image/png"
             sizes="196x196"
-            :href="BASE_URL + '/favicon-196x196.png?v=2'"
+            :href="BASE_URL + '/favicon-196x196.png'"
+            v-if="NODE_ENV === 'production'"
           />
           <Link
             rel="icon"
             type="image/png"
             sizes="128x128"
-            :href="BASE_URL + '/favicon-128x128.png?v=2'"
+            :href="BASE_URL + '/favicon-128x128.png'"
+            v-if="NODE_ENV === 'production'"
           />
           <Link
             rel="icon"
             type="image/png"
             sizes="96x96"
-            :href="BASE_URL + '/favicon-96x96.png?v=2'"
+            :href="BASE_URL + '/favicon-96x96.png'"
+            v-if="NODE_ENV === 'production'"
           />
           <Link
             rel="icon"
             type="image/png"
             sizes="32x32"
-            :href="BASE_URL + '/favicon-32x32.png?v=2'"
+            :href="BASE_URL + '/favicon-32x32.png'"
+            v-if="NODE_ENV === 'production'"
           />
           <Link
             rel="icon"
             type="image/png"
             sizes="16x16"
-            :href="BASE_URL + '/favicon-16x16.png?v=2'"
+            :href="BASE_URL + '/favicon-16x16.png'"
+            v-if="NODE_ENV === 'production'"
           />
-          <Link rel="manifest" :href="BASE_URL + '/site.webmanifest?v=2'" />
+          <Link rel="manifest" :href="BASE_URL + '/site.webmanifest'" />
           <Link
             rel="mask-icon"
-            :href="BASE_URL + '/safari-pinned-tab.svg?v=2'"
+            :href="BASE_URL + '/safari-pinned-tab.svg'"
             color="#ff4f64"
+            v-if="NODE_ENV === 'production'"
           />
-          <Link rel="shortcut icon" :href="BASE_URL + '/favicon.ico?v=2'" />
           <Meta name="apple-mobile-web-app-title" content="Simple Analytics" />
           <Meta name="application-name" content="Simple Analytics" />
           <Meta name="msapplication-TileColor" content="#ff4f64" />
@@ -373,7 +399,7 @@
                       sendEventAndRedirect(
                         'click_login_top_nav',
                         {},
-                        MAIN_URL + '/login',
+                        DASHBOARD_URL + '/login',
                       )
                     "
                     class="inline-flex items-center px-4 py-2 text-gray-500 dark:text-gray-400 dark:hover:text-gray-600"
@@ -465,7 +491,7 @@
                       sendEventAndRedirect(
                         'click_login_top_nav',
                         {},
-                        MAIN_URL + '/login',
+                        DASHBOARD_URL + '/login',
                       )
                     "
                     class="block w-full px-5 py-3 text-center font-medium text-red-500 bg-gray-50 hover:bg-gray-100 dark:bg-gray-500 dark:text-gray-100"
@@ -934,7 +960,7 @@ import { labelAgo } from "./utils/blog";
 
 const route = useRoute();
 const config = useRuntimeConfig();
-const { BASE_URL, MAIN_URL, NODE_ENV /*, CDN_URL*/ } = config.public;
+const { BASE_URL, DASHBOARD_URL, NODE_ENV /*, CDN_URL*/ } = config.public;
 
 // Fix for hydration errors based on wrong IDs
 // See https://github.com/tailwindlabs/headlessui/issues/2913
@@ -1100,6 +1126,8 @@ const recentPosts = [];
 // });
 
 onMounted(() => {
+  if (NODE_ENV !== "production") return;
+
   const title = document.title;
   window.addEventListener("blur", () => {
     document.title = "We miss you... - " + title;

@@ -246,7 +246,7 @@ import SubscribeForm from "@/components/SubscribeForm.vue";
 
 const event = useRequestEvent();
 const config = useRuntimeConfig();
-const { BASE_URL, MAIN_URL } = config.public;
+const { BASE_URL, DASHBOARD_URL } = config.public;
 
 const route = useRoute();
 const { t, locale } = useI18n();
@@ -336,7 +336,7 @@ const image = computed(
     article.value?.cover?.medium ||
     article.value?.cover?.small ||
     (article.value?.title
-      ? `${MAIN_URL}/generate-image.png?${generateParams}`
+      ? `${DASHBOARD_URL}/generate-image.png?${generateParams}`
       : null),
 );
 

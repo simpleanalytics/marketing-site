@@ -2,7 +2,7 @@ export default defineEventHandler(async (event) => {
   event.node.res.setHeader("Content-Type", "application/xml");
 
   const {
-    public: { BASE_URL, MAIN_URL },
+    public: { BASE_URL, DASHBOARD_URL },
   } = useRuntimeConfig();
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
         <loc>${BASE_URL}/marketing-sitemap.xml</loc>
     </sitemap>
     <sitemap>
-        <loc>${MAIN_URL}/dashboard-sitemap.xml</loc>
+        <loc>${DASHBOARD_URL}/dashboard-sitemap.xml</loc>
     </sitemap>
     <sitemap>
         <loc>https://docs.simpleanalytics.com/sitemap.xml</loc>

@@ -240,7 +240,7 @@
     "switch_to_dutch": "Switch to Dutch"
   },
   "pricing": {
-    "title": "Simple pricing",
+    "title": "Fair pricing",
     "yearly_billing": "Yearly billing",
     "monthly_billing": "Monthly billing",
     "from": "starting at",
@@ -255,33 +255,192 @@
     "affiliate_description": "You get the first month + {0} days for free because you're using an affiliate link.",
     "contact": "Contact",
     "plans": {
+      "free": {
+        "title": "Free",
+        "description": "For hobby projects and personal websites."
+      },
+      "simple": {
+        "title": "Simple",
+        "description": "Everything you need to get you started."
+      },
+      "team": {
+        "title": "Team",
+        "description": "Work together on growing your business."
+      },
       "starter": {
         "title": "Starter",
-        "description": "Everything you need to get you started"
+        "description": "Everything you need to get you started."
       },
       "business": {
         "title": "Business",
-        "description": "Work together on growing your business"
+        "description": "Work together on growing your business."
       },
       "enterprise": {
         "title": "Enterprise",
-        "description": "Get everything needed to grow your business"
+        "description": "Get everything needed to grow your business."
+      }
+    },
+    "sections": {
+      "data": {
+        "title": "Data",
+        "description": "The amount of data you can collect."
+      },
+      "events": {
+        "title": "Events",
+        "description": "The amount of events you can collect."
+      },
+      "apis": {
+        "title": "APIs",
+        "description": "The amount of API calls you can make."
+      },
+      "admin": {
+        "title": "Admin",
+        "description": "Features for Enterprise or agencies."
+      },
+      "features": {
+        "title": "Features",
+        "description": "What you can use in this plan."
+      },
+      "support": {
+        "title": "Support",
+        "description": "The support you get."
+      },
+      "requirements": {
+        "title": "Requirements",
+        "description": "What you need to do to use this plan."
       }
     },
     "features": {
-      "max_company_size": "Up to <strong>{0}</strong> employees",
-      "datapoints": "<strong>{0}</strong> datapoints per month",
-      "users": "<strong>{0}</strong> users",
-      "user": "<strong>{0}</strong> user",
-      "websites": "<strong>{0}</strong> websites",
-      "events": "Events",
-      "ai_one_month": "AI for <strong>1 month</strong>",
-      "ai_unlimited": "AI <strong>unlimited</strong>",
-      "ai_limited": "AI <strong>limited</strong>",
-      "aggregated_export": "Aggregated export",
-      "raw_level_export": "<strong>Raw level</strong> export",
-      "email_support": "Support email",
-      "prio_email_support": "<strong>Prio</strong> email support"
+      "datapoints": {
+        "title": "Pageviews / events",
+        "unlimited": "Fair use pageviews / events",
+        "number": "Up to <strong>{0}</strong> monthly pageviews / events"
+      },
+      "users": {
+        "title": "Users",
+        "number": "Up to <strong>{0}</strong> users",
+        "one": "<strong>1</strong> user"
+      },
+      "free_websites": {
+        "title": "Public websites",
+        "unlimited": "Unlimited public sites",
+        "number": "Up to <strong>{0}</strong> public sites",
+        "one": "<strong>1</strong> public site",
+        "description": "Requires dashboard set to public. Retention and look back days are limited."
+      },
+      "paid_websites": {
+        "title": "Private websites",
+        "unlimited": "Unlimited websites",
+        "number": "Up to <strong>{0}</strong> websites",
+        "one": "<strong>1</strong> website"
+      },
+      "email_reports": {
+        "title": "Email reports",
+        "number": "Up to <strong>{0}</strong> email reports"
+      },
+      "look_back_days": {
+        "title": "Look back days",
+        "number": "<strong>{0}</strong> look back days"
+      },
+      "data_retention_days": {
+        "title": "Retention days",
+        "number": "<strong>{0}</strong> retention days"
+      },
+
+      "separated_data_storage": {
+        "title": "Separated data storage"
+      },
+
+      "goals": {
+        "title": "Goals dashboard"
+      },
+      "events": {
+        "title": "Collect events"
+      },
+      "automated_events": {
+        "title": "Automated events"
+      },
+      "metadata": {
+        "title": "Metadata analysis"
+      },
+
+      "admin_api": {
+        "title": "Admin API"
+      },
+      "stats_api": {
+        "title": "Stats API"
+      },
+      "export_api": {
+        "title": "Export API"
+      },
+
+      "multiple_teams": {
+        "title": "Multiple teams (agency)"
+      },
+      "combined_invoicing": {
+        "title": "Combined invoicing"
+      },
+      "manual_invoicing": {
+        "title": "Manual invoicing"
+      },
+      "redlining_contracts": {
+        "title": "Contract redlining"
+      },
+      "roles_based_access_control": {
+        "title": "Role-based access"
+      },
+      "uptime_sla": {
+        "title": "Uptime SLA"
+      },
+
+      "trendlines": {
+        "title": "Trendlines"
+      },
+      "annotations": {
+        "title": "Annotations"
+      },
+      "custom_website_views": {
+        "title": "Custom views"
+      },
+      "block_ip_range": {
+        "title": "IP range blocking"
+      },
+      "bypass_via_dns_cname": {
+        "title": "DNS CNAME bypass"
+      },
+      "bypass_via_new_domain": {
+        "title": "New domain bypass"
+      },
+      "data_proxy": {
+        "title": "Data proxy"
+      },
+      "ai_chat": {
+        "title": "AI chat"
+      },
+
+      "badge_requirement": {
+        "title": "Badge required",
+        "description": "When using the Free plan you need to add a Simple Analytics badge to your websites. {0}See our badges{1} (customizable)"
+      },
+      "public_dashboard_requirement": {
+        "title": "Public dashboard",
+        "description": "When using the Free plan you need to make your dashboards public. Everybody can see your public stats."
+      },
+
+      "community_support": {
+        "title": "Community support"
+      },
+      "email_support": {
+        "title": "Support email"
+      },
+      "video_support": {
+        "title": "Video support"
+      },
+      "legal_support": {
+        "title": "Legal support"
+      },
+
+      "enterprise_only": "Enterprise only"
     }
   },
   "pricing_faq": {
@@ -289,11 +448,15 @@
     "need_help": "Need more help? Please send us your question(s) via {0}our support page{1}.",
     "datapoints": {
       "title": "What are datapoints?",
-      "description": "You can collect two types of data with Simple Analytics: page views and events. The combined term for both is datapoint. If you don't use events, the datapoints will only be page views. If you do use events, the datapoints will also be events."
+      "description": "You can collect two types of data witçh Simple Analytics: page views and events. The combined term for both is datapoint. If you don't use events, the datapoints will only be page views. If you do use events, the datapoints will also be events."
+    },
+    "free_websites": {
+      "title": "What are free websites?",
+      "description": "As part of using a free website, it's required to display our badge in the footer and your dashboard must be public. While çadding our script, you should also add the badge. When you add the website to our dashboard we check for the badge. When your badge is missing later on, we will warn you and give you a grace period to add it. If you don't add it, we will delete the website and its data."
     },
     "trial_expires": {
       "title": "Will I be charged when my trial expires?",
-      "description": "No. After your trial expires, your plan downgrades automatically to the basic free version. Upgrade whenever you want to the plan that fits your needs."
+      "description": "No. After your trial expires, your plan downgrades automatically to the free plan. If you're exceeding usage limits of the free plan, we disable your dashboards until you are within the limits of the free plan, or when you select a plan."
     },
     "cancel": {
       "title": "Can I cancel anytime?",
@@ -305,8 +468,12 @@
     },
     "traffic_change": {
       "title": "What will happen to my charges when my traffic grows / declines?",
-      "description_1": "You only pay for what you actually need. This means that if your plan's page view limit is exceeded, you will be charged for overages. Simple Analytics automatically calculates your price based on your average amount of page views (first looking back one month, then the average of the previous three months).",
+      "description_1": "You monthly fee will match your usage. Drag the slider to see what you pay for a certain amount of data points. Simple Analytics automatically calculates your data points (first looking back one month, then the average of the previous three months).",
       "description_2": "So, if you had an increase in traffic during the past three months, you pay only a little more next month. Likewise, you automatically pay a little less when your average amount of page views decreased during the last months."
+    },
+    "yearly_plans": {
+      "title": "How does that work with the yearly plans?",
+      "description": "When you choose yearly, you estimate your traffic after your trial. We send you an email when you go over your limit, you have one week to increase your limit. Otherwise, we'll do it for you. To prevent extra invoices during the year, set your limit high enough. After the year, your datapoints will be reset to zero."
     }
   },
   "video": {
