@@ -347,6 +347,10 @@
         "number": "<strong>{0}</strong> retention days"
       },
 
+      "invoices_email": {
+        "title": "Invoices via email"
+      },
+
       "separated_data_storage": {
         "title": "Separated data storage"
       },
