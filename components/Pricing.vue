@@ -171,7 +171,7 @@
                 aria-hidden="true"
               />
               <span
-                >Everyting from
+                >Everything from
                 {{ filteredSubscriptions[index - 1]?.name }}</span
               >
             </li>
