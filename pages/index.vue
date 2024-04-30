@@ -1184,9 +1184,11 @@
       >
         {{ $t("pricing.title") }}.
       </h3>
+    </div>
 
-      <Pricing />
+    <Pricing />
 
+    <div class="max-w-3xl px-6 mx-auto">
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mb-4 mt-24 sm:mb-8 font-medium text-center"
       >
