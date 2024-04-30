@@ -50,7 +50,7 @@
   </div>
 
   <div
-    class="sm:border border-y dark:border-none bg-gray-50 dark:bg-gray-700 sm:rounded-xl max-w-3xl mx-auto pt-5 pb-2 px-4 mt-8 z-50 sticky top-0 overflow-hidden w-full sm:relative -translate-y-px"
+    class="sm:border border-y dark:border-none bg-gray-50 dark:bg-gray-700 sm:rounded-xl max-w-3xl mx-auto pt-5 pb-2 px-4 mt-8 z-20 sticky top-0 overflow-hidden w-full sm:relative -translate-y-px"
   >
     <p class="text-center text-sm sm:text-base">
       Select the expected monthly pageviews
@@ -283,12 +283,14 @@
                   ? 100
                   : subscription.slug === 'enterprise'
                     ? 5
-                    : index !== 0 &&
-                        !filteredSubscriptions[index - 1]?.slug?.includes(
-                          'free',
-                        )
-                      ? 1
-                      : 1,
+                    : /team/.test(subscription.slug)
+                      ? 0
+                      : index !== 0 &&
+                          !filteredSubscriptions[index - 1]?.slug?.includes(
+                            'free',
+                          )
+                        ? 1
+                        : 1,
               )"
               :key="feature.feature"
               class="flex gap-x-3"
@@ -324,6 +326,16 @@
                   "
                 >
                 </span>
+                <span
+                  v-else-if="feature.feature === 'community_support'"
+                  v-html="
+                    $t('pricing.features.community_support.description', [
+                      `<a href='https://community.simpleanalytics.com/' target='_blank'>`,
+                      `</a>`,
+                    ])
+                  "
+                >
+                </span>
                 <span v-else>
                   {{ $t(`pricing.features.${feature.feature}.description`) }}
                 </span>
@@ -352,6 +364,30 @@
                 <span v-if="planListExpanded">Show less</span>
                 <span v-else>Show more</span>
               </a>
+            </li>
+
+            <li
+              v-if="subscription.slug === 'free-monthly'"
+              class="flex gap-x-3"
+            >
+              <ExclamationTriangleIcon
+                class="h-6 w-5 flex-none text-red-500 dark:text-red-600"
+                aria-hidden="true"
+              />
+              <TooltipPopover
+                :text="$t('pricing.features.limited_lookback.title')"
+                key="free"
+              >
+                <span
+                  v-html="
+                    $t('pricing.features.limited_lookback.description', [
+                      //`<a href='https://simpleanalytics.com/badges' target='_blank'>`,
+                      //`</a>`,
+                    ])
+                  "
+                >
+                </span>
+              </TooltipPopover>
             </li>
           </ul>
         </div>
@@ -516,9 +552,29 @@
                               >{{ feature.subscriptions[index]?.value }}</span
                             >
                             <template v-else>
+                              <svg
+                                v-if="
+                                  feature.subscriptions[index]?.value ===
+                                    null ||
+                                  (feature.subscriptions[index]?.value ===
+                                    undefined &&
+                                    feature.subscriptions[index]?.type ===
+                                      'limit')
+                                "
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                class="mx-auto h-5 w-5 fill-red-500 dark:fill-red-600"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  d="M18.571 6c-2.853 0-4.608 2.164-6.571 4.201-1.963-2.037-3.718-4.201-6.571-4.201-3.197 0-5.429 2.455-5.429 6s2.232 6 5.429 6c2.854 0 4.608-2.164 6.571-4.201 1.963 2.037 3.718 4.201 6.571 4.201 3.197 0 5.429-2.455 5.429-6s-2.232-6-5.429-6zm-13.142 10c-2.114 0-3.479-1.578-3.479-4s1.366-4 3.479-4c2.311 0 3.719 2.05 5.365 4-1.647 1.95-3.055 4-5.365 4zm13.142 0c-2.311 0-3.719-2.05-5.365-4 1.646-1.95 3.054-4 5.365-4 2.114 0 3.479 1.578 3.479 4s-1.365 4-3.479 4z"
+                                />
+                              </svg>
                               <span
                                 class="text-xs text-gray-400"
-                                v-if="
+                                v-else-if="
                                   feature.subscriptions.every(
                                     ({ value }) => !value,
                                   )
@@ -659,8 +715,16 @@
                                 : 'text-gray-900 dark:text-gray-300',
                               'text-sm leading-6',
                             ]"
-                            >{{ feature.subscriptions[index]?.value }}</span
                           >
+                            <span v-if="/_days$/.test(feature.slug)">
+                              {{
+                                formatDays(feature.subscriptions[index]?.value)
+                              }}
+                            </span>
+                            <span v-else>
+                              {{ feature.subscriptions[index]?.value }}
+                            </span>
+                          </span>
                           <template v-else>
                             <svg
                               v-if="
@@ -860,7 +924,7 @@ const groups = [
 
   // Support
   { group: "support", feature: "email_support" },
-  { group: "support", feature: "community_support" },
+  { group: "support", feature: "community_support", description: true },
   { group: "support", feature: "video_support" },
   { group: "support", feature: "legal_support" },
 
@@ -1057,7 +1121,6 @@ const filteredSubscriptions = computed(() => {
     }, []);
 
   // Add features to unique_features that are in allFeatures and not in addedFeatures
-
   const unique_features = [...allFeatures]
     .filter((feature) => !addedFeatures.has(feature))
     .map((feature) => {
@@ -1100,13 +1163,11 @@ const sections = computed(() => {
           (feature) => feature.feature === group.feature,
         );
 
-        if (feature) {
-          group.subscriptions.push({
-            type: "feature",
-            value: feature.value,
-            description: group.description,
-          });
-        }
+        group.subscriptions.push({
+          type: "feature",
+          value: feature?.value ?? false,
+          description: group.description,
+        });
       }
 
       if (group.limit) {
@@ -1132,7 +1193,7 @@ const sections = computed(() => {
   //       subscriptions: { Starter: true, Scale: true, Growth: true },
   //     },
 
-  const sections = groups.reduce((acc, group) => {
+  const sections2 = groups.reduce((acc, group) => {
     const section = acc.find((section) => section.name === group.group);
     if (section) {
       section.features.push({
@@ -1153,6 +1214,12 @@ const sections = computed(() => {
     return acc;
   }, []);
 
-  return sections;
+  return sections2;
 });
+
+const formatDays = (days) => {
+  if (days === 1096) return "3 years";
+  if (days === 1826) return "5 years";
+  return `${days} days`;
+};
 </script>

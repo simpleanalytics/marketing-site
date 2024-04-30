@@ -313,7 +313,7 @@
     "features": {
       "datapoints": {
         "title": "Pageviews / events",
-        "unlimited": "Fair use pageviews / events",
+        "unlimited": "Fair use unlimited pageviews / events",
         "number": "Up to <strong>{0}</strong> monthly pageviews / events"
       },
       "users": {
@@ -326,7 +326,7 @@
         "unlimited": "Unlimited public sites",
         "number": "Up to <strong>{0}</strong> public sites",
         "one": "<strong>1</strong> public site",
-        "description": "Requires dashboard set to public. Retention and look back days are limited."
+        "description": "Requires dashboard set to public. You can lookback 30 days and analytics older than 60 days will be deleted."
       },
       "paid_websites": {
         "title": "Private websites",
@@ -430,9 +430,14 @@
         "title": "Public dashboard",
         "description": "When using the Free plan you need to make your dashboards public. Everybody can see your public stats."
       },
+      "limited_lookback": {
+        "title": "Limited lookback",
+        "description": "You can lookback 30 days and analytics older than 60 days will be deleted."
+      },
 
       "community_support": {
-        "title": "Community support"
+        "title": "Community support",
+        "description": "You can use {0}our community{1} to ask questions."
       },
       "email_support": {
         "title": "Support email"
