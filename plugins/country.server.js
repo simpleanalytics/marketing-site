@@ -79,6 +79,8 @@ export default defineNuxtPlugin(() => {
       const response = reader.country(ip);
       if (response?.country?.isoCode) {
         saveCountry(response.country.isoCode);
+      } else {
+        console.warn("Country not found in GeoIP2 database");
       }
     } catch (error) {
       if (/The address (.*) is not in the database/i.test(error?.message))
@@ -86,5 +88,9 @@ export default defineNuxtPlugin(() => {
 
       console.error(error);
     }
+  } else if (!ip) {
+    console.warn("IP address not found in headers");
+  } else {
+    console.warn("GeoIP2 database not found");
   }
 });
