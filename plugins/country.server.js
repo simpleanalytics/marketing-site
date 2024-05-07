@@ -73,6 +73,8 @@ export default defineNuxtPlugin(() => {
   const headers = useRequestHeaders();
   const ip = headers["x-real-ip"] || headers["x-forwarded-for"];
 
+  console.warn("=> headers:", JSON.stringify(headers));
+
   if (ip && dbBuffer) {
     try {
       const reader = Reader.openBuffer(dbBuffer);
