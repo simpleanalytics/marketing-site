@@ -73,8 +73,6 @@ export default defineNuxtPlugin(() => {
   const headers = useRequestHeaders();
   const ip = headers["x-real-ip"] || headers["x-forwarded-for"];
 
-  console.warn("=> headers:", JSON.stringify(headers));
-
   if (ip && dbBuffer) {
     try {
       const reader = Reader.openBuffer(dbBuffer);
@@ -90,9 +88,5 @@ export default defineNuxtPlugin(() => {
 
       console.error(error);
     }
-  } else if (!ip) {
-    console.warn("IP address not found in headers");
-  } else {
-    console.warn("GeoIP2 database not found");
   }
 });
