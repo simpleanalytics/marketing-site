@@ -461,7 +461,7 @@
     },
     "free_websites": {
       "title": "What are free websites?",
-      "description": "As part of using a free website, it's required to display our badge in the footer and your dashboard must be public. While çadding our script, you should also add the badge. When you add the website to our dashboard we check for the badge. When your badge is missing later on, we will warn you and give you a grace period to add it. If you don't add it, we will delete the website and its data."
+      "description": "As part of using a free website, it's required to display our badge in the footer and your dashboard must be public. While adding our script, you should also add the badge. When you add the website to our dashboard we check for the badge. When your badge is missing later on, we will warn you and give you a grace period to add it. If you don't add it, we will delete the website and its data."
     },
     "trial_expires": {
       "title": "Will I be charged when my trial expires?",
