@@ -1124,16 +1124,4 @@ const recentPosts = [];
 //   limit: 3,
 //   useLocale: true,
 // });
-
-onMounted(() => {
-  if (NODE_ENV !== "production") return;
-
-  const title = document.title;
-  window.addEventListener("blur", () => {
-    document.title = "We miss you... - " + title;
-  });
-  window.addEventListener("focus", () => {
-    document.title = title;
-  });
-});
 </script>

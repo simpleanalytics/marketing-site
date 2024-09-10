@@ -18,7 +18,8 @@ input[type="range"] {
 }
 
 input[type="range"] {
-  color: #ff4f64;
+  --filled-color: #ff4f64;
+  --thumb-color: currentColor;
   --thumb-height: 2rem;
   --track-height: 0.5rem;
   --track-color: rgba(0, 0, 0, 0.2);
@@ -28,12 +29,14 @@ input[type="range"] {
 }
 
 html.dark input[type="range"] {
-  color: #de3243;
+  --filled-color: #de3243;
   --track-color: rgba(0, 0, 0, 0.2);
+  --thumb-color: currentColor;
 }
 
 /* === range commons === */
 input[type="range"] {
+  color: var(--filled-color);
   position: relative;
   background: #fff0;
   overflow: hidden;
@@ -74,7 +77,7 @@ input[type="range"]::-webkit-slider-thumb {
   width: var(--thumb-width, var(--thumb-height));
   background: linear-gradient(currentColor 0 0) scroll no-repeat left center /
     50% calc(var(--track-height) + 1px);
-  background-color: currentColor;
+  background-color: var(--thumb-color, currentColor);
   box-shadow: var(--box-fill);
   border-radius: var(--thumb-width, var(--thumb-height));
 
@@ -126,7 +129,7 @@ input[type="range"]::-moz-range-progress {
 }
 
 input[type="range"]::-moz-range-thumb {
-  background: currentColor;
+  background: var(--thumb-color, currentColor);
   border: 0;
   width: var(--thumb-width, var(--thumb-height));
   border-radius: var(--thumb-width, var(--thumb-height));

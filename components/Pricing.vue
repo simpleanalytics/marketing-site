@@ -1,15 +1,62 @@
 <template>
   <div class="sm:flex sm:flex-col sm:align-center">
-    <p v-if="affiliateCookie" class="text-center mt-8 sm:-mb-6">
+    <p v-if="affiliateCookie" class="my-6 text-center">
       {{ $t("pricing.affiliate_description", [14]) }}
     </p>
 
-    <p class="text-center px-4 mt-8 sm:-mb-6 max-w-3xl leading-loose mx-auto">
-      Pay per pageview and event. Average usage of the last 3 months.
+    <p class="mt-6 text-center px-4 max-w-3xl leading-loose mx-auto">
+      Analytics doesn't need to be complex. Let's make it simple.
     </p>
 
+    <div class="mt-6 mx-auto flex space-x-2 items-center justify-center">
+      <div class="flex flex-wrap -space-x-3">
+        <div
+          v-for="(avatar, index) in avatars.slice(0, 15)"
+          :key="avatar"
+          :style="{ zIndex: avatars.length - index }"
+          :class="{ 'hidden sm:block': index >= 7 }"
+        >
+          <NuxtLink
+            :to="`https://x.com/${avatar.handle}`"
+            target="_blank"
+            :title="`@${avatar.handle} (${avatar.followers > 1000 ? `${Math.floor(avatar.followers / 1000)}k+` : avatar.followers} followers)`"
+          >
+            <img
+              :src="`/avatars/${avatar.image}`"
+              :alt="`Avatar of ${avatar.handle}`"
+              rel="nofollow"
+              class="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-gray-800"
+            />
+          </NuxtLink>
+        </div>
+      </div>
+
+      <Tooltip
+        text="4.9 stars on Capterra"
+        class="group flex-shrink-0 border-2 border-transparent hover:border-yellow-500 dark:hover:border-transparent dark:hover:bg-yellow-500/20 rounded-md"
+      >
+        <NuxtLink
+          to="https://www.capterra.com/p/248710/Simple-Analytics/"
+          target="_blank"
+          rel="nofollow"
+          class="px-2 py-1 block"
+        >
+          <div class="text-yellow-500 dark:text-yellow-400">
+            <StarIcon class="inline h-5 w-5" />
+            <StarIcon class="inline h-5 w-5" />
+            <StarIcon class="inline h-5 w-5" />
+            <StarIcon class="inline h-5 w-5" />
+            <StarIcon class="inline h-5 w-5" />
+          </div>
+          <p class="text-xs sm:text-sm">
+            Loved by 13,000+<br class="sm:hidden" />customers
+          </p>
+        </NuxtLink>
+      </Tooltip>
+    </div>
+
     <div
-      class="text-center mt-12"
+      class="mt-6 text-center"
       v-if="error || filteredSubscriptions.length === 0"
     >
       <p
@@ -18,12 +65,30 @@
         {{ error || $t("general.errors.an_error_happened") }}
       </p>
     </div>
+  </div>
 
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="mt-16 flex justify-center">
+  <div
+    class="mt-8 p-0 sm:py-0 border-b dark:border-b-2 sm:border-none border-gray-200 dark:border-gray-800 bg-gray-50 sm:bg-transparent dark:bg-gray-700 sm:dark:bg-transparent max-w-3xl mx-auto z-20 sticky top-0 w-full sm:relative -translate-y-px"
+  >
+    <div
+      class="flex flex-col md:flex-row justify-center items-center px-6 sm:border border-gray-200 dark:border-none dark:bg-gray-700 rounded-2xl"
+    >
+      <div class="px-2 order-2 sm:order-0 py-2 flex-grow sm:mr-8">
+        <p class="text-center text-sm sm:text-sm mt-1 mb-2">
+          Select the expected monthly pageviews
+        </p>
+        <Slider
+          :options="sliderOptions"
+          :sliderIndexInitial="sliderIndexInitial"
+          @updateValue="handleSliderValue"
+        />
+      </div>
+      <div
+        class="flex justify-center sm:order-3 relative sm:max-w-fit mt-5 sm:-mt-1"
+      >
         <RadioGroup
           v-model="frequency"
-          class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 dark:ring-0 ring-inset ring-gray-200 dark:bg-gray-700"
+          class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 dark:ring-0 ring-inset ring-gray-200 dark:bg-gray-800"
         >
           <RadioGroupLabel class="sr-only">Payment frequency</RadioGroupLabel>
           <RadioGroupOption
@@ -45,21 +110,16 @@
             </div>
           </RadioGroupOption>
         </RadioGroup>
+        <div
+          class="absolute flex rounded-full bg-green-500 dark:bg-green-600 top-0 right-0 mt-1 mr-1 translate-x-1/2 -translate-y-2/3"
+        >
+          <span
+            class="block py-1 px-2 text-[10px] leading-none font-semibold text-white dark:text-white"
+            >2 months off</span
+          >
+        </div>
       </div>
     </div>
-  </div>
-
-  <div
-    class="sm:border border-y dark:border-none bg-gray-50 dark:bg-gray-700 sm:rounded-xl max-w-3xl mx-auto pt-5 pb-2 px-4 mt-8 z-20 sticky top-0 overflow-hidden w-full sm:relative -translate-y-px"
-  >
-    <p class="text-center text-sm sm:text-base">
-      Select the expected monthly pageviews
-    </p>
-    <Slider
-      :options="sliderOptions"
-      :sliderIndexInitial="sliderIndexInitial"
-      @updateValue="handleSliderValue"
-    />
   </div>
 
   <div>
@@ -67,7 +127,7 @@
       class="sm:mx-auto max-w-7xl sm:px-8 py-8 mx-6 sm:flex sm:flex-col sm:align-center"
     >
       <div
-        class="isolate mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8"
+        class="isolate mx-auto mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8"
       >
         <div
           v-for="(subscription, index) in filteredSubscriptions"
@@ -91,7 +151,7 @@
             {{ subscription.name }}
           </h3>
           <p
-            class="mt-4 text-sm leading-6"
+            class="mt-2 text-sm leading-6"
             v-if="
               subscription.translation_key || subscription.slug === 'enterprise'
             "
@@ -104,7 +164,7 @@
           </p>
           <p
             class="mt-6 flex items-baseline gap-x-1"
-            v-if="subscription.datapoints_graduated_pricing?.length"
+            v-if="subscription.datapoints_graduated_pricing"
           >
             <span
               class="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200"
@@ -115,10 +175,12 @@
                   minimumFractionDigits: 0,
                   maximumFractionDigits: 2,
                 }).format(
-                  calculateTotalPrice({
-                    datapoints: sliderValue,
-                    pricingTiers: subscription.datapoints_graduated_pricing,
-                  }),
+                  subscription.datapoints_graduated_pricing
+                    ? calculateTotalPrice({
+                        datapoints: sliderValue,
+                        pricingTiers: subscription.datapoints_graduated_pricing,
+                      })
+                    : 0,
                 )
               }}</span
             >
@@ -155,8 +217,14 @@
             ]"
           >
             <span v-if="subscription.slug === 'enterprise'">Contact sales</span>
-            <span v-else-if="subscription.price">Start free trial</span>
-            <span v-else>Start now</span>
+            <span
+              v-else-if="subscription.datapoints_graduated_pricing.length === 0"
+              >Start for free</span
+            >
+            <span v-else-if="subscription.trial_days"
+              >Start {{ subscription.trial_days }}-day free trial</span
+            >
+            <span v-else>Start free trial</span>
           </a>
           <ul role="list" class="mt-8 space-y-3 text-sm leading-6">
             <li
@@ -176,18 +244,20 @@
               >
             </li>
 
-            <li
-              class="flex gap-x-3"
-              v-if="sliderValue && subscription.slug !== 'enterprise'"
-            >
+            <li class="flex gap-x-3" v-if="subscription.slug.includes('free')">
               <CheckIcon
                 class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
                 aria-hidden="true"
               />
-              <span
+              <TooltipPopover
                 v-if="subscription?.slug?.includes('free')"
-                v-html="$t('pricing.features.datapoints.unlimited')"
-              ></span>
+                :text="$t('pricing.features.datapoints.unlimited')"
+                key="unlimited_pageviews"
+              >
+                <span>
+                  {{ $t(`pricing.features.datapoints.description`) }}
+                </span>
+              </TooltipPopover>
               <span
                 v-else
                 v-html="
@@ -217,9 +287,9 @@
 
             <li
               v-if="
-                (typeof subscription.limit_paid_websites === 'number' &&
-                  subscription.limit_paid_websites !== 0) ||
-                subscription.limit_paid_websites === null
+                (typeof subscription.limit_websites === 'number' &&
+                  subscription.limit_websites !== 0) ||
+                subscription.limit_websites === null
               "
               class="flex gap-x-3"
             >
@@ -230,12 +300,12 @@
               <span
                 v-html="
                   $t(
-                    subscription.limit_paid_websites === 1
-                      ? 'pricing.features.paid_websites.one'
-                      : subscription.limit_paid_websites === null
-                        ? 'pricing.features.paid_websites.unlimited'
-                        : 'pricing.features.paid_websites.number',
-                    [subscription.limit_paid_websites],
+                    subscription.limit_websites === 1
+                      ? 'pricing.features.websites.one'
+                      : subscription.limit_websites === null
+                        ? 'pricing.features.websites.unlimited'
+                        : 'pricing.features.websites.number',
+                    [subscription.limit_websites],
                   )
                 "
               ></span>
@@ -243,13 +313,9 @@
 
             <li
               v-if="
-                (filteredSubscriptions[index - 1]?.limit_free_websites !==
-                  null ||
-                  filteredSubscriptions[index - 1]?.translation_key ===
-                    'free') &&
-                ((typeof subscription.limit_free_websites === 'number' &&
-                  subscription.limit_free_websites !== 0) ||
-                  subscription.limit_free_websites === null)
+                (typeof subscription.limit_email_reports === 'number' &&
+                  subscription.limit_email_reports !== 0) ||
+                subscription.limit_email_reports === null
               "
               class="flex gap-x-3"
             >
@@ -260,18 +326,22 @@
               <TooltipPopover
                 :text="
                   $t(
-                    subscription.limit_free_websites === 1
-                      ? 'pricing.features.free_websites.one'
-                      : subscription.limit_free_websites === null
-                        ? 'pricing.features.free_websites.unlimited'
-                        : 'pricing.features.free_websites.number',
-                    [subscription.limit_free_websites],
+                    subscription.limit_email_reports === 1
+                      ? 'pricing.features.email_reports.one'
+                      : subscription.limit_email_reports === null
+                        ? 'pricing.features.email_reports.unlimited'
+                        : 'pricing.features.email_reports.number',
+                    [subscription.limit_email_reports],
                   )
                 "
-                key="free_websites"
+                key="limit_email_reports"
               >
                 <span>
-                  {{ $t(`pricing.features.free_websites.description`) }}
+                  {{
+                    $t("pricing.features.email_reports.description", [
+                      subscription.limit_email_reports,
+                    ])
+                  }}
                 </span>
               </TooltipPopover>
             </li>
@@ -822,6 +892,7 @@ import {
   PlusIcon,
   MinusIcon,
   ArrowDownIcon,
+  StarIcon,
 } from "@heroicons/vue/20/solid";
 import {
   QuestionMarkCircleIcon,
@@ -854,8 +925,8 @@ const sliderOptions = ref([
   // "7500",
   "10000",
   // "15000",
-  "20000",
-  "30000",
+  // "20000",
+  // "30000",
   "50000",
   "100000",
   "250000",
@@ -885,8 +956,7 @@ const affiliateCookie = useCookie("affiliate", {
 const groups = [
   // Basics
   { group: "basics", limit: "users" },
-  { group: "basics", limit: "free_websites", description: true },
-  { group: "basics", limit: "paid_websites" },
+  { group: "basics", limit: "websites" },
   { group: "basics", limit: "email_reports" },
 
   // Data
@@ -1092,9 +1162,9 @@ const filteredSubscriptions = computed(() => {
         showInPlanFeatures: true,
         features,
         unique_features: features,
+        trial_days: subscription.trial_days,
         limit_users: subscription.limit_users,
-        limit_free_websites: subscription.limit_free_websites,
-        limit_paid_websites: subscription.limit_paid_websites,
+        limit_websites: subscription.limit_websites,
         limit_email_reports: subscription.limit_email_reports,
         limit_look_back_days: subscription.limit_look_back_days,
         limit_data_retention_days: subscription.limit_data_retention_days,
@@ -1222,4 +1292,45 @@ const formatDays = (days) => {
   if (days === 1826) return "5 years";
   return `${days} days`;
 };
+
+const avatars = [
+  { image: "levelsio.jpg", handle: "levelsio", followers: 433500 },
+  {
+    image: "marckohlbrugge.jpg",
+    handle: "marckohlbrugge",
+    followers: 56400,
+  },
+  { image: "damengchen.jpg", handle: "damengchen", followers: 69800 },
+  {
+    image: "daniel_nguyenx.jpg",
+    handle: "daniel_nguyenx",
+    followers: 40500,
+  },
+  { image: "vjeux.jpg", handle: "vjeux", followers: 55900 },
+  { image: "rosiesherry.jpg", handle: "rosiesherry", followers: 25500 },
+  { image: "imgyf.jpg", handle: "imgyf", followers: 7692 },
+  { image: "alexstyl.jpg", handle: "alexstyl", followers: 10600 },
+  { image: "amritnagi.jpg", handle: "amritnagi", followers: 369 },
+  { image: "ashleyrudland.jpg", handle: "ashleyrudland", followers: 4546 },
+  { image: "erwin_ai.jpg", handle: "erwin_ai", followers: 8894 },
+  {
+    image: "fabiensnauwaert.jpg",
+    handle: "fabiensnauwaert",
+    followers: 1788,
+  },
+  { image: "forgebitz.jpg", handle: "forgebitz", followers: 7460 },
+  { image: "hainingmax.png", handle: "hainingmax", followers: 11600 },
+  { image: "jakeduth.png", handle: "jakeduth", followers: 1897 },
+  { image: "jamesivings.jpg", handle: "jamesivings", followers: 19400 },
+  {
+    image: "jamespotterdev.jpg",
+    handle: "jamespotterdev",
+    followers: 4349,
+  },
+  { image: "jelmerdeboer.jpg", handle: "jelmerdeboer", followers: 7384 },
+  { image: "petecodes.jpg", handle: "petecodes", followers: 9102 },
+  { image: "razvanilin.jpg", handle: "razvanilin", followers: 3331 },
+  { image: "rikschennink.jpg", handle: "rikschennink", followers: 6972 },
+  { image: "roscokalis.jpg", handle: "roscokalis", followers: 5460 },
+].sort((a, b) => b.followers - a.followers);
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="flex gap-4 justify-between items-center">
-    <div class="w-full p-4">
+    <div class="w-full">
       <div class="slider-container">
         <input
           id="range-slider"
@@ -14,11 +14,11 @@
       </div>
       <div class="flex justify-between font-light">
         <p>{{ formatDatapoints(props.options[0], $t("time.intl_locale")) }}</p>
-        <p class="text-gray-400 dark:text-gray-500">
+        <p class="text-gray-400 dark:text-gray-500 text-sm">
           {{
             formatDatapoints(props.options[sliderIndex], $t("time.intl_locale"))
           }}
-          pageviews / events
+          pageviews (or events)
         </p>
         <p>
           {{
@@ -87,14 +87,29 @@ watch(sliderIndex, () => {
 </script>
 
 <style>
+#range-slider {
+  --filled-color: theme("colors.green.500");
+  --track-color: theme("colors.slate.300");
+  --thumb-color: theme("colors.green.500");
+}
+html.dark #range-slider {
+  --filled-color: theme("colors.green.600");
+  --track-color: theme("colors.gray.800");
+  --thumb-color: theme("colors.green.600");
+}
+
 .slider-container {
   position: relative;
+  --thumb-color: theme("colors.green.500");
+}
+html.dark .slider-container {
+  --thumb-color: theme("colors.green.600");
 }
 
 .slider-container .tooltip {
   user-select: none;
   position: absolute;
-  background-color: #ff4f64;
+  background-color: var(--thumb-color);
   color: white;
   text-align: center;
   border-radius: 50px;
@@ -113,10 +128,6 @@ watch(sliderIndex, () => {
   top: -37px; /* Adjusted position when active */
   opacity: 1;
   transform: translateX(-50%) scale(1); /* Scale to full size */
-}
-
-html.dark .slider-container .tooltip {
-  background-color: #de3243;
 }
 
 .slider-container input:active + .tooltip {

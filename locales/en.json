@@ -3,7 +3,7 @@
     "title": "The {0}privacy-first{1}<br />Google Analytics alternative.",
     "subtitle": "EU-based & hosted. No cookies and a {0}direct&nbsp;yes{1} from your legal team.",
     "no_creditcard": "No credit card required",
-    "start_trial_now": "Start free trial",
+    "start_trial_now": "Start for free",
     "go_to_live_demo": "Go to live demo",
     "see_live_demo": "See live demo",
     "recent_blog_posts": "Recent blog posts",
@@ -150,7 +150,7 @@
     }
   },
   "start_trial": {
-    "button": "Start free trial now",
+    "button": "Start for free now",
     "free_trial": "Free 14-day trial",
     "no_credit_card": "No credit card required",
     "cancel_anytime": "Cancel anytime",
@@ -159,7 +159,7 @@
   "banners": {
     "import_ga": {
       "cta": "Import your GA data and see your stats in minutes",
-      "button": "Start free trial"
+      "button": "Start for free"
     },
     "ai_launched": {
       "link": "Use AI to chat with your analytics",
@@ -204,7 +204,7 @@
   "nav": {
     "login": "Log in",
     "pricing": "Pricing",
-    "start_trial": "Start trial",
+    "start_trial": "Start for free",
     "resources": "Resources",
     "docs": "Docs",
     "blog": "Blog",
@@ -240,7 +240,7 @@
     "switch_to_dutch": "Switch to Dutch"
   },
   "pricing": {
-    "title": "Fair pricing",
+    "title": "Simple pricing",
     "yearly_billing": "Yearly billing",
     "monthly_billing": "Monthly billing",
     "from": "starting at",
@@ -257,15 +257,15 @@
     "plans": {
       "free": {
         "title": "Free",
-        "description": "For hobby projects and personal websites."
+        "description": "For hobby projects."
       },
       "simple": {
         "title": "Simple",
-        "description": "Everything you need to get you started."
+        "description": "For solopreneurs."
       },
       "team": {
         "title": "Team",
-        "description": "Work together on growing your business."
+        "description": "For businesses."
       },
       "starter": {
         "title": "Starter",
@@ -277,7 +277,7 @@
       },
       "enterprise": {
         "title": "Enterprise",
-        "description": "When you want to jump on a call."
+        "description": "If you need a custom plan."
       }
     },
     "sections": {
@@ -313,30 +313,26 @@
     "features": {
       "datapoints": {
         "title": "Pageviews / events",
-        "unlimited": "Fair use unlimited pageviews / events",
-        "number": "Up to <strong>{0}</strong> monthly pageviews / events"
+        "unlimited": "Unlimited pageviews",
+        "number": "Up to <strong>{0}</strong> monthly pageviews / events",
+        "description": "Because the history is limited to one month, we don't have a hard limit on the amount of pageviews."
       },
       "users": {
         "title": "Users",
         "number": "Up to <strong>{0}</strong> users",
         "one": "<strong>1</strong> user"
       },
-      "free_websites": {
-        "title": "Public websites",
-        "unlimited": "Unlimited public sites",
-        "number": "Up to <strong>{0}</strong> public sites",
-        "one": "<strong>1</strong> public site",
-        "description": "Requires dashboard set to public. You can lookback 30 days and analytics older than 60 days will be deleted."
-      },
-      "paid_websites": {
-        "title": "Private websites",
-        "unlimited": "Unlimited websites",
-        "number": "Up to <strong>{0}</strong> websites",
-        "one": "<strong>1</strong> website"
+      "websites": {
+        "title": "Websites",
+        "unlimited": "Unlimited sites",
+        "number": "Up to <strong>{0}</strong> sites",
+        "one": "<strong>1</strong> site"
       },
       "email_reports": {
         "title": "Email reports",
-        "number": "Up to <strong>{0}</strong> email reports"
+        "number": "Up to <strong>{0}</strong> email report",
+        "one": "<strong>1</strong> email report",
+        "description": "Send yourself and others an email report of your stats. You can use {0} unique recipients for all your email reports."
       },
       "look_back_days": {
         "title": "Look back days",
@@ -431,8 +427,8 @@
         "description": "When using the Free plan you need to make your dashboards public. Everybody can see your public stats."
       },
       "limited_lookback": {
-        "title": "Limited lookback",
-        "description": "You can lookback 30 days and analytics older than 60 days will be deleted."
+        "title": "1 month history",
+        "description": "You have an analytics history of one month, older data will be deleted."
       },
 
       "community_support": {
