@@ -13,6 +13,7 @@
       </p>
       -->
 
+      <!--
       <BanknotesIcon
         class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
       />
@@ -22,6 +23,7 @@
       <p class="my-4 leading-loose mx-6 text-sm sm:text-base sm:leading-loose">
         {{ $t("pricing_faq.free_websites.description") }}
       </p>
+      -->
 
       <ShieldExclamationIcon
         class="mx-auto stroke-1 w-10 h-10 mt-14 mb-4 stroke-red-400 dark:stroke-red-600"
