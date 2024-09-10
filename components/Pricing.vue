@@ -997,13 +997,6 @@ const groups = [
   { group: "support", feature: "community_support", description: true },
   { group: "support", feature: "video_support" },
   { group: "support", feature: "legal_support" },
-
-  // Requirements
-  {
-    group: "requirements",
-    feature: "public_dashboard_requirement",
-    description: true,
-  },
 ];
 
 const featureHasDescription = (feature) => {

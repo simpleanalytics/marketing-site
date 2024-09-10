@@ -304,10 +304,6 @@
       "support": {
         "title": "Support",
         "description": "The support you get."
-      },
-      "requirements": {
-        "title": "Requirements",
-        "description": "What you need to do to use this plan."
       }
     },
     "features": {
