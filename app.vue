@@ -723,6 +723,17 @@
                     <span>{{ $t("home.footer.utm_builder") }}</span>
                   </NuxtLink>
                 </li>
+                <li>
+                  <NuxtLink
+                    :to="localePath({ name: 'press' })"
+                    class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
+                  >
+                    <MicrophoneIcon
+                      class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
+                    />
+                    <span>{{ $t("home.footer.press") }}</span>
+                  </NuxtLink>
+                </li>
               </ul>
             </div>
 
@@ -942,6 +953,7 @@ import {
   UserGroupIcon,
   BriefcaseIcon,
   CursorArrowRippleIcon,
+  MicrophoneIcon,
 } from "@heroicons/vue/24/outline";
 
 import MenuLink from "./components/MenuLink.vue";

@@ -8,6 +8,7 @@
     :style="style"
   >
     <div
+      v-if="!showControls"
       class="absolute z-20 top-0 bottom-0 right-0 left-0 flex justify-center items-center transition"
       :class="playing ? 'opacity-0 hover:group-hover:opacity-100' : ''"
     >
@@ -43,6 +44,7 @@
       :height="height > 0 ? height : 'auto'"
       :style="ratio"
       crossorigin="anonymous"
+      :controls="showControls"
     >
       <slot />
     </video>
@@ -73,6 +75,7 @@ const props = defineProps([
   "autoplay",
   "background",
   "brightness",
+  "showControls",
 ]);
 
 const playing = ref(false);

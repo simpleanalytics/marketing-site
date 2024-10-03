@@ -42,7 +42,8 @@
       "resources": "Resources",
       "utm_builder": "UTM Builder",
       "guides": "Guides",
-      "case_studies": "Case studies"
+      "case_studies": "Case studies",
+      "press": "Press mentions"
     },
     "why_most_privacy": {
       "title": "Why Simple Analytics is the {0}best Google Analytics{1} alternative? ",
@@ -677,7 +678,7 @@
   },
   "press": {
     "title": "Press",
-    "description": "Mentions of Simple Analytics in the press."
+    "description": "Interviews with Simple Analytics' founders in podcasts, and mentions in other media."
   },
   "ai": {
     "title": "Chat with {0}your{1} analytics",
