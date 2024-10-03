@@ -276,7 +276,7 @@
         overwhelmed with all the data, I just see a few numbers. Those are
         important to me. And I see if my blog post is working and I can just
         close the tab and I'm not overwhelmed. And I think that's one of the
-        biggest perks of simple analytics is that it's simple to digest and it's
+        biggest perks of Simple Analytics is that it's simple to digest and it's
         still super privacy, privacy friendly.
       </p>
 
@@ -333,7 +333,7 @@
         business choose your service over free analytics tool, especially when
         I'm working on a tight budget? What is, apart from all the USBs and the
         advantages that you already talked about, what is behind it? How do I
-        turn to creating a willingness to buy simple analytics to spend money to
+        turn to creating a willingness to buy Simple Analytics to spend money to
         increase my budget for this?
       </p>
 
@@ -413,7 +413,7 @@
         tools. So people can pick a bit or select a bit on the scale of privacy
         and features, because that's usually the difference, the amount of data
         points or metrics that you collect at one side and the other side, the
-        much privacy you want to get. And I think simple analytics is definitely
+        much privacy you want to get. And I think Simple Analytics is definitely
         very much on the scale towards privacy and less towards the amount of
         data points. One feature for example, is also that you can disable
         certain metrics. So let's say, oh, I don't want to get the user agent, I
@@ -428,7 +428,7 @@
         from the business developing side, but also from the feature and product
         side to keep a balance there and to foster sustainable growth and
         amplify your message that you're sending with building a company and a
-        product that you do with simple analytics. So with all the challenges
+        product that you do with Simple Analytics. So with all the challenges
         that are lying ahead, who do you turn to for advice?
       </p>
 
@@ -513,7 +513,7 @@
         yeah, this is what I think what also does creativity is all about
         speaking and making. It's not reinventing the wheel, but it's picking up
         a new idea that is new to you and making it your own style and your own
-        way. A bit like what you do with simple analytics, with having this
+        way. A bit like what you do with Simple Analytics, with having this
         itch, this concern, this itch just scratched the concern that you have
         and think like, no, we really need to do something about this. And you
         just sat down and develop something out of nothing,
@@ -616,7 +616,7 @@
 
       <p class="text-gray-400 dark:text-gray-600 mb-0">Nina Müller (33:47):</p>
       <p class="mt-0">
-        Exactly. Yeah. But I think we can just do better if we, simple analytics
+        Exactly. Yeah. But I think we can just do better if we, Simple Analytics
         does avoid this and avoid the use of trackers. And so we have a lot less
         cookie information. Then you just need to tell the visitors of your
         website to what cookies are in place and what they're used for, which
@@ -702,7 +702,7 @@
         next to impossible for the retailer to delete that data completely and
         forever. So I would like to ask you, what do you make of that? And if
         you had a customer or maybe you have or people or businesses interested
-        in acquiring simple analytics, what do you recommend? How do you speak
+        in acquiring Simple Analytics, what do you recommend? How do you speak
         with them about this issue and how can we avoid this?
       </p>
 
@@ -723,7 +723,7 @@
         Adriaan van Rossum (40:34):
       </p>
       <p class="mt-0">
-        With simple analytics, it is easy because we build our own software and
+        With Simple Analytics, it is easy because we build our own software and
         we are able to build our own software. So we are really the owners of
         the data. So the data of our visitors, of our customers and the visitors
         of their customers, the visitors of our customers, they are all stored
@@ -788,7 +788,7 @@
 
       <p class="text-gray-400 dark:text-gray-600 mb-0">Nina Müller (44:51):</p>
       <p class="mt-0">
-        That is the perfect ending, a Adrian of our conversation. Thank you.
+        That is the perfect ending, a Adriaan of our conversation. Thank you.
       </p>
 
       <p class="text-gray-400 dark:text-gray-600 mb-0">

@@ -48,7 +48,7 @@
         privacy invasive. So that's where the starting point basically was for
         my interest in privacy. And since then I've been working for bosses,
         I've been having my own businesses, but when it really clicked was when
-        I started working on simple analytics. And I think that is because my
+        I started working on Simple Analytics. And I think that is because my
         expertise, like development was linked together with my passion and it
         was privacy. So I think it's great to have a motivational force within
         your product that you can rely on because there are so many times in
@@ -192,7 +192,7 @@
         Google Analytics. And then I realised, okay, let's change this. And I
         was having this freelance gig and then I also had more of a feeling
         like, okay, now I have an idea, I can work it out and now I can also
-        stop the freelance gig. And then I focused on simple analytics, but at
+        stop the freelance gig. And then I focused on Simple Analytics, but at
         the same time I didn't know where to start, so I didn't know what to do,
         how to stay motivated, all those things. So I was looking for an online
         community as well. And that's I think a very important factor. Having a

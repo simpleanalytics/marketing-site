@@ -59,7 +59,7 @@
         co-founder of Simple Analytics. I would describe you as a serial
         entrepreneur. You've founded several bootstrap companies and yeah,
         simple Analytics being probably the one that people are most familiar
-        with. At this stage, you're on a mission to bootstrap simple analytics
+        with. At this stage, you're on a mission to bootstrap Simple Analytics
         to 1 million a RR. Currently at around 380 5K, if I'm not mistaken. This
         is with two people.
       </p>
@@ -369,7 +369,7 @@
       <p class="mt-0">
         So I think Arian got most of the first customers through Hacker News,
         which was the crowd which was on there. It's like the developers anti
-        Google, whatever, because simple analytics is a Google analytics
+        Google, whatever, because Simple Analytics is a Google analytics
         alternative basically. So we make it more simple privacy friendly
         because Ian thought, hey, this is just this Google analytics, this is
         monstrosity, it's complex, not everyone needs it. So as an engineer that
@@ -403,7 +403,7 @@
         and they'll jump into that before even thinking about who's the
         customer. So it occurs to me at least when I see your post, when I see
         you talking that you guys have a really strong idea of what kind of
-        company buys simple analytics. Is that something that you kind of went
+        company buys Simple Analytics. Is that something that you kind of went
         in thinking this is really important or is it more you're bootstrapping,
         you need to try stuff and you keep iterating your way until you get to
         that definition?
@@ -455,7 +455,7 @@
         this framework which is like four check boxes and one of them is I think
         channel product fit, which basically means if you're selling enterprise
         software, you're not going to rely on TikTok, whatever. Yeah, exactly. I
-        was just thinking, so simple analytics, if you want to start goes nine
+        was just thinking, so Simple Analytics, if you want to start goes nine
         euros, you want to do sales calls for nine euros, that's probably not
         the best solution. So in this, but I didn't think about that.
       </p>
@@ -546,10 +546,10 @@
         use it kind of like, but they don't tell other businesses. It's the
         developers that actually start just spreading out the word. So we were
         like, okay, can we get more of those developers in? Because the
-        developer with a side project that uses simple analytics base nine euros
+        developer with a side project that uses Simple Analytics base nine euros
         a month, it's a drop on a plate. But he also has a job, he works in the
         company. And when they discuss, Hey, should we switch to another
-        analytics tool? This developer say, Hey, I'm using simple analytics on
+        analytics tool? This developer say, Hey, I'm using Simple Analytics on
         the side project. Maybe start looking into that. It's
       </p>
 
@@ -571,7 +571,7 @@
         in, use it for free. Most of them still work at a company, they just put
         it on a side project or a block or whatever because they don't need
         complex Google analytics on a side project that has hundred visitors
-        every month. So they will just use simple analytics. That's the
+        every month. So they will just use Simple Analytics. That's the
         assumption obviously. And then they work at a company and when the
         company is discussing, hey, we should use different analytics tool, they
         just vouch for us.
@@ -608,7 +608,7 @@
         you're bad. Why we don't like GA four, but I have the feeling because
         I'm part of it as well, I keep using it. So what do you think is the
         biggest blocker to actually get people out of GA four to use tools like
-        simple analytics for example.
+        Simple Analytics for example.
       </p>
 
       <p class="text-gray-400 dark:text-gray-600 mb-0">Iron Brands (24:58):</p>
@@ -630,7 +630,7 @@
         there and you dunno a lot about other alternatives. That's my job to
         actually get the awareness. Yeah, create some awareness. And then again,
         also a lot of companies just rely on it because we are privacy friendly
-        and simple. So we're built for simple analytics and also for people that
+        and simple. So we're built for Simple Analytics and also for people that
         actually care about privacy and compliance. But there's also a lot of
         companies like rely on ads and Google GA four, even if it's sucks, it's
         just the most powerful and complex analytics tool out there that gets a
@@ -716,7 +716,7 @@
         completely off and it's because of how the startup landscape is
         portrayed. So that was bootstrap basically while I wanted to have
         funding, which didn't get it. So we needed to figure it out. And I think
-        with simple analytics, that was a very conscious decision maybe because
+        with Simple Analytics, that was a very conscious decision maybe because
         he was just this engineer, hacker news, anti anti funding.
       </p>
 
@@ -1063,7 +1063,7 @@
         implications, this is actually what it means and this is what you can do
         and just no marketing, because if you one banner or whatever, and you're
         just done. So only at the last sentence we put like, alright, if you
-        just hate Google Analytics, just give simple analytics a spin. And
+        just hate Google Analytics, just give Simple Analytics a spin. And
         because it was just so informative and so timely and we were always the
         first actually cover it before TechCrunch or before whatever, we just
         spin it out on Hacker News. And I think we did maybe 15 of those 15 and
@@ -1225,7 +1225,7 @@
       <p class="text-gray-400 dark:text-gray-600 mb-0">Iron Brands (52:31):</p>
       <p class="mt-0">
         Yeah, no good questions. Well, I'll just give you a bit of context to
-        actually understand how it happened. So Ari and I have simple analytics.
+        actually understand how it happened. So Ari and I have Simple Analytics.
         We're just with the two of us, and we rented an office, I think it was
         two years ago, but the office was too big for us. So it was like eight
         people could fit. We were only with the two of us. So we put on Twitter
@@ -1637,7 +1637,7 @@
         Oh, good one. Okay. And I think I have a last one. Alright, so if you go
         on your LinkedIn, you can see that you're actually quite public about
         what's the current a RR of your companies. So you said that one of your
-        goals is to reach a million a r for simple analytics. I'm going to ask
+        goals is to reach a million a r for Simple Analytics. I'm going to ask
         you to give me a date on when that's going to happen and then we're
         going to see how far off you are when you actually reached the goal.
       </p>
@@ -1679,7 +1679,7 @@
         Iron Brands (01:08:13):
       </p>
       <p class="mt-0">
-        Like the company, simple analytics.com. You can follow me on Twitter,
+        Like the company, Simple Analytics.com. You can follow me on Twitter,
         which is Iron Brands, which is my real name. But yeah, on
       </p>
 

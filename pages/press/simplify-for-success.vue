@@ -104,7 +104,7 @@
         people that makes sense. So if you can track a person from page to page
         how long the session was for that person, how many pages they visited,
         which pages they visited. So that kind of information, you can't really
-        gather without tracking people. So with simple analytics, we decided to
+        gather without tracking people. So with Simple Analytics, we decided to
         like, Hey, we want to have a way that we at least can show the unique
         page views and normal page views, the time on pace, all that stuff
         that's still doable without invading the privacy.
@@ -117,13 +117,13 @@
         same website, then we know, okay, this is a non-unique page view. And
         with Google it's like a cookie that's placed or an IP address or a hash
         or something like that where they will track you for a longer period of
-        time. And that's also one of the bigger difference with simple analytics
+        time. And that's also one of the bigger difference with Simple Analytics
         and other competitors as well. Also privacy friendly competitors is most
         of them still use the IP address in a certain way. And I don't really
         think that's the best idea because if you still use it for one week,
         then we need to trust you on that and you can still track a person for
         that whole week or a day or something like that. And I think it's a bit
-        of a grey zone to be in. And with simple analytics, you always want to
+        of a grey zone to be in. And with Simple Analytics, you always want to
         be like a hundred percent sure this is legally accepted and you will
         never get any privacy issues with that. So we go for a different way and
         that's without any IP address or fingerprinting or tracking or
@@ -181,7 +181,7 @@
 
       <p class="text-gray-400 dark:text-gray-600 mb-0">Priya Keshav (09:50):</p>
       <p class="mt-0">
-        So there are alternatives to simple analytics and Google. Would you want
+        So there are alternatives to Simple Analytics and Google. Would you want
         to talk a little bit about where you fall and how you compare and
         contrast against some of your competition?
       </p>
@@ -306,9 +306,9 @@
         analytics on a website and then with Google Analytics, and then we
         compare those two. And the funny thing is that you can get a hundred
         points for your website. So without any script, we had 98.2 points, so
-        that's without any analytics. And then we added simple analytics and
+        that's without any analytics. And then we added Simple Analytics and
         then we had 98.0, so there's only 0.2 difference. And then we changed
-        simple analytics to Google Analytics, and then we got like 88.9. So
+        Simple Analytics to Google Analytics, and then we got like 88.9. So
         that's basically 10 points below the highest number. So you can see that
         there's a huge difference when using Google Analytics versus Simple
         Analytics just based on their own algorithms and their own core web

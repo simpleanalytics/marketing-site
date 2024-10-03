@@ -90,7 +90,7 @@
         So the one thing I usually like to chat about is sort of the tech
         acronym, how you think about building products. You don't have to
         divulge everything, this e secret sauce or anything, but maybe go
-        through the simple tech stack of how simple analytics is built.
+        through the simple tech stack of how Simple Analytics is built.
       </p>
 
       <p class="text-gray-400 dark:text-gray-600 mb-0">
@@ -157,7 +157,7 @@
         privacy analytics software or whatever it might be, maybe Canva or
         something like that, design software, something simple. So Google
         provides all these free things, but there's always a trade off. I guess.
-        What's the pitch for simple analytics? Why should businesses and
+        What's the pitch for Simple Analytics? Why should businesses and
         founders really look at privacy for tools that they use to build their
         companies?
       </p>
@@ -197,7 +197,7 @@
         Grant Trahant (06:43):
       </p>
       <p class="mt-0">
-        When users, for a simple analytics user, do companies put the simple
+        When users, for a Simple Analytics user, do companies put the simple
         analytics badge on their footer or whatever to notify
       </p>
 
@@ -206,7 +206,7 @@
       </p>
       <p class="mt-0">
         People or put it somewhere in the privacy policy like, Hey, we care
-        about your privacy, so we use simple analytics, stuff like that.
+        about your privacy, so we use Simple Analytics, stuff like that.
       </p>
 
       <p class="text-gray-400 dark:text-gray-600 mb-0">
@@ -233,7 +233,7 @@
         there's a lot of different signals from different people saying, oh, you
         should do this and you should do that. But the general thing is if you
         use Google Analytics with the defaults, you will require a cookie banner
-        and for example, simple analytics, you don't need any cookie banner, and
+        and for example, Simple Analytics, you don't need any cookie banner, and
         there's no personal data that ends up in our systems. So you are a
         hundred percent sure that you never violate any gdpr. That's huge
         problems because yeah, you can't get a lawsuit for that.
@@ -245,7 +245,7 @@
       <p class="mt-0">
         So if you're a simple site that provides information and maybe you're
         not running any ads on third party sites or anything like that, and you
-        use simple analytics that in sense it's an easy way to become GD PR
+        use Simple Analytics that in sense it's an easy way to become GD PR
         compliant. You don't need the cookie bag
       </p>
 
@@ -282,7 +282,7 @@
         where there's no data coming in. So then you think like, okay, I'm
         missing out now, but what portion do I miss out? You don't know. And
         that's also why some people that use Google Analytics, they also use
-        simple analytics next to it. So then they enable Google Analytics at the
+        Simple Analytics next to it. So then they enable Google Analytics at the
         moment when people consent to the cookie.
       </p>
 
@@ -459,7 +459,7 @@
         Adriaan van Rossum (15:17):
       </p>
       <p class="mt-0">
-        Well, the big difference is that simple analytics doesn't track users or
+        Well, the big difference is that Simple Analytics doesn't track users or
         visitors. So it's definitely different than Google Analytics because
         Google Analytics tracks your visitors, which is super useful as well.
         It's not only bad, but it's super useful. So you can say like, oh,
@@ -467,7 +467,7 @@
         For example, with Simple Analytics, you can't do that because you don't
         know the person visiting is the same person as yesterday. So you have no
         clue who the person is and also know that he's returning. So there are
-        some differences between Google Analytics and simple analytics or
+        some differences between Google Analytics and Simple Analytics or
         between cookie based analytics or tracking analytics versus non cookie
         non tracking. So there's a few things that are impossible. So one of
         them is Sessions. You don't record sessions. So for example, you can't
@@ -484,7 +484,7 @@
         So those things you can't say, but with the data you can still do a lot.
         For example, you can still get uniques because browser always sends the
         referral of the previous page to the next page. So you're basically
-        saying, oh, this person comes from to go navigates to simple analytics.
+        saying, oh, this person comes from to go navigates to Simple Analytics.
         I can see it's coming from Duke to go for example. That way you can say,
         oh, this is unique visitor. Because if the person was coming from simple
         Analytics slash contact going to another page, then you can see like,
@@ -529,7 +529,7 @@
       <p class="text-gray-400 dark:text-gray-600 mb-0">(17:51):</p>
       <p class="mt-0">
         It's already complicated to see where your long-term pages are. So stuff
-        like that is very important for simple analytics. And also from a
+        like that is very important for Simple Analytics. And also from a
         privacy point, we don't see that, well, we don't say that the data is
         our data. The data is from our customers. So if you add data to our
         platform from your visitors, it is your data. We don't say like, oh, we
@@ -554,7 +554,7 @@
       <p class="mt-0">
         It's a bit simpler as well than Google Analytics. I recently did a
         comparison with Simple Analytics and Google Analytics, and Google is
-        obviously slowing your website down quite a bit, simple analytics, so
+        obviously slowing your website down quite a bit, Simple Analytics, so
         that was pretty great to measure. But then I also went into their tool
         to grab their snippet just for copy pasting in the website. It is
         complicated already. You have so many options, you can do so much. It is
@@ -562,7 +562,7 @@
         lot of people complaining like, oh, I need to instal Google Analytics.
         It's not copy pasting a script anymore. It's like finding out bot script
         unique and all that stuff. And the big difference is with Google
-        Analytics, you need a website id and with simple analytics, we thought
+        Analytics, you need a website id and with Simple Analytics, we thought
         every website already has an id that's URL. So it's unique for every
         website. So we just use that. So you can just copy the paste, copy and
         paste the same script on all your websites without changing website IDs
@@ -849,7 +849,7 @@
       </p>
       <p class="mt-0">
         Especially at the start, I think it's good to have more customers than,
-        for example, with simple analytics, I kind of regret to not make it
+        for example, with Simple Analytics, I kind of regret to not make it
         available for a bigger public in the beginning, but at the same time you
         want to validate your product for a price that you eventually want to
         charge. So I think I started with $9 per month, but maybe in the

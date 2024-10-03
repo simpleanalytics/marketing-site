@@ -421,7 +421,7 @@
       <p class="text-gray-400 dark:text-gray-600 mb-0">Noah Labhart (27:06):</p>
       <p class="mt-0">
         That's great advice. Well, Adriaan, thank you for being on the show
-        today, and thank you for telling the creation story of simple analytics.
+        today, and thank you for telling the creation story of Simple Analytics.
       </p>
 
       <p class="text-gray-400 dark:text-gray-600 mb-0">

@@ -127,16 +127,16 @@
       <p class="text-gray-400 dark:text-gray-600 mb-0">Artem Daniliants:</p>
       <p class="mt-0">
         Yeah. For sure. For sure. So how about you as a startup founder, so you
-        have an awesome product, simple analytics.  And analytics I guess a
+        have an awesome product, Simple Analytics.  And analytics I guess a
         software as a service product. So you sell it as a software and
         basically you kind of compete, I wouldn't say maybe head-on, but you
         compete with many other offerings on the market. So there are like
         server-side analytics. There are like the big boys, enterprise analytics
         and there is something like middle ground, like google analytics and
         maybe like even Yandex metrica and all that stuff. And then boom, you
-        come in with simple analytics. Could you tell me a little bit, and I’m
+        come in with Simple Analytics. Could you tell me a little bit, and I’m
         sure the viewers will be interested to know, how did you end up with the
-        idea of creating simple analytics and what was the reasoning behind it?
+        idea of creating Simple Analytics and what was the reasoning behind it?
       </p>
 
       <p class="text-gray-400 dark:text-gray-600 mb-0">Adriaan van Rossum:</p>
@@ -252,7 +252,7 @@
         actually doing something with it and creating a product and actually
         looking at people, using it, and I’m sure you obviously evaluate your
         data. How many signups, what do they do? Which pages are, I guess you
-        use simple analytics, inside simple analytics in a way? To analyze your
+        use Simple Analytics, inside Simple Analytics in a way? To analyze your
         software, I guess and the way that people behave. But so you started
         working on the product. How long did it take you before you had
         something that resembled a working product, something that you could
@@ -349,7 +349,7 @@
 
       <p class="text-gray-400 dark:text-gray-600 mb-0">Artem Daniliants:</p>
       <p class="mt-0">
-        Yeah, for sure. For sure. And if we go back to the simple analytics, so
+        Yeah, for sure. For sure. And if we go back to the Simple Analytics, so
         the core concept, is similar to google analytics in a way that you get a
         little bit of insight into how people behave on your website, what kind
         of, how many visitors you have and so forth. But the core, I guess,
@@ -412,7 +412,7 @@
         Yeah. Yeah. So there's definitely something that is hard to like just
         promise. Like people need to believe you. So there's a lot of like
         building your brand and that matches a lot with like building trust and
-        the simple analytics trust is like the most important thing that we have
+        the Simple Analytics trust is like the most important thing that we have
         to get from our customers. Otherwise they don't use us. So that's what
         we also have, like quite some content about building their trust. So
         recently I also published a blog post about like what you can do as a
@@ -508,7 +508,7 @@
         Like if the defaults are to track everybody and then maybe 1% toggles
         the buttons to something like less privacy in Facebook, it isn't going
         to change the world, we need to have to default. And that's why the
-        simple analytics, I really care about the defaults and the defaults are
+        Simple Analytics, I really care about the defaults and the defaults are
         super privacy friendly. And we also prevent people from abusing our
         system if they want to use it privacy unfriendly, for example, the
         events, events you cannot like have a product id with it, stuff like
@@ -533,7 +533,7 @@
         and many different variations of it then we have things like do not
         track. And then again, I’ve kind of feel that companies still don't obey
         doing a track I guess setting in your browser. So for example, does
-        simple analytics obey do not track?
+        Simple Analytics obey do not track?
       </p>
 
       <p class="text-gray-400 dark:text-gray-600 mb-0">Adriaan van Rossum:</p>
@@ -572,7 +572,7 @@
         tracker they run on their website or whatever, so they should be
         empowered. So I think it's very good to have a blockers and block
         whatever you want. That being said, or that having said, there's also
-        something like the good side of the trackers. Like simple analytics
+        something like the good side of the trackers. Like Simple Analytics
         doesn't track people. And they're just collecting statistics, page views
         basically. So it doesn't harm anything. If you related to like do not
         track movement or whatever, or that setting. But it's very to, I don't
@@ -584,7 +584,7 @@
       </p>
 
       <p class="text-gray-400 dark:text-gray-600 mb-0">Artem Daniliants:</p>
-      <p class="mt-0">Is simple analytics on the list?</p>
+      <p class="mt-0">Is Simple Analytics on the list?</p>
 
       <p class="text-gray-400 dark:text-gray-600 mb-0">Adriaan van Rossum:</p>
       <p class="mt-0">
@@ -597,7 +597,7 @@
         Oh, okay. But I mean, like in the white list, like where it's kind of
         allowed, because as you mentioned, there's community that creates lists
         of good trackers and I was wondering, you would definitely want to be on
-        that list. Cause simple analytics kind of feels, as a good fit. 
+        that list. Cause Simple Analytics kind of feels, as a good fit. 
       </p>
 
       <p class="text-gray-400 dark:text-gray-600 mb-0">Adriaan van Rossum:</p>
@@ -625,8 +625,8 @@
         is blocked a lot, like in major, by default they're blocked. And also
         like more and more browsers are going to enable booking google
         analytics. And for example, Firefox focus on mobile and stuff like that.
-        So then customers of simple analytics are interested like, okay, what's
-        the difference between google analytics and simple analytics? So then
+        So then customers of Simple Analytics are interested like, okay, what's
+        the difference between google analytics and Simple Analytics? So then
         they can actually measure how many visits that are blocked, and it can
         be from 5% to 25% of a difference depending on what your target audience
         is of course. But yeah, that's an interesting topic.  
@@ -648,7 +648,7 @@
         the little websites on them. That's an interesting topic. Like it
         started with like the conversation with the ad block people like, I had
         an issue on the broker list and I just saw like, okay, there's no way
-        they are ever going to allow anything like simple analytics. So then I
+        they are ever going to allow anything like Simple Analytics. So then I
         have to build my own feature to fight this issue. And I don't know if
         it's super important, like in the beginning when I started simple
         analytics, I thought it was super important to have this feature. At the
@@ -668,7 +668,7 @@
         we should always respect the will of the customer and the user. So if
         the person has chosen to add an AdBlock that blocks all the trackers, I
         think it would make sense to kind of obey that and not try to cheat your
-        way and still try to get something. Obviously in simple analytics, since
+        way and still try to get something. Obviously in Simple Analytics, since
         you don't track, there is not much harm. Basically the person will be
         able to see that, hey, there is one more visitor view or there is one
         more page view. It doesn't matter. But I think if somebody goes out of
@@ -911,7 +911,7 @@
         in October 2019, I started adding the profit to it, but not only the
         profit, but also like, what is the hosting, what are the services, what
         are the freelancers costing and stuff like that. So then you have like
-        on the slash open page on simple analytics, you have this chart
+        on the slash open page on Simple Analytics, you have this chart
         basically with like all those information per month. So every month I
         will update it and then people can see like, oh, you are paying a lot
         for freelancing now. And you have more customers coming in or less
@@ -950,7 +950,7 @@
       <p class="mt-0">
         It is popular, but like, it feels like you're, I don't know, you're
         tricking people into selling something and that's what I don't like
-        about it. So, but you have so like, within simple analytics, we have
+        about it. So, but you have so like, within Simple Analytics, we have
         like the feature we had from the start where people can make their
         dashboard public. So then everyone can visit your dashboard if you link
         it somewhere or you can tweet about it and people can actually go
@@ -970,7 +970,7 @@
         like link back to your product and say like, hey, like you can see this
         dashboard, people see the dashboard, but they're like, oh, cool, what
         was used to make this dashboard? And there somewhere in the bottom, you
-        have powered by simple analytics that brings you a lot more visibility.
+        have powered by Simple Analytics that brings you a lot more visibility.
         Maybe it brings you a little bit of link juice, stuff like that. 
       </p>
 
@@ -1123,7 +1123,7 @@
         developer. And I also care about our long-term relationships. So I love
         to keep him on board for a long time. So what would happen with more
         revenue is that he can work more days and I can work less. What I’m
-        doing now is, I’m working now two days a week on simple analytics.
+        doing now is, I’m working now two days a week on Simple Analytics.
         Because I have some freelance project at the moment which I also work
         two days on. I've got still one day of free time and then the weekends,
         of course. And when I started doing that like a few weeks ago, it felt
@@ -1191,7 +1191,7 @@
         some staff working for you, maybe support person, a developer full time.
         And maybe you will devote more time to kind of like privacy, advocacy
         and research and maybe, take on like, do you want to take on maybe
-        another challenge or is simple analytics your only thing for foreseeable
+        another challenge or is Simple Analytics your only thing for foreseeable
         future? 
       </p>
 
@@ -1324,7 +1324,7 @@
         things like raspberry pi and stuff.  That's really, really good. So
         Adriaan, this has been amazing. It was really, really fun. And I really
         appreciate you being on the podcast. I will have links to Adriaan’s blog
-        and obviously to simple analytics in the description below and yeah, it
+        and obviously to Simple Analytics in the description below and yeah, it
         was really, really good. I really appreciate you coming on. 
       </p>
 
