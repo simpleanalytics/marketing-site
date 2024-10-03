@@ -104,7 +104,7 @@ export const pressMentions = [
     audio:
       "https://assets.simpleanalytics.com/press/mentions/simplify-for-success/audio.mp3",
     image:
-      "https://assets.simpleanalytics.com/press/mentions/simplify-for-success/cover.png",
+      "https://assets.simpleanalytics.com/press/mentions/simplify-for-success/cover3.png",
     url: "https://merudatapodcast.buzzsprout.com/1408630/episodes/10232537-simplify-for-success-conversation-with-adriaan-van-rossum",
     archive:
       "https://web.archive.org/web/20241003133130/https://merudatapodcast.buzzsprout.com/1408630/episodes/10232537-simplify-for-success-conversation-with-adriaan-van-rossum",
@@ -150,5 +150,26 @@ export const pressMentions = [
       "https://web.archive.org/web/20240926140719/https://funemployed.webflow.io/interview/adriaan-van-rossum",
     description:
       "Adriaan is taking on Google Analytics with his privacy-focused analytics company Simple Analytics",
+  },
+  {
+    type: "podcast",
+    name: "Founder Story",
+    slug: "founder-story",
+    hosts: ["Artem Daniliants"],
+    date: new Date("2020-07-14"),
+    locale: "en",
+    image:
+      "https://assets.simpleanalytics.com/press/mentions/founder-story/cover.jpg",
+    video: {
+      mp4: "https://assets.simpleanalytics.com/press/mentions/founder-story/video.mp4",
+      poster:
+        "https://assets.simpleanalytics.com/press/mentions/founder-story/cover.jpg",
+      subtitles: {
+        en: "https://assets.simpleanalytics.com/press/mentions/founder-story/subtitles.en.vtt",
+      },
+    },
+    url: "https://www.youtube.com/watch?v=otT0FewcYe8",
+    description:
+      "In this episode, I talk to Adriaan van Rossum, founder of Simple Analytics. Adriaan lives in Amsterdam and works on his privacy-oriented alternative to Google Analytics. In this interview, he shares his story and also talks openly about financials and his marketing strategies.",
   },
 ];
