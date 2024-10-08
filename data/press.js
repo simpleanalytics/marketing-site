@@ -4,7 +4,7 @@ export const pressMentions = [
     name: "The Growth Syndicate",
     slug: "the-growth-syndicate",
     hosts: ["Ferdinand Goetzen", "Clement Dumont"],
-    date: new Date("2023-11-15"),
+    date: new Date("2023-05-28"),
     locale: "en",
     image:
       "https://assets.simpleanalytics.com/press/mentions/the-growth-syndicate/cover.jpg",
