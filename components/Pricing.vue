@@ -938,7 +938,7 @@ const sliderOptions = ref([
 ]);
 
 const sliderIndexInitial = computed(() => {
-  return sliderOptions.value.findIndex((option) => option == 10000);
+  return sliderOptions.value.findIndex((option) => option == 20000);
 });
 
 const affiliateCookie = useCookie("affiliate", {
