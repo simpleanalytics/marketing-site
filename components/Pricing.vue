@@ -217,14 +217,7 @@
             ]"
           >
             <span v-if="subscription.slug === 'enterprise'">Contact sales</span>
-            <span
-              v-else-if="subscription.datapoints_graduated_pricing.length === 0"
-              >Start for free</span
-            >
-            <span v-else-if="subscription.trial_days"
-              >Start {{ subscription.trial_days }}-day free trial</span
-            >
-            <span v-else>Start free trial</span>
+            <span v-else>Start for free</span>
           </a>
           <ul role="list" class="mt-8 space-y-3 text-sm leading-6">
             <li
@@ -923,9 +916,9 @@ const sliderOptions = ref([
   // "2500",
   // "5000",
   // "7500",
-  "10000",
+  // "10000",
   // "15000",
-  // "20000",
+  "20000",
   // "30000",
   "50000",
   "100000",
@@ -937,10 +930,10 @@ const sliderOptions = ref([
   // "3000000",
   // "4000000",
   "5000000",
-  "6000000",
-  "7000000",
-  "8000000",
-  "9000000",
+  // "6000000",
+  // "7000000",
+  // "8000000",
+  // "9000000",
   "10000000",
 ]);
 
