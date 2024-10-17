@@ -32,7 +32,7 @@
       </div>
 
       <Tooltip
-        text="4.9 stars on Capterra"
+        text="4.8 stars on Capterra"
         class="group flex-shrink-0 border-2 border-transparent hover:border-yellow-500 dark:hover:border-transparent dark:hover:bg-yellow-500/20 rounded-md"
       >
         <NuxtLink
@@ -49,7 +49,7 @@
             <StarIcon class="inline h-5 w-5" />
           </div>
           <p class="text-xs sm:text-sm">
-            Loved by 13,000+<br class="sm:hidden" />customers
+            Loved by 13,000+<br class="sm:hidden" />users
           </p>
         </NuxtLink>
       </Tooltip>
