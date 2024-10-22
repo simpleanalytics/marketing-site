@@ -1054,7 +1054,20 @@ const url = new URL(
   DASHBOARD_URL,
 ).toString();
 
-const { data, error } = await useFetch(url);
+const { data, error: fetchError } = await useFetch(url);
+
+const error = computed(() => {
+  if (
+    fetchError.value instanceof Error &&
+    fetchError.value.message.includes("no response")
+  ) {
+    if (process.env.NODE_ENV === "development")
+      return "Hey developer! Start the dashboard app to fetch the data.";
+    else
+      return "We're having trouble fetching the data. Please try again later.";
+  }
+  return fetchError.value;
+});
 
 const calculateTotalPrice = ({ datapoints, pricingTiers }) => {
   let totalPriceCents = 0;
