@@ -79,7 +79,6 @@ const getTextValue = (index) => {
 onMounted(() => {
   const value = getNumberValue(sliderIndex.value);
   emit("updateValue", value);
-  console.log({ sliderIndex: sliderIndex.value, updateValue: value });
 
   // Ensure sliderIndex is within bounds after potentially adding an extra step
   if (typeof value === "number")
