@@ -184,6 +184,16 @@
       </Html>
 
       <div
+        v-if="isDev"
+        class="w-full h-[2px] border-b-2 border-dashed border-gray-200 dark:border-gray-600 pointer-events-none absolute top-[850px] left-0 right-0 z-[9999] text-center select-none"
+      >
+        <span
+          class="absolute bg-gray-200 dark:bg-gray-600 text-[9px] px-2 py-1 rounded-full -translate-y-1/2 -translate-x-1/2 text-white"
+          >the fold</span
+        >
+      </div>
+
+      <div
         class="text-gray-300 bg-gradient-to-b from-blue-100 dark:from-gray-900 relative md:pb-12"
       >
         <div class="relative pt-6 pb-16 sm:pb-8">
@@ -1125,6 +1135,8 @@ if (process.client) {
       themeCookie.value = mode;
     });
 }
+
+const isDev = NODE_ENV === "development";
 
 const pending = false;
 const recentPosts = [];

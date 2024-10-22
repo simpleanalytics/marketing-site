@@ -8,6 +8,59 @@
       Analytics doesn't need to be complex. Let's make it simple.
     </p>
 
+    <div class="mt-6 mb-0 flex flex-wrap justify-center items-center space-x-7">
+      <Tooltip text="Mollie" class="group">
+        <NuxtLink href="https://www.mollie.com/" target="_blank">
+          <LogosMollie class="h-5 my-3" />
+        </NuxtLink>
+      </Tooltip>
+      <Tooltip text="Bloomberg" class="group">
+        <NuxtLink href="https://www.bloomberg.com/" target="_blank">
+          <LogosBloomberg class="h-6 my-3 translate-y-[20%]" />
+        </NuxtLink>
+      </Tooltip>
+      <Tooltip text="Michelin" class="group">
+        <NuxtLink href="https://www.michelin.com/" target="_blank">
+          <LogosMichelin class="h-8 my-3" />
+        </NuxtLink>
+      </Tooltip>
+      <Tooltip text="Hyundai" class="group">
+        <NuxtLink href="https://www.hyundai.com/" target="_blank">
+          <LogosHyundai class="h-8 my-3" />
+        </NuxtLink>
+      </Tooltip>
+      <Tooltip text="GOV.UK" class="group">
+        <NuxtLink href="https://www.gov.uk/" target="_blank">
+          <LogosGovUK class="h-9 my-3" />
+        </NuxtLink>
+      </Tooltip>
+      <Tooltip text="Polkadot" class="group">
+        <NuxtLink href="https://polkadot.network/" target="_blank">
+          <LogosPolkadot class="h-6 my-3" />
+        </NuxtLink>
+      </Tooltip>
+      <Tooltip text="Bank of England" class="group">
+        <NuxtLink href="https://www.bankofengland.co.uk/" target="_blank">
+          <LogosBankOfEngland class="h-10 my-3" />
+        </NuxtLink>
+      </Tooltip>
+      <Tooltip text="Sketch" class="group">
+        <NuxtLink href="https://www.sketch.com/" target="_blank">
+          <LogosSketch class="h-6 my-3" />
+        </NuxtLink>
+      </Tooltip>
+      <Tooltip text="Excalidraw" class="group">
+        <NuxtLink href="https://excalidraw.com/" target="_blank">
+          <LogosExcalidraw class="h-7 my-3" />
+        </NuxtLink>
+      </Tooltip>
+      <Tooltip text="Nomad List" class="group">
+        <NuxtLink href="https://nomadlist.com/" target="_blank">
+          <LogosNomadList class="h-8 my-3" />
+        </NuxtLink>
+      </Tooltip>
+    </div>
+
     <div class="mt-6 mx-auto flex space-x-2 items-center justify-center">
       <div class="flex flex-wrap -space-x-3">
         <div
@@ -21,12 +74,18 @@
             target="_blank"
             :title="`@${avatar.handle} (${avatar.followers > 1000 ? `${Math.floor(avatar.followers / 1000)}k+` : avatar.followers} followers)`"
           >
-            <img
-              :src="`/avatars/${avatar.image}`"
-              :alt="`Avatar of ${avatar.handle}`"
-              rel="nofollow"
-              class="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-gray-800"
-            />
+            <Tooltip
+              :text="`@${avatar.handle}`"
+              class="group ring-2 ring-white dark:ring-gray-800 rounded-full"
+              :rounded="true"
+            >
+              <img
+                :src="`/avatars/${avatar.image}`"
+                :alt="`Avatar of ${avatar.handle}`"
+                rel="nofollow"
+                class="h-10 w-10"
+              />
+            </Tooltip>
           </NuxtLink>
         </div>
       </div>
@@ -80,6 +139,7 @@
         <Slider
           :options="sliderOptions"
           :sliderIndexInitial="sliderIndexInitial"
+          :addInfinityStep="true"
           @updateValue="handleSliderValue"
         />
       </div>
@@ -124,7 +184,7 @@
 
   <div>
     <div
-      class="sm:mx-auto max-w-7xl sm:px-8 py-8 mx-6 sm:flex sm:flex-col sm:align-center"
+      class="sm:mx-auto max-w-7xl sm:px-8 pt-4 pb-8 mx-6 sm:flex sm:flex-col sm:align-center"
     >
       <div
         class="isolate mx-auto mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8"
@@ -136,9 +196,16 @@
             subscription.featured
               ? 'ring-2 ring-green-500  dark:bg-gray-700'
               : 'ring-1 ring-gray-200 dark:ring-0 dark:bg-gray-700',
-            'rounded-3xl p-8',
+            'rounded-3xl p-8 relative',
           ]"
         >
+          <div
+            v-if="subscription.featured"
+            class="absolute left-1/2 -translate-x-1/2 top-0 transform -translate-y-1/2 bg-green-500 px-3 py-1 rounded-full text-white text-sm font-semibold"
+          >
+            Recommended
+          </div>
+
           <h3
             :id="subscription.slug"
             :class="[
@@ -163,8 +230,20 @@
             }}
           </p>
           <p
+            v-if="subscription.slug.includes('free')"
             class="mt-6 flex items-baseline gap-x-1"
-            v-if="subscription.datapoints_graduated_pricing"
+          >
+            <span
+              class="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200"
+              >Free</span
+            >
+          </p>
+          <p
+            class="mt-6 flex items-baseline gap-x-1"
+            v-else-if="
+              subscription.datapoints_graduated_pricing &&
+              sliderValue !== Infinity
+            "
           >
             <span
               class="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200"
@@ -189,7 +268,9 @@
             }}</span>
           </p>
           <p
-            v-else-if="subscription.slug === 'enterprise'"
+            v-else-if="
+              subscription.slug === 'enterprise' || sliderValue === Infinity
+            "
             class="mt-6 flex items-baseline gap-x-1"
           >
             <span
@@ -197,13 +278,7 @@
               >Contact us</span
             >
           </p>
-          <p v-else class="mt-6 flex items-baseline gap-x-1">
-            <span
-              class="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200"
-              >Free</span
-            >
-          </p>
-          <a
+          <NuxtLink
             @click="
               subscription.slug === 'enterprise'
                 ? clickEnterprise()
@@ -216,9 +291,17 @@
               'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600',
             ]"
           >
-            <span v-if="subscription.slug === 'enterprise'">Contact sales</span>
+            <span v-if="subscription.slug.includes('free')"
+              >Start for free</span
+            >
+            <span
+              v-else-if="
+                subscription.slug === 'enterprise' || sliderValue === Infinity
+              "
+              >Contact sales</span
+            >
             <span v-else>Start for free</span>
-          </a>
+          </NuxtLink>
           <ul role="list" class="mt-8 space-y-3 text-sm leading-6">
             <li
               v-if="
@@ -412,7 +495,7 @@
               v-if="subscription.unique_features.length > 5"
               class="flex gap-x-3"
             >
-              <a
+              <NuxtLink
                 @click="planListExpanded = !planListExpanded"
                 class="flex items-center gap-x-3 text-gray-300 dark:text-gray-500"
               >
@@ -426,7 +509,7 @@
 
                 <span v-if="planListExpanded">Show less</span>
                 <span v-else>Show more</span>
-              </a>
+              </NuxtLink>
             </li>
 
             <li
@@ -459,161 +542,349 @@
   </div>
 
   <p class="text-center mt-20">
-    <a @click="featuresOpen = !featuresOpen" class="button" v-if="featuresOpen">
+    <NuxtLink
+      @click="featuresOpen = !featuresOpen"
+      class="button"
+      v-if="featuresOpen"
+    >
       <MinusIcon class="h-5 w-5 mr-2" aria-hidden="true" />
       Hide all plan features
-    </a>
-    <a @click="featuresOpen = !featuresOpen" class="button" v-else>
+    </NuxtLink>
+    <NuxtLink @click="featuresOpen = !featuresOpen" class="button" v-else>
       <PlusIcon class="h-5 w-5 mr-2" aria-hidden="true" />
       Show all plan features
-    </a>
+    </NuxtLink>
   </p>
 
-  <div
-    class="sticky hidden lg:block top-0 z-50 mt-10 bg-gradient-to-b from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-900 border-b border-gray-200 dark:border-gray-600"
-    v-if="featuresOpen"
-  >
-    <div class="mx-auto max-w-7xl px-6 py-8 sm:pb-8 sm:bt-8 lg:px-8">
-      <h2 id="comparison-heading" class="sr-only">Feature comparison</h2>
+  <!-- Wrap the sticky header and related content with .relative -->
+  <div v-if="featuresOpen" class="relative">
+    <div
+      class="sticky hidden lg:block top-0 z-50 mt-10 bg-gradient-to-b from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-900 border-b border-gray-200 dark:border-gray-600"
+    >
+      <div class="mx-auto max-w-7xl px-6 py-8 sm:pb-8 sm:bt-8 lg:px-8">
+        <h2 id="comparison-heading" class="sr-only">Feature comparison</h2>
 
-      <div class="grid grid-cols-4 gap-x-8 before:block">
-        <div
-          v-for="subscription in showInPlanFeaturesSubscriptions"
-          :key="subscription.slug"
-          aria-hidden="true"
-          class="-mt-px"
-        >
+        <div class="grid grid-cols-4 gap-x-8 before:block">
           <div
-            :class="[
-              subscription.featured
-                ? 'border-red-500 dark:border-red-600'
-                : 'border-transparent',
-              'text-center px-4',
-            ]"
+            v-for="subscription in showInPlanFeaturesSubscriptions"
+            :key="subscription.slug"
+            aria-hidden="true"
+            class="-mt-px"
           >
-            <p
+            <div
               :class="[
                 subscription.featured
-                  ? 'text-red-500 dark:text-red-600'
-                  : 'text-gray-900',
-                'text-xl font-semibold leading-6',
+                  ? 'border-red-500 dark:border-red-600'
+                  : 'border-transparent',
+                'text-center px-4',
               ]"
             >
-              {{ $t(`pricing.plans.${subscription.translation_key}.title`) }}
-            </p>
-            <p class="mt-1 text-sm leading-6">
-              {{
-                $t(`pricing.plans.${subscription.translation_key}.description`)
-              }}
-            </p>
+              <p
+                :class="[
+                  subscription.featured
+                    ? 'text-red-500 dark:text-red-600'
+                    : 'text-gray-900',
+                  'text-xl font-semibold leading-6',
+                ]"
+              >
+                {{ $t(`pricing.plans.${subscription.translation_key}.title`) }}
+              </p>
+              <p class="mt-1 text-sm leading-6">
+                {{
+                  $t(
+                    `pricing.plans.${subscription.translation_key}.description`,
+                  )
+                }}
+              </p>
 
-            <a
-              class="button mt-6 block text-sm font-semibold leading-6"
-              href="#"
-              >Start now</a
-            >
+              <a
+                class="button mt-6 block text-sm font-semibold leading-6"
+                href="#"
+                >Start now</a
+              >
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="isolate overflow-hidden" v-if="featuresOpen">
-    <div class="relative">
-      <div class="mx-auto max-w-7xl px-6 py-8 sm:pb-16 sm:bt-4 lg:px-8">
-        <!-- Feature comparison (up to lg) -->
-        <section aria-labelledby="mobile-comparison-heading" class="lg:hidden">
-          <h2 id="mobile-comparison-heading" class="sr-only">
-            Feature comparison
-          </h2>
+    <div class="isolate overflow-hidden">
+      <div class="relative">
+        <div class="mx-auto max-w-7xl px-6 py-8 sm:pb-16 sm:bt-4 lg:px-8">
+          <!-- Feature comparison (up to lg) -->
+          <section
+            aria-labelledby="mobile-comparison-heading"
+            class="lg:hidden"
+          >
+            <h2 id="mobile-comparison-heading" class="sr-only">
+              Feature comparison
+            </h2>
 
-          <div class="mx-auto max-w-2xl space-y-16">
-            <div
-              v-for="(subscription, index) in showInPlanFeaturesSubscriptions"
-              :key="subscription.slug"
-            >
+            <div class="mx-auto max-w-2xl space-y-16">
               <div
-                :class="[
-                  subscription.featured
-                    ? 'border-red-500 dark:border-red-600'
-                    : 'border-transparent',
-                  '-mt-px w-72 border-t-2 pt-10 md:w-80',
-                ]"
+                v-for="(subscription, index) in showInPlanFeaturesSubscriptions"
+                :key="subscription.slug"
               >
-                <h3 class="text-lg font-semibold leading-6">
-                  {{
-                    $t(`pricing.plans.${subscription.translation_key}.title`)
-                  }}
-                </h3>
-                <p class="mt-4 -mb-6 text-sm leading-6">
-                  {{
-                    $t(
-                      `pricing.plans.${subscription.translation_key}.description`,
-                    )
-                  }}
-                </p>
-              </div>
-
-              <div class="mt-10 space-y-10">
-                <div v-for="section in sections" :key="section.name">
-                  <h4
-                    class="text-sm font-semibold leading-6 text-gray-900"
-                    v-if="section.name !== 'basics'"
-                  >
-                    {{ $t(`pricing.sections.${section.name}.title`) }}
-                  </h4>
-                  <p
-                    class="mt-2 text-sm leading-6 text-gray-900"
-                    v-if="section.name !== 'basics'"
-                  >
-                    {{ $t(`pricing.sections.${section.name}.description`) }}
+                <div
+                  :class="[
+                    subscription.featured
+                      ? 'border-red-500 dark:border-red-600'
+                      : 'border-transparent',
+                    '-mt-px w-72 border-t-2 pt-10 md:w-80',
+                  ]"
+                >
+                  <h3 class="text-lg font-semibold leading-6">
+                    {{
+                      $t(`pricing.plans.${subscription.translation_key}.title`)
+                    }}
+                  </h3>
+                  <p class="mt-4 -mb-6 text-sm leading-6">
+                    {{
+                      $t(
+                        `pricing.plans.${subscription.translation_key}.description`,
+                      )
+                    }}
                   </p>
+                </div>
 
-                  <div class="relative mt-4">
-                    <!-- Fake card background -->
-                    <div
-                      aria-hidden="true"
-                      class="absolute inset-y-0 right-0 hidden w-1/2 rounded-lg bg-white dark:bg-gray-700 shadow-sm sm:block"
-                    />
-
-                    <div
-                      :class="[
-                        subscription.featured
-                          ? 'ring-2 ring-red-500 dark:ring-red-600'
-                          : 'ring-1 ring-gray-900/10',
-                        'relative rounded-lg bg-white dark:bg-gray-700 shadow-sm sm:rounded-none sm:bg-transparent sm:shadow-none sm:ring-0',
-                      ]"
+                <div class="mt-10 space-y-10">
+                  <div v-for="section in sections" :key="section.name">
+                    <h4
+                      class="text-sm font-semibold leading-6 text-gray-900"
+                      v-if="section.name !== 'basics'"
                     >
-                      <dl
-                        class="divide-y divide-gray-200 dark:divide-gray-600 text-sm leading-6"
+                      {{ $t(`pricing.sections.${section.name}.title`) }}
+                    </h4>
+                    <p
+                      class="mt-2 text-sm leading-6 text-gray-900"
+                      v-if="section.name !== 'basics'"
+                    >
+                      {{ $t(`pricing.sections.${section.name}.description`) }}
+                    </p>
+
+                    <div class="relative mt-4">
+                      <!-- Fake card background -->
+                      <div
+                        aria-hidden="true"
+                        class="absolute inset-y-0 right-0 hidden w-1/2 rounded-lg bg-white dark:bg-gray-700 shadow-sm sm:block"
+                      />
+
+                      <div
+                        :class="[
+                          subscription.featured
+                            ? 'ring-2 ring-red-500 dark:ring-red-600'
+                            : 'ring-1 ring-gray-900/10',
+                          'relative rounded-lg bg-white dark:bg-gray-700 shadow-sm sm:rounded-none sm:bg-transparent sm:shadow-none sm:ring-0',
+                        ]"
                       >
-                        <div
-                          v-for="feature in section.features"
-                          :key="feature.slug"
-                          class="flex items-center justify-between px-4 py-3 sm:grid sm:grid-cols-2 sm:px-0"
+                        <dl
+                          class="divide-y divide-gray-200 dark:divide-gray-600 text-sm leading-6"
                         >
-                          <dt
-                            class="pr-4"
+                          <div
+                            v-for="feature in section.features"
+                            :key="feature.slug"
+                            class="flex items-center justify-between px-4 py-3 sm:grid sm:grid-cols-2 sm:px-0"
+                          >
+                            <dt
+                              class="pr-4"
+                              v-html="
+                                $t(`pricing.features.${feature.slug}.title`)
+                              "
+                            ></dt>
+                            <dd
+                              class="flex items-center justify-end sm:justify-center sm:px-4"
+                            >
+                              <span
+                                v-if="
+                                  ['string', 'number'].includes(
+                                    typeof feature.subscriptions[index]?.value,
+                                  )
+                                "
+                                :class="
+                                  subscription.featured
+                                    ? 'font-semibold text-red-500 dark:text-red-600'
+                                    : 'text-gray-900 dark:text-gray-300'
+                                "
+                                >{{ feature.subscriptions[index]?.value }}</span
+                              >
+                              <template v-else>
+                                <svg
+                                  v-if="
+                                    feature.subscriptions[index]?.value ===
+                                      null ||
+                                    (feature.subscriptions[index]?.value ===
+                                      undefined &&
+                                      feature.subscriptions[index]?.type ===
+                                        'limit')
+                                  "
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  class="mx-auto h-5 w-5 fill-red-500 dark:fill-red-600"
+                                  aria-hidden="true"
+                                >
+                                  <path
+                                    d="M18.571 6c-2.853 0-4.608 2.164-6.571 4.201-1.963-2.037-3.718-4.201-6.571-4.201-3.197 0-5.429 2.455-5.429 6s2.232 6 5.429 6c2.854 0 4.608-2.164 6.571-4.201 1.963 2.037 3.718 4.201 6.571 4.201 3.197 0 5.429-2.455 5.429-6s-2.232-6-5.429-6zm-13.142 10c-2.114 0-3.479-1.578-3.479-4s1.366-4 3.479-4c2.311 0 3.719 2.05 5.365 4-1.647 1.95-3.055 4-5.365 4zm13.142 0c-2.311 0-3.719-2.05-5.365-4 1.646-1.95 3.054-4 5.365-4 2.114 0 3.479 1.578 3.479 4s-1.365 4-3.479 4z"
+                                  />
+                                </svg>
+                                <span
+                                  class="text-xs text-gray-400"
+                                  v-else-if="
+                                    feature.subscriptions.every(
+                                      ({ value }) => !value,
+                                    )
+                                  "
+                                >
+                                  {{ $t("pricing.features.enterprise_only") }}
+                                </span>
+                                <CheckIcon
+                                  v-else-if="
+                                    feature.subscriptions[index]?.value === true
+                                  "
+                                  class="mx-auto h-5 w-5 text-red-500 dark:text-red-600"
+                                  aria-hidden="true"
+                                />
+                                <XMarkIcon
+                                  v-else
+                                  class="mx-auto h-5 w-5 text-gray-400"
+                                  aria-hidden="true"
+                                />
+                                <span class="sr-only">{{
+                                  feature.subscriptions[index]?.value === true
+                                    ? "Yes"
+                                    : "No"
+                                }}</span>
+                              </template>
+                            </dd>
+                          </div>
+                        </dl>
+                      </div>
+
+                      <!-- Fake card border -->
+                      <div
+                        aria-hidden="true"
+                        :class="[
+                          subscription.featured
+                            ? 'ring-2 ring-red-500 dark:ring-red-600'
+                            : 'ring-1 ring-gray-900/10',
+                          'pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 rounded-lg sm:block',
+                        ]"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Feature comparison (lg+) -->
+          <section
+            aria-labelledby="comparison-heading"
+            class="hidden lg:block top-0"
+          >
+            <div class="-mt-6 space-y-16">
+              <div v-for="section in sections" :key="section.name">
+                <h3
+                  class="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400"
+                  v-if="section.name !== 'basics'"
+                >
+                  {{ $t(`pricing.sections.${section.name}.title`) }}
+                </h3>
+                <p
+                  class="mt-2 text-sm leading-6 text-gray-900"
+                  v-if="section.name !== 'basics'"
+                >
+                  {{ $t(`pricing.sections.${section.name}.description`) }}
+                </p>
+
+                <div class="relative -mx-8 mt-6">
+                  <!-- Fake card backgrounds -->
+                  <div
+                    class="absolute inset-x-8 inset-y-0 grid grid-cols-4 gap-x-8 before:block"
+                    aria-hidden="true"
+                  >
+                    <div
+                      class="h-full w-full rounded-lg bg-white dark:bg-gray-700 shadow-sm"
+                    />
+                    <div
+                      class="h-full w-full rounded-lg bg-white dark:bg-gray-700 shadow-sm"
+                    />
+                    <div
+                      class="h-full w-full rounded-lg bg-white dark:bg-gray-700 shadow-sm"
+                    />
+                  </div>
+
+                  <table
+                    class="relative w-full border-separate border-spacing-x-8"
+                  >
+                    <thead>
+                      <tr class="text-left">
+                        <th scope="col">
+                          <span class="sr-only">Feature</span>
+                        </th>
+                        <th
+                          v-for="subscription in showInPlanFeaturesSubscriptions"
+                          :key="subscription.slug"
+                          scope="col"
+                        >
+                          <span class="sr-only"
+                            >{{ subscription.name }} subscription</span
+                          >
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        v-for="(feature, featureIdx) in section.features"
+                        :key="feature.slug"
+                      >
+                        <th
+                          scope="row"
+                          class="w-1/4 py-3 pr-4 text-left text-sm font-normal leading-6 text-gray-900 dark:text-gray-200"
+                        >
+                          <span
                             v-html="
                               $t(`pricing.features.${feature.slug}.title`)
                             "
-                          ></dt>
-                          <dd
-                            class="flex items-center justify-end sm:justify-center sm:px-4"
-                          >
+                          />
+                          <div
+                            v-if="featureIdx !== section.features.length - 1"
+                            class="absolute inset-x-8 mt-3 h-px bg-gray-200 dark:bg-gray-600"
+                          />
+                        </th>
+                        <td
+                          v-for="(
+                            subscription, index
+                          ) in showInPlanFeaturesSubscriptions"
+                          :key="subscription.slug"
+                          class="relative w-1/4 px-4 py-0 text-center"
+                        >
+                          <span class="relative h-full w-full py-3">
                             <span
                               v-if="
                                 ['string', 'number'].includes(
                                   typeof feature.subscriptions[index]?.value,
                                 )
                               "
-                              :class="
+                              :class="[
                                 subscription.featured
                                   ? 'font-semibold text-red-500 dark:text-red-600'
-                                  : 'text-gray-900 dark:text-gray-300'
-                              "
-                              >{{ feature.subscriptions[index]?.value }}</span
+                                  : 'text-gray-900 dark:text-gray-300',
+                                'text-sm leading-6',
+                              ]"
                             >
+                              <span v-if="/_days$/.test(feature.slug)">
+                                {{
+                                  formatDays(
+                                    feature.subscriptions[index]?.value,
+                                  )
+                                }}
+                              </span>
+                              <span v-else>
+                                {{ feature.subscriptions[index]?.value }}
+                              </span>
+                            </span>
                             <template v-else>
                               <svg
                                 v-if="
@@ -654,223 +925,53 @@
                               />
                               <XMarkIcon
                                 v-else
-                                class="mx-auto h-5 w-5 text-gray-400"
+                                class="mx-auto h-5 w-5 text-gray-400 dark:text-gray-500"
                                 aria-hidden="true"
                               />
                               <span class="sr-only">{{
-                                feature.subscriptions[index]?.value === true
-                                  ? "Yes"
-                                  : "No"
+                                feature.subscriptions[index]?.value === null ||
+                                (typeof feature.subscriptions[index]?.value ===
+                                  "undefined" &&
+                                  feature.subscriptions[index]?.type ===
+                                    "limit")
+                                  ? "Unlimited"
+                                  : feature.subscriptions.every(
+                                        ({ value }) => !value,
+                                      )
+                                    ? ""
+                                    : feature.subscriptions[index]?.value ===
+                                        true
+                                      ? "Yes"
+                                      : "No"
                               }}</span>
                             </template>
-                          </dd>
-                        </div>
-                      </dl>
-                    </div>
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
 
-                    <!-- Fake card border -->
+                  <!-- Fake card borders -->
+                  <div
+                    class="pointer-events-none absolute inset-x-8 inset-y-0 grid grid-cols-4 gap-x-8 before:block"
+                    aria-hidden="true"
+                  >
                     <div
-                      aria-hidden="true"
+                      v-for="subscription in showInPlanFeaturesSubscriptions"
+                      :key="subscription.slug"
                       :class="[
                         subscription.featured
                           ? 'ring-2 ring-red-500 dark:ring-red-600'
                           : 'ring-1 ring-gray-900/10',
-                        'pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 rounded-lg sm:block',
+                        'rounded-lg',
                       ]"
                     />
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        <!-- Feature comparison (lg+) -->
-        <section
-          aria-labelledby="comparison-heading"
-          class="hidden lg:block top-0"
-        >
-          <div class="-mt-6 space-y-16">
-            <div v-for="section in sections" :key="section.name">
-              <h3
-                class="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400"
-                v-if="section.name !== 'basics'"
-              >
-                {{ $t(`pricing.sections.${section.name}.title`) }}
-              </h3>
-              <p
-                class="mt-2 text-sm leading-6 text-gray-900"
-                v-if="section.name !== 'basics'"
-              >
-                {{ $t(`pricing.sections.${section.name}.description`) }}
-              </p>
-
-              <div class="relative -mx-8 mt-6">
-                <!-- Fake card backgrounds -->
-                <div
-                  class="absolute inset-x-8 inset-y-0 grid grid-cols-4 gap-x-8 before:block"
-                  aria-hidden="true"
-                >
-                  <div
-                    class="h-full w-full rounded-lg bg-white dark:bg-gray-700 shadow-sm"
-                  />
-                  <div
-                    class="h-full w-full rounded-lg bg-white dark:bg-gray-700 shadow-sm"
-                  />
-                  <div
-                    class="h-full w-full rounded-lg bg-white dark:bg-gray-700 shadow-sm"
-                  />
-                </div>
-
-                <table
-                  class="relative w-full border-separate border-spacing-x-8"
-                >
-                  <thead>
-                    <tr class="text-left">
-                      <th scope="col">
-                        <span class="sr-only">Feature</span>
-                      </th>
-                      <th
-                        v-for="subscription in showInPlanFeaturesSubscriptions"
-                        :key="subscription.slug"
-                        scope="col"
-                      >
-                        <span class="sr-only"
-                          >{{ subscription.name }} subscription</span
-                        >
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr
-                      v-for="(feature, featureIdx) in section.features"
-                      :key="feature.slug"
-                    >
-                      <th
-                        scope="row"
-                        class="w-1/4 py-3 pr-4 text-left text-sm font-normal leading-6 text-gray-900 dark:text-gray-200"
-                      >
-                        <span
-                          v-html="$t(`pricing.features.${feature.slug}.title`)"
-                        />
-                        <div
-                          v-if="featureIdx !== section.features.length - 1"
-                          class="absolute inset-x-8 mt-3 h-px bg-gray-200 dark:bg-gray-600"
-                        />
-                      </th>
-                      <td
-                        v-for="(
-                          subscription, index
-                        ) in showInPlanFeaturesSubscriptions"
-                        :key="subscription.slug"
-                        class="relative w-1/4 px-4 py-0 text-center"
-                      >
-                        <span class="relative h-full w-full py-3">
-                          <span
-                            v-if="
-                              ['string', 'number'].includes(
-                                typeof feature.subscriptions[index]?.value,
-                              )
-                            "
-                            :class="[
-                              subscription.featured
-                                ? 'font-semibold text-red-500 dark:text-red-600'
-                                : 'text-gray-900 dark:text-gray-300',
-                              'text-sm leading-6',
-                            ]"
-                          >
-                            <span v-if="/_days$/.test(feature.slug)">
-                              {{
-                                formatDays(feature.subscriptions[index]?.value)
-                              }}
-                            </span>
-                            <span v-else>
-                              {{ feature.subscriptions[index]?.value }}
-                            </span>
-                          </span>
-                          <template v-else>
-                            <svg
-                              v-if="
-                                feature.subscriptions[index]?.value === null ||
-                                (feature.subscriptions[index]?.value ===
-                                  undefined &&
-                                  feature.subscriptions[index]?.type ===
-                                    'limit')
-                              "
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              class="mx-auto h-5 w-5 fill-red-500 dark:fill-red-600"
-                              aria-hidden="true"
-                            >
-                              <path
-                                d="M18.571 6c-2.853 0-4.608 2.164-6.571 4.201-1.963-2.037-3.718-4.201-6.571-4.201-3.197 0-5.429 2.455-5.429 6s2.232 6 5.429 6c2.854 0 4.608-2.164 6.571-4.201 1.963 2.037 3.718 4.201 6.571 4.201 3.197 0 5.429-2.455 5.429-6s-2.232-6-5.429-6zm-13.142 10c-2.114 0-3.479-1.578-3.479-4s1.366-4 3.479-4c2.311 0 3.719 2.05 5.365 4-1.647 1.95-3.055 4-5.365 4zm13.142 0c-2.311 0-3.719-2.05-5.365-4 1.646-1.95 3.054-4 5.365-4 2.114 0 3.479 1.578 3.479 4s-1.365 4-3.479 4z"
-                              />
-                            </svg>
-                            <span
-                              class="text-xs text-gray-400"
-                              v-else-if="
-                                feature.subscriptions.every(
-                                  ({ value }) => !value,
-                                )
-                              "
-                            >
-                              {{ $t("pricing.features.enterprise_only") }}
-                            </span>
-                            <CheckIcon
-                              v-else-if="
-                                feature.subscriptions[index]?.value === true
-                              "
-                              class="mx-auto h-5 w-5 text-red-500 dark:text-red-600"
-                              aria-hidden="true"
-                            />
-                            <XMarkIcon
-                              v-else
-                              class="mx-auto h-5 w-5 text-gray-400 dark:text-gray-500"
-                              aria-hidden="true"
-                            />
-                            <span class="sr-only">{{
-                              feature.subscriptions[index]?.value === null ||
-                              (typeof feature.subscriptions[index]?.value ===
-                                "undefined" &&
-                                feature.subscriptions[index]?.type === "limit")
-                                ? "Unlimited"
-                                : feature.subscriptions.every(
-                                      ({ value }) => !value,
-                                    )
-                                  ? ""
-                                  : feature.subscriptions[index]?.value === true
-                                    ? "Yes"
-                                    : "No"
-                            }}</span>
-                          </template>
-                        </span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <!-- Fake card borders -->
-                <div
-                  class="pointer-events-none absolute inset-x-8 inset-y-0 grid grid-cols-4 gap-x-8 before:block"
-                  aria-hidden="true"
-                >
-                  <div
-                    v-for="subscription in showInPlanFeaturesSubscriptions"
-                    :key="subscription.slug"
-                    :class="[
-                      subscription.featured
-                        ? 'ring-2 ring-red-500 dark:ring-red-600'
-                        : 'ring-1 ring-gray-900/10',
-                      'rounded-lg',
-                    ]"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     </div>
   </div>
@@ -908,32 +1009,13 @@ const handleSliderValue = (value) => {
 };
 
 const sliderOptions = ref([
-  // "100",
-  // "250",
-  // "500",
-  // "750",
-  // "1000",
-  // "2500",
-  // "5000",
-  // "7500",
-  // "10000",
-  // "15000",
   "20000",
-  // "30000",
-  // "50000",
   "100000",
   "250000",
   "500000",
-  // "750000",
   "1000000",
   "2000000",
-  // "3000000",
-  // "4000000",
   "5000000",
-  // "6000000",
-  // "7000000",
-  // "8000000",
-  // "9000000",
   "10000000",
 ]);
 

@@ -15,18 +15,10 @@
       <div class="flex justify-between font-light">
         <p>{{ formatDatapoints(props.options[0], $t("time.intl_locale")) }}</p>
         <p class="text-gray-400 dark:text-gray-500 text-sm">
-          {{
-            formatDatapoints(props.options[sliderIndex], $t("time.intl_locale"))
-          }}
-          pageviews (or events)
+          {{ getTextValue(sliderIndex) }} pageviews (or events)
         </p>
         <p>
-          {{
-            formatDatapoints(
-              props.options[props.options.length - 1],
-              $t("time.intl_locale"),
-            )
-          }}
+          {{ getTextValue(props.options.length - 1) }}
         </p>
       </div>
     </div>
@@ -47,24 +39,58 @@ const props = defineProps({
     required: false,
     default: 0,
   },
+  addInfinityStep: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 });
 
 const sliderIndex = ref(props.sliderIndexInitial);
 
 const emit = defineEmits(["updateValue"]);
 
+// Add an extra step if addInfinityStep is true
+if (
+  props.addInfinityStep &&
+  props.options[props.options.length - 1] !== "infinity"
+) {
+  props.options.push("infinity");
+}
+
+const getNumberValue = (index) => {
+  const value = props.options[index];
+  if (props.addInfinityStep && value === "infinity") return Infinity;
+  return parseFloat(value);
+};
+
+const getTextValue = (index) => {
+  const value = getNumberValue(index);
+  if (value === Infinity)
+    return (
+      formatDatapoints(
+        props.options[props.options.length - 2],
+        t("time.intl_locale"),
+      ) + "+"
+    );
+  return formatDatapoints(value, t("time.intl_locale"));
+};
+
 onMounted(() => {
-  emit("updateValue", parseFloat(props.options[sliderIndex.value]));
+  const value = getNumberValue(sliderIndex.value);
+  emit("updateValue", value);
+  console.log({ sliderIndex: sliderIndex.value, updateValue: value });
+
+  // Ensure sliderIndex is within bounds after potentially adding an extra step
+  if (typeof value === "number")
+    sliderIndex.value = Math.min(sliderIndex.value, props.options.length - 1);
 
   const rangeSlider = document.getElementById("range-slider");
   const tooltip = document.getElementById("slider-tooltip");
   const thumbWidth = 32; // Width of the slider thumb
 
   function updateTooltip() {
-    tooltip.innerHTML = formatDatapoints(
-      props.options[sliderIndex.value],
-      t("time.intl_locale"),
-    );
+    tooltip.innerHTML = getTextValue(sliderIndex.value);
     const percent =
       (rangeSlider.value - rangeSlider.min) /
       (rangeSlider.max - rangeSlider.min);
@@ -82,7 +108,7 @@ onMounted(() => {
 });
 
 watch(sliderIndex, () => {
-  emit("updateValue", parseFloat(props.options[sliderIndex.value]));
+  emit("updateValue", getNumberValue(sliderIndex.value));
 });
 </script>
 
