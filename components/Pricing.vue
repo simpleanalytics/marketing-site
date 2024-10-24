@@ -280,7 +280,7 @@
           </p>
           <NuxtLink
             @click="
-              subscription.slug === 'enterprise'
+              subscription.slug === 'enterprise' || sliderValue === Infinity
                 ? clickEnterprise()
                 : goToWelcome({ plan: subscription.slug })
             "
