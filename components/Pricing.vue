@@ -203,7 +203,7 @@
             v-if="subscription.featured"
             class="absolute left-1/2 -translate-x-1/2 top-0 transform -translate-y-1/2 bg-green-500 px-3 py-1 rounded-full text-white text-sm font-semibold"
           >
-            Recommended
+            Mom's favorite
           </div>
 
           <h3
