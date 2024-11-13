@@ -6,13 +6,15 @@
       <SignupErrors :errors="errors" :other-errors="nonTeamMembersErrors" />
 
       <div v-for="(member, index) in teamMembers" :key="index">
-        <label :for="'member-' + index" class="block text-sm font-medium">
-          Email and role of your
-          <span v-if="teamMembers.length > 1">{{ textNumber(index + 1) }}</span>
-          colleague
-        </label>
-        <div class="mt-1 flex items-start space-x-2">
+        <div class="mt-1 flex items-end space-x-2">
           <div class="flex-1">
+            <label :for="'member-' + index" class="block text-sm font-medium">
+              Email and role of your
+              <span v-if="teamMembers.length > 1">{{
+                textNumber(index + 1)
+              }}</span>
+              colleague
+            </label>
             <input
               v-model="member.email"
               :id="'member-' + index"
@@ -37,6 +39,12 @@
               class="hidden lg:block absolute ml-4 pb-3 -translate-y-full w-20 stroke-gray-300 dark:stroke-gray-500"
             />
 
+            <a
+              class="block text-right text-sm text-link"
+              @click="showRolesExplainer = !showRolesExplainer"
+            >
+              What are these roles?
+            </a>
             <select
               :value="member.role"
               :id="'role-' + index"
@@ -77,7 +85,7 @@
         </div>
       </div>
 
-      <div class="flex mt-8">
+      <div class="flex items-center mt-8">
         <button
           @click="addMember"
           type="button"
@@ -89,39 +97,33 @@
           <span v-else>Add another colleague</span>
         </button>
 
-        <div class="flex items-center ml-auto">
-          <button
-            type="submit"
-            class="flex justify-center button"
-            :disabled="signupStore.isLoading"
-          >
-            <CheckIcon class="h-5 w-5 mr-2" />
-            Complete Signup
-          </button>
+        <button
+          @click="skipAddingTeam"
+          class="flex justify-center text-gray-500 hover:underline ml-4"
+          :disabled="signupStore.isLoading"
+        >
+          skip adding team
+        </button>
+      </div>
 
-          <ChartLoader
-            v-if="signupStore.isLoading"
-            class="ml-3 h-8 text-red-500 dark:text-red-600"
-          />
-        </div>
+      <div class="flex items-center !mt-12 ml-auto">
+        <button
+          type="submit"
+          class="flex justify-center button"
+          :disabled="signupStore.isLoading"
+        >
+          <CheckIcon class="h-5 w-5 mr-2" />
+          Complete Signup
+        </button>
+
+        <ChartLoader
+          v-if="signupStore.isLoading"
+          class="ml-3 h-8 text-red-500 dark:text-red-600"
+        />
       </div>
     </form>
-    <button
-      @click="showRolesExplainer = !showRolesExplainer"
-      type="button"
-      class="mt-4 text-sm text-blue-500"
-    >
-      <span class="underline">What are these roles?</span>
-      <ChevronDoubleDownIcon
-        class="h-4 w-4 inline ml-1 transition-transform duration-500"
-        :class="showRolesExplainer ? 'rotate-180' : 'rotate-0'"
-      />
-    </button>
 
-    <div
-      v-if="showRolesExplainer"
-      class="mt-4 p-4 pb-2 border dark:border-none rounded-lg dark:bg-gray-900"
-    >
+    <Popover v-model="showRolesExplainer">
       <div v-for="role in rolesWithDescriptions" :key="role.value" class="mb-4">
         <h3 class="font-medium mb-2">{{ role.label }}</h3>
         <p class="text-sm leading-loose">
@@ -140,7 +142,7 @@
           />
         </a>
       </p>
-    </div>
+    </Popover>
   </div>
 </template>
 
@@ -159,6 +161,7 @@ import { useFieldErrors } from "~/composables/useFieldErrors";
 import AddADeveloperHere from "./icons/AddADeveloperHere.vue";
 import SignupErrors from "./SignupErrors.vue";
 import ChartLoader from "./ChartLoader.vue";
+import Popover from "./Popover.vue";
 
 const router = useRouter();
 const signupStore = useSignupStore();
@@ -204,6 +207,11 @@ const submitTeamMembers = () => {
   // Clear existing errors for teamMembers before submission
   signupStore.clearError("teamMembers");
   emit("next", { teamMembers: teamMembers.value });
+};
+
+const skipAddingTeam = () => {
+  signupStore.clearError("teamMembers");
+  emit("next", { teamMembers: [] });
 };
 
 const textNumber = (number) => {
