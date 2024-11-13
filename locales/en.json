@@ -527,7 +527,8 @@
     },
     "missive": {
       "role": "CEO at Missive",
-      "quote": "We traded a 'free', privacy-less, and complex analytic dashboard for a paid, privacy-first & simple one. We couldn't be happier. {0}The best privacy-focused analytics suite that I've found.{1} We're proud to be able to tell our customers that we don't track them at all."
+      "quote": "We traded a 'free', privacy-less, and complex analytic dashboard for a paid, privacy-first & simple one. We couldn't be happier. {0}The best privacy-focused analytics suite that I've found.{1} We're proud to be able to tell our customers that we don't track them at all.",
+      "quote_short": "{0}The best privacy-focused analytics suite that I've found.{1} We're proud to be able to tell our customers that we don't track them at all."
     },
     "hannah": {
       "role": "Founder SaaS Design",

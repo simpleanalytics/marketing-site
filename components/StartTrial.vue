@@ -1,7 +1,7 @@
 <template>
   <p>
     <a
-      @click="navigateToWelcome('click_signup_start_trial')"
+      @click="navigateToWelcome($router, 'click_signup_start_trial')"
       class="button primary"
       >{{ props.buttonText || $t("start_trial.button") }}</a
     >
@@ -25,5 +25,6 @@
 <script setup>
 import { CheckIcon } from "@heroicons/vue/24/solid";
 
+const router = useRouter();
 const props = defineProps(["buttonText"]);
 </script>

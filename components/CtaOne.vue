@@ -9,7 +9,7 @@
       >
       <a
         class="button no-underline"
-        @click="navigateToWelcome('click_signup_gov_uk')"
+        @click="navigateToWelcome($router, 'click_signup_gov_uk')"
         >Join them</a
       >
     </div>
@@ -18,4 +18,6 @@
 
 <script setup>
 import GovUK from "@/components/logos/GovUK.vue";
+
+const router = useRouter();
 </script>

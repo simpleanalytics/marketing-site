@@ -108,7 +108,7 @@
             <StarIcon class="inline h-5 w-5" />
           </div>
           <p class="text-xs sm:text-sm">
-            Loved by 13,000+<br class="sm:hidden" />users
+            Loved by {{ userCount }}+<br class="sm:hidden" />users
           </p>
         </NuxtLink>
       </Tooltip>
@@ -597,11 +597,12 @@
                 }}
               </p>
 
-              <a
+              <NuxtLink
                 class="button mt-6 block text-sm font-semibold leading-6"
-                href="#"
-                >Start now</a
+                href="/signup"
               >
+                Start now
+              </NuxtLink>
             </div>
           </div>
         </div>
@@ -993,6 +994,7 @@ import {
   ExclamationTriangleIcon,
 } from "@heroicons/vue/24/outline";
 import { ArrowLeftIcon } from "@heroicons/vue/24/solid";
+import { userCount } from "~/utils/miscellaneous";
 
 const theme = useTheme();
 const config = useRuntimeConfig();
@@ -1002,7 +1004,7 @@ const featuresOpen = ref(false);
 const planListExpanded = ref(false);
 const sliderValue = ref(0);
 const currency = useState("currency");
-const affiliate = useState("affiliate");
+const router = useRouter();
 
 const handleSliderValue = (value) => {
   sliderValue.value = value;
@@ -1095,14 +1097,6 @@ const clickEnterprise = () => {
 };
 
 const goToWelcome = ({ plan }) => {
-  const params = new URLSearchParams();
-  if (currency?.value?.code) params.set("currency", currency.value.code);
-  if (affiliate?.value?.slug) params.set("affiliate", affiliate?.value?.slug);
-  if (plan) params.set("plan", plan);
-  if (theme.value === "dark") params.set("theme", "dark");
-
-  const url = `${DASHBOARD_URL}/welcome?${params}`;
-
   // plan can be starter-monthly, business-yealy, etc
   const interval = /monthly/.test(plan)
     ? "monthly"
@@ -1112,16 +1106,14 @@ const goToWelcome = ({ plan }) => {
 
   // Send event before redirecting to welcome page
   if (window.sa_event && window.sa_loaded) {
-    window.sa_event(
-      "click_buy",
-      { currency: currency?.value?.code, plan, interval },
-      () => {
-        window.location.href = url;
-      },
-    );
-  } else {
-    window.location.href = url;
+    window.sa_event("click_buy", {
+      currency: currency?.value?.code,
+      plan,
+      interval,
+    });
   }
+
+  router.push("/signup");
 };
 
 const frequencies = [

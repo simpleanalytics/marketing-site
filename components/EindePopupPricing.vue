@@ -45,7 +45,7 @@
 
       <p class="mb-6">
         <a
-          @click="navigateToWelcome('click_signup_exit_popup')"
+          @click="navigateToWelcome($router, 'click_signup_exit_popup')"
           class="button"
           >{{ $t("popups.exitpopup.button") }}</a
         >
@@ -53,3 +53,7 @@
     </div>
   </div>
 </template>
+
+<script setup>
+const router = useRouter();
+</script>

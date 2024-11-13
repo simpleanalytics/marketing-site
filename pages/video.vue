@@ -10,8 +10,8 @@
     <div class="max-w-3xl px-6 mx-auto mt-12">
       <Video
         class="mx-auto max-w-[800px]"
-        width="854"
-        height="480"
+        :width="854"
+        :height="480"
         color="#5d3828"
         poster="https://assets.simpleanalytics.com/videos/promo/v2/promo.jpg"
       >

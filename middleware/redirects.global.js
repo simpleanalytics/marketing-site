@@ -1,3 +1,8 @@
+const HTTP_CODES = {
+  permanent: 308,
+  temporary: 307,
+};
+
 const redirects = [
   {
     type: "regex",
@@ -63,27 +68,27 @@ const redirects = [
     to: "/utm-builder",
   },
   {
-    type: "replace",
+    type: "exact",
     from: "/stop-using-google-analytics-if-you-care-about-your-page-rank",
     to: "/google-analytics-performance-impact-using-google-lighthouse",
   },
   {
-    type: "replace",
+    type: "exact",
     from: "/google-analytics-hurts-your-search-ranking",
     to: "/google-analytics-performance-impact-using-google-lighthouse",
   },
   {
-    type: "replace",
+    type: "exact",
     from: "/what-is-wrong-with-developers",
     to: "/why-simple-analytics-is-my-first-successful-project",
   },
   {
-    type: "replace",
+    type: "exact",
     from: "/why-you-should-reconsider-using-google-analytics",
     to: "/why-its-time-to-move-away-from-google-analytics",
   },
   {
-    type: "replace",
+    type: "exact",
     from: "/denmark-bans-all-google-products",
     to: "/denmark-bans-google-workspace-for-municipalities",
   },
@@ -93,17 +98,17 @@ const redirects = [
     to: "/google-analytics-is-illegal-in-these-countries",
   },
   {
-    type: "replace",
+    type: "exact",
     from: "/denmark-bans-all-google-products",
     to: "/denmark-bans-google-workspace-for-municipalities",
   },
   {
-    type: "replace",
+    type: "exact",
     from: "/why-you-should-reconsider-using-google-analytics",
     to: "/why-its-time-to-move-away-from-google-analytics",
   },
   {
-    type: "replace",
+    type: "exact",
     from: "/google-analytics-hurts-your-search-ranking",
     to: "/google-penalizes-you-for-using-google-analytics",
   },
@@ -113,36 +118,36 @@ const redirects = [
     to: "/resources/comparisons",
   },
   {
-    type: "replace",
+    type: "exact",
     from: "/stop-using-google-analytics-if-you-care-about-your-page-rank",
     to: "/google-penalizes-you-for-using-google-analytics",
   },
 ];
 
-const HTTP_CODES = {
-  permanent: 308,
-  temporary: 307,
-};
+export default defineNuxtRouteMiddleware(
+  ({ path, query, hash, redirectCode }) => {
+    const options = { redirectCode: redirectCode || HTTP_CODES.permanent };
 
-const options = { redirectCode: HTTP_CODES.permanent };
-
-export default defineNuxtRouteMiddleware(({ path, query, hash }) => {
-  for (const redirect of redirects) {
-    if (redirect.type === "replace" && path.includes(redirect.from)) {
-      const nextPath = path.replace(redirect.from, redirect.to);
-      console.info("=> redirecting", path, "to", nextPath);
-      return navigateTo({ path: nextPath, query, hash }, options);
-    } else if (redirect.type === "regex" && redirect.from.test(path)) {
-      const nextPath = path.replace(redirect.from, redirect.to);
-      console.info(`=> redirecting (${redirect.from})`, path, "to", nextPath);
-      return navigateTo({ path: nextPath, query, hash }, options);
+    for (const redirect of redirects) {
+      if (redirect.type === "exact" && path === redirect.from) {
+        console.info("=> redirecting", path, "to", redirect.to);
+        return navigateTo({ path: redirect.to, query, hash }, options);
+      } else if (redirect.type === "replace" && path.includes(redirect.from)) {
+        const nextPath = path.replace(redirect.from, redirect.to);
+        console.info("=> redirecting", path, "to", nextPath);
+        return navigateTo({ path: nextPath, query, hash }, options);
+      } else if (redirect.type === "regex" && redirect.from.test(path)) {
+        const nextPath = path.replace(redirect.from, redirect.to);
+        console.info(`=> redirecting (${redirect.from})`, path, "to", nextPath);
+        return navigateTo({ path: nextPath, query, hash }, options);
+      }
     }
-  }
 
-  if (path.slice(0, 2) === "//") {
-    while (path.slice(0, 2) === "//") {
-      path = path.slice(1);
+    if (path.slice(0, 2) === "//") {
+      while (path.slice(0, 2) === "//") {
+        path = path.slice(1);
+      }
+      return navigateTo({ path, query, hash }, options);
     }
-    return navigateTo({ path, query, hash }, options);
-  }
-});
+  },
+);

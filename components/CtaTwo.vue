@@ -9,7 +9,7 @@
       >
       <a
         class="button no-underline"
-        @click="navigateToWelcome('click_signup_michelin')"
+        @click="navigateToWelcome($router, 'click_signup_michelin')"
         >Join them</a
       >
     </div>
@@ -18,4 +18,6 @@
 
 <script setup>
 import Michelin from "@/components/logos/Michelin.vue";
+
+const router = useRouter();
 </script>

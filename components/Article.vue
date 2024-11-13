@@ -200,7 +200,7 @@
       </p>
       <a
         @click="
-          navigateToWelcome('click_big_banner_cta', {
+          navigateToWelcome($router, 'click_big_banner_cta', {
             title:
               article.ctaTitle && article.ctaDescription
                 ? article.ctaTitle
@@ -248,6 +248,7 @@ const event = useRequestEvent();
 const config = useRuntimeConfig();
 const { BASE_URL, DASHBOARD_URL } = config.public;
 
+const router = useRouter();
 const route = useRoute();
 const { t, locale } = useI18n();
 const localePath = useLocalePath();

@@ -246,6 +246,6 @@ const clickedCountry = ({ code }) => {
       country.code?.toLowerCase() === code.toLowerCase(),
   );
   if (!found) return;
-  router.push({ path: found.link });
+  router.push(found.link);
 };
 </script>
