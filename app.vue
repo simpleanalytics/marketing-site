@@ -1,7 +1,10 @@
 <template>
-  <div class="bg-blue-50 dark:bg-gray-800 flex flex-col min-h-screen">
+  <div class="bg-blue-50 dark:bg-gray-800 flex flex-col min-h-screen relative">
     <!-- Begin of what is in viewport -->
-    <div class="flex flex-col min-h-screen">
+    <div
+      class="flex flex-col min-h-screen transition-all duration-500 bg-[length:200%_100%] lg:bg-[linear-gradient(to_right,#eef9ff_0%,#eef9ff_50%,white_50%,white_100%)] dark:lg:bg-[linear-gradient(to_right,#1F2728_0%,#1F2728_50%,#232E2F_50%,#232E2F_100%)]"
+      :class="signup.show ? 'bg-[position:50%_0%]' : 'bg-[position:100%_0%]'"
+    >
       <Html
         :lang="localeHead.htmlAttrs.lang"
         :dir="localeHead.htmlAttrs.dir"
@@ -184,17 +187,19 @@
       </Html>
 
       <div
-        v-if="isDev"
-        class="w-full h-[2px] border-b-2 border-dashed border-gray-200 dark:border-gray-600 pointer-events-none absolute top-[850px] left-0 right-0 z-[9999] text-center select-none"
+        v-if="isDev && !hideFoldIndicator"
+        class="w-full h-[2px] opacity-30 hover:opacity-100 border-b-2 border-dashed border-gray-400 dark:border-gray-600 pointer-events-none absolute top-[800px] left-0 right-0 z-[9999] text-center select-none"
       >
         <span
-          class="absolute bg-gray-200 dark:bg-gray-600 text-[9px] px-2 py-1 rounded-full -translate-y-1/2 -translate-x-1/2 text-white"
+          @click="hideFoldIndicator = true"
+          class="absolute bg-gray-400 dark:bg-gray-600 text-[9px] px-2 py-1 z-50 cursor-pointer pointer-events-auto rounded-full -translate-y-1/2 -translate-x-1/2 text-white"
           >the fold</span
         >
       </div>
 
       <div
-        class="text-gray-300 bg-gradient-to-b from-blue-100 dark:from-gray-900 relative md:pb-12"
+        class="text-gray-300 bg-gradient-to-b from-blue-100 dark:from-gray-900 relative md:pb-12 transition-transform duration-500"
+        :class="signup.show ? '-translate-y-20' : 'translate-y-0'"
       >
         <div class="relative pt-6 pb-16 sm:pb-8">
           <Popover>
@@ -407,6 +412,7 @@
                   <a
                     @click="
                       sendEventAndRedirect(
+                        $router,
                         'click_login_top_nav',
                         {},
                         DASHBOARD_URL + '/login',
@@ -417,7 +423,7 @@
                     {{ $t("nav.login") }}
                   </a>
                   <a
-                    @click="navigateToWelcome('click_signup_top_nav')"
+                    @click="navigateToWelcome($router, 'click_signup_top_nav')"
                     class="font-medium mx-3 button"
                   >
                     {{ $t("nav.start_trial") }}
@@ -477,7 +483,9 @@
                       </PopoverButton>
                     </template>
                     <a
-                      @click="navigateToWelcome('click_signup_top_nav')"
+                      @click="
+                        navigateToWelcome($router, 'click_signup_top_nav')
+                      "
                       class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
                       >{{ $t("nav.start_trial") }}</a
                     >
@@ -499,6 +507,7 @@
                   <a
                     @click="
                       sendEventAndRedirect(
+                        $router,
                         'click_login_top_nav',
                         {},
                         DASHBOARD_URL + '/login',
@@ -516,7 +525,7 @@
       </div>
 
       <main class="flex flex-col flex-grow">
-        <div class="mb-20 flex-grow">
+        <div class="mb-20 flex flex-col flex-grow">
           <NuxtLoadingIndicator
             :color="theme === 'dark' ? '#DE3243' : '#FF4F64'"
           />
@@ -529,7 +538,7 @@
       <!-- End of what is in viewport -->
     </div>
 
-    <footer class="bg-blue-100 dark:bg-gray-800 mt-auto">
+    <footer v-if="!signup.show" class="bg-blue-100 dark:bg-gray-800 mt-auto">
       <div
         class="bg-gradient-to-t from-gray-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 text-left lg:text-left"
       >
@@ -989,6 +998,7 @@ const { BASE_URL, DASHBOARD_URL, NODE_ENV /*, CDN_URL*/ } = config.public;
 provideUseId(() => useId());
 
 const localePath = useLocalePath();
+const hideFoldIndicator = ref(false);
 
 const i18n = useI18n();
 const { locale, locales, getBrowserLocale, setLocale } = i18n;
@@ -1005,6 +1015,20 @@ const localeHead = useLocaleHead({
   identifierAttribute: "id",
   addSeoAttributes: true,
 });
+
+const showOnPath = (path) => {
+  return path.startsWith("/signup/") || path === "/signup";
+};
+
+const signup = reactive({ show: showOnPath(route.path) });
+
+watch(
+  route,
+  (value) => {
+    signup.show = showOnPath(value.path);
+  },
+  { deep: true, immediate: true },
+);
 
 const resources = [
   {

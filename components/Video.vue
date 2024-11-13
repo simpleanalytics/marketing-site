@@ -11,6 +11,7 @@
       v-if="!showControls"
       class="absolute z-20 top-0 bottom-0 right-0 left-0 flex justify-center items-center transition"
       :class="playing ? 'opacity-0 hover:group-hover:opacity-100' : ''"
+      @click="showControls ? () => {} : toggle()"
     >
       <div class="grow basis-1/2">
         <ArrowsPointingOutIcon
@@ -22,12 +23,14 @@
         <PauseIcon
           v-if="playing"
           @click="pause()"
-          class="mx-auto w-24 fill-red-500 drop-shadow-lg scale-125 cursor-pointer"
+          class="mx-auto w-24 drop-shadow-lg scale-125 cursor-pointer"
+          :class="props.fillColor"
         />
         <PlayIcon
           v-else
           @click="play()"
-          class="mx-auto w-24 fill-red-500/95 hover:group-hover:fill-red-500 dark:hover:group-hover:fill-red-500 drop-shadow-lg transition hover:group-hover:scale-125 cursor-pointer"
+          class="mx-auto w-24 drop-shadow-lg transition hover:group-hover:scale-125 cursor-pointer"
+          :class="`${props.fillColor} hover:group-hover:${props.fillColor} dark:hover:group-hover:${props.fillColor}`"
         />
       </div>
       <div class="grow basis-1/2"></div>
@@ -52,31 +55,43 @@
 </template>
 
 <script setup>
-import {
-  ArrowSmallRightIcon,
-  CheckIcon,
-  PlayIcon,
-  PauseIcon,
-  ArrowRightCircleIcon,
-} from "@heroicons/vue/24/solid";
+import { PlayIcon, PauseIcon } from "@heroicons/vue/24/solid";
+import { ArrowsPointingOutIcon } from "@heroicons/vue/24/outline";
 
-import {
-  ShieldCheckIcon,
-  ChevronDoubleDownIcon,
-  ArrowsPointingOutIcon,
-} from "@heroicons/vue/24/outline";
-
-import ArrowsExpandIcon from "./images/ArrowsExpandIcon";
-
-const props = defineProps([
-  "width",
-  "height",
-  "poster",
-  "autoplay",
-  "background",
-  "brightness",
-  "showControls",
-]);
+const props = defineProps({
+  width: {
+    type: Number,
+    default: 0,
+  },
+  height: {
+    type: Number,
+    default: 0,
+  },
+  poster: {
+    type: String,
+    default: "",
+  },
+  autoplay: {
+    type: Boolean,
+    default: false,
+  },
+  background: {
+    type: String,
+    default: "",
+  },
+  brightness: {
+    type: Number,
+    default: 100,
+  },
+  showControls: {
+    type: Boolean,
+    default: false,
+  },
+  fillColor: {
+    type: String,
+    default: "fill-red-500",
+  },
+});
 
 const playing = ref(false);
 const video = ref();
@@ -132,6 +147,14 @@ const autoPlay = () => {
   if (!agent) return false;
 
   return !/bot|crawl|android|webos|iphone|mobile|opera mini/i.test(agent);
+};
+
+const toggle = () => {
+  if (playing.value) {
+    pause();
+  } else {
+    play();
+  }
 };
 
 onMounted(() => {

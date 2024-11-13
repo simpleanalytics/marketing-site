@@ -355,7 +355,8 @@
     },
     "missive": {
       "role": "CEO van Missive",
-      "quote": "We hebben een 'gratis', privacy-loos en complex analytisch dashboard ingeruild voor een betaald, privacy-first en eenvoudig dashboard. We konden niet gelukkiger zijn. {0}De beste privacy-gerichte analytics suite die ik heb gevonden.{1} We zijn er trots op dat we onze klanten kunnen vertellen dat we ze helemaal niet volgen."
+      "quote": "We hebben een 'gratis', privacy-loos en complex analytisch dashboard ingeruild voor een betaald, privacy-first en eenvoudig dashboard. We konden niet gelukkiger zijn. {0}De beste privacy-gerichte analytics suite die ik heb gevonden.{1} We zijn er trots op dat we onze klanten kunnen vertellen dat we ze helemaal niet volgen.",
+      "quote_short": "{0}The best privacy-focused analytics suite that I've found.{1} We're proud to be able to tell our customers that we don't track them at all."
     },
     "hannah": {
       "role": "Oprichter SaaS Design",

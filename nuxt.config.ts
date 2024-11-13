@@ -109,6 +109,7 @@ export default defineNuxtConfig({
     // Public keys that are exposed to the client
     public: env,
   },
+
   routeRules: isProduction
     ? {
         ...prerender,
@@ -126,10 +127,12 @@ export default defineNuxtConfig({
         "/it/blog/**": { swr: seconds.day },
       }
     : {},
+
   experimental: {
     treeshakeClientOnly: true,
     writeEarlyHints: false,
   },
+
   app: {
     baseURL: "/",
     buildAssetsDir: "/_nuxt/",
@@ -138,10 +141,12 @@ export default defineNuxtConfig({
       viewport: "width=device-width, initial-scale=1",
     },
   },
+
   site: {
     url: "https://simpleanalytics.com",
     name: "Simple Analytics",
   },
+
   build: {
     postcss: {
       plugins: {
@@ -149,15 +154,20 @@ export default defineNuxtConfig({
       },
     },
   },
+
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxtjs/i18n",
+    "@pinia/nuxt",
     "nuxt-schema-org",
     "nuxt-security",
+    "@nuxt/scripts",
   ],
+
   tailwindcss: {
     viewer: false,
   },
+
   i18n: {
     vueI18n: "./i18n.config.ts",
     baseUrl: BASE_URL,
@@ -180,12 +190,21 @@ export default defineNuxtConfig({
       escapeHtml: false,
     },
   },
+
   nitro: {
     timing: false,
   },
+
+  vite: {
+    optimizeDeps: {
+      exclude: ["pinia"],
+    },
+  },
+
   vue: {
     runtimeCompiler: true,
   },
+
   security: {
     headers: {
       contentSecurityPolicy: false,
@@ -196,4 +215,6 @@ export default defineNuxtConfig({
     },
     corsHandler: false,
   },
+
+  compatibilityDate: "2024-11-07",
 });

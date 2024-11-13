@@ -357,7 +357,8 @@
     },
     "missive": {
       "role": "CEO bei Missive",
-      "quote": "Wir haben ein „kostenloses“, datenschutzfreies und komplexes Analyse-Dashboard in ein bezahltes, datenschutzorientiertes und einfaches Dashboard getauscht. Wir können nicht glücklicher sein. {0}Die beste datenschutzorientierte Analyse-Suite, die ich gefunden habe.{1} Wir sind stolz darauf, unseren Kunden mitteilen zu können, dass wir sie nicht verfolgen."
+      "quote": "Wir haben ein „kostenloses“, datenschutzfreies und komplexes Analyse-Dashboard in ein bezahltes, datenschutzorientiertes und einfaches Dashboard getauscht. Wir können nicht glücklicher sein. {0}Die beste datenschutzorientierte Analyse-Suite, die ich gefunden habe.{1} Wir sind stolz darauf, unseren Kunden mitteilen zu können, dass wir sie nicht verfolgen.",
+      "quote_short": "{0}The best privacy-focused analytics suite that I've found.{1} We're proud to be able to tell our customers that we don't track them at all."
     },
     "hannah": {
       "role": "Gründerin SaaS Design",

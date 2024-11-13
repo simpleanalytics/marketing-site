@@ -102,16 +102,6 @@
           ></span>
         </p>
 
-        <!--
-        <div class="mt-6 md:mt-8 opacity-60">
-          <ClientCounter
-            :intlLocale="t('time.intl_locale')"
-            :text="t('home.datapoints_collected')"
-            :endpoint="DASHBOARD_URL"
-          />
-        </div>
-        -->
-
         <div
           class="flex items-center justify-center md:justify-start mt-10 sm:mt-12 max-w-full"
         >
@@ -127,7 +117,7 @@
         >
           <div class="mt-4 sm:mr-4">
             <a
-              @click="navigateToWelcome('click_signup_above_fold')"
+              @click="navigateToWelcome($router, 'click_signup_above_fold')"
               class="button large primary"
             >
               {{ $t("home.start_trial_now") }}
@@ -181,6 +171,7 @@
           <a
             @click="
               sendEventAndRedirect(
+                $router,
                 'click_demo_above_fold',
                 {},
                 DASHBOARD_URL + '/simpleanalytics.com?from=landing',
@@ -308,8 +299,8 @@
         <div class="basis-2/4 mx-3 mb-8 md:mb-0">
           <Video
             class="ml-auto max-w-[500px]"
-            width="854"
-            height="480"
+            :width="854"
+            :height="480"
             color="#5d3828"
             poster="https://assets.simpleanalytics.com/videos/promo/v2/promo.jpg"
           >
@@ -742,15 +733,9 @@
         </p>
 
         <p class="my-4">
-          <a
-            :href="
-              DASHBOARD_URL +
-              '/welcome' +
-              (theme === 'dark' ? '?theme=dark' : '')
-            "
-            class="group underline"
+          <NuxtLink href="/signup" class="group underline"
             >{{ $t("home.why_switch_from_ga.try_us_button") }}<Arrow
-          /></a>
+          /></NuxtLink>
         </p>
       </div>
 
@@ -1025,8 +1010,8 @@
 
         <div class="md:order-1 max-w-max mx-auto">
           <Video
-            width="200"
-            height="410"
+            :width="200"
+            :height="410"
             color="#71c8ea"
             poster="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/poster.png"
             poster-webp="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-light/poster.webp"
@@ -1053,8 +1038,8 @@
           </Video>
 
           <Video
-            width="200"
-            height="410"
+            :width="200"
+            :height="410"
             poster="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/poster.png"
             poster-webp="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/poster.webp"
             poster-png="https://assets.simpleanalytics.com/videos/2022-05-06-iphone-widgets-dark/poster.png"
@@ -1095,8 +1080,8 @@
         <div class="flex flex-col sm:flex-row -mx-2">
           <div class="basis-2/4 mx-2">
             <Video
-              width="1440"
-              height="810"
+              :width="1440"
+              :height="810"
               color="#71c8ea"
               poster="https://assets.simpleanalytics.com/videos/2022-03-39-tropical-analytics/video.png"
             >
@@ -1125,8 +1110,8 @@
 
           <div class="basis-2/4 mx-2 mt-6 sm:mt-0">
             <Video
-              width="854"
-              height="480"
+              :width="854"
+              :height="480"
               color="#5d3828"
               poster="https://assets.simpleanalytics.com/videos/promo/v2/promo.jpg"
             >
@@ -1437,6 +1422,7 @@ import {
 } from "@heroicons/vue/24/outline";
 
 const { t, locale } = useI18n();
+const router = useRouter();
 const localePath = useLocalePath();
 
 definePageMeta({

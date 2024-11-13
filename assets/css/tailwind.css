@@ -22,7 +22,8 @@ dd,
 label,
 strong,
 code,
-summary {
+summary,
+.text-color {
   @apply text-gray-600 dark:text-gray-300;
 }
 
@@ -331,6 +332,26 @@ mark {
 
 input[type="checkbox"] {
   @apply h-4 w-4 rounded border-red-300 text-red-500 focus:ring-red-500 dark:ring-transparent dark:outline-none dark:border-none dark:text-red-600 dark:focus:ring-red-600 dark:bg-red-600;
+}
+
+input[type="radio"] {
+  @apply h-4 w-4 border-red-300 text-red-500 focus:ring-red-500 dark:ring-transparent dark:outline-none dark:border-none dark:text-red-600 dark:focus:ring-red-600 dark:bg-red-600 ring-offset-white dark:ring-offset-gray-700;
+}
+
+select,
+input[type="email"],
+input[type="text"],
+input[type="password"],
+input[type="search"] {
+  @apply block w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-600 dark:focus:border-red-600 dark:bg-gray-700 dark:text-gray-200;
+}
+
+.input {
+  @apply px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-600 dark:focus:border-red-600 dark:bg-gray-700 dark:text-gray-200;
+}
+
+.text-error {
+  @apply text-red-500 dark:text-red-600;
 }
 
 article.counters {

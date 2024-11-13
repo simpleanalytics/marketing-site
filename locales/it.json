@@ -355,7 +355,8 @@
     },
     "missive": {
       "role": "CEO di Missive",
-      "quote": "Abbiamo sostituito una dashboard di web analytics gratuito, complesso e senza privacy con uno a pagamento, semplice, e incentrato sulla privacy. Non potremmo essere più felici. {0}È  la migliore suite di web analytics incentrata sulla privacy che abbia mai provato.{1} Siamo orgogliosi di poter dire ai nostri clienti che non li tracciamo affatto."
+      "quote": "Abbiamo sostituito una dashboard di web analytics gratuito, complesso e senza privacy con uno a pagamento, semplice, e incentrato sulla privacy. Non potremmo essere più felici. {0}È  la migliore suite di web analytics incentrata sulla privacy che abbia mai provato.{1} Siamo orgogliosi di poter dire ai nostri clienti che non li tracciamo affatto.",
+      "quote_short": "{0}The best privacy-focused analytics suite that I've found.{1} We're proud to be able to tell our customers that we don't track them at all."
     },
     "hannah": {
       "role": "Fondatrice di Design SaaS",

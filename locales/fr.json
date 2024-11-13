@@ -355,7 +355,8 @@
     },
     "missive": {
       "role": "PDG chez Missive",
-      "quote": "Nous avons remplacé un tableau de bord d'analyse gratuit, mais attentatoire à la vie privée et complexe, par un tableau de bord payant, simple et priorisant la vie privée. Nous ne pourrions pas être plus heureux. {0}Le meilleur outil d'analyse axée sur la protection de la vie privée que j'ai trouvé.{1} Nous sommes fiers de pouvoir dire à nos clients que nous ne les pistons pas du tout."
+      "quote": "Nous avons remplacé un tableau de bord d'analyse gratuit, mais attentatoire à la vie privée et complexe, par un tableau de bord payant, simple et priorisant la vie privée. Nous ne pourrions pas être plus heureux. {0}Le meilleur outil d'analyse axée sur la protection de la vie privée que j'ai trouvé.{1} Nous sommes fiers de pouvoir dire à nos clients que nous ne les pistons pas du tout.",
+      "quote_short": "{0}The best privacy-focused analytics suite that I've found.{1} We're proud to be able to tell our customers that we don't track them at all."
     },
     "hannah": {
       "role": "Fondatrice Design SaaS",

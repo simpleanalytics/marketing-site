@@ -355,7 +355,8 @@
     },
     "missive": {
       "role": "CEO en Missive",
-      "quote": "Cambiamos un panel de análisis gratuito, sin privacidad y complejo por uno pagado, con privacidad como prioridad y simple. No podríamos estar más contentos. {0}La mejor suite de análisis centrada en la privacidad que he encontrado.{1} Estamos orgullosos de poder decirles a nuestros clientes que no los rastreamos en absoluto."
+      "quote": "Cambiamos un panel de análisis gratuito, sin privacidad y complejo por uno pagado, con privacidad como prioridad y simple. No podríamos estar más contentos. {0}La mejor suite de análisis centrada en la privacidad que he encontrado.{1} Estamos orgullosos de poder decirles a nuestros clientes que no los rastreamos en absoluto.",
+      "quote_short": "{0}The best privacy-focused analytics suite that I've found.{1} We're proud to be able to tell our customers that we don't track them at all."
     },
     "hannah": {
       "role": "Fundadora Diseño SaaS",
