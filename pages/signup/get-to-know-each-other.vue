@@ -85,8 +85,8 @@
         </p>
 
         <p class="mt-4 leading-loose">
-          Use it for free as long as you need, or, if you're happy to, consider
-          one of our paid options for more features and more data history.
+          Use it for free as long as you need, or, if you're happy, consider one
+          of our paid options for more features and more data history.
         </p>
 
         <p class="mt-4 leading-loose">Cheers,</p>
