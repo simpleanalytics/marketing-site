@@ -13,6 +13,7 @@ export const useSignupStore = defineStore("signup", () => {
   const teamMembers = ref([]);
   const termsConfirmed = ref(false);
   const useHaveIBeenPwned = ref(true);
+  const isLoading = ref(false);
   const errors = ref([]);
 
   const config = useRuntimeConfig();
@@ -40,6 +41,7 @@ export const useSignupStore = defineStore("signup", () => {
   // Validation for Step 1
   async function validateStep1() {
     clearErrors();
+    isLoading.value = true;
 
     try {
       const response = await fetch(`${DASHBOARD_URL}/signup`, {
@@ -55,8 +57,8 @@ export const useSignupStore = defineStore("signup", () => {
           isValidating: true,
         }),
       });
-
       const data = await response.json();
+      isLoading.value = false;
       if (data.ok) return true;
 
       if (data.errors && Array.isArray(data.errors)) {
@@ -87,6 +89,7 @@ export const useSignupStore = defineStore("signup", () => {
   // Submit Signup
   async function submitSignup() {
     clearErrors();
+    isLoading.value = true;
 
     try {
       const response = await fetch(`${DASHBOARD_URL}/signup`, {
@@ -107,6 +110,7 @@ export const useSignupStore = defineStore("signup", () => {
       });
 
       const data = await response.json();
+      isLoading.value = false;
       if (data.ok) return data;
 
       if (data.errors && Array.isArray(data.errors)) {
@@ -193,5 +197,6 @@ export const useSignupStore = defineStore("signup", () => {
     clearErrors,
     clearError,
     setGeneralError,
+    isLoading,
   };
 });

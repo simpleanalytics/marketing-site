@@ -113,16 +113,31 @@
         </p>
       </div>
 
-      <button
-        type="submit"
-        class="button"
-        v-if="companySize && ['no_company', 'only_me'].includes(companySize)"
-      >
-        <CheckIcon class="h-5 w-5 mr-2" />
-        Complete Signup
-      </button>
+      <div class="flex items-center">
+        <button
+          type="submit"
+          class="button"
+          v-if="companySize && ['no_company', 'only_me'].includes(companySize)"
+          :disabled="signupStore.isLoading"
+        >
+          <CheckIcon class="h-5 w-5 mr-2" />
+          Complete Signup
+        </button>
 
-      <button type="submit" class="button" v-else>Next</button>
+        <button
+          type="submit"
+          class="button"
+          v-else
+          :disabled="signupStore.isLoading"
+        >
+          Next
+        </button>
+
+        <ChartLoader
+          v-if="signupStore.isLoading"
+          class="ml-3 h-8 text-red-500 dark:text-red-600"
+        />
+      </div>
     </form>
   </div>
 </template>
@@ -132,6 +147,7 @@ import { CheckIcon } from "@heroicons/vue/24/outline";
 import { computed } from "vue";
 import { useSignupStore } from "~/stores/signup";
 import { useFieldErrors } from "~/composables/useFieldErrors";
+import ChartLoader from "./ChartLoader.vue";
 
 const router = useRouter();
 const signupStore = useSignupStore();

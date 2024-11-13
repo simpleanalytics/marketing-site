@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="submitTeamMembers" class="space-y-6">
-      <h1 class="text-2xl lg:text-3xl font-bold mb-4">Add your colleagues</h1>
+      <h1 class="text-2xl lg:text-3xl font-bold mb-4">Add your team</h1>
 
       <SignupErrors :errors="errors" :other-errors="nonTeamMembersErrors" />
 
@@ -38,16 +38,21 @@
             />
 
             <select
-              v-model="member.role"
+              :value="member.role"
               :id="'role-' + index"
               class="w-full"
               :class="{
                 '!border-red-500 dark:!border-red-600':
                   teamMemberRoleError(index),
               }"
-              @input="teamMemberClearError(index)"
+              @change="
+                (e) => {
+                  member.role = e.target.value;
+                  teamMemberClearError(index);
+                }
+              "
             >
-              <option value="" disabled>Select role</option>
+              <option key="none" value="" disabled>Select role</option>
               <option
                 v-for="role in roles"
                 :key="role.value"
@@ -77,16 +82,28 @@
           @click="addMember"
           type="button"
           class="flex items-center button"
+          :disabled="signupStore.isLoading"
         >
           <UserPlusIcon class="h-5 w-5 mr-2" />
           <span v-if="teamMembers.length === 0">Add a colleague</span>
           <span v-else>Add another colleague</span>
         </button>
 
-        <button type="submit" class="flex justify-center button ml-auto">
-          <CheckIcon class="h-5 w-5 mr-2" />
-          Complete Signup
-        </button>
+        <div class="flex items-center ml-auto">
+          <button
+            type="submit"
+            class="flex justify-center button"
+            :disabled="signupStore.isLoading"
+          >
+            <CheckIcon class="h-5 w-5 mr-2" />
+            Complete Signup
+          </button>
+
+          <ChartLoader
+            v-if="signupStore.isLoading"
+            class="ml-3 h-8 text-red-500 dark:text-red-600"
+          />
+        </div>
       </div>
     </form>
     <button
@@ -141,6 +158,7 @@ import { useSignupStore } from "~/stores/signup";
 import { useFieldErrors } from "~/composables/useFieldErrors";
 import AddADeveloperHere from "./icons/AddADeveloperHere.vue";
 import SignupErrors from "./SignupErrors.vue";
+import ChartLoader from "./ChartLoader.vue";
 
 const router = useRouter();
 const signupStore = useSignupStore();

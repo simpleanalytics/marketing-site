@@ -153,7 +153,13 @@
         </p>
       </div>
 
-      <button type="submit" class="button">Next</button>
+      <div class="flex items-center">
+        <button type="submit" class="button">Next</button>
+        <ChartLoader
+          v-if="signupStore.isLoading"
+          class="ml-3 h-8 text-red-500 dark:text-red-600"
+        />
+      </div>
     </form>
   </div>
 </template>
@@ -168,6 +174,7 @@ import {
 import { computed, ref } from "vue";
 import { useSignupStore } from "~/stores/signup";
 import { useFieldErrors } from "~/composables/useFieldErrors";
+import ChartLoader from "./ChartLoader.vue";
 
 const config = useRuntimeConfig();
 const { DASHBOARD_URL } = config.public;
@@ -214,6 +221,7 @@ const clearError = (field) => {
 };
 
 const submitCredentials = async () => {
+  if (signupStore.isLoading) return;
   const isValid = await signupStore.validateStep1();
   if (isValid) emit("next");
 };
