@@ -1048,30 +1048,35 @@ const groups = [
   { group: "events", feature: "metadata" },
 
   // APIs & integrations
-  { group: "apis", feature: "admin_api" },
   { group: "apis", feature: "stats_api" },
+  { group: "apis", feature: "admin_api" },
   { group: "apis", feature: "export_api" },
 
   // Admin
+  { group: "admin", feature: "roles_based_access_control" },
   { group: "admin", feature: "multiple_teams" },
   { group: "admin", feature: "combined_invoicing" },
   { group: "admin", feature: "manual_invoicing" },
   { group: "admin", feature: "redlining_contracts" },
-  { group: "admin", feature: "roles_based_access_control" },
   { group: "admin", feature: "uptime_sla" },
 
   // Features
   { group: "features", feature: "trendlines" },
   { group: "features", feature: "annotations" },
+  { group: "features", feature: "growth_indicators" },
+  { group: "features", feature: "exact_numbers" },
+  { group: "features", feature: "alert_missing_script" },
+  { group: "features", feature: "advanced_robot_blocking" },
+  { group: "features", feature: "disable_watermark" },
   { group: "features", feature: "custom_website_views" },
   { group: "features", feature: "block_ip_range" },
   { group: "features", feature: "bypass_via_dns_cname" },
-  { group: "features", feature: "bypass_via_new_domain" },
   { group: "features", feature: "data_proxy" },
+  { group: "features", feature: "bypass_via_new_domain" },
 
   // Support
-  { group: "support", feature: "email_support" },
   { group: "support", feature: "community_support", description: true },
+  { group: "support", feature: "email_support" },
   { group: "support", feature: "video_support" },
   { group: "support", feature: "legal_support" },
 ];

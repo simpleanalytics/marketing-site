@@ -414,6 +414,21 @@
       "ai_chat": {
         "title": "AI chat"
       },
+      "growth_indicators": {
+        "title": "Growth indicators"
+      },
+      "exact_numbers": {
+        "title": "Exact numbers"
+      },
+      "alert_missing_script": {
+        "title": "Missing script alerts"
+      },
+      "advanced_robot_blocking": {
+        "title": "Advanced robot blocking"
+      },
+      "disable_watermark": {
+        "title": "Disable watermark"
+      },
 
       "badge_requirement": {
         "title": "Badge required",
