@@ -4,10 +4,6 @@
       {{ $t("pricing.affiliate_description", [14]) }}
     </p>
 
-    <p class="mt-6 text-center px-4 max-w-3xl leading-loose mx-auto">
-      Analytics doesn't need to be complex. Let's make it simple.
-    </p>
-
     <div class="mt-6 mb-0 flex flex-wrap justify-center items-center space-x-7">
       <Tooltip text="Mollie" class="group">
         <NuxtLink href="https://www.mollie.com/" target="_blank">

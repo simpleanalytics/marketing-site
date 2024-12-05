@@ -198,7 +198,7 @@
       </div>
 
       <div
-        class="text-gray-300 bg-gradient-to-b from-blue-100 dark:from-gray-900 relative md:pb-12 transition-transform duration-500"
+        class="text-gray-300 bg-gradient-to-b from-blue-100 dark:from-gray-900 relative md:pb-12 transition-transform duration-500 z-[100]"
         :class="signup.show ? '-translate-y-20' : 'translate-y-0'"
       >
         <div class="relative pt-6 pb-16 sm:pb-8">
@@ -263,11 +263,11 @@
                     >
                       {{ $t(item.translation) }}
                     </NuxtLink>
-                    <Popover class="relative z-30" v-slot="{ open }" v-else>
+                    <Popover class="relative z-[100]" v-slot="{ open }" v-else>
                       <PopoverButton
                         :class="[
                           open ? 'text-gray-600' : '',
-                          'group  inline-flex items-center text-base font-medium text-gray-500 hover:text-gray-600',
+                          'group inline-flex items-center text-base font-medium text-gray-500 hover:text-gray-600',
                         ]"
                       >
                         <span>{{ $t("nav.resources") }}</span>
@@ -289,7 +289,7 @@
                         leave-to-class="opacity-0 translate-y-1"
                       >
                         <PopoverPanel
-                          class="absolute z-30 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0"
+                          class="absolute left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0"
                         >
                           <div class="shadow-lg overflow-hidden">
                             <div
@@ -442,7 +442,7 @@
             >
               <PopoverPanel
                 focus
-                class="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+                class="absolute z-40 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
               >
                 <div
                   class="rounded-lg bg-white dark:bg-gray-700 ring-1 ring-black ring-opacity-5 overflow-hidden"

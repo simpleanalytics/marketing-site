@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap items-center justify-center -m-6">
+  <div class="flex flex-wrap items-center justify-center -m-6 relative z-30">
     <Tooltip
       v-for="company in filtered"
       :key="company.name"
