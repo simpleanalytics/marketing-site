@@ -1,7 +1,7 @@
 <template>
   <div class="-mt-28 flex lg:items-center flex-grow">
     <div class="flex flex-grow max-w-7xl mx-auto">
-      <div class="w-1/2 mr-12 hidden lg:block">
+      <div class="w-1/2 ml-8 mr-12 hidden lg:block">
         <NuxtLink
           :to="localePath({ name: 'index' })"
           class="items-center inline-flex mb-4"
@@ -64,17 +64,14 @@
             href="https://x.com/adriaandotcom"
             target="_blank"
             rel="nofollow noopener noreferrer"
-            >Adriaan<span class="no-underline underline-none">
-              <X class="inline ml-1 align-middle fill-current w-3" /> </span
-          ></NuxtLink>
+            >Adriaan</NuxtLink
+          >
           and
           <NuxtLink
             href="https://x.com/IronBrands16"
             target="_blank"
             rel="nofollow noopener noreferrer"
-            >Iron<span class="no-underline">
-              <X class="inline ml-1 align-middle fill-current w-3" />
-            </span> </NuxtLink
+            >Iron</NuxtLink
           >, the founders of Simple Analytics. Our business is entirely
           self-funded and proudly supported by our {{ userCount }}+ users.
         </p>
@@ -99,7 +96,7 @@
           <Iron class="inline w-20 h-20 stroke-gray-600 dark:stroke-gray-300" />
         </div>
       </div>
-      <div class="lg:w-1/2 lg:ml-12 mx-4 lg:mx-0">
+      <div class="lg:w-1/2 mx-4 lg:ml-12 lg:mr-8 flex flex-col justify-center">
         <NuxtLink
           :to="localePath({ name: 'index' })"
           class="items-center inline-flex mb-4 lg:hidden"

@@ -1,7 +1,10 @@
 <template>
   <div>
     <form @submit.prevent="submitTeamMembers" class="space-y-6">
-      <h1 class="text-2xl lg:text-3xl font-bold mb-4">Add your team</h1>
+      <div>
+        <StepCounter class="mb-2" :step="3" :total="3" />
+        <h1 class="text-2xl lg:text-3xl font-bold mb-4">Add your team</h1>
+      </div>
 
       <SignupErrors :errors="errors" :other-errors="nonTeamMembersErrors" />
 

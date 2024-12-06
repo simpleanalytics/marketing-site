@@ -2,6 +2,7 @@
   <div>
     <form @submit.prevent="submitCredentials" class="space-y-6">
       <div>
+        <StepCounter class="mb-2" :step="1" :total="2" />
         <h1 class="text-2xl lg:text-3xl font-bold mb-4">Create your account</h1>
 
         <label for="email" class="block text-sm font-medium text-gray-700">
@@ -175,6 +176,7 @@ import { computed, ref } from "vue";
 import { useSignupStore } from "~/stores/signup";
 import { useFieldErrors } from "~/composables/useFieldErrors";
 import ChartLoader from "./ChartLoader.vue";
+import StepCounter from "./StepCounter.vue";
 
 const config = useRuntimeConfig();
 const { DASHBOARD_URL } = config.public;

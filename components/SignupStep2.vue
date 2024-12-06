@@ -1,9 +1,12 @@
 <template>
   <div>
     <form @submit.prevent="submitCustomerInfo" class="space-y-6">
-      <h1 class="text-2xl lg:text-3xl font-bold mb-4">
-        Get to know each other
-      </h1>
+      <div>
+        <StepCounter class="mb-2" :step="2" :total="totalSteps" />
+        <h1 class="text-2xl lg:text-3xl font-bold mb-4">
+          Get to know each other
+        </h1>
+      </div>
 
       <SignupErrors :errors="errors" :other-errors="nonGetToKnowErrors" />
 
@@ -70,9 +73,7 @@
         </div>
       </div>
 
-      <div
-        v-if="companySize && !['no_company', 'only_me'].includes(companySize)"
-      >
+      <div v-if="showJobRole">
         <label for="jobRole" class="block text-sm font-medium text-gray-700">
           What's your job role?
         </label>
@@ -195,4 +196,12 @@ const submitCustomerInfo = () => {
     signupSource: signupSource.value,
   });
 };
+
+const showJobRole = computed(() => {
+  return (
+    companySize.value && !["no_company", "only_me"].includes(companySize.value)
+  );
+});
+
+const totalSteps = computed(() => (showJobRole.value ? 3 : 2));
 </script>

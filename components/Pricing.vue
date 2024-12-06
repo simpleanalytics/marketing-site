@@ -199,7 +199,14 @@
             v-if="subscription.featured"
             class="absolute left-1/2 -translate-x-1/2 top-0 transform -translate-y-1/2 bg-green-500 px-3 py-1 rounded-full text-white text-sm font-semibold"
           >
-            Mom's favorite
+            Recommended
+          </div>
+
+          <div
+            v-if="subscription.featured"
+            class="hidden sm:block absolute right-0 top-0 translate-x-[150px] -translate-y-8 transform"
+          >
+            <BlameOurMarketeerForThis class="stroke-gray-300 h-6" />
           </div>
 
           <h3
@@ -991,6 +998,7 @@ import {
 } from "@heroicons/vue/24/outline";
 import { ArrowLeftIcon } from "@heroicons/vue/24/solid";
 import { userCount } from "~/utils/miscellaneous";
+import BlameOurMarketeerForThis from "./handwritten/BlameOurMarketeerForThis.vue";
 
 const theme = useTheme();
 const config = useRuntimeConfig();

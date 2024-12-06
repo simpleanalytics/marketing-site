@@ -1,7 +1,7 @@
 <template>
   <div class="-mt-28 flex lg:items-center flex-grow">
     <div class="flex flex-grow max-w-7xl mx-auto">
-      <div class="w-1/2 mr-12 hidden lg:block">
+      <div class="w-1/2 ml-8 mr-12 hidden lg:block">
         <NuxtLink
           :to="localePath({ name: 'index' })"
           class="items-center inline-flex mb-4"
@@ -86,15 +86,10 @@
               <LogosGovUK class="h-9 my-3" />
             </NuxtLink>
           </Tooltip>
-          <Tooltip text="Polkadot" class="group">
-            <NuxtLink href="https://polkadot.network/" target="_blank">
-              <LogosPolkadot class="h-6 my-3" />
-            </NuxtLink>
-          </Tooltip>
         </div>
       </div>
 
-      <div class="lg:w-1/2 lg:ml-12 mx-4 lg:mx-0">
+      <div class="lg:w-1/2 mx-4 lg:ml-12 lg:mr-8 flex flex-col justify-center">
         <SignupStep3 class="w-full" @next="next" />
       </div>
     </div>
