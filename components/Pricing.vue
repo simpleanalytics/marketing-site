@@ -50,8 +50,8 @@
           <LogosExcalidraw class="h-7 my-3" />
         </NuxtLink>
       </Tooltip>
-      <Tooltip text="Nomad List" class="group">
-        <NuxtLink href="https://nomadlist.com/" target="_blank">
+      <Tooltip text="Nomads" class="group">
+        <NuxtLink href="https://nomads.com/" target="_blank">
           <LogosNomadList class="h-8 my-3" />
         </NuxtLink>
       </Tooltip>

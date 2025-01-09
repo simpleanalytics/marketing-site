@@ -67,8 +67,8 @@ const list = [
     component: HavasMediaLogo,
   },
   {
-    name: "Nomad List",
-    url: "https://nomadlist.com/",
+    name: "Nomads",
+    url: "https://nomads.com/",
     component: NomadListLogo,
     countries: ["nl"],
   },

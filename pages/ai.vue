@@ -168,7 +168,7 @@
             </a>
             <a
               class="w-full sm:w-1/2 lg:w-1/3 p-4 group cursor-pointer"
-              href="https://simpleanalytics.com/ai/nomadlist.com"
+              href="https://simpleanalytics.com/ai/nomads.com"
               target="_blank"
             >
               <div
@@ -176,7 +176,7 @@
               >
                 <NomadListLogo class="h-20 w-auto mx-auto mt-2 mb-4" />
 
-                <h2 class="text-lg font-semibold mb-2">Nomad List</h2>
+                <h2 class="text-lg font-semibold mb-2">Nomads</h2>
                 <p>Find cities to live remotely</p>
               </div>
             </a>
