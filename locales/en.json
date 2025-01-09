@@ -403,7 +403,7 @@
         "title": "IP range blocking"
       },
       "bypass_via_dns_cname": {
-        "title": "DNS CNAME bypass"
+        "title": "Ad-blocker bypass"
       },
       "bypass_via_new_domain": {
         "title": "New domain bypass"
