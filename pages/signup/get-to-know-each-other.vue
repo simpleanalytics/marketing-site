@@ -78,7 +78,7 @@
 
         <p class="mt-4 leading-loose">
           We don't sell your data, we don't do ads and we don't have investors
-          that tells us what to do. We're here to build a product that you love.
+          who tell us what to do. We're here to build a product that you love.
         </p>
 
         <p class="mt-4 leading-loose">
