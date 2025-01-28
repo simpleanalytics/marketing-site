@@ -392,9 +392,9 @@
 
             <li
               v-if="
+                subscription.limit_email_reports === null ||
                 (typeof subscription.limit_email_reports === 'number' &&
-                  subscription.limit_email_reports !== 0) ||
-                subscription.limit_email_reports === null
+                  subscription.limit_email_reports !== 0)
               "
               class="flex gap-x-3"
             >
@@ -426,21 +426,31 @@
             </li>
 
             <li
-              v-for="feature in subscription.unique_features?.slice(
-                0,
-                index === 0 || planListExpanded
-                  ? 100
-                  : subscription.slug === 'enterprise'
-                    ? 5
-                    : /team/.test(subscription.slug)
-                      ? 0
-                      : index !== 0 &&
-                          !filteredSubscriptions[index - 1]?.slug?.includes(
-                            'free',
-                          )
-                        ? 1
-                        : 1,
-              )"
+              v-for="feature in subscription.highlighted_features"
+              :key="feature"
+              class="flex gap-x-3"
+            >
+              <CheckIcon
+                class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
+                aria-hidden="true"
+              />
+              <span>{{ $t(`pricing.features.${feature}.title`) }}</span>
+            </li>
+
+            <li
+              v-for="feature in subscription.slug === 'enterprise'
+                ? subscription.unique_features
+                : subscription.unique_features
+                    ?.filter(
+                      (f) =>
+                        !subscription.highlighted_features?.includes(f.feature),
+                    )
+                    ?.slice(
+                      0,
+                      planListExpanded
+                        ? subscription.unique_features.length
+                        : 0,
+                    )"
               :key="feature.feature"
               class="flex gap-x-3"
             >
@@ -495,7 +505,13 @@
             </li>
 
             <li
-              v-if="subscription.unique_features.length > 5"
+              v-if="
+                !subscription.slug.includes('free') &&
+                subscription.unique_features?.filter(
+                  (f) =>
+                    !subscription.highlighted_features?.includes(f.feature),
+                )?.length > 0
+              "
               class="flex gap-x-3"
             >
               <NuxtLink
@@ -1250,6 +1266,7 @@ const filteredSubscriptions = computed(() => {
         limit_email_reports: subscription.limit_email_reports,
         limit_look_back_days: subscription.limit_look_back_days,
         limit_data_retention_days: subscription.limit_data_retention_days,
+        highlighted_features: subscription.highlighted_features,
       };
     })
     // If a feature shows in the a plan, do not show it in the next plan

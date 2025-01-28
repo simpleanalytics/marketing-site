@@ -29,6 +29,7 @@
                   teamMemberEmailError(index),
               }"
               @input="teamMemberClearError(index)"
+              @keydown.enter.prevent="handleEnterKey(index)"
             />
             <div v-if="teamMemberEmailError(index)" class="mt-1">
               <p class="text-sm text-red-500 dark:text-red-600">
@@ -62,6 +63,7 @@
                   teamMemberClearError(index);
                 }
               "
+              @keydown.enter.prevent="handleEnterKey(index)"
             >
               <option key="none" value="" disabled>Select role</option>
               <option
@@ -286,4 +288,8 @@ const rolesWithDescriptions = [
       "Viewers have restricted access with read-only permissions. They can view dashboards, goals, and events but cannot edit anything.",
   },
 ];
+
+const handleEnterKey = (index) => {
+  if (index === teamMembers.value.length - 1) addMember();
+};
 </script>
