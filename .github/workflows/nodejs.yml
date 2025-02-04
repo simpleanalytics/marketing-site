@@ -32,7 +32,7 @@ jobs:
         uses: simpleanalytics/fail-on-found-action@v2
         with:
           query: 'console.log,.indexOf(",.indexOf('''
-          exclude: "node_modules,.git"
+          exclude: "node_modules,.git,.cursorrules"
 
       - name: Prettier Action
         uses: creyD/prettier_action@v4.3
