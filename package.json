@@ -19,6 +19,7 @@
     "@nuxtjs/i18n": "^8.1.1",
     "@nuxtjs/tailwindcss": "^6.11.4",
     "@pinia/nuxt": "^0.5.5",
+    "@simpleanalytics/common": "^1.6.2",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
     "diff-match-patch": "^1.0.5",
