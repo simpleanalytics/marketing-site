@@ -148,7 +148,7 @@
       "paranoid_caption": "Est-il devenu paranoïaque ?"
     }
   },
-  "start_trial": {
+  "start_now": {
     "button": "Commencez l'essai gratuit maintenant",
     "free_trial": "Essai gratuit de 14 jours",
     "no_credit_card": "Aucune carte de crédit requise",
@@ -202,7 +202,7 @@
   "nav": {
     "login": "Se connecter",
     "pricing": "Tarifs",
-    "start_trial": "Démarrer l'essai",
+    "start_now": "",
     "resources": "Ressources",
     "docs": "Documentation",
     "blog": "Blog",

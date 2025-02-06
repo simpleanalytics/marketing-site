@@ -42,7 +42,8 @@
       "resources": "Bronnen",
       "utm_builder": "UTM-builder",
       "guides": "Handleidingen",
-      "case_studies": "Casestudies"
+      "case_studies": "Casestudies",
+      "press": "Pers mentions"
     },
     "why_most_privacy": {
       "title": "Waarom is Simple Analytics het {0}beste alternatief voor Google Analytics{1}?",
@@ -68,7 +69,7 @@
       },
       "personal_data": {
         "title": "We slaan nooit, maar dan ook nooit, persoonlijke gegevens van je bezoekers op.",
-        "html": "<p>Sommige op privacy gerichte analytics tools gebruiken persoonlijk identificeerbare gegevens en verwijderen deze na een dag.</p><p>Bijvoorbeeld:</p><ul><li>Ze verzamelen het IP-adres van een bezoeker, voegen een datum toe, en maken er een hash van bij elk paginabezoek.</li><li>Deze hashes verbinden paginaweergaven met elkaar. Hoewel dit zeker beter is dan big tech die probeert zoveel mogelijk persoonlijke gegevens te verzamelen om aan adverteerders te verkopen, is het niet 100% waterdicht en is het een grijs gebied.</li><li>De hashes verlopen maar één keer per dag, <em>dus voor minder dan 24 uur is er nog steeds persoonlijk identificeerbare informatie opgeslagen over je bezoekers.</em> Privacy policy’s zoals de GDPR leggen uit dat je toestemming van bezoekers moet hebben om persoonlijk identificeerbare informatie (PII) op te slaan.</li></ul><p>Simple Analytics doet nooit concessies wat betref privacy. Daarom gebruiken we alleen unieke bezoekers zonder IP-adressen te volgen. We doen dit op basis van de referrer van de browser, zodat er geen PII wordt opgeslagen. Wanneer je Simple Analytics gebruikt, is het dus {0}100% gegarandeerd dat er geen persoonlijk identificeerbare informatie van een van je bezoekers wordt opgeslagen.{1} Hierdoor is er nul toestemming nodig. Adiós vervelende banners!</p><p>Tip: sommige klanten vervangen hun cookie banners graag door \"we zijn er trots op dat we je privacy beschermen\" banners om een concurrentievoordeel te behalen.</p>"
+        "html": "<p>Sommige op privacy gerichte analytics tools gebruiken persoonlijk identificeerbare gegevens en verwijderen deze na een dag.</p><p>Bijvoorbeeld:</p><ul><li>Ze verzamelen het IP-adres van een bezoeker, voegen een datum toe, en maken er een hash van bij elk paginabezoek.</li><li>Deze hashes verbinden paginaweergaven met elkaar. Hoewel dit zeker beter is dan big tech die probeert zoveel mogelijk persoonlijke gegevens te verzamelen om aan adverteerders te verkopen, is het niet 100% waterdicht en is het een grijs gebied.</li><li>De hashes verlopen maar één keer per dag, <em>dus voor minder dan 24 uur is er nog steeds persoonlijk identificeerbare informatie opgeslagen over je bezoekers.</em> Privacy policy's zoals de GDPR leggen uit dat je toestemming van bezoekers moet hebben om persoonlijk identificeerbare informatie (PII) op te slaan.</li></ul><p>Simple Analytics doet nooit concessies wat betref privacy. Daarom gebruiken we alleen unieke bezoekers zonder IP-adressen te volgen. We doen dit op basis van de referrer van de browser, zodat er geen PII wordt opgeslagen. Wanneer je Simple Analytics gebruikt, is het dus {0}100% gegarandeerd dat er geen persoonlijk identificeerbare informatie van een van je bezoekers wordt opgeslagen.{1} Hierdoor is er nul toestemming nodig. Adiós vervelende banners!</p><p>Tip: sommige klanten vervangen hun cookie banners graag door \"we zijn er trots op dat we je privacy beschermen\" banners om een concurrentievoordeel te behalen.</p>"
       },
       "eu_based": {
         "title": "We zijn een in de EU gevestigd bedrijf met in de EU gevestigde servers.",
@@ -126,7 +127,7 @@
       "monthly": "maandelijks",
       "a_day_ago": "een dag geleden",
       "six_days_ago": "6 dagen geleden",
-      "confirm": "Weet je zeker dat je het {0}e e-mailrapport voor {1} wilt uitschakelen?",
+      "confirm": "Weet je zeker dat je het {0} e-mailrapport voor {1} wilt uitschakelen?",
       "invalid_email": "Vul een geldig e-mailadres in",
       "never": "nooit"
     },
@@ -148,11 +149,12 @@
       "paranoid_caption": "Wordt hij paranoïde?"
     }
   },
-  "start_trial": {
-    "button": "Nu gratis proberen",
-    "free_trial": "Gratis voor 14 dagen",
+  "start_now": {
+    "button": "Start nu gratis",
+    "free_trial": "Gratis voor altijd",
     "no_credit_card": "Geen creditcard nodig",
-    "cancel_anytime": "Annuleer elk moment"
+    "cancel_anytime": "Annuleer elk moment",
+    "try_it_with_your_analytics": "Probeer het met je analytics"
   },
   "banners": {
     "import_ga": {
@@ -202,11 +204,11 @@
   "nav": {
     "login": "Inloggen",
     "pricing": "Prijzen",
-    "start_trial": "Start proefperiode",
+    "start_now": "Start nu gratis",
     "resources": "Info",
     "docs": "Docs",
     "blog": "Blog",
-    "contact": "Neem contact op",
+    "contact": "Contact",
     "ai": "AI",
     "resources_dropdown": {
       "docs": {
@@ -249,36 +251,268 @@
     "buy": "Koop",
     "everything_plus": "Alles van het {0} plan, plus:",
     "what_is_included": "Wat is inbegrepen",
-    "contact_us": "Neem contact op",
+    "contact_us": "Contact",
     "affiliate_description": "Je krijgt de eerste maand + {0} dagen gratis omdat je een affiliatie link gebruikt.",
-    "contact": "Contact",
     "plans": {
+      "free": {
+        "title": "Gratis",
+        "description": "Voor hobbyprojecten. Perfect om je projecten bij te houden."
+      },
+      "simple": {
+        "title": "Simple",
+        "description": "Voor ondernemers. Krijg de inzichten die je nodig hebt om je bedrijf te laten groeien."
+      },
+      "team": {
+        "title": "Team",
+        "description": "Voor teams. Werk samen om het meeste uit je analytics data te halen."
+      },
       "starter": {
         "title": "Starter",
-        "description": "Alles wat je nodig hebt om te beginnen"
+        "description": "Alles wat je nodig hebt om te beginnen."
       },
       "business": {
         "title": "Business",
-        "description": "Werk samen aan de groei van je bedrijf"
+        "description": "Werk samen aan het laten groeien van je bedrijf."
       },
       "enterprise": {
         "title": "Enterprise",
-        "description": "Alles wat nodig is om je bedrijf te laten groeien"
+        "description": "Voor grote organisaties. Analytics op maat die bij je organisatie past."
+      }
+    },
+    "sections": {
+      "data": {
+        "title": "Data",
+        "description": "De hoeveelheid data die je kunt verzamelen."
+      },
+      "events": {
+        "title": "Events",
+        "description": "Het aantal events dat je kunt verzamelen."
+      },
+      "apis": {
+        "title": "APIs",
+        "description": "Het aantal API-calls dat je kunt doen."
+      },
+      "admin": {
+        "title": "Admin",
+        "description": "Features voor Enterprise of agencies."
+      },
+      "features": {
+        "title": "Features",
+        "description": "Wat je kunt gebruiken in dit plan."
+      },
+      "support": {
+        "title": "Support",
+        "description": "De support die je krijgt."
       }
     },
     "features": {
-      "datapoints": "<strong>{0}</strong> datapunten per maand",
-      "users": "<strong>{0}</strong> gebruikers",
-      "user": "<strong>{0}</strong> gebruiker",
-      "websites": "<strong>{0}</strong> websites",
-      "events": "events",
-      "ai_one_month": "AI voor <strong>1 maand</strong>",
-      "ai_unlimited": "AI <strong>onbeperkt</strong>",
-      "ai_limited": "AI <strong>beperkt</strong>",
-      "aggregated_export": "geaggregeerde export",
-      "raw_level_export": "<strong>raw level</strong> export",
-      "email_support": "e-mail support",
-      "prio_email_support": "<strong>prio</strong> e-mail ondersteuning"
+      "datapoints": {
+        "title": "Datapunten",
+        "unlimited": "Onbeperkte pageviews",
+        "number": "Tot <strong>{0}</strong> maandelijkse pageviews / events",
+        "description": "Omdat de historie beperkt is tot één maand, hebben we geen harde limiet op het aantal pageviews.",
+        "custom": "Aangepaste datapunten limiet"
+      },
+      "users": {
+        "title": "Gebruikers",
+        "number": "Tot <strong>{0}</strong> gebruikers",
+        "one": "<strong>1</strong> gebruiker",
+        "custom": "Aangepaste gebruiker limiet",
+        "per_user": "gebruiker"
+      },
+      "websites": {
+        "title": "Websites",
+        "unlimited": "Onbeperkte sites",
+        "number": "Tot <strong>{0}</strong> sites",
+        "one": "<strong>1</strong> site",
+        "custom": "Aangepaste site limiet"
+      },
+      "email_reports": {
+        "title": "E-mailrapporten",
+        "number": "Tot <strong>{0}</strong> e-mailrapport",
+        "one": "<strong>1</strong> e-mailrapport",
+        "description": "Stuur jezelf en anderen een e-mailrapport van je statistieken. Je kunt {0} unieke ontvangers gebruiken voor al je e-mailrapporten."
+      },
+      "look_back_days": {
+        "title": "Terugkijkdagen",
+        "number": "<strong>{0}</strong> terugkijkdagen"
+      },
+      "data_retention_days": {
+        "title": "Bewaartermijn",
+        "number": "Bewaartermijn van <strong>{0}</strong>"
+      },
+      "invoices_email": {
+        "title": "Facturen via e-mail"
+      },
+      "separated_data_storage": {
+        "title": "Gescheiden data-opslag"
+      },
+      "goals": {
+        "title": "Goals-dashboard"
+      },
+      "events": {
+        "title": "Events verzamelen"
+      },
+      "automated_events": {
+        "title": "Automatische events"
+      },
+      "metadata": {
+        "title": "Metadata-analyse"
+      },
+      "admin_api": {
+        "title": "Admin API"
+      },
+      "stats_api": {
+        "title": "Stats API"
+      },
+      "export_api": {
+        "title": "Export API"
+      },
+      "multiple_teams": {
+        "title": "Meerdere teams (agency)"
+      },
+      "combined_invoicing": {
+        "title": "Gecombineerde facturatie"
+      },
+      "manual_invoicing": {
+        "title": "Handmatige facturering"
+      },
+      "redlining_contracts": {
+        "title": "Contractaanpassingen"
+      },
+      "roles_based_access_control": {
+        "title": "Rolgebaseerde toegang"
+      },
+      "uptime_sla": {
+        "title": "Uptime SLA"
+      },
+      "trendlines": {
+        "title": "Trendlines"
+      },
+      "annotations": {
+        "title": "Annotaties"
+      },
+      "custom_website_views": {
+        "title": "Custom dashboards"
+      },
+      "block_ip_range": {
+        "title": "Blokkeer IP-range"
+      },
+      "bypass_via_dns_cname": {
+        "title": "Adblocker-omzeiling"
+      },
+      "bypass_via_new_domain": {
+        "title": "Adblocker-omzeiling (met nieuw domein)"
+      },
+      "data_proxy": {
+        "title": "Data-proxy"
+      },
+      "ai_chat": {
+        "title": "AI-chat"
+      },
+      "growth_indicators": {
+        "title": "Groei indicatoren"
+      },
+      "exact_numbers": {
+        "title": "Exacte aantallen"
+      },
+      "alert_missing_script": {
+        "title": "Alert bij ontbrekend script"
+      },
+      "advanced_robot_blocking": {
+        "title": "Geavanceerde robotblokkering"
+      },
+      "disable_watermark": {
+        "title": "Watermerk uitschakelen"
+      },
+      "badge_requirement": {
+        "title": "Badge verplicht",
+        "description": "Wanneer je het gratis plan gebruikt, moet je een Simple Analytics-badge aan je websites toevoegen. {0}Bekijk onze badges{1} (aanpasbaar)"
+      },
+      "public_dashboard_requirement": {
+        "title": "Openbaar dashboard",
+        "description": "Bij het gratis plan moet je je dashboards openbaar maken. Iedereen kan je openbare statistieken zien."
+      },
+      "limited_lookback": {
+        "title": "1 maand historie",
+        "description": "Je hebt een analytics-geschiedenis van één maand, oudere data wordt verwijderd."
+      },
+      "community_support": {
+        "title": "Community support",
+        "description": "Je kunt {0}onze community{1} gebruiken om vragen te stellen."
+      },
+      "email_support": {
+        "title": "E-mail support"
+      },
+      "priority_support": {
+        "title": "Prioriteitssupport"
+      },
+      "video_support": {
+        "title": "Video onboarding"
+      },
+      "legal_support": {
+        "title": "Juridische support"
+      },
+      "enterprise_only": "Alleen enterprise"
+    },
+    "slider": {
+      "select_pageviews": "Selecteer het verwachte aantal pageviews per maand",
+      "pageviews_or_events": "paginaweergaven (of events)"
+    },
+    "payment_frequency": {
+      "label": "Betaalfrequentie",
+      "discount": "2 maanden korting"
+    },
+    "plan_labels": {
+      "recommended": "Aanbevolen",
+      "free": "Gratis"
+    },
+    "followers": {
+      "count": "{0} volgers",
+      "count_k": "{0}k+ volgers"
+    },
+    "features_list": {
+      "show_less": "Toon minder",
+      "show_more": "Toon meer",
+      "show_all": "Toon alle plan-features",
+      "hide_all": "Verberg alle plan-features"
+    },
+    "everything_from": "Alles van {0}",
+    "reviews": {
+      "capterra": {
+        "tooltip": "{0} sterren op Capterra",
+        "users_count": "Gewaardeerd door {0}+ gebruikers"
+      }
+    },
+    "company_logos": {
+      "mollie": "Mollie",
+      "bloomberg": "Bloomberg",
+      "michelin": "Michelin",
+      "hyundai": "Hyundai",
+      "gov_uk": "GOV.UK",
+      "polkadot": "Polkadot",
+      "bank_of_england": "Bank of England",
+      "sketch": "Sketch",
+      "excalidraw": "Excalidraw",
+      "nomads": "Nomads"
+    },
+    "buttons": {
+      "start_free": "Start gratis",
+      "contact_sales": "Neem contact op met sales",
+      "start_now": "Nu beginnen"
+    },
+    "developer": {
+      "start_dashboard": "Hey developer! Start de dashboard-app om de data op te halen.",
+      "fetch_error": "We hebben moeite met het binnenhalen van de data. Probeer het later opnieuw."
+    },
+    "accessibility": {
+      "feature_comparison": "Feature vergelijking",
+      "feature_value": {
+        "yes": "Ja",
+        "no": "Nee"
+      },
+      "avatar": "Avatar van {0}",
+      "mobile_comparison": "Feature vergelijking"
     }
   },
   "pricing_faq": {
@@ -287,6 +521,10 @@
     "datapoints": {
       "title": "Wat zijn datapunten?",
       "description": "Je kan twee soorten data verzamelen bij Simple Analytics: paginabezoeken en events. De verzamelterm voor beide is datapunt. Als je geen events gebruikt, zullen de datapunten alleen paginabezoeken zijn. Als je wel events gebruikt, zullen de datapunten ook events zijn."
+    },
+    "free_websites": {
+      "title": "Wat zijn gratis websites?",
+      "description": "Bij een gratis website moet je een Simple Analytics-badge tonen in de footer, en je dashboard moet openbaar zijn. Bij het toevoegen van ons script, voeg je ook de badge toe. We controleren of de badge aanwezig is. Als deze later ontbreekt, waarschuwen we je en krijg je een korte periode om de badge toe te voegen. Doe je dat niet, dan verwijderen we de website en de data."
     },
     "trial_expires": {
       "title": "Moet ik betalen als mijn proefperiode afloopt?",
@@ -304,6 +542,10 @@
       "title": "Wat gebeurt er met mijn kosten als mijn verkeer toeneemt / afneemt?",
       "description_1": "Je betaalt alleen voor wat je daadwerkelijk nodig hebt. Dit betekent dat als de pageview-limiet van het plan wordt overschreden, je in rekening wordt gebracht voor de overschrijdingen. Simple Analytics berekent automatisch je prijs met je gemiddeld aantal pageviews (eerst één maand terugblikkend, dan het gemiddelde van de vorige drie maanden).",
       "description_2": "Dus, als je een toename in verkeer had gedurende de laatste drie maanden, betaal je volgende maand alleen maar een beetje meer. Op dezelfde manier betaal je automatisch een beetje minder wanneer je gemiddeld aantal pageviews daalde tijdens de laatste maanden."
+    },
+    "yearly_plans": {
+      "title": "Hoe werkt dat met de jaarlijkse plannen?",
+      "description": "Als je voor jaarlijks kiest, schat je je verkeer in na je proefperiode. We sturen je een e-mail als je over je limiet gaat, en je hebt een week om je limiet te verhogen. Anders doen wij het voor je. Om extra facturen tijdens het jaar te voorkomen, kun je je limiet vooraf hoger instellen. Na het jaar wordt je datapuntenstand gereset naar nul."
     }
   },
   "video": {
@@ -339,7 +581,7 @@
     }
   },
   "testimonials": {
-    "trusted_by": "Vertrouwd door meer dan 600 {0}overheden{1}, {0}Ngo’s{1} en kleine tot grote {0}ondernemingen{1}.",
+    "trusted_by": "Vertrouwd door meer dan 600 {0}overheden{1}, {0}ngo's{1} en kleine tot grote {0}ondernemingen{1}.",
     "duckduckgo": {
       "name": "DuckDuckGo",
       "role": "De grootste privacy vriendelijke search engine",
@@ -356,7 +598,7 @@
     "missive": {
       "role": "CEO van Missive",
       "quote": "We hebben een 'gratis', privacy-loos en complex analytisch dashboard ingeruild voor een betaald, privacy-first en eenvoudig dashboard. We konden niet gelukkiger zijn. {0}De beste privacy-gerichte analytics suite die ik heb gevonden.{1} We zijn er trots op dat we onze klanten kunnen vertellen dat we ze helemaal niet volgen.",
-      "quote_short": "{0}The best privacy-focused analytics suite that I've found.{1} We're proud to be able to tell our customers that we don't track them at all."
+      "quote_short": "{0}De beste privacy-gerichte analytics suite die ik heb gevonden.{1} We zijn er trots op dat we onze klanten kunnen vertellen dat we ze helemaal niet volgen."
     },
     "hannah": {
       "role": "Oprichter SaaS Design",
@@ -477,7 +719,6 @@
       }
     }
   },
-
   "utm_generator_form": {
     "title": "UTM-generator",
     "intro": "Onze UTM-generator is een handig hulpmiddel voor iedereen die zijn online campagnes wil volgen en analyseren. Of je nu een marketeer, contentmaker of bedrijfseigenaar bent, deze generator helpt je om je marketingkanalen beter te begrijpen.",
@@ -510,6 +751,13 @@
     "title": "Pers",
     "description": "Interviews met de oprichters van Simple Analytics in podcasts en vermeldingen in andere media."
   },
+  "ai": {
+    "title": "Chat met {0}jouw{1} analytics",
+    "subtitle": "Aangedreven door Simple Analytics {0}AI{1}",
+    "description": "We zijn Simple Analytics gestart om analytics makkelijk te maken. Nu tillen we dit naar een hoger niveau: stel je analytics een vraag en krijg direct inzichten. Probeer onze demo!",
+    "not_really": "niet echt",
+    "choose_above_examples": "Kies een van de bovenstaande voorbeelden"
+  },
   "time": {
     "intl_locale": "nl-NL",
     "now": "nu",
@@ -520,7 +768,9 @@
         "hours": "{0}u oud",
         "minutes": "{0}m oud"
       }
-    }
+    },
+    "years": "{0} jaar",
+    "days": "{0} dagen"
   },
   "amount": {
     "million": "miljoen"
@@ -537,6 +787,24 @@
         "description": "Je bezoekt onze website te veel in een korte tijd. Probeer het later opnieuw."
       }
     }
+  },
+  "error": {
+    "not_found": "Oeps, pagina niet gevonden",
+    "generic": "Oeps, er is een fout opgetreden, ververs de pagina",
+    "go_home": "Ga naar de homepage",
+    "refresh": "Ververs de pagina",
+    "status_message": "{0}. Ververs de pagina."
+  },
+  "affiliate": {
+    "accepted": "Je hebt de affiliate-deal geaccepteerd, daardoor krijg je korting en {0} krijgt een beloning.",
+    "undo": "Klik hier om dit ongedaan te maken",
+    "via_name": "Je bent hier via {0}.",
+    "via_code": "Je bent hier via de affiliate code {0}.",
+    "reward_message": "Om je de eerste maand gratis te geven en {0} hun beloning te geven, vragen we je om 30 dagen een cookie te plaatsen.",
+    "accept_button": "Accepteer affiliate-deal",
+    "invalid_link": "Het lijkt erop dat je affiliate link {0} ongeldig is.",
+    "generic_invalid": "Het lijkt erop dat je affiliate link ongeldig is.",
+    "contact_mistake": "Neem contact met ons op als je denkt dat dit een vergissing is."
   },
   "countries": {
     "_source": "https://github.com/rl-king/elm-iso3166-country-codes/blob/master/src/Iso3166/Dutch.elm",

@@ -148,7 +148,7 @@
       "paranoid_caption": "Wird er paranoid?"
     }
   },
-  "start_trial": {
+  "start_now": {
     "button": "Starte jetzt den kostenlosen Testzeitraum",
     "free_trial": "14-tägiger kostenloser Testzeitraum",
     "no_credit_card": "Keine Kreditkarte erforderlich",
@@ -202,7 +202,7 @@
   "nav": {
     "login": "Einloggen",
     "pricing": "Preise",
-    "start_trial": "Test starten",
+    "start_now": "",
     "resources": "Ressourcen",
     "docs": "Dokumentation",
     "blog": "Blog",

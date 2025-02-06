@@ -148,7 +148,7 @@
       "paranoid_caption": "¿Está volviéndose paranoico?"
     }
   },
-  "start_trial": {
+  "start_now": {
     "button": "Comenzar prueba gratuita ahora",
     "free_trial": "Prueba gratuita de 14 días",
     "no_credit_card": "No se requiere tarjeta de crédito",
@@ -202,7 +202,7 @@
   "nav": {
     "login": "Iniciar sesión",
     "pricing": "Precio",
-    "start_trial": "Iniciar prueba",
+    "start_now": "",
     "resources": "Recursos",
     "docs": "Documentación",
     "blog": "Blog",

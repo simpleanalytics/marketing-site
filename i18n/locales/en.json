@@ -150,7 +150,7 @@
       "paranoid_caption": "Is he getting paranoid?"
     }
   },
-  "start_trial": {
+  "start_now": {
     "button": "Start for free now",
     "free_trial": "Free 14-day trial",
     "no_credit_card": "No credit card required",
@@ -205,7 +205,7 @@
   "nav": {
     "login": "Log in",
     "pricing": "Pricing",
-    "start_trial": "Start for free",
+    "start_now": "Start for free",
     "resources": "Resources",
     "docs": "Docs",
     "blog": "Blog",
@@ -244,7 +244,7 @@
     "title": "Simple pricing",
     "yearly_billing": "Yearly billing",
     "monthly_billing": "Monthly billing",
-    "from": "starting at",
+    "from": "From",
     "depending_on_usage": "depending on usage",
     "per_month": "month",
     "per_month_short": "mo",
@@ -254,19 +254,18 @@
     "what_is_included": "What's included",
     "contact_us": "Contact us",
     "affiliate_description": "You get the first month + {0} days for free because you're using an affiliate link.",
-    "contact": "Contact",
     "plans": {
       "free": {
         "title": "Free",
-        "description": "For hobby projects."
+        "description": "For hobby projects. Great to keep track of your projects."
       },
       "simple": {
         "title": "Simple",
-        "description": "For solopreneurs."
+        "description": "For business owners. Get the insights you need to grow your business."
       },
       "team": {
         "title": "Team",
-        "description": "For businesses."
+        "description": "For teams. Collaborate to get the most out of your analytics data."
       },
       "starter": {
         "title": "Starter",
@@ -278,7 +277,7 @@
       },
       "enterprise": {
         "title": "Enterprise",
-        "description": "If you need a custom plan."
+        "description": "For large organizations. Customized analytics that suits your organization."
       }
     },
     "sections": {
@@ -312,18 +311,22 @@
         "title": "Pageviews / events",
         "unlimited": "Unlimited pageviews",
         "number": "Up to <strong>{0}</strong> monthly pageviews / events",
-        "description": "Because the history is limited to one month, we don't have a hard limit on the amount of pageviews."
+        "description": "Because the history is limited to one month, we don't have a hard limit on the amount of pageviews.",
+        "custom": "Custom pageviews limit"
       },
       "users": {
         "title": "Users",
         "number": "Up to <strong>{0}</strong> users",
-        "one": "<strong>1</strong> user"
+        "one": "<strong>1</strong> user",
+        "custom": "Custom user limit",
+        "per_user": "user"
       },
       "websites": {
         "title": "Websites",
         "unlimited": "Unlimited sites",
         "number": "Up to <strong>{0}</strong> sites",
-        "one": "<strong>1</strong> site"
+        "one": "<strong>1</strong> site",
+        "custom": "Custom site limit"
       },
       "email_reports": {
         "title": "Email reports",
@@ -430,10 +433,6 @@
         "title": "Disable watermark"
       },
 
-      "badge_requirement": {
-        "title": "Badge required",
-        "description": "When using the Free plan you need to add a Simple Analytics badge to your websites. {0}See our badges{1} (customizable)"
-      },
       "public_dashboard_requirement": {
         "title": "Public dashboard",
         "description": "When using the Free plan you need to make your dashboards public. Everybody can see your public stats."
@@ -450,26 +449,107 @@
       "email_support": {
         "title": "Support email"
       },
+      "priority_support": {
+        "title": "Priority support"
+      },
       "video_support": {
-        "title": "Video support"
+        "title": "Video onboarding"
       },
       "legal_support": {
         "title": "Legal support"
       },
-
       "enterprise_only": "Enterprise only"
+    },
+    "slider": {
+      "select_pageviews": "Select the expected monthly pageviews",
+      "pageviews_or_events": "pageviews (or events)"
+    },
+    "payment_frequency": {
+      "label": "Payment frequency",
+      "discount": "2 months off"
+    },
+    "plan_labels": {
+      "recommended": "Recommended",
+      "free": "Free"
+    },
+    "followers": {
+      "count": "{0} followers",
+      "count_k": "{0}k+ followers"
+    },
+    "features_list": {
+      "show_less": "Show less",
+      "show_more": "Show more",
+      "show_all": "Show all plan features",
+      "hide_all": "Hide all plan features"
+    },
+    "everything_from": "Everything from {0}",
+    "reviews": {
+      "capterra": {
+        "tooltip": "{0} stars on Capterra",
+        "users_count": "Loved by {0}+ users"
+      }
+    },
+    "company_logos": {
+      "mollie": "Mollie",
+      "bloomberg": "Bloomberg",
+      "michelin": "Michelin",
+      "hyundai": "Hyundai",
+      "gov_uk": "GOV.UK",
+      "polkadot": "Polkadot",
+      "bank_of_england": "Bank of England",
+      "sketch": "Sketch",
+      "excalidraw": "Excalidraw",
+      "nomads": "Nomads"
+    },
+    "buttons": {
+      "start_free": "Start for free",
+      "contact_sales": "Contact sales",
+      "start_now": "Start now"
+    },
+    "developer": {
+      "start_dashboard": "Hey developer! Start the dashboard app to fetch the data.",
+      "fetch_error": "We're having trouble fetching the data. Please try again later."
+    },
+    "accessibility": {
+      "feature_comparison": "Feature comparison",
+      "feature_value": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "avatar": "Avatar of {0}",
+      "mobile_comparison": "Feature comparison"
     }
   },
   "pricing_faq": {
     "title": "Frequently Asked Questions",
     "need_help": "Need more help? Please send us your question(s) via {0}our support page{1}.",
+    "data_usage": {
+      "title": "What we do and don't do with your data",
+      "description": "The data we collect belongs to you. We only collect non-personal data and don't share the data with third parties or transfer it overseas. Your website data never leaves the Netherlands and, therefore, the E.U. Also, no other third-party vendors have access to any data outside the hosting company that owns the servers on which the data is stored."
+    },
+    "metrics": {
+      "title": "What metrics do we collect?",
+      "description": "We do not collect any personal data. We do not use cookies and never collect information that could be used to fingerprint a user. You do not need to tweak any settings to make our software privacy-friendly: Simple Analytics is privacy-friendly by design. Here is a {0}detailed list{1} of what we do and don't collect from your visitors."
+    },
+    "gdpr": {
+      "title": "Is Simple Analytics GDPR-compliant?",
+      "description": "Simple Analytics is 100% GDPR compliant with data protection law from installation. Because it only processes non-personal data, it can satisfy the requirements of the strictest privacy regulation, including the GDPR, the ePrivacy Directive, the UK GDPR, and the PECT. For more information {0}check our documentation{1}."
+    },
+    "unlimited_pageviews": {
+      "title": "What does unlimited pageviews mean?",
+      "description": "Our free plan offers unlimited pageviews. This allows you to track as much traffic as your website gets without any restrictions. However, we have a fair use policy to make sure our servers run smoothly for all users. If your traffic exceeds our fair use limits, we'll notify you via email. If you're unsure about your website's traffic volume, feel free to {0}contact us{1} in advance."
+    },
+    "free_plan": {
+      "title": "How does the free plan work?",
+      "description": "Simple Analytics is free forever. To get started create an account to start your trial (no creditcard required). During 14-day trial you can explore all our features. After the 14 days, you'll need to select a plan to continue using Simple Analytics. You can choose to continue using one of our paid plans or downgrade to our free plan and continue using Simple Analytics free forever."
+    },
+    "free_trial": {
+      "title": "How does the free trial work?",
+      "description": "When you sign-up, your 14-day free trial (no credit card required) starts. No matter which plan you choose. During these 14 days, you can use advanced features without any restrictions. After the trial period, we'll ask you to choose a plan to continue using Simple Analytics. If you choose our paid plan, we need you to add your payment details. You can switch to any plan, provided your usage remains within its limits."
+    },
     "datapoints": {
       "title": "What are datapoints?",
-      "description": "You can collect two types of data witçh Simple Analytics: page views and events. The combined term for both is datapoint. If you don't use events, the datapoints will only be page views. If you do use events, the datapoints will also be events."
-    },
-    "free_websites": {
-      "title": "What are free websites?",
-      "description": "As part of using a free website, it's required to display our badge in the footer and your dashboard must be public. While adding our script, you should also add the badge. When you add the website to our dashboard we check for the badge. When your badge is missing later on, we will warn you and give you a grace period to add it. If you don't add it, we will delete the website and its data."
+      "description": "You can collect two types of data with Simple Analytics: page views and events. The combined term for both is datapoint. If you don't use events, the datapoints will only be page views. If you do use events, the datapoints will also be events."
     },
     "trial_expires": {
       "title": "Will I be charged when my trial expires?",
@@ -484,13 +564,17 @@
       "description": "We accept Credit Card, Debit Card, Bitcoin {0}+10% & yearly{1}, Apple Pay, and Google Pay as payment methods for all our paid plans. You can pay in Euros, US Dollars or British Pounds. Bills from {2}500 can be paid via bank transfers and cost an additional {0}10&#37;{1} in banking and service fees."
     },
     "traffic_change": {
-      "title": "What will happen to my charges when my traffic grows / declines?",
+      "title": "What happens when your traffic grows?",
       "description_1": "You monthly fee will match your usage. Drag the slider to see what you pay for a certain amount of data points. Simple Analytics automatically calculates your data points (first looking back one month, then the average of the previous three months).",
       "description_2": "So, if you had an increase in traffic during the past three months, you pay only a little more next month. Likewise, you automatically pay a little less when your average amount of page views decreased during the last months."
     },
     "yearly_plans": {
-      "title": "How does that work with the yearly plans?",
+      "title": "How do we charge for yearly plans?",
       "description": "When you choose yearly, you estimate your traffic after your trial. We send you an email when you go over your limit, you have one week to increase your limit. Otherwise, we'll do it for you. To prevent extra invoices during the year, set your limit high enough. After the year, your datapoints will be reset to zero."
+    },
+    "history": {
+      "title": "What does 30 day history mean?",
+      "description": "You can use Simple Analytics for free forever (in our free plan). However, there are some limitations to this plan. One limit is on your analytics history, which is capped at 30 days. This means you can only view your website stats for the last 30 days. Any traffic data older than 30 days will be automatically deleted from our servers. If you need longer data history and retention, you can choose one of our paid plans."
     }
   },
   "video": {
@@ -626,7 +710,7 @@
         "title": "Google Spreadsheet",
         "intro_title": "UTM generator for Google Spreadsheet",
         "description": "Create UTM tags for Google Spreadsheet.",
-        "intro_text": "UTM tags are a powerful tool for tracking and optimizing online marketing campaigns. However, keeping track of your UTM tags is sometimes difficult if you use them for all your campaigns. Some people use Google Sheets to generate and store UTM tags. It’s a method prone to human error and not the most efficient way to generate UTM tags. <br/>  <br/> We built a UTM generator specifically for this purpose. Using a UTM generator like the one below is much easier to create accurate UTM tags efficiently. <br/> <br/> Make your life easier by using our UTM-builder for free here. ",
+        "intro_text": "UTM tags are a powerful tool for tracking and optimizing online marketing campaigns. However, keeping track of your UTM tags is sometimes difficult if you use them for all your campaigns. Some people use Google Sheets to generate and store UTM tags. It's a method prone to human error and not the most efficient way to generate UTM tags. <br/>  <br/> We built a UTM generator specifically for this purpose. Using a UTM generator like the one below is much easier to create accurate UTM tags efficiently. <br/> <br/> Make your life easier by using our UTM-builder for free here. ",
         "generator_info": "In the rest of this article, we will discuss what UTM tags are, why they are essential for effective marketing, how to use them in Google Sheets (if you still want this), and the potential drawbacks of building URLs using this method.        "
       },
       "google": {
@@ -647,7 +731,7 @@
         "title": "Spreadsheet",
         "intro_title": "UTM generator for Spreadsheet",
         "description": "Create UTM tags for Spreadsheet.",
-        "intro_text": "<a href='https://www.bluleadz.com/blog/what-are-utm-tags-and-how-to-use-them#:~:text=What%20Is%20a%20UTM%20Tag,brought%20them%20to%20your%20site.' target='_blank'>UTM tags</a> have become an indispensable tool for marketers to track online campaign performance and make data-driven decisions. However, generating UTM tags and tracking them is not as straightforward as it seems. Some people use spreadsheets to generate and store UTM tags. It’s a method prone to human error and not the most efficient way to generate UTM tags. <br/>  <br/> We built a UTM generator specifically for this purpose. Using a UTM generator like the one below is much easier to create accurate UTM tags efficiently. <br/> <br/> Make your life easier by using our UTM-builder for free here. ",
+        "intro_text": "<a href='https://www.bluleadz.com/blog/what-are-utm-tags-and-how-to-use-them#:~:text=What%20Is%20a%20UTM%20Tag,brought%20them%20to%20your%20site.' target='_blank'>UTM tags</a> have become an indispensable tool for marketers to track online campaign performance and make data-driven decisions. However, generating UTM tags and tracking them is not as straightforward as it seems. Some people use spreadsheets to generate and store UTM tags. It's a method prone to human error and not the most efficient way to generate UTM tags. <br/>  <br/> We built a UTM generator specifically for this purpose. Using a UTM generator like the one below is much easier to create accurate UTM tags efficiently. <br/> <br/> Make your life easier by using our UTM-builder for free here. ",
         "generator_info": "In the rest of the article, we will discuss what UTM tags are, why they are essential, how to use them in spreadsheets, and the potential drawbacks of building URLs in spreadsheets."
       }
     }
@@ -713,7 +797,9 @@
         "hours": "{0}h ago",
         "minutes": "{0}m ago"
       }
-    }
+    },
+    "years": "{0} years",
+    "days": "{0} days"
   },
   "amount": {
     "million": "million"
@@ -982,5 +1068,23 @@
     "ZA": "South Africa",
     "ZM": "Zambia",
     "ZW": "Zimbabwe"
+  },
+  "error": {
+    "not_found": "Oops, page not found",
+    "generic": "Oops, an error occurred, please refresh the page",
+    "go_home": "Go to the home page",
+    "refresh": "Please refresh the page",
+    "status_message": "{0}. Please refresh the page."
+  },
+  "affiliate": {
+    "accepted": "You accepted the affiliate deal, therefore you get a discount and {0} gets a reward.",
+    "undo": "Click here to undo this",
+    "via_name": "You are here via {0}.",
+    "via_code": "You are here via the affiliate code {0}.",
+    "reward_message": "To give you the first month for free and give {0} their reward, we ask you to place a cookie for 30 days.",
+    "accept_button": "Accept affiliate deal",
+    "invalid_link": "It looks like your affiliate link {0} is invalid.",
+    "generic_invalid": "It looks like your affiliate link is invalid.",
+    "contact_mistake": "Contact us if you think this is a mistake."
   }
 }
