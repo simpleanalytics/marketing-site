@@ -159,7 +159,7 @@
   "banners": {
     "import_ga": {
       "cta": "Importeer je GA-gegevens en bekijk je statistieken binnen enkele minuten",
-      "button": "Start gratis proefperiode"
+      "button": "Start nu gratis"
     },
     "ai_launched": {
       "link": "Gebruik AI om met je analytics te chatten",
@@ -167,15 +167,10 @@
     }
   },
   "ctas": {
-    "import_ga_before_july": {
-      "title": "Importeer je Google Analytics gegevens",
-      "description": "De huidige versie van Google Analytics is vanaf 1 juli niet meer beschikbaar. Je moet migreren. Probeer ons in plaats daarvan",
-      "button": "Start 14-dagen proefperiode"
-    },
-    "import_ga_after_july": {
+    "import_ga": {
       "title": "GA4 is complex. Probeer Simple Analytics",
       "description": "GA4 is als in de cockpit van een vliegtuig zitten zonder een pilotenlicentie",
-      "button": "Start 14-dagen proefperiode"
+      "button": "Start nu gratis"
     }
   },
   "popups": {

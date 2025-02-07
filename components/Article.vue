@@ -186,7 +186,7 @@
         {{
           article.ctaTitle && article.ctaDescription
             ? article.ctaTitle
-            : $t(`ctas.import_ga_after_july.title`)
+            : $t(`ctas.import_ga.title`)
         }}
       </h2>
       <p
@@ -195,7 +195,7 @@
         {{
           article.ctaTitle && article.ctaDescription
             ? article.ctaDescription
-            : $t(`ctas.import_ga_after_july.description`)
+            : $t(`ctas.import_ga.description`)
         }}
       </p>
       <a
@@ -204,16 +204,16 @@
             title:
               article.ctaTitle && article.ctaDescription
                 ? article.ctaTitle
-                : $t(`ctas.import_ga_after_july.title`),
+                : $t(`ctas.import_ga.title`),
             description:
               article.ctaTitle && article.ctaDescription
                 ? article.ctaDescription
-                : $t(`ctas.import_ga_after_july.description`),
-            button: article.ctaButton || $t(`ctas.import_ga_after_july.button`),
+                : $t(`ctas.import_ga.description`),
+            button: article.ctaButton || $t(`ctas.import_ga.button`),
           })
         "
         class="button white-bg mt-5"
-        >{{ article.ctaButton || $t(`ctas.import_ga_after_july.button`) }}</a
+        >{{ article.ctaButton || $t(`ctas.import_ga.button`) }}</a
       >
     </MovingGradient>
 

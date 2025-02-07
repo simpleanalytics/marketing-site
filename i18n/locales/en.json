@@ -160,7 +160,7 @@
   "banners": {
     "import_ga": {
       "cta": "Import your GA data and see your stats in minutes",
-      "button": "Start for free"
+      "button": "Start for free now"
     },
     "ai_launched": {
       "link": "Use AI to chat with your analytics",
@@ -168,15 +168,10 @@
     }
   },
   "ctas": {
-    "import_ga_before_july": {
-      "title": "Import your Google Analytics data",
-      "description": "The current version of Google Analytics will not be available from the 1st of July. You need to migrate. Try us instead",
-      "button": "Start 14-day trial"
-    },
-    "import_ga_after_july": {
+    "import_ga": {
       "title": "GA4 is complex. Try Simple Analytics",
       "description": "GA4 is like sitting in an airplane cockpit without a pilot license",
-      "button": "Start 14-day trial"
+      "button": "Start for free now"
     }
   },
   "popups": {

@@ -159,7 +159,7 @@
   "banners": {
     "import_ga": {
       "cta": "Importieren Sie Ihre GA-Daten und sehen Sie Ihre Statistiken in Minuten",
-      "button": "Kostenlose Testversion starten"
+      "button": "Jetzt kostenlos starten"
     },
     "ai_launched": {
       "link": "Nutze KI, um mit deiner Analyse zu chatten",
@@ -167,15 +167,10 @@
     }
   },
   "ctas": {
-    "import_ga_before_july": {
-      "title": "Importieren Sie Ihre Google Analytics Daten",
-      "description": "Die aktuelle Version von Google Analytics wird ab dem 1. Juli nicht mehr verfügbar sein. Sie müssen migrieren. Probieren Sie uns stattdessen",
-      "button": "14-Tage-Testversion starten"
-    },
-    "import_ga_after_july": {
-      "title": "GA4 ist komplex. Versuchen Sie Simple Analytics",
-      "description": "GA4 ist wie im Cockpit eines Flugzeugs zu sitzen, ohne einen Pilotenschein zu haben",
-      "button": "14-Tage-Testversion starten"
+    "import_ga": {
+      "title": "GA4 ist komplex. Probieren Sie Simple Analytics",
+      "description": "GA4 ist wie im Cockpit eines Flugzeugs zu sitzen ohne Pilotenlizenz",
+      "button": "Jetzt kostenlos starten"
     }
   },
   "popups": {

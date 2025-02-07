@@ -159,7 +159,7 @@
   "banners": {
     "import_ga": {
       "cta": "Importa i tuoi dati GA e visualizza le tue statistiche in pochi minuti",
-      "button": "Inizia la prova gratuita"
+      "button": "Inizia gratis ora"
     },
     "ai_launched": {
       "link": "Usa l'IA per chattare con le tue analisi",
@@ -167,15 +167,10 @@
     }
   },
   "ctas": {
-    "import_ga_before_july": {
-      "title": "Importa i tuoi dati di Google Analytics",
-      "description": "La versione attuale di Google Analytics non sarà disponibile dal 1° luglio. Devi migrare. Prova noi invece",
-      "button": "Inizia prova di 14 giorni"
-    },
-    "import_ga_after_july": {
+    "import_ga": {
       "title": "GA4 è complesso. Prova Simple Analytics",
-      "description": "GA4 è come sedersi in cabina di un aereo senza licenza di pilota",
-      "button": "Inizia prova di 14 giorni"
+      "description": "GA4 è come essere seduti nella cabina di pilotaggio di un aereo senza licenza di pilota",
+      "button": "Inizia gratis ora"
     }
   },
   "popups": {
@@ -237,7 +232,7 @@
       }
     },
     "switch_to_english": "Passa all'inglese",
-    "switch_to_dutch": "Passa all’olandese"
+    "switch_to_dutch": "Passa all'olandese"
   },
   "pricing": {
     "title": "Prezzi semplici",
@@ -556,7 +551,7 @@
     },
     "traffic_change": {
       "title": "Cosa succede alle mie spese se il mio traffico aumenta / diminuisce?",
-      "description_1": "Paghi solo ciò di cui hai effettivamente bisogno. Ciò significa che se superi il limite di visualizzazioni del tuo piano, ti verranno addebitate spese aggiuntive. Simple Analytics calcola automaticamente il tuo prezzo in base al tuo numero medio di visualizzazioni (inizialmente prendiamo a riferimento la media per l’ultimo mese, poi la media degli ultimi tre mesi).",
+      "description_1": "Paghi solo ciò di cui hai effettivamente bisogno. Ciò significa che se superi il limite di visualizzazioni del tuo piano, ti verranno addebitate spese aggiuntive. Simple Analytics calcola automaticamente il tuo prezzo in base al tuo numero medio di visualizzazioni (inizialmente prendiamo a riferimento la media per l'ultimo mese, poi la media degli ultimi tre mesi).",
       "description_2": "Quindi, se hai avuto un aumento del traffico durante gli ultimi tre mesi, paghi solo un po' di più il prossimo mese. Allo stesso modo, paghi automaticamente un po' meno quando il tuo numero medio di visualizzazioni è diminuito nei mesi scorsi."
     },
     "yearly_plans": {
