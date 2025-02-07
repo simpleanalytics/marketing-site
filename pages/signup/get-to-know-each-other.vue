@@ -120,13 +120,13 @@
 <script setup>
 import { useSignupStore } from "~/stores/signup";
 import SignupStep2 from "~/components/SignupStep2.vue";
-import X from "~/components/icons/X.vue";
 import { userCount } from "~/utils/miscellaneous";
 import Iron from "~/components/icons/Iron.vue";
 import Adriaan from "~/components/icons/Adriaan.vue";
 import Ampersand from "~/components/icons/Ampersand.vue";
 import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
 
+const localePath = useLocalePath();
 const signupStore = useSignupStore();
 const router = useRouter();
 const showConfetti = ref(false);

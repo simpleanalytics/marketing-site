@@ -104,8 +104,8 @@ import { useSignupStore } from "~/stores/signup";
 import SignupStep3 from "~/components/SignupStep3.vue";
 import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
 
+const localePath = useLocalePath();
 const signupStore = useSignupStore();
-const router = useRouter();
 const showConfetti = ref(false);
 
 const next = async (data = {}) => {
