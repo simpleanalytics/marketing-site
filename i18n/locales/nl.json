@@ -15,7 +15,7 @@
     "did_not_find_any_posts": "Geen berichten gevonden",
     "could_not_connect": "Kon niet verbinden met {0}onze blog{1}.",
     "see_feature_video_below": "Bekijk alle features",
-    "datapoints_collected": "Totaal verzamelde datapunten",
+    "datapoints_collected": "Totaal verzamelde pageviews",
     "featured_options": {
       "add_website": "Website toevoegen",
       "import_ga": "Importeer GA-gegevens",
@@ -51,7 +51,7 @@
       "reason_1": "Privacybescherming is {0}ons bedrijfsmodel{1}. We houden ons standaard aan alle privacyregels. Waaronder: AVG, PECR, CCPA en meer.",
       "reason_2": "Simpele interface. Wij geven je de inzichten die je nodig hebt in een gebruiksvriendelijk dashboard.",
       "reason_3": "We slaan nooit, maar dan ook nooit, {0}persoonlijke gegevens{1} van je bezoekers op. Geen {0}cookie banners{1}.",
-      "reason_4": "Onze {0}Goals{1} en {0}Event verkenner{1} stellen je in staat om uw belangrijkste gebeurtenissen en conversie bij te houden.",
+      "reason_4": "Onze {0}Goals{1} en {0}Event verkenner{1} stellen je in staat om uw belangrijkste events en conversie bij te houden.",
       "reason_5": "Ons {0}lightweight script{1} verhoogt de snelheid van je website.",
       "reason_6": "{0}Klets met AI{1} en {0}je analyses{1} in plaats van door rapporten te graven",
       "read_detailed_reasons": "Lees de gedetailleerde redenen",
@@ -69,7 +69,7 @@
       },
       "personal_data": {
         "title": "We slaan nooit, maar dan ook nooit, persoonlijke gegevens van je bezoekers op.",
-        "html": "<p>Sommige op privacy gerichte analytics tools gebruiken persoonlijk identificeerbare gegevens en verwijderen deze na een dag.</p><p>Bijvoorbeeld:</p><ul><li>Ze verzamelen het IP-adres van een bezoeker, voegen een datum toe, en maken er een hash van bij elk paginabezoek.</li><li>Deze hashes verbinden paginaweergaven met elkaar. Hoewel dit zeker beter is dan big tech die probeert zoveel mogelijk persoonlijke gegevens te verzamelen om aan adverteerders te verkopen, is het niet 100% waterdicht en is het een grijs gebied.</li><li>De hashes verlopen maar één keer per dag, <em>dus voor minder dan 24 uur is er nog steeds persoonlijk identificeerbare informatie opgeslagen over je bezoekers.</em> Privacy policy's zoals de AVG leggen uit dat je toestemming van bezoekers moet hebben om persoonlijk identificeerbare informatie (PII) op te slaan.</li></ul><p>Simple Analytics doet nooit concessies wat betref privacy. Daarom gebruiken we alleen unieke bezoekers zonder IP-adressen te volgen. We doen dit op basis van de referrer van de browser, zodat er geen PII wordt opgeslagen. Wanneer je Simple Analytics gebruikt, is het dus {0}100% gegarandeerd dat er geen persoonlijk identificeerbare informatie van een van je bezoekers wordt opgeslagen.{1} Hierdoor is er nul toestemming nodig. Adiós vervelende banners!</p><p>Tip: sommige klanten vervangen hun cookie banners graag door \"we zijn er trots op dat we je privacy beschermen\" banners om een concurrentievoordeel te behalen.</p>"
+        "html": "<p>Sommige op privacy gerichte analytics tools gebruiken persoonlijk identificeerbare gegevens en verwijderen deze na een dag.</p><p>Bijvoorbeeld:</p><ul><li>Ze verzamelen het IP-adres van een bezoeker, voegen een datum toe, en maken er een hash van bij elk paginabezoek.</li><li>Deze hashes verbinden pageviews met elkaar. Hoewel dit zeker beter is dan big tech die probeert zoveel mogelijk persoonlijke gegevens te verzamelen om aan adverteerders te verkopen, is het niet 100% waterdicht en is het een grijs gebied.</li><li>De hashes verlopen maar één keer per dag, <em>dus voor minder dan 24 uur is er nog steeds persoonlijk identificeerbare informatie opgeslagen over je bezoekers.</em> Privacy policy's zoals de AVG leggen uit dat je toestemming van bezoekers moet hebben om persoonlijk identificeerbare informatie (PII) op te slaan.</li></ul><p>Simple Analytics doet nooit concessies wat betref privacy. Daarom gebruiken we alleen unieke bezoekers zonder IP-adressen te volgen. We doen dit op basis van de referrer van de browser, zodat er geen PII wordt opgeslagen. Wanneer je Simple Analytics gebruikt, is het dus {0}100% gegarandeerd dat er geen persoonlijk identificeerbare informatie van een van je bezoekers wordt opgeslagen.{1} Hierdoor is er nul toestemming nodig. Adiós vervelende banners!</p><p>Tip: sommige klanten vervangen hun cookie banners graag door \"we zijn er trots op dat we je privacy beschermen\" banners om een concurrentievoordeel te behalen.</p>"
       },
       "eu_based": {
         "title": "We zijn een in de EU gevestigd bedrijf met in de EU gevestigde servers.",
@@ -307,17 +307,17 @@
     },
     "features": {
       "datapoints": {
-        "title": "Datapunten",
+        "title": "Pageviews",
         "unlimited": "Onbeperkte pageviews",
         "number": "Tot <strong>{0}</strong> maandelijkse pageviews / events",
         "description": "Omdat het terugkijken beperkt is tot één maand, hebben we geen harde limiet op het aantal pageviews.",
-        "custom": "Aangepaste datapunten limiet"
+        "custom": "Aangepast pageview limiet"
       },
       "users": {
         "title": "Gebruikers",
         "number": "Tot <strong>{0}</strong> gebruikers",
         "one": "<strong>1</strong> gebruiker",
-        "custom": "Aangepaste gebruiker limiet",
+        "custom": "Aangepast gebruiker limiet",
         "per_user": "gebruiker"
       },
       "websites": {
@@ -325,7 +325,7 @@
         "unlimited": "Onbeperkte sites",
         "number": "Tot <strong>{0}</strong> sites",
         "one": "<strong>1</strong> site",
-        "custom": "Aangepaste site limiet"
+        "custom": "Aangepast site limiet"
       },
       "email_reports": {
         "title": "E-mailrapporten",
@@ -457,7 +457,7 @@
     },
     "slider": {
       "select_pageviews": "Selecteer het verwachte aantal pageviews per maand",
-      "pageviews_or_events": "paginaweergaven (of events)"
+      "pageviews_or_events": "pageviews (of events)"
     },
     "payment_frequency": {
       "label": "Betaalfrequentie",
@@ -532,8 +532,8 @@
       "description": "Simple Analytics is 100% AVG-compliant met de wetgeving voor gegevensbescherming vanaf de installatie. Omdat het alleen niet-persoonlijke gegevens verwerkt, kan het voldoen aan de vereisten van de strengste privacyregelgeving, waaronder de AVG, de ePrivacy-richtlijn, de UK GPDR en de PECR. Voor meer informatie {0}bekijk onze documentatie{1}."
     },
     "unlimited_pageviews": {
-      "title": "Wat betekent onbeperkte paginaweergaven?",
-      "description": "Ons gratis plan biedt onbeperkte paginaweergaven. Hiermee kun je zoveel verkeer volgen als je website krijgt zonder beperkingen. We hebben echter een fair use-beleid om ervoor te zorgen dat onze servers soepel blijven draaien voor alle gebruikers. Als je verkeer onze fair use-limieten overschrijdt, stellen we je per e-mail op de hoogte. Als je twijfelt over het verkeersvolume van je website, kun je altijd {0}contact met ons opnemen{1}."
+      "title": "Wat betekent onbeperkte pageviews?",
+      "description": "Ons gratis plan biedt onbeperkte pageviews. Hiermee kun je zoveel verkeer volgen als je website krijgt zonder beperkingen. We hebben echter een fair use-beleid om ervoor te zorgen dat onze servers soepel blijven draaien voor alle gebruikers. Als je verkeer onze fair use-limieten overschrijdt, stellen we je per e-mail op de hoogte. Als je twijfelt over het verkeersvolume van je website, kun je altijd {0}contact met ons opnemen{1}."
     },
     "free_plan": {
       "title": "Hoe werkt het gratis plan?",
@@ -545,7 +545,7 @@
     },
     "datapoints": {
       "title": "Wat zijn datapunten?",
-      "description": "Je kunt twee soorten gegevens verzamelen met Simple Analytics: paginaweergaven en gebeurtenissen. De gecombineerde term voor beide is datapunt. Als je geen gebeurtenissen gebruikt, zijn de datapunten alleen paginaweergaven. Als je wel gebeurtenissen gebruikt, zijn de datapunten ook gebeurtenissen."
+      "description": "Je kunt twee soorten gegevens verzamelen met Simple Analytics: pageviews en events. De gecombineerde term voor beide is datapunt. Als je geen events gebruikt, zijn de datapunten alleen pageviews. Als je wel events gebruikt, zijn de datapunten ook events."
     },
     "trial_expires": {
       "title": "Word ik gefactureerd wanneer mijn proefperiode verloopt?",
@@ -562,7 +562,7 @@
     "traffic_change": {
       "title": "Wat gebeurt er als je verkeer groeit?",
       "description_1": "Je maandelijkse bijdrage wordt aangepast aan je gebruik. Sleep de schuifregelaar om te zien wat je betaalt voor een bepaald aantal datapunten. Simple Analytics berekent automatisch je datapunten (eerst één maand terugkijkend, dan het gemiddelde van de vorige drie maanden).",
-      "description_2": "Dus als je een toename in verkeer had tijdens de afgelopen drie maanden, betaal je de volgende maand slechts iets meer. Ook betaal je automatisch iets minder wanneer je gemiddelde aantal paginaweergaven de laatste maanden is gedaald."
+      "description_2": "Dus als je een toename in verkeer had tijdens de afgelopen drie maanden, betaal je de volgende maand slechts iets meer. Ook betaal je automatisch iets minder wanneer je gemiddelde aantal pageviews de laatste maanden is gedaald."
     },
     "yearly_plans": {
       "title": "Hoe brengen we jaarlijkse plannen in rekening?",
