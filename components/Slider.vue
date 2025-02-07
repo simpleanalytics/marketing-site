@@ -15,7 +15,8 @@
       <div class="flex justify-between font-light">
         <p>{{ formatDatapoints(props.options[0], $t("time.intl_locale")) }}</p>
         <p class="text-gray-400 dark:text-gray-500 text-sm">
-          {{ getTextValue(sliderIndex) }} pageviews (or events)
+          {{ getTextValue(sliderIndex) }}
+          {{ $t("pricing.slider.pageviews_or_events") }}
         </p>
         <p>
           {{ getTextValue(props.options.length - 1) }}

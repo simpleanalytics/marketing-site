@@ -152,7 +152,7 @@
   },
   "start_now": {
     "button": "Start for free now",
-    "free_trial": "Free 14-day trial",
+    "free_forever": "Free forever",
     "no_credit_card": "No credit card required",
     "cancel_anytime": "Cancel anytime",
     "try_it_with_your_analytics": "Try it with your analytics"
@@ -817,6 +817,24 @@
       }
     }
   },
+  "error": {
+    "not_found": "Oops, page not found",
+    "generic": "Oops, an error occurred, please refresh the page",
+    "go_home": "Go to the home page",
+    "refresh": "Please refresh the page",
+    "status_message": "{0}. Please refresh the page."
+  },
+  "affiliate": {
+    "accepted": "You accepted the affiliate deal, therefore you get a discount and {0} gets a reward.",
+    "undo": "Click here to undo this",
+    "via_name": "You are here via {0}.",
+    "via_code": "You are here via the affiliate code {0}.",
+    "reward_message": "To give you the first month for free and give {0} their reward, we ask you to place a cookie for 30 days.",
+    "accept_button": "Accept affiliate deal",
+    "invalid_link": "It looks like your affiliate link {0} is invalid.",
+    "generic_invalid": "It looks like your affiliate link is invalid.",
+    "contact_mistake": "Contact us if you think this is a mistake."
+  },
   "countries": {
     "_source": "https://github.com/rl-king/elm-iso3166-country-codes/blob/master/src/Iso3166/English.elm",
     "AD": "Andorra",
@@ -1068,23 +1086,5 @@
     "ZA": "South Africa",
     "ZM": "Zambia",
     "ZW": "Zimbabwe"
-  },
-  "error": {
-    "not_found": "Oops, page not found",
-    "generic": "Oops, an error occurred, please refresh the page",
-    "go_home": "Go to the home page",
-    "refresh": "Please refresh the page",
-    "status_message": "{0}. Please refresh the page."
-  },
-  "affiliate": {
-    "accepted": "You accepted the affiliate deal, therefore you get a discount and {0} gets a reward.",
-    "undo": "Click here to undo this",
-    "via_name": "You are here via {0}.",
-    "via_code": "You are here via the affiliate code {0}.",
-    "reward_message": "To give you the first month for free and give {0} their reward, we ask you to place a cookie for 30 days.",
-    "accept_button": "Accept affiliate deal",
-    "invalid_link": "It looks like your affiliate link {0} is invalid.",
-    "generic_invalid": "It looks like your affiliate link is invalid.",
-    "contact_mistake": "Contact us if you think this is a mistake."
   }
 }

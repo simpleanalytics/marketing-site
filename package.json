@@ -16,7 +16,7 @@
     "@heroicons/vue": "^2.1.1",
     "@maxmind/geoip2-node": "^5.0.0",
     "@nuxt/scripts": "^0.9.5",
-    "@nuxtjs/i18n": "^8.1.1",
+    "@nuxtjs/i18n": "^9.1.5",
     "@nuxtjs/tailwindcss": "^6.11.4",
     "@pinia/nuxt": "^0.5.5",
     "@simpleanalytics/common": "^1.6.2",

@@ -42,7 +42,8 @@
       "resources": "Ressources",
       "utm_builder": "Générateur d'UTM",
       "guides": "Tutoriels",
-      "case_studies": "Études de cas"
+      "case_studies": "Études de cas",
+      "press": "Presse"
     },
     "why_most_privacy": {
       "title": "Pourquoi Simple Analytics est la {0}meilleure alternative à Google Analytics{1} ?",
@@ -150,9 +151,10 @@
   },
   "start_now": {
     "button": "Commencez l'essai gratuit maintenant",
-    "free_trial": "Essai gratuit de 14 jours",
+    "free_forever": "",
     "no_credit_card": "Aucune carte de crédit requise",
-    "cancel_anytime": "Annulez à tout moment"
+    "cancel_anytime": "Annulez à tout moment",
+    "try_it_with_your_analytics": "Essayez-le avec vos propres analyses"
   },
   "banners": {
     "import_ga": {
@@ -251,8 +253,19 @@
     "what_is_included": "Inclut",
     "contact_us": "Contactez-nous",
     "affiliate_description": "Vous obtiendrez le premier mois + {0} jours gratuitement parce que vous utilisez un lien d'affiliation.",
-    "contact": "Contact",
     "plans": {
+      "free": {
+        "title": "Gratuit",
+        "description": "Pour des projets personnels. Parfait pour suivre vos petits sites."
+      },
+      "simple": {
+        "title": "Simple",
+        "description": "Pour les propriétaires d'entreprise. Obtenez les insights dont vous avez besoin pour développer votre business."
+      },
+      "team": {
+        "title": "Team",
+        "description": "Pour les équipes. Collaborez afin de tirer le meilleur parti de vos données."
+      },
       "starter": {
         "title": "Starter",
         "description": "Tout ce qu'il faut pour commencer"
@@ -263,34 +276,275 @@
       },
       "enterprise": {
         "title": "Enterprise",
-        "description": "Tout ce dont vous avez besoin pour faire grandir votre entreprise"
+        "description": "Pour les grandes structures. Des analyses sur mesure adaptées à votre organisation."
+      }
+    },
+    "sections": {
+      "data": {
+        "title": "Données",
+        "description": "La quantité de données que vous pouvez collecter."
+      },
+      "events": {
+        "title": "Événements",
+        "description": "La quantité d'événements que vous pouvez collecter."
+      },
+      "apis": {
+        "title": "APIs",
+        "description": "Le nombre d'appels API que vous pouvez effectuer."
+      },
+      "admin": {
+        "title": "Admin",
+        "description": "Fonctionnalités pour Enterprise ou agences."
+      },
+      "features": {
+        "title": "Fonctionnalités",
+        "description": "Ce que vous pouvez utiliser dans ce plan."
+      },
+      "support": {
+        "title": "Assistance",
+        "description": "Le support que vous obtenez."
       }
     },
     "features": {
-      "datapoints": "<strong>{0}</strong> points de données par mois",
-      "users": "<strong>{0}</strong> utilisateurs",
-      "user": "<strong>{0}</strong> utilisateur",
-      "websites": "<strong>{0}</strong> sites web",
-      "events": "événements",
-      "ai_one_month": "IA pour <strong>1 mois</strong>",
-      "ai_unlimited": "IA <strong>illimitée</strong>",
-      "ai_limited": "IA <strong>limitée</strong>",
-      "aggregated_export": "exportation agrégée",
-      "raw_level_export": "<strong>niveau brut</strong> exportation",
-      "email_support": "support email",
-      "prio_email_support": "<strong>prio</strong> support email"
+      "datapoints": {
+        "title": "Pages vues / événements",
+        "unlimited": "Pages vues illimitées",
+        "number": "Jusqu'à <strong>{0}</strong> pages vues / événements mensuels",
+        "description": "Comme l'historique est limité à un mois, nous n'imposons pas de plafond strict sur le nombre de pages vues.",
+        "custom": "Limite personnalisée de pages vues"
+      },
+      "users": {
+        "title": "Utilisateurs",
+        "number": "Jusqu'à <strong>{0}</strong> utilisateurs",
+        "one": "<strong>1</strong> utilisateur",
+        "custom": "Limite personnalisée d'utilisateurs",
+        "per_user": "utilisateur"
+      },
+      "websites": {
+        "title": "Sites Web",
+        "unlimited": "Sites illimités",
+        "number": "Jusqu'à <strong>{0}</strong> sites",
+        "one": "<strong>1</strong> site",
+        "custom": "Limite personnalisée de sites"
+      },
+      "email_reports": {
+        "title": "Rapports par email",
+        "number": "Jusqu'à <strong>{0}</strong> rapport email",
+        "one": "<strong>1</strong> rapport email",
+        "description": "Envoyez un rapport de vos stats par email à vous-même et à d'autres. Vous pouvez utiliser {0} destinataires uniques pour tous vos rapports."
+      },
+      "look_back_days": {
+        "title": "Jours d'historique",
+        "number": "<strong>{0}</strong> jours d'historique"
+      },
+      "data_retention_days": {
+        "title": "Jours de rétention",
+        "number": "<strong>{0}</strong> jours de rétention"
+      },
+      "invoices_email": {
+        "title": "Factures par email"
+      },
+      "separated_data_storage": {
+        "title": "Stockage de données séparé"
+      },
+      "goals": {
+        "title": "Tableau de bord des objectifs"
+      },
+      "events": {
+        "title": "Collecte d'événements"
+      },
+      "automated_events": {
+        "title": "Événements automatisés"
+      },
+      "metadata": {
+        "title": "Analyse de métadonnées"
+      },
+      "admin_api": {
+        "title": "API Admin"
+      },
+      "stats_api": {
+        "title": "API Stats"
+      },
+      "export_api": {
+        "title": "API Export"
+      },
+      "multiple_teams": {
+        "title": "Multiples équipes (agence)"
+      },
+      "combined_invoicing": {
+        "title": "Facturation combinée"
+      },
+      "manual_invoicing": {
+        "title": "Facturation manuelle"
+      },
+      "redlining_contracts": {
+        "title": "Négociation contractuelle (redlining)"
+      },
+      "roles_based_access_control": {
+        "title": "Contrôle d'accès basé sur les rôles"
+      },
+      "uptime_sla": {
+        "title": "SLA de disponibilité"
+      },
+      "trendlines": {
+        "title": "Tendances"
+      },
+      "annotations": {
+        "title": "Annotations"
+      },
+      "custom_website_views": {
+        "title": "Vues personnalisées"
+      },
+      "block_ip_range": {
+        "title": "Blocage de plages IP"
+      },
+      "bypass_via_dns_cname": {
+        "title": "Contourner l'ad-block via DNS CNAME"
+      },
+      "bypass_via_new_domain": {
+        "title": "Contourner l'ad-block via un nouveau domaine"
+      },
+      "data_proxy": {
+        "title": "Proxy de données"
+      },
+      "ai_chat": {
+        "title": "Chat IA"
+      },
+      "growth_indicators": {
+        "title": "Indicateurs de croissance"
+      },
+      "exact_numbers": {
+        "title": "Nombres exacts"
+      },
+      "alert_missing_script": {
+        "title": "Alerte de script manquant"
+      },
+      "advanced_robot_blocking": {
+        "title": "Blocage avancé des robots"
+      },
+      "disable_watermark": {
+        "title": "Désactiver le watermark"
+      },
+      "public_dashboard_requirement": {
+        "title": "Tableau de bord public",
+        "description": "En utilisant le plan gratuit, vous devez rendre vos tableaux de bord publics. Tout le monde peut voir vos stats publiques."
+      },
+      "limited_lookback": {
+        "title": "1 mois d'historique",
+        "description": "Vous disposez d'un historique d'analyse d'un mois. Les données plus anciennes seront supprimées."
+      },
+      "community_support": {
+        "title": "Assistance communautaire",
+        "description": "Vous pouvez utiliser {0}notre communauté{1} pour poser des questions."
+      },
+      "email_support": {
+        "title": "Support par email"
+      },
+      "priority_support": {
+        "title": "Support prioritaire"
+      },
+      "video_support": {
+        "title": "Visio d'accueil"
+      },
+      "legal_support": {
+        "title": "Support légal"
+      },
+      "enterprise_only": "Uniquement Enterprise"
+    },
+    "slider": {
+      "select_pageviews": "Sélectionnez le nombre de pages vues mensuelles prévues",
+      "pageviews_or_events": "pages vues (ou événements)"
+    },
+    "payment_frequency": {
+      "label": "Fréquence de paiement",
+      "discount": "2 mois offerts"
+    },
+    "plan_labels": {
+      "recommended": "Recommandé",
+      "free": "Gratuit"
+    },
+    "followers": {
+      "count": "{0} abonnés",
+      "count_k": "{0}k+ abonnés"
+    },
+    "features_list": {
+      "show_less": "Afficher moins",
+      "show_more": "Afficher plus",
+      "show_all": "Afficher toutes les fonctionnalités du plan",
+      "hide_all": "Masquer toutes les fonctionnalités"
+    },
+    "everything_from": "Tout de {0}",
+    "reviews": {
+      "capterra": {
+        "tooltip": "{0} étoiles sur Capterra",
+        "users_count": "Adoré par plus de {0} utilisateurs"
+      }
+    },
+    "company_logos": {
+      "mollie": "Mollie",
+      "bloomberg": "Bloomberg",
+      "michelin": "Michelin",
+      "hyundai": "Hyundai",
+      "gov_uk": "GOV.UK",
+      "polkadot": "Polkadot",
+      "bank_of_england": "Bank of England",
+      "sketch": "Sketch",
+      "excalidraw": "Excalidraw",
+      "nomads": "Nomads"
+    },
+    "buttons": {
+      "start_free": "Commencer gratuitement",
+      "contact_sales": "Contacter l'équipe commerciale",
+      "start_now": "Commencer maintenant"
+    },
+    "developer": {
+      "start_dashboard": "Hé, développeur ! Lance l'application de tableau de bord pour récupérer les données.",
+      "fetch_error": "Nous avons des problèmes pour récupérer les données. Merci de réessayer plus tard."
+    },
+    "accessibility": {
+      "feature_comparison": "Comparaison des fonctionnalités",
+      "feature_value": {
+        "yes": "Oui",
+        "no": "Non"
+      },
+      "avatar": "Avatar de {0}",
+      "mobile_comparison": "Comparaison des fonctionnalités"
     }
   },
   "pricing_faq": {
     "title": "Questions fréquemment posées",
     "need_help": "Besoin d'aide supplémentaire? Veuillez nous envoyer votre(vos) question(s) via {0}notre page de support{1}.",
+    "data_usage": {
+      "title": "Ce que nous faisons et ne faisons pas avec vos données",
+      "description": "Les données que nous collectons vous appartiennent. Nous ne recueillons que des données non personnelles et nous ne partageons pas ces données avec des tiers, ni ne les transférons hors du pays. Vos données de site Web ne quittent jamais les Pays-Bas et donc l'UE. En outre, aucun autre fournisseur tiers n'a accès à ces données, à part l'entreprise d'hébergement qui possède les serveurs où les données sont stockées."
+    },
+    "metrics": {
+      "title": "Quelles métriques collectons-nous?",
+      "description": "Nous ne collectons aucune donnée personnelle. Nous n'utilisons pas de cookies et ne collectons jamais d'informations pouvant être utilisées pour identifier un utilisateur. Vous n'avez pas besoin de modifier de paramètres pour que notre logiciel soit respectueux de la vie privée : Simple Analytics est respectueux de la vie privée par conception. Voici une {0}liste détaillée{1} de ce que nous collectons ou non sur vos visiteurs."
+    },
+    "gdpr": {
+      "title": "Simple Analytics est-il conforme au RGPD?",
+      "description": "Simple Analytics est à 100% conforme au RGPD dès son installation. Comme il ne traite que des données non personnelles, il répond aux exigences de la réglementation la plus stricte en matière de confidentialité, y compris le RGPD, la directive ePrivacy, le RGPD du Royaume-Uni et le PECT. Pour plus d'informations, {0}consultez notre documentation{1}."
+    },
+    "unlimited_pageviews": {
+      "title": "Que signifie pages vues illimitées?",
+      "description": "Notre plan gratuit propose des pages vues illimitées. Ainsi, vous pouvez suivre autant de trafic que votre site en reçoit sans aucune restriction. Toutefois, nous avons une politique d'utilisation équitable pour garantir le bon fonctionnement de nos serveurs pour tous. Si votre trafic dépasse nos limites d'utilisation équitable, nous vous en informerons par e-mail. Si vous n'êtes pas sûr du volume de trafic de votre site, n'hésitez pas à {0}nous contacter{1}."
+    },
+    "free_plan": {
+      "title": "Comment fonctionne le plan gratuit?",
+      "description": "Simple Analytics est gratuit pour toujours. Pour commencer, créez un compte pour démarrer votre essai (aucune carte de crédit requise). Pendant 14 jours, vous pouvez explorer toutes nos fonctionnalités. Après ces 14 jours, vous devrez choisir un plan pour continuer à utiliser Simple Analytics. Vous pouvez choisir de continuer avec un de nos plans payants ou de passer à notre plan gratuit et continuer d'utiliser Simple Analytics gratuitement."
+    },
+    "free_trial": {
+      "title": "Comment fonctionne l'essai gratuit?",
+      "description": "Lorsque vous vous inscrivez, votre essai gratuit de 14 jours (sans carte de crédit requise) commence. Peu importe le plan que vous choisissez. Pendant ces 14 jours, vous pouvez utiliser les fonctionnalités avancées sans restrictions. Après la période d'essai, nous vous demanderons de choisir un plan pour continuer à utiliser Simple Analytics. Si vous choisissez un plan payant, nous aurons besoin de vos informations de paiement. Vous pouvez passer à n'importe quel plan, à condition que votre utilisation respecte ses limites."
+    },
     "datapoints": {
       "title": "Qu'est-ce qu'un datapoint?",
-      "description": "Vous pouvez recueillir deux types de données avec Simple Analytics: les vues de page et les événements. Le terme combiné pour les deux est datapoint. Si vous n'utilisez pas les événements, les datapoints seront uniquement des vues de page. Si vous utilisez des événements, les datapoints seront également des événements."
+      "description": "Vous pouvez recueillir deux types de données avec Simple Analytics: les vues de page et les événements. Le terme combiné pour les deux est datapoint. Si vous n'utilisez pas les événements, les datapoints seront uniquement des vues de page. Si vous utilisez des événements, les datapoints incluront également ces derniers."
     },
     "trial_expires": {
       "title": "Vais-je être facturé lorsque mon essai expire?",
-      "description": "Non. A l'expiration de votre essai, votre plan repasse automatiquement à la version gratuite de base. Mettez à niveau à tout moment le plan qui répond le mieux à vos besoins."
+      "description": "Non. A l'expiration de votre essai, votre plan se rétrograde automatiquement vers le plan gratuit. Si vous dépassez les limites du plan gratuit, nous désactiverons vos tableaux de bord jusqu'à ce que vous respectiez les limites du plan gratuit, ou que vous choisissiez un autre plan."
     },
     "cancel": {
       "title": "Puis-je annuler à tout moment?",
@@ -298,12 +552,20 @@
     },
     "payment_methods": {
       "title": "Quels modes de paiement acceptez-vous?",
-      "description": "Nous acceptons les cartes de crédit, les cartes de débit, Bitcoin {0}+10% & annuellement{1}, Apple Pay et Google Pay comme modes de paiement pour tous nos plans payants. Vous pouvez payer en euros, en dollars américains ou en livres sterling. Les factures de {2}500 peuvent être payées par virement bancaire et coûtent {0}10&#37;{1} supplémentaires en frais bancaires et de service."
+      "description": "Nous acceptons les cartes de crédit, les cartes de débit, Bitcoin {0}+10% & annuellement{1}, Apple Pay et Google Pay comme modes de paiement pour tous nos plans payants. Vous pouvez payer en euros, en dollars américains ou en livres sterling. Les factures de {2}500 peuvent être réglées par virement bancaire et entraînent des frais supplémentaires de {0}10&#37;{1} en frais bancaires et de service."
     },
     "traffic_change": {
-      "title": "Qu'arrivera-t-il à ma facture lorsque mon trafic augmente / diminue?",
-      "description_1": "Vous ne payez que ce dont vous avez réellement besoin. Cela signifie que si vous dépassez la limite de vues de votre plan, des frais supplémentaires seront facturés. Simple Analytics calcule automatiquement votre prix en fonction de votre nombre moyen de vues (le mois dernier, puis la moyenne des trois derniers mois).",
-      "description_2": "Donc, si vous avez eu une augmentation du trafic au cours des trois derniers mois, vous paierez un peu plus le mois prochain. De même, vous paierez automatiquement un peu moins si votre nombre moyen de vues a diminué au cours des derniers mois."
+      "title": "Que se passe-t-il lorsque votre trafic augmente ou diminue?",
+      "description_1": "Vos frais mensuels correspondent à votre utilisation. Faites glisser le curseur pour voir ce que vous paierez pour un certain nombre de datapoints. Simple Analytics calcule automatiquement vos datapoints (d'abord sur un mois, puis la moyenne des trois derniers mois).",
+      "description_2": "Donc, si vous avez connu une hausse de trafic au cours des trois derniers mois, vous paierez un peu plus le mois prochain. De même, vous paierez un peu moins si votre trafic moyen a baissé au cours des derniers mois."
+    },
+    "yearly_plans": {
+      "title": "Comment facturez-vous les plans annuels?",
+      "description": "Lorsque vous choisissez la formule annuelle, vous estimez votre trafic au moment de l'essai. Nous vous enverrons un e-mail si vous dépassez votre limite, vous aurez alors une semaine pour l'augmenter. Sinon, nous le ferons pour vous. Pour éviter des factures supplémentaires au cours de l'année, définissez une limite suffisamment haute. Après un an, vos datapoints sont réinitialisés à zéro."
+    },
+    "history": {
+      "title": "Que signifie 30 jours d'historique?",
+      "description": "Vous pouvez utiliser Simple Analytics gratuitement pour toujours (avec notre plan gratuit). Cependant, il y a certaines limites à ce plan. L'une d'elles concerne l'historique de vos analyses, plafonné à 30 jours. Cela signifie que vous ne pouvez consulter les stats de votre site Web que pour les 30 derniers jours. Les données plus anciennes que 30 jours seront automatiquement supprimées de nos serveurs. Si vous avez besoin d'un historique plus long et d'une conservation des données, vous pouvez choisir l'un de nos plans payants."
     }
   },
   "video": {
@@ -388,6 +650,13 @@
       }
     }
   },
+  "case_studies": {
+    "title": "Études de cas"
+  },
+  "guides": {
+    "title": "Tutoriels",
+    "none_found": "Aucun tutoriel trouvé"
+  },
   "resources": {
     "title": "Ressources",
     "overview": "Aperçu des ressources",
@@ -408,25 +677,6 @@
         "title": "Tarification de l'analyse"
       }
     }
-  },
-  "ga_countries": {
-    "overview": "Pays où Google Analytics est illégal",
-    "overview_description": "Dans certains pays, Google Analytics est illégal car il n'est pas conforme au RGPD. Dans ces pays, vous pouvez utiliser Simple Analytics à la place. Nous sommes conformes au RGPD et nous n'utilisons pas de cookies.",
-    "map_generated_with": "Carte générée avec",
-    "click_country_to_learn_more": "Cliquez sur un pays pour en savoir plus.",
-    "labels": {
-      "forbidden": "Interdit",
-      "legal": "Légal",
-      "pending_cases": "Dossiers en attente",
-      "not_researched": "Non recherché"
-    }
-  },
-  "case_studies": {
-    "title": "Études de cas"
-  },
-  "guides": {
-    "title": "Tutoriels",
-    "none_found": "Aucun tutoriel trouvé"
   },
   "utm_builder": {
     "title": "Constructeur UTM",
@@ -477,7 +727,18 @@
       }
     }
   },
-
+  "ga_countries": {
+    "overview": "Pays où Google Analytics est illégal",
+    "overview_description": "Dans certains pays, Google Analytics est illégal car il n'est pas conforme au RGPD. Dans ces pays, vous pouvez utiliser Simple Analytics à la place. Nous sommes conformes au RGPD et nous n'utilisons pas de cookies.",
+    "map_generated_with": "Carte générée avec",
+    "click_country_to_learn_more": "Cliquez sur un pays pour en savoir plus.",
+    "labels": {
+      "forbidden": "Interdit",
+      "legal": "Légal",
+      "pending_cases": "Dossiers en attente",
+      "not_researched": "Non recherché"
+    }
+  },
   "utm_generator_form": {
     "title": "Générateur UTM",
     "intro": "Notre générateur UTM est un outil utile pour toute personne souhaitant suivre et analyser ses campagnes en ligne. Que vous soyez un marketeur, un créateur de contenu ou un chef d'entreprise, ce générateur peut vous aider à mieux comprendre vos canaux de marketing.",
@@ -510,6 +771,13 @@
     "title": "Presse",
     "description": "Interviews avec les fondateurs de Simple Analytics dans des podcasts, et mentions dans d'autres médias."
   },
+  "ai": {
+    "title": "Discute avec {0}tes{1} analyses",
+    "subtitle": "Propulsé par Simple Analytics {0}IA{1}",
+    "description": "Nous avons créé Simple Analytics pour rendre l'analytique facile. Maintenant, nous passons à l'étape suivante : posez des questions à vos analyses et obtenez des insights en temps réel. Essayez notre démo !",
+    "not_really": "pas vraiment",
+    "choose_above_examples": "Choisissez un des exemples ci-dessus"
+  },
   "time": {
     "intl_locale": "fr-FR",
     "now": "maintenant",
@@ -520,7 +788,9 @@
         "hours": "Il y a {0}h",
         "minutes": "Il y a {0}m"
       }
-    }
+    },
+    "years": "{0} ans",
+    "days": "{0} jours"
   },
   "amount": {
     "million": "million"
@@ -537,6 +807,24 @@
         "description": "Vous envoyez trop de demandes en peu de temps. Veuillez réessayer plus tard."
       }
     }
+  },
+  "error": {
+    "not_found": "Oups, page non trouvée",
+    "generic": "Oups, une erreur s'est produite, veuillez rafraîchir la page",
+    "go_home": "Aller à la page d'accueil",
+    "refresh": "Veuillez rafraîchir la page",
+    "status_message": "{0}. Veuillez rafraîchir la page."
+  },
+  "affiliate": {
+    "accepted": "Vous avez accepté l'offre d'affiliation, vous obtenez donc une réduction et {0} obtient une récompense.",
+    "undo": "Cliquez ici pour annuler cela",
+    "via_name": "Vous êtes ici via {0}.",
+    "via_code": "Vous êtes ici via le code d'affiliation {0}.",
+    "reward_message": "Pour vous offrir le premier mois gratuit et donner à {0} sa récompense, nous devons placer un cookie pendant 30 jours.",
+    "accept_button": "Accepter l'offre d'affiliation",
+    "invalid_link": "Il semble que votre lien d'affiliation {0} soit invalide.",
+    "generic_invalid": "Il semble que votre lien d'affiliation soit invalide.",
+    "contact_mistake": "Contactez-nous si vous pensez qu'il s'agit d'une erreur."
   },
   "countries": {
     "_source": "https://github.com/rl-king/elm-iso3166-country-codes/blob/master/src/Iso3166/French.elm",

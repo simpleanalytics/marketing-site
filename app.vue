@@ -426,7 +426,7 @@
                     @click="navigateToWelcome($router, 'click_signup_top_nav')"
                     class="font-medium mx-3 button"
                   >
-                    {{ $t("nav.start_trial") }}
+                    {{ $t("nav.start_now") }}
                   </a>
                 </div>
               </nav>
@@ -487,7 +487,7 @@
                         navigateToWelcome($router, 'click_signup_top_nav')
                       "
                       class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
-                      >{{ $t("nav.start_trial") }}</a
+                      >{{ $t("nav.start_now") }}</a
                     >
                     <a
                       @click="setLocale(switchTo)"

@@ -42,7 +42,8 @@
       "resources": "Risorse",
       "utm_builder": "Generatore di UTM",
       "guides": "Guide pratiche",
-      "case_studies": "Casi studio"
+      "case_studies": "Casi studio",
+      "press": "Menzioni stampa"
     },
     "why_most_privacy": {
       "title": "Perché Simple Analytics è la {0}migliore alternativa a Google Analytics{1}?",
@@ -52,11 +53,11 @@
       "reason_3": "Non memorizziamo mai, assolutamente mai, nessun {0}dato personale{1} sui tuoi visitatori. Non serve {0}un cookie banner{1}.",
       "reason_4": "Il nostro {0}Tracciamento degli obiettivi{1} e {0}Esploratore degli eventi{1} ti consentono di tenere traccia dei tuoi eventi più importanti e dei percorsi di conversione.",
       "reason_5": "Il nostro {0}script leggero{1} aumenta la velocità del tuo sito web.",
-      "reason_6": "{0}Chatta con l'IA{1} e {0}le tue analisi{1} invece di scavare tra i rapporti",
+      "reason_6": "{0}Chatta con l'IA{1} e {0}le tue analisi{1} invece di scavare tra i rapporti.",
       "read_detailed_reasons": "Leggi le ragioni nel dettaglio",
       "business_model": {
         "title": "La protezione della privacy è il nostro modello di business.",
-        "html": "<p>Da anni le grandi aziende tecnologiche accumulano dati personali per trarne profitto: gli utenti ottengono un prodotto \"gratuito\", e le grandi aziende tecnologiche vendono i dati a inserzionisti, che li usano per attirare l’attenzione degli utenti.</p><ul><li>Mentre utilizzi un prodotto \"gratuito\", l’azienda raccoglie quantità enorm di dati per creare un tuo profilo specifico, che include i tuoi dati demografici, la tua etnia, le tue preferenze politiche, i tuoi interessi e desideri.</li><li>Le grandi aziende  vendono questi profili al miglior offerente, senza dirlo apertamente- è il loro business model. </li></ul><p>Non sopportiamo queste pratiche.. Simple Analytics è un servizio a pagamento: siamo indipendenti e non abbiamo alcunconflitto d'interesse. Qui non ci sono secondi fini.</p><p>La nostra missione è semplice:</p><ul><li>Ti offriamo informazioni sulle prestazioni del tuo sito web in modo semplice, veloce ed etico, e nel rispetto dei più alti standard di privacy.</li><li>Per raggiungere questo obiettivo, Simple Analytics ha una {0}open roadmap{1} per seguire lo sviluppo e richiedere funzionalità. Inoltre, operiamo {2}in modo totalmente trasparente{3} e pubblichiamo le nostre metriche (inclusi ricavi, costi, numero di clienti e traffico).</li></ul>"
+        "html": "<p>Da anni le grandi aziende tecnologiche accumulano dati personali per trarne profitto: gli utenti ottengono un prodotto \"gratuito\", e le grandi aziende tecnologiche vendono i dati a inserzionisti, che li usano per attirare l’attenzione degli utenti.</p><ul><li>Mentre utilizzi un prodotto \"gratuito\", l’azienda raccoglie quantità enormi di dati per creare un tuo profilo specifico, che include i tuoi dati demografici, la tua etnia, le tue preferenze politiche, i tuoi interessi e desideri.</li><li>Le grandi aziende vendono questi profili al miglior offerente, senza dirlo apertamente. È il loro business model.</li></ul><p>Non sopportiamo queste pratiche. Simple Analytics è un servizio a pagamento: siamo indipendenti e non abbiamo alcun conflitto d'interesse. Qui non ci sono secondi fini.</p><p>La nostra missione è semplice:</p><ul><li>Ti offriamo informazioni sulle prestazioni del tuo sito web in modo semplice, veloce ed etico, e nel rispetto dei più alti standard di privacy.</li><li>Per raggiungere questo obiettivo, Simple Analytics ha una {0}open roadmap{1} per seguire lo sviluppo e richiedere funzionalità. Inoltre, operiamo {2}in modo totalmente trasparente{3} e pubblichiamo le nostre metriche (inclusi ricavi, costi, numero di clienti e traffico).</li></ul>"
       },
       "ai": {
         "title": "Ottieni insight con la nostra IA senza sfogliare report.",
@@ -64,15 +65,15 @@
       },
       "encrypted": {
         "title": "I tuoi dati sono criptati.",
-        "html": "<p>Non memorizziamo alcuna informazione personale e raccogliamo una quantità minima di dati per proteggere la privacy dei tuoi visitatori, ma questo non rende i tuoi dati di analisi meno importanti. Ecco perché i tuoi dati sono sempre criptati nei nostri server- sia in transito che a riposo.</p><p>I dischi che memorizzano i tuoi dati non contengono altro che linee criptate di codice. Se qualcuno riuscisse a rubare quei dati, sarebbero inutili. La chiave di cifratura è archiviata al di fuori dei server, in una cassaforte virtuale protetta da autenticazione a due fattori.</p>"
+        "html": "<p>Non memorizziamo alcuna informazione personale e raccogliamo una quantità minima di dati per proteggere la privacy dei tuoi visitatori, ma questo non rende i tuoi dati di analisi meno importanti. Ecco perché i tuoi dati sono sempre criptati nei nostri server, sia in transito che a riposo.</p><p>I dischi che memorizzano i tuoi dati non contengono altro che linee criptate di codice. Se qualcuno riuscisse a rubare quei dati, sarebbero inutili. La chiave di cifratura è archiviata al di fuori dei server, in una cassaforte virtuale protetta da autenticazione a due fattori.</p>"
       },
       "personal_data": {
         "title": "Non memorizziamo mai, in nessun caso, dati personali riguardanti i tuoi visitatori.",
-        "html": "<p>Alcuni strumenti di analisi orientati alla privacy utilizzano dati identificabili che vengono poi eliminati dopo un giorno.</p><p>Ad esempio:</p><ul><li>Ad esempio, raccolgono l'indirizzo IP dei visitatori, aggiungono una data e lo trasformano in un hash ogni volta che si ha una visita alla pagina.</li><li>Questi hash collegano le visualizzazioni delle pagine. Si tratta di una pratica migliore di quelle di alcune grandi aziende, che cercano solo di accumulare più dati possibili. Tuttavia, l’hashing non è ideale. </li><li>Gli hash scadono solo una volta al giorno, quindi per meno di 24 ore, <em>i tuoi visitatori saranno ancora identificabili.</em> </li></ul><p>Simple Analytics non compromette mai la privacy. Ecco perché usiamo solo visitatori unici senza tracciare gli indirizzi IP. Facciamo ciò in base al referrer del browser, quindi non vengono memorizzati dati personali. Quando utilizzi Simple Analytics, {0}non verrà mai memorizzata alcun dato personale dei tuoi visitatori.{1} E per questa ragione, non è necessario alcun consenso. Basta banner fastidiosi!</p><p>Consiglio: alcuni clienti sostituiscono i loro banner relativi ai cookie con banner \"siamo orgogliosi di proteggere la tua privacy\" per ottenere un vantaggio competitivo.</p>"
+        "html": "<p>Alcuni strumenti di analisi orientati alla privacy utilizzano dati identificabili che vengono poi eliminati dopo un giorno.</p><p>Ad esempio:</p><ul><li>Ad esempio, raccolgono l'indirizzo IP dei visitatori, aggiungono una data e lo trasformano in un hash ogni volta che si ha una visita alla pagina.</li><li>Questi hash collegano le visualizzazioni delle pagine. Si tratta di una pratica migliore di quelle di alcune grandi aziende, che cercano solo di accumulare più dati possibili. Tuttavia, l’hashing non è ideale.</li><li>Gli hash scadono solo una volta al giorno, quindi per meno di 24 ore, <em>i tuoi visitatori saranno ancora identificabili.</em></li></ul><p>Simple Analytics non compromette mai la privacy. Ecco perché usiamo solo visitatori unici senza tracciare gli indirizzi IP. Facciamo ciò in base al referrer del browser, quindi non vengono memorizzati dati personali. Quando utilizzi Simple Analytics, {0}non verrà mai memorizzato alcun dato personale dei tuoi visitatori.{1} E per questa ragione, non è necessario alcun consenso. Basta banner fastidiosi!</p><p>Consiglio: alcuni clienti sostituiscono i loro banner relativi ai cookie con banner \"siamo orgogliosi di proteggere la tua privacy\" per ottenere un vantaggio competitivo.</p>"
       },
       "eu_based": {
         "title": "Siamo un'azienda con sede nell'UE con server situati nell'UE.",
-        "html": "<p>Facciamo tutto il possibile per mantenere i tuoi dati al sicuro. Raccogliamo la minima quantità di dati necessaria per darti un quadro completo dei visitatori del tuo sito web e, oltre ai tre punti elencati sopra, andiamo anche oltre.</p><ul><li>L'UE prende sul serio privacy dei suoi cittadini e si è dotata di regole molto strette per il trattamento di dati personali.</li><li>I nostri server si trovano nei Paesi Bassi e il nostro hosting provider è olandese:Simple Analytics ha dunque una posizione fisica sicura, una grande connettività di rete globale e elevati standard legali per l'elaborazione dei dati (non usiamo nessun provider cloud che debba rispondere a un governo straniero).</li><li>Scegliamo di situare la nostra attività nei Paesi Bassi perché un ambiente attento alla privacy ci aiuta a mantenere i nostri elevati standard di etica e privacy.</li></ul>"
+        "html": "<p>Facciamo tutto il possibile per mantenere i tuoi dati al sicuro. Raccogliamo la minima quantità di dati necessaria per darti un quadro completo dei visitatori del tuo sito web e, oltre ai tre punti elencati sopra, andiamo anche oltre.</p><ul><li>L'UE prende sul serio la privacy dei suoi cittadini e si è dotata di regole molto strette per il trattamento di dati personali.</li><li>I nostri server si trovano nei Paesi Bassi e il nostro hosting provider è olandese: Simple Analytics ha dunque una posizione fisica sicura, un'ottima connettività di rete globale e alti standard legali per l'elaborazione dei dati (non usiamo alcun provider cloud che debba rispondere a un governo straniero).</li><li>Scegliamo di situare la nostra attività nei Paesi Bassi perché un ambiente attento alla privacy ci aiuta a mantenere i nostri elevati standard di etica e privacy.</li></ul>"
       },
       "own_data": {
         "title": "Possiedi i tuoi dati.",
@@ -87,21 +88,21 @@
       "import_data": "Importa i tuoi dati da Google Analytics",
       "use_gtm": "Usa Google Tag Manager, WordPress,<br />o i nostri numerosi plugin frontend",
       "framework_plugins": "per framework",
-      "export_to": "Esporta verso tuoi sistemi, Power BI,<br />Google Looker Studio, o {0}data lakes{1}",
+      "export_to": "Esporta verso i tuoi sistemi, Power BI,<br />Google Looker Studio, o {0}data lakes{1}",
       "export_as": "Esporta come {0}dati grezzi{1} o aggregati"
     },
     "why_switch_from_ga": {
       "title": "Perché dovresti passare da Google Analytics",
       "try_us_button": "Mettici alla prova",
       "paragraph_1": "Google è uno dei più grandi accumulatori di dati al mondo e vende i dati personali dei visitatori del tuo sito web per trarne profitto. Da un punto di vista etico, le organizzazioni dovrebbero mirare a proteggere la privacy dei loro visitatori. Tuttavia, {0}l’85% dei siti web{1} sta ancora usando Google Analytics. Ma la situazione sta cambiando in meglio. Sta emergendo la necessità di un'alternativa a Google Analytics.",
-      "paragraph_2": "Le leggi sulla privacy come il GDPR sono in vigore per preservare la privacy degli utenti di Internet. Le agenzie di protezione dei dati stanno contrastando servizi invasivi della privacy come Google Analytics. Francia (CNIL),  Austria (DSB) e Italia (Garante/GPDP) hanno già dichiarato che l'utilizzo di Google Analytics viola il GDPR. Probabilmente altri Stati Membri dell’Unione Europea seguiranno il loro esempio.",
-      "paragraph_3": "Google Analytics è complesso software di web analytics. Per anni è stato di fatto lo strumento di web analytics standard di Internet, ma la situaizone sta cambiando, e anche Google lo ammette. Ecco perché Google ha lanciato la nuova versione di Google Analytics",
+      "paragraph_2": "Le leggi sulla privacy come il GDPR sono in vigore per preservare la privacy degli utenti di Internet. Le agenzie di protezione dei dati stanno contrastando servizi invasivi della privacy come Google Analytics. Francia (CNIL), Austria (DSB) e Italia (Garante/GPDP) hanno già dichiarato che l'utilizzo di Google Analytics viola il GDPR. Probabilmente altri Stati Membri dell’Unione Europea seguiranno il loro esempio.",
+      "paragraph_3": "Google Analytics è complesso software di web analytics. Per anni è stato di fatto lo strumento di web analytics standard di Internet, ma la situazione sta cambiando, e anche Google lo ammette. Ecco perché Google ha lanciato la nuova versione di Google Analytics",
       "paragraph_3_link": "GA4. Google sostiene che GA4 è più rispettoso della privacy, ma non è così",
-      "paragraph_4": "Inoltre, i browser limitano i meccanismi di tracciamento e gli adblocker bloccano Google Analytics. Ciò rende i  dati di GA meno accurati.",
+      "paragraph_4": "Inoltre, i browser limitano i meccanismi di tracciamento e gli adblocker bloccano Google Analytics. Ciò rende i dati di GA meno accurati.",
       "paragraph_5": "L'ambiente di business globale sta diventando privacy-friendly, e dovresti farlo anche tu!",
       "paragraph_6_1": "Ecco perché Simple Analytics è il numero uno",
       "paragraph_6_link": "alternativa a Google Analytics rispettosa della privacy",
-      "paragraph_6_2": "Oltre  600 clienti paganti si affidano a noi per ricevere le informazioni di cui hanno bisogno, proteggendo al contempo la privacy dei visitatori del loro sito web"
+      "paragraph_6_2": "Oltre 600 clienti paganti si affidano a noi per ricevere le informazioni di cui hanno bisogno, proteggendo al contempo la privacy dei visitatori del loro sito web"
     },
     "events": {
       "title": "Tracciamento degli eventi senza tracciare le persone",
@@ -111,9 +112,9 @@
     },
     "reports": {
       "title": "Reports automatici",
-      "description": "Risparmia tempo mantenendo gli altri aggiornati sui tuoi risultati. Programma la consivisione automatica dei tuoi reports in qualsiasi momento tu voglia.",
+      "description": "Risparmia tempo mantenendo gli altri aggiornati sui tuoi risultati. Programma la condivisione automatica dei tuoi reports in qualsiasi momento tu voglia.",
       "email_reports": "Reports via email",
-      "instructions": "Invia un report di simpleanalytics.com a te stesso e ad altri. Puoi aggiungere quante email vuoi. Guarda un esempio di rapporto e-mail nella{0} nostra documentazione{1}.",
+      "instructions": "Invia un report di simpleanalytics.com a te stesso e ad altri. Puoi aggiungere quante email vuoi. Guarda un esempio di rapporto e-mail nella {0}nostra documentazione{1}.",
       "recipient": "Destinatario",
       "period": "Periodo",
       "last_emailed": "Ultimo inviato via e-mail",
@@ -150,9 +151,10 @@
   },
   "start_now": {
     "button": "Inizia una prova gratuita ora",
-    "free_trial": "Prova gratuita di 14 giorni",
+    "free_forever": "Gratis per sempre",
     "no_credit_card": "Nessuna carta di credito richiesta",
-    "cancel_anytime": "Annulla in qualsiasi momento"
+    "cancel_anytime": "Annulla in qualsiasi momento",
+    "try_it_with_your_analytics": "Provalo con le tue analisi"
   },
   "banners": {
     "import_ga": {
@@ -201,8 +203,8 @@
   },
   "nav": {
     "login": "Accedi",
-    "pricing": "Prezzo",
-    "start_now": "",
+    "pricing": "Prezzi",
+    "start_now": "Inizia gratuitamente",
     "resources": "Risorse",
     "docs": "Documentazione",
     "blog": "Blog",
@@ -251,8 +253,19 @@
     "what_is_included": "Cosa include",
     "contact_us": "Contattaci",
     "affiliate_description": "Avrai il primo mese + {0} giorni gratuitamente perché stai usando un link di affiliazione.",
-    "contact": "Contatto",
     "plans": {
+      "free": {
+        "title": "Gratis",
+        "description": "Per progetti personali. Ottimo per mantenere traccia dei tuoi progetti."
+      },
+      "simple": {
+        "title": "Simple",
+        "description": "Per i proprietari di attività. Ottieni le informazioni di cui hai bisogno per far crescere la tua attività."
+      },
+      "team": {
+        "title": "Team",
+        "description": "Per i team. Collabora per ottenere il massimo dai tuoi dati di analisi."
+      },
       "starter": {
         "title": "Starter",
         "description": "Tutto ciò di cui hai bisogno per iniziare"
@@ -266,24 +279,265 @@
         "description": "Ottieni tutto ciò di cui hai bisogno per far crescere la tua attività"
       }
     },
+    "sections": {
+      "data": {
+        "title": "Dati",
+        "description": "La quantità di dati che puoi raccogliere."
+      },
+      "events": {
+        "title": "Eventi",
+        "description": "La quantità di eventi che puoi raccogliere."
+      },
+      "apis": {
+        "title": "API",
+        "description": "Il numero di chiamate API che puoi effettuare."
+      },
+      "admin": {
+        "title": "Amministrazione",
+        "description": "Funzionalità per Enterprise o agenzie."
+      },
+      "features": {
+        "title": "Funzionalità",
+        "description": "Cosa puoi utilizzare in questo piano."
+      },
+      "support": {
+        "title": "Supporto",
+        "description": "Il supporto che ricevi."
+      }
+    },
     "features": {
-      "datapoints": "<strong>{0}</strong> punti dati al mese",
-      "users": "<strong>{0}</strong> utenti",
-      "user": "<strong>{0}</strong> utente",
-      "websites": "<strong>{0}</strong> siti web",
-      "events": "eventi",
-      "ai_one_month": "IA per <strong>1 mese</strong>",
-      "ai_unlimited": "IA <strong>illimitata</strong>",
-      "ai_limited": "IA <strong>limitata</strong>",
-      "aggregated_export": "esportazione aggregata",
-      "raw_level_export": "<strong>livello grezzo</strong> esportazione",
-      "email_support": "supporto email",
-      "prio_email_support": "<strong>prio</strong> supporto email"
+      "datapoints": {
+        "title": "Visualizzazioni di pagina / eventi",
+        "unlimited": "Visualizzazioni di pagina illimitate",
+        "number": "Fino a <strong>{0}</strong> visualizzazioni di pagina / eventi mensili",
+        "description": "Poiché la cronologia è limitata a un mese, non c'è un limite fisso al numero di visualizzazioni di pagina.",
+        "custom": "Limite personalizzato di visualizzazioni di pagina"
+      },
+      "users": {
+        "title": "Utenti",
+        "number": "Fino a <strong>{0}</strong> utenti",
+        "one": "<strong>1</strong> utente",
+        "custom": "Limite personalizzato di utenti",
+        "per_user": "utente"
+      },
+      "websites": {
+        "title": "Siti web",
+        "unlimited": "Siti illimitati",
+        "number": "Fino a <strong>{0}</strong> siti",
+        "one": "<strong>1</strong> sito",
+        "custom": "Limite personalizzato di siti"
+      },
+      "email_reports": {
+        "title": "Report via email",
+        "number": "Fino a <strong>{0}</strong> report via email",
+        "one": "<strong>1</strong> report via email",
+        "description": "Invia a te stesso e ad altri un report delle statistiche del tuo sito. Puoi utilizzare {0} destinatari unici per tutti i tuoi report."
+      },
+      "look_back_days": {
+        "title": "Giorni di storico",
+        "number": "<strong>{0}</strong> giorni di storico"
+      },
+      "data_retention_days": {
+        "title": "Giorni di conservazione",
+        "number": "<strong>{0}</strong> giorni di conservazione"
+      },
+      "invoices_email": {
+        "title": "Fatture via email"
+      },
+      "separated_data_storage": {
+        "title": "Archiviazione dati separata"
+      },
+      "goals": {
+        "title": "Dashboard obiettivi"
+      },
+      "events": {
+        "title": "Raccogli eventi"
+      },
+      "automated_events": {
+        "title": "Eventi automatizzati"
+      },
+      "metadata": {
+        "title": "Analisi dei metadati"
+      },
+      "admin_api": {
+        "title": "Admin API"
+      },
+      "stats_api": {
+        "title": "Stats API"
+      },
+      "export_api": {
+        "title": "Export API"
+      },
+      "multiple_teams": {
+        "title": "Più team (agenzia)"
+      },
+      "combined_invoicing": {
+        "title": "Fatturazione combinata"
+      },
+      "manual_invoicing": {
+        "title": "Fatturazione manuale"
+      },
+      "redlining_contracts": {
+        "title": "Revisione contratti (redlining)"
+      },
+      "roles_based_access_control": {
+        "title": "Accesso basato su ruoli"
+      },
+      "uptime_sla": {
+        "title": "SLA di uptime"
+      },
+      "trendlines": {
+        "title": "Linee di tendenza"
+      },
+      "annotations": {
+        "title": "Annotazioni"
+      },
+      "custom_website_views": {
+        "title": "Viste personalizzate"
+      },
+      "block_ip_range": {
+        "title": "Blocco IP range"
+      },
+      "bypass_via_dns_cname": {
+        "title": "Bypass ad-blocker via DNS CNAME"
+      },
+      "bypass_via_new_domain": {
+        "title": "Bypass con un nuovo dominio"
+      },
+      "data_proxy": {
+        "title": "Proxy dati"
+      },
+      "ai_chat": {
+        "title": "Chat con IA"
+      },
+      "growth_indicators": {
+        "title": "Indicatori di crescita"
+      },
+      "exact_numbers": {
+        "title": "Numeri esatti"
+      },
+      "alert_missing_script": {
+        "title": "Avviso di script mancante"
+      },
+      "advanced_robot_blocking": {
+        "title": "Blocco robot avanzato"
+      },
+      "disable_watermark": {
+        "title": "Disabilita watermark"
+      },
+      "public_dashboard_requirement": {
+        "title": "Dashboard pubblico",
+        "description": "Quando usi il piano gratuito devi rendere pubbliche le tue dashboard. Tutti possono vedere le tue statistiche pubbliche."
+      },
+      "limited_lookback": {
+        "title": "1 mese di storico",
+        "description": "Hai una cronologia di un mese; i dati più vecchi di un mese verranno eliminati."
+      },
+      "community_support": {
+        "title": "Supporto dalla community",
+        "description": "Puoi usare {0}la nostra community{1} per fare domande."
+      },
+      "email_support": {
+        "title": "Supporto via email"
+      },
+      "priority_support": {
+        "title": "Supporto prioritario"
+      },
+      "video_support": {
+        "title": "Onboarding video"
+      },
+      "legal_support": {
+        "title": "Supporto legale"
+      },
+      "enterprise_only": "Solo Enterprise"
+    },
+    "slider": {
+      "select_pageviews": "Seleziona le visualizzazioni di pagina mensili previste",
+      "pageviews_or_events": "visualizzazioni di pagina (o eventi)"
+    },
+    "payment_frequency": {
+      "label": "Frequenza di pagamento",
+      "discount": "2 mesi gratis"
+    },
+    "plan_labels": {
+      "recommended": "Consigliato",
+      "free": "Gratis"
+    },
+    "followers": {
+      "count": "{0} follower",
+      "count_k": "{0}k+ follower"
+    },
+    "features_list": {
+      "show_less": "Mostra meno",
+      "show_more": "Mostra di più",
+      "show_all": "Mostra tutte le funzionalità del piano",
+      "hide_all": "Nascondi tutte le funzionalità del piano"
+    },
+    "everything_from": "Tutto dal {0}",
+    "reviews": {
+      "capterra": {
+        "tooltip": "{0} stelle su Capterra",
+        "users_count": "Amato da oltre {0} utenti"
+      }
+    },
+    "company_logos": {
+      "mollie": "Mollie",
+      "bloomberg": "Bloomberg",
+      "michelin": "Michelin",
+      "hyundai": "Hyundai",
+      "gov_uk": "GOV.UK",
+      "polkadot": "Polkadot",
+      "bank_of_england": "Bank of England",
+      "sketch": "Sketch",
+      "excalidraw": "Excalidraw",
+      "nomads": "Nomads"
+    },
+    "buttons": {
+      "start_free": "Inizia gratuitamente",
+      "contact_sales": "Contatta il team vendite",
+      "start_now": "Inizia ora"
+    },
+    "developer": {
+      "start_dashboard": "Ehi sviluppatore! Avvia l'app dashboard per recuperare i dati.",
+      "fetch_error": "Si è verificato un problema nel recupero dei dati. Per favore, riprova più tardi."
+    },
+    "accessibility": {
+      "feature_comparison": "Confronto funzionalità",
+      "feature_value": {
+        "yes": "Sì",
+        "no": "No"
+      },
+      "avatar": "Avatar di {0}",
+      "mobile_comparison": "Confronto funzionalità"
     }
   },
   "pricing_faq": {
     "title": "Domande frequenti",
     "need_help": "Hai bisogno di ulteriore aiuto? Inviaci la tua domanda (e) tramite {0}la nostra pagina di supporto{1}.",
+    "data_usage": {
+      "title": "Cosa facciamo e non facciamo con i tuoi dati",
+      "description": "I dati che raccogliamo appartengono a te. Raccogliamo solo dati non personali e non li condividiamo con terze parti né li trasferiamo all'estero. I dati del tuo sito non lasciano mai i Paesi Bassi e, quindi, l'UE. Inoltre, nessun fornitore di terze parti ha accesso ai dati a parte la società di hosting che possiede i server su cui i dati sono memorizzati."
+    },
+    "metrics": {
+      "title": "Quali metriche raccogliamo?",
+      "description": "Non raccogliamo alcun dato personale. Non utilizziamo cookie e non raccogliamo mai informazioni che potrebbero essere utilizzate per identificare un utente. Non devi modificare alcuna impostazione per rendere il nostro software rispettoso della privacy: Simple Analytics è privacy-friendly per progettazione. Qui puoi trovare un {0}elenco dettagliato{1} di ciò che facciamo e non facciamo con i tuoi visitatori."
+    },
+    "gdpr": {
+      "title": "Simple Analytics è conforme al GDPR?",
+      "description": "Sì, Simple Analytics è conforme al 100% al GDPR fin dall'installazione, poiché elabora solo dati non personali. È conforme anche al Regolamento ePrivacy, al UK GDPR e al PECR. Per maggiori informazioni consulta {0}la nostra documentazione{1}."
+    },
+    "unlimited_pageviews": {
+      "title": "Cosa significa visualizzazioni di pagina illimitate?",
+      "description": "Il nostro piano gratuito offre visualizzazioni di pagina illimitate, consentendoti di tracciare tutto il traffico del tuo sito senza restrizioni. Tuttavia, abbiamo una policy di uso corretto per garantire che i nostri server funzionino correttamente per tutti. Se il tuo traffico supera i limiti di uso corretto, te lo comunicheremo via email. Se non sei sicuro sul volume di traffico, contattaci in anticipo."
+    },
+    "free_plan": {
+      "title": "Come funziona il piano gratuito?",
+      "description": "Simple Analytics è gratuito per sempre. Per iniziare, crea un account per avviare la tua prova (nessuna carta di credito richiesta). Durante i 14 giorni di prova potrai esplorare tutte le funzionalità. Alla fine dei 14 giorni, dovrai scegliere un piano per continuare a utilizzare Simple Analytics. Puoi scegliere uno dei nostri piani a pagamento o effettuare il downgrade al piano gratuito e continuare a utilizzare Simple Analytics per sempre."
+    },
+    "free_trial": {
+      "title": "Come funziona la prova gratuita?",
+      "description": "Quando ti registri, inizia il tuo periodo di prova di 14 giorni (nessuna carta di credito richiesta), indipendentemente dal piano che scegli. Durante questi 14 giorni, puoi utilizzare le funzionalità avanzate senza restrizioni. Al termine del periodo di prova, ti chiederemo di scegliere un piano per continuare a utilizzare Simple Analytics. Se scegli un piano a pagamento, dovrai inserire i tuoi dati di pagamento. Puoi passare a qualsiasi piano, a condizione che il tuo utilizzo rimanga entro i suoi limiti."
+    },
     "datapoints": {
       "title": "Cosa sono i datapoints?",
       "description": "Puoi raccogliere due tipi di dati con Simple Analytics: visualizzazioni di pagina e eventi. Il termine datapoint si riferisce a entrambi. Se non usi eventi, i datapoints saranno solo visualizzazioni di pagina. Se usi eventi, i datapoint saranno anche eventi."
@@ -304,6 +558,14 @@
       "title": "Cosa succede alle mie spese se il mio traffico aumenta / diminuisce?",
       "description_1": "Paghi solo ciò di cui hai effettivamente bisogno. Ciò significa che se superi il limite di visualizzazioni del tuo piano, ti verranno addebitate spese aggiuntive. Simple Analytics calcola automaticamente il tuo prezzo in base al tuo numero medio di visualizzazioni (inizialmente prendiamo a riferimento la media per l’ultimo mese, poi la media degli ultimi tre mesi).",
       "description_2": "Quindi, se hai avuto un aumento del traffico durante gli ultimi tre mesi, paghi solo un po' di più il prossimo mese. Allo stesso modo, paghi automaticamente un po' meno quando il tuo numero medio di visualizzazioni è diminuito nei mesi scorsi."
+    },
+    "yearly_plans": {
+      "title": "Come funziona la fatturazione annuale?",
+      "description": "Se scegli la fatturazione annuale, prevedi il tuo traffico dopo la prova. Ti inviamo un'email se superi il limite e avrai una settimana per aumentarlo. Altrimenti, lo faremo noi. Per evitare fatture extra durante l'anno, imposta un limite sufficientemente alto. Dopo l'anno, i tuoi datapoint verranno azzerati."
+    },
+    "history": {
+      "title": "Cosa significa 30 giorni di storico?",
+      "description": "Puoi usare Simple Analytics gratuitamente per sempre (nel nostro piano gratuito). Tuttavia, ci sono alcuni limiti, tra cui la tua cronologia delle analisi limitata a 30 giorni. Questo significa che puoi visualizzare le statistiche del tuo sito solo per gli ultimi 30 giorni. Tutti i dati di traffico più vecchi di 30 giorni verranno automaticamente eliminati dai nostri server. Se hai bisogno di una cronologia e di una conservazione dei dati più lunga, puoi scegliere uno dei nostri piani a pagamento."
     }
   },
   "video": {
@@ -355,8 +617,8 @@
     },
     "missive": {
       "role": "CEO di Missive",
-      "quote": "Abbiamo sostituito una dashboard di web analytics gratuito, complesso e senza privacy con uno a pagamento, semplice, e incentrato sulla privacy. Non potremmo essere più felici. {0}È  la migliore suite di web analytics incentrata sulla privacy che abbia mai provato.{1} Siamo orgogliosi di poter dire ai nostri clienti che non li tracciamo affatto.",
-      "quote_short": "{0}The best privacy-focused analytics suite that I've found.{1} We're proud to be able to tell our customers that we don't track them at all."
+      "quote": "Abbiamo sostituito una dashboard di web analytics gratuito, complesso e senza privacy con uno a pagamento, semplice e incentrato sulla privacy. Non potremmo essere più felici. {0}È la migliore suite di web analytics incentrata sulla privacy che abbia mai provato.{1} Siamo orgogliosi di poter dire ai nostri clienti che non li tracciamo affatto.",
+      "quote_short": "{0}La migliore suite di analisi incentrata sulla privacy che abbia mai trovato.{1} Siamo orgogliosi di poter dire ai nostri clienti che non li tracciamo per niente."
     },
     "hannah": {
       "role": "Fondatrice di Design SaaS",
@@ -368,7 +630,7 @@
     },
     "stefaan": {
       "role": "Marketeer",
-      "quote": "Eccellente alternativa a Google Analytics. Sì, paghi una piccola sottoscrizione, ma ottieni molto in cambio: {0}web analytics a prova di GDPR{1} e {0}senza di cookie{1}, {0}informazioni precise{1} e grafici chiari."
+      "quote": "Eccellente alternativa a Google Analytics. Sì, paghi una piccola sottoscrizione, ma ottieni molto in cambio: {0}web analytics a prova di GDPR{1} e {0}senza cookie{1}, {0}informazioni precise{1} e grafici chiari."
     }
   },
   "glossary": {
@@ -387,6 +649,13 @@
         "description": "Glossario dei termini di analisi web"
       }
     }
+  },
+  "case_studies": {
+    "title": "Studi di caso"
+  },
+  "guides": {
+    "title": "Guide pratiche",
+    "none_found": "Nessuna guida trovata"
   },
   "resources": {
     "title": "Risorse",
@@ -420,13 +689,6 @@
       "pending_cases": "Casi in sospeso",
       "not_researched": "Ignoto"
     }
-  },
-  "case_studies": {
-    "title": "Studi di caso"
-  },
-  "guides": {
-    "title": "Guide pratiche",
-    "none_found": "Nessuna guida trovata"
   },
   "utm_builder": {
     "title": "Generatore UTM",
@@ -477,7 +739,6 @@
       }
     }
   },
-
   "utm_generator_form": {
     "title": "Generatore UTM",
     "intro": "Il nostro generatore UTM è uno strumento utile per chiunque desideri monitorare e analizzare le proprie campagne online. Che tu sia un marketer, un creatore di contenuti o un imprenditore, questo generatore può aiutarti a comprendere meglio i tuoi canali di marketing.",
@@ -510,6 +771,13 @@
     "title": "Stampa",
     "description": "Interviste con i fondatori di Simple Analytics in podcast e menzioni in altri media."
   },
+  "ai": {
+    "title": "Chatta con {0}le tue{1} analisi",
+    "subtitle": "Fornito da Simple Analytics {0}AI{1}",
+    "description": "Abbiamo creato Simple Analytics per semplificare l'analitica. Ora lo portiamo al livello successivo: Fai domande alle tue analisi e ottieni insight in tempo reale. Prova la nostra demo!",
+    "not_really": "non proprio",
+    "choose_above_examples": "Scegli uno degli esempi sopra"
+  },
   "time": {
     "intl_locale": "it-IT",
     "now": "ora",
@@ -520,7 +788,9 @@
         "hours": "Fa {0}h",
         "minutes": "Fa {0}m"
       }
-    }
+    },
+    "years": "{0} anni",
+    "days": "{0} giorni"
   },
   "amount": {
     "million": "milione"
@@ -537,6 +807,24 @@
         "description": "Stai inviando troppe richieste in breve tempo. Per favore riprova più tardi."
       }
     }
+  },
+  "error": {
+    "not_found": "Oops, pagina non trovata",
+    "generic": "Oops, si è verificato un errore, ricarica la pagina",
+    "go_home": "Vai alla home page",
+    "refresh": "Per favore ricarica la pagina",
+    "status_message": "{0}. Per favore ricarica la pagina."
+  },
+  "affiliate": {
+    "accepted": "Hai accettato l'accordo di affiliazione, quindi ottieni uno sconto e {0} riceve una ricompensa.",
+    "undo": "Fai clic qui per annullare",
+    "via_name": "Sei arrivato qui tramite {0}.",
+    "via_code": "Sei arrivato qui tramite il codice di affiliazione {0}.",
+    "reward_message": "Per offrirti il primo mese gratuito e dare a {0} la sua ricompensa, ti chiediamo di inserire un cookie per 30 giorni.",
+    "accept_button": "Accetta l'accordo di affiliazione",
+    "invalid_link": "Sembra che il tuo link di affiliazione {0} non sia valido.",
+    "generic_invalid": "Sembra che il tuo link di affiliazione non sia valido.",
+    "contact_mistake": "Contattaci se pensi che si tratti di un errore."
   },
   "countries": {
     "_source": "https://github.com/rl-king/elm-iso3166-country-codes/blob/master/src/Iso3166/Italian.elm",

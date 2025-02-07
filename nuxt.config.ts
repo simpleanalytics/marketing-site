@@ -11,42 +11,42 @@ const seconds = {
 const locales = [
   {
     code: "en",
-    iso: "en-US",
+    language: "en-US",
     file: "en.json",
     name: "English",
     flag: "US",
   },
   {
     code: "nl",
-    iso: "nl-NL",
+    language: "nl-NL",
     file: "nl.json",
     name: "Nederlands",
     flag: "NL",
   },
   {
     code: "de",
-    iso: "de-DE",
+    language: "de-DE",
     file: "de.json",
     name: "Deutsch",
     flag: "DE",
   },
   {
     code: "es",
-    iso: "es-ES",
+    language: "es-ES",
     file: "es.json",
     name: "Español",
     flag: "ES",
   },
   {
     code: "fr",
-    iso: "fr-FR",
+    language: "fr-FR",
     file: "fr.json",
     name: "Français",
     flag: "FR",
   },
   {
     code: "it",
-    iso: "it-IT",
+    language: "it-IT",
     file: "it.json",
     name: "Italiano",
     flag: "IT",
@@ -175,7 +175,7 @@ export default defineNuxtConfig({
 
   i18n: {
     vueI18n: "./i18n.config.ts",
-    baseUrl: BASE_URL,
+    baseUrl: "https://www.simpleanalytics.com",
     locales,
     strategy: "prefix_except_default",
     defaultLocale: "en",

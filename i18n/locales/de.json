@@ -42,7 +42,8 @@
       "resources": "Ressourcen",
       "utm_builder": "UTM-Generator",
       "guides": "Anleitungen",
-      "case_studies": "Fallbeispiele"
+      "case_studies": "Fallbeispiele",
+      "press": "Presseerwähnungen"
     },
     "why_most_privacy": {
       "title": "Warum Simple Analytics die {0}beste Alternative zu Google Analytics{1} ist?",
@@ -80,7 +81,7 @@
       }
     },
     "simple_title": "Einfach",
-    "simple_description": "Simple Analytics ist eine einfache Alternative zu Google Analytics. Ein Dashboard, um sofort zu sehen, wie viele Besucher auf Ihre Website kommen, von wo sie kommen und was sie dort tun. Ohne Cookies. Ohne Verfolgung. Dennoch leicht.",
+    "simple_description": "Simple Analytics ist eine einfache Google Analytics Alternative. Ein Dashboard, um sofort zu sehen, wie viele Besucher auf Ihre Website kommen, von wo sie kommen und was sie dort tun. Ohne Cookies. Ohne Verfolgung. Dennoch leicht.",
     "see_if_for_yourself": "Sehen Sie es selbst, klicken Sie auf einen Knopf",
     "connect": {
       "title": "Verbinden Sie {0}Ihre Daten{1} mit Ihrem einzigartigen Workflow.",
@@ -150,9 +151,10 @@
   },
   "start_now": {
     "button": "Starte jetzt den kostenlosen Testzeitraum",
-    "free_trial": "14-tägiger kostenloser Testzeitraum",
+    "free_forever": "Kostenlos für immer",
     "no_credit_card": "Keine Kreditkarte erforderlich",
-    "cancel_anytime": "Jederzeit kündbar"
+    "cancel_anytime": "Jederzeit kündbar",
+    "try_it_with_your_analytics": "Probiere es mit deinen Analysedaten aus"
   },
   "banners": {
     "import_ga": {
@@ -237,7 +239,6 @@
     "switch_to_english": "Zu Englisch wechseln",
     "switch_to_dutch": "Zu Niederländisch wechseln"
   },
-
   "pricing": {
     "title": "Einfache Preise",
     "yearly_billing": "Jährliche Abrechnung",
@@ -252,60 +253,319 @@
     "what_is_included": "Was ist enthalten",
     "contact_us": "Kontaktieren Sie uns",
     "affiliate_description": "Sie erhalten den ersten Monat + {0} Tage kostenlos, weil Sie einen Affiliate-Link verwenden.",
-    "contact": "Kontakt",
     "plans": {
+      "free": {
+        "title": "Kostenlos",
+        "description": "Für Hobbyprojekte. Ideal, um kleinere Projekte im Blick zu behalten."
+      },
+      "simple": {
+        "title": "Simple",
+        "description": "Für Geschäftsinhaber. Erhalten Sie die Erkenntnisse, die Sie brauchen, um Ihr Unternehmen zu vergrößern."
+      },
+      "team": {
+        "title": "Team",
+        "description": "Für Teams. Gemeinsam das Beste aus Ihren Analytics-Daten herausholen."
+      },
       "starter": {
         "title": "Starter",
-        "description": "Alles, was Sie benötigen, um loszulegen"
+        "description": "Alles, was Sie benötigen, um loszulegen."
       },
       "business": {
         "title": "Business",
-        "description": "Arbeiten Sie gemeinsam an der Entwicklung Ihres Unternehmens"
+        "description": "Arbeiten Sie gemeinsam an der Entwicklung Ihres Unternehmens."
       },
       "enterprise": {
         "title": "Enterprise",
-        "description": "Erhalten Sie alles, was Sie zur Entwicklung Ihres Unternehmens benötigen"
+        "description": "Für große Organisationen. Maßgeschneiderte Analysen, die zu Ihrem Unternehmen passen."
+      }
+    },
+    "sections": {
+      "data": {
+        "title": "Daten",
+        "description": "Die Menge an Daten, die Sie sammeln können."
+      },
+      "events": {
+        "title": "Events",
+        "description": "Die Anzahl der Events, die Sie sammeln können."
+      },
+      "apis": {
+        "title": "APIs",
+        "description": "Die Anzahl der API-Aufrufe, die Sie durchführen können."
+      },
+      "admin": {
+        "title": "Admin",
+        "description": "Funktionen für Enterprise oder Agenturen."
+      },
+      "features": {
+        "title": "Funktionen",
+        "description": "Welche Features Sie in diesem Plan nutzen können."
+      },
+      "support": {
+        "title": "Support",
+        "description": "Die Unterstützung, die Sie bekommen."
       }
     },
     "features": {
-      "datapoints": "<strong>{0}</strong> Datenpunkte pro Monat",
-      "users": "<strong>{0}</strong> Benutzer",
-      "user": "<strong>{0}</strong> Benutzer",
-      "websites": "<strong>{0}</strong> Websites",
-      "events": "Ereignisse",
-      "ai_one_month": "KI für <strong>1 Monat</strong>",
-      "ai_unlimited": "KI <strong>unbegrenzt</strong>",
-      "ai_limited": "KI <strong>begrenzt</strong>",
-      "aggregated_export": "aggregierter Export",
-      "raw_level_export": "<strong>Rohlevel</strong> Export",
-      "email_support": "Support-E-Mail",
-      "prio_email_support": "<strong>Prio</strong> E-Mail-Unterstützung"
+      "datapoints": {
+        "title": "Seitenaufrufe / Events",
+        "unlimited": "Unbegrenzte Seitenaufrufe",
+        "number": "Bis zu <strong>{0}</strong> monatliche Seitenaufrufe / Events",
+        "description": "Da der Verlauf auf einen Monat beschränkt ist, haben wir kein hartes Limit für Seitenaufrufe.",
+        "custom": "Benutzerdefiniertes Seitenaufruf-Limit"
+      },
+      "users": {
+        "title": "Benutzer",
+        "number": "Bis zu <strong>{0}</strong> Benutzer",
+        "one": "<strong>1</strong> Benutzer",
+        "custom": "Benutzerdefiniertes Benutzerlimit",
+        "per_user": "Benutzer"
+      },
+      "websites": {
+        "title": "Websites",
+        "unlimited": "Unbegrenzte Websites",
+        "number": "Bis zu <strong>{0}</strong> Websites",
+        "one": "<strong>1</strong> Website",
+        "custom": "Benutzerdefiniertes Website-Limit"
+      },
+      "email_reports": {
+        "title": "E-Mail-Berichte",
+        "number": "Bis zu <strong>{0}</strong> E-Mail-Bericht",
+        "one": "<strong>1</strong> E-Mail-Bericht",
+        "description": "Senden Sie sich und anderen einen E-Mail-Bericht Ihrer Statistiken. Sie können {0} eindeutige Empfänger für alle Ihre E-Mail-Berichte verwenden."
+      },
+      "look_back_days": {
+        "title": "Look-back-Tage",
+        "number": "<strong>{0}</strong> Look-back-Tage"
+      },
+      "data_retention_days": {
+        "title": "Aufbewahrungsfrist",
+        "number": "<strong>{0}</strong> Aufbewahrungstage"
+      },
+      "invoices_email": {
+        "title": "Rechnungen per E-Mail"
+      },
+      "separated_data_storage": {
+        "title": "Getrennte Datenspeicherung"
+      },
+      "goals": {
+        "title": "Goals-Dashboard"
+      },
+      "events": {
+        "title": "Events sammeln"
+      },
+      "automated_events": {
+        "title": "Automatisierte Events"
+      },
+      "metadata": {
+        "title": "Metadaten-Analyse"
+      },
+      "admin_api": {
+        "title": "Admin-API"
+      },
+      "stats_api": {
+        "title": "Stats-API"
+      },
+      "export_api": {
+        "title": "Export-API"
+      },
+      "multiple_teams": {
+        "title": "Mehrere Teams (Agentur)"
+      },
+      "combined_invoicing": {
+        "title": "Kombinierte Rechnungsstellung"
+      },
+      "manual_invoicing": {
+        "title": "Manuelle Rechnungsstellung"
+      },
+      "redlining_contracts": {
+        "title": "Vertragsanpassung (Redlining)"
+      },
+      "roles_based_access_control": {
+        "title": "Rollenbasierter Zugriff"
+      },
+      "uptime_sla": {
+        "title": "Uptime-SLA"
+      },
+      "trendlines": {
+        "title": "Trendlinien"
+      },
+      "annotations": {
+        "title": "Anmerkungen"
+      },
+      "custom_website_views": {
+        "title": "Benutzerdefinierte Ansichten"
+      },
+      "block_ip_range": {
+        "title": "IP-Bereich-Blockierung"
+      },
+      "bypass_via_dns_cname": {
+        "title": "Adblocker-Umgehung"
+      },
+      "bypass_via_new_domain": {
+        "title": "Neue Domain-Umgehung"
+      },
+      "data_proxy": {
+        "title": "Datenproxy"
+      },
+      "ai_chat": {
+        "title": "KI-Chat"
+      },
+      "growth_indicators": {
+        "title": "Wachstumsindikatoren"
+      },
+      "exact_numbers": {
+        "title": "Exakte Zahlen"
+      },
+      "alert_missing_script": {
+        "title": "Fehlende Script-Warnungen"
+      },
+      "advanced_robot_blocking": {
+        "title": "Erweitertes Robot-Blocking"
+      },
+      "disable_watermark": {
+        "title": "Wasserzeichen deaktivieren"
+      },
+      "public_dashboard_requirement": {
+        "title": "Öffentliches Dashboard",
+        "description": "Wenn Sie den kostenlosen Plan nutzen, müssen Sie Ihre Dashboards öffentlich machen. Jeder kann Ihre öffentlichen Statistiken einsehen."
+      },
+      "limited_lookback": {
+        "title": "1 Monat Verlauf",
+        "description": "Sie haben einen Analyseverlauf von einem Monat, ältere Daten werden gelöscht."
+      },
+      "community_support": {
+        "title": "Community-Support",
+        "description": "Sie können {0}unsere Community{1} nutzen, um Fragen zu stellen."
+      },
+      "email_support": {
+        "title": "Support-E-Mail"
+      },
+      "priority_support": {
+        "title": "Priorisierter Support"
+      },
+      "video_support": {
+        "title": "Video-Onboarding"
+      },
+      "legal_support": {
+        "title": "Rechtliche Unterstützung"
+      },
+      "enterprise_only": "Nur Enterprise"
+    },
+    "slider": {
+      "select_pageviews": "Wähle die erwarteten monatlichen Seitenaufrufe",
+      "pageviews_or_events": "Seitenaufrufe (oder Events)"
+    },
+    "payment_frequency": {
+      "label": "Zahlungshäufigkeit",
+      "discount": "2 Monate gratis"
+    },
+    "plan_labels": {
+      "recommended": "Empfohlen",
+      "free": "Kostenlos"
+    },
+    "followers": {
+      "count": "{0} Follower",
+      "count_k": "{0}k+ Follower"
+    },
+    "features_list": {
+      "show_less": "Weniger anzeigen",
+      "show_more": "Mehr anzeigen",
+      "show_all": "Alle Planfunktionen anzeigen",
+      "hide_all": "Alle Planfunktionen ausblenden"
+    },
+    "everything_from": "Alles von {0}",
+    "reviews": {
+      "capterra": {
+        "tooltip": "{0} Sterne auf Capterra",
+        "users_count": "Geliebt von {0}+ Nutzern"
+      }
+    },
+    "company_logos": {
+      "mollie": "Mollie",
+      "bloomberg": "Bloomberg",
+      "michelin": "Michelin",
+      "hyundai": "Hyundai",
+      "gov_uk": "GOV.UK",
+      "polkadot": "Polkadot",
+      "bank_of_england": "Bank of England",
+      "sketch": "Sketch",
+      "excalidraw": "Excalidraw",
+      "nomads": "Nomads"
+    },
+    "buttons": {
+      "start_free": "Kostenlos starten",
+      "contact_sales": "Vertrieb kontaktieren",
+      "start_now": "Jetzt starten"
+    },
+    "developer": {
+      "start_dashboard": "Hey Entwickler! Starte die Dashboard-App, um die Daten abzurufen.",
+      "fetch_error": "Wir haben Probleme beim Abrufen der Daten. Bitte versuche es später erneut."
+    },
+    "accessibility": {
+      "feature_comparison": "Funktionsvergleich",
+      "feature_value": {
+        "yes": "Ja",
+        "no": "Nein"
+      },
+      "avatar": "Avatar von {0}",
+      "mobile_comparison": "Funktionsvergleich"
     }
   },
-
   "pricing_faq": {
     "title": "Häufig gestellte Fragen",
     "need_help": "Brauchst du noch Hilfe? Schicke uns deine Frage(n) bitte über {0}unsere Support-Seite{1}.",
+    "data_usage": {
+      "title": "Was wir mit deinen Daten tun und nicht tun",
+      "description": "Die von uns gesammelten Daten gehören dir. Wir erfassen nur nicht-personenbezogene Daten und geben diese nicht an Dritte weiter oder übertragen sie ins Ausland. Deine Website-Daten verlassen niemals die Niederlande und damit auch nicht die EU. Auch andere Drittanbieter haben keinen Zugriff auf diese Daten, abgesehen vom Hosting-Unternehmen, das die Server besitzt."
+    },
+    "metrics": {
+      "title": "Welche Metriken erfassen wir?",
+      "description": "Wir erfassen keinerlei personenbezogene Daten. Wir verwenden keine Cookies und erfassen niemals Informationen, mit denen ein Nutzer identifiziert werden könnte. Du musst keinerlei Einstellungen anpassen, um unsere Software datenschutzfreundlich zu machen: Simple Analytics ist per Design datenschutzfreundlich. Hier findest du eine {0}detaillierte Liste{1} dessen, was wir von deinen Besuchern erfassen und was nicht."
+    },
+    "gdpr": {
+      "title": "Ist Simple Analytics DSGVO-konform?",
+      "description": "Simple Analytics ist ab Installation zu 100% DSGVO-konform, da es ausschließlich nicht-personenbezogene Daten verarbeitet. Dadurch erfüllt es die Anforderungen auch strengster Datenschutzverordnungen wie der DSGVO, der ePrivacy-Richtlinie, der UK GDPR und der PECR. Weitere Informationen findest du {0}in unserer Dokumentation{1}."
+    },
+    "unlimited_pageviews": {
+      "title": "Was bedeutet unbegrenzte Seitenaufrufe?",
+      "description": "Unser kostenloser Plan bietet unbegrenzte Seitenaufrufe, sodass du so viel Traffic erfassen kannst, wie deine Website bekommt, ohne Einschränkungen. Wir haben jedoch eine Fair-Use-Policy, um sicherzustellen, dass unsere Server für alle Nutzer reibungslos funktionieren. Wenn dein Traffic unsere Fair-Use-Grenze überschreitet, benachrichtigen wir dich per E-Mail. Wenn du dir unsicher bist, wie hoch dein Traffic sein wird, kannst du uns gerne vorab {0}kontaktieren{1}."
+    },
+    "free_plan": {
+      "title": "Wie funktioniert der kostenlose Plan?",
+      "description": "Simple Analytics ist für immer kostenlos verfügbar. Um zu starten, erstelle einfach ein Konto (keine Kreditkarte erforderlich). Während der 14-tägigen Testphase kannst du alle Funktionen erkunden. Danach musst du einen Plan wählen, um Simple Analytics weiter zu nutzen. Du kannst dich entweder für einen unserer kostenpflichtigen Pläne entscheiden oder zum kostenlosen Plan wechseln und Simple Analytics für immer gratis verwenden."
+    },
+    "free_trial": {
+      "title": "Wie funktioniert die kostenlose Testphase?",
+      "description": "Wenn du dich anmeldest, startet deine 14-tägige kostenlose Testphase (keine Kreditkarte erforderlich), unabhängig davon, welchen Plan du wählst. In diesen 14 Tagen kannst du alle erweiterten Funktionen uneingeschränkt nutzen. Nach Ablauf der Testphase bitten wir dich, einen Plan zu wählen, um Simple Analytics weiter zu verwenden. Entscheidest du dich für einen kostenpflichtigen Plan, benötigen wir deine Zahlungsdaten. Du kannst jederzeit in jeden Plan wechseln, sofern deine Nutzung innerhalb der Grenzen des Plans bleibt."
+    },
     "datapoints": {
       "title": "Was sind Datapoints?",
       "description": "Du kannst mit Simple Analytics zwei Arten von Daten sammeln: Seitenaufrufe und Events. Beide Begriffe zusammen nennen wir Datapoints. Wenn du keine Events nutzt, sind die Datapoints nur Seitenaufrufe. Nutzt du Events, sind die Datapoints auch Events."
     },
     "trial_expires": {
       "title": "Werde ich bei Ablauf meiner Testphase belastet?",
-      "description": "Nein. Nach Ablauf deiner Testphase wird dein Plan automatisch auf die kostenlose Grundversion zurückgesetzt. Du kannst jederzeit zum Plan upgraden, der zu deinen Bedürfnissen passt."
+      "description": "Nein. Nach Ablauf deiner Testphase wird dein Plan automatisch auf den kostenlosen Plan heruntergestuft. Wenn du die Limits des kostenlosen Plans überschreitest, werden deine Dashboards deaktiviert, bis du innerhalb der Limits bleibst oder einen kostenpflichtigen Plan auswählst."
     },
     "cancel": {
       "title": "Kann ich jederzeit kündigen?",
-      "description": "Ja. Du kannst dein Abonnement jederzeit kündigen. Du hast trotzdem Zugang zu deinem Konto und deinen Daten bis zum Ende des bezahlten Zeitraums."
+      "description": "Ja. Du kannst dein Abonnement jederzeit kündigen. Du hast weiterhin bis zum Ende des bezahlten Zeitraums Zugriff auf dein Konto und deine Daten."
     },
     "payment_methods": {
       "title": "Welche Zahlungsmethoden akzeptieren Sie?",
-      "description": "Wir akzeptieren Kreditkarte, Debitkarte, Bitcoin {0}+10&#37; & jährlich{1}, Apple Pay und Google Pay als Zahlungsmethoden für alle unsere kostenpflichtigen Pläne. Du kannst in Euro, US-Dollar oder Britischem Pfund bezahlen. Rechnungen ab {2}500 können via Banküberweisung bezahlt werden und kosten zusätzlich {0}10&#37;{1} an Bank- und Servicegebühren."
+      "description": "Wir akzeptieren Kreditkarte, Debitkarte, Bitcoin {0}+10&#37; & jährlich{1}, Apple Pay und Google Pay für alle unsere kostenpflichtigen Pläne. Du kannst in Euro, US-Dollar oder Britischen Pfund bezahlen. Rechnungen ab {2}500 können per Banküberweisung bezahlt werden und kosten zusätzlich {0}10&#37;{1} an Bank- und Servicegebühren."
     },
     "traffic_change": {
-      "title": "Was passiert mit meinen Gebühren, wenn mein Traffic wächst / sinkt?",
-      "description_1": "Du zahlst nur, was du wirklich brauchst. Das bedeutet, dass wenn dein Plan die Seitenaufruf-Grenze überschreitet, du für Mehrkosten belastet wirst. Simple Analytics berechnet automatisch deinen Preis basierend auf deinem durchschnittlichen Seitenaufruf (erst durch die letzte Monat, dann durch den durchschnittlichen vorherigen drei Monaten).",
-      "description_2": "Wenn du also in den letzten drei Monaten einen Anstieg des Traffics hattest, zahlst du nächsten Monat nur ein bisschen mehr. Genauso zahlst du automatisch ein bisschen weniger, wenn dein durchschnittlicher Seitenaufruf in den letzten Monaten abgenommen hat."
+      "title": "Was passiert, wenn dein Traffic wächst?",
+      "description_1": "Deine monatliche Gebühr passt sich deiner Nutzung an. Ziehe den Schieberegler, um zu sehen, was du für eine bestimmte Menge an Datapoints zahlst. Simple Analytics berechnet automatisch deine Datapoints (zuerst Blick auf den letzten Monat, dann den Durchschnitt der letzten drei Monate).",
+      "description_2": "Wenn du also in den letzten drei Monaten einen Traffic-Anstieg hattest, zahlst du nächsten Monat etwas mehr. Genauso zahlst du automatisch weniger, wenn dein Traffic-Durchschnitt in den letzten Monaten gesunken ist."
+    },
+    "yearly_plans": {
+      "title": "Wie wird bei Jahresplänen abgerechnet?",
+      "description": "Wenn du dich für die jährliche Abrechnung entscheidest, schätzt du deinen Traffic nach der Testphase. Wir senden dir eine E-Mail, wenn du dein Limit überschreitest; du hast eine Woche Zeit, dein Limit zu erhöhen. Andernfalls tun wir das für dich. Um zusätzliche Rechnungen während des Jahres zu vermeiden, setze dein Limit am besten großzügig genug. Nach Ablauf eines Jahres werden deine Datapoints wieder auf null gesetzt."
+    },
+    "history": {
+      "title": "Was bedeutet 30 Tage Verlauf?",
+      "description": "Du kannst Simple Analytics dauerhaft kostenlos (in unserem Free-Plan) nutzen. Es gelten jedoch Einschränkungen. Eine davon ist die Verlaufsgrenze von 30 Tagen. Das bedeutet, du kannst nur die letzten 30 Tage deiner Website-Statistiken einsehen. Ältere Daten werden automatisch von unseren Servern gelöscht. Wenn du einen längeren Datenverlauf und eine längere Aufbewahrungsfrist benötigst, kannst du einen unserer kostenpflichtigen Pläne auswählen."
     }
   },
   "video": {
@@ -390,6 +650,13 @@
       }
     }
   },
+  "case_studies": {
+    "title": "Fallstudien"
+  },
+  "guides": {
+    "title": "Anleitungen",
+    "none_found": "Keine Anleitungen gefunden"
+  },
   "resources": {
     "title": "Ressourcen",
     "overview": "Ressourcenübersicht",
@@ -422,13 +689,6 @@
       "pending_cases": "Ausstehende Fälle",
       "not_researched": "Nicht untersucht"
     }
-  },
-  "case_studies": {
-    "title": "Fallstudien"
-  },
-  "guides": {
-    "title": "Anleitungen",
-    "none_found": "Keine Anleitungen gefunden"
   },
   "utm_builder": {
     "title": "UTM-Generator",
@@ -511,6 +771,13 @@
     "title": "Presse",
     "description": "Interviews mit den Gründern von Simple Analytics in Podcasts und Erwähnungen in anderen Medien."
   },
+  "ai": {
+    "title": "Chat mit {0}deinen{1} Analytics",
+    "subtitle": "Unterstützt von Simple Analytics {0}KI{1}",
+    "description": "Wir haben Simple Analytics gestartet, um Analytics einfach zu machen. Jetzt gehen wir einen Schritt weiter: Stelle deinen Analytics Fragen und erhalte in Echtzeit Einblicke. Probiere unsere Demo!",
+    "not_really": "nicht wirklich",
+    "choose_above_examples": "Wähle eines der obigen Beispiele"
+  },
   "time": {
     "intl_locale": "de-DE",
     "now": "jetzt",
@@ -521,7 +788,9 @@
         "hours": "{0}h her",
         "minutes": "{0}m her"
       }
-    }
+    },
+    "years": "{0} Jahre",
+    "days": "{0} Tage"
   },
   "amount": {
     "million": "Million"
@@ -538,6 +807,24 @@
         "description": "Du sendest zu viele Anfragen in kurzer Zeit. Bitte versuche es später noch einmal."
       }
     }
+  },
+  "error": {
+    "not_found": "Oops, Seite nicht gefunden",
+    "generic": "Oops, ein Fehler ist aufgetreten, bitte lade die Seite neu",
+    "go_home": "Gehe zur Startseite",
+    "refresh": "Bitte lade die Seite neu",
+    "status_message": "{0}. Bitte lade die Seite neu."
+  },
+  "affiliate": {
+    "accepted": "Du hast das Affiliate-Angebot akzeptiert, daher erhältst du einen Rabatt und {0} erhält eine Belohnung.",
+    "undo": "Klicke hier, um dies rückgängig zu machen",
+    "via_name": "Du bist hier über {0}.",
+    "via_code": "Du bist hier über den Affiliate-Code {0}.",
+    "reward_message": "Um dir den ersten Monat kostenlos zu geben und {0} seine Belohnung zu ermöglichen, bitten wir dich, ein 30-Tage-Cookie zu setzen.",
+    "accept_button": "Affiliate-Angebot akzeptieren",
+    "invalid_link": "Es sieht so aus, als wäre dein Affiliate-Link {0} ungültig.",
+    "generic_invalid": "Es scheint, dass dein Affiliate-Link ungültig ist.",
+    "contact_mistake": "Kontaktiere uns, wenn du glaubst, dass dies ein Fehler ist."
   },
   "countries": {
     "_source": "https://github.com/rl-king/elm-iso3166-country-codes/blob/master/src/Iso3166/German.elm",

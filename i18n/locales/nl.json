@@ -48,7 +48,7 @@
     "why_most_privacy": {
       "title": "Waarom is Simple Analytics het {0}beste alternatief voor Google Analytics{1}?",
       "x_reasons": "Hier zijn {0} simpele redenen die het samenvatten.",
-      "reason_1": "Privacybescherming is {0}ons bedrijfsmodel{1}. We houden ons standaard aan alle privacyregels. Waaronder: GDPR, PECR, CCPA en meer.",
+      "reason_1": "Privacybescherming is {0}ons bedrijfsmodel{1}. We houden ons standaard aan alle privacyregels. Waaronder: AVG, PECR, CCPA en meer.",
       "reason_2": "Simpele interface. Wij geven je de inzichten die je nodig hebt in een gebruiksvriendelijk dashboard.",
       "reason_3": "We slaan nooit, maar dan ook nooit, {0}persoonlijke gegevens{1} van je bezoekers op. Geen {0}cookie banners{1}.",
       "reason_4": "Onze {0}Goals{1} en {0}Event verkenner{1} stellen je in staat om uw belangrijkste gebeurtenissen en conversie bij te houden.",
@@ -69,7 +69,7 @@
       },
       "personal_data": {
         "title": "We slaan nooit, maar dan ook nooit, persoonlijke gegevens van je bezoekers op.",
-        "html": "<p>Sommige op privacy gerichte analytics tools gebruiken persoonlijk identificeerbare gegevens en verwijderen deze na een dag.</p><p>Bijvoorbeeld:</p><ul><li>Ze verzamelen het IP-adres van een bezoeker, voegen een datum toe, en maken er een hash van bij elk paginabezoek.</li><li>Deze hashes verbinden paginaweergaven met elkaar. Hoewel dit zeker beter is dan big tech die probeert zoveel mogelijk persoonlijke gegevens te verzamelen om aan adverteerders te verkopen, is het niet 100% waterdicht en is het een grijs gebied.</li><li>De hashes verlopen maar één keer per dag, <em>dus voor minder dan 24 uur is er nog steeds persoonlijk identificeerbare informatie opgeslagen over je bezoekers.</em> Privacy policy's zoals de GDPR leggen uit dat je toestemming van bezoekers moet hebben om persoonlijk identificeerbare informatie (PII) op te slaan.</li></ul><p>Simple Analytics doet nooit concessies wat betref privacy. Daarom gebruiken we alleen unieke bezoekers zonder IP-adressen te volgen. We doen dit op basis van de referrer van de browser, zodat er geen PII wordt opgeslagen. Wanneer je Simple Analytics gebruikt, is het dus {0}100% gegarandeerd dat er geen persoonlijk identificeerbare informatie van een van je bezoekers wordt opgeslagen.{1} Hierdoor is er nul toestemming nodig. Adiós vervelende banners!</p><p>Tip: sommige klanten vervangen hun cookie banners graag door \"we zijn er trots op dat we je privacy beschermen\" banners om een concurrentievoordeel te behalen.</p>"
+        "html": "<p>Sommige op privacy gerichte analytics tools gebruiken persoonlijk identificeerbare gegevens en verwijderen deze na een dag.</p><p>Bijvoorbeeld:</p><ul><li>Ze verzamelen het IP-adres van een bezoeker, voegen een datum toe, en maken er een hash van bij elk paginabezoek.</li><li>Deze hashes verbinden paginaweergaven met elkaar. Hoewel dit zeker beter is dan big tech die probeert zoveel mogelijk persoonlijke gegevens te verzamelen om aan adverteerders te verkopen, is het niet 100% waterdicht en is het een grijs gebied.</li><li>De hashes verlopen maar één keer per dag, <em>dus voor minder dan 24 uur is er nog steeds persoonlijk identificeerbare informatie opgeslagen over je bezoekers.</em> Privacy policy's zoals de AVG leggen uit dat je toestemming van bezoekers moet hebben om persoonlijk identificeerbare informatie (PII) op te slaan.</li></ul><p>Simple Analytics doet nooit concessies wat betref privacy. Daarom gebruiken we alleen unieke bezoekers zonder IP-adressen te volgen. We doen dit op basis van de referrer van de browser, zodat er geen PII wordt opgeslagen. Wanneer je Simple Analytics gebruikt, is het dus {0}100% gegarandeerd dat er geen persoonlijk identificeerbare informatie van een van je bezoekers wordt opgeslagen.{1} Hierdoor is er nul toestemming nodig. Adiós vervelende banners!</p><p>Tip: sommige klanten vervangen hun cookie banners graag door \"we zijn er trots op dat we je privacy beschermen\" banners om een concurrentievoordeel te behalen.</p>"
       },
       "eu_based": {
         "title": "We zijn een in de EU gevestigd bedrijf met in de EU gevestigde servers.",
@@ -95,7 +95,7 @@
       "title": "Waarom zou je moeten overstappen van Google Analytics?",
       "try_us_button": "Ontdek het zelf",
       "paragraph_1": "Google is een van 's werelds grootste gegevensverslindende machines, die de gegevens van je websitebezoekers met winst verkoopt. Vanuit een ethisch standpunt zouden organisaties ernaar moeten streven om de privacy van hun websitebezoekers te beschermen. Nog steeds gebruikt {0}85% van de websites{1} Google Analytics, maar dit staat op het punt ten goede te veranderen. Tijd voor een Google Analytics alternatief.",
-      "paragraph_2": "Privacywetten zoals de GDPR zijn ingevoerd om de privacy van internetgebruikers te beschermen. Gegevensbeschermingsinstanties treden hard op tegen privacyschendende diensten zoals Google Analytics. Frankrijk (CNIL) en Oostenrijk (DSB) hebben al verklaard dat het gebruik van Google Analytics in strijd is met de GDPR-wetgeving in hun landen. Verwacht wordt dat meer EU-landen dit voorbeeld zullen volgen.",
+      "paragraph_2": "Privacywetten zoals de AVG zijn ingevoerd om de privacy van internetgebruikers te beschermen. Gegevensbeschermingsinstanties treden hard op tegen privacyschendende diensten zoals Google Analytics. Frankrijk (CNIL) en Oostenrijk (DSB) hebben al verklaard dat het gebruik van Google Analytics in strijd is met de AVG-wetgeving in hun landen. Verwacht wordt dat meer EU-landen dit voorbeeld zullen volgen.",
       "paragraph_3": "Google Analytics is een complexe web analytics tool die tot nu toe het standaard analytics tool was, maar dit is aan het veranderen, en Google erkent dit ook. Daarom staan ze op het punt om over te stappen op een nieuwe versie genaamd",
       "paragraph_3_link": "GA4 dat privacyvriendelijk wil zijn, maar dat niet is",
       "paragraph_4": "Bovendien beperken webbrowsers de trackingmechanismen en worden adblockers gebruikt om Google Analytics te blokkeren, waardoor hun gegevens steeds minder accuraat worden.",
@@ -151,7 +151,7 @@
   },
   "start_now": {
     "button": "Start nu gratis",
-    "free_trial": "Gratis voor altijd",
+    "free_forever": "Gratis voor altijd",
     "no_credit_card": "Geen creditcard nodig",
     "cancel_anytime": "Annuleer elk moment",
     "try_it_with_your_analytics": "Probeer het met je analytics"
@@ -310,7 +310,7 @@
         "title": "Datapunten",
         "unlimited": "Onbeperkte pageviews",
         "number": "Tot <strong>{0}</strong> maandelijkse pageviews / events",
-        "description": "Omdat de historie beperkt is tot één maand, hebben we geen harde limiet op het aantal pageviews.",
+        "description": "Omdat het terugkijken beperkt is tot één maand, hebben we geen harde limiet op het aantal pageviews.",
         "custom": "Aangepaste datapunten limiet"
       },
       "users": {
@@ -434,7 +434,7 @@
         "description": "Bij het gratis plan moet je je dashboards openbaar maken. Iedereen kan je openbare statistieken zien."
       },
       "limited_lookback": {
-        "title": "1 maand historie",
+        "title": "1 maand terugkijken",
         "description": "Je hebt een analytics-geschiedenis van één maand, oudere data wordt verwijderd."
       },
       "community_support": {
@@ -481,7 +481,7 @@
     "reviews": {
       "capterra": {
         "tooltip": "{0} sterren op Capterra",
-        "users_count": "Gewaardeerd door {0}+ gebruikers"
+        "users_count": "Geliefd door {0}+ gebruikers"
       }
     },
     "company_logos": {
@@ -515,37 +515,62 @@
       "mobile_comparison": "Feature vergelijking"
     }
   },
+
   "pricing_faq": {
     "title": "Veelgestelde vragen",
-    "need_help": "Wilt je meer hulp? Stuur ons dan je vraag of vragen via {0}onze supportpagina{1}.",
+    "need_help": "Meer hulp nodig? Stuur ons je vra(a)g(en) via {0}onze supportpagina{1}.",
+    "data_usage": {
+      "title": "Wat we wel en niet doen met je gegevens",
+      "description": "De gegevens die we verzamelen zijn van jou. We verzamelen alleen niet-persoonlijke gegevens en delen de gegevens niet met derden of versturen ze niet naar het buitenland. Je websitegegevens verlaten Nederland en daarmee de EU nooit. Ook hebben geen andere externe leveranciers toegang tot gegevens buiten het hostingbedrijf dat eigenaar is van de servers waarop de gegevens zijn opgeslagen."
+    },
+    "metrics": {
+      "title": "Welke metrics verzamelen we?",
+      "description": "We verzamelen geen persoonlijke gegevens. We gebruiken geen cookies en verzamelen nooit informatie die gebruikt zou kunnen worden om een gebruiker te fingerprinting. Je hoeft geen instellingen aan te passen om onze software privacyvriendelijk te maken: Simple Analytics is privacyvriendelijk vanaf het begin. Hier is een {0}gedetailleerde lijst{1} van wat we wel en niet verzamelen van je bezoekers."
+    },
+    "gdpr": {
+      "title": "Is Simple Analytics AVG-compliant?",
+      "description": "Simple Analytics is 100% AVG-compliant met de wetgeving voor gegevensbescherming vanaf de installatie. Omdat het alleen niet-persoonlijke gegevens verwerkt, kan het voldoen aan de vereisten van de strengste privacyregelgeving, waaronder de AVG, de ePrivacy-richtlijn, de UK GPDR en de PECR. Voor meer informatie {0}bekijk onze documentatie{1}."
+    },
+    "unlimited_pageviews": {
+      "title": "Wat betekent onbeperkte paginaweergaven?",
+      "description": "Ons gratis plan biedt onbeperkte paginaweergaven. Hiermee kun je zoveel verkeer volgen als je website krijgt zonder beperkingen. We hebben echter een fair use-beleid om ervoor te zorgen dat onze servers soepel blijven draaien voor alle gebruikers. Als je verkeer onze fair use-limieten overschrijdt, stellen we je per e-mail op de hoogte. Als je twijfelt over het verkeersvolume van je website, kun je altijd {0}contact met ons opnemen{1}."
+    },
+    "free_plan": {
+      "title": "Hoe werkt het gratis plan?",
+      "description": "Simple Analytics is voor altijd gratis. Om te beginnen maak je een account aan om je proefperiode te starten (geen creditcard vereist). Tijdens de 14-daagse proefperiode kun je al onze functies verkennen. Na de 14 dagen moet je een plan selecteren om Simple Analytics te blijven gebruiken. Je kunt ervoor kiezen om door te gaan met een van onze betaalde plannen of te downgraden naar ons gratis plan en Simple Analytics voor altijd gratis te blijven gebruiken."
+    },
+    "free_trial": {
+      "title": "Hoe werkt de gratis proefperiode?",
+      "description": "Wanneer je je aanmeldt, start je 14-daagse gratis proefperiode (geen creditcard vereist). Ongeacht welk plan je kiest. Tijdens deze 14 dagen kun je geavanceerde functies zonder beperkingen gebruiken. Na de proefperiode vragen we je om een plan te kiezen om Simple Analytics te blijven gebruiken. Als je voor ons betaalde plan kiest, moet je je betalingsgegevens toevoegen. Je kunt naar elk plan overstappen, mits je gebruik binnen de limieten blijft."
+    },
     "datapoints": {
       "title": "Wat zijn datapunten?",
-      "description": "Je kan twee soorten data verzamelen bij Simple Analytics: paginabezoeken en events. De verzamelterm voor beide is datapunt. Als je geen events gebruikt, zullen de datapunten alleen paginabezoeken zijn. Als je wel events gebruikt, zullen de datapunten ook events zijn."
-    },
-    "free_websites": {
-      "title": "Wat zijn gratis websites?",
-      "description": "Bij een gratis website moet je een Simple Analytics-badge tonen in de footer, en je dashboard moet openbaar zijn. Bij het toevoegen van ons script, voeg je ook de badge toe. We controleren of de badge aanwezig is. Als deze later ontbreekt, waarschuwen we je en krijg je een korte periode om de badge toe te voegen. Doe je dat niet, dan verwijderen we de website en de data."
+      "description": "Je kunt twee soorten gegevens verzamelen met Simple Analytics: paginaweergaven en gebeurtenissen. De gecombineerde term voor beide is datapunt. Als je geen gebeurtenissen gebruikt, zijn de datapunten alleen paginaweergaven. Als je wel gebeurtenissen gebruikt, zijn de datapunten ook gebeurtenissen."
     },
     "trial_expires": {
-      "title": "Moet ik betalen als mijn proefperiode afloopt?",
-      "description": "Nee. Nadat de proefperiode is verlopen, wordt je abonnement automatisch gedowngrade naar de gratis basisversie. Upgrade wanneer je maar wilt naar het plan dat bij je behoeften past."
+      "title": "Word ik gefactureerd wanneer mijn proefperiode verloopt?",
+      "description": "Nee. Na het verlopen van je proefperiode wordt je plan automatisch gedowngrade naar het gratis plan. Als je de gebruikslimieten van het gratis plan overschrijdt, schakelen we je dashboards uit totdat je binnen de limieten van het gratis plan valt, of wanneer je een plan selecteert."
     },
     "cancel": {
       "title": "Kan ik op elk moment opzeggen?",
-      "description": "Ja, je kunt het abonnement op elk moment opzeggen. Je hebt nog toegang tot je account en gegevens tot het einde van de periode waarvoor betaald is."
+      "description": "Ja. Je kunt je abonnement op elk moment opzeggen. Je hebt nog steeds toegang tot je account en gegevens tot het einde van de periode waarvoor je hebt betaald."
     },
     "payment_methods": {
-      "title": "Welke betaalmethoden accepteren wij?",
-      "description": "We accepteren Credit Card, Debit Card, Bitcoin {0}+10&#37; & jaarlijks{1}, Apple Pay, en Google Pay als betaalmethoden voor al onze betaalde plannen. Je kan betalen in Euro's, US-dollars of Britse Ponden. Rekeningen vanaf {2}500 kunnen worden betaald via bankoverschrijvingen en kosten een extra {0}10&#37;{1} aan bank- en servicekosten."
+      "title": "Welke betaalmethoden accepteren jullie?",
+      "description": "We accepteren Credit Card, Debit Card, Bitcoin {0}+10% & jaarlijks{1}, Apple Pay en Google Pay als betaalmethoden voor al onze betaalde plannen. Je kunt betalen in euro's, Amerikaanse dollars of Britse ponden. Facturen vanaf {2}500 kunnen via bankoverschrijvingen worden betaald en kosten een extra {0}10&#37;{1} aan bank- en servicekosten."
     },
     "traffic_change": {
-      "title": "Wat gebeurt er met mijn kosten als mijn verkeer toeneemt / afneemt?",
-      "description_1": "Je betaalt alleen voor wat je daadwerkelijk nodig hebt. Dit betekent dat als de pageview-limiet van het plan wordt overschreden, je in rekening wordt gebracht voor de overschrijdingen. Simple Analytics berekent automatisch je prijs met je gemiddeld aantal pageviews (eerst één maand terugblikkend, dan het gemiddelde van de vorige drie maanden).",
-      "description_2": "Dus, als je een toename in verkeer had gedurende de laatste drie maanden, betaal je volgende maand alleen maar een beetje meer. Op dezelfde manier betaal je automatisch een beetje minder wanneer je gemiddeld aantal pageviews daalde tijdens de laatste maanden."
+      "title": "Wat gebeurt er als je verkeer groeit?",
+      "description_1": "Je maandelijkse bijdrage wordt aangepast aan je gebruik. Sleep de schuifregelaar om te zien wat je betaalt voor een bepaald aantal datapunten. Simple Analytics berekent automatisch je datapunten (eerst één maand terugkijkend, dan het gemiddelde van de vorige drie maanden).",
+      "description_2": "Dus als je een toename in verkeer had tijdens de afgelopen drie maanden, betaal je de volgende maand slechts iets meer. Ook betaal je automatisch iets minder wanneer je gemiddelde aantal paginaweergaven de laatste maanden is gedaald."
     },
     "yearly_plans": {
-      "title": "Hoe werkt dat met de jaarlijkse plannen?",
-      "description": "Als je voor jaarlijks kiest, schat je je verkeer in na je proefperiode. We sturen je een e-mail als je over je limiet gaat, en je hebt een week om je limiet te verhogen. Anders doen wij het voor je. Om extra facturen tijdens het jaar te voorkomen, kun je je limiet vooraf hoger instellen. Na het jaar wordt je datapuntenstand gereset naar nul."
+      "title": "Hoe brengen we jaarlijkse plannen in rekening?",
+      "description": "Wanneer je voor jaarlijks kiest, schat je je verkeer na je proefperiode. We sturen je een e-mail wanneer je over je limiet gaat, je hebt een week om je limiet te verhogen. Anders doen wij dat voor je. Om extra facturen tijdens het jaar te voorkomen, stel je je limiet hoog genoeg in. Na het jaar worden je datapunten op nul gezet."
+    },
+    "history": {
+      "title": "Wat betekent 1 maand terugkijken?",
+      "description": "Je kunt Simple Analytics voor altijd gratis gebruiken (in ons gratis plan). Er zijn echter enkele beperkingen aan dit plan. Eén beperking is je analysegeschiedenis, die is beperkt tot 30 dagen. Dit betekent dat je je websitestatistieken alleen voor de laatste 30 dagen kunt bekijken. Alle verkeersgegevens ouder dan 30 dagen worden automatisch van onze servers verwijderd. Als je een langere gegevensgeschiedenis en -bewaring nodig hebt, kun je kiezen voor een van onze betaalde plannen."
     }
   },
   "video": {
@@ -610,7 +635,7 @@
     },
     "stefaan": {
       "role": "Marketeer",
-      "quote": "Uitstekend alternatief voor Google Analytics. Ja, je betaalt een klein abonnement, maar je krijgt er veel voor terug: {0}GDPR-proof{1} en {0}cookieloze{1} analytics, {0}nauwkeurige{1} tracking en duidelijke visuals."
+      "quote": "Uitstekend alternatief voor Google Analytics. Ja, je betaalt een klein abonnement, maar je krijgt er veel voor terug: {0}AVG-proof{1} en {0}cookieloze{1} analytics, {0}nauwkeurige{1} tracking en duidelijke visuals."
     }
   },
   "glossary": {
@@ -653,7 +678,7 @@
   },
   "ga_countries": {
     "overview": "Landen waar Google Analytics illegaal is",
-    "overview_description": "In sommige landen is Google Analytics illegaal. Dit komt doordat Google Analytics niet GDPR-compliant is. In deze landen kunt je in plaats daarvan Simple Analytics gebruiken. We zijn GDPR-compliant en we gebruiken geen cookies.",
+    "overview_description": "In sommige landen is Google Analytics illegaal. Dit komt doordat Google Analytics niet AVG-compliant is. In deze landen kunt je in plaats daarvan Simple Analytics gebruiken. We zijn AVG-compliant en we gebruiken geen cookies.",
     "map_generated_with": "Kaart gemaakt met",
     "click_country_to_learn_more": "Klik op een land om meer te weten te komen.",
     "labels": {

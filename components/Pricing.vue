@@ -5,52 +5,55 @@
     </p>
 
     <div class="mt-6 mb-0 flex flex-wrap justify-center items-center space-x-7">
-      <Tooltip text="Mollie" class="group">
+      <Tooltip :text="$t('pricing.company_logos.mollie')" class="group">
         <NuxtLink href="https://www.mollie.com/" target="_blank">
           <LogosMollie class="h-5 my-3" />
         </NuxtLink>
       </Tooltip>
-      <Tooltip text="Bloomberg" class="group">
+      <Tooltip :text="$t('pricing.company_logos.bloomberg')" class="group">
         <NuxtLink href="https://www.bloomberg.com/" target="_blank">
           <LogosBloomberg class="h-6 my-3 translate-y-[20%]" />
         </NuxtLink>
       </Tooltip>
-      <Tooltip text="Michelin" class="group">
+      <Tooltip :text="$t('pricing.company_logos.michelin')" class="group">
         <NuxtLink href="https://www.michelin.com/" target="_blank">
           <LogosMichelin class="h-8 my-3" />
         </NuxtLink>
       </Tooltip>
-      <Tooltip text="Hyundai" class="group">
+      <Tooltip :text="$t('pricing.company_logos.hyundai')" class="group">
         <NuxtLink href="https://www.hyundai.com/" target="_blank">
           <LogosHyundai class="h-8 my-3" />
         </NuxtLink>
       </Tooltip>
-      <Tooltip text="GOV.UK" class="group">
+      <Tooltip :text="$t('pricing.company_logos.gov_uk')" class="group">
         <NuxtLink href="https://www.gov.uk/" target="_blank">
           <LogosGovUK class="h-9 my-3" />
         </NuxtLink>
       </Tooltip>
-      <Tooltip text="Polkadot" class="group">
+      <Tooltip :text="$t('pricing.company_logos.polkadot')" class="group">
         <NuxtLink href="https://polkadot.network/" target="_blank">
           <LogosPolkadot class="h-6 my-3" />
         </NuxtLink>
       </Tooltip>
-      <Tooltip text="Bank of England" class="group">
+      <Tooltip
+        :text="$t('pricing.company_logos.bank_of_england')"
+        class="group"
+      >
         <NuxtLink href="https://www.bankofengland.co.uk/" target="_blank">
           <LogosBankOfEngland class="h-10 my-3" />
         </NuxtLink>
       </Tooltip>
-      <Tooltip text="Sketch" class="group">
+      <Tooltip :text="$t('pricing.company_logos.sketch')" class="group">
         <NuxtLink href="https://www.sketch.com/" target="_blank">
           <LogosSketch class="h-6 my-3" />
         </NuxtLink>
       </Tooltip>
-      <Tooltip text="Excalidraw" class="group">
+      <Tooltip :text="$t('pricing.company_logos.excalidraw')" class="group">
         <NuxtLink href="https://excalidraw.com/" target="_blank">
           <LogosExcalidraw class="h-7 my-3" />
         </NuxtLink>
       </Tooltip>
-      <Tooltip text="Nomads" class="group">
+      <Tooltip :text="$t('pricing.company_logos.nomads')" class="group">
         <NuxtLink href="https://nomads.com/" target="_blank">
           <LogosNomadList class="h-8 my-3" />
         </NuxtLink>
@@ -68,7 +71,7 @@
           <NuxtLink
             :to="`https://x.com/${avatar.handle}`"
             target="_blank"
-            :title="`@${avatar.handle} (${avatar.followers > 1000 ? `${Math.floor(avatar.followers / 1000)}k+` : avatar.followers} followers)`"
+            :title="`@${avatar.handle} (${avatar.followers > 1000 ? $t('pricing.followers.count_k', [Math.floor(avatar.followers / 1000)]) : $t('pricing.followers.count', [avatar.followers])})`"
           >
             <Tooltip
               :text="`@${avatar.handle}`"
@@ -77,7 +80,7 @@
             >
               <img
                 :src="`/avatars/${avatar.image}`"
-                :alt="`Avatar of ${avatar.handle}`"
+                :alt="$t('pricing.accessibility.avatar', [avatar.handle])"
                 rel="nofollow"
                 class="h-10 w-10"
               />
@@ -87,7 +90,7 @@
       </div>
 
       <Tooltip
-        text="4.8 stars on Capterra"
+        :text="$t('pricing.reviews.capterra.tooltip', [capterraRating])"
         class="group flex-shrink-0 border-2 border-transparent hover:border-yellow-500 dark:hover:border-transparent dark:hover:bg-yellow-500/20 rounded-md"
       >
         <NuxtLink
@@ -104,7 +107,7 @@
             <StarIcon class="inline h-5 w-5" />
           </div>
           <p class="text-xs sm:text-sm">
-            Loved by {{ userCount }}+<br class="sm:hidden" />users
+            {{ $t("pricing.reviews.capterra.users_count", [userCount]) }}
           </p>
         </NuxtLink>
       </Tooltip>
@@ -130,7 +133,7 @@
     >
       <div class="px-2 order-2 sm:order-0 py-2 flex-grow sm:mr-8">
         <p class="text-center text-sm sm:text-sm mt-1 mb-2">
-          Select the expected monthly pageviews
+          {{ $t("pricing.slider.select_pageviews") }}
         </p>
         <Slider
           :options="sliderOptions"
@@ -146,7 +149,9 @@
           v-model="frequency"
           class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 dark:ring-0 ring-inset ring-gray-200 dark:bg-gray-800"
         >
-          <RadioGroupLabel class="sr-only">Payment frequency</RadioGroupLabel>
+          <RadioGroupLabel class="sr-only">{{
+            $t("pricing.payment_frequency.label")
+          }}</RadioGroupLabel>
           <RadioGroupOption
             as="template"
             v-for="option in frequencies"
@@ -171,7 +176,7 @@
         >
           <span
             class="block py-1 px-2 text-[10px] leading-none font-semibold text-white dark:text-white"
-            >2 months off</span
+            >{{ $t("pricing.payment_frequency.discount") }}</span
           >
         </div>
       </div>
@@ -180,7 +185,7 @@
 
   <div>
     <div
-      class="sm:mx-auto max-w-7xl sm:px-8 pt-4 pb-8 mx-6 sm:flex sm:flex-col sm:align-center"
+      class="sm:mx-auto max-w-7xl sm:px-8 pt-8 pb-8 mx-6 sm:flex sm:flex-col sm:align-center"
     >
       <div
         class="isolate mx-auto mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8"
@@ -199,7 +204,7 @@
             v-if="subscription.featured"
             class="absolute left-1/2 -translate-x-1/2 top-0 transform -translate-y-1/2 bg-green-500 px-3 py-1 rounded-full text-white text-sm font-semibold"
           >
-            Recommended
+            {{ $t("pricing.plan_labels.recommended") }}
           </div>
 
           <div
@@ -221,7 +226,7 @@
             {{ subscription.name }}
           </h3>
           <p
-            class="mt-2 text-sm leading-6"
+            class="mt-2 text-sm leading-6 lg:min-h-[72px]"
             v-if="
               subscription.translation_key || subscription.slug === 'enterprise'
             "
@@ -238,7 +243,7 @@
           >
             <span
               class="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200"
-              >Free</span
+              >{{ $t("pricing.plan_labels.free") }}</span
             >
           </p>
           <p
@@ -248,6 +253,7 @@
               sliderValue !== Infinity
             "
           >
+            <!-- Price -->
             <span
               class="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200"
               >{{
@@ -271,14 +277,34 @@
             }}</span>
           </p>
           <p
-            v-else-if="
-              subscription.slug === 'enterprise' || sliderValue === Infinity
-            "
+            v-else-if="subscription.slug === 'enterprise'"
+            class="mt-6 flex items-baseline gap-x-1"
+          >
+            <span class="text-sm font-semibold leading-6">{{
+              $t("pricing.from")
+            }}</span>
+            <span
+              class="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200"
+              >{{
+                new Intl.NumberFormat($t("time.intl_locale"), {
+                  style: "currency",
+                  currency: currency.code,
+                  minimumFractionDigits: 0,
+                  maximumFractionDigits: 2,
+                }).format(frequency.value === "annually" ? 7500 : 750)
+              }}</span
+            >
+            <span class="text-sm font-semibold leading-6">{{
+              frequency.priceSuffix
+            }}</span>
+          </p>
+          <p
+            v-else-if="sliderValue === Infinity"
             class="mt-6 flex items-baseline gap-x-1"
           >
             <span
               class="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200"
-              >Contact us</span
+              >{{ $t("pricing.contact_us") }}</span
             >
           </p>
           <NuxtLink
@@ -294,74 +320,89 @@
               'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600',
             ]"
           >
-            <span v-if="subscription.slug.includes('free')"
-              >Start for free</span
-            >
+            <span v-if="subscription.slug.includes('free')">{{
+              $t("pricing.buttons.start_free")
+            }}</span>
             <span
               v-else-if="
                 subscription.slug === 'enterprise' || sliderValue === Infinity
               "
-              >Contact sales</span
+              >{{ $t("pricing.buttons.contact_sales") }}</span
             >
-            <span v-else>Start for free</span>
+            <span v-else>{{ $t("pricing.buttons.start_free") }}</span>
           </NuxtLink>
-          <ul role="list" class="mt-8 space-y-3 text-sm leading-6">
+          <ul role="list" class="mt-4 space-y-3 text-sm leading-6">
             <li
               v-if="
                 index !== 0 &&
                 !filteredSubscriptions[index - 1]?.slug?.includes('free')
               "
-              class="flex items-center gap-x-3 italic"
+              class="flex items-center gap-x-3 italic text-gray-400 dark:text-gray-500"
             >
-              <ArrowLeftIcon
-                class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
-                aria-hidden="true"
-              />
-              <span
-                >Everything from
-                {{ filteredSubscriptions[index - 1]?.name }}</span
-              >
+              <ArrowLeftIcon class="h-6 w-5 flex-none" aria-hidden="true" />
+              <span>{{
+                $t("pricing.everything_from", [
+                  filteredSubscriptions[index - 1]?.name,
+                ])
+              }}</span>
             </li>
 
-            <li class="flex gap-x-3" v-if="subscription.slug.includes('free')">
+            <!-- Placeholder for plans without everything from -->
+            <li v-else>
+              <span>&nbsp;</span>
+            </li>
+
+            <li
+              v-if="typeof subscription.limit_users === 'number'"
+              class="flex gap-x-3 items-center"
+            >
               <CheckIcon
                 class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
                 aria-hidden="true"
               />
-              <TooltipPopover
-                v-if="subscription?.slug?.includes('free')"
-                :text="$t('pricing.features.datapoints.unlimited')"
-                key="unlimited_pageviews"
-              >
-                <span>
-                  {{ $t(`pricing.features.datapoints.description`) }}
+
+              <div>
+                <span
+                  class=""
+                  v-html="
+                    $t(
+                      subscription.limit_users === 1
+                        ? 'pricing.features.users.one'
+                        : 'pricing.features.users.number',
+                      [subscription.limit_users],
+                    )
+                  "
+                ></span>
+
+                <span
+                  v-if="subscription.price_per_user"
+                  class="absolute inline-flex translate-y-[3px]"
+                >
+                  <div
+                    class="flex rounded-full bg-green-500 dark:bg-green-600 ml-2"
+                  >
+                    <span
+                      class="block py-1 px-2 text-[11px] leading-none font-semibold text-white dark:text-white"
+                    >
+                      +{{
+                        new Intl.NumberFormat($t("time.intl_locale"), {
+                          style: "currency",
+                          currency: currency.code,
+                          minimumFractionDigits: 0,
+                          maximumFractionDigits: 2,
+                        }).format(subscription.price_per_user / 100)
+                      }}/{{ $t("pricing.features.users.per_user") }}
+                    </span>
+                  </div>
                 </span>
-              </TooltipPopover>
-              <span
-                v-else
-                v-html="
-                  $t('pricing.features.datapoints.number', [
-                    formatDatapoints(sliderValue, $t('time.intl_locale')),
-                  ])
-                "
-              ></span>
+              </div>
             </li>
-
-            <li v-if="subscription.limit_users" class="flex gap-x-3">
+            <li v-else class="flex gap-x-3">
               <CheckIcon
                 class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
                 aria-hidden="true"
               />
-              <span
-                v-html="
-                  $t(
-                    subscription.limit_users === 1
-                      ? 'pricing.features.users.one'
-                      : 'pricing.features.users.number',
-                    [subscription.limit_users],
-                  )
-                "
-              ></span>
+              <span>{{ $t("pricing.features.users.custom") }}</span>
             </li>
 
             <li
@@ -389,40 +430,57 @@
                 "
               ></span>
             </li>
+            <li v-else class="flex gap-x-3">
+              <CheckIcon
+                class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
+                aria-hidden="true"
+              />
+              <span>{{ $t("pricing.features.websites.custom") }}</span>
+            </li>
+
+            <li v-if="subscription.slug === 'enterprise'" class="flex gap-x-3">
+              <CheckIcon
+                class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
+                aria-hidden="true"
+              />
+              <span>{{ $t("pricing.features.datapoints.custom") }}</span>
+            </li>
 
             <li
-              v-if="
-                subscription.limit_email_reports === null ||
-                (typeof subscription.limit_email_reports === 'number' &&
-                  subscription.limit_email_reports !== 0)
-              "
+              v-if="subscription.slug === 'free-monthly'"
               class="flex gap-x-3"
+            >
+              <ExclamationTriangleIcon
+                class="h-6 w-5 flex-none text-red-500 dark:text-red-600"
+                aria-hidden="true"
+              />
+              <TooltipPopover
+                :text="$t('pricing.features.limited_lookback.title')"
+                key="free"
+              >
+                <span
+                  v-html="$t('pricing.features.limited_lookback.description')"
+                >
+                </span>
+              </TooltipPopover>
+            </li>
+            <li
+              class="flex gap-x-3"
+              v-else-if="
+                typeof subscription.limit_data_retention_days === 'number'
+              "
             >
               <CheckIcon
                 class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
                 aria-hidden="true"
               />
-              <TooltipPopover
-                :text="
-                  $t(
-                    subscription.limit_email_reports === 1
-                      ? 'pricing.features.email_reports.one'
-                      : subscription.limit_email_reports === null
-                        ? 'pricing.features.email_reports.unlimited'
-                        : 'pricing.features.email_reports.number',
-                    [subscription.limit_email_reports],
-                  )
+              <span
+                v-html="
+                  $t('pricing.features.data_retention_days.number', [
+                    formatDays(subscription.limit_data_retention_days),
+                  ])
                 "
-                key="limit_email_reports"
-              >
-                <span>
-                  {{
-                    $t("pricing.features.email_reports.description", [
-                      subscription.limit_email_reports,
-                    ])
-                  }}
-                </span>
-              </TooltipPopover>
+              ></span>
             </li>
 
             <li
@@ -434,12 +492,43 @@
                 class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
                 aria-hidden="true"
               />
-              <span>{{ $t(`pricing.features.${feature}.title`) }}</span>
+              <TooltipPopover
+                :text="$t(`pricing.features.${feature}.title`)"
+                :key="feature"
+                v-if="featureHasDescription(feature)"
+              >
+                <span
+                  v-if="feature === 'community_support'"
+                  v-html="
+                    $t('pricing.features.community_support.description', [
+                      `<a href='https://community.simpleanalytics.com/' target='_blank'>`,
+                      `</a>`,
+                    ])
+                  "
+                >
+                </span>
+                <span v-else>
+                  {{ $t(`pricing.features.${feature}.description`) }}
+                </span>
+              </TooltipPopover>
+              <span v-else-if="feature !== 'data_retention_days'">{{
+                $t(`pricing.features.${feature}.title`)
+              }}</span>
             </li>
 
             <li
               v-for="feature in subscription.slug === 'enterprise'
                 ? subscription.unique_features
+                    .filter(
+                      (feature) =>
+                        planListExpanded ||
+                        !featureIsHiddenInPlan(feature.feature),
+                    )
+                    .sort((a, b) => {
+                      if (featureIsHiddenInPlan(a.feature)) return 1;
+                      if (featureIsHiddenInPlan(b.feature)) return -1;
+                      return 0;
+                    })
                 : subscription.unique_features
                     ?.filter(
                       (f) =>
@@ -459,11 +548,6 @@
                 aria-hidden="true"
                 v-if="feature.feature?.includes('require')"
               />
-              <QuestionMarkCircleIcon
-                class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
-                aria-hidden="true"
-                v-else-if="subscription.slug === 'enterprise'"
-              />
               <CheckIcon
                 class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
                 aria-hidden="true"
@@ -476,17 +560,7 @@
                 v-if="featureHasDescription(feature.feature)"
               >
                 <span
-                  v-if="feature.feature === 'badge_requirement'"
-                  v-html="
-                    $t('pricing.features.badge_requirement.description', [
-                      `<a href='https://simpleanalytics.com/badges' target='_blank'>`,
-                      `</a>`,
-                    ])
-                  "
-                >
-                </span>
-                <span
-                  v-else-if="feature.feature === 'community_support'"
+                  v-if="feature.feature === 'community_support'"
                   v-html="
                     $t('pricing.features.community_support.description', [
                       `<a href='https://community.simpleanalytics.com/' target='_blank'>`,
@@ -526,33 +600,11 @@
                   aria-hidden="true"
                 />
 
-                <span v-if="planListExpanded">Show less</span>
-                <span v-else>Show more</span>
+                <span v-if="planListExpanded">{{
+                  $t("pricing.features_list.show_less")
+                }}</span>
+                <span v-else>{{ $t("pricing.features_list.show_more") }}</span>
               </NuxtLink>
-            </li>
-
-            <li
-              v-if="subscription.slug === 'free-monthly'"
-              class="flex gap-x-3"
-            >
-              <ExclamationTriangleIcon
-                class="h-6 w-5 flex-none text-red-500 dark:text-red-600"
-                aria-hidden="true"
-              />
-              <TooltipPopover
-                :text="$t('pricing.features.limited_lookback.title')"
-                key="free"
-              >
-                <span
-                  v-html="
-                    $t('pricing.features.limited_lookback.description', [
-                      //`<a href='https://simpleanalytics.com/badges' target='_blank'>`,
-                      //`</a>`,
-                    ])
-                  "
-                >
-                </span>
-              </TooltipPopover>
             </li>
           </ul>
         </div>
@@ -567,11 +619,11 @@
       v-if="featuresOpen"
     >
       <MinusIcon class="h-5 w-5 mr-2" aria-hidden="true" />
-      Hide all plan features
+      {{ $t("pricing.features_list.hide_all") }}
     </NuxtLink>
     <NuxtLink @click="featuresOpen = !featuresOpen" class="button" v-else>
       <PlusIcon class="h-5 w-5 mr-2" aria-hidden="true" />
-      Show all plan features
+      {{ $t("pricing.features_list.show_all") }}
     </NuxtLink>
   </p>
 
@@ -581,7 +633,9 @@
       class="sticky hidden lg:block top-0 z-50 mt-10 bg-gradient-to-b from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-900 border-b border-gray-200 dark:border-gray-600"
     >
       <div class="mx-auto max-w-7xl px-6 py-8 sm:pb-8 sm:bt-8 lg:px-8">
-        <h2 id="comparison-heading" class="sr-only">Feature comparison</h2>
+        <h2 id="comparison-heading" class="sr-only">
+          {{ $t("pricing.accessibility.feature_comparison") }}
+        </h2>
 
         <div class="grid grid-cols-4 gap-x-8 before:block">
           <div
@@ -620,7 +674,7 @@
                 class="button mt-6 block text-sm font-semibold leading-6"
                 href="/signup"
               >
-                Start now
+                {{ $t("pricing.buttons.start_now") }}
               </NuxtLink>
             </div>
           </div>
@@ -637,7 +691,7 @@
             class="lg:hidden"
           >
             <h2 id="mobile-comparison-heading" class="sr-only">
-              Feature comparison
+              {{ $t("pricing.accessibility.mobile_comparison") }}
             </h2>
 
             <div class="mx-auto max-w-2xl space-y-16">
@@ -772,8 +826,12 @@
                                 />
                                 <span class="sr-only">{{
                                   feature.subscriptions[index]?.value === true
-                                    ? "Yes"
-                                    : "No"
+                                    ? $t(
+                                        "pricing.accessibility.feature_value.yes",
+                                      )
+                                    : $t(
+                                        "pricing.accessibility.feature_value.no",
+                                      )
                                 }}</span>
                               </template>
                             </dd>
@@ -961,8 +1019,12 @@
                                     ? ""
                                     : feature.subscriptions[index]?.value ===
                                         true
-                                      ? "Yes"
-                                      : "No"
+                                      ? $t(
+                                          "pricing.accessibility.feature_value.yes",
+                                        )
+                                      : $t(
+                                          "pricing.accessibility.feature_value.no",
+                                        )
                               }}</span>
                             </template>
                           </span>
@@ -1008,10 +1070,7 @@ import {
   ArrowDownIcon,
   StarIcon,
 } from "@heroicons/vue/20/solid";
-import {
-  QuestionMarkCircleIcon,
-  ExclamationTriangleIcon,
-} from "@heroicons/vue/24/outline";
+import { ExclamationTriangleIcon } from "@heroicons/vue/24/outline";
 import { ArrowLeftIcon } from "@heroicons/vue/24/solid";
 import { userCount } from "~/utils/miscellaneous";
 import BlameOurMarketeerForThis from "./handwritten/BlameOurMarketeerForThis.vue";
@@ -1019,12 +1078,15 @@ import BlameOurMarketeerForThis from "./handwritten/BlameOurMarketeerForThis.vue
 const theme = useTheme();
 const config = useRuntimeConfig();
 const { DASHBOARD_URL } = config.public;
+const { t } = useI18n();
 
 const featuresOpen = ref(false);
 const planListExpanded = ref(false);
 const sliderValue = ref(0);
 const currency = useState("currency");
 const router = useRouter();
+
+const capterraRating = 4.8;
 
 const handleSliderValue = (value) => {
   sliderValue.value = value;
@@ -1074,11 +1136,11 @@ const groups = [
 
   // Admin
   { group: "admin", feature: "roles_based_access_control" },
-  { group: "admin", feature: "multiple_teams" },
-  { group: "admin", feature: "combined_invoicing" },
   { group: "admin", feature: "manual_invoicing" },
   { group: "admin", feature: "redlining_contracts" },
   { group: "admin", feature: "uptime_sla" },
+  { group: "admin", feature: "multiple_teams", hideInPlan: true },
+  { group: "admin", feature: "combined_invoicing", hideInPlan: true },
 
   // Features
   { group: "features", feature: "trendlines" },
@@ -1098,12 +1160,18 @@ const groups = [
   { group: "support", feature: "community_support", description: true },
   { group: "support", feature: "email_support" },
   { group: "support", feature: "video_support" },
-  { group: "support", feature: "legal_support" },
+  { group: "support", feature: "priority_support" },
+  { group: "support", feature: "legal_support", hideInPlan: true },
 ];
 
 const featureHasDescription = (feature) => {
   const group = groups.find((group) => group.feature === feature);
   return group?.description ?? false;
+};
+
+const featureIsHiddenInPlan = (feature) => {
+  const group = groups.find((group) => group.feature === feature);
+  return group?.hideInPlan ?? false;
 };
 
 const clickEnterprise = () => {
@@ -1161,9 +1229,8 @@ const error = computed(() => {
     fetchError.value.message.includes("no response")
   ) {
     if (process.env.NODE_ENV === "development")
-      return "Hey developer! Start the dashboard app to fetch the data.";
-    else
-      return "We're having trouble fetching the data. Please try again later.";
+      return t("pricing.developer.start_dashboard");
+    else return t("pricing.developer.fetch_error");
   }
   return fetchError.value;
 });
@@ -1256,6 +1323,7 @@ const filteredSubscriptions = computed(() => {
         slug,
         translation_key,
         datapoints_graduated_pricing: subscription.datapoints_graduated_pricing,
+        users_graduated_pricing: subscription.users_graduated_pricing,
         featured: subscription.plan_slug.includes("team"),
         showInPlanFeatures: true,
         features,
@@ -1267,6 +1335,9 @@ const filteredSubscriptions = computed(() => {
         limit_look_back_days: subscription.limit_look_back_days,
         limit_data_retention_days: subscription.limit_data_retention_days,
         highlighted_features: subscription.highlighted_features,
+        price_per_user: subscription.users_graduated_pricing.find(
+          (price) => price.unit_price_cents,
+        )?.unit_price_cents,
       };
     })
     // If a feature shows in the a plan, do not show it in the next plan
@@ -1354,13 +1425,13 @@ const sections = computed(() => {
 
   // Group by group like this:
   // const sections = [
-  // {
-  //   name: "Catered for business",
-  //   features: [
-  //     {
-  //       name: "Tax Savings",
-  //       subscriptions: { Starter: true, Scale: true, Growth: true },
-  //     },
+  //   {
+  //     name: "Catered for business",
+  //     features: [
+  //       {
+  //         name: "Tax Savings",
+  //         subscriptions: { Starter: true, Scale: true, Growth: true },
+  //       },
 
   const sections2 = groups.reduce((acc, group) => {
     const section = acc.find((section) => section.name === group.group);
@@ -1387,9 +1458,9 @@ const sections = computed(() => {
 });
 
 const formatDays = (days) => {
-  if (days === 1096) return "3 years";
-  if (days === 1826) return "5 years";
-  return `${days} days`;
+  if (days === 1096) return t("time.years", [3]);
+  if (days === 1826) return t("time.years", [5]);
+  return t("time.days", [days]);
 };
 
 const avatars = [

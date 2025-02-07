@@ -199,7 +199,7 @@
 
         <div class="mt-20 text-center">
           <StartTrial
-            :buttonText="$t('start_trial.try_it_with_your_analytics')"
+            :buttonText="$t('start_now.try_it_with_your_analytics')"
           />
         </div>
       </div>

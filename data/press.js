@@ -1,10 +1,32 @@
 export const pressMentions = [
   {
     type: "podcast",
+    name: "Van Start tot Ster",
+    slug: "van-start-tot-ster",
+    hosts: ["Bart Sprenkels"],
+    date: new Date("2025-01-27"),
+    locale: "nl",
+    image:
+      "https://assets.simpleanalytics.com/press/mentions/onderneming-nl/cover.jpg",
+    video: {
+      mp4: "https://assets.simpleanalytics.com/press/mentions/onderneming-nl/video.mp4",
+      poster:
+        "https://assets.simpleanalytics.com/press/mentions/onderneming-nl/cover.jpg",
+      subtitles: {
+        en: "https://assets.simpleanalytics.com/press/mentions/onderneming-nl/subtitles.en.vtt",
+        nl: "https://assets.simpleanalytics.com/press/mentions/onderneming-nl/subtitles.nl.vtt",
+      },
+    },
+    url: "https://www.youtube.com/watch?v=noHCFY7g1a0",
+    description:
+      "In this episode, we talk with Iron Brands, a young entrepreneur with a big vision. As a serial entrepreneur, he has built multiple companies, including Fiks, a platform connecting students with internships, and UniHosted, a web hosting and cloud solutions company. He also co-founded Simple Analytics, an alternative to Google Analytics that gives users more control over their data, which he runs with his business partner, Adriaan van Rossum. In this podcast, Iron shares his entrepreneurial journey, his commitment to transparency, and his unique perspective on business.",
+  },
+  {
+    type: "podcast",
     name: "The Growth Syndicate",
     slug: "the-growth-syndicate",
     hosts: ["Ferdinand Goetzen", "Clement Dumont"],
-    date: new Date("2023-05-28"),
+    date: new Date("2024-05-28"),
     locale: "en",
     image:
       "https://assets.simpleanalytics.com/press/mentions/the-growth-syndicate/cover.jpg",
@@ -70,7 +92,7 @@ export const pressMentions = [
     audio:
       "https://assets.simpleanalytics.com/press/mentions/ethical-allies/audio.mp3",
     image:
-      "https://assets.simpleanalytics.com/images/press/ethical-allies/ethical-commerce-alliance.png",
+      "https://assets.simpleanalytics.com/press/mentions/ethical-allies/cover.png",
     url: "https://www.ethicalalliance.co/ethical-allies/my-data-my-privacy-ethical-data-analytics",
     archive:
       "https://web.archive.org/web/20240613031938/https://www.ethicalalliance.co/ethical-allies/my-data-my-privacy-ethical-data-analytics",

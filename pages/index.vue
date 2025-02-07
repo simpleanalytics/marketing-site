@@ -8,32 +8,29 @@
         v-if="affiliateCookie"
         class="border-2 bg-white dark:bg-gray-900 border-red-500 dark:border-red-600 rounded-lg text-center p-4 shadow"
       >
-        You accepted the affiliate deal, therefore you get a discount and
-        <strong>{{ affiliate?.name || "the promoter" }}</strong> gets a reward.
-        <a @click="undoAffiliate(affiliate)">Click here to undo this</a>.
+        {{ $t("affiliate.accepted", [affiliate?.name || "the promoter"]) }}
+        <a @click="undoAffiliate(affiliate)">{{ $t("affiliate.undo") }}</a
+        >.
       </p>
       <div
         v-else-if="affiliate.valid === true"
         class="border-2 bg-white dark:bg-gray-900 border-red-500 dark:border-red-600 rounded-lg text-center p-4 shadow"
       >
         <p class="mb-2">
-          <span v-if="affiliate.name"
-            >You are here via <strong>{{ affiliate.name }}</strong
-            >.</span
-          >
+          <span v-if="affiliate.name">{{
+            $t("affiliate.via_name", [affiliate.name])
+          }}</span>
           <span v-else-if="affiliate.slug">
-            You are here via the affiliate code
-            <strong>{{ affiliate.slug }}</strong
-            >.
+            {{ $t("affiliate.via_code", [affiliate.slug]) }}
           </span>
-          To give you the first month for free and give
-          {{ affiliate.name || "the promoter" }} their reward, we ask you to
-          place a cookie for 30 days.
+          {{
+            $t("affiliate.reward_message", [affiliate.name || "the promoter"])
+          }}
         </p>
 
-        <a @click="acceptAffiliate(affiliate)" class="button primary"
-          >Accept affiliate deal</a
-        >
+        <a @click="acceptAffiliate(affiliate)" class="button primary">{{
+          $t("affiliate.accept_button")
+        }}</a>
       </div>
 
       <p
@@ -42,10 +39,9 @@
       >
         <span v-if="affiliate.error">{{ affiliate.error }}</span>
         <span v-else-if="affiliate.slug">
-          It looks like your affiliate link
-          <strong>"{{ affiliate.slug }}"</strong> is invalid.
+          {{ $t("affiliate.invalid_link", [affiliate.slug]) }}
         </span>
-        <span v-else>It looks like your affiliate link is invalid.</span>
+        <span v-else>{{ $t("affiliate.generic_invalid") }}</span>
 
         <NuxtLink
           :href="
@@ -53,9 +49,8 @@
           "
           target="_blank"
           class="text-white underline ml-1"
-          >Contact us</NuxtLink
+          >{{ $t("affiliate.contact_mistake") }}</NuxtLink
         >
-        if you think this is a mistake.
       </p>
     </div>
 
@@ -855,24 +850,24 @@
             {{ emailReportError }}
           </p>
 
-          <p>
+          <p class="flex mt-2">
             <input
               ref="emailReportEmailField"
               type="text"
               v-model="emailReportEmail"
               :placeholder="$t('home.reports.email_placeholder')"
-              class="appearance-none max-w-full rounded-sm w-72 mr-2 mt-2 pl-3 py-2 text-base focus:outline-none sm:text-normal bg-gray-50 text-gray-500 border border-gray-200 dark:border-0 dark:bg-gray-600 dark:text-gray-300"
+              class="appearance-none max-w-full rounded-sm w-72 mr-2 mt-2 pl-3 py-2 text-base focus:outline-none sm:text-normal bg-gray-50 text-gray-500 border border-gray-200 dark:border-0 dark:!bg-gray-800 dark:text-gray-300"
             />
 
             <select
               v-model="emailReportPeriod"
-              class="appearance-none rounded-sm mr-2 mt-2 pl-3 pr-8 py-2 text-base focus:outline-none sm:text-normal bg-gray-50 text-gray-500 border border-gray-200 dark:border-0 dark:bg-gray-600 dark:text-gray-300"
+              class="appearance-none rounded-sm mr-2 mt-2 pl-3 pr-8 py-2 text-base focus:outline-none sm:text-normal bg-gray-50 text-gray-500 border border-gray-200 dark:border-0 dark:bg-gray-600 dark:text-gray-300 w-[150px]"
             >
               <option value="week">{{ $t("home.reports.weekly") }}</option>
               <option value="month">{{ $t("home.reports.monthly") }}</option>
             </select>
 
-            <a @click="saveEmailReport" class="mt-2 button">{{
+            <a @click="saveEmailReport" class="button flex-shrink-0 mt-2">{{
               $t("home.reports.add_recipient")
             }}</a>
           </p>
