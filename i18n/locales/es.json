@@ -57,7 +57,7 @@
       "read_detailed_reasons": "Lee las razones detalladas",
       "business_model": {
         "title": "La protección de la privacidad es nuestro modelo de negocio.",
-        "html": "<p>Las grandes empresas tecnológicas han estado recopilando datos personales durante años para obtener beneficios. Los usuarios obtienen un producto “gratuito”, y las grandes empresas tecnológicas cobran a los anunciantes que quieren comprar su atención.</p><ul><li>Mientras usas el producto “gratuito”, las empresas tecnológicas recopilan cantidades inquietantemente grandes de datos para crear un perfil específico de tus datos demográficos, etnia, preferencias políticas, intereses, deseos, gustos y disgustos.</li><li>Las grandes empresas tecnológicas venderán esa información al mejor postor como su modelo de negocio. Sin decirte abiertamente.</li></ul><p>Nosotros nos disgustamos con estas prácticas. Debido a que Simple Analytics es un servicio de pago, somos independientes y no tenemos ninguna preferencia ni conflicto de interés. Aquí no hay segundas agendas.</p><p>Nuestra misión es simple:</p><ul><li>Te ofrecemos las más rápidas, fáciles e éticas insights sobre el rendimiento de tu sitio web, manteniendo los más altos estándares de privacidad.</li><li>Para lograr esto, Simple Analytics tiene un {0}roadmap abierto{1} para que puedas ver los próximos pasos o solicitar características. Además, operamos {2}totalmente de forma transparente{3} al compartir nuestras métricas (incluidos los ingresos, los costes, la cantidad de clientes y el tráfico).</li></ul>"
+        "html": "<p>Las grandes empresas tecnológicas han estado recopilando datos personales durante años para obtener beneficios. Los usuarios obtienen un producto \"gratuito\", y las grandes empresas tecnológicas cobran a los anunciantes que quieren comprar su atención.</p><ul><li>Mientras usas el producto \"gratuito\", las empresas tecnológicas recopilan cantidades inquietantemente grandes de datos para crear un perfil específico de tus datos demográficos, etnia, preferencias políticas, intereses, deseos, gustos y disgustos.</li><li>Las grandes empresas tecnológicas venderán esa información al mejor postor como su modelo de negocio. Sin decirte abiertamente.</li></ul><p>Nosotros nos disgustamos con estas prácticas. Debido a que Simple Analytics es un servicio de pago, somos independientes y no tenemos ninguna preferencia ni conflicto de interés. Aquí no hay segundas agendas.</p><p>Nuestra misión es simple:</p><ul><li>Te ofrecemos las más rápidas, fáciles e éticas insights sobre el rendimiento de tu sitio web, manteniendo los más altos estándares de privacidad.</li><li>Para lograr esto, Simple Analytics tiene un {0}roadmap abierto{1} para que puedas ver los próximos pasos o solicitar características. Además, operamos {2}totalmente de forma transparente{3} al compartir nuestras métricas (incluidos los ingresos, los costes, la cantidad de clientes y el tráfico).</li></ul>"
       },
       "ai": {
         "title": "Consigue insights con nuestra IA sin tener que clicar en informes.",
@@ -150,10 +150,10 @@
     }
   },
   "start_now": {
-    "button": "Comenzar prueba gratuita ahora",
-    "free_forever": "",
+    "button": "Empezar gratis ahora",
+    "free_forever": "Gratis para siempre",
     "no_credit_card": "No se requiere tarjeta de crédito",
-    "cancel_anytime": "Cancelar en cualquier momento",
+    "cancel_anytime": "Cancelar cuando quieras",
     "try_it_with_your_analytics": "Pruébalo con tus analíticas"
   },
   "banners": {
@@ -199,7 +199,7 @@
   "nav": {
     "login": "Iniciar sesión",
     "pricing": "Precio",
-    "start_now": "",
+    "start_now": "Empezar ahora",
     "resources": "Recursos",
     "docs": "Documentación",
     "blog": "Blog",

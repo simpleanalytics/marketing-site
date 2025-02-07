@@ -150,11 +150,11 @@
     }
   },
   "start_now": {
-    "button": "Commencez l'essai gratuit maintenant",
-    "free_forever": "",
+    "button": "Commencer gratuitement maintenant",
+    "free_forever": "Gratuit pour toujours",
     "no_credit_card": "Aucune carte de crédit requise",
-    "cancel_anytime": "Annulez à tout moment",
-    "try_it_with_your_analytics": "Essayez-le avec vos propres analyses"
+    "cancel_anytime": "Annulez quand vous voulez",
+    "try_it_with_your_analytics": "Essayez-le avec vos analyses"
   },
   "banners": {
     "import_ga": {
@@ -199,7 +199,7 @@
   "nav": {
     "login": "Se connecter",
     "pricing": "Tarifs",
-    "start_now": "",
+    "start_now": "Commencer maintenant",
     "resources": "Ressources",
     "docs": "Documentation",
     "blog": "Blog",
