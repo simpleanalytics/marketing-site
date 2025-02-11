@@ -27,6 +27,7 @@
           <option value="linkedin">LinkedIn</option>
           <option value="blog">Blog</option>
           <option value="podcast">Podcast</option>
+          <option value="youtube">Youtube</option>
           <option value="other">Other</option>
         </select>
         <div v-if="signupSourceErrors.length" class="mt-1">
