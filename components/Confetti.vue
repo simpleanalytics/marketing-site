@@ -9,7 +9,7 @@ declare global {
 
 const { onLoaded } = useScriptNpm({
   packageName: "canvas-confetti",
-  file: "dist//confetti.browser.js",
+  file: "dist/confetti.browser.js",
   version: "1.9.3",
   scriptOptions: {
     bundle: true,
