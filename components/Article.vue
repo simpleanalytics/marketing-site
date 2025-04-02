@@ -272,6 +272,7 @@ const { data } = await useArticle({
     "coverImageWithText",
     "coverImageWithoutText",
     "inlineMedia",
+    "canonicalUrl",
   ],
   page: props.page,
   routeName: props.name,
@@ -352,6 +353,17 @@ const image = computed(
       ? `${DASHBOARD_URL}/generate-image.png?${generateParams}`
       : null),
 );
+
+if (article?.value?.canonicalUrl) {
+  useHead({
+    link: [
+      {
+        rel: "canonical",
+        href: article?.value?.canonicalUrl,
+      },
+    ],
+  });
+}
 
 if (!props.hideSeoMeta) {
   useSeoMeta({

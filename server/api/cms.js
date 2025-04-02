@@ -197,9 +197,9 @@ const preconvert = (
                       const color = metadata?.meta?.averageColorHex || "";
                       const brightness =
                         metadata?.meta?.averageColorBrightness || "";
-                      return `<Video width="${xlarge?.width || ""}" height="${
+                      return `<Video :width="${xlarge?.width || ""}" :height="${
                         xlarge?.height || ""
-                      }" background="${color}" brightness="${brightness}" poster="${poster}"><source src="${
+                      }" background="${color}" :brightness="${brightness || ""}" poster="${poster}"><source src="${
                         xlarge?.mp4?.url || attributes.url
                       }" type="video/mp4" />${
                         xlarge?.webm?.url
