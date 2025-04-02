@@ -14,7 +14,9 @@
       </p>
     </div>
 
-    <p v-if="pending" class="text-center">{{ $t("blog.loading_post") }}</p>
+    <p v-if="status === 'pending'" class="text-center">
+      {{ $t("blog.loading_post") }}
+    </p>
     <p
       v-else-if="error"
       class="bg-red-500 dark:bg-red-600 text-white dark:text-white rounded-lg text-center p-4 shadow dark:shadow-none"
@@ -80,27 +82,26 @@
 </template>
 
 <script setup>
-import GoogleAnalyticsIcon from "@/components/icons/GoogleAnalytics.vue";
 import Arrow from "@/components/Arrow.vue";
-import transformer from "@/utils/transformer";
 import { categories } from "@/data/glossary";
-import {
-  ChartBarSquareIcon,
-  ComputerDesktopIcon,
-} from "@heroicons/vue/24/outline";
 
 const route = useRoute();
 const { locale, getBrowserLocale } = useI18n();
 const localePath = useLocalePath();
-const browserLocale = getBrowserLocale();
 const {
   public: { LOCALES },
 } = useRuntimeConfig();
 
-const { articles, pending, error } = await useArticle({
+const {
+  data: articlesData,
+  error,
+  status,
+} = await useArticle({
   routeName: "glossary-category",
   articleType: route.params.category,
 });
+
+const articles = computed(() => articlesData.value?.articles || []);
 
 const category = computed(() => {
   const category = categories.find(

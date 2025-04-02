@@ -73,6 +73,10 @@
       </NuxtLink>
     </div>
   </div>
+
+  <p v-if="status === 'pending'" class="text-center">
+    {{ $t("blog.loading_post") }}
+  </p>
 </template>
 
 <script setup>
@@ -94,11 +98,12 @@ const { t } = useI18n();
 
 const isGoogleAnalytics = ref(true);
 
-const { articles } = await useArticle({
-  routeName: "google-analytics-countries-slug",
+const { data: articlesData, status } = await useArticle({
+  routeName: "google-analytics-countries",
   articleType: "google-analytics-countries",
-  keys: ["metadata"],
 });
+
+const articles = computed(() => articlesData.value?.articles || []);
 
 const classes = {
   yes: "bg-red-500 fill-red-500 hover:fill-red-600 stroke-white dark:stroke-gray-800 hover:stroke-red-600",

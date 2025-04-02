@@ -342,7 +342,7 @@
                             </div>
                             <div
                               class="hidden px-5 py-5 bg-blue-100 dark:bg-gray-700 sm:px-8 sm:py-8"
-                              v-if="pending || recentPosts?.length"
+                              v-if="status === 'pending' || recentPosts?.length"
                             >
                               <div>
                                 <h3
@@ -356,7 +356,10 @@
                                     {{ $t("home.in_english") }}
                                   </span>
                                 </h3>
-                                <p v-if="pending" class="mt-5 text-sm">
+                                <p
+                                  v-if="status === 'pending'"
+                                  class="mt-5 text-sm"
+                                >
                                   {{ $t("home.loading_posts") }}...
                                 </p>
                                 <p
@@ -864,7 +867,7 @@
               </h5>
 
               <p
-                v-if="pending"
+                v-if="status === 'pending'"
                 class="text-gray-600 dark:text-gray-400 py-3 px-3 block text-left"
               >
                 {{ $t("home.loading_posts") }}...
@@ -1168,14 +1171,12 @@ if (import.meta.client) {
 
 const isDev = NODE_ENV === "development";
 
-const pending = false;
-const recentPosts = [];
+const { data: articlesData, status } = await useArticle({
+  routeName: "blog-slug",
+  articleType: "blog",
+  limit: 3,
+  useLocale: true,
+});
 
-// const { articles: recentPosts, pending } = await useArticle({
-//   routeName: "blog-slug",
-//   articleType: "blog",
-//   keys: ["coverImageWithText", "coverImageWithoutText"],
-//   limit: 3,
-//   useLocale: true,
-// });
+const recentPosts = computed(() => articlesData.value?.articles || []);
 </script>

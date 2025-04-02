@@ -10,7 +10,9 @@
         {{ $t(section.titleTranslation) }}
       </h1>
     </div>
-    <p v-if="pending" class="text-center">{{ $t("blog.loading_post") }}</p>
+    <p v-if="status === 'pending'" class="text-center">
+      {{ $t("blog.loading_post") }}
+    </p>
     <p
       v-else-if="error"
       class="bg-red-500 dark:bg-red-600 text-white dark:text-white rounded-lg text-center p-4 shadow dark:shadow-none"
@@ -56,10 +58,8 @@
 <script setup>
 import Arrow from "@/components/Arrow.vue";
 import { sections } from "@/data/resources";
-const route = useRoute();
 const { locale, getBrowserLocale } = useI18n();
 const localePath = useLocalePath();
-const browserLocale = getBrowserLocale();
 const {
   public: { LOCALES },
 } = useRuntimeConfig();
@@ -69,8 +69,14 @@ const section = computed(() => {
   return section || {};
 });
 
-const { articles, pending, error } = await useArticle({
+const {
+  data: articlesData,
+  error,
+  status,
+} = await useArticle({
   routeName: "resources-comparisons",
   articleType: "resources-comparisons",
 });
+
+const articles = computed(() => articlesData.value?.articles || []);
 </script>
