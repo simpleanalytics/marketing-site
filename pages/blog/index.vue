@@ -32,7 +32,7 @@
     </div>
 
     <div class="max-w-7xl px-6 mx-auto mt-8">
-      <p v-if="pending" class="mt-5 text-lg text-center">
+      <p v-if="status === 'pending'" class="mt-5 text-lg text-center">
         {{ $t("home.loading_posts") }}...
       </p>
       <p v-else-if="!articles?.length" class="mt-5 text-lg text-center">
@@ -90,7 +90,7 @@
                   :src="`https://simpleanalytics.com/generate-image.png?title=${encodeURIComponent(
                     post.title,
                   )}&url=${encodeURIComponent(
-                    BASE_URL +
+                    BASE_PRODUCTION_URL +
                       localePath({
                         name: 'blog-slug',
                         params: { slug: post.slug },
@@ -183,6 +183,32 @@
         <article class="flex w-full sm:w-1/2 lg:w-1/3"></article>
         <article class="flex w-full sm:w-1/2 lg:w-1/3"></article>
       </div>
+      <div
+        v-if="articles?.length > 0"
+        class="mt-12 flex justify-center items-center space-x-4"
+      >
+        <NuxtLink
+          v-if="currentPage > 1"
+          :to="
+            localePath({
+              query: currentPage === 2 ? {} : { page: currentPage - 1 },
+            })
+          "
+          class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700"
+        >
+          Previous
+        </NuxtLink>
+        <span class="text-sm text-gray-700 dark:text-gray-300">
+          Page {{ currentPage }} of {{ totalPages }}
+        </span>
+        <NuxtLink
+          v-if="currentPage < totalPages"
+          :to="localePath({ query: { page: currentPage + 1 } })"
+          class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700"
+        >
+          Next
+        </NuxtLink>
+      </div>
     </div>
   </div>
 </template>
@@ -195,26 +221,37 @@ import { EyeSlashIcon, XCircleIcon } from "@heroicons/vue/24/outline";
 import { labelAgo } from "~/utils/blog";
 
 const i18n = useI18n();
-const { t, locale } = i18n;
+const { locale } = i18n;
 const localePath = useLocalePath();
 const config = useRuntimeConfig();
-const { BASE_URL } = config.public;
+const { BASE_PRODUCTION_URL } = config.public;
+const route = useRoute();
+const page = computed(() => Number(route.query.page) || 1);
 
 const isAdmin = useAdmin();
+const POSTS_PER_PAGE = 8; // 9 - 1 because one card is newsletter subscribe
 
-const { articles, pending } = await useArticle({
+const { data: articleData, status } = await useArticle({
+  useLocale: true,
   routeName: "blog-slug",
   articleType: "blog",
   keys: ["coverImageWithText", "coverImageWithoutText"],
+  limit: POSTS_PER_PAGE,
+  page,
+  watch: [page],
 });
+
+const articles = computed(() => articleData.value?.articles || []);
+const meta = computed(() => articleData.value?.meta);
 
 const recentPostsWithSubscribe = computed(() => {
   const posts = [...articles.value];
-
-  posts.splice(1, 0, { subscribe: true });
-
+  if (posts.length > 1) posts.splice(1, 0, { subscribe: true });
   return posts;
 });
+
+const currentPage = computed(() => Number(route.query.page) || 1);
+const totalPages = computed(() => meta.value?.pagination?.pageCount || 1);
 
 definePageMeta({
   title: "Blog of Simple Analytics",

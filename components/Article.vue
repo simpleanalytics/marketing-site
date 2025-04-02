@@ -255,16 +255,15 @@ import SubscribeForm from "@/components/SubscribeForm.vue";
 
 const event = useRequestEvent();
 const config = useRuntimeConfig();
-const { BASE_URL, DASHBOARD_URL } = config.public;
+const { BASE_PRODUCTION_URL, DASHBOARD_URL } = config.public;
 
-const router = useRouter();
 const route = useRoute();
 const { t, locale } = useI18n();
 const localePath = useLocalePath();
 
 const isAdmin = useAdmin();
 
-const { article, languages, error } = await useArticle({
+const { data } = await useArticle({
   keys: [
     "contentHtml",
     "languages",
@@ -274,6 +273,7 @@ const { article, languages, error } = await useArticle({
     "coverImageWithoutText",
     "inlineMedia",
   ],
+  page: props.page,
   routeName: props.name,
   slug: props.slug,
   nonUniqueSlug: props.nonUniqueSlug,
@@ -282,6 +282,9 @@ const { article, languages, error } = await useArticle({
   drafts: props.drafts,
   useLocale: props.useLocale,
 });
+
+const { articles, languages, error } = data.value;
+const article = computed(() => articles?.[0]);
 
 const setI18nParams = useSetI18nParams();
 setI18nParams(languages);
@@ -302,7 +305,7 @@ const translationParts = t("blog.automatic_translated_switch_to_english", [
 const toEnglish = localePath({ name: props.name, params: route.params }, "en");
 
 const generateParams = new URLSearchParams({
-  url: `${BASE_URL}/${localePath({
+  url: `${BASE_PRODUCTION_URL}/${localePath({
     name: props.name,
     params: route.params,
   })}`,

@@ -8,6 +8,8 @@ export const useArticle = ({
   keys: extraKeys = [],
   drafts = false,
   limit = 1000,
+  page = ref(1),
+  watch = [],
 }) => {
   const { locale } = useI18n();
   const localePath = useLocalePath();
@@ -21,120 +23,118 @@ export const useArticle = ({
   const showDrafts = isAdmin.value || drafts;
   const isArticle = type === "articles";
 
-  const url = new URL("/api/cms", BASE_URL);
-  if (event?.node?.req?.headers?.["user-agent"])
-    url.searchParams.set("userAgent", event.node.req.headers["user-agent"]);
-  if (event?.node?.req?.url)
-    url.searchParams.set("userPath", event.node.req.url);
-  url.searchParams.set(
-    "path",
-    type === "key-terms" ? "/key-terms" : "/articles",
-  );
-  if (slug) url.searchParams.set("filters[slug][$eq]", slug);
-  if (nonUniqueSlug)
-    url.searchParams.set("filters[nonUniqueSlug][$eq]", nonUniqueSlug);
-  if (articleType)
-    url.searchParams.set("filters[articleType][$eq]", articleType);
-  if (showDrafts) url.searchParams.set("drafts", showDrafts);
-  if (limit) url.searchParams.set("pagination[pageSize]", limit);
-  if (useLocale) url.searchParams.set("locale", locale.value);
+  const keys = computed(() => {
+    const baseKeys = [
+      ...extraKeys,
+      "id",
+      "title",
+      "excerpt",
+      "locale",
+      "slug",
+      "authorSlug",
+      "automaticTranslated",
+      "publishedAt",
+      "updatedAt",
+    ];
 
-  const keys = [
-    ...extraKeys,
-    "id",
-    "title",
-    "excerpt",
-    "locale",
-    "slug",
-    "authorSlug",
-    "automaticTranslated",
-    "publishedAt",
-    "updatedAt",
-  ];
+    if (isArticle)
+      baseKeys.push("ctaTitle", "ctaDescription", "ctaButton", "doFollowLinks");
+    if (nonUniqueSlug) baseKeys.push("nonUniqueSlug");
+    if (showDrafts) baseKeys.push("sourceDocumentUrl");
+    if (type === "key-terms") {
+      // baseKeys.push("showCallToActions");
+    } else {
+      baseKeys.push("showIndex", "showCallToActions");
+    }
+    if (articleType) baseKeys.push("articleType");
 
-  if (isArticle) {
-    keys.push("ctaTitle", "ctaDescription", "ctaButton", "doFollowLinks");
-  }
+    return baseKeys;
+  });
 
-  if (nonUniqueSlug) {
-    keys.push("nonUniqueSlug");
-  }
+  const query = computed(() => {
+    const params = {
+      path: type === "key-terms" ? "/key-terms" : "/articles",
+      ...(event?.node?.req?.headers?.["user-agent"] && {
+        userAgent: event.node.req.headers["user-agent"],
+      }),
+      ...(event?.node?.req?.url && { userPath: event.node.req.url }),
+      ...(slug && { "filters[slug][$eq]": slug }),
+      ...(nonUniqueSlug && { "filters[nonUniqueSlug][$eq]": nonUniqueSlug }),
+      ...(articleType && { "filters[articleType][$eq]": articleType }),
+      ...(showDrafts && { drafts: showDrafts }),
+      ...(limit && { "pagination[pageSize]": limit }),
+      ...(page.value && { "pagination[page]": page.value }),
+      ...(useLocale && { locale: locale.value }),
+      fields: keys.value.join(","),
+    };
 
-  if (showDrafts) {
-    keys.push("sourceDocumentUrl");
-  }
+    return params;
+  });
 
-  if (type === "key-terms") {
-    // keys.push("showCallToActions");
-  } else {
-    keys.push("showIndex");
-    keys.push("showCallToActions");
-  }
+  const fetchArticles = async () => {
+    const url = new URL("/api/cms", BASE_URL);
 
-  if (articleType) keys.push("articleType");
+    Object.entries(query.value).forEach(([key, value]) => {
+      url.searchParams.set(key, value);
+    });
 
-  url.searchParams.set("fields", keys.join(","));
+    const response = await $fetch(url.toString());
 
-  const key = [routeName, articleType, slug, limit, locale.value, showDrafts]
+    if (response?.error) {
+      const error = response.error.message || response.error;
+      console.error(error);
+      throw new Error(error);
+    }
+
+    const transformedData = transformer({
+      data: response.data,
+      locale: locale.value,
+      keys: keys.value,
+      limit,
+    });
+
+    if (!transformedData?.length && !response.meta) {
+      setResponseStatus(event, 404);
+    }
+
+    let languages = {};
+
+    try {
+      languages = transformedData?.[0]?.languages;
+      if (languages && slug) {
+        if (typeof localePath !== "function")
+          throw new Error("localePath is not defined in article composable");
+
+        if (slug !== languages[locale.value].slug) {
+          const path = localePath({
+            name: routeName,
+            params: { slug: languages[locale.value].slug },
+          });
+          navigateTo(path, { redirectCode: 307 }); // 308 Permanent Redirect
+        }
+      }
+    } catch (error) {
+      console.error(error);
+    }
+
+    return {
+      articles: transformedData,
+      meta: response.meta,
+      languages,
+    };
+  };
+
+  const key = [
+    routeName,
+    articleType,
+    slug,
+    limit,
+    page.value,
+    locale.value,
+    showDrafts,
+  ]
     .filter(Boolean)
     .join("_");
 
-  const {
-    data: articles,
-    pending,
-    error,
-  } = await useFetch(url.toString(), {
-    key,
-    transform: ({ data }) =>
-      transformer({
-        data,
-        locale: locale.value,
-        keys,
-        limit,
-      }),
-  });
-
-  if (!articles.value.length && !pending.value) {
-    setResponseStatus(event, 404);
-  }
-  // if (error.value) {
-  //   setResponseStatus(event, 500);
-  // }
-
-  const article = computed(() => {
-    if (!articles?.value?.[0]) return {};
-
-    return {
-      showCallToActions: true,
-      ...articles.value[0],
-    };
-  });
-
-  let languages = {};
-
-  try {
-    languages = articles?.value?.[0]?.languages;
-    if (languages && slug) {
-      if (typeof localePath !== "function")
-        throw new Error("localePath is not defined in article composable");
-
-      if (slug !== languages[locale.value].slug) {
-        const path = localePath({
-          name: routeName,
-          params: { slug: languages[locale.value].slug },
-        });
-        navigateTo(path, { redirectCode: 307 }); // 308 Permanent Redirect
-      }
-    }
-  } catch (error) {
-    console.error(error);
-  }
-
-  return {
-    article,
-    articles,
-    pending,
-    error,
-    languages,
-  };
+  return useAsyncData(key, fetchArticles, { watch });
 };

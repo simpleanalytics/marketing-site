@@ -602,7 +602,10 @@ const parse = ({ type, response }) => {
     return item;
   });
 
-  return response;
+  return {
+    data: response.data,
+    meta: response.meta,
+  };
 };
 
 export default defineEventHandler(async (event) => {
@@ -675,8 +678,11 @@ export default defineEventHandler(async (event) => {
       pageSize: url.searchParams.has("pagination[pageSize]")
         ? url.searchParams.get("pagination[pageSize]")
         : "500",
+      page: url.searchParams.has("pagination[page]")
+        ? url.searchParams.get("pagination[page]")
+        : "1",
     },
-    publicationState: url.searchParams.has("drafts") ? "preview" : "live", // preview
+    publicationState: url.searchParams.has("drafts") ? "preview" : "live",
   };
 
   const query = qsStringify(params, {
