@@ -4,14 +4,14 @@ export const useDefaultTheme = () => {
   const darkMode = ref();
   const { ssrContext } = useNuxtApp();
 
-  if (process.server && ssrContext) {
+  if (import.meta.server && ssrContext) {
     const event = useRequestEvent();
     const sent = event.node?.res?.headersSent;
     if (sent) return darkMode;
 
     const theme = getCookie(event, "theme");
     if (theme) darkMode.value = theme;
-  } else if (process.client) {
+  } else if (import.meta.client) {
     const themeCookie = useCookie("theme");
     if (themeCookie.value) darkMode.value = themeCookie.value;
     else {

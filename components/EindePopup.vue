@@ -45,7 +45,7 @@ const onmouseleave = (event) => {
   if (timerDone && event.clientY < 10 && event.clientX > 150) show.value = true;
 };
 
-if (process.client && !hidePopupCookie.value) {
+if (import.meta.client && !hidePopupCookie.value) {
   if (window.innerWidth >= 1024) {
     document.body.addEventListener("mouseleave", onmouseleave, false);
   } else {
@@ -57,7 +57,7 @@ const hide = () => {
   show.value = false;
   hidePopupCookie.value = true;
 
-  if (process.client)
+  if (import.meta.client)
     document.body.removeEventListener("mouseleave", onmouseleave, false);
 };
 </script>

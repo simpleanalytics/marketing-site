@@ -15,6 +15,7 @@ const locales = [
     file: "en.json",
     name: "English",
     flag: "US",
+    isCatchallLocale: true,
   },
   {
     code: "nl",
@@ -92,10 +93,14 @@ const BASE_URL = isProduction
 const env = {
   NODE_ENV: process.env.NODE_ENV,
   BASE_URL,
+  BASE_PRODUCTION_URL: "https://www.simpleanalytics.com",
   DASHBOARD_URL: isProduction
     ? "https://dashboard.simpleanalytics.com"
     : "http://localhost:3000",
-  LOCALES: locales.map(({ code, flag }) => ({ code, flag })),
+  LOCALES: locales.map(({ code, flag }) => ({
+    code,
+    flag,
+  })),
 };
 
 const privateKeys = {
@@ -182,9 +187,11 @@ export default defineNuxtConfig({
     langDir: "locales",
     customRoutes: "config",
     pages,
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
     detectBrowserLanguage: {
       useCookie: true,
-      alwaysRedirect: true,
       fallbackLocale: "en",
       redirectOn: "root",
       cookieKey: "locale",

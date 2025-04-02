@@ -20,7 +20,7 @@ export const useAdmin = (to = {}) => {
     (value) => {
       if (typeof value === "boolean") adminCookie.value = value;
       if (
-        process.client &&
+        import.meta.client &&
         value === false &&
         [null, "true", "yes", "on"].includes(query.admin)
       ) {

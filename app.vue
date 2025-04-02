@@ -143,6 +143,7 @@
             :content="theme === 'dark' ? '#2a373a' : '#eef9ff'"
           />
           <Meta name="apple-mobile-web-app-capable" content="yes" />
+          <Meta name="mobile-web-app-capable" content="yes" />
 
           <!-- Privacy -->
           <Meta name="referrer" content="unsafe-url" />
@@ -168,7 +169,12 @@
             :content="localeHead.htmlAttrs.lang?.split('-')[0]"
           />
 
-          <template v-for="link in localeHead.link" :key="link.id">
+          <template
+            v-for="link in localeHead.link.filter(
+              (link) => !/^[a-z]{2}$/.test(link.hreflang),
+            )"
+            :key="link.id"
+          >
             <Link
               :id="link.id"
               :rel="link.rel"
@@ -1083,7 +1089,7 @@ const navigation = [
 
 const scripts = [];
 
-if (process.server) {
+if (import.meta.server) {
   scripts.push({
     src: "https://scripts.simpleanalyticscdn.com/auto-events.js",
     async: true,
@@ -1148,7 +1154,7 @@ const themeCookie = useCookie("theme", {
   sameSite: true,
 });
 
-if (process.client) {
+if (import.meta.client) {
   if (!themeCookie.value) themeCookie.value = theme.value;
 
   window

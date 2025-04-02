@@ -131,15 +131,15 @@ const playFullScreen = () => {
 const autoPlay = () => {
   if (!props.autoplay) return false;
 
-  const hasSpeed = process.client && navigator?.connection?.effectiveType;
+  const hasSpeed = import.meta.client && navigator?.connection?.effectiveType;
   const isSlow = hasSpeed ? ["2g", "slow-2g"].includes(hasSpeed) : false;
   if (isSlow) return false;
 
   let agent;
 
-  if (process.client) {
+  if (import.meta.client) {
     agent = window?.navigator?.userAgent;
-  } else if (process.server) {
+  } else if (import.meta.server) {
     const headers = useRequestHeaders();
     agent = headers?.["user-agent"];
   }

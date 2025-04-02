@@ -43,6 +43,6 @@ definePageMeta({
 });
 
 onMounted(() => {
-  if (process.client && window.sa_event) sa_event("visit_pricing");
+  if (import.meta.client && window.sa_event) sa_event("visit_pricing");
 });
 </script>

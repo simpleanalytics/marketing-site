@@ -217,4 +217,4 @@ export default {
     it: "/guide-pratiche/[slug]",
     nl: "/handleidingen/[slug]",
   },
-};
+} as const;

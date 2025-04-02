@@ -1605,7 +1605,7 @@ const undoAffiliate = ({ slug } = {}) => {
 };
 
 const checkWebpFeature = (feature, callback) => {
-  if (!process.client) return callback(false);
+  if (!import.meta.client) return callback(false);
 
   const images = {
     lossy: "UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA",
@@ -1669,7 +1669,7 @@ const scrollToSeekVideo = (seek) => {
 };
 
 const scrollToHash = (hash) => {
-  if (!process.client) return;
+  if (!import.meta.client) return;
 
   window.location.hash = hash;
   currentHash.value = hash;
@@ -1689,9 +1689,9 @@ onMounted(() => {
     emailReportError.value = "";
   });
 
-  if (process.client && window.sa_event) sa_event("visit_landing");
+  if (import.meta.client && window.sa_event) sa_event("visit_landing");
 
-  if (!process.client) return;
+  if (!import.meta.client) return;
 
   const timeUpdate = ({ target }) => {
     const { currentTime } = target;

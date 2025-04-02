@@ -69,7 +69,7 @@ const hide = () => {
   hideBottomBannerCookie.value = true;
 };
 
-if (!hideBottomBannerCookie.value && process.client) {
+if (!hideBottomBannerCookie.value && import.meta.client) {
   const handleScroll = () => {
     if (hideBottomBannerCookie.value) return;
     const scrollPosition = window.scrollY;

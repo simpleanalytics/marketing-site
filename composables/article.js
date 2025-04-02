@@ -1,4 +1,4 @@
-export const useArticle = async ({
+export const useArticle = ({
   routeName,
   type = "articles",
   slug,

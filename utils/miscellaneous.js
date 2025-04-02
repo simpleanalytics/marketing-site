@@ -26,7 +26,7 @@ export const navigateToWelcome = (router, event, metadata) => {
 export const getFlagUrl = (locale, availableLocales) => {
   const url = "https://assets.simpleanalytics.com/images/flags/";
 
-  if (locale === "en" && process.client) {
+  if (locale === "en" && import.meta.client) {
     const found = navigator?.languages.find((lang) => lang.startsWith("en-"));
     if (found) {
       const [, region] = found.split("-");

@@ -20,7 +20,7 @@ const handleMouseMove = (event) => {
 };
 
 onMounted(() => {
-  if (process.client) {
+  if (import.meta.client) {
     window.addEventListener("mousemove", handleMouseMove, false);
   }
 });

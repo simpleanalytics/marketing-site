@@ -175,7 +175,7 @@ const toggleEditing = () => {
 };
 
 const hasHoverSupport = computed(() => {
-  if (process.server) return false;
+  if (import.meta.server) return false;
   return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 });
 

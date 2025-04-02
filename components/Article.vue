@@ -27,7 +27,12 @@
         <!-- Show published date with avatar -->
         <div
           class="flex items-center justify-center mt-4"
-          v-if="article.authorSlug && article.publishedAt && !props.hideAuthor"
+          v-if="
+            article &&
+            article.authorSlug &&
+            article.publishedAt &&
+            !props.hideAuthor
+          "
         >
           <div class="flex items-center">
             <Avatar :slug="article.authorSlug" />
@@ -58,7 +63,7 @@
         </p>
 
         <div
-          v-if="!article.publishedAt && !error && article.slug"
+          v-if="!article?.publishedAt && !error && article?.slug"
           class="my-4 mb-8 flex"
         >
           <span
@@ -98,6 +103,7 @@
                 >Social image</NuxtLink
               >
               <NuxtLink
+                v-if="article"
                 class="text-orange-500 dark:text-orange-200 bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded-lg underline"
                 :to="`https://simpleanalytics.com/simpleanalytics.com/${article.locale}/blog/${article.slug}`"
                 target="_blank"
@@ -113,6 +119,7 @@
 
         <p
           v-if="
+            article &&
             article.slug &&
             article.locale !== 'en' &&
             article.automaticTranslated !== false &&
@@ -134,7 +141,9 @@
           </template>
         </p>
         <p
-          v-else-if="article.locale !== locale && locale !== 'en' && !error"
+          v-else-if="
+            article && article.locale !== locale && locale !== 'en' && !error
+          "
           class="inline-block mt-6 px-4 py-2 rounded-lg bg-[#ffd9cb] dark:bg-[#592b1b]"
         >
           {{ $t("blog.content_not_translated") }}
@@ -146,7 +155,7 @@
             {{ $t("blog.reload_page") }}
           </a>
         </p>
-        <p v-else-if="!article.contentHtml" class="mt-6">
+        <p v-else-if="article && !article.contentHtml" class="mt-6">
           <NuxtLink
             class="button"
             v-if="getTypeFromArticleName() === 'glossary'"
@@ -172,13 +181,13 @@
       </div>
     </div>
 
-    <div class="max-w-3xl pb-4 px-4 mx-auto" v-if="article.contentHtml">
+    <div class="max-w-3xl pb-4 px-4 mx-auto" v-if="article?.contentHtml">
       <HtmlBlock :html="article.contentHtml" :articleId="article.id" />
     </div>
 
     <MovingGradient
       class="max-w-6xl mt-10 mx-auto text-center"
-      v-if="article.showCallToActions !== false"
+      v-if="article && article.showCallToActions !== false"
     >
       <h2
         class="text-xl md:text-3xl font-bold leading-loose md:leading-loose text-white dark:text-gray-100"
@@ -277,7 +286,7 @@ const { article, languages, error } = await useArticle({
 const setI18nParams = useSetI18nParams();
 setI18nParams(languages);
 
-if (!article?.value && process.server) {
+if (!article?.value && import.meta.server) {
   setResponseStatus(event, 404, "Page Not Found");
 }
 
@@ -315,10 +324,10 @@ const format = (date) => {
 };
 
 const showEditedBy = computed(() => {
-  if (!article.value?.publishedAt || !article.value?.updatedAt) return false;
+  if (!article?.value?.publishedAt || !article?.value?.updatedAt) return false;
   const week = 604800000; // 1 week
   const diff =
-    new Date(article.value?.publishedAt) - new Date(article.value?.updatedAt);
+    new Date(article?.value?.publishedAt) - new Date(article?.value?.updatedAt);
   return Math.abs(diff) > week;
 });
 
@@ -332,21 +341,21 @@ const getHostname = (link) => {
 
 const image = computed(
   () =>
-    article.value?.cover?.large ||
-    article.value?.cover?.original ||
-    article.value?.cover?.medium ||
-    article.value?.cover?.small ||
-    (article.value?.title
+    article?.value?.cover?.large ||
+    article?.value?.cover?.original ||
+    article?.value?.cover?.medium ||
+    article?.value?.cover?.small ||
+    (article?.value?.title
       ? `${DASHBOARD_URL}/generate-image.png?${generateParams}`
       : null),
 );
 
 if (!props.hideSeoMeta) {
   useSeoMeta({
-    title: () => article.value?.title,
-    ogTitle: () => article.value?.title,
-    description: () => article.value?.excerpt,
-    ogDescription: () => article.value?.excerpt,
+    title: () => article?.value?.title,
+    ogTitle: () => article?.value?.title,
+    description: () => article?.value?.excerpt,
+    ogDescription: () => article?.value?.excerpt,
     ogImage: image,
     twitterCard: "summary_large_image",
     robots() {
@@ -436,8 +445,8 @@ const schemas = article?.value?.question
   ? [
       defineWebPage({ "@type": "FAQPage" }),
       defineQuestion({
-        name: article.value.question,
-        acceptedAnswer: article.value.content,
+        name: article?.value?.question,
+        acceptedAnswer: article?.value?.content,
       }),
     ]
   : [];
