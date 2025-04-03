@@ -6,3 +6,4 @@ nuxt.d.ts
 .env
 *.zip
 *.mmdb
+202*.md
