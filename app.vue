@@ -169,14 +169,9 @@
             :content="localeHead.htmlAttrs.lang?.split('-')[0]"
           />
 
-          <template
-            v-for="link in localeHead.link.filter(
-              (link) => !/^[a-z]{2}$/.test(link.hreflang),
-            )"
-            :key="link.id"
-          >
+          <template v-for="link in localeHead.link" :key="link.hid">
             <Link
-              :id="link.id"
+              :id="link.hid"
               :rel="link.rel"
               :href="link.href"
               :hreflang="link.hreflang"
