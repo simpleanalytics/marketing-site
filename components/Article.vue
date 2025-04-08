@@ -181,7 +181,7 @@
       </div>
     </div>
 
-    <div class="max-w-3xl pb-4 px-4 mx-auto" v-if="article?.contentHtml">
+    <div class="max-w-3xl pb-4 px-4 mx-auto">
       <HtmlBlock :html="article.contentHtml" :articleId="article.id" />
     </div>
 
@@ -284,13 +284,12 @@ const { data } = await useArticle({
   useLocale: props.useLocale,
 });
 
-const { articles, languages, error } = data.value;
-const article = computed(() => articles?.[0]);
+const { article, languages, error } = data.value;
 
 const setI18nParams = useSetI18nParams();
 setI18nParams(languages);
 
-if (!article?.value && import.meta.server) {
+if (!article && import.meta.server) {
   setResponseStatus(event, 404, "Page Not Found");
 }
 
@@ -310,8 +309,8 @@ const generateParams = new URLSearchParams({
     name: props.name,
     params: route.params,
   })}`,
-  title: article?.value?.title,
-  "author-slug": article?.value?.authorSlug,
+  title: article?.title,
+  "author-slug": article?.authorSlug,
 });
 
 const defaultParams = new URLSearchParams({
@@ -328,10 +327,9 @@ const format = (date) => {
 };
 
 const showEditedBy = computed(() => {
-  if (!article?.value?.publishedAt || !article?.value?.updatedAt) return false;
+  if (!article?.publishedAt || !article?.updatedAt) return false;
   const week = 604800000; // 1 week
-  const diff =
-    new Date(article?.value?.publishedAt) - new Date(article?.value?.updatedAt);
+  const diff = new Date(article?.publishedAt) - new Date(article?.updatedAt);
   return Math.abs(diff) > week;
 });
 
@@ -345,21 +343,21 @@ const getHostname = (link) => {
 
 const image = computed(
   () =>
-    article?.value?.cover?.large ||
-    article?.value?.cover?.original ||
-    article?.value?.cover?.medium ||
-    article?.value?.cover?.small ||
-    (article?.value?.title
+    article?.cover?.large ||
+    article?.cover?.original ||
+    article?.cover?.medium ||
+    article?.cover?.small ||
+    (article?.title
       ? `${DASHBOARD_URL}/generate-image.png?${generateParams}`
       : null),
 );
 
-if (article?.value?.canonicalUrl) {
+if (article?.canonicalUrl) {
   useHead({
     link: [
       {
         rel: "canonical",
-        href: article?.value?.canonicalUrl,
+        href: article?.canonicalUrl,
       },
     ],
   });
@@ -367,14 +365,14 @@ if (article?.value?.canonicalUrl) {
 
 if (!props.hideSeoMeta) {
   useSeoMeta({
-    title: () => article?.value?.title,
-    ogTitle: () => article?.value?.title,
-    description: () => article?.value?.excerpt,
-    ogDescription: () => article?.value?.excerpt,
+    title: () => article?.title,
+    ogTitle: () => article?.title,
+    description: () => article?.excerpt,
+    ogDescription: () => article?.excerpt,
     ogImage: image,
     twitterCard: "summary_large_image",
     robots() {
-      if (article?.value?.title && !article?.value?.publishedAt) {
+      if (article?.title && !article?.publishedAt) {
         return "noindex";
       }
       return null;
@@ -431,7 +429,7 @@ const breadcrumb = {
         });
       } else if (page === "slug") {
         acc.push({
-          name: article?.value.question || article?.value.title,
+          name: article?.question || article?.title,
           item: localePath(localeRoute),
         });
       } else if (page === "key-terms") {
@@ -456,12 +454,12 @@ const breadcrumb = {
 const isBreadcrumbComplete =
   !!breadcrumb.itemListElement[breadcrumb.itemListElement.length - 1]?.name;
 
-const schemas = article?.value?.question
+const schemas = article?.question
   ? [
       defineWebPage({ "@type": "FAQPage" }),
       defineQuestion({
-        name: article?.value?.question,
-        acceptedAnswer: article?.value?.content,
+        name: article?.question,
+        acceptedAnswer: article?.content,
       }),
     ]
   : [];

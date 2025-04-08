@@ -23,7 +23,14 @@ export default {
           ${this.html}
         </article>
       `,
-      components: { NuxtLink, ContentEditable, CtaOne, CtaTwo, Gif, Video },
+      components: {
+        NuxtLink,
+        ContentEditable,
+        CtaOne,
+        CtaTwo,
+        Gif,
+        Video,
+      },
     });
   },
 };

@@ -9,7 +9,6 @@ export const useArticle = ({
   drafts = false,
   limit = 1000,
   page = ref(1),
-  watch = [],
 }) => {
   const { locale } = useI18n();
   const localePath = useLocalePath();
@@ -118,6 +117,7 @@ export const useArticle = ({
     }
 
     return {
+      article: transformedData?.[0],
       articles: transformedData,
       meta: response.meta,
       languages,
@@ -136,5 +136,5 @@ export const useArticle = ({
     .filter(Boolean)
     .join("_");
 
-  return useAsyncData(key, fetchArticles, { watch });
+  return useAsyncData(key, fetchArticles);
 };

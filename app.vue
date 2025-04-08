@@ -542,6 +542,8 @@
       <!-- End of what is in viewport -->
     </div>
 
+    <div id="zammad-chat"></div>
+
     <footer v-if="!signup.show" class="bg-blue-100 dark:bg-gray-800 mt-auto">
       <div
         class="bg-gradient-to-t from-gray-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 text-left lg:text-left"

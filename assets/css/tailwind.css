@@ -623,3 +623,11 @@ article blockquote.warning p {
 #custom-tables tr:nth-child(even) {
   @apply bg-[#F3F9FB] dark:bg-[#2a373a];
 }
+
+.zammad-chat-welcome {
+  @apply text-white flex;
+}
+
+.zammad-chat-welcome strong {
+  @apply text-white;
+}

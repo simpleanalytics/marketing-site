@@ -149,6 +149,25 @@ export default defineNuxtConfig({
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
+      script: [
+        { src: "/libraries/jquery-3.7.1.js" },
+        { src: "https://support.simpleanalytics.com/assets/chat/chat.min.js" },
+        {
+          innerHTML: `
+            $(function() {
+              new ZammadChat({
+                background: '#ff4f64',
+                fontSize: '14px',
+                flat: true,
+                debug: true,
+                target: $('#zammad-chat'),
+                chatId: 1,
+                title: 'Can I help you with anything?'
+              });
+            });
+          `,
+        },
+      ],
     },
   },
 
