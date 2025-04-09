@@ -1,4 +1,4 @@
-export const useArticle = ({
+export const useArticle = async ({
   routeName,
   type = "articles",
   slug,
@@ -9,6 +9,7 @@ export const useArticle = ({
   drafts = false,
   limit = 1000,
   page = ref(1),
+  pick = undefined,
 }) => {
   const { locale } = useI18n();
   const localePath = useLocalePath();
@@ -136,5 +137,5 @@ export const useArticle = ({
     .filter(Boolean)
     .join("_");
 
-  return useAsyncData(key, fetchArticles);
+  return useAsyncData(key, fetchArticles, { pick });
 };

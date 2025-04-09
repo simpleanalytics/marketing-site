@@ -282,6 +282,7 @@ const { data } = await useArticle({
   type: props.type,
   drafts: props.drafts,
   useLocale: props.useLocale,
+  pick: ["article"],
 });
 
 const { article, languages, error } = data.value;
@@ -311,10 +312,6 @@ const generateParams = new URLSearchParams({
   })}`,
   title: article?.title,
   "author-slug": article?.authorSlug,
-});
-
-const defaultParams = new URLSearchParams({
-  title: t("blog.article_not_found"),
 });
 
 const format = (date) => {
