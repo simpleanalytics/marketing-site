@@ -42,7 +42,18 @@ definePageMeta({
     "Simple Analytics pricing page consisting out of starter, business and enterprise offerings",
 });
 
+const timeout = ref(null);
+
 onMounted(() => {
   if (import.meta.client && window.sa_event) sa_event("visit_pricing");
+  if (import.meta.client && window.$chatwoot) {
+    timeout.value = setTimeout(() => {
+      window.$chatwoot.toggle("open");
+    }, 20_000);
+  }
+});
+
+onUnmounted(() => {
+  if (timeout.value) clearTimeout(timeout.value);
 });
 </script>

@@ -150,21 +150,30 @@ export default defineNuxtConfig({
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
       script: [
-        { src: "/libraries/jquery-3.7.1.js" },
-        { src: "https://support.simpleanalytics.com/assets/chat/chat.min.js" },
         {
           innerHTML: `
-            $(function() {
-              new ZammadChat({
-                background: '#ff4f64',
-                fontSize: '14px',
-                flat: true,
-                debug: true,
-                target: $('#zammad-chat'),
-                chatId: 1,
-                title: 'Can I help you with anything?'
-              });
-            });
+            window.chatwootSettings = {
+              position: "right",
+              type: "expanded_bubble",
+              launcherTitle: "Chat with us",
+              darkMode: "auto",
+              baseDomain: "simpleanalytics.com"
+            };
+            (function (d, t) {
+              var BASE_URL = "https://chat.simpleanalytics.com";
+              var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+              g.src = BASE_URL + "/packs/js/sdk.js";
+              g.defer = true;
+              g.async = true;
+              s.parentNode.insertBefore(g, s);
+              g.onload = function () {
+                window.chatwootSDK.run({
+                  websiteToken: "awihp9DgbCtM5xG1WVKS8okv",
+                  baseUrl: BASE_URL,
+                });
+              };
+            })(document, "script");
           `,
         },
       ],
