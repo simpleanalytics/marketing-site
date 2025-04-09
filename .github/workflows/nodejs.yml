@@ -39,7 +39,7 @@ jobs:
         with:
           dry: true
           prettier_version: "3.2.5"
-          prettier_options: "--check --write {,!(static|.github|public/libraries)/**/}*.{js,vue,html,json,md,yml,css,scss}"
+          prettier_options: "--check --write {,!(static|.github|public)/**/}*.{js,vue,html,json,md,yml,css,scss}"
           commit_message: "Run prettier via GitHub Action"
           file_pattern: "."
         env:
