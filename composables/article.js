@@ -10,6 +10,7 @@ export const useArticle = async ({
   limit = 1000,
   page = ref(1),
   pick = undefined,
+  watch = [],
 }) => {
   const { locale } = useI18n();
   const localePath = useLocalePath();
@@ -137,5 +138,5 @@ export const useArticle = async ({
     .filter(Boolean)
     .join("_");
 
-  return useAsyncData(key, fetchArticles, { pick });
+  return useAsyncData(key, fetchArticles, { pick, watch });
 };
