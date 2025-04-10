@@ -166,7 +166,7 @@ import {
 
 import AverageChart from "./images/AverageChart.vue";
 
-const currency = useState("currency");
+const currency = useCurrency();
 
 const tBorderRed = [
   `<span class='border border-red-400 dark:border-red-600 text-red-400 dark:text-red-600 rounded-full text-sm py-1 px-2'>`,

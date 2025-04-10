@@ -153,7 +153,8 @@ import ChartLoader from "./ChartLoader.vue";
 
 const router = useRouter();
 const signupStore = useSignupStore();
-if (!signupStore.email) router.replace("/signup");
+const localePath = useLocalePath();
+if (!signupStore.email) router.replace(localePath({ name: "signup" }));
 
 const jobRole = computed({
   get: () => signupStore.jobRole,

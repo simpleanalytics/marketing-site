@@ -134,7 +134,8 @@ const showConfetti = ref(false);
 const next = (data) => {
   signupStore.setCustomerInfo(data);
   if (data.companySize !== "no_company" && data.companySize !== "only_me") {
-    router.push("/signup/add-your-colleagues");
+    const path = localePath({ name: "signup-add-your-colleagues" });
+    router.push(path);
   } else {
     handleComplete();
   }

@@ -1024,7 +1024,11 @@ const localeHead = useLocaleHead({
 });
 
 const showOnPath = (path) => {
-  return path.startsWith("/signup/") || path === "/signup";
+  return (
+    path.startsWith("/signup/") ||
+    path === "/signup" ||
+    /^\/[a-z]{2}\/signup(?:\/|$)/.test(path)
+  );
 };
 
 const signup = reactive({ show: showOnPath(route.path) });

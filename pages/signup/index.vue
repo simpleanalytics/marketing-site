@@ -118,6 +118,7 @@ const router = useRouter();
 const localePath = useLocalePath();
 
 const next = () => {
-  router.push("/signup/get-to-know-each-other");
+  const path = localePath({ name: "signup-get-to-know-each-other" });
+  router.push(path);
 };
 </script>

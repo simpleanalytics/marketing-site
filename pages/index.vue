@@ -728,7 +728,7 @@
         </p>
 
         <p class="my-4">
-          <NuxtLink href="/signup" class="group underline"
+          <NuxtLink :to="localePath({ name: 'signup' })" class="group underline"
             >{{ $t("home.why_switch_from_ga.try_us_button") }}<Arrow
           /></NuxtLink>
         </p>
@@ -1417,7 +1417,6 @@ import {
 } from "@heroicons/vue/24/outline";
 
 const { t, locale } = useI18n();
-const router = useRouter();
 const localePath = useLocalePath();
 
 definePageMeta({

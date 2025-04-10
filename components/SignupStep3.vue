@@ -155,8 +155,6 @@
 import {
   ArrowRightIcon,
   CheckIcon,
-  ChevronDoubleDownIcon,
-  ChevronDoubleUpIcon,
   TrashIcon,
   UserPlusIcon,
 } from "@heroicons/vue/24/outline";
@@ -170,7 +168,8 @@ import Popover from "./Popover.vue";
 
 const router = useRouter();
 const signupStore = useSignupStore();
-if (!signupStore.email) router.replace("/signup");
+const localePath = useLocalePath();
+if (!signupStore.email) router.replace(localePath({ name: "signup" }));
 
 const emit = defineEmits(["next"]);
 

@@ -15,6 +15,7 @@ export const useSignupStore = defineStore("signup", () => {
   const useHaveIBeenPwned = ref(true);
   const isLoading = ref(false);
   const errors = ref([]);
+  const currency = useCurrency();
 
   const config = useRuntimeConfig();
   const { DASHBOARD_URL } = config.public;
@@ -55,6 +56,7 @@ export const useSignupStore = defineStore("signup", () => {
           termsConfirmed: termsConfirmed.value,
           useHaveIBeenPwned: useHaveIBeenPwned.value,
           isValidating: true,
+          currency: currency.value?.code,
         }),
       });
       const data = await response.json();
@@ -106,6 +108,7 @@ export const useSignupStore = defineStore("signup", () => {
           termsConfirmed: termsConfirmed.value,
           useHaveIBeenPwned: useHaveIBeenPwned.value,
           isValidating: false,
+          currency: currency.value?.code,
         }),
       });
 

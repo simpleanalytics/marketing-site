@@ -672,7 +672,7 @@
 
               <NuxtLink
                 class="button mt-6 block text-sm font-semibold leading-6"
-                href="/signup"
+                :to="localePath({ name: 'signup' })"
               >
                 {{ $t("pricing.buttons.start_now") }}
               </NuxtLink>
@@ -1079,11 +1079,12 @@ const theme = useTheme();
 const config = useRuntimeConfig();
 const { DASHBOARD_URL } = config.public;
 const { t } = useI18n();
+const localePath = useLocalePath();
 
 const featuresOpen = ref(false);
 const planListExpanded = ref(false);
 const sliderValue = ref(0);
-const currency = useState("currency");
+const currency = useCurrency();
 const router = useRouter();
 
 const capterraRating = 4.8;
@@ -1206,7 +1207,8 @@ const goToWelcome = ({ plan }) => {
     });
   }
 
-  router.push("/signup");
+  const path = localePath({ name: "signup" });
+  router.push(path);
 };
 
 const frequencies = [
