@@ -1,6 +1,21 @@
 export const pressMentions = [
   {
     type: "podcast",
+    name: "Milestones",
+    slug: "milestones",
+    hosts: ["James Daly"],
+    date: new Date("2025-02-10"),
+    locale: "en",
+    url: "https://milestones.so/case-study/simple-analytics",
+    image:
+      "https://assets.simpleanalytics.com/press/mentions/milestones/cover.jpg",
+    archive:
+      "https://web.archive.org/web/20250409222827/https://milestones.so/case-study/simple-analytics",
+    description:
+      "Case Study: How Adriaan makes $36k/mo taking on Google Analytics.",
+  },
+  {
+    type: "podcast",
     name: "Van Start tot Ster",
     slug: "van-start-tot-ster",
     hosts: ["Bart Sprenkels"],
