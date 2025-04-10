@@ -36,14 +36,14 @@
           type="video/mp4"
         />
         <track
-          v-if="mention.video.subtitles.en"
+          v-if="mention.video.subtitles?.en"
           :src="mention.video.subtitles.en"
           kind="subtitles"
           srclang="en"
           label="English"
         />
         <track
-          v-if="mention.video.subtitles.nl"
+          v-if="mention.video.subtitles?.nl"
           :src="mention.video.subtitles.nl"
           kind="subtitles"
           srclang="nl"

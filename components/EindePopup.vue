@@ -8,7 +8,7 @@
     leave-to-class="opacity-0 translate-y-10"
   >
     <div
-      class="z-50 sticky transition-all bottom-6 left-0 overflow-hidden rounded-lg shadow-lg mx-6 md:w-80"
+      class="z-50 sticky transition-all duration-150 left-0 overflow-hidden rounded-lg shadow-lg mx-6 md:w-80"
       :class="showBottomBanner ? 'bottom-20' : 'bottom-6'"
       v-if="show"
     >
@@ -34,7 +34,7 @@ const hidePopupCookie = useCookie(props.name, {
   sameSite: true,
 });
 
-const show = ref(false);
+const show = ref(true);
 const showBottomBanner = useBottomBanner();
 
 const start = Date.now();

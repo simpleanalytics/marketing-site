@@ -12,6 +12,7 @@
           dark: theme === 'dark',
           'scroll-smooth': true,
           'min-h-full': true,
+          'show-bottom-banner': showBottomBanner,
         }"
       >
         <Head>
@@ -1176,4 +1177,6 @@ const { data: articlesData, status } = await useArticle({
 });
 
 const recentPosts = computed(() => articlesData.value?.articles || []);
+
+const showBottomBanner = useBottomBanner();
 </script>

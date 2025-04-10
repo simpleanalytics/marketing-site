@@ -172,6 +172,17 @@ export default defineNuxtConfig({
                   websiteToken: "awihp9DgbCtM5xG1WVKS8okv",
                   baseUrl: BASE_URL,
                 });
+                window.addEventListener("chatwoot:ready", function () {
+                  document.querySelector('button.woot--close')?.addEventListener('click', () => {
+                    sa_event('chatwoot_click_close');
+                  });
+                  document.querySelector('button.woot-widget-bubble')?.addEventListener('click', () => {
+                    sa_event('chatwoot_click_open');
+                  });
+                });
+                window.addEventListener('chatwoot:on-message', () => {
+                  sa_event('chatwoot_message');
+                })
               };
             })(document, "script");
           `,

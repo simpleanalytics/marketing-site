@@ -624,10 +624,18 @@ article blockquote.warning p {
   @apply bg-[#F3F9FB] dark:bg-[#2a373a];
 }
 
-.zammad-chat-welcome {
-  @apply text-white flex;
+.woot-widget-bubble {
+  transition:
+    transform 300ms ease,
+    opacity 100ms ease,
+    visibility 0ms linear 0ms,
+    bottom 150ms ease 0ms !important;
 }
 
-.zammad-chat-welcome strong {
-  @apply text-white;
+.woot-widget-bubble.woot-widget--expanded {
+  @apply !bottom-6;
+}
+
+html.show-bottom-banner .woot-widget-bubble {
+  @apply !bottom-20;
 }
