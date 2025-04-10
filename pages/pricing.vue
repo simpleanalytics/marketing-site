@@ -23,18 +23,12 @@
         <StartTrial />
       </div>
     </div>
-
-    <EindePopup name="hide_exit_popup">
-      <EindePopupPricing />
-    </EindePopup>
   </div>
 </template>
 
 <script setup>
 import Pricing from "../components/Pricing.vue";
 import FAQ from "../components/FAQ.vue";
-import EindePopup from "@/components/EindePopup.vue";
-import EindePopupPricing from "@/components/EindePopupPricing.vue";
 
 definePageMeta({
   title: "Pricing",
