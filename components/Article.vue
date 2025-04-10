@@ -227,7 +227,7 @@
     </MovingGradient>
 
     <EindePopup name="hide_subscribe_popup">
-      <SubscribeForm />
+      <EindePopupPricing />
     </EindePopup>
   </div>
 </template>
@@ -251,7 +251,7 @@ import Avatar from "@/components/Avatar.vue";
 import HtmlBlock from "@/components/HtmlBlock.vue";
 import { EyeSlashIcon, XCircleIcon } from "@heroicons/vue/24/outline";
 import EindePopup from "@/components/EindePopup.vue";
-import SubscribeForm from "@/components/SubscribeForm.vue";
+import EindePopupPricing from "@/components/EindePopupPricing.vue";
 
 const event = useRequestEvent();
 const config = useRuntimeConfig();

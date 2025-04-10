@@ -147,6 +147,13 @@
       "title": "Quando chiedi ai videomaker di creare qualcosa di divertente",
       "tropical_caption": "Perché il nostro fondatore sta impazzendo sulla sua isola tropicale?",
       "paranoid_caption": "Sta diventando paranoico?"
+    },
+    "europe": {
+      "title": "Siamo orgogliosi di essere europei",
+      "step_1": "1. Nessuna tariffa",
+      "step_2": "2. Ospitato e posseduto dall'UE",
+      "step_3": "3. Ancora nessun cookie",
+      "button": "Unisciti a noi"
     }
   },
   "start_now": {

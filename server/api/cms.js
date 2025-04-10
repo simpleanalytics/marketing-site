@@ -50,6 +50,11 @@ const populateReviewComponentField = {
   ],
 };
 
+const rewrites = {
+  "https://www.simpleanalytics.com/welcome": "/signup",
+  "https://simpleanalytics.com/welcome": "/signup",
+};
+
 const sanitize = (text = "") => {
   return text
     .replace(/&/g, "&amp;")
@@ -197,9 +202,9 @@ const preconvert = (
                       const color = metadata?.meta?.averageColorHex || "";
                       const brightness =
                         metadata?.meta?.averageColorBrightness || "";
-                      return `<Video :width="${xlarge?.width || ""}" :height="${
+                      return `<Video width="${xlarge?.width || ""}" height="${
                         xlarge?.height || ""
-                      }" background="${color}" :brightness="${brightness || ""}" poster="${poster}"><source src="${
+                      }" background="${color}" brightness="${brightness || ""}" poster="${poster}"><source src="${
                         xlarge?.mp4?.url || attributes.url
                       }" type="video/mp4" />${
                         xlarge?.webm?.url
@@ -288,6 +293,10 @@ const preconvert = (
       try {
         const url = new URL(href, "https://www.simpleanalytics.com");
         const isHttp = /^https?:\/\//i.test(href);
+
+        if (rewrites[href]) {
+          return `<a href="${rewrites[href]}"${attributes}>${text}</a>`;
+        }
 
         if (url.hostname === "www.simpleanalytics.com") {
           const path = href.split("/").slice(3).join("/");
@@ -418,7 +427,7 @@ const replacer = ({
 
   const html = `<ContentEditable ${attributes} parent="${parent || ""}" tag="${
     tag || ""
-  }" articleId="${id || ""}">${content}</ContentEditable>`;
+  }" :articleId="${id || ""}">${content}</ContentEditable>`;
 
   if (parent)
     return `<${parent}${

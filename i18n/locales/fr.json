@@ -180,6 +180,13 @@
       "step_2": "2. Importez vos données GA",
       "step_3": "3. Voyez vos statistiques en quelques minutes",
       "button": "Essayez Simple Analytics gratuitement"
+    },
+    "europe": {
+      "title": "Nous sommes fiers d'être européens",
+      "step_1": "1. Pas de droits de douane",
+      "step_2": "2. Hébergé et détenu par l'UE",
+      "step_3": "3. Toujours sans cookies",
+      "button": "Rejoignez-nous"
     }
   },
   "seek": {

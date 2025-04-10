@@ -180,6 +180,13 @@
       "step_2": "2. Importeer je GA gegevens",
       "step_3": "3. Bekijk je statistieken binnen enkele minuten",
       "button": "Probeer Simple Analytics gratis"
+    },
+    "europe": {
+      "title": "We zijn trots om Europees te zijn",
+      "step_1": "1. Geen heffingen (tarieven)",
+      "step_2": "2. EU gehost & eigendom",
+      "step_3": "3. Nog steeds geen cookies",
+      "button": "Doe mee"
     }
   },
   "seek": {
