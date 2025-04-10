@@ -636,6 +636,10 @@ article blockquote.warning p {
   @apply !bottom-6;
 }
 
+.woot-widget-bubble {
+  @apply !bg-red-500 dark:!bg-red-600;
+}
+
 html.show-bottom-banner .woot-widget-bubble {
   @apply !bottom-20;
 }

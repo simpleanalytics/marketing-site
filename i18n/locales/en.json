@@ -181,6 +181,13 @@
       "step_2": "2. Import your GA data",
       "step_3": "3. See your stats in minutes",
       "button": "Try Simple Analytics for free"
+    },
+    "europe": {
+      "title": "We are proud to be European",
+      "step_1": "1. No tariffs",
+      "step_2": "2. EU hosted & owned",
+      "step_3": "3. Still no cookies",
+      "button": "Join us"
     }
   },
   "seek": {

@@ -34,7 +34,7 @@ const hidePopupCookie = useCookie(props.name, {
   sameSite: true,
 });
 
-const show = ref(true);
+const show = ref(false);
 const showBottomBanner = useBottomBanner();
 
 const start = Date.now();
