@@ -164,6 +164,10 @@
     "ai_launched": {
       "link": "Gebruik AI om met je analytics te chatten",
       "text": "in plaats van urenlang te klikken. Zojuist gelanceerd."
+    },
+    "proud_to_be_eu": {
+      "cta": "We zijn trots om Europees te zijn",
+      "button": "Doe mee"
     }
   },
   "ctas": {

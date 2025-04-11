@@ -34,7 +34,7 @@ const hidePopupCookie = useCookie(props.name, {
   sameSite: true,
 });
 
-const show = ref(false);
+const show = ref(process.env.NODE_ENV === "development");
 const showBottomBanner = useBottomBanner();
 
 const start = Date.now();

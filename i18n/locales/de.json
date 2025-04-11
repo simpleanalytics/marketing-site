@@ -158,12 +158,16 @@
   },
   "banners": {
     "import_ga": {
-      "cta": "Importieren Sie Ihre GA-Daten und sehen Sie Ihre Statistiken in Minuten",
+      "cta": "Importiere deine GA-Daten und sehe deine Statistiken in Minuten",
       "button": "Jetzt kostenlos starten"
     },
     "ai_launched": {
-      "link": "Nutze KI, um mit deiner Analyse zu chatten",
-      "text": "anstatt stundenlang herumzuklicken. Eben eingeführt."
+      "link": "Nutze KI, um mit deinen Analysen zu chatten",
+      "text": "anstatt stundenlang herumzuklicken. Gerade gestartet."
+    },
+    "proud_to_be_eu": {
+      "cta": "Wir sind stolz darauf, Europäer zu sein",
+      "button": "Werde Teil von uns"
     }
   },
   "ctas": {
