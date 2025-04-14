@@ -272,17 +272,22 @@ const localePath = useLocalePath();
 
 const isAdmin = useAdmin();
 
+const keys = [
+  "contentHtml",
+  "languages",
+  "question",
+  "content",
+  "coverImageWithText",
+  "coverImageWithoutText",
+  "inlineMedia",
+];
+
+if (props.type === "article") {
+  keys.push("canonicalUrl");
+}
+
 const { data } = await useArticle({
-  keys: [
-    "contentHtml",
-    "languages",
-    "question",
-    "content",
-    "coverImageWithText",
-    "coverImageWithoutText",
-    "inlineMedia",
-    "canonicalUrl",
-  ],
+  keys,
   page: props.page,
   routeName: props.name,
   slug: props.slug,
