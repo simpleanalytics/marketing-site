@@ -181,8 +181,17 @@
       </div>
     </div>
 
-    <div class="max-w-3xl pb-4 px-4 mx-auto">
+    <div class="max-w-3xl pb-4 px-4 mx-auto" v-if="article">
       <HtmlBlock :html="article.contentHtml" :articleId="article.id" />
+    </div>
+    <div class="max-w-3xl pb-4 px-4 mx-auto" v-else>
+      <div class="text-center">
+        <h2 class="text-2xl font-bold">
+          <NuxtLink class="button" :to="localePath({ name: 'blog' })">
+            {{ $t("blog.go_to_overview") }}
+          </NuxtLink>
+        </h2>
+      </div>
     </div>
 
     <MovingGradient
