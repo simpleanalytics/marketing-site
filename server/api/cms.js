@@ -462,11 +462,11 @@ const getReviews = ({ matchedValue, reviews }) => {
                   target="_blank"
                   to="${sanitize(review.userLink)}"
                   class="font-semibold text-base text-white truncate"
-                >${sanitize(review.userName.trim())}</NuxtLink>
+                >${sanitize(review.userName?.trim())}</NuxtLink>
                 `
                 : `
                 <span class="font-semibold text-base text-white/75 truncate">
-                ${sanitize(review.userName.trim())}
+                ${sanitize(review.userName?.trim())}
                 </span>
                 `
             }
