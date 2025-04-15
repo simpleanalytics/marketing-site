@@ -2,7 +2,7 @@
 
 ARG NODE_VERSION=20.11.1
 
-FROM node:${NODE_VERSION}-slim as base
+FROM node:${NODE_VERSION}-slim AS base
 
 ARG PORT=3000
 
@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /src
 
 # Build
-FROM base as build
+FROM base AS build
 
 COPY package*.json .
 
