@@ -55,24 +55,24 @@ const locales = [
 ];
 
 const prerenderPages = [
-  "/",
-  "/nl",
-  "/de",
-  "/es",
-  "/fr",
-  "/it",
-  "/ai",
-  "/resources",
-  "/glossaries",
-  "/utm-builder",
-  "/google-analytics-is-illegal-in-these-countries",
+  // "/",
+  // "/nl",
+  // "/de",
+  // "/es",
+  // "/fr",
+  // "/it",
+  // "/ai",
+  // "/resources",
+  // "/glossaries",
+  // "/utm-builder",
+  // "/google-analytics-is-illegal-in-these-countries",
 ];
 
 const blogPages = [
-  "/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics",
-  "/blog/why-simple-analytics-is-a-great-alternative-to-matomo",
-  "/blog/why-simple-analytics-is-a-great-alternative-to-plausible",
-  "/blog/why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics",
+  // "/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics",
+  // "/blog/why-simple-analytics-is-a-great-alternative-to-matomo",
+  // "/blog/why-simple-analytics-is-a-great-alternative-to-plausible",
+  // "/blog/why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics",
 ];
 
 const stopCachingOfBlogPagesUntil = "2025-02-10";
