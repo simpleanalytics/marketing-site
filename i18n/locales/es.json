@@ -775,7 +775,40 @@
   },
   "press": {
     "title": "Prensa",
-    "description": "Entrevistas con los fundadores de Simple Analytics en podcasts y menciones en otros medios."
+    "description": "Entrevistas con los fundadores de Simple Analytics en podcasts y menciones en otros medios.",
+    "mediaKit": {
+      "title": "Media kit",
+      "description": "Nuestros recursos para uso en medios y prensa. El único requisito es un enlace directo a una de las páginas de nuestro sitio web. No dudes en contactarnos si tienes alguna pregunta.",
+      "logo": {
+        "title": "Logo",
+        "description": "Tenemos muchas variantes de nuestro logo que puedes descargar. Hemos incluido logos con y sin relleno. Hay diferentes colores disponibles según tus necesidades.",
+        "downloadInstructions": "Para descargar cualquiera de los logos, haz clic con el botón derecho del ratón en los enlaces debajo del logo que desees y selecciona \"Guardar enlace como...\".",
+        "ratio1to1": "Proporción 1:1",
+        "ratio3to2": "Proporción 3:2",
+        "wide": "Ancho"
+      },
+      "screenshots": {
+        "title": "Capturas de pantalla del dashboard",
+        "description": "Nuestro dashboard en modo claro y oscuro. Haz clic en los enlaces debajo de cada captura para descargar la versión deseada.",
+        "modes": {
+          "light": "Claro",
+          "dark": "Oscuro"
+        }
+      },
+      "mockups": {
+        "title": "Maquetas",
+        "download": "Descargar"
+      },
+      "font": {
+        "title": "Fuente",
+        "description": "Utilizamos la fuente <a href=\"https://fonts.floriankarsten.com/space-grotesk\">Space Grotesk</a> de <a href=\"https://floriankarsten.com/\">Florian Karsten</a>, disponible públicamente.",
+        "previewAlt": "Vista previa de la fuente Space Grotesk"
+      },
+      "badges": {
+        "title": "Insignias",
+        "description": "Para generar una insignia para tu sitio web, ve a <a href=\"/badges\">nuestro generador de insignias</a>."
+      }
+    }
   },
   "ai": {
     "title": "Chatea con {0}tus{1} analíticas",

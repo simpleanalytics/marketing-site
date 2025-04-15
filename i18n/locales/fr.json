@@ -775,7 +775,40 @@
   },
   "press": {
     "title": "Presse",
-    "description": "Interviews avec les fondateurs de Simple Analytics dans des podcasts, et mentions dans d'autres médias."
+    "description": "Interviews avec les fondateurs de Simple Analytics dans des podcasts, et mentions dans d'autres médias.",
+    "mediaKit": {
+      "title": "Médias et presse",
+      "description": "Nos ressources pour utilisation dans les médias et la presse. La seule exigence est un lien direct vers l'une des pages de notre site web. N'hésitez pas à nous contacter si vous avez des questions.",
+      "logo": {
+        "title": "Logo",
+        "description": "Nous avons de nombreuses variantes de notre logo que vous pouvez télécharger. Nous avons inclus des logos avec et sans rembourrage. Différentes couleurs sont disponibles selon vos besoins.",
+        "downloadInstructions": "Pour télécharger l'un des logos, faites un clic droit sur les liens sous le logo souhaité et sélectionnez \"Enregistrer le lien sous...\".",
+        "ratio1to1": "Ratio 1:1",
+        "ratio3to2": "Ratio 3:2",
+        "wide": "Large"
+      },
+      "mockups": {
+        "title": "Maquettes",
+        "download": "Télécharger"
+      },
+      "font": {
+        "title": "Police",
+        "description": "Nous utilisons la police <a href=\"https://fonts.floriankarsten.com/space-grotesk\">Space Grotesk</a> de <a href=\"https://floriankarsten.com/\">Florian Karsten</a>, disponible publiquement.",
+        "previewAlt": "Aperçu de la police Space Grotesk"
+      },
+      "badges": {
+        "title": "Badges",
+        "description": "Pour générer un badge pour votre site web, allez sur <a href=\"/badges\">notre générateur de badges</a>."
+      },
+      "screenshots": {
+        "title": "Captures d'écran du tableau de bord",
+        "description": "Notre tableau de bord en mode clair et sombre. Cliquez sur les liens sous chaque capture pour télécharger la version souhaitée.",
+        "modes": {
+          "light": "Clair",
+          "dark": "Sombre"
+        }
+      }
+    }
   },
   "ai": {
     "title": "Discute avec {0}tes{1} analyses",

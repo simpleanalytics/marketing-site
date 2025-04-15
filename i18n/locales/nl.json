@@ -780,7 +780,40 @@
   },
   "press": {
     "title": "Pers",
-    "description": "Interviews met de oprichters van Simple Analytics in podcasts en vermeldingen in andere media."
+    "description": "Interviews met de oprichters van Simple Analytics in podcasts en vermeldingen in andere media.",
+    "mediaKit": {
+      "title": "Media kit",
+      "description": "Onze assets voor gebruik in de media en pers. De enige vereiste is een link naar een van de pagina's van onze website. Neem gerust contact met ons op als je vragen hebt.",
+      "logo": {
+        "title": "Logo",
+        "description": "We hebben veel varianten van ons logo die je kunt downloaden. We hebben logo's met en zonder padding toegevoegd. Er zijn verschillende kleuren beschikbaar afhankelijk van je eigen behoeften.",
+        "downloadInstructions": "Om een van de logo's te downloaden kun je met je rechtermuisknop op de links onder het gewenste logo klikken en \"Link opslaan als...\" selecteren.",
+        "ratio1to1": "1:1 verhouding",
+        "ratio3to2": "3:2 verhouding",
+        "wide": "Breed"
+      },
+      "mockups": {
+        "title": "Mockups",
+        "download": "Download"
+      },
+      "font": {
+        "title": "Lettertype",
+        "description": "We gebruiken het publiek beschikbare <a href=\"https://fonts.floriankarsten.com/space-grotesk\">Space Grotesk lettertype</a> van <a href=\"https://floriankarsten.com/\">Florian Karsten</a>.",
+        "previewAlt": "Voorbeeld van Space Grotesk lettertype"
+      },
+      "badges": {
+        "title": "Badges",
+        "description": "Ga naar <a href=\"/badges\">onze badges generator</a> om een badge voor je website te genereren."
+      },
+      "screenshots": {
+        "title": "Dashboard screenshots",
+        "description": "Ons dashboard in lichte en donkere modus. Klik op de links onder elke screenshot om de versie te downloaden die je wilt.",
+        "modes": {
+          "light": "Licht",
+          "dark": "Donker"
+        }
+      }
+    }
   },
   "ai": {
     "title": "Chat met {0}jouw{1} analytics",

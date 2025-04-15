@@ -31,7 +31,7 @@
         </NuxtLink>
       </Tooltip>
       <Tooltip :text="$t('pricing.company_logos.polkadot')" class="group">
-        <NuxtLink href="https://polkadot.network/" target="_blank">
+        <NuxtLink href="https://polkadot.com/" target="_blank">
           <LogosPolkadot class="h-6 my-3" />
         </NuxtLink>
       </Tooltip>

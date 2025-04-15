@@ -738,7 +738,8 @@
         "intro_title": "UTM generator for Spreadsheet",
         "description": "Create UTM tags for Spreadsheet.",
         "intro_text": "<a href='https://www.bluleadz.com/blog/what-are-utm-tags-and-how-to-use-them#:~:text=What%20Is%20a%20UTM%20Tag,brought%20them%20to%20your%20site.' target='_blank'>UTM tags</a> have become an indispensable tool for marketers to track online campaign performance and make data-driven decisions. However, generating UTM tags and tracking them is not as straightforward as it seems. Some people use spreadsheets to generate and store UTM tags. It's a method prone to human error and not the most efficient way to generate UTM tags. <br/>  <br/> We built a UTM generator specifically for this purpose. Using a UTM generator like the one below is much easier to create accurate UTM tags efficiently. <br/> <br/> Make your life easier by using our UTM-builder for free here. ",
-        "generator_info": "In the rest of the article, we will discuss what UTM tags are, why they are essential, how to use them in spreadsheets, and the potential drawbacks of building URLs in spreadsheets."
+        "generator_info": "In the rest of the article, we will discuss what UTM tags are, why they are essential, how to use them in spreadsheets, and the potential drawbacks of building URLs in spreadsheets.",
+        "download": "Download"
       }
     }
   },
@@ -784,7 +785,40 @@
   },
   "press": {
     "title": "Press",
-    "description": "Interviews with Simple Analytics' founders in podcasts, and mentions in other media."
+    "description": "Interviews with Simple Analytics' founders in podcasts, and mentions in other media.",
+    "mediaKit": {
+      "title": "Media kit",
+      "description": "Our assets for usage in the media and press. The only requirement is a link directly to one of the pages of our website. Feel free to contact us if you have any questions.",
+      "logo": {
+        "title": "Logo",
+        "description": "We have lots of variants of our logo you can download. We included logos with and without padding. There are different colors available depending on your own needs.",
+        "downloadInstructions": "To download any of the logos you can click with your right mouse on the links below the logo you want and select \"Save Link As...\"",
+        "ratio1to1": "1:1 ratio",
+        "ratio3to2": "3:2 ratio",
+        "wide": "Wide"
+      },
+      "screenshots": {
+        "title": "Dashboard screenshots",
+        "description": "Our dashboard in light and dark mode. Click on the links below each screenshot to download the version you prefer.",
+        "modes": {
+          "light": "Light",
+          "dark": "Dark"
+        }
+      },
+      "mockups": {
+        "title": "Mockups",
+        "download": "Download"
+      },
+      "font": {
+        "title": "Font",
+        "description": "We use the publicly available <a href=\"https://fonts.floriankarsten.com/space-grotesk\">Space Grotesk font</a> by <a href=\"https://floriankarsten.com/\">Florian Karsten</a>.",
+        "previewAlt": "Preview of Space Grotesk font"
+      },
+      "badges": {
+        "title": "Badges",
+        "description": "To generate a badge for your website go to <a href=\"/badges\">our badges generator</a>."
+      }
+    }
   },
   "ai": {
     "title": "Chat with {0}your{1} analytics",

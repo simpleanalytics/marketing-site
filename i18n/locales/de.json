@@ -775,7 +775,40 @@
   },
   "press": {
     "title": "Presse",
-    "description": "Interviews mit den Gründern von Simple Analytics in Podcasts und Erwähnungen in anderen Medien."
+    "description": "Interviews mit den Gründern von Simple Analytics in Podcasts und Erwähnungen in anderen Medien.",
+    "mediaKit": {
+      "title": "Media kit",
+      "description": "Unsere Assets für die Verwendung in Medien und Presse. Die einzige Voraussetzung ist ein Link zu einer der Seiten unserer Website. Kontaktieren Sie uns gerne, wenn Sie Fragen haben.",
+      "logo": {
+        "title": "Logo",
+        "description": "Wir haben viele Varianten unseres Logos zum Download. Wir haben Logos mit und ohne Polsterung hinzugefügt. Es sind verschiedene Farben verfügbar, je nach Ihren Bedürfnissen.",
+        "downloadInstructions": "Um eines der Logos herunterzuladen, klicken Sie mit der rechten Maustaste auf die Links unter dem gewünschten Logo und wählen Sie \"Link speichern unter...\".",
+        "ratio1to1": "1:1 Verhältnis",
+        "ratio3to2": "3:2 Verhältnis",
+        "wide": "Breit"
+      },
+      "screenshots": {
+        "title": "Dashboard-Screenshots",
+        "description": "Unser Dashboard im hellen und dunklen Modus. Klicken Sie auf die Links unter jedem Screenshot, um die gewünschte Version herunterzuladen.",
+        "modes": {
+          "light": "Hell",
+          "dark": "Dunkel"
+        }
+      },
+      "mockups": {
+        "title": "Mockups",
+        "download": "Herunterladen"
+      },
+      "font": {
+        "title": "Schriftart",
+        "description": "Wir verwenden die öffentlich zugängliche <a href=\"https://fonts.floriankarsten.com/space-grotesk\">Space Grotesk Schriftart</a> von <a href=\"https://floriankarsten.com/\">Florian Karsten</a>.",
+        "previewAlt": "Vorschau der Space Grotesk Schriftart"
+      },
+      "badges": {
+        "title": "Badges",
+        "description": "Gehen Sie zu <a href=\"/badges\">unserem Badge-Generator</a>, um ein Badge für Ihre Website zu erstellen."
+      }
+    }
   },
   "ai": {
     "title": "Chat mit {0}deinen{1} Analytics",
