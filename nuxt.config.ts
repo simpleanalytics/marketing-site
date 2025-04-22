@@ -151,6 +151,10 @@ export default defineNuxtConfig({
       viewport: "width=device-width, initial-scale=1",
       script: [
         {
+          src: "https://test-v1.adriaan.com/script-v1.js",
+          async: true,
+        },
+        {
           innerHTML: `
             window.chatwootSettings = {
               position: "right",
