@@ -10,14 +10,18 @@
 
       <SignupErrors :errors="errors" :other-errors="nonGetToKnowErrors" />
 
+      <CountryPicker v-model="countryCode" :errors="countryCodeErrors" />
+
       <div>
-        <label
-          for="signupSource"
-          class="block text-sm font-medium text-gray-700"
-        >
+        <label for="signupSource" class="block text-sm font-medium">
           Where did you first hear about us?
         </label>
-        <select v-model="signupSource" id="signupSource" class="mt-1">
+        <select
+          v-model="signupSource"
+          id="signupSource"
+          class="mt-1 w-full rounded-md border shadow-sm sm:text-sm"
+          @change="clearError('signupSource')"
+        >
           <option value="" disabled>Pick one...</option>
           <option value="search">Search (Google, DuckDuckgo, Bing)</option>
           <option value="word-of-mouth">Someone told me about it</option>
@@ -34,7 +38,7 @@
           <p
             v-for="(error, idx) in signupSourceErrors"
             :key="idx"
-            class="text-sm text-red-500"
+            class="text-sm"
           >
             {{ error }}
           </p>
@@ -42,16 +46,13 @@
       </div>
 
       <div>
-        <label
-          for="companySize"
-          class="block text-sm font-medium text-gray-700"
-        >
+        <label for="companySize" class="block text-sm font-medium">
           Company size
         </label>
         <select
           v-model="companySize"
           id="companySize"
-          class="mt-1"
+          class="mt-1 w-full rounded-md border shadow-sm sm:text-sm"
           @change="clearError('companySize')"
         >
           <option value="" disabled>Pick one...</option>
@@ -67,7 +68,7 @@
           <p
             v-for="(error, idx) in companySizeErrors"
             :key="idx"
-            class="text-sm text-red-500"
+            class="text-sm"
           >
             {{ error }}
           </p>
@@ -75,13 +76,13 @@
       </div>
 
       <div v-if="showJobRole">
-        <label for="jobRole" class="block text-sm font-medium text-gray-700">
+        <label for="jobRole" class="block text-sm font-medium">
           What's your job role?
         </label>
         <select
           v-model="jobRole"
           id="jobRole"
-          class="mt-1"
+          class="mt-1 w-full rounded-md border shadow-sm sm:text-sm"
           @change="clearError('jobRole')"
         >
           <option value="" disabled>Pick one...</option>
@@ -97,18 +98,14 @@
           <option value="other">Other / Not Listed</option>
         </select>
         <div v-if="jobRoleErrors.length" class="mt-1">
-          <p
-            v-for="(error, idx) in jobRoleErrors"
-            :key="idx"
-            class="text-sm text-red-500"
-          >
+          <p v-for="(error, idx) in jobRoleErrors" :key="idx" class="text-sm">
             {{ error }}
           </p>
         </div>
       </div>
 
       <div>
-        <p v-if="generalErrors.length" class="mt-1 text-sm text-red-600">
+        <p v-if="generalErrors.length" class="mt-1 text-sm">
           <span v-for="(error, idx) in generalErrors" :key="idx">
             {{ error }}
           </span>
@@ -118,27 +115,27 @@
       <div class="flex items-center">
         <button
           type="submit"
-          class="button"
+          class="button inline-flex items-center"
           v-if="companySize && ['no_company', 'only_me'].includes(companySize)"
           :disabled="signupStore.isLoading"
         >
-          <CheckIcon class="h-5 w-5 mr-2" />
+          <CheckIcon v-if="!signupStore.isLoading" class="h-5 w-5 mr-2" />
+          <ChartLoader v-if="signupStore.isLoading" class="h-5 w-5 mr-2" />
           Complete Signup
         </button>
 
         <button
           type="submit"
-          class="button"
+          class="button inline-flex items-center"
           v-else
           :disabled="signupStore.isLoading"
         >
-          Next
+          <span v-if="!signupStore.isLoading">Next</span>
+          <ChartLoader
+            v-if="signupStore.isLoading"
+            class="h-5 w-5 text-red-500 dark:text-red-600"
+          />
         </button>
-
-        <ChartLoader
-          v-if="signupStore.isLoading"
-          class="ml-3 h-8 text-red-500 dark:text-red-600"
-        />
       </div>
     </form>
   </div>
@@ -150,37 +147,69 @@ import { computed } from "vue";
 import { useSignupStore } from "~/stores/signup";
 import { useFieldErrors } from "~/composables/useFieldErrors";
 import ChartLoader from "./ChartLoader.vue";
+import StepCounter from "./StepCounter.vue";
+import SignupErrors from "./SignupErrors.vue";
+import CountryPicker from "./CountryPicker.vue";
 
 const router = useRouter();
 const signupStore = useSignupStore();
 const localePath = useLocalePath();
-if (!signupStore.email) router.replace(localePath({ name: "signup" }));
+
+if (!signupStore?.email) {
+  console.warn("Redirecting: signupStore or email not found.");
+  router.replace(localePath({ name: "signup" }));
+}
+
+const errors = computed(() => signupStore?.errors || []);
+
+const countryCode = computed({
+  get: () => signupStore?.countryCode || "",
+  set: (value) => {
+    signupStore.setCustomerInfo({ countryCode: value });
+
+    signupStore.clearError("countryCode");
+  },
+});
+
+const countryCodeErrors = useFieldErrors(errors, "countryCode");
 
 const jobRole = computed({
-  get: () => signupStore.jobRole,
-  set: (value) => signupStore.setCustomerInfo({ jobRole: value }),
+  get: () => signupStore?.jobRole || "",
+  set: (value) => {
+    signupStore.setCustomerInfo({ jobRole: value });
+  },
 });
 
 const companySize = computed({
-  get: () => signupStore.companySize,
-  set: (value) => signupStore.setCustomerInfo({ companySize: value }),
+  get: () => signupStore?.companySize || "",
+  set: (value) => {
+    signupStore.setCustomerInfo({ companySize: value });
+    if (["no_company", "only_me"].includes(value) && signupStore.jobRole) {
+      signupStore.setCustomerInfo({ jobRole: "" });
+    }
+  },
 });
 
 const signupSource = computed({
-  get: () => signupStore.signupSource,
-  set: (value) => signupStore.setCustomerInfo({ signupSource: value }),
+  get: () => signupStore?.signupSource || "",
+  set: (value) => {
+    signupStore.setCustomerInfo({ signupSource: value });
+  },
 });
 
-const errors = computed(() => signupStore.errors);
 const jobRoleErrors = useFieldErrors(errors, "jobRole");
 const companySizeErrors = useFieldErrors(errors, "companySize");
 const signupSourceErrors = useFieldErrors(errors, "signupSource");
 const generalErrors = useFieldErrors(errors, "general");
 
 const nonGetToKnowErrors = computed(() => {
+  if (!Array.isArray(errors.value)) return [];
   return errors.value.filter(
     (error) =>
-      !["jobRole", "companySize", "signupSource"].includes(error.field),
+      error &&
+      !["jobRole", "companySize", "signupSource", "countryCode"].includes(
+        error.field,
+      ),
   );
 });
 
@@ -191,11 +220,21 @@ const clearError = (field) => {
 };
 
 const submitCustomerInfo = () => {
-  // Here you can add validation if needed before emitting 'next'
+  signupStore.clearError("countryCode");
+
+  if (!countryCode.value) {
+    signupStore.errors.push({
+      field: "countryCode",
+      message: "Please select a country",
+    });
+    return;
+  }
+
   emit("next", {
     jobRole: jobRole.value,
     companySize: companySize.value,
     signupSource: signupSource.value,
+    countryCode: countryCode.value,
   });
 };
 

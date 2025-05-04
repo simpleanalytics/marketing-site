@@ -10,6 +10,7 @@ export const useSignupStore = defineStore("signup", () => {
   const jobRole = ref("");
   const companySize = ref("");
   const signupSource = ref("");
+  const countryCode = ref("");
   const teamMembers = ref([]);
   const termsConfirmed = ref(false);
   const useHaveIBeenPwned = ref(true);
@@ -33,6 +34,7 @@ export const useSignupStore = defineStore("signup", () => {
     jobRole.value = data.jobRole ?? jobRole.value;
     companySize.value = data.companySize ?? companySize.value;
     signupSource.value = data.signupSource ?? signupSource.value;
+    countryCode.value = data.countryCode ?? countryCode.value;
   }
 
   function setTeamMembers(members) {
@@ -104,6 +106,7 @@ export const useSignupStore = defineStore("signup", () => {
           jobRole: jobRole.value,
           companySize: companySize.value,
           signupSource: signupSource.value,
+          countryCode: countryCode.value,
           teamMembers: teamMembers.value,
           termsConfirmed: termsConfirmed.value,
           useHaveIBeenPwned: useHaveIBeenPwned.value,
@@ -188,6 +191,7 @@ export const useSignupStore = defineStore("signup", () => {
     jobRole,
     companySize,
     signupSource,
+    countryCode,
     teamMembers,
     termsConfirmed,
     useHaveIBeenPwned,

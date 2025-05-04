@@ -60,10 +60,16 @@ const getCurrency = (locale, browserLocales) => {
   const gbp = { sign: "£", code: "gbp" };
   const eur = { sign: "€", code: "eur" };
 
-  const isEuroCountry = euroCountries.includes(locale.value);
+  const isEuroCountry =
+    euroCountries.includes(locale.value) ||
+    euroCountries.includes(browserLocales[0]) ||
+    euroCountries.includes(browserLocales[1]) ||
+    euroCountries.includes(browserLocales[2]);
   if (isEuroCountry) return eur;
+
   if (browserLocales[0] === "en-GB") return gbp;
   if (browserLocales[0] === "en" && browserLocales[1] === "en-GB") return gbp;
+
   return usd;
 };
 
