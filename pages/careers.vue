@@ -24,10 +24,10 @@
         v-html="$t('hiring.title', tColorsRed)"
       ></h1>
 
-      <p class="mt-4 text-sm">{{ $t("hiring.description") }}</p>
+      <p class="mt-4 text-sm" v-html="$t('hiring.description')" />
     </div>
 
-    <div class="max-w-3xl px-6 mx-auto mt-12">
+    <div class="max-w-3xl px-6 mx-auto mt-8">
       <Video
         class="mx-auto max-w-[800px]"
         :width="854"
@@ -73,7 +73,7 @@
           <span v-html="$t('hiring.bullets.remote', tColorsRed)" />
         </li>
         <li>
-          <span v-html="$t('hiring.bullets.team', tColorsRed)" />
+          <span v-html="$t('hiring.bullets.team', substackLink)" />
         </li>
         <li>
           <span v-html="$t('hiring.bullets.privacy', tColorsRed)" />
@@ -98,11 +98,11 @@
           <span v-html="$t('hiring.bullets.ai_tools', tColorsRed)" />
         </li>
         <li>
-          <span v-html="$t('hiring.bullets.communication', tColorsRed)" />
+          <span v-html="$t('hiring.bullets.communication')" />
         </li>
         <li>
           <div class="inline-flex items-center gap-2">
-            <span v-html="$t('hiring.bullets.no_cables', tColorsRed)" />
+            <span v-html="$t('hiring.bullets.no_cables')" />
             <svg
               width="20"
               height="20"
@@ -121,7 +121,14 @@
       </ul>
     </div>
 
-    <div class="max-w-3xl px-6 mx-auto mt-0">
+    <div class="mt-8 max-w-3xl px-6 mx-auto">
+      <div class="mx-auto max-w-xl bg-gray-100 dark:bg-gray-900 rounded-lg p-4">
+        <p class="text-md font-medium text-gray-800 dark:text-gray-100">
+          Record a video of yourself:
+        </p>
+        <p class="mt-2 text-md">"{{ $t("hiring.instructions") }}"</p>
+      </div>
+
       <div class="py-12 text-center">
         <a
           :href="isApplicationClosed ? '#' : 'https://tally.so/r/nrVBko'"
@@ -163,4 +170,8 @@ const isApplicationClosed = computed(() => {
 });
 
 const tColorsRed = [`<span class='text-red-500 dark:text-red-600'>`, `</span>`];
+const substackLink = [
+  `<a href="https://1millionarr.substack.com/p/i-want-to-be-a-manager" class="underline" target="_blank">`,
+  `</a>`,
+];
 </script>

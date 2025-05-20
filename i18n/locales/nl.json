@@ -1133,8 +1133,8 @@
     "bullets": {
       "role": "{0}Senior full-stack{1} ontwikkelaar",
       "code": "Node.js, Vue.js, Nuxt.js, Elasticsearch, ...",
-      "remote": "Werk {0}remote{1} (of in Amsterdam)",
-      "team": "Klein, gepassioneerd team",
+      "remote": "Werk {0}op afstand{1} (of in Amsterdam)",
+      "team": "Klein, gepassioneerd team (zie {0}substack{1})",
       "privacy": "Bouw {0}privacy-first{1} producten",
       "support": "Help met {0}klantenondersteuning{1}",
       "salary": "Salaris {0}$5000{1} per maand",

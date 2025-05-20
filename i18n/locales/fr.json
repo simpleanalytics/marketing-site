@@ -1129,7 +1129,7 @@
       "role": "{0}Développeur full-stack{1} senior",
       "code": "Node.js, Vue.js, Nuxt.js, Elasticsearch, ...",
       "remote": "Travaillez {0}à distance{1} (ou à Amsterdam)",
-      "team": "Petite équipe passionnée",
+      "team": "Petite équipe passionnée (voir {0}substack{1})",
       "privacy": "Créez des produits {0}respectueux de la vie privée{1}",
       "support": "Aidez avec le {0}support client{1}",
       "salary": "Salaire de {0}5000${1} par mois",

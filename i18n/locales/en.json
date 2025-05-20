@@ -883,11 +883,12 @@
     "thank_you_message": "We've received your application, thanks for taking the time to apply! We will do our best to review your application as soon as possible but please note that we receive a lot of applications.",
     "applications_closed": "We're no longer accepting applications for this position. Check back later for new opportunities.",
     "applications_closed_short": "Applications are now closed",
+    "instructions": "Teach us something you built recently that you are proud of, explaining why it mattered, how you built it, and what you learned.",
     "bullets": {
       "role": "{0}Senior full-stack{1} developer",
       "code": "Node.js, Vue.js, Nuxt.js, Elasticsearch, ...",
       "remote": "Work {0}remotely{1} (or in Amsterdam)",
-      "team": "Small, passionate team",
+      "team": "Small, passionate team (see {0}substack{1})",
       "privacy": "Build {0}privacy-first{1} products",
       "support": "Help with {0}customer support{1}",
       "salary": "Salary {0}$5000{1} a month",
