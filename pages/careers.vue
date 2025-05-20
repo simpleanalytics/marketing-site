@@ -59,7 +59,7 @@
     </div>
 
     <div
-      class="mx-auto pl-8 md:pl-0 mt-6 flex flex-col md:flex-row justify-center gap-2 md:gap-12 text-sm md:text-lg"
+      class="mx-auto pl-8 md:pl-0 mt-6 flex flex-col md:flex-row justify-center gap-2 md:gap-12 text-sm md:text-md"
     >
       <!-- First column -->
       <ul class="space-y-2 list-disc list-inside">
@@ -121,7 +121,7 @@
       </ul>
     </div>
 
-    <div class="max-w-3xl px-6 mx-auto mt-12">
+    <div class="max-w-3xl px-6 mx-auto mt-0">
       <div class="py-12 text-center">
         <a
           :href="isApplicationClosed ? '#' : 'https://tally.so/r/nrVBko'"
