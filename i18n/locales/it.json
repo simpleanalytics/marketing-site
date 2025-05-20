@@ -1124,5 +1124,28 @@
     "ZA": "Sudafrica",
     "ZM": "Zambia",
     "ZW": "Zimbabwe"
+  },
+  "hiring": {
+    "title": "Vieni a lavorare per Simple Analytics",
+    "description": "Stiamo assumendo uno sviluppatore full-stack senior. Vieni a lavorare con Simple Analytics.",
+    "apply_button": "Candidati ora",
+    "apply_until": "Candidati entro il 1° giugno",
+    "thank_you_message": "Abbiamo ricevuto la tua candidatura, grazie per aver dedicato tempo a candidarti! Faremo del nostro meglio per esaminare la tua candidatura il prima possibile, ma ti preghiamo di notare che riceviamo molte candidature.",
+    "applications_closed": "Non accettiamo più candidature per questa posizione. Controlla più tardi per nuove opportunità.",
+    "applications_closed_short": "Le candidature sono ora chiuse",
+    "bullets": {
+      "role": "Sviluppatore {0}full-stack senior{1}",
+      "code": "Node.js, Vue.js, Nuxt.js, Elasticsearch, ...",
+      "remote": "Lavora {0}da remoto{1} (o ad Amsterdam)",
+      "team": "Team piccolo e appassionato",
+      "privacy": "Costruisci prodotti {0}orientati alla privacy{1}",
+      "support": "Aiuta con {0}assistenza clienti{1}",
+      "salary": "Stipendio di {0}$5000{1} al mese",
+      "fulltime": "{0}5 giorni{1} a settimana (opzionale 4 giorni)",
+      "macbook": "Nuovo {0}MacBook Pro{1} per Docker",
+      "communication": "Registrazioni dello schermo e Telegram",
+      "ai_tools": "Gli {0}strumenti di IA{1} sono i tuoi migliori amici",
+      "no_cables": "Non masticare i nostri cavi"
+    }
   }
 }
