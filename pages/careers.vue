@@ -124,9 +124,12 @@
     <div class="mt-8 max-w-3xl px-6 mx-auto">
       <div class="mx-auto max-w-xl bg-gray-100 dark:bg-gray-900 rounded-lg p-4">
         <p class="text-md font-medium text-gray-800 dark:text-gray-100">
-          Record a video of yourself:
+          Record a video, introduce yourself and answer the following question:
         </p>
-        <p class="mt-2 text-md">"{{ $t("hiring.instructions") }}"</p>
+        <p class="mt-2 text-md">
+          "Teach us something you built recently that you are proud of,
+          explaining why it mattered, how you built it, and what you learned."
+        </p>
       </div>
 
       <div class="py-12 text-center">
@@ -158,6 +161,8 @@ definePageMeta({
   title: "Come work for Simple Analytics",
   description:
     "We're hiring a full-stack developer. Come work with Simple Analytics.",
+  ogImage:
+    "https://assets.simpleanalytics.com/videos/2025-04-09-developer-recruitment/video.png",
 });
 
 const route = useRoute();
