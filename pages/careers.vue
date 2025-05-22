@@ -157,12 +157,25 @@
 import Video from "../components/Video.vue";
 import { computed } from "vue";
 
+const title = "Come work for Simple Analytics";
+const description =
+  "We're hiring a full-stack developer. Come work with Simple Analytics.";
+const image =
+  "https://assets.simpleanalytics.com/videos/2025-04-09-developer-recruitment/video.png";
+
 definePageMeta({
-  title: "Come work for Simple Analytics",
-  description:
-    "We're hiring a full-stack developer. Come work with Simple Analytics.",
-  ogImage:
-    "https://assets.simpleanalytics.com/videos/2025-04-09-developer-recruitment/video.png",
+  title: title,
+  description: description,
+});
+
+useSeoMeta({
+  title: title,
+  ogTitle: title,
+  description: description,
+  ogDescription: description,
+  ogImage: image,
+  twitterImage: image,
+  twitterCard: "summary_large_image",
 });
 
 const route = useRoute();
