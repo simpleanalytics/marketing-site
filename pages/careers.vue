@@ -134,7 +134,9 @@
 
       <div class="py-12 text-center">
         <a
-          :href="isApplicationClosed ? '#' : 'https://tally.so/r/nrVBko'"
+          :href="
+            isApplicationClosed ? '#' : 'https://forms.simpleanalytics.com/'
+          "
           class="button"
           :class="{ 'opacity-50 cursor-not-allowed': isApplicationClosed }"
           @click.prevent="isApplicationClosed ? null : null"
@@ -147,6 +149,13 @@
               ? $t("hiring.applications_closed_short")
               : $t("hiring.apply_until")
           }}
+          <client-only v-if="!isApplicationClosed && timeLeft">
+            <span
+              class="ml-1 mt-4 inline-flex text-xs font-medium bg-slate-200 dark:bg-slate-800 rounded-full px-2 py-1"
+            >
+              {{ timeLeft }}
+            </span>
+          </client-only>
         </p>
       </div>
     </div>
@@ -155,11 +164,10 @@
 
 <script setup>
 import Video from "../components/Video.vue";
-import { computed } from "vue";
+import { computed, ref, onMounted, onUnmounted } from "vue";
 
 const title = "Come work for Simple Analytics";
-const description =
-  "We're hiring a full-stack developer. Come work with Simple Analytics.";
+const description = "We're hiring a full-stack developer.";
 const image =
   "https://assets.simpleanalytics.com/videos/2025-04-09-developer-recruitment/video.png";
 
@@ -183,8 +191,46 @@ const showThankYouMessage = computed(() => route.query.thanks !== undefined);
 
 const isApplicationClosed = computed(() => {
   const currentDate = new Date();
-  const applicationDeadline = new Date("2025-06-01T23:59:59");
+  const applicationDeadline = new Date("2025-06-01T23:59:59Z");
   return currentDate > applicationDeadline;
+});
+
+const currentTime = ref(new Date());
+
+const timeLeft = computed(() => {
+  if (isApplicationClosed.value) return null;
+
+  const deadline = new Date("2025-06-01T23:59:59Z");
+  const diffMs = deadline - currentTime.value;
+
+  // Calculate days and hours
+  const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+
+  const daysText = days === 1 ? `${days} day` : `${days} days`;
+  const hoursText = hours === 1 ? `${hours} hour` : `${hours} hours`;
+  const minutesText =
+    minutes === 1 ? `${minutes} minute` : `${minutes} minutes`;
+
+  if (days < 1) {
+    return `${hoursText} and ${minutesText} left`;
+  }
+
+  return `${daysText} and ${hoursText} left`;
+});
+
+// Update the current time every minute
+let timer = null;
+
+onMounted(() => {
+  timer = setInterval(() => {
+    currentTime.value = new Date();
+  }, 30_000);
+});
+
+onUnmounted(() => {
+  if (timer) clearInterval(timer);
 });
 
 const tColorsRed = [`<span class='text-red-500 dark:text-red-600'>`, `</span>`];
