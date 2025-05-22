@@ -2,7 +2,7 @@
   <div class="bg-blue-50 dark:bg-gray-800 flex flex-col min-h-screen relative">
     <!-- Begin of what is in viewport -->
     <div
-      class="flex flex-col min-h-screen transition-all duration-500 bg-[length:200%_100%] lg:bg-[linear-gradient(to_right,#eef9ff_0%,#eef9ff_50%,white_50%,white_100%)] dark:lg:bg-[linear-gradient(to_right,#1F2728_0%,#1F2728_50%,#232E2F_50%,#232E2F_100%)]"
+      class="flex flex-col min-h-screen transition-all duration-500 bg-[length:200%_100%] lg:bg-[linear-gradient(to_right,#eef9ff_0%,#eef9ff_50%,#fcfcfc_50%,#fcfcfc_100%)] dark:lg:bg-[linear-gradient(to_right,#1F2728_0%,#1F2728_50%,#232E2F_50%,#232E2F_100%)]"
       :class="signup.show ? 'bg-[position:50%_0%]' : 'bg-[position:100%_0%]'"
     >
       <Html
