@@ -741,7 +741,8 @@
         "intro_title": "UTM-Generator für Tabellenkalkulation",
         "description": "Erstellen Sie UTM-Tags für Tabellenkalkulationen.",
         "intro_text": "<a href='https://www.bluleadz.com/blog/what-are-utm-tags-and-how-to-use-them#:~:text=What%20Is%20a%20UTM%20Tag,brought%20them%20to%20your%20site.' target='_blank'>UTM-Tags</a> sind zu einem unverzichtbaren Werkzeug für Vermarkter geworden, um die Leistung von Online-Kampagnen zu verfolgen und datenbasierte Entscheidungen zu treffen. Die Generierung und Verfolgung von UTM-Tags ist jedoch nicht so einfach, wie es scheint. Einige Leute verwenden Tabellenkalkulationen, um UTM-Tags zu generieren und zu speichern. Es ist eine Methode, die anfällig für menschliche Fehler ist und nicht der effizienteste Weg, um UTM-Tags zu generieren. <br/> <br/> Wir haben speziell für diesen Zweck einen UTM-Generator entwickelt. Die Verwendung eines UTM-Generators wie dem untenstehenden ist viel einfacher, um präzise UTM-Tags effizient zu erstellen. <br/> <br/> Machen Sie Ihr Leben einfacher, indem Sie unseren UTM-Builder hier kostenlos nutzen.",
-        "generator_info": "Im weiteren Verlauf des Artikels werden wir erläutern, was UTM-Tags sind, warum sie wichtig sind, wie Sie sie in Tabellenkalkulationen verwenden und die möglichen Nachteile beim Erstellen von URLs in Tabellenkalkulationen."
+        "generator_info": "Im weiteren Verlauf des Artikels werden wir erläutern, was UTM-Tags sind, warum sie wichtig sind, wie Sie sie in Tabellenkalkulationen verwenden und die möglichen Nachteile beim Erstellen von URLs in Tabellenkalkulationen.",
+        "download": "Herunterladen"
       }
     }
   },

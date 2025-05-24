@@ -199,6 +199,13 @@
       "step_2": "2. Importa i tuoi dati GA",
       "step_3": "3. Vedi le tue statistiche in pochi minuti",
       "button": "Prova Simple Analytics gratuitamente"
+    },
+    "europe": {
+      "title": "Siamo orgogliosi di essere europei",
+      "step_1": "1. Niente dazi",
+      "step_2": "2. Ospitato e posseduto dall'UE",
+      "step_3": "3. Ancora nessun cookie",
+      "button": "Unisciti a noi"
     }
   },
   "seek": {
@@ -749,7 +756,8 @@
         "intro_title": "Generatore di UTM per Spreadsheet",
         "description": "Crea tag UTM per fogli di calcolo.",
         "intro_text": "<a href='https://www.bluleadz.com/blog/what-are-utm-tags-and-how-to-use-them#:~:text=What%20Is%20a%20UTM%20Tag,brought%20them%20to%20your%20site.' target='_blank'>I tag UTM</a> sono diventati uno strumento indispensabile per i marketer per tracciare le prestazioni delle campagne di marketing online e prendere decisioni basate sui dati. Tuttavia, generare e tracciare i tag UTM non è sempre così semplice come sembra. Alcune persone utilizzano fogli di calcolo per generare e archiviare i tag UTM. È un metodo soggetto ad errori umani e non il modo più efficiente per generare tag UTM. <br/> <br/> Abbiamo creato un generatore di UTM appositamente per questo scopo. Utilizzare un generatore di UTM come quello qui sotto è molto più semplice per creare tag UTM accurati in modo efficiente. <br/> <br/> Rendi la tua vita più facile utilizzando il nostro UTM-builder gratuitamente qui.",
-        "generator_info": "Nel resto dell'articolo, discuteremo cosa sono i tag UTM, perché sono essenziali, come utilizzarli nei fogli di calcolo e i potenziali svantaggi nella creazione di URL nei fogli di calcolo."
+        "generator_info": "Nel resto dell'articolo, discuteremo cosa sono i tag UTM, perché sono essenziali, come utilizzarli nei fogli di calcolo e i potenziali svantaggi nella creazione di URL nei fogli di calcolo.",
+        "download": "Scarica"
       }
     }
   },
