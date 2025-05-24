@@ -746,7 +746,8 @@
         "intro_title": "UTM-generator voor Spreadsheet",
         "description": "Maak UTM-tags voor spreadsheets.",
         "intro_text": "<a href='https://www.bluleadz.com/blog/what-are-utm-tags-and-how-to-use-them#:~:text=What%20Is%20a%20UTM%20Tag,brought%20them%20to%20your%20site.' target='_blank'>UTM-tags</a> zijn een onmisbaar hulpmiddel geworden voor marketeers om de prestaties van online campagnes te volgen en data-gestuurde beslissingen te nemen. Het genereren en volgen van UTM-tags is echter niet zo eenvoudig als het lijkt. Sommige mensen gebruiken spreadsheets om UTM-tags te genereren en op te slaan. Het is een methode die gevoelig is voor menselijke fouten en niet de meest efficiënte manier om UTM-tags te genereren. <br/> <br/> We hebben specifiek voor dit doel een UTM-generator gebouwd. Het gebruik van een UTM-generator zoals degene hieronder maakt het veel eenvoudiger om nauwkeurige UTM-tags efficiënt te genereren. <br/> <br/> Maak je leven gemakkelijker door onze UTM-builder hier gratis te gebruiken.",
-        "generator_info": "In de rest van het artikel zullen we bespreken wat UTM-tags zijn, waarom ze essentieel zijn, hoe je ze kunt gebruiken in spreadsheets en de mogelijke nadelen van het bouwen van URL's in spreadsheets."
+        "generator_info": "In de rest van het artikel zullen we bespreken wat UTM-tags zijn, waarom ze essentieel zijn, hoe je ze kunt gebruiken in spreadsheets en de mogelijke nadelen van het bouwen van URL's in spreadsheets.",
+        "download": "Download"
       }
     }
   },

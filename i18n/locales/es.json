@@ -741,7 +741,8 @@
         "intro_title": "Generador de UTM para Spreadsheet",
         "description": "Crea etiquetas UTM para hojas de cálculo.",
         "intro_text": "<a href='https://www.bluleadz.com/blog/what-are-utm-tags-and-how-to-use-them#:~:text=What%20Is%20a%20UTM%20Tag,brought%20them%20to%20your%20site.' target='_blank'>Las etiquetas UTM</a> se han convertido en una herramienta indispensable para los especialistas en marketing para realizar un seguimiento del rendimiento de las campañas en línea y tomar decisiones basadas en datos. Sin embargo, generar y realizar un seguimiento de las etiquetas UTM no es tan sencillo como parece. Algunas personas utilizan hojas de cálculo para generar y almacenar etiquetas UTM. Es un método propenso a errores humanos y no es la forma más eficiente de generar etiquetas UTM. <br/> <br/> Hemos creado un generador de UTM específicamente con este propósito. Utilizar un generador de UTM como el que se muestra a continuación facilita la creación eficiente de etiquetas UTM precisas. <br/> <br/> Simplifica tu vida utilizando nuestro UTM-builder de forma gratuita aquí.",
-        "generator_info": "En el resto del artículo, discutiremos qué son las etiquetas UTM, por qué son esenciales, cómo usarlas en hojas de cálculo y las posibles desventajas de crear URLs en hojas de cálculo."
+        "generator_info": "En el resto del artículo, discutiremos qué son las etiquetas UTM, por qué son esenciales, cómo usarlas en hojas de cálculo y las posibles desventajas de crear URLs en hojas de cálculo.",
+        "download": "Descargar"
       }
     }
   },
