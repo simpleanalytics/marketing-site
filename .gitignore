@@ -7,3 +7,6 @@ nuxt.d.ts
 *.zip
 *.mmdb
 202*.md
+
+# Tell Prettier to skip the minified jQuery bundle
+public/libraries/jquery-3.7.1.js
