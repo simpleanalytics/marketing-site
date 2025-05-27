@@ -1,4 +1,4 @@
-# Instructions for Codex agents
+# Instructions for coding agents
 
 This repository contains the public marketing site of Simple Analytics. It is built with Nuxt 3 and uses Tailwind CSS, Pinia, and i18n. When editing code in this project, please follow these guidelines:
 
@@ -12,10 +12,14 @@ This repository contains the public marketing site of Simple Analytics. It is bu
 
 ## Testing
 
-There are no unit tests, but formatting must pass. Run the command below to verify formatting:
+Run `npm run test` to run the tests.
 
-```bash
-npm run prettier
-```
+## Local development
 
-Only commit your changes after this command succeeds.
+- Install dependencies with `npm install` if not already installed.
+- Run `npm run dev` to start the dev server on http://localhost:3005.
+- Nuxt requires `server/data/geolite-country.mmdb` for certain features. See README for instructions.
+
+## Formatting
+
+- Run `npm run prettier` before committing changes and make sure it succeeds.

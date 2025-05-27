@@ -729,7 +729,8 @@
         "intro_title": "Générateur d'UTM pour Spreadsheet",
         "description": "Créez des balises UTM pour les feuilles de calcul.",
         "intro_text": "<a href='https://www.bluleadz.com/blog/what-are-utm-tags-and-how-to-use-them#:~:text=What%20Is%20a%20UTM%20Tag,brought%20them%20to%20your%20site.' target='_blank'>Les balises UTM</a> sont devenues un outil indispensable pour les marketeurs afin de suivre les performances des campagnes en ligne et prendre des décisions basées sur les données. Cependant, la génération et le suivi des balises UTM ne sont pas aussi simples qu'ils en ont l'air. Certaines personnes utilisent des feuilles de calcul pour générer et stocker les balises UTM. C'est une méthode sujette aux erreurs humaines et pas la plus efficace pour générer des balises UTM. <br/> <br/> Nous avons construit un générateur de UTM spécifiquement dans ce but. Utiliser un générateur de UTM comme celui-ci facilite grandement la création efficace de balises UTM précises. <br/> <br/> Simplifiez-vous la vie en utilisant notre UTM-builder gratuitement ici.",
-        "generator_info": "Dans le reste de l'article, nous aborderons ce que sont les balises UTM, pourquoi elles sont essentielles, comment les utiliser dans les feuilles de calcul et les éventuels inconvénients de la création d'URL dans les feuilles de calcul."
+        "generator_info": "Dans le reste de l'article, nous aborderons ce que sont les balises UTM, pourquoi elles sont essentielles, comment les utiliser dans les feuilles de calcul et les éventuels inconvénients de la création d'URL dans les feuilles de calcul.",
+        "download": "Télécharger"
       }
     }
   },

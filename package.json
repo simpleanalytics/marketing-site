@@ -4,7 +4,9 @@
     "dev": "nuxi dev -p 3005",
     "build": "nuxi build",
     "start": "node .output/server/index.mjs",
-    "prettier": "npx prettier --check --ignore-path .gitignore \"{,!(static|.github)/**/}*.{js,vue,html,json,md,yml,css,scss}\""
+    "prettier": "npx prettier --check --ignore-path .gitignore --ignore-path .prettierignore \"{,!(static|.github)/**/}*.{js,vue,html,json,md,yml,css,scss}\"",
+    "test": "node --test",
+    "test:ci": "npm run build && npm test"
   },
   "overrides": {
     "nuxt": {
