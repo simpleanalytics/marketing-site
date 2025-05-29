@@ -50,4 +50,4 @@ export const formatDatapoints = (value, locale) => {
   return formatter.format(value);
 };
 
-export const userCount = 18500;
+export const userCount = 25_000;
