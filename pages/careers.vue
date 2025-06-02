@@ -134,9 +134,7 @@
 
       <div class="py-12 text-center">
         <a
-          :href="
-            isApplicationClosed ? '#' : 'https://forms.simpleanalytics.com/'
-          "
+          :href="isApplicationClosed ? '#' : getFormUrl()"
           class="button"
           :class="{ 'opacity-50 cursor-not-allowed': isApplicationClosed }"
           @click.prevent="isApplicationClosed ? null : null"
@@ -147,7 +145,21 @@
           {{
             isApplicationClosed
               ? $t("hiring.applications_closed_short")
-              : $t("hiring.apply_until")
+              : $t("hiring.apply_until", [
+                  getApplicationDeadline().toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  }),
+                  getApplicationDeadline().toLocaleString("en-US", {
+                    timeZone: "UTC",
+                    month: "long",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  }),
+                ])
           }}
           <client-only v-if="!isApplicationClosed && timeLeft">
             <span
@@ -189,9 +201,23 @@ useSeoMeta({
 const route = useRoute();
 const showThankYouMessage = computed(() => route.query.thanks !== undefined);
 
+const getApplicationDeadline = () => {
+  if (route.query.deadline === "hackernews")
+    return new Date("2025-06-05T23:59:59Z");
+
+  return new Date("2025-06-01T23:59:59Z");
+};
+
+const getFormUrl = () => {
+  if (route.query.deadline === "hackernews") {
+    return "https://forms.simpleanalytics.com/hackernews";
+  }
+  return "https://forms.simpleanalytics.com/";
+};
+
 const isApplicationClosed = computed(() => {
   const currentDate = new Date();
-  const applicationDeadline = new Date("2025-06-01T23:59:59Z");
+  const applicationDeadline = getApplicationDeadline();
   return currentDate > applicationDeadline;
 });
 
@@ -200,7 +226,7 @@ const currentTime = ref(new Date());
 const timeLeft = computed(() => {
   if (isApplicationClosed.value) return null;
 
-  const deadline = new Date("2025-06-01T23:59:59Z");
+  const deadline = getApplicationDeadline();
   const diffMs = deadline - currentTime.value;
 
   // Calculate days and hours

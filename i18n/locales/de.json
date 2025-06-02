@@ -1122,7 +1122,7 @@
     "title": "Arbeite bei Simple Analytics",
     "description": "Wir stellen einen Senior Full-Stack-Entwickler ein.",
     "apply_button": "Jetzt bewerben",
-    "apply_until": "Bewirb dich vor dem 1. Juni 23:59 UTC",
+    "apply_until": "Bewirb dich vor dem {0} (Ortszeit) {1} (UTC)",
     "thank_you_message": "Wir haben deine Bewerbung erhalten, vielen Dank, dass du dir die Zeit genommen hast, dich zu bewerben! Wir werden unser Bestes tun, deine Bewerbung so schnell wie möglich zu prüfen, aber bitte beachte, dass wir viele Bewerbungen erhalten.",
     "applications_closed": "Wir nehmen keine Bewerbungen mehr für diese Position an. Schauen Sie später für neue Möglichkeiten vorbei.",
     "applications_closed_short": "Bewerbungsfrist ist abgelaufen",

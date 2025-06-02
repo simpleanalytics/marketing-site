@@ -1137,7 +1137,7 @@
     "title": "Vieni a lavorare per Simple Analytics",
     "description": "Stiamo assumendo uno sviluppatore full-stack senior.",
     "apply_button": "Candidati ora",
-    "apply_until": "Candidati prima del 1° giugno 23:59 UTC",
+    "apply_until": "Candidati prima del {0} (ora locale) {1} (UTC)",
     "thank_you_message": "Abbiamo ricevuto la tua candidatura, grazie per aver dedicato tempo a candidarti! Faremo del nostro meglio per esaminare la tua candidatura il prima possibile, ma ti preghiamo di notare che riceviamo molte candidature.",
     "applications_closed": "Non accettiamo più candidature per questa posizione. Controlla più tardi per nuove opportunità.",
     "applications_closed_short": "Le candidature sono ora chiuse",
