@@ -751,6 +751,10 @@
       }
     }
   },
+  "gdpr_compliance": {
+    "title": "GDPR Naleving",
+    "description": "Leer over GDPR naleving en gegevensbeschermingseisen."
+  },
   "utm_generator_form": {
     "title": "UTM-generator",
     "intro": "Onze UTM-generator is een handig hulpmiddel voor iedereen die zijn online campagnes wil volgen en analyseren. Of je nu een marketeer, contentmaker of bedrijfseigenaar bent, deze generator helpt je om je marketingkanalen beter te begrijpen.",
