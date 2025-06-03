@@ -746,6 +746,10 @@
       }
     }
   },
+  "gdpr_compliance": {
+    "title": "Cumplimiento del RGPD",
+    "description": "Aprenda sobre el cumplimiento del RGPD y los requisitos de protección de datos."
+  },
   "utm_generator_form": {
     "title": "Generador de UTM",
     "intro": "Nuestro generador de UTM es una herramienta útil para cualquiera que quiera rastrear y analizar sus campañas en línea. Ya sea que seas un comercializador, creador de contenido o propietario de un negocio, este generador te puede ayudar a comprender mejor tus canales de marketing.",

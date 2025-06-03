@@ -185,6 +185,22 @@ export default {
     it: "/generatore-utm/[slug]",
     fr: "/constructeur-utm/[slug]",
   },
+  "is-gdpr-compliant/index": {
+    en: "/is-gdpr-compliant",
+    nl: "/is-avg-conform",
+    es: "/es-conforme-rgpd",
+    de: "/ist-dsgvo-konform",
+    it: "/e-conforme-gdpr",
+    fr: "/est-conforme-rgpd",
+  },
+  "is-gdpr-compliant/[slug]": {
+    en: "/is-gdpr-compliant/[slug]",
+    nl: "/is-avg-conform/[slug]",
+    es: "/es-conforme-rgpd/[slug]",
+    de: "/ist-dsgvo-konform/[slug]",
+    it: "/e-conforme-gdpr/[slug]",
+    fr: "/est-conforme-rgpd/[slug]",
+  },
   "case-studies/index": {
     en: "/case-studies",
     de: "/fallstudien",

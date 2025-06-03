@@ -743,6 +743,10 @@
       }
     }
   },
+  "gdpr_compliance": {
+    "title": "GDPR Compliance",
+    "description": "Learn about GDPR compliance and data protection requirements."
+  },
   "ga_countries": {
     "overview": "Countries where Google Analytics is declared illegal",
     "overview_description": "In some countries, Google Analytics is declared illegal. This is because Google Analytics is not GDPR-compliant. In these countries, you can use Simple Analytics instead. We are GDPR-compliant, and we don't use cookies.",
