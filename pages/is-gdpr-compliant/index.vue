@@ -19,7 +19,7 @@
           :to="
             localePath({
               name: 'is-gdpr-compliant-slug',
-              params: { slug: article.slug },
+              params: { slug: article.nonUniqueSlug },
             })
           "
           class="block"
@@ -43,6 +43,7 @@ const {
 } = await useArticle({
   routeName: "is-gdpr-compliant-slug",
   articleType: "gdpr-compliance",
+  keys: ["nonUniqueSlug"],
 });
 
 const articles = computed(() => articlesData.value?.articles || []);
