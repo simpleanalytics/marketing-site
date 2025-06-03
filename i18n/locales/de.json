@@ -837,16 +837,20 @@
   },
   "general": {
     "errors": {
-      "an_error_happened": "Es ist ein Fehler aufgetreten.",
-      "too_many_requests": "Zu viele Anfragen. Bitte versuche es später noch einmal.",
-      "something_went_wrong": "Etwas ist schief gelaufen. Bitte versuche es später noch einmal."
+      "an_error_happened": "Ein Fehler ist aufgetreten.",
+      "too_many_requests": "Zu viele Anfragen. Bitte versuche es später erneut.",
+      "something_went_wrong": "Etwas ist schiefgelaufen. Bitte versuche es später erneut."
     },
     "httpcodes": {
       "429": {
         "title": "Zu viele Anfragen",
-        "description": "Du sendest zu viele Anfragen in kurzer Zeit. Bitte versuche es später noch einmal."
+        "description": "Du sendest zu viele Anfragen in kurzer Zeit. Bitte versuche es später erneut."
       }
     }
+  },
+  "gdpr_compliance": {
+    "title": "GDPR Konformität",
+    "description": "Erfahren Sie mehr über GDPR-Konformität und Datenschutzanforderungen."
   },
   "error": {
     "not_found": "Oops, Seite nicht gefunden",

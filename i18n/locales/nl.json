@@ -843,15 +843,19 @@
   "general": {
     "errors": {
       "an_error_happened": "Er is een fout opgetreden.",
-      "too_many_requests": "Te veel bezoeken. Probeer het later opnieuw.",
-      "something_went_wrong": "Er ging iets mis. Probeer het later opnieuw."
+      "too_many_requests": "Te veel verzoeken. Probeer het later opnieuw.",
+      "something_went_wrong": "Er is iets misgegaan. Probeer het later opnieuw."
     },
     "httpcodes": {
       "429": {
-        "title": "Te veel bezoeken",
-        "description": "Je bezoekt onze website te veel in een korte tijd. Probeer het later opnieuw."
+        "title": "Te veel verzoeken",
+        "description": "Je verstuurt te veel verzoeken in een korte periode. Probeer het later opnieuw."
       }
     }
+  },
+  "gdpr_compliance": {
+    "title": "GDPR Naleving",
+    "description": "Leer over GDPR naleving en gegevensbeschermingseisen."
   },
   "error": {
     "not_found": "Oeps, pagina niet gevonden",

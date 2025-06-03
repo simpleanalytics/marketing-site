@@ -857,6 +857,10 @@
       }
     }
   },
+  "gdpr_compliance": {
+    "title": "GDPR Compliance",
+    "description": "Learn about GDPR compliance and data protection requirements."
+  },
   "error": {
     "not_found": "Oops, page not found",
     "generic": "Oops, an error occurred, please refresh the page",

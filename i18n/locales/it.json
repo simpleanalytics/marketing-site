@@ -853,15 +853,19 @@
   "general": {
     "errors": {
       "an_error_happened": "Si è verificato un errore.",
-      "too_many_requests": "Troppe richieste. Per favore riprova più tardi.",
-      "something_went_wrong": "Qualcosa è andato storto. Per favore riprova più tardi."
+      "too_many_requests": "Troppe richieste. Riprova più tardi.",
+      "something_went_wrong": "Qualcosa è andato storto. Riprova più tardi."
     },
     "httpcodes": {
       "429": {
         "title": "Troppe richieste",
-        "description": "Stai inviando troppe richieste in breve tempo. Per favore riprova più tardi."
+        "description": "Stai inviando troppe richieste in poco tempo. Riprova più tardi."
       }
     }
+  },
+  "gdpr_compliance": {
+    "title": "Conformità GDPR",
+    "description": "Impara sulla conformità GDPR e i requisiti di protezione dei dati."
   },
   "error": {
     "not_found": "Oops, pagina non trovata",

@@ -844,9 +844,13 @@
     "httpcodes": {
       "429": {
         "title": "Demasiadas solicitudes",
-        "description": "Estás enviando demasiadas solicitudes en un corto período de tiempo. Por favor, inténtalo de nuevo más tarde."
+        "description": "Estás enviando demasiadas solicitudes en poco tiempo. Por favor, inténtalo de nuevo más tarde."
       }
     }
+  },
+  "gdpr_compliance": {
+    "title": "Cumplimiento GDPR",
+    "description": "Aprende sobre el cumplimiento GDPR y los requisitos de protección de datos."
   },
   "error": {
     "not_found": "Vaya, página no encontrada",

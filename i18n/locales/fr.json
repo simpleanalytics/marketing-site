@@ -848,6 +848,10 @@
       }
     }
   },
+  "gdpr_compliance": {
+    "title": "Conformité GDPR",
+    "description": "Apprenez la conformité GDPR et les exigences de protection des données."
+  },
   "error": {
     "not_found": "Oups, page non trouvée",
     "generic": "Oups, une erreur s'est produite, veuillez rafraîchir la page",

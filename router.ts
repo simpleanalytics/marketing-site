@@ -217,4 +217,20 @@ export default {
     it: "/guide-pratiche/[slug]",
     nl: "/handleidingen/[slug]",
   },
+  "is-gdpr-compliant/index": {
+    en: "/is-gdpr-compliant",
+    nl: "/is-gdpr-compliant",
+    es: "/es-conforme-gdpr",
+    de: "/ist-gdpr-konform",
+    it: "/e-conforme-gdpr",
+    fr: "/est-conforme-gdpr",
+  },
+  "is-gdpr-compliant/[slug]": {
+    en: "/is-gdpr-compliant/[slug]",
+    nl: "/is-gdpr-compliant/[slug]",
+    es: "/es-conforme-gdpr/[slug]",
+    de: "/ist-gdpr-konform/[slug]",
+    it: "/e-conforme-gdpr/[slug]",
+    fr: "/est-conforme-gdpr/[slug]",
+  },
 } as const;
