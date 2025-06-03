@@ -747,8 +747,8 @@
     }
   },
   "gdpr_compliance": {
-    "title": "GDPR Konformität",
-    "description": "Erfahren Sie mehr über GDPR-Konformität und Datenschutzanforderungen."
+    "title": "DSGVO-Konformität",
+    "description": "Erfahren Sie mehr über DSGVO-Konformität und Anforderungen an den Datenschutz."
   },
   "utm_generator_form": {
     "title": "UTM-Generator",
