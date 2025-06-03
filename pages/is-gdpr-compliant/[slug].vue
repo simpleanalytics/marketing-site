@@ -1,7 +1,7 @@
 <template>
   <Article
     name="is-gdpr-compliant-slug"
-    :slug="route.params.slug"
+    :nonUniqueSlug="route.params.slug"
     articleType="gdpr-compliance"
     :keys="['reviews']"
   />
