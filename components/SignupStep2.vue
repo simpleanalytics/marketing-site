@@ -29,9 +29,13 @@
           <option value="hackernews">Hacker News</option>
           <option value="x">X / Twitter</option>
           <option value="linkedin">LinkedIn</option>
+          <option value="netlify">Netlify</option>
           <option value="blog">Blog</option>
           <option value="podcast">Podcast</option>
           <option value="youtube">Youtube</option>
+          <option value="ai">
+            ChatGPT / Perplexity / Gemini / Claude / Others
+          </option>
           <option value="other">Other</option>
         </select>
         <div v-if="signupSourceErrors.length" class="mt-1">
