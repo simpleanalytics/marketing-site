@@ -76,4 +76,4 @@ You can copy the results to the [locales/en.json](locales/en.json), [locales/de.
 
 ## Preview
 
-<kbd><img alt="Screenshot" src="https://user-images.githubusercontent.com/1079135/162253493-031329a4-8951-4596-b16e-f8dc2516b27e.png"></kbd>
+<kbd><img alt="Screenshot" src="https://github.com/user-attachments/assets/0f9c00be-f146-40bf-9cda-cf4b3b24dc71"></kbd>
