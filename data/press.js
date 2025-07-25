@@ -1,5 +1,27 @@
 export const pressMentions = [
   {
+    type: "article",
+    name: "RightBlogger",
+    slug: "rightblogger",
+    hosts: ["Ryan Robinson"],
+    date: new Date("2025-05-21"),
+    locale: "en",
+    url: "https://rightblogger.com/blog/simple-analytics-story",
+    image:
+      "https://assets.simpleanalytics.com/press/mentions/rightblogger/cover.jpg",
+    video: {
+      mp4: "https://assets.simpleanalytics.com/press/mentions/onderneming-nl/video.mp4",
+      poster:
+        "https://assets.simpleanalytics.com/press/mentions/onderneming-nl/cover.jpg",
+      subtitles: {
+        en: "https://assets.simpleanalytics.com/press/mentions/onderneming-nl/subtitles.en.vtt",
+        nl: "https://assets.simpleanalytics.com/press/mentions/onderneming-nl/subtitles.nl.vtt",
+      },
+    },
+    description:
+      "Here's the Simple Analytics story, from co-owner Iron Brands. We shine a light on how they've grown to $500k/yr from word-of-mouth marketing.",
+  },
+  {
     type: "podcast",
     name: "Milestones",
     slug: "milestones",
