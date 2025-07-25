@@ -44,7 +44,7 @@ COPY --from=build /src/.output /src/.output
 # Optional, only needed if you rely on unbundled dependencies
 # COPY --from=build /src/node_modules /src/node_modules
 
-ADD https://assets.simpleanalytics.com/files/2022-05-17-geolite-country.mmdb /src/server/data/geolite-country.mmdb
+ADD https://assets.simpleanalytics.com/files/2025-07-07-geolite-country.mmdb /src/server/data/geolite-country.mmdb
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
