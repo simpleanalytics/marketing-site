@@ -1,8 +1,16 @@
 import { Reader } from "@maxmind/geoip2-node";
-import { readFileSync } from "fs";
+import { readFileSync, existsSync } from "fs";
 import { resolve } from "path";
 
-const dbBuffer = readFileSync(resolve("server/data/geolite-country.mmdb"));
+let dbBuffer = null;
+try {
+  const dbPath = resolve("server/data/geolite-country.mmdb");
+  if (existsSync(dbPath)) {
+    dbBuffer = readFileSync(dbPath);
+  }
+} catch (error) {
+  console.warn("GeoLite database not available:", error.message);
+}
 
 const euroCountries = [
   // EU countries
