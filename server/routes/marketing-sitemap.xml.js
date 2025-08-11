@@ -2,6 +2,9 @@ import { stringify as qsStringify } from "qs";
 import localePages from "~/router";
 import { categories } from "~/data/glossary";
 
+// Article types that should use `nonUniqueSlug` in URLs
+const articleTypesUsingNonUniqueSlug = new Set(["gdpr-compliance"]);
+
 export default defineEventHandler(async (event) => {
   const {
     strapiToken,
@@ -120,7 +123,7 @@ const computeSitemapPaths = (
         localePages["glossary/[category]/key-terms/[slug]"];
     }
   } else {
-    /* 
+    /*
       for dynamic routes, iterating and adding keys in the format: analytics,
       which is used to directly access the localePages values
     */
@@ -133,11 +136,12 @@ const computeSitemapPaths = (
       url = url.join("-");
       if (url === "case-studies") url = "case-study";
       if (url === "guides") url = "guide";
+      if (url === "is-gdpr-compliant") url = "gdpr-compliance";
       pageRoutesToMatch[url] = localePages[route];
     }
   }
 
-  /* 
+  /*
     once we have valid keys then, iterating on the pages getting the keys, adding a valid sitemap entry and an alternatives array used as entry for xhtml:link
   */
   for (const value of pages) {
@@ -150,13 +154,20 @@ const computeSitemapPaths = (
 
     let alternatives = [];
 
+    const useNonUniqueSlug = articleTypesUsingNonUniqueSlug.has(
+      value.attributes.articleType,
+    );
+    const slugToUse = useNonUniqueSlug
+      ? value.attributes.nonUniqueSlug || value.attributes.slug
+      : value.attributes.slug;
+
     let transformedURLs = Object.keys(page).map((language) => {
       let url = `https://www.simpleanalytics.com`;
       if (language !== "en") url = `${url}/${language}${page[language]}`;
       else url = `${url}${page[language]}`;
 
       url = url
-        .replace(/\[slug\]/g, value.attributes.slug)
+        .replace(/\[slug\]/g, slugToUse)
         .replace(/\[category\]/g, value.attributes.articleType);
       alternatives.push({
         hreflang: language,
@@ -167,7 +178,7 @@ const computeSitemapPaths = (
       return url;
     });
 
-    /* 
+    /*
       if localizations exists for the current value then iterating and replacing the urls with the translated ones.
     */
     if (value.attributes?.localizations?.data?.length > 0) {
@@ -177,17 +188,20 @@ const computeSitemapPaths = (
 
           transformedURLs = transformedURLs.map((url) => {
             if (url.includes(localeOfUrlToBeReplaced)) {
-              url = url.replace(value.attributes.slug, data.attributes.slug);
+              const localizedSlugToUse = useNonUniqueSlug
+                ? data.attributes.nonUniqueSlug || data.attributes.slug
+                : data.attributes.slug;
+              url = url.replace(slugToUse, localizedSlugToUse);
             }
             return url;
           });
 
           alternatives = alternatives.map((alt) => {
             if (alt.hreflang === data.attributes.locale) {
-              alt.href = alt.href.replace(
-                value.attributes.slug,
-                data.attributes.slug,
-              );
+              const localizedSlugToUse = useNonUniqueSlug
+                ? data.attributes.nonUniqueSlug || data.attributes.slug
+                : data.attributes.slug;
+              alt.href = alt.href.replace(slugToUse, localizedSlugToUse);
               alt.updatedAt = data.attributes?.updatedAt;
             }
 
@@ -239,7 +253,7 @@ const fetchDataFromStrapi = async (
     "https://cms.simpleanalytics.com",
   );
 
-  const fields = [
+  const baseFields = [
     "id",
     "title",
     "locale",
@@ -248,6 +262,10 @@ const fetchDataFromStrapi = async (
     "updatedAt",
     "articleType",
   ];
+  const fields =
+    pathSearchValue === "articles"
+      ? [...baseFields, "nonUniqueSlug"]
+      : baseFields;
 
   let params = {
     fields: fields,
