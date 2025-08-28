@@ -14,6 +14,11 @@ const redirects = [
     to: "/signup",
     redirectCode: HTTP_CODES.temporary,
   },
+  {
+    from: "/partner",
+    to: "/partners",
+    redirectCode: HTTP_CODES.permanent,
+  },
 ];
 
 export default defineNuxtPlugin(async (nuxtApp) => {
