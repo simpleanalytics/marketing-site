@@ -1,7 +1,9 @@
 <template>
   <div class="max-w-7xl mx-auto px-6">
     <!-- Two Logos Section -->
-    <div class="flex justify-center items-center space-x-8 py-12">
+    <div
+      class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 py-12"
+    >
       <div class="flex items-center">
         <SimpleAnalyticsIcon class="h-12 w-auto" />
         <span class="ml-3 text-xl font-medium text-gray-500 dark:text-gray-400">
@@ -10,10 +12,7 @@
       </div>
       <div class="text-2xl text-gray-400">+</div>
       <div class="flex items-center">
-        <SimpleAnalyticsIcon class="h-12 w-auto" />
-        <span class="ml-3 text-xl font-medium text-gray-500 dark:text-gray-400">
-          Cookiebot
-        </span>
+        <CookiebotIcon class="h-12 w-auto" />
       </div>
     </div>
 
@@ -97,6 +96,7 @@
 
 <script setup>
 import SimpleAnalyticsIcon from "../components/images/SimpleAnalyticsIcon.vue";
+import CookiebotIcon from "~/components/images/CookiebotIcon.vue";
 
 definePageMeta({
   title: "Simple Analytics for Cookiebot Users",
