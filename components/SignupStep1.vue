@@ -5,6 +5,30 @@
         <StepCounter class="mb-2" :step="1" :total="2" />
         <h1 class="text-2xl lg:text-3xl font-bold mb-4">Create your account</h1>
 
+        <!-- Cookiebot Discount Banner -->
+        <div
+          v-if="showCookiebotBanner"
+          class="mb-6 bg-gradient-to-r from-blue-50 to-green-50 dark:from-gray-800 dark:to-gray-700 border border-green-200 dark:border-green-600 rounded-lg p-4"
+        >
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <CheckCircleIcon
+                class="h-6 w-6 text-green-500 dark:text-green-400"
+              />
+            </div>
+            <div class="ml-3">
+              <h3
+                class="text-sm font-medium text-green-800 dark:text-green-200"
+              >
+                Cookiebot Special Offer Applied
+              </h3>
+              <p class="text-sm text-green-700 dark:text-green-300 mt-1">
+                This signup is linked to your Cookiebot referral. A discount
+                will be automatically applied when you set up a payment plan.
+              </p>
+            </div>
+          </div>
+        </div>
         <label for="email" class="block text-sm font-medium text-gray-700">
           Email address
         </label>
@@ -172,11 +196,22 @@ import {
   KeyIcon,
   QuestionMarkCircleIcon,
 } from "@heroicons/vue/24/outline";
+import { CheckCircleIcon } from "@heroicons/vue/24/solid";
 import { computed, ref } from "vue";
 import { useSignupStore } from "~/stores/signup";
 import { useFieldErrors } from "~/composables/useFieldErrors";
 import ChartLoader from "./ChartLoader.vue";
 import StepCounter from "./StepCounter.vue";
+
+const cookiebotCookie = useCookie("cookiebot", {
+  secure: process.env.NODE_ENV === "production",
+  sameSite: true,
+  default: () => null,
+});
+
+const showCookiebotBanner = computed(() => {
+  return cookiebotCookie.value === "cookiebot";
+});
 
 const config = useRuntimeConfig();
 const { DASHBOARD_URL } = config.public;
