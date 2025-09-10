@@ -95,24 +95,34 @@ export const useSignupStore = defineStore("signup", () => {
     clearErrors();
     isLoading.value = true;
 
+    const partnerCookie = useCookie("partner", {
+      secure: process.env.NODE_ENV === "production",
+      sameSite: true,
+      default: () => null,
+    });
+
     try {
+      const body = {
+        email: email.value,
+        loginMethod: loginMethod.value,
+        password: password.value,
+        jobRole: jobRole.value,
+        companySize: companySize.value,
+        signupSource: signupSource.value,
+        countryCode: countryCode.value,
+        teamMembers: teamMembers.value,
+        termsConfirmed: termsConfirmed.value,
+        useHaveIBeenPwned: useHaveIBeenPwned.value,
+        isValidating: false,
+        currency: currency.value?.code,
+      };
+
+      if (partnerCookie.value) body.partner = partnerCookie.value;
+
       const response = await fetch(`${DASHBOARD_URL}/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: email.value,
-          loginMethod: loginMethod.value,
-          password: password.value,
-          jobRole: jobRole.value,
-          companySize: companySize.value,
-          signupSource: signupSource.value,
-          countryCode: countryCode.value,
-          teamMembers: teamMembers.value,
-          termsConfirmed: termsConfirmed.value,
-          useHaveIBeenPwned: useHaveIBeenPwned.value,
-          isValidating: false,
-          currency: currency.value?.code,
-        }),
+        body: JSON.stringify(body),
       });
 
       const data = await response.json();
