@@ -107,7 +107,7 @@ definePageMeta({
 const router = useRouter();
 
 // Cookie configuration with security settings
-const cookiebotCookie = useCookie("cookiebot", {
+const partnerCookie = useCookie("partner", {
   secure: process.env.NODE_ENV === "production",
   sameSite: true,
   maxAge: 2592000, // 30 days in seconds
@@ -118,7 +118,7 @@ const cookiebotCookie = useCookie("cookiebot", {
 // Function to handle signup button click and set cookie
 const handleSignupClick = () => {
   // Set the cookie value
-  cookiebotCookie.value = "cookiebot";
+  partnerCookie.value = "cookiebot";
 
   // Then proceed with the normal signup navigation
   navigateToWelcome(router, "click_signup_cookiebot");

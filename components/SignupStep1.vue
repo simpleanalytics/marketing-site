@@ -203,14 +203,14 @@ import { useFieldErrors } from "~/composables/useFieldErrors";
 import ChartLoader from "./ChartLoader.vue";
 import StepCounter from "./StepCounter.vue";
 
-const cookiebotCookie = useCookie("cookiebot", {
+const partnerCookie = useCookie("partner", {
   secure: process.env.NODE_ENV === "production",
   sameSite: true,
   default: () => null,
 });
 
 const showCookiebotBanner = computed(() => {
-  return cookiebotCookie.value === "cookiebot";
+  return partnerCookie.value === "cookiebot";
 });
 
 const config = useRuntimeConfig();
