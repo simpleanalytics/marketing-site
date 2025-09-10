@@ -95,7 +95,7 @@
 </template>
 
 <script setup>
-import SimpleAnalyticsIcon from "../components/images/SimpleAnalyticsIcon.vue";
+import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
 import CookiebotIcon from "~/components/images/CookiebotIcon.vue";
 
 definePageMeta({
