@@ -149,49 +149,45 @@ export default defineNuxtConfig({
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
-      script: [
-        {
-          src: "https://test-v1.adriaan.com/script-v1.js",
-          async: true,
-        },
-        {
-          innerHTML: `
-            window.chatwootSettings = {
-              position: "right",
-              type: "expanded_bubble",
-              launcherTitle: "Chat with us",
-              darkMode: "auto",
-              baseDomain: "simpleanalytics.com"
-            };
-            (function (d, t) {
-              var BASE_URL = "https://chat.simpleanalytics.com";
-              var g = d.createElement(t),
-                s = d.getElementsByTagName(t)[0];
-              g.src = BASE_URL + "/packs/js/sdk.js";
-              g.defer = true;
-              g.async = true;
-              s.parentNode.insertBefore(g, s);
-              g.onload = function () {
-                window.chatwootSDK.run({
-                  websiteToken: "awihp9DgbCtM5xG1WVKS8okv",
-                  baseUrl: BASE_URL,
-                });
-                window.addEventListener("chatwoot:ready", function () {
-                  document.querySelector('button.woot--close')?.addEventListener('click', () => {
-                    sa_event('chatwoot_click_close');
-                  });
-                  document.querySelector('button.woot-widget-bubble')?.addEventListener('click', () => {
-                    sa_event('chatwoot_click_open');
-                  });
-                });
-                window.addEventListener('chatwoot:on-message', () => {
-                  sa_event('chatwoot_message');
-                })
-              };
-            })(document, "script");
-          `,
-        },
-      ],
+      // script: [
+      //   {
+      //     innerHTML: `
+      //       window.chatwootSettings = {
+      //         position: "right",
+      //         type: "expanded_bubble",
+      //         launcherTitle: "Chat with us",
+      //         darkMode: "auto",
+      //         baseDomain: "simpleanalytics.com"
+      //       };
+      //       (function (d, t) {
+      //         var BASE_URL = "https://support.simpleanalytics.tools";
+      //         var g = d.createElement(t),
+      //           s = d.getElementsByTagName(t)[0];
+      //         g.src = BASE_URL + "/packs/js/sdk.js";
+      //         g.defer = true;
+      //         g.async = true;
+      //         s.parentNode.insertBefore(g, s);
+      //         g.onload = function () {
+      //           window.chatwootSDK.run({
+      //             websiteToken: "awihp9DgbCtM5xG1WVKS8okv",
+      //             baseUrl: BASE_URL,
+      //           });
+      //           window.addEventListener("chatwoot:ready", function () {
+      //             document.querySelector('button.woot--close')?.addEventListener('click', () => {
+      //               sa_event('chatwoot_click_close');
+      //             });
+      //             document.querySelector('button.woot-widget-bubble')?.addEventListener('click', () => {
+      //               sa_event('chatwoot_click_open');
+      //             });
+      //           });
+      //           window.addEventListener('chatwoot:on-message', () => {
+      //             sa_event('chatwoot_message');
+      //           })
+      //         };
+      //       })(document, "script");
+      //     `,
+      //   },
+      // ],
     },
   },
 
