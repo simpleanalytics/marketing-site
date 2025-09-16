@@ -939,6 +939,8 @@
     "subscribe": "Subscribe",
     "join_program_today": "Join the partner program today",
     "cookiebot": {
+      "page_title": "Simple Analytics for Cookiebot Users",
+      "page_description": "Special offer for Cookiebot users switching to Simple Analytics - up to 50% off for 3 months. Privacy-first analytics without cookie banners.",
       "title": "Simple Analytics for Cookiebot users",
       "subtitle": "Make the switch to privacy-first analytics that respects your visitors and complies with GDPR without the need for cookie banners.",
       "special_offer_title": "Special Offer for Cookiebot Users",

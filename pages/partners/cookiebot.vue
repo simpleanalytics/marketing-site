@@ -100,10 +100,16 @@
 import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
 import CookiebotIcon from "~/components/images/CookiebotIcon.vue";
 
-definePageMeta({
-  title: "Simple Analytics for Cookiebot Users",
-  description:
-    "Special offer for Cookiebot users switching to Simple Analytics - up to 50% off for 3 months. Privacy-first analytics without cookie banners.",
+const { t } = useI18n();
+
+useHead({
+  title: t("partners.cookiebot.page_title"),
+  meta: [
+    {
+      name: "description",
+      content: t("partners.cookiebot.page_description"),
+    },
+  ],
 });
 
 const router = useRouter();
