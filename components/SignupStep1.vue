@@ -8,7 +8,7 @@
         <!-- Cookiebot Discount Banner -->
         <div
           v-if="showCookiebotBanner"
-          class="mb-6 bg-gradient-to-r from-blue-50 to-green-50 dark:from-gray-800 dark:to-gray-700 border border-green-200 dark:border-green-600 rounded-lg p-4"
+          class="mb-6 bg-gradient-to-r from-green-100 to-green-200 dark:from-green-900 dark:to-green-800 border border-green-200 dark:border-none rounded-lg p-4"
         >
           <div class="flex items-center">
             <div class="flex-shrink-0">
@@ -18,13 +18,13 @@
             </div>
             <div class="ml-3">
               <h3
-                class="text-sm font-medium text-green-800 dark:text-green-200"
+                class="text-sm font-medium text-green-800 dark:text-green-300"
               >
-                Cookiebot Special Offer Applied
+                Cookiebot discount applied
               </h3>
-              <p class="text-sm text-green-700 dark:text-green-300 mt-1">
-                This signup is linked to your Cookiebot referral. A discount
-                will be automatically applied when you set up a payment plan.
+              <p class="text-sm text-green-700 dark:text-green-400 mt-1">
+                This signup is linked to the Cookiebot referral. The discount
+                will be automatically applied when you select a plan.
               </p>
             </div>
           </div>

@@ -4,61 +4,7 @@
       {{ $t("pricing.affiliate_description", [14]) }}
     </p>
 
-    <div class="mt-6 mb-0 flex flex-wrap justify-center items-center space-x-7">
-      <Tooltip :text="$t('pricing.company_logos.mollie')" class="group">
-        <NuxtLink href="https://www.mollie.com/" target="_blank">
-          <LogosMollie class="h-5 my-3" />
-        </NuxtLink>
-      </Tooltip>
-      <Tooltip :text="$t('pricing.company_logos.bloomberg')" class="group">
-        <NuxtLink href="https://www.bloomberg.com/" target="_blank">
-          <LogosBloomberg class="h-6 my-3 translate-y-[20%]" />
-        </NuxtLink>
-      </Tooltip>
-      <Tooltip :text="$t('pricing.company_logos.michelin')" class="group">
-        <NuxtLink href="https://www.michelin.com/" target="_blank">
-          <LogosMichelin class="h-8 my-3" />
-        </NuxtLink>
-      </Tooltip>
-      <Tooltip :text="$t('pricing.company_logos.hyundai')" class="group">
-        <NuxtLink href="https://www.hyundai.com/" target="_blank">
-          <LogosHyundai class="h-8 my-3" />
-        </NuxtLink>
-      </Tooltip>
-      <Tooltip :text="$t('pricing.company_logos.gov_uk')" class="group">
-        <NuxtLink href="https://www.gov.uk/" target="_blank">
-          <LogosGovUK class="h-9 my-3" />
-        </NuxtLink>
-      </Tooltip>
-      <Tooltip :text="$t('pricing.company_logos.polkadot')" class="group">
-        <NuxtLink href="https://polkadot.com/" target="_blank">
-          <LogosPolkadot class="h-6 my-3" />
-        </NuxtLink>
-      </Tooltip>
-      <Tooltip
-        :text="$t('pricing.company_logos.bank_of_england')"
-        class="group"
-      >
-        <NuxtLink href="https://www.bankofengland.co.uk/" target="_blank">
-          <LogosBankOfEngland class="h-10 my-3" />
-        </NuxtLink>
-      </Tooltip>
-      <Tooltip :text="$t('pricing.company_logos.sketch')" class="group">
-        <NuxtLink href="https://www.sketch.com/" target="_blank">
-          <LogosSketch class="h-6 my-3" />
-        </NuxtLink>
-      </Tooltip>
-      <Tooltip :text="$t('pricing.company_logos.excalidraw')" class="group">
-        <NuxtLink href="https://excalidraw.com/" target="_blank">
-          <LogosExcalidraw class="h-7 my-3" />
-        </NuxtLink>
-      </Tooltip>
-      <Tooltip :text="$t('pricing.company_logos.nomads')" class="group">
-        <NuxtLink href="https://nomads.com/" target="_blank">
-          <LogosNomadList class="h-8 my-3" />
-        </NuxtLink>
-      </Tooltip>
-    </div>
+    <Brands />
 
     <div class="mt-6 mx-auto flex space-x-2 items-center justify-center">
       <div class="flex flex-wrap -space-x-3">
@@ -89,28 +35,7 @@
         </div>
       </div>
 
-      <Tooltip
-        :text="$t('pricing.reviews.capterra.tooltip', [capterraRating])"
-        class="group flex-shrink-0 border-2 border-transparent hover:border-yellow-500 dark:hover:border-transparent dark:hover:bg-yellow-500/20 rounded-md"
-      >
-        <NuxtLink
-          to="https://www.capterra.com/p/248710/Simple-Analytics/"
-          target="_blank"
-          rel="nofollow"
-          class="px-2 py-1 block"
-        >
-          <div class="text-yellow-500 dark:text-yellow-400">
-            <StarIcon class="inline h-5 w-5" />
-            <StarIcon class="inline h-5 w-5" />
-            <StarIcon class="inline h-5 w-5" />
-            <StarIcon class="inline h-5 w-5" />
-            <StarIcon class="inline h-5 w-5" />
-          </div>
-          <p class="text-xs sm:text-sm">
-            {{ $t("pricing.reviews.capterra.users_count", [userCount]) }}
-          </p>
-        </NuxtLink>
-      </Tooltip>
+      <Capterra />
     </div>
 
     <div
@@ -1068,11 +993,9 @@ import {
   PlusIcon,
   MinusIcon,
   ArrowDownIcon,
-  StarIcon,
 } from "@heroicons/vue/20/solid";
 import { ExclamationTriangleIcon } from "@heroicons/vue/24/outline";
 import { ArrowLeftIcon } from "@heroicons/vue/24/solid";
-import { userCount } from "~/utils/miscellaneous";
 import BlameOurMarketeerForThis from "./handwritten/BlameOurMarketeerForThis.vue";
 
 const theme = useTheme();
@@ -1086,8 +1009,6 @@ const planListExpanded = ref(false);
 const sliderValue = ref(0);
 const currency = useCurrency();
 const router = useRouter();
-
-const capterraRating = 4.8;
 
 const handleSliderValue = (value) => {
   sliderValue.value = value;
