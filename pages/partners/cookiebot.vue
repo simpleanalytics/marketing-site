@@ -25,8 +25,7 @@
       <p
         class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
       >
-        Make the switch to privacy-first analytics that respects your visitors
-        and complies with GDPR without the need for cookie banners.
+        {{ $t("partners.cookiebot.subtitle") }}
       </p>
     </div>
 
@@ -36,7 +35,7 @@
     >
       <div class="max-w-4xl mx-auto">
         <h2 class="text-2xl sm:text-3xl font-medium text-center mb-8">
-          Special Offer for Cookiebot Users
+          {{ $t("partners.cookiebot.special_offer_title") }}
         </h2>
 
         <div class="grid md:grid-cols-2 gap-6">
@@ -48,11 +47,13 @@
               <div
                 class="text-3xl font-bold text-red-500 dark:text-red-600 mb-2"
               >
-                50% OFF
+                {{ $t("partners.cookiebot.offer_50_percent") }}
               </div>
-              <div class="text-lg font-medium mb-2">for 3 months</div>
+              <div class="text-lg font-medium mb-2">
+                {{ $t("partners.cookiebot.for_3_months") }}
+              </div>
               <div class="text-sm text-gray-600 dark:text-gray-400">
-                Sign up within 2 weeks
+                {{ $t("partners.cookiebot.sign_up_within_2_weeks") }}
               </div>
             </div>
           </div>
@@ -65,11 +66,13 @@
               <div
                 class="text-3xl font-bold text-blue-500 dark:text-blue-400 mb-2"
               >
-                25% OFF
+                {{ $t("partners.cookiebot.offer_25_percent") }}
               </div>
-              <div class="text-lg font-medium mb-2">for 3 months</div>
+              <div class="text-lg font-medium mb-2">
+                {{ $t("partners.cookiebot.for_3_months") }}
+              </div>
               <div class="text-sm text-gray-600 dark:text-gray-400">
-                Sign up within 1 month
+                {{ $t("partners.cookiebot.sign_up_within_1_month") }}
               </div>
             </div>
           </div>
@@ -80,15 +83,14 @@
     <!-- Sign Up Button -->
     <div class="text-center py-8">
       <a class="button large primary" @click="handleSignupClick">
-        Start Your Free Trial
+        {{ $t("partners.cookiebot.start_trial_button") }}
       </a>
     </div>
 
     <!-- Cookie Notice -->
     <div class="text-center pb-12">
       <p class="text-sm text-gray-500 dark:text-gray-400 max-w-md mx-auto">
-        By clicking the button above, you will receive a 30-day cookie to track
-        this special offer. No personal data is collected during this process.
+        {{ $t("partners.cookiebot.cookie_notice") }}
       </p>
     </div>
   </div>

@@ -937,7 +937,19 @@
     "newsletter_description": "Stay informed about new features, commission updates, and partner resources.",
     "email_placeholder": "Enter your email",
     "subscribe": "Subscribe",
-    "join_program_today": "Join the partner program today"
+    "join_program_today": "Join the partner program today",
+    "cookiebot": {
+      "title": "Simple Analytics for Cookiebot users",
+      "subtitle": "Make the switch to privacy-first analytics that respects your visitors and complies with GDPR without the need for cookie banners.",
+      "special_offer_title": "Special Offer for Cookiebot Users",
+      "offer_50_percent": "50% OFF",
+      "offer_25_percent": "25% OFF",
+      "for_3_months": "for 3 months",
+      "sign_up_within_2_weeks": "Sign up within 2 weeks",
+      "sign_up_within_1_month": "Sign up within 1 month",
+      "start_trial_button": "Start Your Free Trial",
+      "cookie_notice": "By clicking the button above, you will receive a 30-day cookie to track this special offer. No personal data is collected during this process."
+    }
   },
   "countries": {
     "_source": "https://github.com/rl-king/elm-iso3166-country-codes/blob/master/src/Iso3166/English.elm",
