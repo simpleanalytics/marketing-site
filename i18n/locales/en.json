@@ -937,7 +937,46 @@
     "newsletter_description": "Stay informed about new features, commission updates, and partner resources.",
     "email_placeholder": "Enter your email",
     "subscribe": "Subscribe",
-    "join_program_today": "Join the partner program today"
+    "join_program_today": "Join the partner program today",
+    "cookiebot": {
+      "page_title": "Simple Analytics for Cookiebot Users",
+      "page_description": "Special offer for Cookiebot users switching to Simple Analytics: up to 50% off for 3 months. Privacy-first analytics without cookie banners.",
+      "title": "Simple Analytics for Cookiebot users",
+      "subtitle": "Add privacy-first analytics without the need for cookie banners.",
+      "main_title": "{0} for Cookiebot users",
+      "discount": "Discount",
+      "claim_discount_button": "Claim discount now",
+      "timeline_sign_up": "Sign up",
+      "timeline_two_weeks_after": "2 weeks after sign up",
+      "timeline_one_month": "1 month after",
+      "offer_x_percent_full": "{0}% off for {1} months",
+      "select_plan_x_weeks": "(select a plan within {0} weeks)",
+      "special_offer_title": "Add missing insights to your cookiebanner setup with Simple Analytics",
+      "special_offer_description": "Create a new account and choose a plan within {0} weeks to get {1}% off for {2} months. Or choose a plan within {3} month to get {4}% off for {5} months.",
+      "offer_x_percent": "{0}% discount",
+      "for_x_months": "for {0} months",
+      "sign_up_within_x_weeks": "Choose a plan within {0} weeks",
+      "sign_up_within_x_month": "Choose a plan within {0} month",
+      "start_trial_button": "Start free trial",
+      "cookie_notice": "By clicking the button above, we will set a 30-day cookie to track this special offer. No personal data is collected during this process."
+    }
+  },
+  "signup_step1": {
+    "title": "Create your account",
+    "cookiebot_discount": {
+      "title": "Cookiebot discount applied",
+      "description": "This signup is linked to the Cookiebot referral. The discount will be automatically applied when you select a plan."
+    },
+    "email_label": "Email address",
+    "email_placeholder": "Enter your (work) email address...",
+    "login_method_label": "Login method",
+    "magic_link": "Magic link",
+    "password": "Password",
+    "password_placeholder": "Enter a long passphrase...",
+    "password_leak_check": "Check if password has leaked",
+    "password_leak_explainer": "When enabled, we check your password against the {0}haveibeenpwned.com{1} database without sending your actual password to the service. First, we hash your password using SHA1, then send only the first five characters of that hash. The service responds with any leaked passwords that begin with those characters. We then check on our end if any of these matches your password. If it has been leaked before, we display a warning. Rest assured, we never store your password in plain text.",
+    "terms_label": "I accept the {0}General Terms and Conditions{1}",
+    "next_button": "Next"
   },
   "countries": {
     "_source": "https://github.com/rl-king/elm-iso3166-country-codes/blob/master/src/Iso3166/English.elm",
