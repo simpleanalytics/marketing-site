@@ -945,7 +945,7 @@
       "subtitle": "Add privacy-first analytics without the need for cookie banners.",
       "main_title": "{0} for Cookiebot users",
       "discount": "Discount",
-      "claim_discount_button": "Claim discount now",
+      "claim_discount_button": "Claim 50% off Today",
       "timeline_sign_up": "Sign up",
       "timeline_two_weeks_after": "2 weeks after sign up",
       "timeline_one_month": "1 month after",
@@ -957,7 +957,7 @@
       "for_x_months": "for {0} months",
       "sign_up_within_x_weeks": "Choose a plan within {0} weeks",
       "sign_up_within_x_month": "Choose a plan within {0} month",
-      "start_trial_button": "Start free trial",
+      "start_trial_button": "Unlock 50% off - Get started",
       "cookie_notice": "By clicking the button above, we will set a 30-day cookie to track this special offer. No personal data is collected during this process."
     }
   },
