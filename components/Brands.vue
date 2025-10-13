@@ -57,7 +57,8 @@
 const props = defineProps({
   class: {
     type: String,
-    default: "mt-6 mb-0 flex flex-wrap justify-center items-center space-x-7",
+    default:
+      "mt-6 mb-0 flex flex-wrap justify-center items-center gap-x-4 sm:gap-x-7 gap-y-2",
   },
 });
 </script>
