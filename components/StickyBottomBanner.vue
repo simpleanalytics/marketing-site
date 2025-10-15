@@ -8,7 +8,7 @@
     leave-to-class="opacity-0 translate-y-10"
   >
     <div
-      class="z-50 sticky bottom-0 left-0 right-0 overflow-hidden w-full bg-gradient-to-b from-[#2c5fc5] dark:from-[#2c5fc5] to-[#042f84] dark:to-[#042f84] dark:bg-gray-600 p-2"
+      class="hidden md:block z-50 sticky bottom-0 left-0 right-0 overflow-hidden w-full bg-gradient-to-b from-[#2c5fc5] dark:from-[#2c5fc5] to-[#042f84] dark:to-[#042f84] dark:bg-gray-600 p-2"
       v-if="showBottomBanner"
     >
       <p

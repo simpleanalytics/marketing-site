@@ -1,17 +1,15 @@
 <template>
   <div
-    class="bg-gradient-to-b from-[#477ae1] dark:from-[#355ed5] to-[#003399] dark:to-[#233a7c] dark:bg-gray-600 min-h-full"
+    class="bg-gradient-to-b from-[#477ae1] dark:from-[#355ed5] to-[#003399] dark:to-[#233a7c] min-h-full"
   >
-    <div class="px-6 flex-grow flex flex-col min-h-full">
-      <div class="mt-4">
+    <div class="px-6 py-4 flex-grow flex flex-col">
+      <div class="flex items-center gap-2 mb-3">
         <EuropeRoundStars
-          class="inline-block my-2 w-20 h-20 rounded-full text-[#233a7c]"
-          style="margin-right: -1.2rem"
+          class="w-12 h-12 sm:w-16 sm:h-16 rounded-full text-[#233a7c] flex-shrink-0"
         />
         <svg
           viewBox="0 0 400 400"
-          class="inline-block my-2 w-20 h-20 rounded-full"
-          style="margin-right: -1.2rem"
+          class="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex-shrink-0"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -30,27 +28,22 @@
         </svg>
       </div>
 
-      <h2 class="mt-4 text-2xl font-semibold text-white dark:text-white">
+      <h2 class="text-xl sm:text-2xl font-semibold text-white mb-3">
         {{ $t("popups.europe.title") }}
       </h2>
 
-      <p class="mt-4 leading-relaxed text-white dark:text-white">
-        {{ $t("popups.europe.step_1") }}
-      </p>
-      <p class="leading-relaxed text-white dark:text-white">
-        {{ $t("popups.europe.step_2") }}
-      </p>
-      <p class="leading-relaxed mb-4 text-white dark:text-white">
-        {{ $t("popups.europe.step_3") }}
-      </p>
+      <ul class="space-y-1.5 mb-4 text-white text-sm sm:text-base">
+        <li>{{ $t("popups.europe.step_1") }}</li>
+        <li>{{ $t("popups.europe.step_2") }}</li>
+        <li>{{ $t("popups.europe.step_3") }}</li>
+      </ul>
 
-      <p class="mb-6">
-        <a
-          @click="navigateToWelcome($router, 'click_signup_exit_popup')"
-          class="inline-flex items-center justify-center px-4 py-2 border-2 border-white dark:border-white text-base font-medium rounded-full text-white dark:text-white dark:hover:text-white hover:text-white hover:border-white dark:hover:border-white text-center"
-          >{{ $t("popups.europe.button") }}</a
-        >
-      </p>
+      <a
+        @click="navigateToWelcome($router, 'click_signup_exit_popup')"
+        class="inline-block px-6 py-2 border-2 border-white text-sm sm:text-base font-medium rounded-full text-white hover:bg-white hover:text-[#003399] transition-colors text-center"
+      >
+        {{ $t("popups.europe.button") }}
+      </a>
     </div>
   </div>
 </template>

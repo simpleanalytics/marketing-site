@@ -8,8 +8,8 @@
     leave-to-class="opacity-0 translate-y-10"
   >
     <div
-      class="z-50 sticky transition-all duration-150 left-0 overflow-hidden rounded-lg shadow-lg mx-6 md:w-80"
-      :class="showBottomBanner ? 'bottom-20' : 'bottom-6'"
+      class="z-50 sticky transition-all duration-150 left-0 overflow-hidden rounded-lg shadow-lg mx-6 md:w-80 bottom-6"
+      :class="showBottomBanner ? 'md:bottom-20' : ''"
       v-if="show"
     >
       <a @click="hide" class="absolute top-0 right-0 p-4 group">
