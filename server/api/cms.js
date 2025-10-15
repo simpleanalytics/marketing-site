@@ -291,20 +291,39 @@ const preconvert = (
     /<a href="([^"]+)"([^>]*)>([^<]+)<\/a>/g,
     function (match, href, attributes, text) {
       try {
-        const url = new URL(href, "https://www.simpleanalytics.com");
-        const isHttp = /^https?:\/\//i.test(href);
+        // Clean and validate the href before creating URL object
+        let cleanHref = href.trim();
 
-        if (rewrites[href]) {
-          return `<a href="${rewrites[href]}"${attributes}>${text}</a>`;
+        // Remove common malformed characters at the end of URLs
+        cleanHref = cleanHref.replace(/[%5D%5B\]]+$/, "");
+
+        // Basic URL validation - check if it looks like a valid URL structure
+        if (!cleanHref || cleanHref.length === 0) {
+          console.warn(`Invalid or empty URL after cleaning: "${href}"`);
+          return match;
+        }
+
+        let url;
+        try {
+          url = new URL(cleanHref, "https://www.simpleanalytics.com");
+        } catch (urlError) {
+          console.warn(`Failed to parse URL "${cleanHref}":`, urlError.message);
+          return match;
+        }
+
+        const isHttp = /^https?:\/\//i.test(cleanHref);
+
+        if (rewrites[cleanHref]) {
+          return `<a href="${rewrites[cleanHref]}"${attributes}>${text}</a>`;
         }
 
         if (url.hostname === "www.simpleanalytics.com") {
-          const path = href.split("/").slice(3).join("/");
+          const path = cleanHref.split("/").slice(3).join("/");
           return `<a href="/${path}" ${attributes}>${text}</a>`;
         }
 
         if (isHttp && url.hostname.includes("simpleanalytics"))
-          return `<a href="${href}"${attributes} referrerpolicy="unsafe-url" rel="">${text}</a>`;
+          return `<a href="${cleanHref}"${attributes} referrerpolicy="unsafe-url" rel="">${text}</a>`;
 
         if (isHttp) {
           if (!url.searchParams.has("utm_source"))
@@ -323,7 +342,7 @@ const preconvert = (
         }
         return match;
       } catch (error) {
-        console.error(error);
+        console.error(`Failed to process URL "${href}":`, error);
         return match;
       }
     },
