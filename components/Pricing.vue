@@ -205,23 +205,12 @@
             v-else-if="subscription.slug === 'enterprise'"
             class="mt-6 flex items-baseline gap-x-1"
           >
-            <span class="text-sm font-semibold leading-6">{{
-              $t("pricing.from")
-            }}</span>
+            <span class="text-sm font-semibold leading-6">&nbsp;</span>
             <span
               class="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200"
-              >{{
-                new Intl.NumberFormat($t("time.intl_locale"), {
-                  style: "currency",
-                  currency: currency.code,
-                  minimumFractionDigits: 0,
-                  maximumFractionDigits: 2,
-                }).format(frequency.value === "annually" ? 7500 : 750)
-              }}</span
+              >Custom</span
             >
-            <span class="text-sm font-semibold leading-6">{{
-              frequency.priceSuffix
-            }}</span>
+            <span class="text-sm font-semibold leading-6">&nbsp;</span>
           </p>
           <p
             v-else-if="sliderValue === Infinity"
