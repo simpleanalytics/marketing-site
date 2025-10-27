@@ -241,8 +241,14 @@
               v-else-if="
                 subscription.slug === 'enterprise' || sliderValue === Infinity
               "
-              >{{ $t("pricing.buttons.contact_sales") }}</span
+              class="flex items-center justify-center gap-x-2"
             >
+              <CalendarDaysIcon
+                class="h-5 w-5 flex-none text-current"
+                aria-hidden="true"
+              />
+              {{ $t("pricing.buttons.book_call") }}
+            </span>
             <span v-else>{{ $t("pricing.buttons.start_free") }}</span>
           </NuxtLink>
           <ul role="list" class="mt-4 space-y-3 text-sm leading-6">
@@ -983,7 +989,11 @@ import {
   MinusIcon,
   ArrowDownIcon,
 } from "@heroicons/vue/20/solid";
-import { ExclamationTriangleIcon } from "@heroicons/vue/24/outline";
+import {
+  CalendarDateRangeIcon,
+  CalendarDaysIcon,
+  ExclamationTriangleIcon,
+} from "@heroicons/vue/24/outline";
 import { ArrowLeftIcon } from "@heroicons/vue/24/solid";
 import BlameOurMarketeerForThis from "./handwritten/BlameOurMarketeerForThis.vue";
 
@@ -1086,9 +1096,7 @@ const featureIsHiddenInPlan = (feature) => {
 };
 
 const clickEnterprise = () => {
-  const params = new URLSearchParams();
-  if (theme.value === "dark") params.set("theme", "dark");
-  const url = `${DASHBOARD_URL}/contact?${params}`;
+  const url = `https://cal.com/ironbrands/demo-simple-analytics`;
 
   // Send event before redirecting to contact page
   if (window.sa_event && window.sa_loaded) {
