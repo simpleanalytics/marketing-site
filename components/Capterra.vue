@@ -26,7 +26,12 @@
 <script setup>
 import { StarIcon } from "@heroicons/vue/20/solid";
 import Tooltip from "~/components/Tooltip.vue";
-import { userCount } from "~/utils/miscellaneous";
 
 const rating = 4.8;
+
+const { userCount, fetchUserCount } = useUserCount();
+
+onMounted(async () => {
+  await fetchUserCount();
+});
 </script>
