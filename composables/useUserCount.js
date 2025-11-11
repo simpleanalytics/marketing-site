@@ -2,8 +2,8 @@ export const useUserCount = () => {
   const config = useRuntimeConfig();
   const { DASHBOARD_URL } = config.public;
 
-  const userCount = useState('userCount', () => 30000); // Default fallback
-  const lastFetched = useState('userCountLastFetched', () => 0);
+  const userCount = useState("userCount", () => 30000); // Default fallback
+  const lastFetched = useState("userCountLastFetched", () => 0);
 
   const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
 
@@ -11,7 +11,7 @@ export const useUserCount = () => {
     const now = Date.now();
 
     // Return cached value if still fresh
-    if (lastFetched.value && (now - lastFetched.value) < CACHE_DURATION) {
+    if (lastFetched.value && now - lastFetched.value < CACHE_DURATION) {
       return userCount.value;
     }
 
@@ -37,4 +37,3 @@ export const useUserCount = () => {
     fetchUserCount,
   };
 };
-
