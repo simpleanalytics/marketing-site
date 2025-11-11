@@ -120,7 +120,6 @@
 <script setup>
 import { useSignupStore } from "~/stores/signup";
 import SignupStep2 from "~/components/SignupStep2.vue";
-import { userCount } from "~/utils/miscellaneous";
 import Iron from "~/components/icons/Iron.vue";
 import Adriaan from "~/components/icons/Adriaan.vue";
 import Ampersand from "~/components/icons/Ampersand.vue";
@@ -130,6 +129,12 @@ const localePath = useLocalePath();
 const signupStore = useSignupStore();
 const router = useRouter();
 const showConfetti = ref(false);
+
+const { userCount, fetchUserCount } = useUserCount();
+
+onMounted(async () => {
+  await fetchUserCount();
+});
 
 const next = (data) => {
   signupStore.setCustomerInfo(data);
