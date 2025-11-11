@@ -1013,16 +1013,7 @@ const handleSliderValue = (value) => {
   sliderValue.value = value;
 };
 
-const sliderOptions = ref([
-  "20000",
-  "100000",
-  "250000",
-  "500000",
-  "1000000",
-  "2000000",
-  "5000000",
-  "10000000",
-]);
+const sliderOptions = ref(["20000", "100000", "250000", "500000", "1000000"]);
 
 const sliderIndexInitial = computed(() => {
   return sliderOptions.value.findIndex((option) => option == 20000);
