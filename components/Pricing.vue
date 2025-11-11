@@ -51,7 +51,7 @@
   </div>
 
   <div
-    class="mt-8 p-0 sm:py-0 border-b dark:border-b-2 sm:border-none border-gray-200 dark:border-gray-800 bg-gray-50 sm:bg-transparent dark:bg-gray-700 sm:dark:bg-transparent max-w-3xl mx-auto z-20 sticky top-0 w-full sm:relative -translate-y-px"
+    class="mt-8 p-0 sm:py-0 border-b dark:border-b-2 sm:border-none border-gray-200 dark:border-gray-800 bg-gray-50 sm:bg-transparent dark:bg-gray-700 sm:dark:bg-transparent max-w-3xl mx-auto z-20 top-0 w-full sm:relative -translate-y-px"
   >
     <div
       class="flex flex-col md:flex-row justify-center items-center px-6 sm:border border-gray-200 dark:border-none dark:bg-gray-700 rounded-2xl"

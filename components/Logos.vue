@@ -1,10 +1,12 @@
 <template>
-  <div class="flex flex-wrap items-center justify-center -m-6 relative z-30">
+  <div
+    class="flex flex-wrap items-center justify-center -m-3 sm:-m-6 relative z-30"
+  >
     <Tooltip
       v-for="company in filtered"
       :key="company.name"
       :text="company.name"
-      class="flex items-center group m-6"
+      class="flex items-center group m-4 sm:m-6"
       :class="{
         [company.class]: company.class,
         ...tooltipclass,
