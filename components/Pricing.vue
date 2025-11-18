@@ -6,7 +6,7 @@
 
     <div
       v-if="isBlackFridayPeriod"
-      class="max-w-3xl mx-auto px-6 mb-6 mt-8 py-3 bg-green-50 dark:bg-gray-800 border border-green-300 dark:border-gray-700 rounded-lg"
+      class="max-w-3xl mx-auto px-6 mb-6 mt-8 py-3 bg-green-50 dark:bg-gray-700 border border-green-300 dark:border-gray-600 rounded-lg"
     >
       <p
         class="text-center text-gray-900 dark:text-gray-100 text-xs sm:text-sm max-w-[410px] mx-auto"
