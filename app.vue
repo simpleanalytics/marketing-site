@@ -200,6 +200,18 @@
       </div>
 
       <div
+        v-if="isBlackFridayPeriod"
+        class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-gray-800 dark:to-gray-700 border-b border-green-300 dark:border-gray-600"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+          <p class="text-center text-gray-900 dark:text-gray-100 text-sm sm:text-base">
+            <span class="font-semibold">We don't do Black Friday.</span>
+            No crazy discounts, no customers who don't really want us, just a fair price for everyone.
+          </p>
+        </div>
+      </div>
+
+      <div
         class="text-gray-300 bg-gradient-to-b from-blue-100 dark:from-gray-900 relative md:pb-12 transition-transform duration-500 z-[100]"
         :class="signup.show ? '-translate-y-20' : 'translate-y-0'"
       >
@@ -1154,4 +1166,5 @@ const { data: articlesData, status } = await useArticle({
 const recentPosts = computed(() => articlesData.value?.articles || []);
 
 const showBottomBanner = useBottomBanner();
+const isBlackFridayPeriod = useIsBlackFridayPeriod();
 </script>

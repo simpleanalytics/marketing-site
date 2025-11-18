@@ -32,10 +32,10 @@
         {{ $t("popups.europe.title") }}
       </h2>
 
-      <ul class="space-y-1.5 mb-4 text-white text-sm sm:text-base">
-        <li>{{ $t("popups.europe.step_1") }}</li>
-        <li>{{ $t("popups.europe.step_2") }}</li>
-        <li>{{ $t("popups.europe.step_3") }}</li>
+      <ul class="space-y-1.5 mb-4 text-sm sm:text-base">
+        <li class="text-white">{{ $t("popups.europe.step_1") }}</li>
+        <li class="text-white">{{ $t("popups.europe.step_2") }}</li>
+        <li class="text-white">{{ $t("popups.europe.step_3") }}</li>
       </ul>
 
       <a

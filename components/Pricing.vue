@@ -4,6 +4,16 @@
       {{ $t("pricing.affiliate_description", [14]) }}
     </p>
 
+    <div
+      v-if="isBlackFridayPeriod"
+      class="max-w-3xl mx-auto px-6 mb-6 mt-8 py-3 bg-green-50 dark:bg-gray-800 border border-green-300 dark:border-gray-700 rounded-lg"
+    >
+      <p class="text-center text-gray-900 dark:text-gray-100 text-xs sm:text-sm max-w-[410px] mx-auto">
+        <span class="font-semibold">We don't do Black Friday.</span>
+        No crazy discounts, no customers who don't really want us, just a fair price for everyone.
+      </p>
+    </div>
+
     <Brands />
 
     <div class="mt-6 mx-auto flex space-x-2 items-center justify-center">
@@ -1002,6 +1012,7 @@ const config = useRuntimeConfig();
 const { DASHBOARD_URL } = config.public;
 const { t } = useI18n();
 const localePath = useLocalePath();
+const isBlackFridayPeriod = useIsBlackFridayPeriod();
 
 const featuresOpen = ref(false);
 const planListExpanded = ref(false);
