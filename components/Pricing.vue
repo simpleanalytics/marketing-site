@@ -12,8 +12,7 @@
         class="text-center text-gray-900 dark:text-gray-100 text-xs sm:text-sm max-w-[410px] mx-auto"
       >
         <span class="font-semibold">We don't do Black Friday.</span>
-        No crazy discounts, no customers who don't really want us, just a fair
-        price for everyone.
+        Don't buy us if you need a discount. Just a fair price for everyone.
       </p>
     </div>
 
