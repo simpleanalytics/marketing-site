@@ -26,7 +26,7 @@ import CinchLogo from "../components/logos/Cinch.vue";
 import MichelinLogo from "../components/logos/Michelin.vue";
 import AnwaltLogo from "../components/logos/Anwalt.vue";
 import HomeyLogo from "../components/logos/Homey.vue";
-import AllesBesteLogo from "../components/logos/AllesBeste.vue";
+import FAZKaufkompassLogo from "../components/logos/FAZKaufkompass.vue";
 import TrustlyLogo from "../components/logos/Trustly.vue";
 import CleanshotLogo from "../components/logos/Cleanshot.vue";
 import GFLLogo from "../components/logos/GFL.vue";
@@ -104,9 +104,9 @@ const list = [
     component: TrustlyLogo,
   },
   {
-    name: "AllesBeste",
-    url: "https://www.allesbeste.de/",
-    component: AllesBesteLogo,
+    name: "F.A.Z. Kaufkompass",
+    url: "https://www.faz.net/kaufkompass/",
+    component: FAZKaufkompassLogo,
     countries: ["de"],
   },
   {
