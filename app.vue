@@ -200,7 +200,7 @@
       </div>
 
       <div
-        v-if="isBlackFridayPeriod"
+        v-if="isBlackFridayPeriod && !signup.show"
         class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-gray-800 dark:to-gray-700 border-b border-green-300 dark:border-gray-600"
       >
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
