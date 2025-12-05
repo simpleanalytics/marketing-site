@@ -1,7 +1,7 @@
 export const useBottomBanner = () => useState("showBottomBanner", () => false);
 
 /**
- * Check if we're in the Black Friday period (3 weeks before to 1 week after Black Friday)
+ * Check if we're in the Black Friday period (3 weeks before to the Wednesday after Black Friday)
  * Black Friday is the 4th Friday of November (day after Thanksgiving)
  */
 export const useIsBlackFridayPeriod = () => {
@@ -29,7 +29,7 @@ export const useIsBlackFridayPeriod = () => {
   startDate.setDate(blackFriday.getDate() - 21); // 3 weeks before
 
   const endDate = new Date(blackFriday);
-  endDate.setDate(blackFriday.getDate() + 7); // 1 week after
+  endDate.setDate(blackFriday.getDate() + 5); // Wednesday after
 
   // Check if we're in the period for this year's Black Friday
   if (now >= startDate && now <= endDate) return true;
@@ -39,7 +39,7 @@ export const useIsBlackFridayPeriod = () => {
   const nextYearStartDate = new Date(nextYearBlackFriday);
   nextYearStartDate.setDate(nextYearBlackFriday.getDate() - 21);
   const nextYearEndDate = new Date(nextYearBlackFriday);
-  nextYearEndDate.setDate(nextYearBlackFriday.getDate() + 7);
+  nextYearEndDate.setDate(nextYearBlackFriday.getDate() + 5);
 
   return now >= nextYearStartDate && now <= nextYearEndDate;
 };
