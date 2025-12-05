@@ -29,7 +29,7 @@ export const useIsBlackFridayPeriod = () => {
   startDate.setDate(blackFriday.getDate() - 21); // 3 weeks before
 
   const endDate = new Date(blackFriday);
-  endDate.setDate(blackFriday.getDate() + 5); // Wednesday after
+  endDate.setDate(blackFriday.getDate() + 6); // Keep banner through Wednesday (ends at Thursday midnight)
 
   // Check if we're in the period for this year's Black Friday
   if (now >= startDate && now <= endDate) return true;
@@ -39,7 +39,7 @@ export const useIsBlackFridayPeriod = () => {
   const nextYearStartDate = new Date(nextYearBlackFriday);
   nextYearStartDate.setDate(nextYearBlackFriday.getDate() - 21);
   const nextYearEndDate = new Date(nextYearBlackFriday);
-  nextYearEndDate.setDate(nextYearBlackFriday.getDate() + 5);
+  nextYearEndDate.setDate(nextYearBlackFriday.getDate() + 6);
 
   return now >= nextYearStartDate && now <= nextYearEndDate;
 };
