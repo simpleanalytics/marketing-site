@@ -1,10 +1,5 @@
 <template>
   <div :class="class">
-    <Tooltip :text="$t('pricing.company_logos.mollie')" class="group">
-      <NuxtLink href="https://www.mollie.com/" target="_blank">
-        <LogosMollie class="h-5 my-3" />
-      </NuxtLink>
-    </Tooltip>
     <Tooltip :text="$t('pricing.company_logos.bloomberg')" class="group">
       <NuxtLink href="https://www.bloomberg.com/" target="_blank">
         <LogosBloomberg class="h-6 my-3 translate-y-[20%]" />

@@ -52,11 +52,6 @@
         </ul>
 
         <div class="mt-4 mb-0 flex flex-wrap items-center space-x-7">
-          <Tooltip text="Mollie" class="group">
-            <NuxtLink href="https://www.mollie.com/" target="_blank">
-              <LogosMollie class="h-5 my-3" />
-            </NuxtLink>
-          </Tooltip>
           <Tooltip text="Bloomberg" class="group">
             <NuxtLink href="https://www.bloomberg.com/" target="_blank">
               <LogosBloomberg class="h-6 my-3 translate-y-[20%]" />
