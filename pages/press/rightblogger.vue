@@ -31,7 +31,13 @@
             width="560"
             height="315"
             frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allow="
+              accelerometer;
+              autoplay;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+            "
             allowfullscreen
             src="https://www.youtube-nocookie.com/embed/iX-bkFoiPKo"
           ></iframe>
