@@ -15,28 +15,6 @@ const redirects = [
     to: "/case-studies$1",
   },
   { type: "regex", from: /^\/case-study(\/|$)/i, to: "/case-studies$1" },
-  { type: "regex", from: /^\/de\/fallstudie(\/|$)/i, to: "/de/fallstudien$1" },
-  {
-    type: "regex",
-    from: /^\/es\/estudio-de-caso(\/|$)/i,
-    to: "/es/estudios-de-caso$1",
-  },
-  {
-    type: "regex",
-    from: /^\/fr\/etude-de-cas(\/|$)/i,
-    to: "/fr/etudes-de-cas$1",
-  },
-  {
-    type: "regex",
-    from: /^\/it\/studio-di-caso(\/|$)/i,
-    to: "/it/studi-di-caso$1",
-  },
-  { type: "regex", from: /^\/nl\/casestudie(\/|$)/i, to: "/nl/casestudies$1" },
-  {
-    type: "regex",
-    from: /^\/nl\/glossary(\/|$)/i,
-    to: "/nl/begrippenlijst$1",
-  },
   {
     type: "regex",
     from: /^\/glossary\/analytics\/key-term\/key-term-1(\/|$)/i,
