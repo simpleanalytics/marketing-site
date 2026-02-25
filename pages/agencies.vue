@@ -259,7 +259,9 @@
           </p>
         </div>
 
-        <AnalyticsLayerFlowDiagram />
+        <ClientOnly>
+          <AnalyticsLayerFlowDiagram />
+        </ClientOnly>
 
         <p class="mt-1 text-center text-[15.2px] font-medium text-gray-700">
           Complement, don't replace.
