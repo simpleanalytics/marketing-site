@@ -284,25 +284,33 @@
         >
           Why this matters for agencies
         </h2>
-        <p class="mb-4 max-w-[580px] text-[15.2px] leading-[1.7] text-[#4f545f]">
+        <p
+          class="mb-4 max-w-[580px] text-[15.2px] leading-[1.7] text-[#4f545f]"
+        >
           If you manage clients:
         </p>
 
         <div class="mb-4">
           <div class="flex items-start gap-2 py-[3px]">
-            <CheckIcon class="mt-1 h-[9px] w-[9px] shrink-0 stroke-[2.5] text-red-500" />
+            <CheckIcon
+              class="mt-1 h-[9px] w-[9px] shrink-0 stroke-[2.5] text-red-500"
+            />
             <span class="text-[14.4px] leading-[20.88px] text-[#4f545f]">
               Total traffic is underreported
             </span>
           </div>
           <div class="flex items-start gap-2 py-[3px]">
-            <CheckIcon class="mt-1 h-[9px] w-[9px] shrink-0 stroke-[2.5] text-red-500" />
+            <CheckIcon
+              class="mt-1 h-[9px] w-[9px] shrink-0 stroke-[2.5] text-red-500"
+            />
             <span class="text-[14.4px] leading-[20.88px] text-[#4f545f]">
               Campaign performance may be unaccurate
             </span>
           </div>
           <div class="flex items-start gap-2 py-[3px]">
-            <CheckIcon class="mt-1 h-[9px] w-[9px] shrink-0 stroke-[2.5] text-red-500" />
+            <CheckIcon
+              class="mt-1 h-[9px] w-[9px] shrink-0 stroke-[2.5] text-red-500"
+            />
             <span class="text-[14.4px] leading-[20.88px] text-[#4f545f]">
               Attribution may lack full context
             </span>
@@ -318,19 +326,25 @@
 
         <div>
           <div class="flex items-start gap-2 py-[3px]">
-            <CheckIcon class="mt-1 h-[9px] w-[9px] shrink-0 stroke-[2.5] text-red-500" />
+            <CheckIcon
+              class="mt-1 h-[9px] w-[9px] shrink-0 stroke-[2.5] text-red-500"
+            />
             <span class="text-[14.4px] leading-[20.88px] text-[#4f545f]">
               Clear separation between consented and total traffic
             </span>
           </div>
           <div class="flex items-start gap-2 py-[3px]">
-            <CheckIcon class="mt-1 h-[9px] w-[9px] shrink-0 stroke-[2.5] text-red-500" />
+            <CheckIcon
+              class="mt-1 h-[9px] w-[9px] shrink-0 stroke-[2.5] text-red-500"
+            />
             <span class="text-[14.4px] leading-[20.88px] text-[#4f545f]">
               More defensible reporting
             </span>
           </div>
           <div class="flex items-start gap-2 py-[3px]">
-            <CheckIcon class="mt-1 h-[9px] w-[9px] shrink-0 stroke-[2.5] text-red-500" />
+            <CheckIcon
+              class="mt-1 h-[9px] w-[9px] shrink-0 stroke-[2.5] text-red-500"
+            />
             <span class="text-[14.4px] leading-[20.88px] text-[#4f545f]">
               Fewer &quot;traffic dropped after CMP change&quot; conversations
             </span>
@@ -387,7 +401,10 @@
           class="mt-5 max-w-[560px] rounded-md border border-gray-200 bg-blue-100/30 px-4 py-3 shadow-[0_1px_4px_-1px_rgba(55,61,73,0.06)]"
         >
           <div class="text-[13.44px] leading-[21.5px] text-[#4f545f]">
-            <p>There is no migration required. No CMP changes. GA4 stays in place.</p>
+            <p>
+              There is no migration required. No CMP changes. GA4 stays in
+              place.
+            </p>
             <p class="mt-1">
               Setup takes minutes. And it won't slow down your website.
             </p>
@@ -404,11 +421,15 @@
           >
             See the gap for yourself
           </h3>
-          <p class="mx-auto mb-5 max-w-[440px] text-[15.2px] leading-[25.08px] text-[#4f545f]">
+          <p
+            class="mx-auto mb-5 max-w-[440px] text-[15.2px] leading-[25.08px] text-[#4f545f]"
+          >
             If you work with clients and want to quantify the consent gap, start
             with one domain and run a side-by-side comparison.
           </p>
-          <p class="mx-auto mb-5 max-w-[440px] text-[15.2px] leading-[25.08px] text-[#4f545f]">
+          <p
+            class="mx-auto mb-5 max-w-[440px] text-[15.2px] leading-[25.08px] text-[#4f545f]"
+          >
             Book a short setup call and we'll configure it together.
           </p>
           <a
