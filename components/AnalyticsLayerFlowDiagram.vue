@@ -37,6 +37,11 @@ import LookerStudioLogo from "~/components/LookerStudioLogo.vue";
 import "@vue-flow/core/dist/style.css";
 import "@vue-flow/core/dist/theme-default.css";
 
+const leftBranchCenterX = 210;
+const consentBannerWidth = 170;
+const adBlockerWidth = 170;
+const googleAnalyticsWidth = 220;
+
 const nodes = ref([
   {
     id: "browser",
@@ -46,14 +51,20 @@ const nodes = ref([
   },
   {
     id: "adblocker",
-    position: { x: 100, y: 120 },
+    position: { x: leftBranchCenterX - adBlockerWidth / 2, y: 220 },
     data: { label: "🛑 Ad-blocker" },
     class: "node-standard node-adblocker",
     sourcePosition: Position.Bottom,
   },
   {
+    id: "consent-banner",
+    position: { x: leftBranchCenterX - consentBannerWidth / 2, y: 120 },
+    data: { label: "Consent banner" },
+    class: "node-standard node-consent-banner",
+  },
+  {
     id: "ga",
-    position: { x: 100, y: 240 },
+    position: { x: leftBranchCenterX - googleAnalyticsWidth / 2, y: 320 },
     data: { label: "Google Analytics" },
     class: "node-standard node-ga",
     type: "ga",
@@ -61,13 +72,13 @@ const nodes = ref([
   },
   {
     id: "simple-analytics",
-    position: { x: 500, y: 180 },
+    position: { x: 500, y: 260 },
     data: { label: "Simple Analytics" },
     class: "node-green",
   },
   {
     id: "looker",
-    position: { x: 300, y: 360 },
+    position: { x: 300, y: 420 },
     data: { label: "Looker Studio" },
     class: "node-standard node-looker",
     type: "looker",
@@ -78,23 +89,37 @@ const edges = ref([
   {
     id: "e1-dark",
     source: "browser",
-    target: "adblocker",
+    target: "consent-banner",
     animated: false,
     class: "gray-data-flow-dark",
   },
   {
     id: "e1-light",
     source: "browser",
-    target: "adblocker",
+    target: "consent-banner",
     animated: false,
     class: "gray-data-flow-light",
+  },
+  {
+    id: "e1b-dark",
+    source: "consent-banner",
+    target: "adblocker",
+    animated: false,
+    class: "gray-data-flow-slow-dark",
+  },
+  {
+    id: "e1b-light",
+    source: "consent-banner",
+    target: "adblocker",
+    animated: false,
+    class: "gray-data-flow-slow-light",
   },
   {
     id: "e2-dark",
     source: "adblocker",
     target: "ga",
     animated: false,
-    class: "gray-data-flow-slow-dark",
+    class: "gray-data-flow-slower-dark",
     type: "straight",
   },
   {
@@ -102,7 +127,7 @@ const edges = ref([
     source: "adblocker",
     target: "ga",
     animated: false,
-    class: "gray-data-flow-slow-light",
+    class: "gray-data-flow-slower-light",
     type: "straight",
   },
   {
@@ -110,14 +135,14 @@ const edges = ref([
     source: "ga",
     target: "looker",
     animated: false,
-    class: "gray-data-flow-slow-dark",
+    class: "gray-data-flow-slower-dark",
   },
   {
     id: "e3-light",
     source: "ga",
     target: "looker",
     animated: false,
-    class: "gray-data-flow-slow-light",
+    class: "gray-data-flow-slower-light",
   },
   {
     id: "e4-dark",
@@ -207,7 +232,14 @@ const edges = ref([
 }
 
 :deep(.vue-flow__node.node-adblocker) {
-  width: 220px;
+  width: 170px;
+}
+
+:deep(.vue-flow__node.node-consent-banner) {
+  width: 170px;
+  border-color: #fda4af;
+  background: #fff1f2;
+  color: #9f1239;
 }
 
 :deep(.vue-flow__edge-path) {
@@ -272,6 +304,24 @@ const edges = ref([
   stroke-dasharray: 8 8 !important;
   stroke-dashoffset: 8;
   animation: flow-packets-light 1.2s linear infinite !important;
+}
+
+:deep(.gray-data-flow-slower-dark .vue-flow__edge-path) {
+  stroke: #ef4444;
+  stroke-width: 3;
+  stroke-linecap: butt;
+  stroke-dasharray: 8 8 !important;
+  stroke-dashoffset: 0;
+  animation: flow-packets-dark 1.8s linear infinite !important;
+}
+
+:deep(.gray-data-flow-slower-light .vue-flow__edge-path) {
+  stroke: #fca5a5;
+  stroke-width: 3;
+  stroke-linecap: butt;
+  stroke-dasharray: 8 8 !important;
+  stroke-dashoffset: 8;
+  animation: flow-packets-light 1.8s linear infinite !important;
 }
 
 @keyframes flow-packets-dark {
