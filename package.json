@@ -37,5 +37,8 @@
     "prettier": "^3.2.5",
     "qs": "^6.11.2",
     "simple-analytics-vue": "^3.0.2"
+  },
+  "dependencies": {
+    "@vue-flow/core": "^1.48.2"
   }
 }
