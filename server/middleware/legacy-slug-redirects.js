@@ -56,6 +56,12 @@ function getEnglishPath(articleType, slug) {
       return `/blog/${slug}`;
     case "guide":
       return `/guides/${slug}`;
+    case "case-study":
+      return `/case-studies/${slug}`;
+    case "utm-builder":
+      return `/utm-builder/${slug}`;
+    case "gdpr-compliance":
+      return `/is-gdpr-compliant/${slug}`;
     case "resources-alternatives":
       return `/resources/alternatives/${slug}`;
     case "resources-analytics-review":
@@ -182,6 +188,48 @@ const patterns = [
   },
 
   // ==========================================================================
+  // Case Studies
+  // ==========================================================================
+  // NL: /nl/casestudies/{slug}
+  // DE: /de/fallstudien/{slug}
+  // ES: /es/estudios-de-caso/{slug}
+  // FR: /fr/etudes-de-cas/{slug}
+  // IT: /it/studi-di-caso/{slug}
+  {
+    regex:
+      /^\/(nl|de|es|fr|it)\/(casestudies|fallstudien|estudios-de-caso|etudes-de-cas|studi-di-caso)\/([^/]+)\/?$/i,
+    getSlug: (m) => m[3],
+  },
+
+  // ==========================================================================
+  // UTM Builder
+  // ==========================================================================
+  // NL: /nl/utm-bouwer/{slug}
+  // DE: /de/utm-generator/{slug}
+  // ES: /es/constructor-de-utm/{slug}
+  // FR: /fr/constructeur-utm/{slug}
+  // IT: /it/generatore-utm/{slug}
+  {
+    regex:
+      /^\/(nl|de|es|fr|it)\/(utm-bouwer|utm-generator|constructor-de-utm|constructeur-utm|generatore-utm)\/([^/]+)\/?$/i,
+    getSlug: (m) => m[3],
+  },
+
+  // ==========================================================================
+  // GDPR Compliance
+  // ==========================================================================
+  // NL: /nl/is-avg-conform/{slug}
+  // DE: /de/ist-dsgvo-konform/{slug}
+  // ES: /es/es-conforme-rgpd/{slug}
+  // FR: /fr/est-conforme-rgpd/{slug}
+  // IT: /it/e-conforme-gdpr/{slug}
+  {
+    regex:
+      /^\/(nl|de|es|fr|it)\/(is-avg-conform|ist-dsgvo-konform|es-conforme-rgpd|est-conforme-rgpd|e-conforme-gdpr)\/([^/]+)\/?$/i,
+    getSlug: (m) => m[3],
+  },
+
+  // ==========================================================================
   // English paths with non-English slugs (fallback for slug-only translation)
   // ==========================================================================
   {
@@ -214,6 +262,18 @@ const patterns = [
   },
   {
     regex: /^\/resources\/comparisons\/([^/]+)\/?$/i,
+    getSlug: (m) => m[1],
+  },
+  {
+    regex: /^\/case-studies\/([^/]+)\/?$/i,
+    getSlug: (m) => m[1],
+  },
+  {
+    regex: /^\/utm-builder\/([^/]+)\/?$/i,
+    getSlug: (m) => m[1],
+  },
+  {
+    regex: /^\/is-gdpr-compliant\/([^/]+)\/?$/i,
     getSlug: (m) => m[1],
   },
 ];
