@@ -12,15 +12,13 @@
             <span v-if="article?.question">{{ article.question }}</span>
             <span v-else-if="article?.title">{{ article.title }}</span>
             <span v-else-if="error?.statusCode === 429">
-              {{ $t("general.httpcodes.429.title") }}
+              Too many requests
             </span>
             <p v-else-if="error?.statusMessage" class="my-4 mb-8">
               {{ error?.statusMessage }}.
             </p>
-            <span v-else-if="error">{{
-              $t("general.errors.an_error_happened")
-            }}</span>
-            <span v-else>{{ $t("blog.article_not_found") }}</span>
+            <span v-else-if="error">An error happened.</span>
+            <span v-else>Article not found.</span>
           </h1>
         </slot>
 
@@ -38,28 +36,18 @@
             <Avatar :slug="article.authorSlug" />
             <div class="ml-2" v-if="article.publishedAt">
               <p class="text-sm text-gray-500 dark:text-gray-400">
-                {{
-                  showEditedBy
-                    ? $t("blog.published_and_edited_on_by", [
-                        format(article.publishedAt),
-                        format(article.updatedAt),
-                        getAuthorFromSlug(article.authorSlug)?.name,
-                      ])
-                    : $t("blog.published_on_by", [
-                        format(article.publishedAt),
-                        getAuthorFromSlug(article.authorSlug)?.name,
-                      ])
-                }}
+                {{ publishedText }}
               </p>
             </div>
           </div>
         </div>
 
         <p v-if="error?.statusCode === 429" class="my-4 mb-8">
-          {{ $t("general.httpcodes.429.description") }}
+          You are sending too many requests in a short period of time. Please
+          try again later.
         </p>
         <p v-else-if="error" class="my-4 mb-8">
-          {{ $t("general.errors.something_went_wrong") }}
+          Something went wrong. Please try again later.
         </p>
 
         <div
@@ -69,7 +57,7 @@
           <span
             class="flex items-center mx-auto bg-orange-200 dark:bg-orange-900 dark:text-orange-100 rounded-xl text-lg py-3 px-5"
           >
-            {{ $t("blog.draft_warning") }}
+            This is still a draft. Please don't share, yet.
           </span>
         </div>
 
@@ -117,65 +105,31 @@
           </div>
         </div>
 
-        <p
-          v-if="
-            article &&
-            article.slug &&
-            article.locale !== 'en' &&
-            article.automaticTranslated !== false &&
-            !error
-          "
-          class="inline-block mt-6 px-4 py-2 rounded-lg bg-[#ffd9cb] dark:bg-[#592b1b]"
-        >
-          <template v-if="translationParts.length === 3">
-            {{ translationParts[0] }}
-            <NuxtLink
-              class="dark:text-gray-300 text-gray-700 underline"
-              :to="toEnglish"
-            >
-              {{ translationParts[1] }}</NuxtLink
-            >{{ translationParts[2] }}
-          </template>
-          <template v-else>
-            {{ $t("blog.automatic_translated_switch_to_english") }}
-          </template>
-        </p>
-        <p
-          v-else-if="
-            article && article.locale !== locale && locale !== 'en' && !error
-          "
-          class="inline-block mt-6 px-4 py-2 rounded-lg bg-[#ffd9cb] dark:bg-[#592b1b]"
-        >
-          {{ $t("blog.content_not_translated") }}
-        </p>
-
         <!-- Show buttons where needed -->
         <p v-if="error?.statusCode === 429" class="mt-6">
-          <a class="button" href="?">
-            {{ $t("blog.reload_page") }}
-          </a>
+          <a class="button" href="?"> Reload this page </a>
         </p>
         <p v-else-if="article && !article.contentHtml" class="mt-6">
           <NuxtLink
             class="button"
             v-if="getTypeFromArticleName() === 'glossary'"
-            :to="localePath({ name: 'glossary' })"
+            to="/glossaries"
           >
-            {{ $t("glossary.overview") }}
+            Glossary overview
           </NuxtLink>
           <NuxtLink
             class="button"
             v-else-if="getTypeFromArticleName() === 'resources'"
-            :to="localePath({ name: 'resources' })"
+            to="/resources"
           >
-            {{ $t("resources.overview") }}
+            Resources overview
           </NuxtLink>
           <NuxtLink
             class="button"
             v-else-if="getTypeFromArticleName() === 'utm-builder'"
-            :to="localePath({ name: 'utm-builder' })"
+            to="/utm-builder"
           >
-            {{ $t("utm_builder.overview") }}
+            UTM Builder overview
           </NuxtLink>
         </p>
       </div>
@@ -187,9 +141,7 @@
     <div class="max-w-3xl pb-4 px-4 mx-auto" v-else>
       <div class="text-center">
         <h2 class="text-2xl font-bold">
-          <NuxtLink class="button" :to="localePath({ name: 'blog' })">
-            {{ $t("blog.go_to_overview") }}
-          </NuxtLink>
+          <NuxtLink class="button" to="/blog"> Go to overview </NuxtLink>
         </h2>
       </div>
     </div>
@@ -204,7 +156,7 @@
         {{
           article.ctaTitle && article.ctaDescription
             ? article.ctaTitle
-            : $t(`ctas.import_ga.title`)
+            : "GA4 is complex. Try Simple Analytics"
         }}
       </h2>
       <p
@@ -213,7 +165,7 @@
         {{
           article.ctaTitle && article.ctaDescription
             ? article.ctaDescription
-            : $t(`ctas.import_ga.description`)
+            : "GA4 is like sitting in an airplane cockpit without a pilot license"
         }}
       </p>
       <a
@@ -222,16 +174,16 @@
             title:
               article.ctaTitle && article.ctaDescription
                 ? article.ctaTitle
-                : $t(`ctas.import_ga.title`),
+                : 'GA4 is complex. Try Simple Analytics',
             description:
               article.ctaTitle && article.ctaDescription
                 ? article.ctaDescription
-                : $t(`ctas.import_ga.description`),
-            button: article.ctaButton || $t(`ctas.import_ga.button`),
+                : 'GA4 is like sitting in an airplane cockpit without a pilot license',
+            button: article.ctaButton || 'Start for free now',
           })
         "
         class="button white-bg mt-5"
-        >{{ article.ctaButton || $t(`ctas.import_ga.button`) }}</a
+        >{{ article.ctaButton || "Start for free now" }}</a
       >
     </MovingGradient>
 
@@ -267,8 +219,6 @@ const config = useRuntimeConfig();
 const { BASE_PRODUCTION_URL, DASHBOARD_URL } = config.public;
 
 const route = useRoute();
-const { t, locale } = useI18n();
-const localePath = useLocalePath();
 
 const isAdmin = useAdmin();
 
@@ -295,14 +245,17 @@ const { data } = await useArticle({
   articleType: props.articleType,
   type: props.type,
   drafts: props.drafts,
-  useLocale: props.useLocale,
   pick: ["article"],
 });
 
 const { article, languages, error } = data.value;
 
-const setI18nParams = useSetI18nParams();
-setI18nParams(languages);
+const publishedText = computed(() => {
+  let s = "Published on " + format(article.value.publishedAt);
+  if (showEditedBy) s += " and edited on " + format(article.updatedAt);
+  s += " by " + getAuthorFromSlug(article.authorSlug)?.name;
+  return s;
+});
 
 if (!article && import.meta.server) {
   setResponseStatus(event, 404, "Page Not Found");
@@ -312,25 +265,15 @@ if (error?.value?.statusCode === 429) {
   setResponseStatus(event, 429, "Too Many Requests");
 }
 
-const translationParts = t("blog.automatic_translated_switch_to_english", [
-  "---",
-  "---",
-]).split("---");
-
-const toEnglish = localePath({ name: props.name, params: route.params }, "en");
-
 const generateParams = new URLSearchParams({
-  url: `${BASE_PRODUCTION_URL}/${localePath({
-    name: props.name,
-    params: route.params,
-  })}`,
+  url: `${BASE_PRODUCTION_URL}${route.path}`,
   title: article?.title,
   "author-slug": article?.authorSlug,
 });
 
 const format = (date) => {
   if (!date) return null;
-  return new Intl.DateTimeFormat(t("time.intl_locale"), {
+  return new Intl.DateTimeFormat("en-US", {
     month: "short",
     year: "numeric",
     day: "numeric",
@@ -391,6 +334,22 @@ if (!props.hideSeoMeta) {
   });
 }
 
+// Helper to build path from route name and params
+const buildPath = (name, params = {}) => {
+  const routes = {
+    index: "/",
+    glossary: "/glossaries",
+    "glossary-category": `/glossary/${params.category || ""}`,
+    "glossary-category-slug": `/glossary/${params.category || ""}/${params.slug || ""}`,
+    "glossary-category-key-terms": `/glossary/${params.category || ""}/key-terms`,
+    "glossary-category-key-terms-slug": `/glossary/${params.category || ""}/key-term/${params.slug || ""}`,
+    "google-analytics-countries":
+      "/google-analytics-is-illegal-in-these-countries",
+    "google-analytics-countries-slug": `/google-analytics-illegal/${params.slug || ""}`,
+  };
+  return routes[name] || `/${name}`;
+};
+
 const routeParts = props.name
   .replace(/key\-terms/, "keyterms")
   .replace(/google\-analytics\-countries/, "googleanalyticscountries")
@@ -411,50 +370,45 @@ const breadcrumb = {
         .replace(/keyterms/, "key-terms")
         .replace(/googleanalyticscountries/, "google-analytics-countries");
 
-      const localeRoute = { name: pathName, params: {} };
-
-      if (route.params.category)
-        localeRoute.params.category = route.params.category;
-      if (part === "slug" && route.params.slug)
-        localeRoute.params.slug = route.params.slug;
+      const params = {};
+      if (route.params.category) params.category = route.params.category;
+      if (part === "slug" && route.params.slug) params.slug = route.params.slug;
 
       if (page === "category") {
         const category = categories.find(
           ({ category }) => category === route.params.category,
         );
         acc.push({
-          name: category?.titleTranslation
-            ? t(category.titleTranslation)
-            : route.params.category,
-          item: localePath(localeRoute),
+          name: category?.title || route.params.category,
+          item: buildPath(pathName, params),
         });
       } else if (page === "glossary") {
         acc.push({
-          name: t("glossary.title"),
-          item: localePath(localeRoute),
+          name: "Glossary",
+          item: buildPath(pathName, params),
         });
       } else if (page === "googleanalyticscountries") {
         acc.push({
-          name: t("ga_countries.overview"),
-          item: localePath(localeRoute),
+          name: "Countries where Google Analytics is illegal",
+          item: buildPath(pathName, params),
         });
       } else if (page === "slug") {
         acc.push({
           name: article?.question || article?.title,
-          item: localePath(localeRoute),
+          item: buildPath(pathName, params),
         });
       } else if (page === "key-terms") {
         acc.push({
-          name: t("glossary.key_terms_title"),
-          item: localePath(localeRoute),
+          name: "Key terms",
+          item: buildPath(pathName, params),
         });
       } else {
-        acc.push({ name: page, item: localePath(localeRoute) });
+        acc.push({ name: page, item: buildPath(pathName, params) });
       }
 
       return acc;
     },
-    [{ name: "Home", item: localePath({ name: "index" }) }],
+    [{ name: "Home", item: "/" }],
   ),
 };
 

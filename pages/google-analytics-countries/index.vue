@@ -2,10 +2,13 @@
   <div class="px-4 mx-auto max-w-3xl">
     <div class="text-center mx-4">
       <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
-        {{ $t("ga_countries.overview") }}
+        Countries where Google Analytics is declared illegal
       </h1>
       <p class="mt-8 text-lg">
-        {{ $t("ga_countries.overview_description") }}
+        In some countries, Google Analytics is declared illegal. This is because
+        Google Analytics is not GDPR-compliant. In these countries, you can use
+        Simple Analytics instead. We are GDPR-compliant, and we don't use
+        cookies.
       </p>
 
       <SwitchGroup as="div" class="flex items-center justify-center mt-6">
@@ -35,7 +38,7 @@
       </SwitchGroup>
 
       <p class="mt-6" :class="isGoogleAnalytics ? '' : 'invisible'">
-        {{ $t("ga_countries.click_country_to_learn_more") }}
+        Click on a country to learn more.
       </p>
     </div>
   </div>
@@ -53,7 +56,7 @@
         :class="item.class"
         class="w-6 h-6 rounded-full mr-2 flex-none"
       ></div>
-      {{ $t(`ga_countries.labels.${item.translation}`) }}
+      {{ item.label }}
     </li>
   </ul>
 
@@ -74,9 +77,7 @@
     </div>
   </div>
 
-  <p v-if="status === 'pending'" class="text-center">
-    {{ $t("blog.loading_post") }}
-  </p>
+  <p v-if="status === 'pending'" class="text-center">Loading...</p>
 </template>
 
 <script setup>
@@ -87,14 +88,13 @@ import {
   provideUseId,
 } from "@headlessui/vue";
 import Map from "@/components/Map.vue";
+import { COUNTRIES } from "~/utils/consts";
 
 // Fix for hydration errors based on wrong IDs
 // See https://github.com/tailwindlabs/headlessui/issues/2913
 provideUseId(() => useId());
 
 const router = useRouter();
-const localePath = useLocalePath();
-const { t } = useI18n();
 
 const isGoogleAnalytics = ref(true);
 
@@ -115,79 +115,45 @@ const classes = {
 };
 
 const legend = [
-  { class: "bg-red-500", translation: "forbidden" },
-  { class: "bg-green-500", translation: "legal" },
-  { class: "bg-yellow-500", translation: "pending_cases" },
-  { class: "bg-gray-300 dark:bg-gray-500", translation: "not_researched" },
+  { class: "bg-red-500", label: "Forbidden" },
+  { class: "bg-green-500", label: "Legal" },
+  { class: "bg-yellow-500", label: "Pending cases" },
+  { class: "bg-gray-300 dark:bg-gray-500", label: "Not researched" },
 ];
 
 const fixedCountries = [
   {
-    link: localePath({
-      name: "blog-slug",
-      params: {
-        slug: "france-rules-google-analytics-to-be-in-conflict-with-gdpr-ruling",
-      },
-    }),
-    locale: "fr",
+    link: "/blog/france-rules-google-analytics-to-be-in-conflict-with-gdpr-ruling",
     code: "fr",
     class: classes.yes,
   },
   {
-    link: localePath({
-      name: "blog-slug",
-      params: { slug: "denmark-declares-google-analytics-unlawful" },
-    }),
-    locale: "en",
+    link: "/blog/denmark-declares-google-analytics-unlawful",
     code: "dk",
     class: classes.yes,
   },
   {
-    link: localePath({
-      name: "blog-slug",
-      params: {
-        slug: "hungarian-dpa-to-rule-against-google-analytics-according-to-gdprtoday",
-      },
-    }),
-    locale: "en",
+    link: "/blog/hungarian-dpa-to-rule-against-google-analytics-according-to-gdprtoday",
     code: "hu",
     class: classes.yes,
   },
   {
-    link: localePath({
-      name: "blog-slug",
-      params: { slug: "italy-declares-google-analytics-illegal" },
-    }),
-    locale: "en",
+    link: "/blog/italy-declares-google-analytics-illegal",
     code: "it",
     class: classes.yes,
   },
   {
-    link: localePath({
-      name: "blog-slug",
-      params: {
-        slug: "finland-is-latest-eu-country-to-crack-down-on-google-analytics",
-      },
-    }),
-    locale: "en",
+    link: "/blog/finland-is-latest-eu-country-to-crack-down-on-google-analytics",
     code: "fi",
     class: classes.yes,
   },
   {
-    link: localePath({
-      name: "blog-slug",
-      params: { slug: "norway-takes-a-stance-against-google-analytics" },
-    }),
-    locale: "en",
+    link: "/blog/norway-takes-a-stance-against-google-analytics",
     code: "no",
     class: classes.yes,
   },
   {
-    link: localePath({
-      name: "blog-slug",
-      params: { slug: "sweden-declares-google-analytics-illegal" },
-    }),
-    locale: "en",
+    link: "/blog/sweden-declares-google-analytics-illegal",
     code: "se",
     class: classes.yes,
   },
@@ -200,11 +166,7 @@ const countriesList = computed(() => {
 
   const databaseCountries = articles.value
     .map((country) => ({
-      link: localePath({
-        name: "google-analytics-countries-slug",
-        params: { slug: country.slug },
-      }),
-      locale: country.locale,
+      link: `/google-analytics-illegal/${country.slug}`,
       code: country.metadata?.country_code,
       class:
         country.metadata?.illegal === "yes"
@@ -223,7 +185,7 @@ const countriesList = computed(() => {
 const countries = computed(() => {
   const list = countriesList.value.map((country) => {
     const code = country?.code?.toUpperCase();
-    country.name = code ? t(`countries.${code}`) : code;
+    country.name = code ? COUNTRIES[code] : code;
     return country;
   });
 

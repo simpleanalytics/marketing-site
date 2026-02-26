@@ -4,10 +4,11 @@
       <h1
         class="text-4xl font-medium sm:text-5xl md:text-6xl md:leading-snug leading-relaxed"
       >
-        {{ $t("utm_builder.overview") }}
+        UTM Builder overview
       </h1>
       <p class="mt-8 text-lg leading-relaxed">
-        {{ $t("utm_builder.overview_description") }}
+        This webpage presents a UTM builder designed for various applications,
+        such as TikTok, Google Analytics, spreadsheets, Twitter, and Facebook.
       </p>
     </div>
 
@@ -15,12 +16,7 @@
       <NuxtLink
         v-for="action in actions"
         :key="action.title"
-        :to="
-          localePath({
-            name: 'utm-builder-slug',
-            params: { slug: action.type },
-          })
-        "
+        :to="`/utm-builder/${action.type}`"
         class="group bg-white dark:bg-gray-700 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-red-500 dark:focus-within:ring-red-600 flex flex-col rounded-lg shadow dark:shadow-none"
       >
         <div :class="action.iconBackground" class="rounded-lg w-12 inline-flex">
@@ -48,10 +44,10 @@
         </div>
         <div class="mt-4">
           <h3 class="text-lg font-medium text-link-strong">
-            {{ $t(action.titleTranslation) }} <Arrow />
+            {{ action.title }} <Arrow />
           </h3>
           <p class="mt-2 text-sm text-gray-500">
-            {{ $t(action.descriptionTranslation) }}
+            {{ action.description }}
           </p>
         </div>
       </NuxtLink>
@@ -73,8 +69,6 @@ definePageMeta({
   title: "UTM builder",
   description: "Simple Analytics UTM builder",
 });
-
-const localePath = useLocalePath();
 
 const actions = types;
 </script>

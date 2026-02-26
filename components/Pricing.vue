@@ -1,7 +1,8 @@
 <template>
   <div class="sm:flex sm:flex-col sm:align-center">
     <p v-if="affiliateCookie" class="my-6 text-center">
-      {{ $t("pricing.affiliate_description", [14]) }}
+      You get the first month + 14 days for free because you're using an
+      affiliate link.
     </p>
 
     <div
@@ -29,7 +30,7 @@
           <NuxtLink
             :to="`https://x.com/${avatar.handle}`"
             target="_blank"
-            :title="`@${avatar.handle} (${avatar.followers > 1000 ? $t('pricing.followers.count_k', [Math.floor(avatar.followers / 1000)]) : $t('pricing.followers.count', [avatar.followers])})`"
+            :title="`@${avatar.handle} (${avatar.followers > 1000 ? `${Math.floor(avatar.followers / 1000)}k+ followers` : `${avatar.followers} followers`})`"
           >
             <Tooltip
               :text="`@${avatar.handle}`"
@@ -38,7 +39,7 @@
             >
               <img
                 :src="`/avatars/${avatar.image}`"
-                :alt="$t('pricing.accessibility.avatar', [avatar.handle])"
+                :alt="`Avatar of ${avatar.handle}`"
                 rel="nofollow"
                 class="h-10 w-10"
               />
@@ -57,7 +58,7 @@
       <p
         class="mx-auto rounded px-4 py-2 inline-block bg-red-300 dark:bg-red-900 dark:text-gray-300 text-gray-50"
       >
-        {{ error || $t("general.errors.an_error_happened") }}
+        {{ error || "An error happened." }}
       </p>
     </div>
   </div>
@@ -70,7 +71,7 @@
     >
       <div class="px-2 order-2 sm:order-0 py-2 flex-grow sm:mr-8">
         <p class="text-center text-sm sm:text-sm mt-1 mb-2">
-          {{ $t("pricing.slider.select_pageviews") }}
+          Select the expected monthly pageviews
         </p>
         <Slider
           :options="sliderOptions"
@@ -86,9 +87,7 @@
           v-model="frequency"
           class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs font-semibold leading-5 ring-1 dark:ring-0 ring-inset ring-gray-200 dark:bg-gray-800"
         >
-          <RadioGroupLabel class="sr-only">{{
-            $t("pricing.payment_frequency.label")
-          }}</RadioGroupLabel>
+          <RadioGroupLabel class="sr-only">Payment frequency</RadioGroupLabel>
           <RadioGroupOption
             as="template"
             v-for="option in frequencies"
@@ -113,7 +112,7 @@
         >
           <span
             class="block py-1 px-2 text-[10px] leading-none font-semibold text-white dark:text-white"
-            >{{ $t("pricing.payment_frequency.discount") }}</span
+            >2 months off</span
           >
         </div>
       </div>
@@ -141,7 +140,7 @@
             v-if="subscription.featured"
             class="absolute left-1/2 -translate-x-1/2 top-0 transform -translate-y-1/2 bg-green-500 px-3 py-1 rounded-full text-white text-sm font-semibold"
           >
-            {{ $t("pricing.plan_labels.recommended") }}
+            Recommended
           </div>
 
           <div
@@ -169,9 +168,8 @@
             "
           >
             {{
-              $t(
-                `pricing.plans.${subscription.translation_key || subscription.slug}.description`,
-              )
+              pricingPlans[subscription.translation_key || subscription.slug]
+                ?.description || ""
             }}
           </p>
           <p
@@ -180,7 +178,7 @@
           >
             <span
               class="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200"
-              >{{ $t("pricing.plan_labels.free") }}</span
+              >Free</span
             >
           </p>
           <p
@@ -194,7 +192,7 @@
             <span
               class="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200"
               >{{
-                new Intl.NumberFormat($t("time.intl_locale"), {
+                new Intl.NumberFormat("en-US", {
                   style: "currency",
                   currency: currency.code,
                   minimumFractionDigits: 0,
@@ -230,7 +228,7 @@
           >
             <span
               class="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200"
-              >{{ $t("pricing.contact_us") }}</span
+              >Contact us</span
             >
           </p>
           <NuxtLink
@@ -246,9 +244,9 @@
               'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600',
             ]"
           >
-            <span v-if="subscription.slug.includes('free')">{{
-              $t("pricing.buttons.start_free")
-            }}</span>
+            <span v-if="subscription.slug.includes('free')"
+              >Start for free</span
+            >
             <span
               v-else-if="
                 subscription.slug === 'enterprise' || sliderValue === Infinity
@@ -259,9 +257,9 @@
                 class="h-5 w-5 flex-none text-current"
                 aria-hidden="true"
               />
-              {{ $t("pricing.buttons.book_call") }}
+              Book a call
             </span>
-            <span v-else>{{ $t("pricing.buttons.start_free") }}</span>
+            <span v-else>Start for free</span>
           </NuxtLink>
           <ul role="list" class="mt-4 space-y-3 text-sm leading-6">
             <li
@@ -272,11 +270,10 @@
               class="flex items-center gap-x-3 italic text-gray-400 dark:text-gray-500"
             >
               <ArrowLeftIcon class="h-6 w-5 flex-none" aria-hidden="true" />
-              <span>{{
-                $t("pricing.everything_from", [
-                  filteredSubscriptions[index - 1]?.name,
-                ])
-              }}</span>
+              <span
+                >Everything from
+                {{ filteredSubscriptions[index - 1]?.name }}</span
+              >
             </li>
 
             <!-- Placeholder for plans without everything from -->
@@ -297,12 +294,9 @@
                 <span
                   class=""
                   v-html="
-                    $t(
-                      subscription.limit_users === 1
-                        ? 'pricing.features.users.one'
-                        : 'pricing.features.users.number',
-                      [subscription.limit_users],
-                    )
+                    subscription.limit_users === 1
+                      ? '<strong>1</strong> user'
+                      : `<strong>${subscription.limit_users}</strong> users`
                   "
                 ></span>
 
@@ -317,13 +311,13 @@
                       class="block py-1 px-2 text-[11px] leading-none font-semibold text-white dark:text-white"
                     >
                       +{{
-                        new Intl.NumberFormat($t("time.intl_locale"), {
+                        new Intl.NumberFormat("en-US", {
                           style: "currency",
                           currency: currency.code,
                           minimumFractionDigits: 0,
                           maximumFractionDigits: 2,
                         }).format(subscription.price_per_user / 100)
-                      }}/{{ $t("pricing.features.users.per_user") }}
+                      }}/user
                     </span>
                   </div>
                 </span>
@@ -334,7 +328,7 @@
                 class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
                 aria-hidden="true"
               />
-              <span>{{ $t("pricing.features.users.custom") }}</span>
+              <span>Custom user limit</span>
             </li>
 
             <li
@@ -351,14 +345,11 @@
               />
               <span
                 v-html="
-                  $t(
-                    subscription.limit_websites === 1
-                      ? 'pricing.features.websites.one'
-                      : subscription.limit_websites === null
-                        ? 'pricing.features.websites.unlimited'
-                        : 'pricing.features.websites.number',
-                    [subscription.limit_websites],
-                  )
+                  subscription.limit_websites === 1
+                    ? '<strong>1</strong> website'
+                    : subscription.limit_websites === null
+                      ? '<strong>Unlimited</strong> websites'
+                      : `<strong>${subscription.limit_websites}</strong> websites`
                 "
               ></span>
             </li>
@@ -367,7 +358,7 @@
                 class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
                 aria-hidden="true"
               />
-              <span>{{ $t("pricing.features.websites.custom") }}</span>
+              <span>Custom site limit</span>
             </li>
 
             <li v-if="subscription.slug === 'enterprise'" class="flex gap-x-3">
@@ -375,7 +366,7 @@
                 class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
                 aria-hidden="true"
               />
-              <span>{{ $t("pricing.features.datapoints.custom") }}</span>
+              <span>Custom pageviews limit</span>
             </li>
 
             <li
@@ -386,12 +377,11 @@
                 class="h-6 w-5 flex-none text-red-500 dark:text-red-600"
                 aria-hidden="true"
               />
-              <TooltipPopover
-                :text="$t('pricing.features.limited_lookback.title')"
-                key="free"
-              >
+              <TooltipPopover :text="'1 month history'" key="free">
                 <span
-                  v-html="$t('pricing.features.limited_lookback.description')"
+                  v-html="
+                    'You have an analytics history of one month, older data will be deleted.'
+                  "
                 >
                 </span>
               </TooltipPopover>
@@ -406,13 +396,12 @@
                 class="h-6 w-5 flex-none text-green-500 dark:text-green-600"
                 aria-hidden="true"
               />
-              <span
-                v-html="
-                  $t('pricing.features.data_retention_days.number', [
-                    formatDays(subscription.limit_data_retention_days),
-                  ])
-                "
-              ></span>
+              <span>
+                <strong>{{
+                  formatDays(subscription.limit_data_retention_days)
+                }}</strong>
+                retention days
+              </span>
             </li>
 
             <li
@@ -425,26 +414,25 @@
                 aria-hidden="true"
               />
               <TooltipPopover
-                :text="$t(`pricing.features.${feature}.title`)"
+                :text="pricingFeatures[feature]?.title || feature"
                 :key="feature"
                 v-if="featureHasDescription(feature)"
               >
-                <span
-                  v-if="feature === 'community_support'"
-                  v-html="
-                    $t('pricing.features.community_support.description', [
-                      `<a href='https://community.simpleanalytics.com/' target='_blank'>`,
-                      `</a>`,
-                    ])
-                  "
-                >
+                <span v-if="feature === 'community_support'">
+                  You can use
+                  <a
+                    href="https://community.simpleanalytics.com/"
+                    target="_blank"
+                    >our community</a
+                  >
+                  to ask questions.
                 </span>
                 <span v-else>
-                  {{ $t(`pricing.features.${feature}.description`) }}
+                  {{ pricingFeatures[feature]?.description || "" }}
                 </span>
               </TooltipPopover>
               <span v-else-if="feature !== 'data_retention_days'">{{
-                $t(`pricing.features.${feature}.title`)
+                pricingFeatures[feature]?.title || feature
               }}</span>
             </li>
 
@@ -487,26 +475,27 @@
               />
 
               <TooltipPopover
-                :text="$t(`pricing.features.${feature.feature}.title`)"
+                :text="
+                  pricingFeatures[feature.feature]?.title || feature.feature
+                "
                 :key="feature.feature"
                 v-if="featureHasDescription(feature.feature)"
               >
-                <span
-                  v-if="feature.feature === 'community_support'"
-                  v-html="
-                    $t('pricing.features.community_support.description', [
-                      `<a href='https://community.simpleanalytics.com/' target='_blank'>`,
-                      `</a>`,
-                    ])
-                  "
-                >
+                <span v-if="feature.feature === 'community_support'">
+                  You can use
+                  <a
+                    href="https://community.simpleanalytics.com/"
+                    target="_blank"
+                    >our community</a
+                  >
+                  to ask questions.
                 </span>
                 <span v-else>
-                  {{ $t(`pricing.features.${feature.feature}.description`) }}
+                  {{ pricingFeatures[feature.feature]?.description || "" }}
                 </span>
               </TooltipPopover>
               <span v-else>
-                {{ $t(`pricing.features.${feature.feature}.title`) }}
+                {{ pricingFeatures[feature.feature]?.title || feature.feature }}
               </span>
             </li>
 
@@ -532,10 +521,8 @@
                   aria-hidden="true"
                 />
 
-                <span v-if="planListExpanded">{{
-                  $t("pricing.features_list.show_less")
-                }}</span>
-                <span v-else>{{ $t("pricing.features_list.show_more") }}</span>
+                <span v-if="planListExpanded">Show less</span>
+                <span v-else>Show more</span>
               </NuxtLink>
             </li>
           </ul>
@@ -551,11 +538,11 @@
       v-if="featuresOpen"
     >
       <MinusIcon class="h-5 w-5 mr-2" aria-hidden="true" />
-      {{ $t("pricing.features_list.hide_all") }}
+      Hide all plan features
     </NuxtLink>
     <NuxtLink @click="featuresOpen = !featuresOpen" class="button" v-else>
       <PlusIcon class="h-5 w-5 mr-2" aria-hidden="true" />
-      {{ $t("pricing.features_list.show_all") }}
+      Show all plan features
     </NuxtLink>
   </p>
 
@@ -565,9 +552,7 @@
       class="sticky hidden lg:block top-0 z-50 mt-10 bg-gradient-to-b from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-900 border-b border-gray-200 dark:border-gray-600"
     >
       <div class="mx-auto max-w-7xl px-6 py-8 sm:pb-8 sm:bt-8 lg:px-8">
-        <h2 id="comparison-heading" class="sr-only">
-          {{ $t("pricing.accessibility.feature_comparison") }}
-        </h2>
+        <h2 id="comparison-heading" class="sr-only">Feature comparison</h2>
 
         <div class="grid grid-cols-4 gap-x-8 before:block">
           <div
@@ -592,21 +577,22 @@
                   'text-xl font-semibold leading-6',
                 ]"
               >
-                {{ $t(`pricing.plans.${subscription.translation_key}.title`) }}
+                {{
+                  pricingPlans[subscription.translation_key]?.title ||
+                  subscription.name
+                }}
               </p>
               <p class="mt-1 text-sm leading-6">
                 {{
-                  $t(
-                    `pricing.plans.${subscription.translation_key}.description`,
-                  )
+                  pricingPlans[subscription.translation_key]?.description || ""
                 }}
               </p>
 
               <NuxtLink
                 class="button mt-6 block text-sm font-semibold leading-6"
-                :to="localePath({ name: 'signup' })"
+                to="/signup"
               >
-                {{ $t("pricing.buttons.start_now") }}
+                Start now
               </NuxtLink>
             </div>
           </div>
@@ -623,7 +609,7 @@
             class="lg:hidden"
           >
             <h2 id="mobile-comparison-heading" class="sr-only">
-              {{ $t("pricing.accessibility.mobile_comparison") }}
+              Feature comparison
             </h2>
 
             <div class="mx-auto max-w-2xl space-y-16">
@@ -641,14 +627,14 @@
                 >
                   <h3 class="text-lg font-semibold leading-6">
                     {{
-                      $t(`pricing.plans.${subscription.translation_key}.title`)
+                      pricingPlans[subscription.translation_key]?.title ||
+                      subscription.name
                     }}
                   </h3>
                   <p class="mt-4 -mb-6 text-sm leading-6">
                     {{
-                      $t(
-                        `pricing.plans.${subscription.translation_key}.description`,
-                      )
+                      pricingPlans[subscription.translation_key]?.description ||
+                      ""
                     }}
                   </p>
                 </div>
@@ -659,13 +645,13 @@
                       class="text-sm font-semibold leading-6 text-gray-900"
                       v-if="section.name !== 'basics'"
                     >
-                      {{ $t(`pricing.sections.${section.name}.title`) }}
+                      {{ pricingSections[section.name]?.title || section.name }}
                     </h4>
                     <p
                       class="mt-2 text-sm leading-6 text-gray-900"
                       v-if="section.name !== 'basics'"
                     >
-                      {{ $t(`pricing.sections.${section.name}.description`) }}
+                      {{ pricingSections[section.name]?.description || "" }}
                     </p>
 
                     <div class="relative mt-4">
@@ -694,7 +680,8 @@
                             <dt
                               class="pr-4"
                               v-html="
-                                $t(`pricing.features.${feature.slug}.title`)
+                                pricingFeatures[feature.slug]?.title ||
+                                feature.slug
                               "
                             ></dt>
                             <dd
@@ -742,7 +729,7 @@
                                     )
                                   "
                                 >
-                                  {{ $t("pricing.features.enterprise_only") }}
+                                  Enterprise only
                                 </span>
                                 <CheckIcon
                                   v-else-if="
@@ -758,12 +745,8 @@
                                 />
                                 <span class="sr-only">{{
                                   feature.subscriptions[index]?.value === true
-                                    ? $t(
-                                        "pricing.accessibility.feature_value.yes",
-                                      )
-                                    : $t(
-                                        "pricing.accessibility.feature_value.no",
-                                      )
+                                    ? "Yes"
+                                    : "No"
                                 }}</span>
                               </template>
                             </dd>
@@ -799,13 +782,13 @@
                   class="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400"
                   v-if="section.name !== 'basics'"
                 >
-                  {{ $t(`pricing.sections.${section.name}.title`) }}
+                  {{ pricingSections[section.name]?.title || section.name }}
                 </h3>
                 <p
                   class="mt-2 text-sm leading-6 text-gray-900"
                   v-if="section.name !== 'basics'"
                 >
-                  {{ $t(`pricing.sections.${section.name}.description`) }}
+                  {{ pricingSections[section.name]?.description || "" }}
                 </p>
 
                 <div class="relative -mx-8 mt-6">
@@ -855,7 +838,8 @@
                         >
                           <span
                             v-html="
-                              $t(`pricing.features.${feature.slug}.title`)
+                              pricingFeatures[feature.slug]?.title ||
+                              feature.slug
                             "
                           />
                           <div
@@ -924,7 +908,7 @@
                                   )
                                 "
                               >
-                                {{ $t("pricing.features.enterprise_only") }}
+                                Enterprise only
                               </span>
                               <CheckIcon
                                 v-else-if="
@@ -951,12 +935,8 @@
                                     ? ""
                                     : feature.subscriptions[index]?.value ===
                                         true
-                                      ? $t(
-                                          "pricing.accessibility.feature_value.yes",
-                                        )
-                                      : $t(
-                                          "pricing.accessibility.feature_value.no",
-                                        )
+                                      ? "Yes"
+                                      : "No"
                               }}</span>
                             </template>
                           </span>
@@ -1002,18 +982,108 @@ import {
   ArrowDownIcon,
 } from "@heroicons/vue/20/solid";
 import {
-  CalendarDateRangeIcon,
   CalendarDaysIcon,
   ExclamationTriangleIcon,
 } from "@heroicons/vue/24/outline";
 import { ArrowLeftIcon } from "@heroicons/vue/24/solid";
 import BlameOurMarketeerForThis from "./handwritten/BlameOurMarketeerForThis.vue";
 
-const theme = useTheme();
 const config = useRuntimeConfig();
 const { DASHBOARD_URL } = config.public;
-const { t } = useI18n();
-const localePath = useLocalePath();
+
+// Translation lookup objects
+const pricingPlans = {
+  free: { title: "Free", description: "" },
+  simple: { title: "Simple", description: "" },
+  team: { title: "Team", description: "" },
+  starter: { title: "Starter", description: "" },
+  business: { title: "Business", description: "" },
+  enterprise: { title: "Enterprise", description: "" },
+};
+
+const pricingSections = {
+  basics: { title: "Basics", description: "" },
+  data: { title: "Data", description: "The amount of data you can collect." },
+  events: {
+    title: "Events",
+    description: "The amount of events you can collect.",
+  },
+  apis: { title: "APIs", description: "The amount of API calls you can make." },
+  admin: {
+    title: "Admin",
+    description: "Features for Enterprise or agencies.",
+  },
+  features: {
+    title: "Features",
+    description: "What you can use in this plan.",
+  },
+  support: { title: "Support", description: "The support you get." },
+};
+
+const pricingFeatures = {
+  datapoints: {
+    title: "Pageviews / events",
+    description:
+      "Because the history is limited to one month, we don't limit your pageviews.",
+  },
+  users: { title: "Users", description: "" },
+  websites: { title: "Websites", description: "" },
+  email_reports: {
+    title: "Email reports",
+    description: "Send yourself and others an email report of your stats.",
+  },
+  look_back_days: { title: "Look back days", description: "" },
+  data_retention_days: { title: "Retention days", description: "" },
+  invoices_email: { title: "Invoices via email", description: "" },
+  separated_data_storage: { title: "Separated data storage", description: "" },
+  goals: { title: "Goals dashboard", description: "" },
+  events: { title: "Collect events", description: "" },
+  automated_events: { title: "Automated events", description: "" },
+  metadata: { title: "Metadata analysis", description: "" },
+  admin_api: { title: "Admin API", description: "" },
+  stats_api: { title: "Stats API", description: "" },
+  export_api: { title: "Export API", description: "" },
+  multiple_teams: { title: "Multiple teams (agency)", description: "" },
+  combined_invoicing: { title: "Combined invoicing", description: "" },
+  manual_invoicing: { title: "Manual invoicing", description: "" },
+  redlining_contracts: { title: "Contract redlining", description: "" },
+  roles_based_access_control: { title: "Role-based access", description: "" },
+  uptime_sla: { title: "Uptime SLA", description: "" },
+  trendlines: { title: "Trendlines", description: "" },
+  annotations: { title: "Annotations", description: "" },
+  custom_website_views: { title: "Custom views", description: "" },
+  block_ip_range: { title: "IP range blocking", description: "" },
+  bypass_via_dns_cname: { title: "Ad-blocker bypass", description: "" },
+  bypass_via_new_domain: { title: "New domain bypass", description: "" },
+  data_proxy: { title: "Data proxy", description: "" },
+  ai_chat: { title: "AI chat", description: "" },
+  growth_indicators: { title: "Growth indicators", description: "" },
+  exact_numbers: { title: "Exact numbers", description: "" },
+  alert_missing_script: { title: "Missing script alerts", description: "" },
+  advanced_robot_blocking: {
+    title: "Advanced robot blocking",
+    description: "",
+  },
+  disable_watermark: { title: "Disable watermark", description: "" },
+  public_dashboard_requirement: {
+    title: "Public dashboard",
+    description:
+      "When using the Free plan you need to make your dashboard public.",
+  },
+  limited_lookback: {
+    title: "1 month history",
+    description:
+      "You have an analytics history of one month, older data will be deleted.",
+  },
+  community_support: {
+    title: "Community support",
+    description: "You can use our community to ask questions.",
+  },
+  email_support: { title: "Support email", description: "" },
+  priority_support: { title: "Priority support", description: "" },
+  video_support: { title: "Video onboarding", description: "" },
+  legal_support: { title: "Legal support", description: "" },
+};
 const isBlackFridayPeriod = useIsBlackFridayPeriod();
 
 const featuresOpen = ref(false);
@@ -1129,8 +1199,7 @@ const goToWelcome = ({ plan }) => {
     });
   }
 
-  const path = localePath({ name: "signup" });
-  router.push(path);
+  router.push("/signup");
 };
 
 const frequencies = [
@@ -1153,8 +1222,8 @@ const error = computed(() => {
     fetchError.value.message.includes("no response")
   ) {
     if (process.env.NODE_ENV === "development")
-      return t("pricing.developer.start_dashboard");
-    else return t("pricing.developer.fetch_error");
+      return "Please start the dashboard to show pricing";
+    else return "An error happened.";
   }
   return fetchError.value;
 });
@@ -1382,9 +1451,9 @@ const sections = computed(() => {
 });
 
 const formatDays = (days) => {
-  if (days === 1096) return t("time.years", [3]);
-  if (days === 1826) return t("time.years", [5]);
-  return t("time.days", [days]);
+  if (days === 1096) return "3 years";
+  if (days === 1826) return "5 years";
+  return `${days} days`;
 };
 
 const avatars = [

@@ -17,7 +17,7 @@
         <EuropeRoundStars
           class="inline-block mr-2 w-10 h-10 rounded-full text-[#2c61fb]"
         />
-        {{ $t("banners.proud_to_be_eu.cta") }}
+        We are proud to be European
         <a
           class="!hidden sm:!inline-block ml-1 button white"
           @click="
@@ -26,7 +26,7 @@
               app: 'marketing_site',
             })
           "
-          >{{ $t("banners.proud_to_be_eu.button") }}</a
+          >Join us</a
         >
         <a
           class="!inline-block sm:!hidden ml-1 button tiny white"
@@ -36,7 +36,7 @@
               app: 'marketing_site',
             })
           "
-          >{{ $t("banners.proud_to_be_eu.button") }}</a
+          >Join us</a
         >
       </p>
       <a

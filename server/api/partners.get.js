@@ -3,10 +3,6 @@ import { stringify as qsStringify } from "qs";
 export default defineEventHandler(async (event) => {
   try {
     const { strapiToken, cmsUrl } = useRuntimeConfig();
-    const query = getQuery(event);
-
-    // Use locale from query or default to "en"
-    const locale = query.locale || "en";
 
     const apiUrl = new URL(`/api/partners`, cmsUrl);
     const strapiParams = {
@@ -19,7 +15,7 @@ export default defineEventHandler(async (event) => {
         "isFeatured",
         "displayOrder",
       ],
-      locale: locale,
+      locale: "en",
       sort: "displayOrder:asc,partnerName:asc",
       populate: {
         logo: {
