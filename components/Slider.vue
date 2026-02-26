@@ -13,10 +13,10 @@
         <div id="slider-tooltip" class="tooltip">50</div>
       </div>
       <div class="flex justify-between font-light">
-        <p>{{ formatDatapoints(props.options[0], $t("time.intl_locale")) }}</p>
+        <p>{{ formatDatapoints(props.options[0], "en-US") }}</p>
         <p class="text-gray-400 dark:text-gray-500 text-sm">
           {{ getTextValue(sliderIndex) }}
-          {{ $t("pricing.slider.pageviews_or_events") }}
+          pageviews (or events)
         </p>
         <p>
           {{ getTextValue(props.options.length - 1) }}
@@ -28,7 +28,6 @@
 
 <script setup>
 import { formatDatapoints } from "@/utils/miscellaneous";
-const { t } = useI18n();
 
 const props = defineProps({
   options: {
@@ -69,12 +68,9 @@ const getTextValue = (index) => {
   const value = getNumberValue(index);
   if (value === Infinity)
     return (
-      formatDatapoints(
-        props.options[props.options.length - 2],
-        t("time.intl_locale"),
-      ) + "+"
+      formatDatapoints(props.options[props.options.length - 2], "en-US") + "+"
     );
-  return formatDatapoints(value, t("time.intl_locale"));
+  return formatDatapoints(value, "en-US");
 };
 
 onMounted(() => {

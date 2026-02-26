@@ -104,16 +104,13 @@ export const getAuthorFromSlug = (slug) => {
   }
 };
 
-export const labelAgo = (t, date) => {
+export const labelAgo = (date) => {
   if (!date || new Date(date) < Date.now() - ms.week * 11) return;
 
   const ago = Date.now() - new Date(date);
-  if (ago > ms.day * 10)
-    return t("time.short.ago.weeks", [Math.round(ago / ms.week)]);
-  if (ago < ms.minute) return t("time.now");
-  if (ago < ms.hour)
-    return t("time.short.ago.minutes", [Math.round(ago / ms.minute)]);
-  if (ago < ms.day)
-    return t("time.short.ago.hours", [Math.round(ago / ms.hour)]);
-  return t("time.short.ago.days", [Math.round(ago / ms.day)]);
+  if (ago > ms.day * 10) return Math.round(ago / ms.week) + "w ago";
+  if (ago < ms.minute) return "now";
+  if (ago < ms.hour) return Math.round(ago / ms.minute) + "m ago";
+  if (ago < ms.day) return Math.round(ago / ms.hour) + "h ago";
+  return Math.round(ago / ms.day) + "d ago";
 };

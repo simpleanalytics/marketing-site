@@ -21,40 +21,36 @@
       <p
         class="inline-block text-sm font-medium text-red-500 dark:text-red-600 mb-8 px-4 py-2 border border-red-500 dark:border-red-600 rounded-full bg-red-50 dark:bg-red-900/20"
       >
-        {{ $t("partners.cookiebot.exclusive_offer_preheader") }}
+        Exclusive offer for Cookiebot CMP users
       </p>
 
       <!-- Main headline -->
       <h1
         class="max-w-5xl mx-auto leading-tight md:leading-tight text-4xl font-medium sm:text-5xl md:text-6xl mb-6"
       >
-        {{ $t("partners.cookiebot.hero_title") }}
+        Recover website insights lost to consent banners
       </h1>
 
       <!-- Subheader -->
       <p
         class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed sm:leading-relaxed mb-8"
-        v-html="
-          $t('partners.cookiebot.hero_subtitle', [
-            `<span class='relative inline-block'><span class='absolute inset-0 bg-red-500 dark:bg-red-600 h-[3px] top-1/2 transform -translate-y-1/2 -rotate-12'></span>${new Intl.NumberFormat(
-              $t('time.intl_locale'),
-              {
-                style: 'currency',
-                currency: currency.code,
-              },
-            ).format(15)}</span>`,
-            new Intl.NumberFormat($t('time.intl_locale'), {
-              style: 'currency',
-              currency: currency.code,
-            }).format(7.5),
-          ])
-        "
-      ></p>
+      >
+        Understand your visitors, even when cookies are declined, while staying
+        privacy-compliant. Recover visibility on your lost traffic, starting at
+        only
+        <span class="relative inline-block"
+          ><span
+            class="absolute inset-0 bg-red-500 dark:bg-red-600 h-[3px] top-1/2 transform -translate-y-1/2 -rotate-12"
+          ></span
+          >{{ formattedOriginalPrice }}</span
+        >
+        {{ formattedDiscountedPrice }}/month.
+      </p>
     </div>
 
     <div class="mt-6 text-center">
       <a class="button primary" @click="handleSignupClick">
-        {{ $t("partners.cookiebot.claim_discount_button") }}
+        Claim your 50% discount
         <ArrowRightIcon class="ml-2 w-4 h-4 stroke-2" />
       </a>
     </div>
@@ -66,7 +62,7 @@
     <!-- Benefits Section -->
     <div class="max-w-4xl mx-auto px-6 mt-16 mb-16">
       <h2 class="text-2xl sm:text-3xl font-medium text-center mb-12">
-        {{ $t("partners.cookiebot.benefits_title") }}
+        Simple, privacy-first website analytics
       </h2>
 
       <div class="grid md:grid-cols-3 gap-8">
@@ -76,7 +72,7 @@
             class="w-12 h-12 mx-auto mb-4 stroke-red-500 dark:stroke-red-600"
           />
           <p class="text-base leading-relaxed">
-            {{ $t("partners.cookiebot.benefit_1_title") }}
+            Understand visitor behavior even when cookies are declined
           </p>
         </div>
 
@@ -86,7 +82,7 @@
             class="w-12 h-12 mx-auto mb-4 stroke-red-500 dark:stroke-red-600"
           />
           <p class="text-base leading-relaxed">
-            {{ $t("partners.cookiebot.benefit_2_title") }}
+            Improve marketing performance, stay GDPR compliant
           </p>
         </div>
 
@@ -96,7 +92,7 @@
             class="w-12 h-12 mx-auto mb-4 stroke-red-500 dark:stroke-red-600"
           />
           <p class="text-base leading-relaxed">
-            {{ $t("partners.cookiebot.benefit_3_title") }}
+            Easy setup, no complex dashboards, no learning curve
           </p>
         </div>
       </div>
@@ -127,7 +123,7 @@
           @click="handleDemoClick"
           class="bg-red-500 hover:bg-red-600 text-white font-medium px-6 py-3 rounded-full shadow-lg transition-all duration-200 transform hover:scale-105 flex items-center gap-2 dark:bg-red-600 dark:hover:bg-red-700"
         >
-          {{ $t("partners.cookiebot.live_demo_button") }}
+          View live demo
         </button>
       </div>
     </div>
@@ -148,24 +144,21 @@
       <!-- Discount Timeline -->
       <div class="max-w-2xl mx-auto">
         <h2 class="text-2xl sm:text-3xl font-medium text-center mb-4">
-          {{ $t("partners.cookiebot.special_offer_title") }}
+          Get detailed website insights while staying GDPR-compliant
         </h2>
 
         <p class="text-center mb-8">
           <span
             class="inline-block text-lg text-red-500 dark:text-red-600 font-medium px-4 py-2 border border-red-500 dark:border-red-600 rounded-full bg-red-50 dark:bg-red-900/20"
           >
-            {{ $t("partners.cookiebot.offer_subheader") }}
+            Exclusive Cookiebot CMP Partner Offer
           </span>
         </p>
 
         <p class="text-center text-gray-600 dark:text-gray-400 mb-8">
-          {{
-            $t(
-              "partners.cookiebot.special_offer_description",
-              [2, 50, 3, 1, 25, 3],
-            )
-          }}
+          Create a new account and choose a plan within 2 weeks to get 50% off
+          for 3 months. Or choose a plan within 1 month to get 25% off for 3
+          months.
         </p>
 
         <!-- Timeline container -->
@@ -180,7 +173,7 @@
               <div
                 class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-sm font-medium text-gray-900 dark:text-gray-100 whitespace-nowrap"
               >
-                {{ $t("partners.cookiebot.timeline_sign_up") }}
+                Sign up
               </div>
             </div>
 
@@ -194,7 +187,7 @@
               <div
                 class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-sm font-medium text-gray-900 dark:text-gray-100 whitespace-nowrap"
               >
-                {{ $t("partners.cookiebot.timeline_two_weeks_after") }}
+                2 weeks after sign up
               </div>
             </div>
 
@@ -205,7 +198,7 @@
               <div
                 class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-sm font-medium text-gray-900 dark:text-gray-100 whitespace-nowrap"
               >
-                {{ $t("partners.cookiebot.timeline_one_month") }}
+                1 month after
               </div>
             </div>
           </div>
@@ -219,10 +212,10 @@
               ></div>
               <div class="text-center mt-4">
                 <div class="text-xl font-bold text-red-500 dark:text-red-600">
-                  {{ $t("partners.cookiebot.offer_x_percent_full", [50, 3]) }}
+                  50% off for 3 months
                 </div>
                 <div class="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  {{ $t("partners.cookiebot.select_plan_x_weeks", [2]) }}
+                  (select a plan within 2 weeks)
                 </div>
               </div>
             </div>
@@ -234,10 +227,10 @@
               ></div>
               <div class="text-center mt-4">
                 <div class="text-xl font-bold text-blue-500 dark:text-blue-400">
-                  {{ $t("partners.cookiebot.offer_x_percent_full", [25, 3]) }}
+                  25% off for 3 months
                 </div>
                 <div class="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  {{ $t("partners.cookiebot.select_plan_x_weeks", [4]) }}
+                  (select a plan within 4 weeks)
                 </div>
               </div>
             </div>
@@ -248,14 +241,15 @@
         <p
           class="text-center text-gray-600 dark:text-gray-400 mt-12 max-w-lg mx-auto"
         >
-          {{ $t("partners.cookiebot.offer_supporting_text") }}
+          Start a free trial, choose any plan, and get instant value within the
+          first 3 months. Available for a limited time. Claim your discount now.
         </p>
       </div>
 
       <!-- Sign Up Button -->
       <div class="text-center mt-10 mb-10">
         <a class="button large primary" @click="handleSignupClick">
-          {{ $t("partners.cookiebot.start_trial_button") }}
+          Unlock 50% Off - Start Trial
         </a>
       </div>
 
@@ -264,7 +258,8 @@
         <p
           class="text-sm text-gray-500 dark:text-gray-400 max-w-md mx-auto leading-relaxed"
         >
-          {{ $t("partners.cookiebot.cookie_notice") }}
+          By clicking the button above, we will set a 30-day cookie to track
+          this special offer. No personal data is collected during this process.
         </p>
       </div>
     </div>
@@ -282,10 +277,11 @@
     <!-- Partnership Value Section -->
     <div class="max-w-4xl mx-auto px-6 mt-20">
       <h2 class="text-2xl sm:text-3xl font-medium text-center mb-4">
-        {{ $t("partners.cookiebot.partnership_title") }}
+        Why add SimpleAnalytics to Cookiebot CMP?
       </h2>
       <p class="text-lg text-center text-gray-600 dark:text-gray-400 mb-12">
-        {{ $t("partners.cookiebot.partnership_subtitle") }}
+        Simple Analytics adds visibility to the traffic that would otherwise
+        disappear.
       </p>
 
       <div class="grid md:grid-cols-2 gap-8 items-start">
@@ -295,7 +291,7 @@
             <CookiebotIcon class="h-16 w-auto" />
           </div>
           <p class="text-base leading-relaxed">
-            {{ $t("partners.cookiebot.cookiebot_partnership_text") }}
+            Maintain consent coverage, Cookiebot continues to manage consent.
           </p>
         </div>
 
@@ -307,7 +303,9 @@
             />
           </div>
           <p class="text-base leading-relaxed">
-            {{ $t("partners.cookiebot.simpleanalytics_partnership_text") }}
+            Get a more complete picture of your traffic, reveal user behavior,
+            events, and conversion funnels for visitors who declined cookies.
+            Since no personal data is stored, you remain GDPR compliant.
           </p>
         </div>
       </div>
@@ -315,16 +313,15 @@
 
     <!-- Hebban Case Study Section -->
     <div class="max-w-4xl mx-auto px-6 mt-20">
-      <p
-        class="text-xl text-center leading-relaxed mb-8"
-        v-html="
-          $t('partners.cookiebot.case_study_title', ['<strong>', '</strong>'])
-        "
-      ></p>
+      <p class="text-xl text-center leading-relaxed mb-8">
+        <strong>Want proof of value?</strong> Find out how Hebban recovered a
+        20% data gap from rejected cookies, turning limited views into a
+        clearer, compliant understanding of their audience.
+      </p>
 
       <div class="bg-gray-50 dark:bg-gray-700 rounded-xl px-8 py-6">
         <h3 class="text-lg font-medium text-center mb-6">
-          {{ $t("partners.cookiebot.case_study_stats_title") }}
+          The numbers don't lie
         </h3>
 
         <img
@@ -340,24 +337,26 @@
         <div class="grid md:grid-cols-2 gap-6 mb-6">
           <div class="text-center">
             <div class="text-xl text-gray-600 dark:text-gray-400">
-              {{ $t("partners.cookiebot.case_study_ga_pageviews") }}
+              Google Analytics: 1.6M pageviews
             </div>
           </div>
           <div class="text-center">
             <div class="text-xl text-red-500 dark:text-red-600">
-              {{ $t("partners.cookiebot.case_study_sa_pageviews") }}
+              Simple Analytics: 2.03M pageviews
             </div>
           </div>
         </div>
 
         <div class="text-center mb-6">
           <div class="text-xl font-bold text-red-500 dark:text-red-600">
-            {{ $t("partners.cookiebot.case_study_difference") }}
+            Difference: +431,468 pageviews (20% data gap)
           </div>
         </div>
 
         <p class="text-center text-gray-600 dark:text-gray-400 leading-relaxed">
-          {{ $t("partners.cookiebot.case_study_explanation") }}
+          Simple Analytics doesn't use cookies or trackers, so it doesn't
+          require consent to collect data. This means you can track all
+          visitors, even those who decline cookies or use ad-blockers.
         </p>
       </div>
     </div>
@@ -365,34 +364,26 @@
     <!-- Final CTA Section -->
     <div class="max-w-4xl mx-auto px-6 mt-20 mb-16 text-center">
       <h2 class="text-2xl sm:text-3xl font-medium mb-4">
-        {{ $t("partners.cookiebot.final_cta_title") }}
+        Ready to see what you've been missing?
       </h2>
-      <p
-        class="text-lg text-gray-600 dark:text-gray-400 mb-8"
-        v-html="
-          $t('partners.cookiebot.final_cta_subtitle', [
-            `<span class='relative inline-block'><span class='absolute inset-0 bg-red-500 dark:bg-red-600 h-[3px] top-1/2 transform -translate-y-1/2 -rotate-12'></span>${new Intl.NumberFormat(
-              $t('time.intl_locale'),
-              {
-                style: 'currency',
-                currency: currency.code,
-              },
-            ).format(15)}</span>`,
-            new Intl.NumberFormat($t('time.intl_locale'), {
-              style: 'currency',
-              currency: currency.code,
-            }).format(7.5),
-          ])
-        "
-      ></p>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+        Gain insights from all visitors, reduce blind spots while staying
+        privacy-compliant, and unlock exclusive savings: 50% off for 3 months,
+        starting at
+        <span class="relative inline-block"
+          ><span
+            class="absolute inset-0 bg-red-500 dark:bg-red-600 h-[3px] top-1/2 transform -translate-y-1/2 -rotate-12"
+          ></span
+          >{{ formattedOriginalPrice }}</span
+        >
+        {{ formattedDiscountedPrice }}/month.
+      </p>
 
       <!-- Live Demo Section -->
       <div class="mb-8">
         <h3 class="text-xl font-medium mb-4">
-          {{ $t("partners.cookiebot.see_it_in_action") }}
-          <a @click="handleDemoClick" class="underline">
-            {{ $t("partners.cookiebot.try_the_live_demo") }}
-          </a>
+          See it in action:
+          <a @click="handleDemoClick" class="underline"> Try the live demo </a>
         </h3>
       </div>
 
@@ -420,20 +411,21 @@
             @click="handleDemoClick"
             class="bg-red-500 hover:bg-red-600 text-white font-medium px-6 py-3 rounded-full shadow-lg transition-all duration-200 transform hover:scale-105 flex items-center gap-2 dark:bg-red-600 dark:hover:bg-red-700"
           >
-            {{ $t("partners.cookiebot.live_demo_button") }}
+            View live demo
           </button>
         </div>
       </div>
 
       <!-- Final CTA Button -->
       <a class="mt-10 button large primary" @click="handleSignupClick">
-        {{ $t("partners.cookiebot.final_cta_button") }}
+        Claim your discount today
       </a>
     </div>
   </div>
 </template>
 
 <script setup>
+import { computed } from "vue";
 import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
 import CookiebotIcon from "~/components/images/CookiebotIcon.vue";
 import BackgroundChart from "~/components/images/BackgroundChart.vue";
@@ -446,20 +438,29 @@ import {
   CogIcon,
 } from "@heroicons/vue/24/outline";
 
-const { t } = useI18n();
 const currency = useCurrency();
 
-const tColorsBlue = [
-  `<span class='text-blue-600 dark:text-blue-700'>`,
-  `</span>`,
-];
+const formattedOriginalPrice = computed(() =>
+  new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: currency.code,
+  }).format(15),
+);
+
+const formattedDiscountedPrice = computed(() =>
+  new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: currency.code,
+  }).format(7.5),
+);
 
 useHead({
-  title: t("partners.cookiebot.page_title"),
+  title: "Simple Analytics for Cookiebot Users",
   meta: [
     {
       name: "description",
-      content: t("partners.cookiebot.page_description"),
+      content:
+        "Special offer for Cookiebot users switching to Simple Analytics: up to 50% off for 3 months. Privacy-first analytics without cookie banners.",
     },
   ],
 });

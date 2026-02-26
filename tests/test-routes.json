@@ -1,0 +1,82 @@
+[
+  {
+    "source": "/nl/handleidingen/een-klik-op-een-knop-volgen",
+    "target": "/guides/track-button-click",
+    "comment": "Guide with slug translation"
+  },
+  {
+    "source": "/it/risorse/recensione-analitica/recensione-di-foxmetrics-e-un-alternativa-migliore",
+    "target": "/resources/analytics-review/foxmetrics-review-and-a-better-alternative",
+    "comment": "Analytics review with slug translation"
+  },
+  {
+    "source": "/it/glossario/google-analytics/termine-chiave/account-in-google-analytics",
+    "target": "/glossary/google-analytics/key-term/account-in-google-analytics",
+    "comment": "Key term - path structure only (same slug)"
+  },
+  {
+    "source": "/nl/begrippenlijst/google-analytics/kernbegrip/campaign-in-google-analytics",
+    "target": "/glossary/google-analytics/key-term/campaign-in-google-analytics",
+    "comment": "Key term - path structure only (same slug)"
+  },
+  {
+    "source": "/nl/blog/waarom-simple-analytics-mijn-eerste-succesvolle-project-is",
+    "target": "/blog/why-simple-analytics-is-my-first-successful-project",
+    "comment": "Blog with slug translation"
+  },
+  {
+    "source": "/nl/bronnen/alternatieven/4-beste-umami-alternatieven",
+    "target": "/resources/alternatives/4-best-umami-alternatives",
+    "comment": "Alternatives with slug translation"
+  },
+  {
+    "source": "/es/recursos/alternativas/4-mejores-alternativas-a-full-story",
+    "target": "/resources/alternatives/4-best-fullstory-alternatives",
+    "comment": "Alternatives with slug translation"
+  },
+  {
+    "source": "/fr/ressources/comparaisons/google-analytics-compare-avec-clicky",
+    "target": "/resources/comparisons/google-analytics-vs-clicky",
+    "comment": "Comparison with slug translation"
+  },
+  {
+    "source": "/nl/begrippenlijst/google-analytics",
+    "target": "/glossary/google-analytics",
+    "comment": "Glossary category index - path structure only"
+  },
+  {
+    "source": "/es/precios",
+    "target": "/pricing",
+    "comment": "Static page redirect"
+  },
+  {
+    "source": "/es/blog/simple-analytics-como-alternativa-a-cloudflare-analytics",
+    "target": "/blog/why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics",
+    "comment": "Blog with slug translation"
+  },
+  {
+    "source": "/de/fallstudien/einfache-analysen-fuer-marktplaetze-dogs-ie",
+    "target": "/case-studies/simple-analytics-for-marketplaces",
+    "comment": "Case study with slug translation"
+  },
+  {
+    "source": "/fr/constructeur-utm/constructeur-utm-pour-google-spreadsheets",
+    "target": "/utm-builder/utm-builder-for-google-spreadsheets",
+    "comment": "UTM builder with slug translation"
+  },
+  {
+    "source": "/it/guide-pratiche/tracciamento-del-codice-qr-con-simple-analytics",
+    "target": "/guides/qr-code-tracking",
+    "comment": "Guide with slug translation"
+  },
+  {
+    "source": "/nl",
+    "target": "/",
+    "comment": "Locale homepage redirect"
+  },
+  {
+    "source": "/de/blog",
+    "target": "/blog",
+    "comment": "Blog index - path structure only"
+  }
+]

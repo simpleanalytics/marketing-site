@@ -31,7 +31,7 @@ export default defineEventHandler(async (event) => {
     "https://cms.simpleanalytics.com",
   );
   const cmsParams = {
-    fields: ["id", "title", "slug", "authorSlug", "locale"],
+    fields: ["id", "title", "slug", "authorSlug"],
   };
   cmsUrl.search = qsStringify(cmsParams, { encodeValuesOnly: true });
   const cmsResponse = articleId
@@ -45,7 +45,6 @@ export default defineEventHandler(async (event) => {
     : null;
 
   const author = cmsResponse?.data?.attributes?.authorSlug;
-  const locale = cmsResponse?.data?.attributes?.locale;
   const title = cmsResponse?.data?.attributes?.title;
 
   const headers = {
@@ -68,14 +67,11 @@ export default defineEventHandler(async (event) => {
     }
   }, "");
 
-  const idMember =
-    locale === "it"
+  const idMember = author?.includes("adriaan")
+    ? users.adriaan
+    : author?.includes("carlo")
       ? users.carlo
-      : author?.includes("adriaan")
-        ? users.adriaan
-        : author?.includes("carlo")
-          ? users.carlo
-          : users.iron;
+      : users.iron;
 
   const cms = `https://cms.simpleanalytics.com/admin/content-manager/collection-types/api::article.article/${articleId}`;
 
@@ -100,9 +96,7 @@ export default defineEventHandler(async (event) => {
 
   const card = {
     pos: "top",
-    name: `${changes} changes in ${title ? `"${title}"` : "content"}${
-      locale ? ` (${locale})` : ""
-    }`,
+    name: `${changes} changes in ${title ? `"${title}"` : "content"}`,
     desc: description.join("\n"),
     idMembers: [idMember],
     idList: lists.typosAndGrammar,

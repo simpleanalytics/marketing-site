@@ -1,6 +1,6 @@
 <template>
   <Tooltip
-    :text="$t('pricing.reviews.capterra.tooltip', [rating])"
+    :text="`${rating} stars on Capterra`"
     class="group flex-shrink-0 border-2 border-transparent hover:border-yellow-500 dark:hover:border-transparent dark:hover:bg-yellow-500/20 rounded-md"
   >
     <NuxtLink
@@ -16,9 +16,7 @@
         <StarIcon class="inline h-5 w-5" />
         <StarIcon class="inline h-5 w-5" />
       </div>
-      <p class="text-xs sm:text-sm">
-        {{ $t("pricing.reviews.capterra.users_count", [userCount]) }}
-      </p>
+      <p class="text-xs sm:text-sm">Loved by {{ userCount }}+ users</p>
     </NuxtLink>
   </Tooltip>
 </template>

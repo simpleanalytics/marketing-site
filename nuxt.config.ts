@@ -1,5 +1,4 @@
 import { defineNuxtConfig } from "nuxt/config";
-import pages from "./router";
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -8,59 +7,8 @@ const seconds = {
   day: 3600 * 24,
 };
 
-const locales = [
-  {
-    code: "en",
-    language: "en",
-    file: "en.json",
-    name: "English",
-    flag: "US",
-    isCatchallLocale: true,
-  },
-  {
-    code: "nl",
-    language: "nl",
-    file: "nl.json",
-    name: "Nederlands",
-    flag: "NL",
-  },
-  {
-    code: "de",
-    language: "de",
-    file: "de.json",
-    name: "Deutsch",
-    flag: "DE",
-  },
-  {
-    code: "es",
-    language: "es",
-    file: "es.json",
-    name: "Español",
-    flag: "ES",
-  },
-  {
-    code: "fr",
-    language: "fr",
-    file: "fr.json",
-    name: "Français",
-    flag: "FR",
-  },
-  {
-    code: "it",
-    language: "it",
-    file: "it.json",
-    name: "Italiano",
-    flag: "IT",
-  },
-];
-
 const prerenderPages = [
   // "/",
-  // "/nl",
-  // "/de",
-  // "/es",
-  // "/fr",
-  // "/it",
   // "/ai",
   // "/resources",
   // "/glossaries",
@@ -97,10 +45,6 @@ const env = {
   DASHBOARD_URL: isProduction
     ? "https://dashboard.simpleanalytics.com"
     : "http://localhost:3000",
-  LOCALES: locales.map(({ code, flag }) => ({
-    code,
-    flag,
-  })),
 };
 
 const privateKeys = {
@@ -124,17 +68,7 @@ export default defineNuxtConfig({
     ? {
         ...prerender,
         "/blog": { swr: seconds.hour },
-        "/nl/blog": { swr: seconds.hour },
-        "/de/blog": { swr: seconds.hour },
-        "/es/blog": { swr: seconds.hour },
-        "/fr/blog": { swr: seconds.hour },
-        "/it/blog": { swr: seconds.hour },
         "/blog/**": { swr: seconds.day },
-        "/nl/blog/**": { swr: seconds.day },
-        "/de/blog/**": { swr: seconds.day },
-        "/es/blog/**": { swr: seconds.day },
-        "/fr/blog/**": { swr: seconds.day },
-        "/it/blog/**": { swr: seconds.day },
       }
     : {},
 
@@ -206,7 +140,6 @@ export default defineNuxtConfig({
 
   modules: [
     "@nuxtjs/tailwindcss",
-    "@nuxtjs/i18n",
     "@pinia/nuxt",
     "nuxt-schema-org",
     "nuxt-security",
@@ -215,31 +148,6 @@ export default defineNuxtConfig({
 
   tailwindcss: {
     viewer: false,
-  },
-
-  i18n: {
-    vueI18n: "./i18n.config.ts",
-    baseUrl: "https://www.simpleanalytics.com",
-    locales,
-    strategy: "prefix_except_default",
-    defaultLocale: "en",
-    langDir: "locales",
-    customRoutes: "config",
-    pages,
-    bundle: {
-      optimizeTranslationDirective: false,
-    },
-    detectBrowserLanguage: {
-      useCookie: true,
-      fallbackLocale: "en",
-      redirectOn: "root",
-      cookieKey: "locale",
-      cookieSecure: false,
-    },
-    compilation: {
-      strictMessage: false,
-      escapeHtml: false,
-    },
   },
 
   nitro: {

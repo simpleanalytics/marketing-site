@@ -168,8 +168,7 @@ import Popover from "./Popover.vue";
 
 const router = useRouter();
 const signupStore = useSignupStore();
-const localePath = useLocalePath();
-if (!signupStore.email) router.replace(localePath({ name: "signup" }));
+if (!signupStore.email) router.replace("/signup");
 
 const emit = defineEmits(["next"]);
 

@@ -157,11 +157,10 @@ import CountryPicker from "./CountryPicker.vue";
 
 const router = useRouter();
 const signupStore = useSignupStore();
-const localePath = useLocalePath();
 
 if (!signupStore?.email) {
   console.warn("Redirecting: signupStore or email not found.");
-  router.replace(localePath({ name: "signup" }));
+  router.replace("/signup");
 }
 
 const errors = computed(() => signupStore?.errors || []);

@@ -2,7 +2,7 @@
   <div>
     <div class="text-center">
       <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
-        {{ $t("pricing.title") }}.
+        Simple pricing.
       </h1>
     </div>
 
@@ -12,7 +12,7 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-32 sm:mb-8 font-medium text-center"
       >
-        {{ $t("pricing_faq.title") }}.
+        Frequently Asked Questions.
       </h3>
 
       <div class="max-w-3xl mx-auto">
