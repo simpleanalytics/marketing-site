@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Nuxt/Nitro build output and caches
+.nuxt/
+.output/
+.nitro/
+dist/
+.cache/
+.nuxt-cache/
+
+# Test and coverage output
+coverage/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+tmp/
+
+# Environment and local-only config
+.env
+.env.*
+!.env.example
+
+# IDE/OS metadata
+.vscode/
+.idea/
+
+# Package manager and tooling caches/stores
+.pnpm-store/
+
