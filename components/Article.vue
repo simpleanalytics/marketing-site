@@ -113,7 +113,7 @@
           <NuxtLink
             class="button"
             v-if="getTypeFromArticleName() === 'glossary'"
-            to="/glossaries"
+            to="/glossary"
           >
             Glossary overview
           </NuxtLink>
@@ -211,6 +211,7 @@ import MovingGradient from "@/components/MovingGradient.vue";
 import Avatar from "@/components/Avatar.vue";
 import HtmlBlock from "@/components/HtmlBlock.vue";
 import { EyeSlashIcon, XCircleIcon } from "@heroicons/vue/24/outline";
+import { getAuthorFromSlug } from "@/utils/blog";
 import EindePopup from "@/components/EindePopup.vue";
 import EindePopupPricing from "@/components/EindePopupPricing.vue";
 
@@ -248,11 +249,11 @@ const { data } = await useArticle({
   pick: ["article"],
 });
 
-const { article, languages, error } = data.value;
+const { article, error } = data.value;
 
 const publishedText = computed(() => {
-  let s = "Published on " + format(article.value.publishedAt);
-  if (showEditedBy) s += " and edited on " + format(article.updatedAt);
+  let s = "Published on " + format(article.publishedAt);
+  if (showEditedBy.value) s += " and edited on " + format(article.updatedAt);
   s += " by " + getAuthorFromSlug(article.authorSlug)?.name;
   return s;
 });
@@ -338,7 +339,7 @@ if (!props.hideSeoMeta) {
 const buildPath = (name, params = {}) => {
   const routes = {
     index: "/",
-    glossary: "/glossaries",
+    glossary: "/glossary",
     "glossary-category": `/glossary/${params.category || ""}`,
     "glossary-category-slug": `/glossary/${params.category || ""}/${params.slug || ""}`,
     "glossary-category-key-terms": `/glossary/${params.category || ""}/key-terms`,
