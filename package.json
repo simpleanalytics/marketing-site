@@ -1,5 +1,10 @@
 {
   "private": true,
+  "packageManager": "pnpm@10.29.2",
+  "engines": {
+    "node": "24.13",
+    "pnpm": ">=10"
+  },
   "scripts": {
     "dev": "nuxi dev -p 3005",
     "build": "nuxi build",
