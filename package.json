@@ -11,7 +11,7 @@
     "start": "node .output/server/index.mjs",
     "prettier": "npx prettier --check --ignore-path .gitignore --ignore-path .prettierignore \"{,!(static|.github)/**/}*.{js,vue,html,json,md,yml,css,scss}\"",
     "test": "node --test",
-    "test:ci": "npm run build && npm test"
+    "test:ci": "pnpm run build && pnpm test"
   },
   "overrides": {
     "nuxt": {
