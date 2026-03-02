@@ -1,19 +1,27 @@
 <template>
   <div>
     <div class="text-center max-w-5xl mx-auto">
-      <h1
-        class="text-2xl sm:text-3xl md:text-5xl font-medium"
-        v-html="$t('ai.title', tColorsRed)"
-      ></h1>
+      <h1 class="text-2xl sm:text-3xl md:text-5xl font-medium">
+        Chat with
+        <span class="text-red-500 dark:text-red-600">your</span> analytics
+      </h1>
       <h2
         class="inline-flex items-center text-base mt-6 text-gray-600 dark:text-gray-300"
-        v-html="$t('ai.subtitle', tBlockRed)"
-      ></h2>
+      >
+        Powered by Simple Analytics
+        <span
+          class="inline-block text-base md:text-xl font-medium bg-gradient-to-b from-red-400 to-red-500 dark:from-red-700 dark:to-red-600 dark:text-gray-800 ml-2 py-1 px-2 rounded"
+          style="line-height: 1"
+          >AI</span
+        >
+      </h2>
 
       <p
         class="max-w-4xl px-6 leading-loose md:leading-loose mx-auto mt-6 md:text-xl"
       >
-        {{ $t("ai.description") }}
+        We started Simple Analytics to make analytics easy. Now we're taking
+        this to the next level: Ask your analytics questions and get insights in
+        real time. Try our demo!
       </p>
     </div>
 
@@ -127,9 +135,9 @@
             <span v-if="selectedExample && typingText">{{ typingText }}</span>
             <span v-else-if="selectedExample"
               >Start typing...
-              <span class="opacity-50">({{ $t("ai.not_really") }})</span></span
+              <span class="opacity-50">(not really)</span></span
             >
-            <span v-else>{{ $t("ai.choose_above_examples") }}...</span>
+            <span v-else>Choose one of the above examples...</span>
           </div>
         </BrowserWindow>
       </div>
@@ -198,9 +206,7 @@
         </div>
 
         <div class="mt-20 text-center">
-          <StartTrial
-            :buttonText="$t('start_now.try_it_with_your_analytics')"
-          />
+          <StartTrial :buttonText="'Try it with your analytics'" />
         </div>
       </div>
     </div>
@@ -234,12 +240,6 @@ useSeoMeta({
     "https://assets.simpleanalytics.com/social-media/ai-social-image.png",
   twitterCard: "summary_large_image",
 });
-
-const tColorsRed = [`<span class='text-red-500 dark:text-red-600'>`, `</span>`];
-const tBlockRed = [
-  `<span class='inline-block text-base md:text-xl font-medium bg-gradient-to-b from-red-400 to-red-500 dark:from-red-700 dark:to-red-600 dark:text-gray-800 ml-2 py-1 px-2 rounded' style="line-height: 1">`,
-  `</span>`,
-];
 
 const examples = [
   {

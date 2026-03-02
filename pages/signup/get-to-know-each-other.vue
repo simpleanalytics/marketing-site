@@ -2,10 +2,7 @@
   <div class="-mt-28 flex lg:items-center flex-grow">
     <div class="flex flex-grow max-w-7xl mx-auto">
       <div class="w-1/2 ml-8 mr-12 hidden lg:block">
-        <NuxtLink
-          :to="localePath({ name: 'index' })"
-          class="items-center inline-flex mb-4"
-        >
+        <NuxtLink to="/" class="items-center inline-flex mb-4">
           <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />
           <span
             class="sm:hidden lg:block ml-3 text-xl sm:text-2xl text-gray-500 dark:text-gray-400"
@@ -97,10 +94,7 @@
         </div>
       </div>
       <div class="lg:w-1/2 mx-4 lg:ml-12 lg:mr-8 flex flex-col justify-center">
-        <NuxtLink
-          :to="localePath({ name: 'index' })"
-          class="items-center inline-flex mb-4 lg:hidden"
-        >
+        <NuxtLink to="/" class="items-center inline-flex mb-4 lg:hidden">
           <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />
           <span
             class="sm:hidden lg:block ml-3 text-xl sm:text-2xl text-gray-500 dark:text-gray-400"
@@ -125,7 +119,6 @@ import Adriaan from "~/components/icons/Adriaan.vue";
 import Ampersand from "~/components/icons/Ampersand.vue";
 import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
 
-const localePath = useLocalePath();
 const signupStore = useSignupStore();
 const router = useRouter();
 const showConfetti = ref(false);
@@ -139,8 +132,7 @@ onMounted(async () => {
 const next = (data) => {
   signupStore.setCustomerInfo(data);
   if (data.companySize !== "no_company" && data.companySize !== "only_me") {
-    const path = localePath({ name: "signup-add-your-colleagues" });
-    router.push(path);
+    router.push("/signup/add-your-colleagues");
   } else {
     handleComplete();
   }

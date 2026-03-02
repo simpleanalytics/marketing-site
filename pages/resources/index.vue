@@ -2,10 +2,11 @@
   <div class="max-w-3xl px-4 mx-auto">
     <div class="text-center mx-4">
       <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
-        {{ $t("resources.overview") }}
+        Resources overview
       </h1>
       <p class="mt-8 text-lg">
-        {{ $t("resources.overview_description") }}
+        This page offers a comprehensive overview of various competitors,
+        including reviews, pricing, and comparisons.
       </p>
     </div>
 
@@ -13,11 +14,7 @@
       <NuxtLink
         v-for="action in actions"
         :key="action.title"
-        :to="
-          localePath({
-            name: action.section,
-          })
-        "
+        :to="`/resources/${action.type}`"
         class="group bg-white dark:bg-gray-700 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-red-500 dark:focus-within:ring-red-600 flex flex-col rounded-lg shadow dark:shadow-none"
       >
         <div :class="action.iconBackground" class="rounded-lg w-12 inline-flex">
@@ -50,7 +47,7 @@
         </div>
         <div class="mt-4">
           <h3 class="text-lg font-medium text-link-strong">
-            {{ $t(action.titleTranslation) }} <Arrow />
+            {{ action.title }} <Arrow />
           </h3>
         </div>
       </NuxtLink>
@@ -67,8 +64,6 @@ import {
 } from "@heroicons/vue/24/outline";
 import Arrow from "@/components/Arrow.vue";
 import { sections } from "@/data/resources";
-
-const localePath = useLocalePath();
 
 const actions = sections;
 </script>

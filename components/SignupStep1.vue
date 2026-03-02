@@ -3,9 +3,7 @@
     <form @submit.prevent="submitCredentials" class="space-y-6">
       <div>
         <StepCounter class="mb-2" :step="1" :total="2" />
-        <h1 class="text-2xl lg:text-3xl font-bold mb-4">
-          {{ $t("signup_step1.title") }}
-        </h1>
+        <h1 class="text-2xl lg:text-3xl font-bold mb-4">Create your account</h1>
 
         <!-- Cookiebot Discount Banner -->
         <div
@@ -22,22 +20,23 @@
               <h3
                 class="text-sm font-medium text-green-800 dark:text-green-300"
               >
-                {{ $t("signup_step1.cookiebot_discount.title") }}
+                Cookiebot discount applied
               </h3>
               <p class="text-sm text-green-700 dark:text-green-400 mt-1">
-                {{ $t("signup_step1.cookiebot_discount.description") }}
+                This signup is linked to the Cookiebot referral. The discount
+                will be automatically applied when you select a plan.
               </p>
             </div>
           </div>
         </div>
         <label for="email" class="block text-sm font-medium text-gray-700">
-          {{ $t("signup_step1.email_label") }}
+          Email address
         </label>
         <input
           v-model="email"
           type="email"
           id="email"
-          :placeholder="$t('signup_step1.email_placeholder')"
+          :placeholder="`Enter your (work) email address...`"
           required
           class="mt-1"
           :class="{ 'border-red-500 dark:border-red-600': emailErrors.length }"
@@ -52,7 +51,7 @@
 
       <div>
         <label class="block text-sm font-medium text-gray-700">
-          {{ $t("signup_step1.login_method_label") }}
+          Login method
         </label>
         <div class="mt-0 space-y-2 space-x-4">
           <label
@@ -64,7 +63,7 @@
               value="magic-link"
               @input="clearError('loginMethod')"
             />
-            <span class="ml-2">{{ $t("signup_step1.magic_link") }}</span>
+            <span class="ml-2">Magic link</span>
             <EnvelopeIcon class="h-6 w-6 ml-2" />
           </label>
           <label
@@ -76,7 +75,7 @@
               value="password"
               @input="clearError('loginMethod')"
             />
-            <span class="ml-2">{{ $t("signup_step1.password") }}</span>
+            <span class="ml-2">Password</span>
             <KeyIcon class="h-6 w-6 ml-2" />
           </label>
         </div>
@@ -89,13 +88,13 @@
 
       <div v-if="loginMethod === 'password'">
         <label for="password" class="block text-sm font-medium text-gray-700">
-          {{ $t("signup_step1.password") }}
+          Password
         </label>
         <input
           v-model="password"
           type="password"
           id="password"
-          :placeholder="$t('signup_step1.password_placeholder')"
+          :placeholder="`Enter a long passphrase...`"
           required
           class="mt-1"
           :class="{ 'border-red-500': passwordErrors }"
@@ -114,9 +113,7 @@
               type="checkbox"
               class="form-checkbox"
             />
-            <span class="ml-2 text-sm">{{
-              $t("signup_step1.password_leak_check")
-            }}</span>
+            <span class="ml-2 text-sm">Check if password has leaked</span>
           </label>
           <QuestionMarkCircleIcon
             class="ml-1 h-3 w-3 text-gray-400 hover:text-gray-500 cursor-pointer"
@@ -126,13 +123,22 @@
         <p
           v-if="showHaveIBeenPwnedExplainer"
           class="mt-1 text-xs bg-blue-100 dark:bg-gray-900 px-4 py-2 leading-relaxed rounded max-w-lg"
-          v-html="
-            $t('signup_step1.password_leak_explainer', [
-              '<a href=\'https://haveibeenpwned.com/Passwords\' target=\'_blank\' rel=\'noopener noreferrer\'>',
-              '</a>',
-            ])
-          "
-        ></p>
+        >
+          When enabled, we check your password against the
+          <a
+            href="https://haveibeenpwned.com/Passwords"
+            target="_blank"
+            rel="noopener noreferrer"
+            >haveibeenpwned.com</a
+          >
+          database without sending your actual password to the service. First,
+          we hash your password using SHA1, then send only the first five
+          characters of that hash. The service responds with any leaked
+          passwords that begin with those characters. We then check on our end
+          if any of these matches your password. If it has been leaked before,
+          we display a warning. Rest assured, we never store your password in
+          plain text.
+        </p>
       </div>
 
       <div>
@@ -144,14 +150,13 @@
             class="form-checkbox"
             @input="clearError('termsConfirmed')"
           />
-          <span
-            class="ml-2 text-sm"
-            v-html="
-              $t('signup_step1.terms_label', [
-                `<NuxtLink href='${DASHBOARD_URL}/general-terms-and-conditions' target='_blank'>`,
-                '<ArrowTopRightOnSquareIcon class=\'h-4 w-4 inline-block align-text-top\' /></NuxtLink>',
-              ])
-            "
+          <span class="ml-2 text-sm">
+            I accept the
+            <NuxtLink
+              href="`${DASHBOARD_URL}/general-terms-and-conditions`"
+              target="_blank"
+              >General Terms and Conditions<ArrowTopRightOnSquareIcon
+                class="h-4 w-4 inline-block align-text-top" /></NuxtLink
           ></span>
         </label>
         <div v-if="termsErrors" class="mt-1">
@@ -170,9 +175,7 @@
       </div>
 
       <div class="flex items-center">
-        <button type="submit" class="button">
-          {{ $t("signup_step1.next_button") }}
-        </button>
+        <button type="submit" class="button">Next</button>
         <ChartLoader
           v-if="signupStore.isLoading"
           class="ml-3 h-8 text-red-500 dark:text-red-600"
@@ -184,7 +187,6 @@
 
 <script setup>
 import {
-  ArrowTopRightOnSquareIcon,
   EnvelopeIcon,
   KeyIcon,
   QuestionMarkCircleIcon,

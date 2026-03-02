@@ -2,10 +2,10 @@
   <div class="max-w-5xl mx-auto px-4">
     <div class="text-center mb-12">
       <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
-        {{ $t("gdpr_compliance.title") }}
+        GDPR Compliance
       </h1>
       <p class="mt-8 text-lg text-gray-600 dark:text-gray-400">
-        {{ $t("gdpr_compliance.description") }}
+        Learn about GDPR compliance and data protection requirements.
       </p>
     </div>
 
@@ -16,12 +16,7 @@
         class="border rounded-lg p-6 hover:shadow-lg transition-shadow"
       >
         <NuxtLink
-          :to="
-            localePath({
-              name: 'is-gdpr-compliant-slug',
-              params: { slug: article.nonUniqueSlug },
-            })
-          "
+          :to="`/is-gdpr-compliant/${article.nonUniqueSlug}`"
           class="block"
         >
           <h3 class="text-xl font-semibold mb-2">{{ article.title }}</h3>
@@ -33,14 +28,7 @@
 </template>
 
 <script setup>
-const { t } = useI18n();
-const localePath = useLocalePath();
-
-const {
-  data: articlesData,
-  error,
-  status,
-} = await useArticle({
+const { data: articlesData } = await useArticle({
   routeName: "is-gdpr-compliant-slug",
   articleType: "gdpr-compliance",
   keys: ["nonUniqueSlug"],
@@ -49,7 +37,7 @@ const {
 const articles = computed(() => articlesData.value?.articles || []);
 
 useHead({
-  title: t("gdpr_compliance.title"),
-  description: t("gdpr_compliance.description"),
+  title: "GDPR Compliance",
+  description: "Learn about GDPR compliance and data protection requirements.",
 });
 </script>

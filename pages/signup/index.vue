@@ -2,10 +2,7 @@
   <div class="-mt-28 flex lg:items-center flex-grow">
     <div class="flex flex-grow max-w-7xl mx-auto">
       <div class="w-1/2 ml-8 mr-12 hidden lg:block">
-        <NuxtLink
-          :to="localePath({ name: 'index' })"
-          class="items-center inline-flex mb-4"
-        >
+        <NuxtLink to="/" class="items-center inline-flex mb-4">
           <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />
           <span
             class="sm:hidden lg:block ml-3 text-xl sm:text-2xl text-gray-500 dark:text-gray-400"
@@ -19,8 +16,8 @@
           image="https://assets.simpleanalytics.com/images/people/philippe.png"
           title="Philippe Lehoux"
           iconclass="fill-blue-200 dark:fill-gray-700"
-          :subtitle="$t('testimonials.missive.role')"
-          :quote="$t('testimonials.missive.quote_short', tColorsBlue)"
+          :subtitle="`CEO at Missive`"
+          quote="<span class='text-blue-600 dark:text-blue-700'>The best privacy-focused analytics suite that I've found.</span> We're proud to be able to tell our customers that we don't track them at all."
           subtitlelink="https://missiveapp.com/blog/privacy-first-analytics"
         />
 
@@ -76,10 +73,7 @@
       </div>
 
       <div class="lg:w-1/2 mx-4 lg:ml-12 lg:mr-8 flex flex-col justify-center">
-        <NuxtLink
-          :to="localePath({ name: 'index' })"
-          class="items-center inline-flex mb-4 lg:hidden"
-        >
+        <NuxtLink to="/" class="items-center inline-flex mb-4 lg:hidden">
           <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />
           <span
             class="sm:hidden lg:block ml-3 text-xl sm:text-2xl text-gray-500 dark:text-gray-400"
@@ -104,16 +98,10 @@ import {
 } from "@heroicons/vue/24/outline";
 import TestimonialMini from "~/components/TestimonialMini.vue";
 import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
-const tColorsBlue = [
-  `<span class='text-blue-600 dark:text-blue-700'>`,
-  `</span>`,
-];
 
 const router = useRouter();
-const localePath = useLocalePath();
 
 const next = () => {
-  const path = localePath({ name: "signup-get-to-know-each-other" });
-  router.push(path);
+  router.push("/signup/get-to-know-each-other");
 };
 </script>

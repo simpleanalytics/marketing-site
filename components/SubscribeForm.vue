@@ -32,11 +32,11 @@
         />
       </div>
 
-      <h2 class="mt-4 text-2xl font-semibold">
-        {{ $t("blog.subscribe.title") }}
-      </h2>
+      <h2 class="mt-4 text-2xl font-semibold">The Privacy Newsletter</h2>
       <p class="mt-4 leading-relaxed">
-        {{ $t("blog.subscribe.description") }}
+        Hey, my name is Adriaan, I'm the founder of Simple Analytics. About once
+        a month, I share insights and privacy updates in our newsletter.
+        Unsubscribe with 1 click.
       </p>
 
       <div
@@ -46,20 +46,22 @@
           v-if="thankyou"
           class="text-green-700 dark:text-green-600 border border-green-700 dark:border-green-600 p-2 py-1 mb-4 w-max max-w-full rounded"
         >
-          {{ $t(`blog.subscribe.thank_you`) }}
+          {{
+            "Check your inbox to confirm your subscription. Thank you for subscribing!"
+          }}
         </p>
         <p
-          v-else-if="errorSlug"
+          v-else-if="errorMessage"
           class="text-red-500 border-red-500 dark:text-red-400 border dark:border-red-400 p-2 py-1 mb-4 w-max max-w-full rounded transition-opacity"
           :class="errorTransparant ? 'opacity-0' : ''"
         >
-          {{ $t(errorSlug) }}
+          {{ errorMessage }}
         </p>
 
         <input
           type="text"
           v-model="email"
-          :placeholder="$t('blog.subscribe.email_placeholder')"
+          :placeholder="`E.g.: eric{'@'}google.com`"
           class="mr-2 pl-3 py-2 appearance-none max-w-full w-full rounded text-base focus:outline-none sm:text-normal bg-gray-50 text-gray-500 border border-red-100 dark:border-0 dark:bg-gray-900 dark:text-gray-300 focus:ring-red-200 focus:border-red-200 dark:focus:ring-gray-500 dark:focus:border-gray-500"
         />
 
@@ -71,7 +73,7 @@
             id="newsletter"
             v-model="newsletter"
           />
-          {{ $t("blog.subscribe.checkbox_newsletter") }}
+          Newsletter
         </label>
 
         <label class="block my-2" for="new-blog-posts">
@@ -82,15 +84,11 @@
             id="new-blog-posts"
             v-model="notify"
           />
-          {{ $t("blog.subscribe.checkbox_blog_posts") }}
+          Notify me of new blog posts
         </label>
 
         <p class="mt-3 mb-4">
-          <input
-            type="submit"
-            class="button primary"
-            :value="$t('blog.subscribe.button')"
-          />
+          <input type="submit" class="button primary" :value="`Subscribe`" />
         </p>
       </div>
     </form>
@@ -104,24 +102,37 @@ const config = useRuntimeConfig();
 const { DASHBOARD_URL } = config.public;
 
 const email = ref("");
-const errorSlug = ref("");
+const errorMessage = ref("");
 const errorTransparant = ref(false);
 
 const thankyou = ref(false);
 const newsletter = ref(true);
 const notify = ref(true);
 
+// Error messages lookup
+const errorMessages = {
+  "blog.subscribe.errors.no_email": "Please fill in an email address",
+  "blog.subscribe.errors.invalid_email": "Please fill in a valid email address",
+  "blog.subscribe.errors.select_at_least_one":
+    "Please select at least one checkbox",
+  "blog.subscribe.errors.already_subscribed":
+    "This email address is already subscribed",
+  "general.errors.something_went_wrong":
+    "Something went wrong. Please try again later.",
+};
+
 watch(email, () => {
-  errorSlug.value = "";
+  errorMessage.value = "";
 });
 
 const setError = (slug) => {
-  if (!errorSlug.value) return (errorSlug.value = slug);
+  const message = errorMessages[slug] || slug;
+  if (!errorMessage.value) return (errorMessage.value = message);
 
   // Blink error if there was already an error
   errorTransparant.value = true;
   setTimeout(() => {
-    errorSlug.value = slug;
+    errorMessage.value = message;
     errorTransparant.value = false;
   }, 200);
 };
@@ -161,7 +172,7 @@ const onSubmit = async () => {
 
   if (ok) {
     email.value = "";
-    errorSlug.value = "";
+    errorMessage.value = "";
     thankyou.value = true;
   } else {
     if (/email(.*)invalid/i.test(message))

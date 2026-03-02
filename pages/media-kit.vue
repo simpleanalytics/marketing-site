@@ -1,24 +1,27 @@
 <template>
   <div class="max-w-6xl mx-auto">
     <div class="max-w-4xl text-center mx-auto">
-      <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
-        {{ $t("press.mediaKit.title") }}
-      </h1>
+      <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">Media kit</h1>
       <p class="mt-8 text-lg">
-        {{ $t("press.mediaKit.description") }}
+        Our assets for usage in the media and press. The only requirement is a
+        link directly to one of the pages of our website. Feel free to contact
+        us if you have any questions.
       </p>
     </div>
 
     <div class="max-w-4xl px-6 mx-auto mt-12">
-      <h2 class="text-2xl font-medium mb-6">
-        {{ $t("press.mediaKit.logo.title") }}
-      </h2>
-      <p class="mb-6">{{ $t("press.mediaKit.logo.description") }}</p>
-      <p class="mb-6">{{ $t("press.mediaKit.logo.downloadInstructions") }}</p>
+      <h2 class="text-2xl font-medium mb-6">Logo</h2>
+      <p class="mb-6">
+        We have lots of variants of our logo you can download. We included logos
+        with and without padding. There are different colors available depending
+        on your own needs.
+      </p>
+      <p class="mb-6">
+        To download any of the logos you can click with your right mouse on the
+        links below the logo you want and select "Save Link As..."
+      </p>
 
-      <h3 class="text-xl font-medium mb-4">
-        {{ $t("press.mediaKit.logo.ratio1to1") }}
-      </h3>
+      <h3 class="text-xl font-medium mb-4">1:1 ratio</h3>
       <div class="press-images ratio1to1">
         <div v-for="(logo, index) in logos1to1" :key="index" class="mb-8">
           <p class="mb-2">{{ logo.name }}</p>
@@ -51,9 +54,7 @@
         </div>
       </div>
 
-      <h3 class="text-xl font-medium mb-4 mt-8">
-        {{ $t("press.mediaKit.logo.ratio3to2") }}
-      </h3>
+      <h3 class="text-xl font-medium mb-4 mt-8">3:2 ratio</h3>
       <div class="press-images ratio3to2">
         <div v-for="(logo, index) in logos3to2" :key="index" class="mb-8">
           <p class="mb-2">{{ logo.name }}</p>
@@ -86,9 +87,7 @@
         </div>
       </div>
 
-      <h3 class="text-xl font-medium mb-4 mt-8">
-        {{ $t("press.mediaKit.logo.wide") }}
-      </h3>
+      <h3 class="text-xl font-medium mb-4 mt-8">Wide</h3>
       <div class="press-images wide">
         <div v-for="(logo, index) in logosWide" :key="index" class="mb-8">
           <p class="mb-2">{{ logo.name }}</p>
@@ -122,23 +121,22 @@
       </div>
 
       <h2 class="text-2xl font-medium mb-6 mt-12">
-        {{ $t("press.mediaKit.screenshots.title") }} (16:9)
+        Dashboard screenshots (16:9)
       </h2>
-      <p class="mb-6">{{ $t("press.mediaKit.screenshots.description") }}</p>
+      <p class="mb-6">
+        Our dashboard in light and dark mode. Click on the links below each
+        screenshot to download the version you prefer.
+      </p>
 
       <div class="flex items-center mb-6 justify-center">
-        <p class="mr-2 cursor-pointer" @click="showDarkMode = false">
-          {{ $t("press.mediaKit.screenshots.modes.light") }}
-        </p>
+        <p class="mr-2 cursor-pointer" @click="showDarkMode = false">Light</p>
         <label class="relative inline-flex items-center cursor-pointer">
           <input type="checkbox" v-model="showDarkMode" class="sr-only peer" />
           <div
             class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
           ></div>
         </label>
-        <p class="ml-2 cursor-pointer" @click="showDarkMode = true">
-          {{ $t("press.mediaKit.screenshots.modes.dark") }}
-        </p>
+        <p class="ml-2 cursor-pointer" @click="showDarkMode = true">Dark</p>
       </div>
     </div>
 
@@ -159,7 +157,7 @@
               download
             >
               <ArrowDownTrayIcon class="w-4 h-4 mr-1" />
-              {{ $t("press.mediaKit.screenshots.modes.light") }}
+              Light
             </a>
             <a
               :href="screenshot.dark"
@@ -167,7 +165,7 @@
               download
             >
               <ArrowDownTrayIcon class="w-4 h-4 mr-1" />
-              {{ $t("press.mediaKit.screenshots.modes.dark") }}
+              Dark
             </a>
           </div>
         </div>
@@ -175,10 +173,7 @@
     </div>
 
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl font-medium mb-6 mt-12">
-        {{ $t("press.mediaKit.mockups.title") }}
-      </h2>
-      <p class="mb-6">{{ $t("press.mediaKit.mockups.description") }}</p>
+      <h2 class="text-2xl font-medium mb-6 mt-12">Mockups</h2>
     </div>
 
     <div class="press-images">
@@ -199,17 +194,21 @@
             download
           >
             <ArrowDownTrayIcon class="w-4 h-4 mr-1" />
-            {{ $t("press.mediaKit.mockups.download") }}
+            Download
           </a>
         </div>
       </div>
     </div>
 
     <div class="max-w-4xl px-6 mx-auto mt-12">
-      <h2 class="text-2xl font-medium mb-6 mt-12">
-        {{ $t("press.mediaKit.font.title") }}
-      </h2>
-      <p class="mb-6" v-html="$t('press.mediaKit.font.description')"></p>
+      <h2 class="text-2xl font-medium mb-6 mt-12">Font</h2>
+      <p class="mb-6">
+        We use the publicly available
+        <a href="https://fonts.floriankarsten.com/space-grotesk"
+          >Space Grotesk font</a
+        >
+        by <a href="https://floriankarsten.com/">Florian Karsten</a>.
+      </p>
 
       <a
         href="https://assets.simpleanalytics.com/press/fonts/space-grotesk.pdf"
@@ -218,22 +217,24 @@
         <img
           loading="lazy"
           src="https://assets.simpleanalytics.com/press/fonts/space-grotesk-pdf-preview.png"
-          :alt="$t('press.mediaKit.font.previewAlt')"
+          alt="Preview of Space Grotesk font"
           class="rounded-lg shadow-md h-[200px]"
         />
       </a>
 
-      <h2 class="text-2xl font-medium mb-6 mt-12">
-        {{ $t("press.mediaKit.badges.title") }}
-      </h2>
-      <p class="mb-6" v-html="$t('press.mediaKit.badges.description')"></p>
+      <h2 class="text-2xl font-medium mb-6 mt-12">Badges</h2>
+      <p
+        class="mb-6"
+        v-html="
+          'To generate a badge for your website go to <a href=\'/badges\'>our badges generator</a>.'
+        "
+      ></p>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-const { t } = useI18n();
 const showDarkMode = ref(false);
 import { ArrowDownTrayIcon } from "@heroicons/vue/24/solid";
 

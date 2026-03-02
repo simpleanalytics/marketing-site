@@ -1,11 +1,10 @@
 <template>
   <div class="mb-20">
     <div class="text-center mx-4">
-      <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
-        {{ $t("press.title") }}.
-      </h1>
+      <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">Press.</h1>
       <p class="mt-8 text-lg">
-        {{ $t("press.description") }}
+        Interviews with Simple Analytics' founders in podcasts, and mentions in
+        other media.
       </p>
     </div>
 
@@ -37,11 +36,9 @@
 <script setup>
 import { pressMentions } from "~/data/press";
 
-const { t } = useI18n();
-
 const format = (date) => {
   if (!date) return null;
-  return new Intl.DateTimeFormat(t("time.intl_locale"), {
+  return new Intl.DateTimeFormat("en-US", {
     month: "short",
     year: "numeric",
     day: "numeric",

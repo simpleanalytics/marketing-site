@@ -29,20 +29,20 @@
       </div>
 
       <h2 class="text-xl sm:text-2xl font-semibold text-white mb-3">
-        {{ $t("popups.europe.title") }}
+        We are proud to be European
       </h2>
 
       <ul class="space-y-1.5 mb-4 text-sm sm:text-base">
-        <li class="text-white">{{ $t("popups.europe.step_1") }}</li>
-        <li class="text-white">{{ $t("popups.europe.step_2") }}</li>
-        <li class="text-white">{{ $t("popups.europe.step_3") }}</li>
+        <li class="text-white">1. No tariffs</li>
+        <li class="text-white">2. EU hosted & owned</li>
+        <li class="text-white">3. Still no cookies</li>
       </ul>
 
       <a
         @click="navigateToWelcome($router, 'click_signup_exit_popup')"
         class="inline-block px-6 py-2 border-2 border-white text-sm sm:text-base font-medium rounded-full text-white hover:bg-white hover:text-[#003399] transition-colors text-center"
       >
-        {{ $t("popups.europe.button") }}
+        Join us
       </a>
     </div>
   </div>

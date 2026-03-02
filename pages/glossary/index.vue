@@ -2,10 +2,12 @@
   <div class="max-w-3xl px-4 mx-auto">
     <div class="text-center mx-4">
       <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
-        {{ $t("glossary.overview") }}
+        Glossary overview
       </h1>
       <p class="mt-8 text-lg">
-        {{ $t("glossary.overview_description") }}
+        These glossaries contains most terms that are used in Google Analytics
+        and other general analytics on the web. Click on a glossary to read more
+        about it.
       </p>
     </div>
 
@@ -13,12 +15,7 @@
       <NuxtLink
         v-for="action in actions"
         :key="action.title"
-        :to="
-          localePath({
-            name: 'glossary-category',
-            params: { category: action.category },
-          })
-        "
+        :to="`/glossary/${action.category}`"
         class="group bg-white dark:bg-gray-700 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-red-500 dark:focus-within:ring-red-600 flex flex-col rounded-lg shadow dark:shadow-none"
       >
         <div :class="action.iconBackground" class="rounded-lg w-12 inline-flex">
@@ -51,10 +48,10 @@
         </div>
         <div class="mt-4">
           <h3 class="text-lg font-medium text-link-strong">
-            {{ $t(action.titleTranslation) }} <Arrow />
+            {{ action.title }} <Arrow />
           </h3>
           <p class="mt-2 text-sm text-gray-500">
-            {{ $t(action.descriptionTranslation) }}
+            {{ action.description }}
           </p>
         </div>
       </NuxtLink>
@@ -63,16 +60,10 @@
 </template>
 
 <script setup>
-import {
-  ChartBarSquareIcon,
-  ComputerDesktopIcon,
-} from "@heroicons/vue/24/outline";
+import { ComputerDesktopIcon } from "@heroicons/vue/24/outline";
 
-import GoogleAnalyticsIcon from "@/components/icons/GoogleAnalytics.vue";
 import Arrow from "@/components/Arrow.vue";
 import { categories } from "@/data/glossary";
-
-const localePath = useLocalePath();
 
 const actions = categories;
 </script>

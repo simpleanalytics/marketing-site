@@ -1,10 +1,13 @@
 <template>
   <div>
     <div class="text-center">
-      <h1
-        class="text-2xl font-medium sm:text-2xl md:text-4xl"
-        v-html="$t('home.why_most_privacy.title', tColorsRed)"
-      ></h1>
+      <h1 class="text-2xl font-medium sm:text-2xl md:text-4xl">
+        Why Simple Analytics is the
+        <span class="text-red-500 dark:text-red-600"
+          >best Google Analytics</span
+        >
+        alternative?
+      </h1>
     </div>
 
     <div class="max-w-3xl px-6 mx-auto mt-12">
@@ -51,6 +54,4 @@ definePageMeta({
   description:
     "Our non-serious video where we explain why Simple Analytics is the most privacy-first analytics.",
 });
-
-const tColorsRed = [`<span class='text-red-500 dark:text-red-600'>`, `</span>`];
 </script>
