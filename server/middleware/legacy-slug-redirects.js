@@ -24,10 +24,12 @@
  */
 
 import translations from "./strapi-translations.json";
+import keyTermsTranslations from "./strapi-translations-keyterms.json";
 
-// Build a lookup map: any slug (including English) -> { englishSlug, articleType }
+// Build a lookup map: any slug (including English) -> { englishSlug, articleType, isKeyTerm }
 const slugLookup = new Map();
 
+// Load regular article translations
 for (const article of translations) {
   const englishSlugs = article.slugs_en;
   if (!englishSlugs || englishSlugs.length === 0) continue;
@@ -37,14 +39,40 @@ for (const article of translations) {
 
   // Add ALL slugs to the lookup (including English, for path-only redirects)
   for (const slug of article.slugs_all_locales || []) {
-    slugLookup.set(slug, { englishSlug, articleType });
+    slugLookup.set(slug, { englishSlug, articleType, isKeyTerm: false });
+  }
+}
+
+// Load key-term translations
+for (const keyTerm of keyTermsTranslations) {
+  const englishSlugs = keyTerm.slugs_en;
+  if (!englishSlugs || englishSlugs.length === 0) continue;
+
+  const englishSlug = englishSlugs[0];
+  const articleType = keyTerm.article_type; // "google-analytics" or "analytics"
+
+  // Add ALL slugs to the lookup
+  for (const slug of keyTerm.slugs_all_locales || []) {
+    slugLookup.set(slug, { englishSlug, articleType, isKeyTerm: true });
   }
 }
 
 /**
- * Get the English URL path for a given article type and slug
+ * Get the English URL path for a given article type, slug, and whether it's a key-term
  */
-function getEnglishPath(articleType, slug) {
+function getEnglishPath(articleType, slug, isKeyTerm = false) {
+  if (isKeyTerm) {
+    // Key terms go under /glossary/{category}/key-term/{slug}
+    switch (articleType) {
+      case "google-analytics":
+        return `/glossary/google-analytics/key-term/${slug}`;
+      case "analytics":
+        return `/glossary/analytics/key-term/${slug}`;
+      default:
+        return null;
+    }
+  }
+
   switch (articleType) {
     case "google-analytics":
       return `/glossary/google-analytics/${slug}`;
@@ -80,6 +108,27 @@ function getEnglishPath(articleType, slug) {
  * Each pattern extracts the slug from the URL.
  */
 const patterns = [
+  // ==========================================================================
+  // Glossary Key Terms - MUST come before regular glossary patterns
+  // ==========================================================================
+  // NL: /nl/begrippenlijst/google-analytics/kernbegrip/{slug}
+  // DE: /de/glossar/google-analytics/schlusselbegriff/{slug}
+  // ES: /es/glosario/google-analytics/termino-clave/{slug}
+  // FR: /fr/glossaire/google-analytics/terme-cle/{slug}
+  // IT: /it/glossario/google-analytics/termine-chiave/{slug}
+  {
+    regex:
+      /^\/(nl|de|es|fr|it)\/(begrippenlijst|glossar|glosario|glossaire|glossario)\/(google-analytics|analytics)\/(kernbegrip|schlusselbegriff|termino-clave|terme-cle|termine-chiave)\/([^/]+)\/?$/i,
+    getSlug: (m) => m[5],
+    isKeyTerm: true,
+  },
+  // English key-term paths with non-English slugs
+  {
+    regex: /^\/glossary\/(google-analytics|analytics)\/key-term\/([^/]+)\/?$/i,
+    getSlug: (m) => m[2],
+    isKeyTerm: true,
+  },
+
   // ==========================================================================
   // Glossary - google-analytics & analytics categories
   // ==========================================================================
@@ -280,12 +329,16 @@ const patterns = [
 
 /**
  * Extract slug from URL path
+ * Returns { slug, isKeyTerm } or null if not matched
  */
-function extractSlug(path) {
+function extractSlugInfo(path) {
   for (const pattern of patterns) {
     const match = path.match(pattern.regex);
     if (match) {
-      return pattern.getSlug(match);
+      return {
+        slug: pattern.getSlug(match),
+        isKeyTerm: pattern.isKeyTerm || false,
+      };
     }
   }
   return null;
@@ -299,18 +352,24 @@ export default defineEventHandler((event) => {
     return;
   }
 
-  // Try to extract a slug from the path
-  const slug = extractSlug(path);
-  if (!slug) return;
+  // Try to extract slug info from the path
+  const slugInfo = extractSlugInfo(path);
+  if (!slugInfo) return;
+
+  const { slug, isKeyTerm: isKeyTermFromUrl } = slugInfo;
 
   // Look up the slug in our translation map
   const translation = slugLookup.get(slug);
   if (!translation) return;
 
+  // Determine if this is a key-term (from URL pattern OR from translation data)
+  const isKeyTerm = isKeyTermFromUrl || translation.isKeyTerm;
+
   // Get the canonical English path
   const englishPath = getEnglishPath(
     translation.articleType,
     translation.englishSlug,
+    isKeyTerm,
   );
   if (!englishPath) return;
 

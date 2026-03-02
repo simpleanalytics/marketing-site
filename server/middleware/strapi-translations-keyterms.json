@@ -1,0 +1,2089 @@
+[
+  {
+    "slugs_de": ["konto-in-google-analytics"],
+    "slugs_en": ["account-in-google-analytics"],
+    "slugs_es": ["cuenta-en-google-analytics"],
+    "slugs_fr": ["compte-dans-google-analytics"],
+    "slugs_it": ["account-in-google-analytics-2"],
+    "slugs_nl": ["account-in-google-analytics-1"],
+    "key_term_id": 1,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "account-in-google-analytics",
+      "account-in-google-analytics-1",
+      "account-in-google-analytics-2",
+      "compte-dans-google-analytics",
+      "cuenta-en-google-analytics",
+      "konto-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["akquisition-in-google-analytics"],
+    "slugs_en": ["acquisition-in-google-analytics"],
+    "slugs_es": ["adquisicion-en-google-analytics"],
+    "slugs_fr": ["acquisition-dans-google-analytics"],
+    "slugs_it": ["acquisizione-in-google-analytics"],
+    "slugs_nl": ["acquisitie-in-google-analytics"],
+    "key_term_id": 2,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "acquisitie-in-google-analytics",
+      "acquisition-dans-google-analytics",
+      "acquisition-in-google-analytics",
+      "acquisizione-in-google-analytics",
+      "adquisicion-en-google-analytics",
+      "akquisition-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["unterstuetzte-konversion-in-google-analytics"],
+    "slugs_en": ["assisted-conversion-in-google-analytics"],
+    "slugs_es": ["conversion-asistida-en-google-analytics"],
+    "slugs_fr": ["conversion-assistee-dans-google-analytics"],
+    "slugs_it": ["conversione-assistita-in-google-analytics"],
+    "slugs_nl": ["geassisteerde-conversie-in-google-analytics"],
+    "key_term_id": 3,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "assisted-conversion-in-google-analytics",
+      "conversion-asistida-en-google-analytics",
+      "conversion-assistee-dans-google-analytics",
+      "conversione-assistita-in-google-analytics",
+      "geassisteerde-conversie-in-google-analytics",
+      "unterstuetzte-konversion-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["zielgruppe-in-google-analytics-in-google-analytics"],
+    "slugs_en": ["audience-in-google-analytics-in-google-analytics"],
+    "slugs_es": ["audiencia-en-google-analytics-en-google-analytics"],
+    "slugs_fr": ["audience-dans-google-analytics-dans-google-analytics"],
+    "slugs_it": ["audience-in-google-analytics-in-google-analytics-1"],
+    "slugs_nl": ["doelgroep-in-google-analytics-in-google-analytics"],
+    "key_term_id": 4,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "audience-dans-google-analytics-dans-google-analytics",
+      "audience-in-google-analytics-in-google-analytics",
+      "audience-in-google-analytics-in-google-analytics-1",
+      "audiencia-en-google-analytics-en-google-analytics",
+      "doelgroep-in-google-analytics-in-google-analytics",
+      "zielgruppe-in-google-analytics-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["durchschnittliche-sitzungsdauer-in-google-analytics"],
+    "slugs_en": ["average-session-duration-in-google-analytics"],
+    "slugs_es": ["duracion-media-de-la-sesion-en-google-analytics"],
+    "slugs_fr": ["duree-moyenne-de-la-session-dans-google-analytics"],
+    "slugs_it": ["durata-media-della-sessione-in-google-analytics"],
+    "slugs_nl": ["gemiddelde-sessieduur-in-google-analytics"],
+    "key_term_id": 5,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "average-session-duration-in-google-analytics",
+      "duracion-media-de-la-sesion-en-google-analytics",
+      "durata-media-della-sessione-in-google-analytics",
+      "durchschnittliche-sitzungsdauer-in-google-analytics",
+      "duree-moyenne-de-la-session-dans-google-analytics",
+      "gemiddelde-sessieduur-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["absprungrate-in-google-analytics"],
+    "slugs_en": ["bounce-in-google-analytics"],
+    "slugs_es": ["rebote-en-google-analytics"],
+    "slugs_fr": ["rebond-dans-google-analytics"],
+    "slugs_it": ["rimbalzi-in-google-analytics"],
+    "slugs_nl": ["bounce-in-google-analytics-1"],
+    "key_term_id": 6,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "absprungrate-in-google-analytics",
+      "bounce-in-google-analytics",
+      "bounce-in-google-analytics-1",
+      "rebond-dans-google-analytics",
+      "rebote-en-google-analytics",
+      "rimbalzi-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["kampagne-in-google-analytics"],
+    "slugs_en": ["campaign-in-google-analytics"],
+    "slugs_es": ["campana-en-google-analytics"],
+    "slugs_fr": ["campagne-dans-google-analytics"],
+    "slugs_it": ["campagna-in-google-analytics"],
+    "slugs_nl": ["campagne-in-google-analytics"],
+    "key_term_id": 7,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "campagna-in-google-analytics",
+      "campagne-dans-google-analytics",
+      "campagne-in-google-analytics",
+      "campaign-in-google-analytics",
+      "campana-en-google-analytics",
+      "kampagne-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["kanal-in-google-analytics"],
+    "slugs_en": ["channel-in-google-analytics"],
+    "slugs_es": ["canal-en-google-analytics"],
+    "slugs_fr": ["canal-dans-google-analytics"],
+    "slugs_it": ["canale-in-google-analytics"],
+    "slugs_nl": ["kanaal-in-google-analytics"],
+    "key_term_id": 8,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "canal-dans-google-analytics",
+      "canal-en-google-analytics",
+      "canale-in-google-analytics",
+      "channel-in-google-analytics",
+      "kanaal-in-google-analytics",
+      "kanal-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["kunden-id-in-google-analytics"],
+    "slugs_en": ["client-id-in-google-analytics"],
+    "slugs_es": ["id-de-cliente-en-google-analytics"],
+    "slugs_fr": ["id-du-client-dans-google-analytics"],
+    "slugs_it": ["id-cliente-in-google-analytics"],
+    "slugs_nl": ["klant-id-in-google-analytics"],
+    "key_term_id": 9,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "client-id-in-google-analytics",
+      "id-cliente-in-google-analytics",
+      "id-de-cliente-en-google-analytics",
+      "id-du-client-dans-google-analytics",
+      "klant-id-in-google-analytics",
+      "kunden-id-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["kohortenanalyse-in-google-analytics"],
+    "slugs_en": ["cohort-analysis-in-google-analytics"],
+    "slugs_es": ["analisis-de-cohortes-en-google-analytics"],
+    "slugs_fr": ["analyse-de-cohorte-dans-google-analytics"],
+    "slugs_it": ["analisi-della-coorte-in-google-analytics"],
+    "slugs_nl": ["cohortanalyse-in-google-analytics"],
+    "key_term_id": 10,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "analisi-della-coorte-in-google-analytics",
+      "analisis-de-cohortes-en-google-analytics",
+      "analyse-de-cohorte-dans-google-analytics",
+      "cohort-analysis-in-google-analytics",
+      "cohortanalyse-in-google-analytics",
+      "kohortenanalyse-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["dimensionen-in-google-analytics"],
+    "slugs_en": ["dimensions-in-google-analytics"],
+    "slugs_es": ["dimensiones-en-google-analytics"],
+    "slugs_fr": ["dimensions-dans-google-analytics"],
+    "slugs_it": ["dimensioni-in-google-analytics"],
+    "slugs_nl": ["dimensies-in-google-analytics"],
+    "key_term_id": 11,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "dimensies-in-google-analytics",
+      "dimensionen-in-google-analytics",
+      "dimensiones-en-google-analytics",
+      "dimensioni-in-google-analytics",
+      "dimensions-dans-google-analytics",
+      "dimensions-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["direkt-keine-in-google-analytics"],
+    "slugs_en": ["direct-none-in-google-analytics"],
+    "slugs_es": ["directo-ninguno-en-google-analytics"],
+    "slugs_fr": ["direct-none-dans-google-analytics"],
+    "slugs_it": ["nessuno-diretto-in-google-analytics"],
+    "slugs_nl": ["directe-geen-in-google-analytics"],
+    "key_term_id": 12,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "direct-none-dans-google-analytics",
+      "direct-none-in-google-analytics",
+      "directe-geen-in-google-analytics",
+      "directo-ninguno-en-google-analytics",
+      "direkt-keine-in-google-analytics",
+      "nessuno-diretto-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["abbruch-in-google-analytics"],
+    "slugs_en": ["drop-off-in-google-analytics"],
+    "slugs_es": ["caida-en-google-analytics"],
+    "slugs_fr": ["baisse-d-activite-dans-google-analytics"],
+    "slugs_it": ["calo-in-google-analytics"],
+    "slugs_nl": ["afname-in-google-analytics"],
+    "key_term_id": 13,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "abbruch-in-google-analytics",
+      "afname-in-google-analytics",
+      "baisse-d-activite-dans-google-analytics",
+      "caida-en-google-analytics",
+      "calo-in-google-analytics",
+      "drop-off-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["verfolgung-des-elektronischen-handels-in-google-analytics"],
+    "slugs_en": ["ecommerce-tracking-in-google-analytics"],
+    "slugs_es": ["seguimiento-del-comercio-electronico-en-google-analytics"],
+    "slugs_fr": ["suivi-du-commerce-electronique-dans-google-analytics"],
+    "slugs_it": ["tracciamento-del-commercio-elettronico-in-google-analytics"],
+    "slugs_nl": ["tracering-van-e-commerce-in-google-analytics"],
+    "key_term_id": 14,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "ecommerce-tracking-in-google-analytics",
+      "seguimiento-del-comercio-electronico-en-google-analytics",
+      "suivi-du-commerce-electronique-dans-google-analytics",
+      "tracciamento-del-commercio-elettronico-in-google-analytics",
+      "tracering-van-e-commerce-in-google-analytics",
+      "verfolgung-des-elektronischen-handels-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["engagement-in-google-analytics-1"],
+    "slugs_en": ["engagement-in-google-analytics"],
+    "slugs_es": ["compromiso-en-google-analytics"],
+    "slugs_fr": ["l-engagement-dans-google-analytics"],
+    "slugs_it": ["impegno-in-google-analytics"],
+    "slugs_nl": ["betrokkenheid-in-google-analytics"],
+    "key_term_id": 15,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "betrokkenheid-in-google-analytics",
+      "compromiso-en-google-analytics",
+      "engagement-in-google-analytics",
+      "engagement-in-google-analytics-1",
+      "impegno-in-google-analytics",
+      "l-engagement-dans-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["eintritt-in-google-analytics"],
+    "slugs_en": ["entrance-in-google-analytics"],
+    "slugs_es": ["entrada-en-google-analytics"],
+    "slugs_fr": ["entree-dans-google-analytics"],
+    "slugs_it": ["ingresso-in-google-analytics"],
+    "slugs_nl": ["ingang-in-google-analytics"],
+    "key_term_id": 16,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "eintritt-in-google-analytics",
+      "entrada-en-google-analytics",
+      "entrance-in-google-analytics",
+      "entree-dans-google-analytics",
+      "ingang-in-google-analytics",
+      "ingresso-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["ereignisse-in-google-analytics"],
+    "slugs_en": ["events-in-google-analytics"],
+    "slugs_es": ["eventos-en-google-analytics"],
+    "slugs_fr": ["evenements-dans-google-analytics"],
+    "slugs_it": ["eventi-in-google-analytics"],
+    "slugs_nl": ["gebeurtenissen-in-google-analytics"],
+    "key_term_id": 17,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "ereignisse-in-google-analytics",
+      "evenements-dans-google-analytics",
+      "eventi-in-google-analytics",
+      "eventos-en-google-analytics",
+      "events-in-google-analytics",
+      "gebeurtenissen-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["beenden-in-google-analytics"],
+    "slugs_en": ["exit-in-google-analytics"],
+    "slugs_es": ["salir-en-google-analytics"],
+    "slugs_fr": ["sortie-de-google-analytics"],
+    "slugs_it": ["uscita-da-google-analytics"],
+    "slugs_nl": ["afsluiten-in-google-analytics"],
+    "key_term_id": 18,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "afsluiten-in-google-analytics",
+      "beenden-in-google-analytics",
+      "exit-in-google-analytics",
+      "salir-en-google-analytics",
+      "sortie-de-google-analytics",
+      "uscita-da-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["haeufigkeit-in-google-analytics"],
+    "slugs_en": ["frequency-in-google-analytics"],
+    "slugs_es": ["frecuencia-en-google-analytics"],
+    "slugs_fr": ["frequence-dans-google-analytics"],
+    "slugs_it": ["frequenza-in-google-analytics"],
+    "slugs_nl": ["frequentie-in-google-analytics"],
+    "key_term_id": 19,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "frecuencia-en-google-analytics",
+      "frequence-dans-google-analytics",
+      "frequency-in-google-analytics",
+      "frequentie-in-google-analytics",
+      "frequenza-in-google-analytics",
+      "haeufigkeit-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["ziele-in-google-analytics"],
+    "slugs_en": ["goals-in-google-analytics"],
+    "slugs_es": ["objetivos-en-google-analytics"],
+    "slugs_fr": ["objectifs-dans-google-analytics"],
+    "slugs_it": ["obiettivi-in-google-analytics"],
+    "slugs_nl": ["doelen-in-google-analytics"],
+    "key_term_id": 20,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "doelen-in-google-analytics",
+      "goals-in-google-analytics",
+      "obiettivi-in-google-analytics",
+      "objectifs-dans-google-analytics",
+      "objetivos-en-google-analytics",
+      "ziele-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["pruefung-in-google-analytics"],
+    "slugs_en": ["audit-in-google-analytics"],
+    "slugs_es": ["auditoria-en-google-analytics"],
+    "slugs_fr": ["audit-dans-google-analytics"],
+    "slugs_it": ["verifica-in-google-analytics"],
+    "slugs_nl": ["controle-in-google-analytics"],
+    "key_term_id": 21,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "audit-dans-google-analytics",
+      "audit-in-google-analytics",
+      "auditoria-en-google-analytics",
+      "controle-in-google-analytics",
+      "pruefung-in-google-analytics",
+      "verifica-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["treffer-in-google-analytics"],
+    "slugs_en": ["hit-in-google-analytics"],
+    "slugs_es": ["acierto-en-google-analytics"],
+    "slugs_fr": ["hit-dans-google-analytics"],
+    "slugs_it": ["colpo-in-google-analytics"],
+    "slugs_nl": ["hit-in-google-analytics-nl"],
+    "key_term_id": 22,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "acierto-en-google-analytics",
+      "colpo-in-google-analytics",
+      "hit-dans-google-analytics",
+      "hit-in-google-analytics",
+      "hit-in-google-analytics-nl",
+      "treffer-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["impression-in-google-analytics-1"],
+    "slugs_en": ["impression-in-google-analytics"],
+    "slugs_es": ["impresion-en-google-analytics"],
+    "slugs_fr": ["impression-dans-google-analytics"],
+    "slugs_it": ["impressione-in-google-analytics"],
+    "slugs_nl": ["indruk-in-google-analytics"],
+    "key_term_id": 23,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "impresion-en-google-analytics",
+      "impression-dans-google-analytics",
+      "impression-in-google-analytics",
+      "impression-in-google-analytics-1",
+      "impressione-in-google-analytics",
+      "indruk-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["medium-in-google-analytics-3"],
+    "slugs_en": ["medium-in-google-analytics"],
+    "slugs_es": ["medium-en-google-analytics"],
+    "slugs_fr": ["medium-dans-google-analytics"],
+    "slugs_it": ["medium-in-google-analytics-2"],
+    "slugs_nl": ["medium-in-google-analytics-1"],
+    "key_term_id": 24,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "medium-dans-google-analytics",
+      "medium-en-google-analytics",
+      "medium-in-google-analytics",
+      "medium-in-google-analytics-1",
+      "medium-in-google-analytics-2",
+      "medium-in-google-analytics-3"
+    ]
+  },
+  {
+    "slugs_de": ["metriken-in-google-analytics"],
+    "slugs_en": ["metrics-in-google-analytics"],
+    "slugs_es": ["metricas-en-google-analytics"],
+    "slugs_fr": ["mesures-dans-google-analytics"],
+    "slugs_it": ["metriche-in-google-analytics"],
+    "slugs_nl": ["metriek-in-google-analytics"],
+    "key_term_id": 25,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "mesures-dans-google-analytics",
+      "metricas-en-google-analytics",
+      "metriche-in-google-analytics",
+      "metrics-in-google-analytics",
+      "metriek-in-google-analytics",
+      "metriken-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["organischer-verkehr-in-google-analytics"],
+    "slugs_en": ["organic-traffic-in-google-analytics"],
+    "slugs_es": ["trafico-organico-en-google-analytics"],
+    "slugs_fr": ["trafic-organique-dans-google-analytics"],
+    "slugs_it": ["traffico-organico-in-google-analytics"],
+    "slugs_nl": ["organisch-verkeer-in-google-analytics"],
+    "key_term_id": 26,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "organic-traffic-in-google-analytics",
+      "organisch-verkeer-in-google-analytics",
+      "organischer-verkehr-in-google-analytics",
+      "traffico-organico-in-google-analytics",
+      "trafic-organique-dans-google-analytics",
+      "trafico-organico-en-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["seitentiefe-in-google-analytics"],
+    "slugs_en": ["page-depth-in-google-analytics"],
+    "slugs_es": ["profundidad-de-pagina-en-google-analytics"],
+    "slugs_fr": ["profondeur-de-la-page-dans-google-analytics"],
+    "slugs_it": ["profondita-della-pagina-in-google-analytics"],
+    "slugs_nl": ["paginadiepte-in-google-analytics"],
+    "key_term_id": 27,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "page-depth-in-google-analytics",
+      "paginadiepte-in-google-analytics",
+      "profondeur-de-la-page-dans-google-analytics",
+      "profondita-della-pagina-in-google-analytics",
+      "profundidad-de-pagina-en-google-analytics",
+      "seitentiefe-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["seitenaufrufe-in-google-analytics"],
+    "slugs_en": ["page-views-in-google-analytics"],
+    "slugs_es": ["paginas-vistas-en-google-analytics"],
+    "slugs_fr": ["nombre-de-pages-vues-dans-google-analytics"],
+    "slugs_it": ["visualizzazioni-di-pagina-in-google-analytics"],
+    "slugs_nl": ["paginabezoeken-in-google-analytics"],
+    "key_term_id": 28,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "nombre-de-pages-vues-dans-google-analytics",
+      "page-views-in-google-analytics",
+      "paginabezoeken-in-google-analytics",
+      "paginas-vistas-en-google-analytics",
+      "seitenaufrufe-in-google-analytics",
+      "visualizzazioni-di-pagina-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["eigenschaft-in-google-analytics"],
+    "slugs_en": ["property-in-google-analytics"],
+    "slugs_es": ["propiedad-en-google-analytics"],
+    "slugs_fr": ["propriete-dans-google-analytics"],
+    "slugs_it": ["proprieta-in-google-analytics"],
+    "slugs_nl": ["eigendom-in-google-analytics"],
+    "key_term_id": 29,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "eigendom-in-google-analytics",
+      "eigenschaft-in-google-analytics",
+      "property-in-google-analytics",
+      "propiedad-en-google-analytics",
+      "proprieta-in-google-analytics",
+      "propriete-dans-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["abfrage-in-google-analytics"],
+    "slugs_en": ["query-in-google-analytics"],
+    "slugs_es": ["consulta-en-google-analytics"],
+    "slugs_fr": ["requete-dans-google-analytics"],
+    "slugs_it": ["query-in-google-analytics-it"],
+    "slugs_nl": ["query-in-google-analytics-nl"],
+    "key_term_id": 30,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "abfrage-in-google-analytics",
+      "consulta-en-google-analytics",
+      "query-in-google-analytics",
+      "query-in-google-analytics-it",
+      "query-in-google-analytics-nl",
+      "requete-dans-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["datenaktualitaet-in-google-analytics"],
+    "slugs_en": ["recency-in-google-analytics"],
+    "slugs_es": ["recencia-de-datos-en-google-analytics"],
+    "slugs_fr": ["recence-des-donnees-dans-google-analytics"],
+    "slugs_it": ["ricorrenza-dei-dati-in-google-analytics"],
+    "slugs_nl": ["Gegevensherhaling-in-google-analytics"],
+    "key_term_id": 31,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "Gegevensherhaling-in-google-analytics",
+      "datenaktualitaet-in-google-analytics",
+      "recence-des-donnees-dans-google-analytics",
+      "recencia-de-datos-en-google-analytics",
+      "recency-in-google-analytics",
+      "ricorrenza-dei-dati-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["verweisende-website-in-google-analytics"],
+    "slugs_en": ["referring-site-in-google-analytics"],
+    "slugs_es": ["sitio-de-referencia-en-google-analytics"],
+    "slugs_fr": ["site-referent-dans-google-analytics"],
+    "slugs_it": ["sito-di-riferimento-in-google-analytics"],
+    "slugs_nl": ["verwijzende-site-in-google-analytics"],
+    "key_term_id": 32,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "referring-site-in-google-analytics",
+      "site-referent-dans-google-analytics",
+      "sitio-de-referencia-en-google-analytics",
+      "sito-di-riferimento-in-google-analytics",
+      "verweisende-website-in-google-analytics",
+      "verwijzende-site-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["berichte-in-google-analytics"],
+    "slugs_en": ["reports-in-google-analytics"],
+    "slugs_es": ["informes-de-google-analytics"],
+    "slugs_fr": ["rapports-dans-google-analytics"],
+    "slugs_it": ["rapporti-in-google-analytics"],
+    "slugs_nl": ["rapporten-in-google-analytics"],
+    "key_term_id": 33,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "berichte-in-google-analytics",
+      "informes-de-google-analytics",
+      "rapporten-in-google-analytics",
+      "rapporti-in-google-analytics",
+      "rapports-dans-google-analytics",
+      "reports-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["sekundaere-dimension-in-google-analytics"],
+    "slugs_en": ["secondary-dimension-in-google-analytics"],
+    "slugs_es": ["dimension-secundaria-en-google-analytics"],
+    "slugs_fr": ["dimension-secondaire-dans-google-analytics"],
+    "slugs_it": ["dimensione-secondaria-in-google-analytics"],
+    "slugs_nl": ["secundaire-dimensie-in-google-analytics"],
+    "key_term_id": 34,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "dimension-secondaire-dans-google-analytics",
+      "dimension-secundaria-en-google-analytics",
+      "dimensione-secondaria-in-google-analytics",
+      "secondary-dimension-in-google-analytics",
+      "secundaire-dimensie-in-google-analytics",
+      "sekundaere-dimension-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["segmente-in-google-analytics"],
+    "slugs_en": ["segments-in-google-analytics"],
+    "slugs_es": ["segmentos-en-google-analytics"],
+    "slugs_fr": ["segments-dans-google-analytics"],
+    "slugs_it": ["segmenti-in-google-analytics"],
+    "slugs_nl": ["segmenten-in-google-analytics"],
+    "key_term_id": 35,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "segmente-in-google-analytics",
+      "segmenten-in-google-analytics",
+      "segmenti-in-google-analytics",
+      "segmentos-en-google-analytics",
+      "segments-dans-google-analytics",
+      "segments-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["sitzung-in-google-analytics"],
+    "slugs_en": ["session-in-google-analytics"],
+    "slugs_es": ["sesion-en-google-analytics"],
+    "slugs_fr": ["session-dans-google-analytics"],
+    "slugs_it": ["sessione-in-google-analytics"],
+    "slugs_nl": ["sessie-in-google-analytics"],
+    "key_term_id": 36,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "sesion-en-google-analytics",
+      "sessie-in-google-analytics",
+      "session-dans-google-analytics",
+      "session-in-google-analytics",
+      "sessione-in-google-analytics",
+      "sitzung-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["soziale-netzwerke-in-google-analytics"],
+    "slugs_en": ["social-in-google-analytics"],
+    "slugs_es": ["social-en-google-analytics"],
+    "slugs_fr": ["social-dans-google-analytics"],
+    "slugs_it": ["social-in-google-analytics-1"],
+    "slugs_nl": ["sociaal-in-google-analytics"],
+    "key_term_id": 37,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "sociaal-in-google-analytics",
+      "social-dans-google-analytics",
+      "social-en-google-analytics",
+      "social-in-google-analytics",
+      "social-in-google-analytics-1",
+      "soziale-netzwerke-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["quelle-in-google-analytics"],
+    "slugs_en": ["source-in-google-analytics"],
+    "slugs_es": ["fuente-en-google-analytics"],
+    "slugs_fr": ["source-dans-google-analytics"],
+    "slugs_it": ["fonte-in-google-analytics"],
+    "slugs_nl": ["bron-in-google-analytics"],
+    "key_term_id": 38,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "bron-in-google-analytics",
+      "fonte-in-google-analytics",
+      "fuente-en-google-analytics",
+      "quelle-in-google-analytics",
+      "source-dans-google-analytics",
+      "source-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["transaktion-in-google-analytics"],
+    "slugs_en": ["transaction-in-google-analytics"],
+    "slugs_es": ["transaccion-en-google-analytics"],
+    "slugs_fr": ["transaction-dans-google-analytics"],
+    "slugs_it": ["transazione-in-google-analytics"],
+    "slugs_nl": ["transactie-in-google-analytics"],
+    "key_term_id": 39,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "transaccion-en-google-analytics",
+      "transactie-in-google-analytics",
+      "transaction-dans-google-analytics",
+      "transaction-in-google-analytics",
+      "transaktion-in-google-analytics",
+      "transazione-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["benutzerfluss-in-google-analytics"],
+    "slugs_en": ["user-flow-in-google-analytics"],
+    "slugs_es": ["flujo-de-usuarios-en-google-analytics"],
+    "slugs_fr": ["flux-d-utilisateurs-dans-google-analytics"],
+    "slugs_it": ["flusso-di-utenti-in-google-analytics"],
+    "slugs_nl": ["gebruikersstroom-in-google-analytics"],
+    "key_term_id": 40,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "benutzerfluss-in-google-analytics",
+      "flujo-de-usuarios-en-google-analytics",
+      "flusso-di-utenti-in-google-analytics",
+      "flux-d-utilisateurs-dans-google-analytics",
+      "gebruikersstroom-in-google-analytics",
+      "user-flow-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["benutzer-in-google-analytics"],
+    "slugs_en": ["users-in-google-analytics"],
+    "slugs_es": ["usuarios-en-google-analytics"],
+    "slugs_fr": ["utilisateurs-dans-google-analytics"],
+    "slugs_it": ["utenti-in-google-analytics"],
+    "slugs_nl": ["gebruikers-in-google-analytics"],
+    "key_term_id": 41,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "benutzer-in-google-analytics",
+      "gebruikers-in-google-analytics",
+      "users-in-google-analytics",
+      "usuarios-en-google-analytics",
+      "utenti-in-google-analytics",
+      "utilisateurs-dans-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["ansichten-in-google-analytics"],
+    "slugs_en": ["views-in-google-analytics"],
+    "slugs_es": ["vistas-en-google-analytics"],
+    "slugs_fr": ["vues-dans-google-analytics"],
+    "slugs_it": ["visualizzazioni-in-google-analytics"],
+    "slugs_nl": ["weergaven-in-google-analytics"],
+    "key_term_id": 42,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "ansichten-in-google-analytics",
+      "views-in-google-analytics",
+      "vistas-en-google-analytics",
+      "visualizzazioni-in-google-analytics",
+      "vues-dans-google-analytics",
+      "weergaven-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["besuchsdauer-in-google-analytics"],
+    "slugs_en": ["visit-duration-in-google-analytics"],
+    "slugs_es": ["duracion-de-la-visita-en-google-analytics"],
+    "slugs_fr": ["duree-de-la-visite-dans-google-analytics"],
+    "slugs_it": ["durata-della-visita-in-google-analytics"],
+    "slugs_nl": ["bezoekduur-in-google-analytics"],
+    "key_term_id": 43,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "besuchsdauer-in-google-analytics",
+      "bezoekduur-in-google-analytics",
+      "duracion-de-la-visita-en-google-analytics",
+      "durata-della-visita-in-google-analytics",
+      "duree-de-la-visite-dans-google-analytics",
+      "visit-duration-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["besucher-in-google-analytics"],
+    "slugs_en": ["visitors-in-google-analytics"],
+    "slugs_es": ["visitantes-en-google-analytics-1"],
+    "slugs_fr": ["visiteurs-dans-google-analytics-1"],
+    "slugs_it": ["visitatori-in-google-analytics"],
+    "slugs_nl": ["bezoekers-in-google-analytics"],
+    "key_term_id": 44,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "besucher-in-google-analytics",
+      "bezoekers-in-google-analytics",
+      "visitantes-en-google-analytics-1",
+      "visitatori-in-google-analytics",
+      "visiteurs-dans-google-analytics-1",
+      "visitors-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["besucherfluss-in-google-analytics"],
+    "slugs_en": ["visitors-flow-in-google-analytics"],
+    "slugs_es": ["flujo-de-visitantes-en-google-analytics"],
+    "slugs_fr": ["flux-de-visiteurs-dans-google-analytics"],
+    "slugs_it": ["flusso-di-visitatori-in-google-analytics"],
+    "slugs_nl": ["bezoekersstroom-in-google-analytics"],
+    "key_term_id": 45,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "besucherfluss-in-google-analytics",
+      "bezoekersstroom-in-google-analytics",
+      "flujo-de-visitantes-en-google-analytics",
+      "flusso-di-visitatori-in-google-analytics",
+      "flux-de-visiteurs-dans-google-analytics",
+      "visitors-flow-in-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["403-verboten"],
+    "slugs_en": ["403-forbidden"],
+    "slugs_es": ["403-prohibido"],
+    "slugs_fr": ["403-interdit"],
+    "slugs_it": ["403-vietato"],
+    "slugs_nl": ["403-verboden"],
+    "key_term_id": 181,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "403-forbidden",
+      "403-interdit",
+      "403-prohibido",
+      "403-verboden",
+      "403-verboten",
+      "403-vietato"
+    ]
+  },
+  {
+    "slugs_de": ["404-nicht-gefunden"],
+    "slugs_en": ["404-not-found"],
+    "slugs_es": ["404-no-encontrado"],
+    "slugs_fr": ["404-non-trouve"],
+    "slugs_it": ["404-non-trovato"],
+    "slugs_nl": ["404-niet-gevonden"],
+    "key_term_id": 182,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "404-nicht-gefunden",
+      "404-niet-gevonden",
+      "404-no-encontrado",
+      "404-non-trouve",
+      "404-non-trovato",
+      "404-not-found"
+    ]
+  },
+  {
+    "slugs_de": ["500-interner-serverfehler"],
+    "slugs_en": ["key-term"],
+    "slugs_es": ["500-error-interno-del-servidor"],
+    "slugs_fr": ["500-erreur-de-serveur-interne"],
+    "slugs_it": ["500-errore-interno-del-server"],
+    "slugs_nl": ["500-interne-server-fout"],
+    "key_term_id": 183,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "500-erreur-de-serveur-interne",
+      "500-error-interno-del-servidor",
+      "500-errore-interno-del-server",
+      "500-interne-server-fout",
+      "500-interner-serverfehler",
+      "key-term"
+    ]
+  },
+  {
+    "slugs_de": ["adblocker-2"],
+    "slugs_en": ["adblockers"],
+    "slugs_es": ["adblockers-1"],
+    "slugs_fr": ["bloqueurs-de-publicite"],
+    "slugs_it": ["adblocker-1"],
+    "slugs_nl": ["adblockers-nl"],
+    "key_term_id": 184,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "adblocker-1",
+      "adblocker-2",
+      "adblockers",
+      "adblockers-1",
+      "adblockers-nl",
+      "bloqueurs-de-publicite"
+    ]
+  },
+  {
+    "slugs_de": ["amp-3"],
+    "slugs_en": ["amp"],
+    "slugs_es": ["amp-4"],
+    "slugs_fr": ["amp-1"],
+    "slugs_it": ["amp-2"],
+    "slugs_nl": ["amp-nl"],
+    "key_term_id": 185,
+    "article_type": "analytics",
+    "slugs_all_locales": ["amp", "amp-1", "amp-2", "amp-3", "amp-4", "amp-nl"]
+  },
+  {
+    "slugs_de": ["unterstuetzte-konversion-1"],
+    "slugs_en": ["assisted-conversion"],
+    "slugs_es": ["conversion-asistida"],
+    "slugs_fr": ["conversion-assistee"],
+    "slugs_it": ["conversione-assistita"],
+    "slugs_nl": ["geassisteerde-conversie"],
+    "key_term_id": 186,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "assisted-conversion",
+      "conversion-asistida",
+      "conversion-assistee",
+      "conversione-assistita",
+      "geassisteerde-conversie",
+      "unterstuetzte-konversion-1"
+    ]
+  },
+  {
+    "slugs_de": ["zuschreibungsmodell"],
+    "slugs_en": ["attribution-model"],
+    "slugs_es": ["modelo-de-atribucion"],
+    "slugs_fr": ["modele-d-attribution"],
+    "slugs_it": ["modello-di-attribuzione"],
+    "slugs_nl": ["attributiemodel"],
+    "key_term_id": 187,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "attributiemodel",
+      "attribution-model",
+      "modele-d-attribution",
+      "modello-di-attribuzione",
+      "modelo-de-atribucion",
+      "zuschreibungsmodell"
+    ]
+  },
+  {
+    "slugs_de": ["automatische-kennzeichnung"],
+    "slugs_en": ["auto-tagging"],
+    "slugs_es": ["etiquetado-automatico"],
+    "slugs_fr": ["balisage-automatique"],
+    "slugs_it": ["etichettatura-automatica"],
+    "slugs_nl": ["automatisch-markeren"],
+    "key_term_id": 188,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "auto-tagging",
+      "automatisch-markeren",
+      "automatische-kennzeichnung",
+      "balisage-automatique",
+      "etichettatura-automatica",
+      "etiquetado-automatico"
+    ]
+  },
+  {
+    "slugs_de": ["absprungrate"],
+    "slugs_en": ["bounce-rate"],
+    "slugs_es": ["tasa-de-rebote"],
+    "slugs_fr": ["taux-de-rebond"],
+    "slugs_it": ["frequenza-di-rimbalzo"],
+    "slugs_nl": ["bounce-rate-1"],
+    "key_term_id": 189,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "absprungrate",
+      "bounce-rate",
+      "bounce-rate-1",
+      "frequenza-di-rimbalzo",
+      "tasa-de-rebote",
+      "taux-de-rebond"
+    ]
+  },
+  {
+    "slugs_de": ["markensuche"],
+    "slugs_en": ["branded-search"],
+    "slugs_es": ["busqueda-por-marca"],
+    "slugs_fr": ["recherche-de-marque"],
+    "slugs_it": ["ricerca-con-marchio"],
+    "slugs_nl": ["branded-search-nl"],
+    "key_term_id": 190,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "branded-search",
+      "branded-search-nl",
+      "busqueda-por-marca",
+      "markensuche",
+      "recherche-de-marque",
+      "ricerca-con-marchio"
+    ]
+  },
+  {
+    "slugs_de": ["browser-2"],
+    "slugs_en": ["browsers"],
+    "slugs_es": ["navegadores"],
+    "slugs_fr": ["navigateurs"],
+    "slugs_it": ["browser-1"],
+    "slugs_nl": ["browsers-nl"],
+    "key_term_id": 191,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "browser-1",
+      "browser-2",
+      "browsers",
+      "browsers-nl",
+      "navegadores",
+      "navigateurs"
+    ]
+  },
+  {
+    "slugs_de": ["aufruf-zum-handeln"],
+    "slugs_en": ["call-to-action"],
+    "slugs_es": ["llamada-a-la-accion"],
+    "slugs_fr": ["appel-a-l-action"],
+    "slugs_it": ["appello-all-azione"],
+    "slugs_nl": ["call-to-action-nl"],
+    "key_term_id": 192,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "appel-a-l-action",
+      "appello-all-azione",
+      "aufruf-zum-handeln",
+      "call-to-action",
+      "call-to-action-nl",
+      "llamada-a-la-accion"
+    ]
+  },
+  {
+    "slugs_de": ["ccpa-3"],
+    "slugs_en": ["ccpa"],
+    "slugs_es": ["ccpa-4"],
+    "slugs_fr": ["ccpa-1"],
+    "slugs_it": ["ccpa-2"],
+    "slugs_nl": ["ccpa-nl"],
+    "key_term_id": 193,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "ccpa",
+      "ccpa-1",
+      "ccpa-2",
+      "ccpa-3",
+      "ccpa-4",
+      "ccpa-nl"
+    ]
+  },
+  {
+    "slugs_de": ["click-through-rate-1"],
+    "slugs_en": ["click-through-rate"],
+    "slugs_es": ["tasa-de-clics"],
+    "slugs_fr": ["taux-de-clics"],
+    "slugs_it": ["tasso-di-penetrazione-dei-clic"],
+    "slugs_nl": ["click-through-rate-nl"],
+    "key_term_id": 194,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "click-through-rate",
+      "click-through-rate-1",
+      "click-through-rate-nl",
+      "tasa-de-clics",
+      "tasso-di-penetrazione-dei-clic",
+      "taux-de-clics"
+    ]
+  },
+  {
+    "slugs_de": ["umstellungstrichter"],
+    "slugs_en": ["conversion-funnel"],
+    "slugs_es": ["embudo-de-conversion"],
+    "slugs_fr": ["entonnoir-de-conversion"],
+    "slugs_it": ["funnel-di-conversione"],
+    "slugs_nl": ["conversietrechter"],
+    "key_term_id": 195,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "conversietrechter",
+      "conversion-funnel",
+      "embudo-de-conversion",
+      "entonnoir-de-conversion",
+      "funnel-di-conversione",
+      "umstellungstrichter"
+    ]
+  },
+  {
+    "slugs_de": ["optimierung-der-umrechnungskurse"],
+    "slugs_en": ["conversion-rate-optimization"],
+    "slugs_es": ["optimizacion-de-la-tasa-de-conversion"],
+    "slugs_fr": ["optimisation-du-taux-de-conversion"],
+    "slugs_it": ["ottimizzazione-del-tasso-di-conversione"],
+    "slugs_nl": ["conversieoptimalisatie"],
+    "key_term_id": 196,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "conversieoptimalisatie",
+      "conversion-rate-optimization",
+      "optimierung-der-umrechnungskurse",
+      "optimisation-du-taux-de-conversion",
+      "optimizacion-de-la-tasa-de-conversion",
+      "ottimizzazione-del-tasso-di-conversione"
+    ]
+  },
+  {
+    "slugs_de": ["umrechnungen"],
+    "slugs_en": ["conversions"],
+    "slugs_es": ["conversiones"],
+    "slugs_fr": ["conversions-1"],
+    "slugs_it": ["conversioni"],
+    "slugs_nl": ["conversies"],
+    "key_term_id": 197,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "conversies",
+      "conversiones",
+      "conversioni",
+      "conversions",
+      "conversions-1",
+      "umrechnungen"
+    ]
+  },
+  {
+    "slugs_de": ["cookie-banner-2"],
+    "slugs_en": ["cookie-banner"],
+    "slugs_es": ["cookie-banner-3"],
+    "slugs_fr": ["banniere-cookie"],
+    "slugs_it": ["cookie-banner-1"],
+    "slugs_nl": ["cookie-banner-nl"],
+    "key_term_id": 198,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "banniere-cookie",
+      "cookie-banner",
+      "cookie-banner-1",
+      "cookie-banner-2",
+      "cookie-banner-3",
+      "cookie-banner-nl"
+    ]
+  },
+  {
+    "slugs_de": ["cookies-2"],
+    "slugs_en": ["cookies"],
+    "slugs_es": ["cookies-3"],
+    "slugs_fr": ["cookies-1"],
+    "slugs_it": ["biscotti"],
+    "slugs_nl": ["cookies-nl"],
+    "key_term_id": 199,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "biscotti",
+      "cookies",
+      "cookies-1",
+      "cookies-2",
+      "cookies-3",
+      "cookies-nl"
+    ]
+  },
+  {
+    "slugs_de": ["lokalisierung-von-daten"],
+    "slugs_en": ["data-localization"],
+    "slugs_es": ["localizacion-de-datos"],
+    "slugs_fr": ["localisation-des-donnees"],
+    "slugs_it": ["localizzazione-dei-dati"],
+    "slugs_nl": ["lokalisatie-van-gegevens"],
+    "key_term_id": 200,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "data-localization",
+      "localisation-des-donnees",
+      "localizacion-de-datos",
+      "localizzazione-dei-dati",
+      "lokalisatie-van-gegevens",
+      "lokalisierung-von-daten"
+    ]
+  },
+  {
+    "slugs_de": ["vereinbarung-zur-datenverarbeitung"],
+    "slugs_en": ["data-processing-agreement"],
+    "slugs_es": ["acuerdo-de-procesamiento-de-datos"],
+    "slugs_fr": ["accord-sur-le-traitement-des-donnees"],
+    "slugs_it": ["accordo-per-l-elaborazione-dei-dati"],
+    "slugs_nl": ["overeenkomst-inzake-gegevensverwerking"],
+    "key_term_id": 201,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "accord-sur-le-traitement-des-donnees",
+      "accordo-per-l-elaborazione-dei-dati",
+      "acuerdo-de-procesamiento-de-datos",
+      "data-processing-agreement",
+      "overeenkomst-inzake-gegevensverwerking",
+      "vereinbarung-zur-datenverarbeitung"
+    ]
+  },
+  {
+    "slugs_de": ["datenschutzgesetz"],
+    "slugs_en": ["data-protection-act"],
+    "slugs_es": ["ley-de-proteccion-de-datos"],
+    "slugs_fr": ["loi-sur-la-protection-des-donnees"],
+    "slugs_it": ["legge-sulla-protezione-dei-dati"],
+    "slugs_nl": ["wet-op-de-gegevensbescherming"],
+    "key_term_id": 202,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "data-protection-act",
+      "datenschutzgesetz",
+      "legge-sulla-protezione-dei-dati",
+      "ley-de-proteccion-de-datos",
+      "loi-sur-la-protection-des-donnees",
+      "wet-op-de-gegevensbescherming"
+    ]
+  },
+  {
+    "slugs_de": ["geraete"],
+    "slugs_en": ["devices"],
+    "slugs_es": ["dispositivos"],
+    "slugs_fr": ["dispositifs"],
+    "slugs_it": ["dispositivi"],
+    "slugs_nl": ["apparaten"],
+    "key_term_id": 203,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "apparaten",
+      "devices",
+      "dispositifs",
+      "dispositivi",
+      "dispositivos",
+      "geraete"
+    ]
+  },
+  {
+    "slugs_de": ["direkter-verkehr"],
+    "slugs_en": ["direct-traffic"],
+    "slugs_es": ["trafico-directo"],
+    "slugs_fr": ["trafic-direct"],
+    "slugs_it": ["traffico-diretto"],
+    "slugs_nl": ["direct-verkeer"],
+    "key_term_id": 204,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "direct-traffic",
+      "direct-verkeer",
+      "direkter-verkehr",
+      "traffico-diretto",
+      "trafic-direct",
+      "trafico-directo"
+    ]
+  },
+  {
+    "slugs_de": ["e-privacy-richtlinie"],
+    "slugs_en": ["e-privacy-directive"],
+    "slugs_es": ["directiva-sobre-privacidad-electronica"],
+    "slugs_fr": [
+      "directive-sur-la-vie-privee-et-les-communications-electroniques"
+    ],
+    "slugs_it": ["direttiva-e-privacy"],
+    "slugs_nl": ["e-privacy-richtlijn"],
+    "key_term_id": 205,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "directiva-sobre-privacidad-electronica",
+      "directive-sur-la-vie-privee-et-les-communications-electroniques",
+      "direttiva-e-privacy",
+      "e-privacy-directive",
+      "e-privacy-richtlijn",
+      "e-privacy-richtlinie"
+    ]
+  },
+  {
+    "slugs_de": ["erstes-interaktionsmodell"],
+    "slugs_en": ["first-interaction-model"],
+    "slugs_es": ["primer-modelo-de-interaccion"],
+    "slugs_fr": ["premier-modele-d-interaction"],
+    "slugs_it": ["primo-modello-di-interazione"],
+    "slugs_nl": ["eerste-interactiemodel"],
+    "key_term_id": 206,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "eerste-interactiemodel",
+      "erstes-interaktionsmodell",
+      "first-interaction-model",
+      "premier-modele-d-interaction",
+      "primer-modelo-de-interaccion",
+      "primo-modello-di-interazione"
+    ]
+  },
+  {
+    "slugs_de": ["gdpr-3"],
+    "slugs_en": ["gdpr"],
+    "slugs_es": ["gdpr-4"],
+    "slugs_fr": ["gdpr-1"],
+    "slugs_it": ["gdpr-2"],
+    "slugs_nl": ["gdpr-nl"],
+    "key_term_id": 207,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "gdpr",
+      "gdpr-1",
+      "gdpr-2",
+      "gdpr-3",
+      "gdpr-4",
+      "gdpr-nl"
+    ]
+  },
+  {
+    "slugs_de": ["gdpr-zustimmung"],
+    "slugs_en": ["gdpr-consent"],
+    "slugs_es": ["consentimiento-gdpr"],
+    "slugs_fr": ["consentement-gdpr"],
+    "slugs_it": ["consenso-gdpr"],
+    "slugs_nl": ["gdpr-toestemming"],
+    "key_term_id": 208,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "consenso-gdpr",
+      "consentement-gdpr",
+      "consentimiento-gdpr",
+      "gdpr-consent",
+      "gdpr-toestemming",
+      "gdpr-zustimmung"
+    ]
+  },
+  {
+    "slugs_de": ["landing-pages-1"],
+    "slugs_en": ["landing-pages"],
+    "slugs_es": ["paginas-de-destino"],
+    "slugs_fr": ["pages-d-atterrissage"],
+    "slugs_it": ["pagine-di-atterraggio"],
+    "slugs_nl": ["landingspagina-s"],
+    "key_term_id": 209,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "landing-pages",
+      "landing-pages-1",
+      "landingspagina-s",
+      "pages-d-atterrissage",
+      "paginas-de-destino",
+      "pagine-di-atterraggio"
+    ]
+  },
+  {
+    "slugs_de": ["rechtsgrundlagen"],
+    "slugs_en": ["legal-bases"],
+    "slugs_es": ["bases-juridicas"],
+    "slugs_fr": ["bases-legales"],
+    "slugs_it": ["basi-legali"],
+    "slugs_nl": ["juridische-grondslagen"],
+    "key_term_id": 210,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "bases-juridicas",
+      "bases-legales",
+      "basi-legali",
+      "juridische-grondslagen",
+      "legal-bases",
+      "rechtsgrundlagen"
+    ]
+  },
+  {
+    "slugs_de": ["live-besucher"],
+    "slugs_en": ["live-visitors"],
+    "slugs_es": ["visitantes-en-directo"],
+    "slugs_fr": ["visiteurs-en-direct"],
+    "slugs_it": ["visitatori-in-diretta"],
+    "slugs_nl": ["levende-bezoekers"],
+    "key_term_id": 211,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "levende-bezoekers",
+      "live-besucher",
+      "live-visitors",
+      "visitantes-en-directo",
+      "visitatori-in-diretta",
+      "visiteurs-en-direct"
+    ]
+  },
+  {
+    "slugs_de": ["standorte"],
+    "slugs_en": ["locations"],
+    "slugs_es": ["ubicaciones"],
+    "slugs_fr": ["localisation-des-sites"],
+    "slugs_it": ["luoghi"],
+    "slugs_nl": ["locaties"],
+    "key_term_id": 212,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "localisation-des-sites",
+      "locaties",
+      "locations",
+      "luoghi",
+      "standorte",
+      "ubicaciones"
+    ]
+  },
+  {
+    "slugs_de": ["manuelle-kennzeichnung"],
+    "slugs_en": ["manual-tagging"],
+    "slugs_es": ["etiquetado-manual"],
+    "slugs_fr": ["etiquetage-manuel"],
+    "slugs_it": ["etichettatura-manuale"],
+    "slugs_nl": ["handmatig-labelen"],
+    "key_term_id": 213,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "etichettatura-manuale",
+      "etiquetado-manual",
+      "etiquetage-manuel",
+      "handmatig-labelen",
+      "manual-tagging",
+      "manuelle-kennzeichnung"
+    ]
+  },
+  {
+    "slugs_de": ["betriebssysteme"],
+    "slugs_en": ["operating-systems"],
+    "slugs_es": ["sistemas-operativos"],
+    "slugs_fr": ["systemes-d-exploitation"],
+    "slugs_it": ["sistemi-operativi"],
+    "slugs_nl": ["besturingssystemen"],
+    "key_term_id": 214,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "besturingssystemen",
+      "betriebssysteme",
+      "operating-systems",
+      "sistemas-operativos",
+      "sistemi-operativi",
+      "systemes-d-exploitation"
+    ]
+  },
+  {
+    "slugs_de": ["organische-suche"],
+    "slugs_en": ["organic-search"],
+    "slugs_es": ["busqueda-organica"],
+    "slugs_fr": ["recherche-organique"],
+    "slugs_it": ["ricerca-organica"],
+    "slugs_nl": ["organisch-zoeken"],
+    "key_term_id": 215,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "busqueda-organica",
+      "organic-search",
+      "organisch-zoeken",
+      "organische-suche",
+      "recherche-organique",
+      "ricerca-organica"
+    ]
+  },
+  {
+    "slugs_de": ["seitengeschwindigkeit"],
+    "slugs_en": ["page-speed"],
+    "slugs_es": ["velocidad-de-la-pagina"],
+    "slugs_fr": ["vitesse-de-la-page"],
+    "slugs_it": ["velocita-della-pagina"],
+    "slugs_nl": ["pagina-snelheid"],
+    "key_term_id": 216,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "page-speed",
+      "pagina-snelheid",
+      "seitengeschwindigkeit",
+      "velocidad-de-la-pagina",
+      "velocita-della-pagina",
+      "vitesse-de-la-page"
+    ]
+  },
+  {
+    "slugs_de": ["titel-der-seite"],
+    "slugs_en": ["page-title"],
+    "slugs_es": ["titulo-de-la-pagina"],
+    "slugs_fr": ["titre-de-la-page"],
+    "slugs_it": ["titolo-della-pagina"],
+    "slugs_nl": ["titel-van-de-pagina"],
+    "key_term_id": 217,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "page-title",
+      "titel-der-seite",
+      "titel-van-de-pagina",
+      "titolo-della-pagina",
+      "titre-de-la-page",
+      "titulo-de-la-pagina"
+    ]
+  },
+  {
+    "slugs_de": ["seitenbesuche"],
+    "slugs_en": ["page-visits"],
+    "slugs_es": ["paginas-visitadas"],
+    "slugs_fr": ["visites-de-pages"],
+    "slugs_it": ["visite-alla-pagina"],
+    "slugs_nl": ["pagina-bezoeken"],
+    "key_term_id": 218,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "page-visits",
+      "pagina-bezoeken",
+      "paginas-visitadas",
+      "seitenbesuche",
+      "visite-alla-pagina",
+      "visites-de-pages"
+    ]
+  },
+  {
+    "slugs_de": ["pecr-3"],
+    "slugs_en": ["pecr"],
+    "slugs_es": ["pecr-4"],
+    "slugs_fr": ["pecr-1"],
+    "slugs_it": ["pecr-2"],
+    "slugs_nl": ["pecr-nl"],
+    "key_term_id": 219,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "pecr",
+      "pecr-1",
+      "pecr-2",
+      "pecr-3",
+      "pecr-4",
+      "pecr-nl"
+    ]
+  },
+  {
+    "slugs_de": ["persoenliche-daten"],
+    "slugs_en": ["personal-data"],
+    "slugs_es": ["datos-personales"],
+    "slugs_fr": ["donnees-personnelles"],
+    "slugs_it": ["dati-personali"],
+    "slugs_nl": ["persoonlijke-gegevens"],
+    "key_term_id": 220,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "dati-personali",
+      "datos-personales",
+      "donnees-personnelles",
+      "persoenliche-daten",
+      "personal-data",
+      "persoonlijke-gegevens"
+    ]
+  },
+  {
+    "slugs_de": ["persoenlich-identifizierbare-informationen"],
+    "slugs_en": ["personally-identifiable-information"],
+    "slugs_es": ["informacion-personal-identificable"],
+    "slugs_fr": ["informations-d-identification-personnelle"],
+    "slugs_it": ["informazioni-di-identificazione-personale"],
+    "slugs_nl": ["persoonlijk-identificeerbare-informatie"],
+    "key_term_id": 221,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "informacion-personal-identificable",
+      "informations-d-identification-personnelle",
+      "informazioni-di-identificazione-personale",
+      "persoenlich-identifizierbare-informationen",
+      "personally-identifiable-information",
+      "persoonlijk-identificeerbare-informatie"
+    ]
+  },
+  {
+    "slugs_de": ["datenschutz-schutzschild"],
+    "slugs_en": ["privacy-shield"],
+    "slugs_es": ["escudo-de-privacidad"],
+    "slugs_fr": ["bouclier-de-protection-de-la-vie-privee"],
+    "slugs_it": ["scudo-per-la-privacy"],
+    "slugs_nl": ["privacyschild"],
+    "key_term_id": 222,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "bouclier-de-protection-de-la-vie-privee",
+      "datenschutz-schutzschild",
+      "escudo-de-privacidad",
+      "privacy-shield",
+      "privacyschild",
+      "scudo-per-la-privacy"
+    ]
+  },
+  {
+    "slugs_de": ["empfehlungsverkehr"],
+    "slugs_en": ["referral-traffic"],
+    "slugs_es": ["trafico-de-referencia"],
+    "slugs_fr": ["trafic-de-reference"],
+    "slugs_it": ["traffico-di-riferimento"],
+    "slugs_nl": ["verwijzend-verkeer"],
+    "key_term_id": 223,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "empfehlungsverkehr",
+      "referral-traffic",
+      "traffico-di-riferimento",
+      "trafic-de-reference",
+      "trafico-de-referencia",
+      "verwijzend-verkeer"
+    ]
+  },
+  {
+    "slugs_de": ["referent-2"],
+    "slugs_en": ["referrer"],
+    "slugs_es": ["remitente"],
+    "slugs_fr": ["referent-1"],
+    "slugs_it": ["referente"],
+    "slugs_nl": ["referrer-nl"],
+    "key_term_id": 224,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "referent-1",
+      "referent-2",
+      "referente",
+      "referrer",
+      "referrer-nl",
+      "remitente"
+    ]
+  },
+  {
+    "slugs_de": ["robots-txt-3"],
+    "slugs_en": ["robots-txt"],
+    "slugs_es": ["robots-txt-4"],
+    "slugs_fr": ["robots-txt-1"],
+    "slugs_it": ["robots-txt-2"],
+    "slugs_nl": ["robots-txt-nl"],
+    "key_term_id": 225,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "robots-txt",
+      "robots-txt-1",
+      "robots-txt-2",
+      "robots-txt-3",
+      "robots-txt-4",
+      "robots-txt-nl"
+    ]
+  },
+  {
+    "slugs_de": ["rss-feed-1"],
+    "slugs_en": ["rss-feed"],
+    "slugs_es": ["canal-rss"],
+    "slugs_fr": ["flux-rss"],
+    "slugs_it": ["feed-rss"],
+    "slugs_nl": ["rss-feed-nl"],
+    "key_term_id": 226,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "canal-rss",
+      "feed-rss",
+      "flux-rss",
+      "rss-feed",
+      "rss-feed-1",
+      "rss-feed-nl"
+    ]
+  },
+  {
+    "slugs_de": ["gescrollter-prozentsatz"],
+    "slugs_en": ["scrolled-percentage"],
+    "slugs_es": ["porcentaje-de-desplazamiento"],
+    "slugs_fr": ["pourcentage-de-defilement"],
+    "slugs_it": ["percentuale-di-scorrimento"],
+    "slugs_nl": ["gerold-percentage"],
+    "key_term_id": 227,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "gerold-percentage",
+      "gescrollter-prozentsatz",
+      "percentuale-di-scorrimento",
+      "porcentaje-de-desplazamiento",
+      "pourcentage-de-defilement",
+      "scrolled-percentage"
+    ]
+  },
+  {
+    "slugs_de": ["analytische-suche"],
+    "slugs_en": ["search-analytics"],
+    "slugs_es": ["analisis-de-busqueda"],
+    "slugs_fr": ["analyse-de-la-recherche"],
+    "slugs_it": ["ricerca-analitica"],
+    "slugs_nl": ["analytics-zoeken"],
+    "key_term_id": 228,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "analisis-de-busqueda",
+      "analyse-de-la-recherche",
+      "analytics-zoeken",
+      "analytische-suche",
+      "ricerca-analitica",
+      "search-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["sensible-daten"],
+    "slugs_en": ["sensitive-data"],
+    "slugs_es": ["datos-sensibles"],
+    "slugs_fr": ["donnees-sensibles"],
+    "slugs_it": ["dati-sensibili"],
+    "slugs_nl": ["gevoelige-gegevens"],
+    "key_term_id": 229,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "dati-sensibili",
+      "datos-sensibles",
+      "donnees-sensibles",
+      "gevoelige-gegevens",
+      "sensible-daten",
+      "sensitive-data"
+    ]
+  },
+  {
+    "slugs_de": ["sitzungen"],
+    "slugs_en": ["sessions"],
+    "slugs_es": ["sesiones"],
+    "slugs_fr": ["sessions-1"],
+    "slugs_it": ["sessioni"],
+    "slugs_nl": ["sessies"],
+    "key_term_id": 230,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "sesiones",
+      "sessies",
+      "sessioni",
+      "sessions",
+      "sessions-1",
+      "sitzungen"
+    ]
+  },
+  {
+    "slugs_de": ["subdomain-1"],
+    "slugs_en": ["subdomain"],
+    "slugs_es": ["subdominio"],
+    "slugs_fr": ["sous-domaine"],
+    "slugs_it": ["sottodominio"],
+    "slugs_nl": ["subdomein"],
+    "key_term_id": 231,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "sottodominio",
+      "sous-domaine",
+      "subdomain",
+      "subdomain-1",
+      "subdomein",
+      "subdominio"
+    ]
+  },
+  {
+    "slugs_de": ["zeitverfall"],
+    "slugs_en": ["time-decay"],
+    "slugs_es": ["decaimiento-temporal"],
+    "slugs_fr": ["decroissance-temporelle"],
+    "slugs_it": ["decadimento-del-tempo"],
+    "slugs_nl": ["tijdsverloop"],
+    "key_term_id": 232,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "decadimento-del-tempo",
+      "decaimiento-temporal",
+      "decroissance-temporelle",
+      "tijdsverloop",
+      "time-decay",
+      "zeitverfall"
+    ]
+  },
+  {
+    "slugs_de": ["zeit-auf-der-seite"],
+    "slugs_en": ["time-on-page"],
+    "slugs_es": ["tiempo-en-pagina"],
+    "slugs_fr": ["temps-passe-sur-la-page"],
+    "slugs_it": ["tempo-sulla-pagina"],
+    "slugs_nl": ["tijd-op-pagina"],
+    "key_term_id": 233,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "tempo-sulla-pagina",
+      "temps-passe-sur-la-page",
+      "tiempo-en-pagina",
+      "tijd-op-pagina",
+      "time-on-page",
+      "zeit-auf-der-seite"
+    ]
+  },
+  {
+    "slugs_de": ["verkehrsrang"],
+    "slugs_en": ["traffic-rank"],
+    "slugs_es": ["rango-de-trafico"],
+    "slugs_fr": ["classement-du-trafic"],
+    "slugs_it": ["classifica-del-traffico"],
+    "slugs_nl": ["verkeersrangschikking"],
+    "key_term_id": 234,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "classement-du-trafic",
+      "classifica-del-traffico",
+      "rango-de-trafico",
+      "traffic-rank",
+      "verkeersrangschikking",
+      "verkehrsrang"
+    ]
+  },
+  {
+    "slugs_de": ["trend-linien"],
+    "slugs_en": ["trend-lines"],
+    "slugs_es": ["lineas-de-tendencia"],
+    "slugs_fr": ["lignes-de-tendance"],
+    "slugs_it": ["linee-di-tendenza"],
+    "slugs_nl": ["trendlijnen"],
+    "key_term_id": 235,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "lignes-de-tendance",
+      "lineas-de-tendencia",
+      "linee-di-tendenza",
+      "trend-lines",
+      "trend-linien",
+      "trendlijnen"
+    ]
+  },
+  {
+    "slugs_de": ["uniform-resource-locator-1"],
+    "slugs_en": ["uniform-resource-locator"],
+    "slugs_es": ["localizador-uniforme-de-recursos"],
+    "slugs_fr": ["localisateur-de-ressources-uniformes"],
+    "slugs_it": ["localizzatore-uniforme-di-risorse"],
+    "slugs_nl": ["uniform-resource-locator-nl"],
+    "key_term_id": 236,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "localisateur-de-ressources-uniformes",
+      "localizador-uniforme-de-recursos",
+      "localizzatore-uniforme-di-risorse",
+      "uniform-resource-locator",
+      "uniform-resource-locator-1",
+      "uniform-resource-locator-nl"
+    ]
+  },
+  {
+    "slugs_de": ["einzigartige-besucher"],
+    "slugs_en": ["unique-visitors"],
+    "slugs_es": ["visitantes-unicos"],
+    "slugs_fr": ["visiteurs-uniques"],
+    "slugs_it": ["visitatori-unici"],
+    "slugs_nl": ["unieke-bezoekers"],
+    "key_term_id": 237,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "einzigartige-besucher",
+      "unieke-bezoekers",
+      "unique-visitors",
+      "visitantes-unicos",
+      "visitatori-unici",
+      "visiteurs-uniques"
+    ]
+  },
+  {
+    "slugs_de": ["utm-codes-1"],
+    "slugs_en": ["utm-codes"],
+    "slugs_es": ["codigos-utm"],
+    "slugs_fr": ["codes-utm"],
+    "slugs_it": ["codici-utm"],
+    "slugs_nl": ["utm-codes-nl"],
+    "key_term_id": 238,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "codes-utm",
+      "codici-utm",
+      "codigos-utm",
+      "utm-codes",
+      "utm-codes-1",
+      "utm-codes-nl"
+    ]
+  },
+  {
+    "slugs_de": ["benutzer-agent"],
+    "slugs_en": ["user-agent"],
+    "slugs_es": ["agente-de-usuario"],
+    "slugs_fr": ["agent-utilisateur"],
+    "slugs_it": ["agente-utente"],
+    "slugs_nl": ["gebruiker-agent"],
+    "key_term_id": 239,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "agent-utilisateur",
+      "agente-de-usuario",
+      "agente-utente",
+      "benutzer-agent",
+      "gebruiker-agent",
+      "user-agent"
+    ]
+  },
+  {
+    "slugs_de": ["website-verkehr"],
+    "slugs_en": ["website-traffic"],
+    "slugs_es": ["trafico-del-sitio-web"],
+    "slugs_fr": ["trafic-sur-le-site-web"],
+    "slugs_it": ["traffico-del-sito-web"],
+    "slugs_nl": ["websiteverkeer"],
+    "key_term_id": 240,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "traffico-del-sito-web",
+      "trafic-sur-le-site-web",
+      "trafico-del-sitio-web",
+      "website-traffic",
+      "website-verkehr",
+      "websiteverkeer"
+    ]
+  },
+  {
+    "slugs_de": ["besucher-der-website"],
+    "slugs_en": ["website-visitors"],
+    "slugs_es": ["visitantes-del-sitio-web"],
+    "slugs_fr": ["visiteurs-du-site-web"],
+    "slugs_it": ["visitatori-del-sito-web"],
+    "slugs_nl": ["bezoekers-website"],
+    "key_term_id": 241,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "besucher-der-website",
+      "bezoekers-website",
+      "visitantes-del-sitio-web",
+      "visitatori-del-sito-web",
+      "visiteurs-du-site-web",
+      "website-visitors"
+    ]
+  },
+  {
+    "slugs_de": ["datenstichproben-in-google-analytics"],
+    "slugs_en": ["data-sampling-in-google-analytics"],
+    "slugs_es": ["muestreo-de-datos-en-google-analytics"],
+    "slugs_fr": ["echantillonnage-de-donnees-dans-google-analytics"],
+    "slugs_it": ["campionamento-dei-dati-in-google-analytics"],
+    "slugs_nl": ["gegevensbemonstering-in-google-analytics"],
+    "key_term_id": 488,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "campionamento-dei-dati-in-google-analytics",
+      "data-sampling-in-google-analytics",
+      "datenstichproben-in-google-analytics",
+      "echantillonnage-de-donnees-dans-google-analytics",
+      "gegevensbemonstering-in-google-analytics",
+      "muestreo-de-datos-en-google-analytics"
+    ]
+  },
+  {
+    "slugs_de": ["daten-aktivierung"],
+    "slugs_en": ["data-activation"],
+    "slugs_es": ["activacion-de-datos"],
+    "slugs_fr": ["activation-des-donnees"],
+    "slugs_it": ["attivazione-dei-dati"],
+    "slugs_nl": ["gegevens-activering"],
+    "key_term_id": 489,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "activacion-de-datos",
+      "activation-des-donnees",
+      "attivazione-dei-dati",
+      "data-activation",
+      "daten-aktivierung",
+      "gegevens-activering"
+    ]
+  },
+  {
+    "slugs_de": ["gegenstand-der-daten"],
+    "slugs_en": ["data-subject"],
+    "slugs_es": ["sujeto-de-los-datos"],
+    "slugs_fr": ["personne-concernee"],
+    "slugs_it": ["dati-dell-interessato"],
+    "slugs_nl": ["gegevenssubject"],
+    "key_term_id": 490,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "data-subject",
+      "dati-dell-interessato",
+      "gegenstand-der-daten",
+      "gegevenssubject",
+      "personne-concernee",
+      "sujeto-de-los-datos"
+    ]
+  },
+  {
+    "slugs_de": ["erstanbieter-cookie"],
+    "slugs_en": ["first-party-cookie"],
+    "slugs_es": ["cookie-de-origen"],
+    "slugs_fr": ["cookie-de-premiere-partie"],
+    "slugs_it": ["cookie-di-prima-parte"],
+    "slugs_nl": ["cookie-van-de-eerste-partij"],
+    "key_term_id": 491,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "cookie-de-origen",
+      "cookie-de-premiere-partie",
+      "cookie-di-prima-parte",
+      "cookie-van-de-eerste-partij",
+      "erstanbieter-cookie",
+      "first-party-cookie"
+    ]
+  },
+  {
+    "slugs_de": ["google-analytics-zeigt-keine-daten-an"],
+    "slugs_en": ["google-analytics-is-not-showing-data"],
+    "slugs_es": ["google-analytics-no-muestra-datos"],
+    "slugs_fr": ["google-analytics-n-affiche-pas-de-donnees"],
+    "slugs_it": ["google-analytics-non-mostra-i-dati"],
+    "slugs_nl": ["google-analytics-toont-geen-gegevens"],
+    "key_term_id": 492,
+    "article_type": "google-analytics",
+    "slugs_all_locales": [
+      "google-analytics-is-not-showing-data",
+      "google-analytics-n-affiche-pas-de-donnees",
+      "google-analytics-no-muestra-datos",
+      "google-analytics-non-mostra-i-dati",
+      "google-analytics-toont-geen-gegevens",
+      "google-analytics-zeigt-keine-daten-an"
+    ]
+  },
+  {
+    "slugs_de": ["ip-adresse"],
+    "slugs_en": ["ip-address"],
+    "slugs_es": ["direccion-ip"],
+    "slugs_fr": ["adresse-ip"],
+    "slugs_it": ["indirizzo-ip"],
+    "slugs_nl": ["ip-adres-1"],
+    "key_term_id": 493,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "adresse-ip",
+      "direccion-ip",
+      "indirizzo-ip",
+      "ip-address",
+      "ip-adres-1",
+      "ip-adresse"
+    ]
+  },
+  {
+    "slugs_de": ["phi-3"],
+    "slugs_en": ["phi"],
+    "slugs_es": ["phi-2"],
+    "slugs_fr": ["phi-4"],
+    "slugs_it": ["phi-it"],
+    "slugs_nl": ["phi-1"],
+    "key_term_id": 579,
+    "article_type": "analytics",
+    "slugs_all_locales": ["phi", "phi-1", "phi-2", "phi-3", "phi-4", "phi-it"]
+  },
+  {
+    "slugs_de": ["pii-3"],
+    "slugs_en": ["pii"],
+    "slugs_es": ["pii-2"],
+    "slugs_fr": ["pii-4"],
+    "slugs_it": ["pii-it"],
+    "slugs_nl": ["pii-1"],
+    "key_term_id": 580,
+    "article_type": "analytics",
+    "slugs_all_locales": ["pii", "pii-1", "pii-2", "pii-3", "pii-4", "pii-it"]
+  },
+  {
+    "slugs_de": ["server-protokollanalyse"],
+    "slugs_en": ["server-log-analysis"],
+    "slugs_es": ["analisis-del-registro-del-servidor"],
+    "slugs_fr": ["analyse-du-journal-du-serveur"],
+    "slugs_it": ["analisi-dei-log-del-server-1"],
+    "slugs_nl": ["serverlogboekanalyse"],
+    "key_term_id": 581,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "analisi-dei-log-del-server-1",
+      "analisis-del-registro-del-servidor",
+      "analyse-du-journal-du-serveur",
+      "server-log-analysis",
+      "server-protokollanalyse",
+      "serverlogboekanalyse"
+    ]
+  },
+  {
+    "slugs_de": ["einzelne-kundenansicht"],
+    "slugs_en": ["single-customer-view"],
+    "slugs_es": ["vista-unica-del-cliente"],
+    "slugs_fr": ["vue-unique-du-client"],
+    "slugs_it": ["visione-unica-del-cliente-1"],
+    "slugs_nl": ["een-klantbeeld"],
+    "key_term_id": 582,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "een-klantbeeld",
+      "einzelne-kundenansicht",
+      "single-customer-view",
+      "visione-unica-del-cliente-1",
+      "vista-unica-del-cliente",
+      "vue-unique-du-client"
+    ]
+  },
+  {
+    "slugs_de": ["daten-von-dritten"],
+    "slugs_en": ["third-party-data"],
+    "slugs_es": ["datos-de-terceros"],
+    "slugs_fr": ["donnees-de-tiers"],
+    "slugs_it": ["dati-di-terze-parti"],
+    "slugs_nl": ["gegevens-van-derden"],
+    "key_term_id": 583,
+    "article_type": "analytics",
+    "slugs_all_locales": [
+      "daten-von-dritten",
+      "dati-di-terze-parti",
+      "datos-de-terceros",
+      "donnees-de-tiers",
+      "gegevens-van-derden",
+      "third-party-data"
+    ]
+  }
+]
