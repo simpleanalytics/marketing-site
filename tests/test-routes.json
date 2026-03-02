@@ -10,14 +10,29 @@
     "comment": "Analytics review with slug translation"
   },
   {
+    "source": "/it/glossario/google-analytics/termine-chiave/account-in-google-analytics-2",
+    "target": "/glossary/google-analytics/key-term/account-in-google-analytics",
+    "comment": "Key term with duplicate suffix (-2)"
+  },
+  {
     "source": "/it/glossario/google-analytics/termine-chiave/account-in-google-analytics",
     "target": "/glossary/google-analytics/key-term/account-in-google-analytics",
     "comment": "Key term - path structure only (same slug)"
   },
   {
-    "source": "/nl/begrippenlijst/google-analytics/kernbegrip/campaign-in-google-analytics",
+    "source": "/nl/begrippenlijst/google-analytics/kernbegrip/campagne-in-google-analytics",
     "target": "/glossary/google-analytics/key-term/campaign-in-google-analytics",
-    "comment": "Key term - path structure only (same slug)"
+    "comment": "Key term with slug translation"
+  },
+  {
+    "source": "/it/glossario/google-analytics/termine-chiave/visualizzazioni-in-google-analytics",
+    "target": "/glossary/google-analytics/key-term/views-in-google-analytics",
+    "comment": "Key term with slug translation"
+  },
+  {
+    "source": "/de/glossar/google-analytics/schlusselbegriff/ansichten-in-google-analytics",
+    "target": "/glossary/google-analytics/key-term/views-in-google-analytics",
+    "comment": "Key term with slug translation"
   },
   {
     "source": "/nl/blog/waarom-simple-analytics-mijn-eerste-succesvolle-project-is",
@@ -60,23 +75,13 @@
     "comment": "Case study with slug translation"
   },
   {
-    "source": "/fr/constructeur-utm/constructeur-utm-pour-google-spreadsheets",
-    "target": "/utm-builder/utm-builder-for-google-spreadsheets",
+    "source": "/fr/constructeur-utm/google-spreadsheet",
+    "target": "/utm-builder/google-spreadsheet",
     "comment": "UTM builder with slug translation"
   },
   {
     "source": "/it/guide-pratiche/tracciamento-del-codice-qr-con-simple-analytics",
     "target": "/guides/qr-code-tracking",
     "comment": "Guide with slug translation"
-  },
-  {
-    "source": "/nl",
-    "target": "/",
-    "comment": "Locale homepage redirect"
-  },
-  {
-    "source": "/de/blog",
-    "target": "/blog",
-    "comment": "Blog index - path structure only"
   }
 ]
