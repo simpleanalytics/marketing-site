@@ -8,29 +8,29 @@
         v-if="affiliateCookie"
         class="border-2 bg-white dark:bg-gray-900 border-red-500 dark:border-red-600 rounded-lg text-center p-4 shadow"
       >
-        {{ $t("affiliate.accepted", [affiliate?.name || "the promoter"]) }}
-        <a @click="undoAffiliate(affiliate)">{{ $t("affiliate.undo") }}</a
-        >.
+        You accepted the affiliate deal, therefore you get a discount and
+        {{ affiliate?.name || "the promoter" }} gets a reward.
+        <a @click="undoAffiliate(affiliate)">Click here to undo this</a>.
       </p>
       <div
         v-else-if="affiliate.valid === true"
         class="border-2 bg-white dark:bg-gray-900 border-red-500 dark:border-red-600 rounded-lg text-center p-4 shadow"
       >
         <p class="mb-2">
-          <span v-if="affiliate.name">{{
-            $t("affiliate.via_name", [affiliate.name])
-          }}</span>
-          <span v-else-if="affiliate.slug">
-            {{ $t("affiliate.via_code", [affiliate.slug]) }}
+          <span v-if="affiliate.name">
+            You are here via {{ affiliate.name }}.
           </span>
-          {{
-            $t("affiliate.reward_message", [affiliate.name || "the promoter"])
-          }}
+          <span v-else-if="affiliate.slug">
+            You are here via the affiliate code {{ affiliate.slug }}.
+          </span>
+          To give you the first month for free and give
+          {{ affiliate.name || "the promoter" }} their reward, we ask you to
+          place a cookie for 30 days.
         </p>
 
-        <a @click="acceptAffiliate(affiliate)" class="button primary">{{
-          $t("affiliate.accept_button")
-        }}</a>
+        <a @click="acceptAffiliate(affiliate)" class="button primary"
+          >Accept affiliate deal</a
+        >
       </div>
 
       <p
@@ -39,9 +39,9 @@
       >
         <span v-if="affiliate.error">{{ affiliate.error }}</span>
         <span v-else-if="affiliate.slug">
-          {{ $t("affiliate.invalid_link", [affiliate.slug]) }}
+          It looks like your affiliate link {{ affiliate.slug }} is invalid.
         </span>
-        <span v-else>{{ $t("affiliate.generic_invalid") }}</span>
+        <span v-else>It looks like your affiliate link is invalid.</span>
 
         <NuxtLink
           :href="
@@ -49,7 +49,7 @@
           "
           target="_blank"
           class="text-white underline ml-1"
-          >{{ $t("affiliate.contact_mistake") }}</NuxtLink
+          >Contact us if you think this is a mistake.</NuxtLink
         >
       </p>
     </div>
@@ -63,38 +63,33 @@
       >
         <SparklesIcon class="inline h-6 w-6 mr-2" />
 
-        <NuxtLink href="/ai" class="underline text-white dark:text-red-600">{{
-          $t("banners.ai_launched.link")
-        }}</NuxtLink>
-        {{ $t("banners.ai_launched.text") }}
+        <NuxtLink href="/ai" class="underline text-white dark:text-red-600"
+          >Use AI to chat with your analytics</NuxtLink
+        >
+        instead of clicking around for hours. Just launched.
       </p>
     </div>
 
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center">
       <div class="text-center md:text-left flex-shrink basis-2/4 md:mr-8">
         <h1 class="text-3xl font-medium sm:text-4xl lg:text-4xl">
-          <span
-            class="leading-snug"
-            v-html="
-              $t('home.title', [
-                `<span class='text-red-500 dark:text-red-600'>`,
-                `</span>`,
-              ])
-            "
-          ></span>
+          <span class="leading-snug">
+            The
+            <span class="text-red-500 dark:text-red-600">privacy-first </span
+            >Google Analytics alternative.
+          </span>
         </h1>
         <p
           class="mt-4 text-base sm:text-lg md:mt-8 lg:text-xl md:leading-relaxed leading-relaxed"
         >
           <EuropeanFlag class="inline mr-2 w-8 rounded align-sub" />
-          <span
-            v-html="
-              $t('home.subtitle', [
-                `<span class='underline-curly text-red-500 dark:text-red-600'>`,
-                `</span>`,
-              ])
-            "
-          ></span>
+          <span>
+            EU-based & hosted. No cookies and a
+            <span class="underline-curly text-red-500 dark:text-red-600"
+              >direct&nbsp;yes</span
+            >
+            from your legal team.
+          </span>
         </p>
 
         <div
@@ -115,11 +110,11 @@
               @click="navigateToWelcome($router, 'click_signup_above_fold')"
               class="button large primary"
             >
-              {{ $t("home.start_trial_now") }}
+              Start for free
             </a>
             <p class="mb-8 sm:mb-0 text-xs mt-2 text-center">
               <CheckIcon class="fill-green-500 w-4 inline align-text-top" />
-              {{ $t("home.no_creditcard") }}
+              No credit card required
             </p>
           </div>
           <div class="sm:mt-4 ml-4">
@@ -129,9 +124,7 @@
                   class="h-5 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
                 />
                 <p class="leading-relaxed ml-2 -indent-2.5 text-sm">
-                  <span>
-                    {{ $t("home.featured_options.add_website") }}
-                  </span>
+                  <span> Add website </span>
                 </p>
               </li>
               <li class="flex my-3">
@@ -139,9 +132,7 @@
                   class="inline stroke-1 h-5 mr-3 stroke-red-500 dark:stroke-red-600 hover:group-hover:stroke-red-500"
                 />
                 <p class="leading-relaxed ml-2 -indent-2.5 text-sm">
-                  <span>
-                    {{ $t("home.featured_options.import_ga") }}
-                  </span>
+                  <span> Import GA data </span>
                 </p>
               </li>
               <li class="flex my-3">
@@ -149,9 +140,7 @@
                   class="h-5 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
                 />
                 <p class="leading-relaxed ml-2 -indent-2.5 text-sm">
-                  <span>
-                    {{ $t("home.featured_options.see_stats") }}
-                  </span>
+                  <span> See stats instantly </span>
                 </p>
               </li>
             </ol>
@@ -174,7 +163,7 @@
             "
             class="group button large shadow-xl bg-white dark:bg-gray-800 hover:dark:bg-gray-900"
           >
-            <span class="mx-2">{{ $t("home.see_live_demo") }}</span>
+            <span class="mx-2">See live demo</span>
             <Arrow class="h-5 w-5" />
           </a>
         </div>
@@ -250,45 +239,24 @@
     </div>
 
     <div
-      v-if="locale && !['en', 'nl', 'it'].includes(locale)"
-      class="mx-auto text-center mt-20"
-    >
-      <p
-        class="inline-block px-4 py-2 rounded-lg bg-[#ffd9cb] dark:bg-[#592b1b]"
-      >
-        <template v-if="translationParts.length === 3">
-          {{ translationParts[0] }}
-          <NuxtLink
-            class="dark:text-gray-300 text-gray-700 underline"
-            :to="localePath({ name: 'index' }, 'en')"
-          >
-            {{ translationParts[1] }}</NuxtLink
-          >{{ translationParts[2] }}
-        </template>
-        <template v-else>
-          {{ $t("home.automatic_translated_switch_to_english") }}
-        </template>
-      </p>
-    </div>
-
-    <div
       class="bg-gradient-to-t from-blue-100 dark:from-gray-700 py-4 relative overflow-hidden pb-28"
     >
       <div class="max-w-3xl px-6 mt-8 mx-auto text-center">
         <h3
           id="reasons"
           class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto -mt-4 mb-4 sm:mt-8 sm:mb-8 pt-8 font-medium"
-          v-html="$t('home.why_most_privacy.title', tColorsRed)"
-        ></h3>
+        >
+          Why Simple Analytics is the
+          <span class="text-red-500 dark:text-red-600"
+            >best Google Analytics</span
+          >
+          alternative?
+        </h3>
 
-        <h4
-          class="my-4 mb-8 text-xl text-center"
-          v-html="
-            $t('home.why_most_privacy.x_reasons', [
-              `6<span class='text-red-500 dark:text-red-600'>+1</span>`,
-            ])
-          "
-        ></h4>
+        <h4 class="my-4 mb-8 text-xl text-center">
+          Here are 6<span class="text-red-500 dark:text-red-600">+1</span>
+          simple reasons that sum it up.
+        </h4>
       </div>
       <div class="flex flex-col md:flex-row justify-center items-center">
         <div class="basis-2/4 mx-3 mb-8 md:mb-0">
@@ -327,10 +295,14 @@
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
-                <span class="inline-block w-2.5">1. </span
-                ><span
-                  v-html="$t('home.why_most_privacy.reason_1', tColorsRed)"
-                ></span>
+                <span class="inline-block w-2.5">1. </span>
+                <span
+                  >Privacy protection is
+                  <span class="text-red-500 dark:text-red-600"
+                    >our business model</span
+                  >. We comply by design with all privacy policies. Including:
+                  GDPR, PECR, CCPA and more.
+                </span>
               </p>
             </li>
             <li class="flex my-3">
@@ -338,10 +310,11 @@
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
-                <span class="inline-block w-2.5">2. </span
-                ><span
-                  v-html="$t('home.why_most_privacy.reason_2', tColorsRed)"
-                ></span>
+                <span class="inline-block w-2.5">2. </span>
+                <span
+                  >Simple UI. We give you the insights you need in an
+                  easy-to-use dashboard.
+                </span>
               </p>
             </li>
             <li class="flex my-3">
@@ -350,9 +323,15 @@
               />
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
                 <span class="inline-block w-2.5">3. </span
-                ><span
-                  v-html="$t('home.why_most_privacy.reason_6', tColorsRed)"
-                ></span>
+                ><span>
+                  <span class="text-red-500 dark:text-red-600"
+                    >Chat with AI </span
+                  >and
+                  <span class="text-red-500 dark:text-red-600"
+                    >your analytics</span
+                  >
+                  instead of digging through reports.</span
+                >
               </p>
             </li>
             <li class="flex my-3">
@@ -362,8 +341,15 @@
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
                 <span class="inline-block w-2.5">4. </span
                 ><span
-                  v-html="$t('home.why_most_privacy.reason_3', tColorsRed)"
-                ></span>
+                  >We never, ever, ever store any
+                  <span class="text-red-500 dark:text-red-600"
+                    >personal data</span
+                  >
+                  about your visitors. No
+                  <span class="text-red-500 dark:text-red-600"
+                    >cookie banners</span
+                  >.
+                </span>
               </p>
             </li>
             <li class="flex my-3">
@@ -373,8 +359,17 @@
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
                 <span class="inline-block w-2.5">5. </span
                 ><span
-                  v-html="$t('home.why_most_privacy.reason_4', tColorsRed)"
-                ></span>
+                  >Our
+                  <span class="text-red-500 dark:text-red-600"
+                    >Goals-tracker</span
+                  >
+                  and
+                  <span class="text-red-500 dark:text-red-600"
+                    >Events Explorer</span
+                  >
+                  lets you keep track of your most important events and
+                  conversion funnels.</span
+                >
               </p>
             </li>
             <li class="flex my-3">
@@ -384,8 +379,12 @@
               <p class="leading-relaxed ml-4 -indent-2.5 mt-1">
                 <span class="inline-block w-2.5">6. </span
                 ><span
-                  v-html="$t('home.why_most_privacy.reason_5', tColorsRed)"
-                ></span>
+                  >Our
+                  <span class="text-red-500 dark:text-red-600"
+                    >lightweight script</span
+                  >
+                  increases your website speed.</span
+                >
               </p>
             </li>
           </ol>
@@ -398,18 +397,16 @@
           class="mt-4 button tiny shadow-md bg-white dark:bg-gray-800"
         >
           <ChevronDoubleDownIcon class="w-3 inline-block" />
-          <span class="mx-1">{{
-            $t("home.why_most_privacy.read_detailed_reasons")
-          }}</span>
+          <span class="mx-1">Read detailed reasons</span>
           <ChevronDoubleDownIcon class="w-3 inline-block" />
         </a>
 
         <Quote
           class="mt-4"
           :logo="DuckDuckGoLogo"
-          :title="$t('testimonials.duckduckgo.name')"
-          :subtitle="$t('testimonials.duckduckgo.role')"
-          :quote="$t('testimonials.duckduckgo.quote', tColorsBlue)"
+          title="DuckDuckGo"
+          subtitle="Biggest privacy-friendly search engine"
+          quote="Switching to Simple Analytics will still give you visibility into how visitors are using your website, but you'll also be respecting their right to privacy."
           subtitlelink="https://duckduckgo.com/"
         />
       </div>
@@ -427,8 +424,8 @@
       <Quote
         class="mt-4"
         :reverse="true"
-        :subtitle="$t('testimonials.rosie.role')"
-        :quote="$t('testimonials.rosie.quote', tColorsBlue)"
+        subtitle="Community Manager Indie Hackers"
+        :quote="`My focus has been on using ethical tools. I said bye to Google Analytics and hello to Simple Analytics. <span class='text-blue-600 dark:text-blue-700'>In 1-2 clicks</span> I can get all the information I need.`"
         iconclass="fill-blue-200 dark:fill-gray-700"
         image="https://assets.simpleanalytics.com/images/people/rosie.png"
         title="Rosie Sherry"
@@ -438,10 +435,13 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-4 sm:mb-8 font-medium"
       >
-        {{ $t("home.simple_title") }}.
+        Simple.
       </h3>
       <p class="my-4 leading-loose max-w-xl mx-auto">
-        {{ $t("home.simple_description") }}
+        Simple Analytics is a simple Google Analytics alternative. One dashboard
+        to instantly see how many visitors are coming to your website, where
+        they come from and what they do once they're there. Without cookies.
+        Without stalking. Still lightweight.
       </p>
 
       <div class="mt-4 mb-8" id="features">
@@ -452,23 +452,20 @@
             :class="showClickSeekButton ? 'visible' : 'invisible'"
           >
             <ChevronDoubleDownIcon class="w-3 inline-block" />
-            <span class="mx-1">{{ $t("home.see_if_for_yourself") }}</span>
+            <span class="mx-1">See it for yourself, click a button</span>
             <ChevronDoubleDownIcon class="w-3 inline-block" />
           </p>
         </div>
         <a
           class="button tiny m-1"
-          :class="active === seek.translation ? 'primary' : ''"
+          :class="active === seek.id ? 'primary' : ''"
           v-for="seek in videoSeeks"
           @click="jumpToTime(seek)"
-          :key="seek.translation"
+          :key="seek.id"
         >
-          <ArrowRightCircleIcon
-            v-if="active === seek.translation"
-            class="w-4 mr-1"
-          />
+          <ArrowRightCircleIcon v-if="active === seek.id" class="w-4 mr-1" />
           <PlayIcon v-else class="w-4 mr-1" />
-          {{ $t(seek.translation) }}
+          {{ seek.label }}
         </a>
       </div>
       <div
@@ -482,13 +479,13 @@
             class="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t from-red-500 dark:from-red-900 to-red-400 dark:to-red-700 rounded-md flex flex-col items-center justify-center transition-opacity pointer-events-none"
           >
             <p class="text-lg md:text-2xl text-red-100 dark:text-red-400 mb-4">
-              {{ $t("seek.presents") }}
+              Simple Analytics presents
             </p>
             <p
               v-if="active"
               class="text-2xl md:text-4xl text-white dark:text-red-200 font-bold"
             >
-              {{ $t(active) }}
+              {{ activeLabel }}
             </p>
           </div>
 
@@ -588,16 +585,19 @@
         :reverse="false"
         iconclass="fill-blue-200"
         :logo="FastCompanyLogo"
-        :quote="$t('testimonials.fastcompany.quote', tColorsBlue)"
-        :subtitle="$t('testimonials.fastcompany.role')"
+        quote="It's time to ditch Google Analytics."
+        subtitle="Featured at Fast Company"
         logoclass="bg-blue-200 dark:bg-gray-500 rounded-full p-1 sm:p-4"
         subtitlelink="https://www.fastcompany.com/90300072/its-time-to-ditch-google-analytics"
       />
 
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mt-2 mb-4 sm:mt-20 sm:mb-8 font-medium"
-        v-html="$t('home.connect.title', tColorsRed)"
-      ></h3>
+      >
+        Connect
+        <span class="text-red-500 dark:text-red-600">your data</span> with your
+        unique workflow.
+      </h3>
     </div>
 
     <section
@@ -625,9 +625,10 @@
                 href="https://docs.simpleanalytics.com/import-google-analytics-data"
                 target="_blank"
                 ><span
-                  v-html="$t('home.connect.import_data', tColorsRed)"
-                ></span
-                ><Arrow class=""
+                  ><span class="text-red-500 dark:text-red-600"
+                    >Import your data from Google Analytics</span
+                  ></span
+                ><Arrow
               /></a>
             </p>
           </li>
@@ -636,13 +637,15 @@
               class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
             />
             <p>
-              <span v-html="$t('home.connect.use_gtm')"></span>
+              <span>
+                Use Google Tag Manager, WordPress,<br />or our many
+                frontend</span
+              >
               <a
                 class="ml-1 underline group"
                 href="https://docs.simpleanalytics.com/install-on-other-platforms#framework-plugins"
               >
-                <span v-html="$t('home.connect.framework_plugins')"></span
-                ><Arrow />
+                <span>framework plugins</span><Arrow />
               </a>
             </p>
           </li>
@@ -650,13 +653,20 @@
             <ShieldCheckIcon
               class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
             />
-            <p v-html="$t('home.connect.export_to', tColorsRed)"></p>
+            <p>
+              Export to your systems, Power BI,<br />Google Looker Studio, or
+              <span class="text-red-500 dark:text-red-600">data lakes</span>
+            </p>
           </li>
           <li class="flex items-center my-6">
             <ShieldCheckIcon
               class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
             />
-            <p v-html="$t('home.connect.export_as', tColorsRed)"></p>
+            <p>
+              Export as
+              <span class="text-red-500 dark:text-red-600">raw data</span> or
+              aggregated
+            </p>
           </li>
         </ul>
       </div>
@@ -680,56 +690,76 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mb-4 mt-4 sm:mb-8 font-medium text-red-500 dark:text-red-600"
       >
-        {{ $t("home.why_switch_from_ga.title") }}
+        Why you should switch from Google Analytics
       </h3>
 
       <div class="text-left leading-loose">
-        <p
-          class="my-4"
-          v-html="
-            $t('home.why_switch_from_ga.paragraph_1', [
-              `<span class='underline'>`,
-              `</span>`,
-            ])
-          "
-        ></p>
-
-        <p class="my-4" v-html="$t('home.why_switch_from_ga.paragraph_2')"></p>
+        <p class="my-4">
+          Google is one of the world's largest data devouring machines, selling
+          your website visitors' data for profit. From an ethical standpoint,
+          organizations should aim to protect the privacy of their website
+          visitors. Still,
+          <span class="underline">85% of the websites</span> are using Google
+          Analytics, but this is about to change for the better. The call for a
+          Google Analytics alternative.
+        </p>
 
         <p class="my-4">
-          <span v-html="$t('home.why_switch_from_ga.paragraph_3')"></span>
+          Privacy laws like the GDPR are put in place to preserve the privacy of
+          internet users. Data protection agencies are cracking down on
+          privacy-invasive services like Google Analytics. France (CNIL) &
+          Austria (DSB) already stated that the use of Google Analytics violates
+          GDPR law in their countries. More EU countries are expected to follow
+          this example.
+        </p>
+
+        <p class="my-4">
+          <span
+            >Google Analytics is a complex web analytics tool that has been the
+            default analytics tool, but this is changing, and Google also
+            recognizes this. That's why they are about to change to a new
+            version called</span
+          >
           <a
             href="/blog/google-to-sunset-universal-analytics-in-2023"
             target="_blank"
             class="ml-1 group underline"
             ><span
-              v-html="$t('home.why_switch_from_ga.paragraph_3_link')"
+              v-html="`GA4 that aims to be privacy-friendly but is not`"
             ></span
             ><Arrow
           /></a>
         </p>
 
-        <p class="my-4" v-html="$t('home.why_switch_from_ga.paragraph_4')"></p>
-
-        <p class="my-4" v-html="$t('home.why_switch_from_ga.paragraph_5')"></p>
+        <p class="my-4">
+          In addition, web browsers are limiting tracking mechanisms, and ad
+          blockers are used to block Google Analytics, which makes their data
+          less and less accurate.
+        </p>
 
         <p class="my-4">
-          <span v-html="$t('home.why_switch_from_ga.paragraph_6_1')"></span>
+          The global business environment is changing towards privacy, and so
+          should you!
+        </p>
+
+        <p class="my-4">
+          Here is why Simple Analytics is the number one privacy-friendly
           <a
             href="/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics"
             target="_blank"
             class="ml-1 mr-1 group underline"
-            ><span
-              v-html="$t('home.why_switch_from_ga.paragraph_6_link')"
-            ></span
-            ><Arrow
+            ><span>Google Analytics alternative</span><Arrow
           /></a>
-          <span v-html="$t('home.why_switch_from_ga.paragraph_6_2')"></span>
+          <span
+            >We are trusted by 600+ paying customers to provide the insights
+            they need while protecting the privacy of their website
+            visitors</span
+          >
         </p>
 
         <p class="my-4">
-          <NuxtLink :to="localePath({ name: 'signup' })" class="group underline"
-            >{{ $t("home.why_switch_from_ga.try_us_button") }}<Arrow
+          <NuxtLink to="/signup" class="group underline"
+            >Give us a try<Arrow
           /></NuxtLink>
         </p>
       </div>
@@ -738,11 +768,19 @@
         class="mt-12"
         image="https://assets.simpleanalytics.com/images/people/philippe.png"
         title="Philippe Lehoux"
-        :subtitle="$t('testimonials.missive.role')"
+        :subtitle="`CEO at Missive`"
         subtitlelink="https://missiveapp.com/blog/privacy-first-analytics"
       >
         <p class="text-xl leading-relaxed">
-          "<span v-html="$t('testimonials.missive.quote', tColorsBlue)"></span>"
+          <span
+            >We traded a 'free', privacy-less, and complex analytic dashboard
+            for a paid, privacy-first & simple one. We couldn't be happier.
+            <span class="text-blue-600 dark:text-blue-700"
+              >The best privacy-focused analytics suite that I've found.</span
+            >
+            We're proud to be able to tell our customers that we don't track
+            them at all.</span
+          >
         </p>
       </Quote>
     </div>
@@ -751,24 +789,23 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mb-4 mt-12 sm:mb-8 font-medium"
       >
-        {{ $t("home.events.title") }}.
+        Event tracking without tracing individuals.
       </h3>
       <p class="my-4 leading-loose max-w-xl mx-auto">
         <a
           class="underline group"
           href="https://docs.simpleanalytics.com/automated-events"
           target="_blank"
-          >{{ $t("home.events.auto_collect_link") }}<Arrow
+          >Auto-collect events<Arrow
         /></a>
-        {{ $t("home.events.auto_collect_description") }}
+        like downloads, outbound links, and email clicks. Check the performance
+        of every button, click, and page visit you want.
       </p>
 
       <p>
-        <a @click="scrollToSeekVideo('seek.events')" class="button">
+        <a @click="scrollToSeekVideo('events')" class="button">
           <ChevronDoubleUpIcon class="w-3 inline-block" />
-          <span class="mx-1">
-            {{ $t("home.events.see_events_in_action") }}</span
-          >
+          <span class="mx-1"> See events in action</span>
           <ChevronDoubleUpIcon class="w-3 inline-block" />
         </a>
       </p>
@@ -776,39 +813,35 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mb-4 mt-20 sm:mb-8 font-medium"
       >
-        {{ $t("home.reports.title") }}.
+        Automate reports.
       </h3>
       <p class="my-4 leading-loose max-w-xl mx-auto">
-        {{ $t("home.reports.description") }}
+        Save time while keeping others in the loop of your results. Schedule
+        your reports to be shared automatically at any time you want.
       </p>
 
       <div class="mt-8 mb-12">
         <div
           class="p-4 -m-8 scale-[0.8] text-left border-0 rounded-lg bg-blue-100 dark:bg-gray-700 dark:shadow-none shadow-md rotate-1"
         >
-          <h4 class="text-lg">{{ $t("home.reports.email_reports") }}</h4>
+          <h4 class="text-lg">Email reports</h4>
 
-          <p
-            class="mt-2"
-            v-html="
-              $t('home.reports.instructions', [
-                `<a href='https://docs.simpleanalytics.com/email-reports'>`,
-                `</a>`,
-              ])
-            "
-          ></p>
+          <p class="mt-2">
+            Send yourself and others an email report of simpleanalytics.com. You
+            can add as many email addresses as you like. See an example of an
+            email report in
+            <a href="https://docs.simpleanalytics.com/email-reports"
+              >our documentation</a
+            >.
+          </p>
 
           <div class="my-4">
             <table class="w-full max-w-full" v-if="emailReports.length">
               <thead>
                 <tr>
-                  <th class="font-normal">
-                    {{ $t("home.reports.recipient") }}
-                  </th>
-                  <th class="font-normal">{{ $t("home.reports.period") }}</th>
-                  <th class="font-normal hidden sm:table-cell">
-                    {{ $t("home.reports.last_emailed") }}
-                  </th>
+                  <th class="font-normal">Recipient</th>
+                  <th class="font-normal">Period</th>
+                  <th class="font-normal hidden sm:table-cell">Last emailed</th>
                   <th class="font-normal"></th>
                 </tr>
               </thead>
@@ -818,23 +851,17 @@
                     {{ report.email }}
                   </td>
                   <td>
-                    {{
-                      report.period === "month"
-                        ? $t("home.reports.month")
-                        : $t("home.reports.week")
-                    }}
+                    {{ report.period === "month" ? "month" : "week" }}
                   </td>
                   <td class="hidden sm:table-cell">
-                    {{ $t(report.agoTranslation) }}
+                    {{ report.agoText }}
                   </td>
                   <td>
                     <a
                       class="ml-2 button tiny"
                       @click="removeEmailReport(report)"
                     >
-                      <span class="hidden sm:inline">{{
-                        $t("home.reports.remove")
-                      }}</span>
+                      <span class="hidden sm:inline">Remove</span>
                       <XCircleIcon class="stroke-red-600 h-6 w-6 sm:hidden" />
                     </a>
                   </td>
@@ -855,7 +882,7 @@
               ref="emailReportEmailField"
               type="text"
               v-model="emailReportEmail"
-              :placeholder="$t('home.reports.email_placeholder')"
+              :placeholder="`E.g.: client{'@'}example.com`"
               class="appearance-none max-w-full rounded-sm w-72 mr-2 mt-2 pl-3 py-2 text-base focus:outline-none sm:text-normal bg-gray-50 text-gray-500 border border-gray-200 dark:border-0 dark:!bg-gray-800 dark:text-gray-300"
             />
 
@@ -863,13 +890,13 @@
               v-model="emailReportPeriod"
               class="appearance-none rounded-sm mr-2 mt-2 pl-3 pr-8 py-2 text-base focus:outline-none sm:text-normal bg-gray-50 text-gray-500 border border-gray-200 dark:border-0 dark:bg-gray-600 dark:text-gray-300 w-[150px]"
             >
-              <option value="week">{{ $t("home.reports.weekly") }}</option>
-              <option value="month">{{ $t("home.reports.monthly") }}</option>
+              <option value="week">weekly</option>
+              <option value="month">monthly</option>
             </select>
 
-            <a @click="saveEmailReport" class="button flex-shrink-0 mt-2">{{
-              $t("home.reports.add_recipient")
-            }}</a>
+            <a @click="saveEmailReport" class="button flex-shrink-0 mt-2"
+              >Add recipient</a
+            >
           </p>
         </div>
       </div>
@@ -879,19 +906,13 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-md mx-auto mb-4 mt-20 sm:mb-8 font-medium"
       >
-        {{ $t("home.dark_mode.title") }}.
+        Dark mode.
       </h3>
-      <p
-        class="my-4 sm:mb-8 leading-loose max-w-xl mx-auto"
-        v-html="
-          $t('home.dark_mode.description', [
-            `<span class='line-through dark:text-gray-500'>`,
-            `</span>`,
-            `<span class='text-red-500 dark:text-red-600'>`,
-            `</span>`,
-          ])
-        "
-      ></p>
+      <p class="my-4 sm:mb-8 leading-loose max-w-xl mx-auto">
+        For those who keep
+        <span class="line-through dark:text-gray-500">working</span>
+        <span class="text-red-500 dark:text-red-600">coding</span> at night.
+      </p>
     </div>
 
     <div
@@ -920,7 +941,7 @@
     <div class="max-w-3xl px-6 mx-auto text-center">
       <p class="mt-4 mb-8 text-sm">
         <a @click="toggleTheme()" class="mt-1 button tiny">
-          <span class="ml-2">{{ $t("home.dark_mode.toggle_button") }}</span>
+          <span class="ml-2">Toggle dark mode</span>
           <SunIcon class="h-6 p-1 ml-1 stroke-red-600 hidden dark:block" />
           <MoonIcon class="h-6 p-1 ml-1 stroke-red-500 dark:hidden" />
         </a>
@@ -930,11 +951,21 @@
         class="mt-4"
         image="https://assets.simpleanalytics.com/images/people/hannah.png"
         title="Hannah Wright"
-        :subtitle="$t('testimonials.hannah.role')"
+        subtitle="Founder SaaS Design"
         subtitlelink="https://www.saasdesign.io/"
       >
         <p class="text-base leading-relaxed">
-          "<span v-html="$t('testimonials.hannah.quote', tColorsRed)"></span>"
+          "<span
+            >After switching from GA, I tried out another privacy-focused
+            analytics solution but it turned out it was too minimal and didn't
+            give me what I needed. I make decisions based on data. Luckily,
+            Simple Analytics
+            <span class="text-red-500 dark:text-red-600"
+              >shows the exact metrics I need to know about in order to grow my
+              business</span
+            >, while also being respectful of the privacy of my visitors. AND it
+            loads extremely quickly, making it SEO-friendly</span
+          >"
         </p>
       </Quote>
 
@@ -945,60 +976,47 @@
           <h3
             class="text-2xl sm:text-4xl text-center md:text-left leading-normal sm:leading-normal font-medium"
           >
-            {{ $t("home.mobile.title") }}.
+            Take it mobile.
           </h3>
           <ul>
             <li class="flex items-center my-6">
               <ShieldCheckIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
-              <p
-                v-html="
-                  $t('home.mobile.point_1', [
-                    ...tColorsRed,
-                    `<br class='block sm:hidden' /> `,
-                  ])
-                "
-              ></p>
+              <p>
+                <span class="text-red-500 dark:text-red-600">Keep an eye</span>
+                on your dashboard<br class="block sm:hidden" />
+                via your iPhone
+              </p>
             </li>
             <li class="flex items-center my-6">
               <ShieldCheckIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
-              <p
-                v-html="
-                  $t('home.mobile.point_2', [
-                    ...tColorsRed,
-                    `<br class='block sm:hidden' /> `,
-                  ])
-                "
-              ></p>
+              <p>
+                Add
+                <span class="text-red-500 dark:text-red-600">widgets</span> to
+                your home screen
+              </p>
             </li>
             <li class="flex items-center my-6">
               <ShieldCheckIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
-              <p
-                v-html="
-                  $t('home.mobile.point_3', [
-                    ...tColorsRed,
-                    `<br class='block sm:hidden' /> `,
-                  ])
-                "
-              ></p>
+              <p>
+                <span class="text-red-500 dark:text-red-600">Block visits</span>
+                from yourself
+              </p>
             </li>
             <li class="flex items-center my-6">
               <ShieldCheckIcon
                 class="h-8 mr-3 shrink-0 stroke-1 stroke-red-500 dark:stroke-red-600"
               />
-              <p
-                v-html="
-                  $t('home.mobile.point_4', [
-                    ...tColorsRed,
-                    `<br class='block sm:hidden' /> `,
-                  ])
-                "
-              ></p>
+              <p>
+                See
+                <span class="text-red-500 dark:text-red-600">spikes</span> as
+                they happen
+              </p>
             </li>
           </ul>
         </div>
@@ -1069,7 +1087,7 @@
         <h3
           class="text-2xl sm:text-4xl leading-normal sm:leading-normal max-w-lg mx-auto mb-4 mt-24 sm:mb-8 font-medium"
         >
-          {{ $t("home.videos.title") }}.
+          When you ask videographers to create something fun.
         </h3>
 
         <div class="flex flex-col sm:flex-row -mx-2">
@@ -1099,7 +1117,7 @@
             </Video>
 
             <p class="mt-3 text-xs">
-              {{ $t("home.videos.tropical_caption") }}
+              Why our founder is getting crazy on his tropical island.
             </p>
           </div>
 
@@ -1130,7 +1148,7 @@
                 default=""
               />
             </Video>
-            <p class="mt-3 text-xs">{{ $t("home.videos.paranoid_caption") }}</p>
+            <p class="mt-3 text-xs">Is he getting paranoid?</p>
           </div>
         </div>
 
@@ -1140,11 +1158,19 @@
           iconclass="fill-blue-200 dark:fill-gray-800"
           image="https://assets.simpleanalytics.com/images/people/evan.png"
           title="Evan Frawley"
-          :subtitle="$t('testimonials.evan.role', tColorsBlue)"
+          subtitle="Software engineer"
           subtitlelink="https://evan.gg/blog/simple-analytics-is-great"
         >
           <p class="text-xl leading-relaxed">
-            "<span v-html="$t('testimonials.evan.quote', tColorsBlue)"></span>"
+            "<span
+              >This is great to keep track of all the products that I launch. I
+              also
+              <span class="text-blue-600 dark:text-blue-700"
+                >use the API to send myself a bot message</span
+              >
+              each morning with rolling week stats and daily stats from the
+              previous day</span
+            >"
           </p>
         </Quote>
       </div>
@@ -1162,7 +1188,7 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mb-4 mt-12 sm:mb-8 font-medium text-center"
       >
-        {{ $t("pricing.title") }}.
+        Simple pricing.
       </h3>
     </div>
 
@@ -1172,7 +1198,7 @@
       <h3
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mb-4 mt-24 sm:mb-8 font-medium text-center"
       >
-        {{ $t("pricing_faq.title") }}.
+        Frequently Asked Questions.
       </h3>
 
       <FAQ />
@@ -1189,7 +1215,15 @@
         subtitlelink="https://stefaanoyen.be/"
       >
         <p class="text-xl leading-relaxed">
-          "<span v-html="$t('testimonials.stefaan.quote', tColorsRed)"></span>"
+          "<span
+            >Excellent alternative for Google Analytics. Yes, you pay a small
+            subscription, but you get a lot in return:
+            <span class="text-red-500 dark:text-red-600">GDPR-proof</span> and
+            <span class="text-red-500 dark:text-red-600">cookieless</span>
+            analytics,
+            <span class="text-red-500 dark:text-red-600">accurate</span>
+            tracking and clear visuals.</span
+          >"
         </p>
       </Quote>
     </div>
@@ -1200,8 +1234,13 @@
       <div class="max-w-3xl mb-20 px-6 mx-auto text-center z-20 relative">
         <h3
           class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mt-2 mb-4 sm:mt-16 sm:mb-20 font-medium text-center"
-          v-html="$t('testimonials.trusted_by', tColorsRed)"
-        ></h3>
+        >
+          Trusted by more than 600
+          <span class="text-red-500 dark:text-red-600">governments</span>,
+          <span class="text-red-500 dark:text-red-600">NGOs</span>, and small to
+          mid-sized
+          <span class="text-red-500 dark:text-red-600">enterprises</span>.
+        </h3>
 
         <Logos
           class="mt-6 sm:mt-10 max-w-[80%] sm:max-w-none mx-auto"
@@ -1224,14 +1263,18 @@
       <h3
         id="why"
         class="text-2xl sm:text-4xl leading-normal sm:leading-normal mx-auto mb-4 mt-16 sm:mb-8 pt-8 font-medium text-center"
-        v-html="$t('home.why_most_privacy.title', tColorsRed)"
-      ></h3>
+      >
+        Why Simple Analytics is the
+        <span class="text-red-500 dark:text-red-600"
+          >best Google Analytics</span
+        >
+        alternative?
+      </h3>
 
       <div class="leading-loose max-w-lg mx-auto">
-        <h4
-          class="my-4 text-2xl text-center"
-          v-html="$t('home.why_most_privacy.x_reasons', ['6'])"
-        ></h4>
+        <h4 class="my-4 text-2xl text-center">
+          Here are 6 simple reasons that sum it up.
+        </h4>
 
         <p class="text-center" v-if="currentHash === 'why'">
           <a
@@ -1239,7 +1282,7 @@
             class="mt-4 button tiny shadow-md bg-white dark:bg-gray-800"
           >
             <ChevronDoubleUpIcon class="w-3 inline-block" />
-            <span class="mx-1">{{ $t("home.go_back") }}</span>
+            <span class="mx-1">Go back</span>
             <ChevronDoubleUpIcon class="w-3 inline-block" />
           </a>
         </p>
@@ -1251,35 +1294,73 @@
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
         >
-          1. {{ $t("home.why_most_privacy.business_model.title") }}
+          1. Privacy protection is our business model.
         </h5>
 
-        <div
-          class="prose leading-loose"
-          v-html="
-            $t('home.why_most_privacy.business_model.html', [
-              `<a href='${DASHBOARD_URL}/roadmap'>`,
-              `</a>`,
-              `<a href='${DASHBOARD_URL}/open'>`,
-              `</a>`,
-            ])
-          "
-        ></div>
+        <div class="prose leading-loose">
+          <p>
+            Big tech companies have been collecting personal data for years to
+            make a profit. Users get a "free" product, and big tech companies
+            get paid by advertisers that want to buy your attention.
+          </p>
+          <ul>
+            <li>
+              While you use the "free" product, the tech companies gather
+              creepily huge amounts of data to create a specific profile of your
+              demographics, ethnicity, political preferences, interests,
+              desires, likes, and dislikes.
+            </li>
+            <li>
+              Big tech companies will sell that to the highest bidders as their
+              business model. Without openly telling you.
+            </li>
+          </ul>
+          <p>
+            We despise such practices. Because Simple Analytics is a paid
+            service, we are independent and have no bias or conflict of
+            interest. No second agendas here.
+          </p>
+          <p>Our mission is simple:</p>
+          <ul>
+            <li>
+              We give you the fastest, easiest, and most ethical insights about
+              your website performance while upholding the highest privacy
+              standards.
+            </li>
+            <li>
+              To achieve this, Simple Analytics has an
+              <a href="`${DASHBOARD_URL}/roadmap`">open roadmap</a> for you to
+              see the next steps or request features. Furthermore, we operate
+              <a href="`${DASHBOARD_URL}/open`">fully transparently</a> by
+              sharing our metrics (including revenue, costs, number of
+              customers, and traffic).
+            </li>
+          </ul>
+        </div>
 
         <AIChatIcon class="mx-auto mt-12 h-12 fill-red-500 dark:fill-red-600" />
 
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
         >
-          2. {{ $t("home.why_most_privacy.ai.title") }}
+          2. Get insights with our AI without clicking through reports.
         </h5>
 
-        <div
-          class="prose leading-loose"
-          v-html="
-            $t('home.why_most_privacy.ai.html', [`<a href='/ai'>`, `</a>`])
-          "
-        ></div>
+        <div class="prose leading-loose">
+          <p>
+            Dive into your website analytics effortlessly with our AI-driven
+            technology. Say goodbye to the tedious task of navigating through
+            multiple reports and charts. Our intuitive AI system simplifies your
+            data analysis, offering you insightful, easy-to-understand reports
+            with just a few clicks – or even none at all.
+          </p>
+          <p>
+            Imagine having a conversation with your analytics. Ask a question,
+            and our AI responds with precise, tailored insights. Need a quick
+            update on your latest traffic trends or a comparison of this week's
+            user engagement with the last? <a href="/ai">Just ask</a>.
+          </p>
+        </div>
 
         <KeyIcon
           class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
@@ -1288,13 +1369,24 @@
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
         >
-          3. {{ $t("home.why_most_privacy.encrypted.title") }}
+          3. Your data is encrypted.
         </h5>
 
-        <div
-          class="prose leading-loose"
-          v-html="$t('home.why_most_privacy.encrypted.html')"
-        ></div>
+        <div class="prose leading-loose">
+          <p>
+            We don't store any personal information and collect minimal amounts
+            of data to protect your visitor's privacy, but that does not make
+            your analytics data less important. That's why your data is always
+            encrypted on our servers. Encrypted in transit and encrypted at
+            rest.
+          </p>
+          <p>
+            The drives storing your data contain nothing but encrypted lines of
+            code. If anybody did manage to steal those drives, they'd be
+            useless. The encryption key is stored outside the servers in a
+            virtual vault that is protected by two-factor authentication.
+          </p>
+        </div>
 
         <FingerPrintIcon
           class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
@@ -1303,13 +1395,53 @@
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
         >
-          4. {{ $t("home.why_most_privacy.personal_data.title") }}
+          4. We never, ever, ever store any personal data about your visitors.
         </h5>
 
-        <div
-          class="prose leading-loose"
-          v-html="$t('home.why_most_privacy.personal_data.html', tColorsRed)"
-        ></div>
+        <div class="prose leading-loose">
+          <p>
+            Some privacy-focused analytics tools use personally identifiable
+            data and delete it after a day.
+          </p>
+          <p>For example:</p>
+          <ul>
+            <li>
+              They collect a visitor's IP address, add a date, and turn it into
+              a hash every time you have a page visit.
+            </li>
+            <li>
+              These hashes connect page views together. Although this is
+              definitely better than big tech trying to collect as much personal
+              data as they can to sell to advertisers, it is not 100% waterproof
+              and is a gray area.
+            </li>
+            <li>
+              The hashes expire only once per day, so for less than 24 hours,
+              <em
+                >there is still personally identifiable information stored about
+                your visitors.</em
+              >
+              Privacy policies like the GDPR explain you must have visitors
+              consent to store personally identifiable information (PII).
+            </li>
+          </ul>
+          <p>
+            Simple Analytics never compromises privacy. That's why we only use
+            unique visitors without tracking IP addresses. We do this based on
+            the browser's referrer, so no PII is stored. When you use Simple
+            Analytics, it is
+            <span class="text-red-500 dark:text-red-600"
+              >therefore 100% guaranteed no personally identifiable information
+              of your visitors is stored.</span
+            >
+            Because of this, zero consent is needed. Adiós annoying banners!
+          </p>
+          <p>
+            Tip: some clients like to replace their cookie banners with "we're
+            proud to protect your privacy" banners to gain a competitive
+            advantage.
+          </p>
+        </div>
 
         <GlobeAmericasIcon
           class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
@@ -1318,13 +1450,36 @@
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
         >
-          5. {{ $t("home.why_most_privacy.eu_based.title") }}
+          5. We are an EU-based company with EU-based servers.
         </h5>
 
-        <div
-          class="prose leading-loose"
-          v-html="$t('home.why_most_privacy.eu_based.html')"
-        ></div>
+        <div class="prose leading-loose">
+          <p>
+            We do everything in our power to keep your data safe. We collect the
+            bare minimum amount of data required to give you a full picture of
+            your website's visitors, and besides the three points listed above,
+            we even go a few steps further.
+          </p>
+          <ul>
+            <li>
+              Compared to other continents, the EU has been concerned with its
+              citizens' privacy for a long time and provides diligent privacy
+              regulations.
+            </li>
+            <li>
+              Our servers are located in the Netherlands and our hosting
+              provider is Dutch because this provides a secure physical
+              location, great global network connectivity, and high legal
+              standards for data processing (no cloud provider that needs to
+              report to a foreign government).
+            </li>
+            <li>
+              We choose to locate our business in the Netherlands because a
+              privacy-conscious environment helps us uphold our high standards
+              for ethics and privacy.
+            </li>
+          </ul>
+        </div>
 
         <TableCellsIcon
           class="mx-auto stroke-1 mt-12 h-12 stroke-red-500 dark:stroke-red-600"
@@ -1333,26 +1488,21 @@
         <h5
           class="mt-2 mb-4 text-xl leading-loose text-center text-red-500 dark:text-red-600 max-w-md mx-auto"
         >
-          6. {{ $t("home.why_most_privacy.own_data.title") }}
+          6. You own your data.
         </h5>
-        <div
-          class="prose leading-loose"
-          v-html="$t('home.why_most_privacy.own_data.html')"
-        ></div>
+        <div class="prose leading-loose">
+          <p>
+            We care about your data. We care for your data. Yet, you own your
+            data. We will never sell it. You are in control of your data, and
+            you can download or delete it at any time.
+          </p>
+        </div>
       </div>
 
       <div class="py-12 text-center">
         <StartTrial />
       </div>
     </div>
-
-    <p v-if="locale === 'fr'" class="text-center leading-loose">
-      Merci à
-      <NuxtLink to="https://www.linkedin.com/in/fredericthu"
-        >Frédéric Thu</NuxtLink
-      >
-      d'avoir corrigé la traduction française.
-    </p>
 
     <EindePopup name="hide_exit_popup" class="-mb-48">
       <EindePopupPricing />
@@ -1390,7 +1540,6 @@ import Logos from "../components/Logos.vue";
 import Pricing from "../components/Pricing.vue";
 import FAQ from "../components/FAQ.vue";
 
-import { useI18n } from "vue-i18n";
 import {
   CheckIcon,
   PlayIcon,
@@ -1416,9 +1565,6 @@ import {
   SparklesIcon,
 } from "@heroicons/vue/24/outline";
 
-const { t, locale } = useI18n();
-const localePath = useLocalePath();
-
 definePageMeta({
   title: "The privacy-first Google Analytics alternative",
   description:
@@ -1432,31 +1578,31 @@ const seekVideoDark = ref(null);
 const seekVideoInstruction = ref(null);
 
 const videoSeeksLight = [
-  { translation: "seek.overview", start: 0, end: 3 },
-  { translation: "seek.key_stats", start: 3, end: 15 },
-  { translation: "seek.date_picker", start: 15, end: 24 },
-  { translation: "seek.page_views", start: 24, end: 33 },
-  { translation: "seek.segment", start: 33, end: 51 },
-  { translation: "seek.utm_sources", start: 51, end: 69 },
-  { translation: "seek.countries", start: 69, end: 78 },
-  { translation: "seek.search", start: 78, end: 102 },
-  { translation: "seek.tweet_viewer", start: 102, end: 117 },
-  { translation: "seek.events", start: 117, end: 128 },
-  { translation: "seek.conversion", start: 128, end: Infinity },
+  { id: "overview", label: "Website overview", start: 0, end: 3 },
+  { id: "key_stats", label: "Key stats", start: 3, end: 15 },
+  { id: "date_picker", label: "Date picker", start: 15, end: 24 },
+  { id: "page_views", label: "Page views", start: 24, end: 33 },
+  { id: "segment", label: "Segmenting", start: 33, end: 51 },
+  { id: "utm_sources", label: "UTM sources", start: 51, end: 69 },
+  { id: "countries", label: "Countries", start: 69, end: 78 },
+  { id: "search", label: "Search", start: 78, end: 102 },
+  { id: "tweet_viewer", label: "Tweet viewer", start: 102, end: 117 },
+  { id: "events", label: "Events", start: 117, end: 128 },
+  { id: "conversion", label: "Conversion", start: 128, end: Infinity },
 ];
 
 const videoSeeksDark = [
-  { translation: "seek.overview", start: 0, end: 3 },
-  { translation: "seek.key_stats", start: 3, end: 14 },
-  { translation: "seek.date_picker", start: 14, end: 26 },
-  { translation: "seek.page_views", start: 26, end: 33 },
-  { translation: "seek.segment", start: 33, end: 52 },
-  { translation: "seek.utm_sources", start: 52, end: 67 },
-  { translation: "seek.countries", start: 67, end: 79 },
-  { translation: "seek.search", start: 79, end: 101 },
-  { translation: "seek.tweet_viewer", start: 101, end: 115 },
-  { translation: "seek.events", start: 115, end: 131 },
-  { translation: "seek.conversion", start: 131, end: Infinity },
+  { id: "overview", label: "Website overview", start: 0, end: 3 },
+  { id: "key_stats", label: "Key stats", start: 3, end: 14 },
+  { id: "date_picker", label: "Date picker", start: 14, end: 26 },
+  { id: "page_views", label: "Page views", start: 26, end: 33 },
+  { id: "segment", label: "Segmenting", start: 33, end: 52 },
+  { id: "utm_sources", label: "UTM sources", start: 52, end: 67 },
+  { id: "countries", label: "Countries", start: 67, end: 79 },
+  { id: "search", label: "Search", start: 79, end: 101 },
+  { id: "tweet_viewer", label: "Tweet viewer", start: 101, end: 115 },
+  { id: "events", label: "Events", start: 115, end: 131 },
+  { id: "conversion", label: "Conversion", start: 131, end: Infinity },
 ];
 
 const emailReports = ref([
@@ -1464,20 +1610,20 @@ const emailReports = ref([
     id: 0,
     email: "adriaanvanrossum@simpleanalytics.com",
     period: "week",
-    agoTranslation: "home.reports.a_day_ago",
+    agoText: "a day ago",
   },
   {
     id: 1,
     email: "ironbrands@simpleanalytics.com",
     period: "month",
-    agoTranslation: "home.reports.six_days_ago",
+    agoText: "6 days ago",
   },
 ]);
 
 const emailReportEmailField = ref();
-const emailReportEmail = ref("");
+const emailReportEmail = ref();
 const emailReportPeriod = ref("week");
-const emailReportError = ref("");
+const emailReportError = ref();
 
 const active = ref(null);
 const lastUpdate = ref(Date.now());
@@ -1492,10 +1638,11 @@ const tColorsBlue = [
   `</span>`,
 ];
 
-const translationParts = t("home.automatic_translated_switch_to_english", [
-  "---",
-  "---",
-]).split("---");
+const activeLabel = computed(() => {
+  if (!active.value) return "";
+  const found = videoSeeks.value?.find(({ id }) => id === active.value);
+  return found?.label || "";
+});
 
 const config = useRuntimeConfig();
 const { DASHBOARD_URL, NODE_ENV } = config.public;
@@ -1503,12 +1650,8 @@ const { DASHBOARD_URL, NODE_ENV } = config.public;
 const affiliate = useState("affiliate");
 
 const removeEmailReport = (report) => {
-  const message = t("home.reports.confirm", [
-    report.period === "week"
-      ? t("home.reports.weekly")
-      : t("home.reports.monthly"),
-    report.email,
-  ]);
+  const periodText = report.period === "week" ? "weekly" : "monthly";
+  const message = `Are you sure to disable ${periodText} email reports for ${report.email}?`;
   const confirmed = window.confirm(message);
   if (!confirmed) return;
   const userIndex = emailReports.value.indexOf(report.id);
@@ -1524,7 +1667,7 @@ const saveEmailReport = () => {
     !emailReportEmail.value.includes("@")
   ) {
     return setTimeout(() => {
-      emailReportError.value = t("home.reports.invalid_email");
+      emailReportError.value = "Fill in a valid email address";
     }, 200);
   }
 
@@ -1532,7 +1675,7 @@ const saveEmailReport = () => {
     id: Math.random() * 100,
     email: emailReportEmail.value,
     period: emailReportPeriod.value,
-    agoTranslation: "home.reports.never",
+    agoText: "never",
   });
 
   emailReportEmail.value = "";
@@ -1625,7 +1768,7 @@ const checkWebpFeature = (feature, callback) => {
   img.src = "data:image/webp;base64," + images[feature];
 };
 
-const jumpToTime = ({ start, translation }) => {
+const jumpToTime = ({ start, id }) => {
   if (theme.value === "dark") {
     seekVideoDark.value.currentTime = start;
     seekVideoDark.value.pause();
@@ -1637,7 +1780,7 @@ const jumpToTime = ({ start, translation }) => {
   }
 
   paused.value = true;
-  active.value = translation;
+  active.value = id;
   lastUpdate.value = Date.now();
   showClickSeekButton.value = false;
 
@@ -1653,16 +1796,14 @@ const jumpToTime = ({ start, translation }) => {
   }, 1500);
 };
 
-const scrollToSeekVideo = (seek) => {
+const scrollToSeekVideo = (seekId) => {
   seekVideoInstruction.value.scrollIntoView({
     behavior: "smooth",
     block: "start",
   });
 
-  if (seek) {
-    const found = videoSeeks.value?.find(
-      ({ translation }) => seek === translation,
-    );
+  if (seekId) {
+    const found = videoSeeks.value?.find(({ id }) => seekId === id);
     if (found) jumpToTime(found);
   }
 };
@@ -1698,8 +1839,7 @@ onMounted(() => {
     let found = null;
 
     for (const seek of videoSeeks.value || []) {
-      if (currentTime > seek.start && currentTime < seek.end)
-        found = seek.translation;
+      if (currentTime > seek.start && currentTime < seek.end) found = seek.id;
     }
 
     if (Date.now() - lastUpdate.value > 2000) active.value = found;

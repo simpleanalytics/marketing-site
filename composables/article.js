@@ -2,7 +2,6 @@ export const useArticle = async ({
   routeName,
   type = "articles",
   slug,
-  useLocale = false,
   nonUniqueSlug,
   articleType,
   keys: extraKeys = [],
@@ -12,8 +11,6 @@ export const useArticle = async ({
   pick = undefined,
   watch = [],
 }) => {
-  const { locale } = useI18n();
-  const localePath = useLocalePath();
   const event = useRequestEvent();
 
   const {
@@ -65,7 +62,7 @@ export const useArticle = async ({
       ...(showDrafts && { drafts: showDrafts }),
       ...(limit && { "pagination[pageSize]": limit }),
       ...(page.value && { "pagination[page]": page.value }),
-      ...(useLocale && { locale: locale.value }),
+      locale: "en",
       fields: keys.value.join(","),
     };
 
@@ -89,7 +86,7 @@ export const useArticle = async ({
 
     const transformedData = transformer({
       data: response.data,
-      locale: locale.value,
+      locale: "en",
       keys: keys.value,
       limit,
     });
@@ -100,24 +97,6 @@ export const useArticle = async ({
 
     let languages = {};
 
-    try {
-      languages = transformedData?.[0]?.languages;
-      if (languages && slug) {
-        if (typeof localePath !== "function")
-          throw new Error("localePath is not defined in article composable");
-
-        if (slug !== languages[locale.value].slug) {
-          const path = localePath({
-            name: routeName,
-            params: { slug: languages[locale.value].slug },
-          });
-          navigateTo(path, { redirectCode: 307 }); // 308 Permanent Redirect
-        }
-      }
-    } catch (error) {
-      console.error(error);
-    }
-
     return {
       article: transformedData?.[0],
       articles: transformedData,
@@ -126,15 +105,7 @@ export const useArticle = async ({
     };
   };
 
-  const key = [
-    routeName,
-    articleType,
-    slug,
-    limit,
-    page.value,
-    locale.value,
-    showDrafts,
-  ]
+  const key = [routeName, articleType, slug, limit, page.value, showDrafts]
     .filter(Boolean)
     .join("_");
 

@@ -5,7 +5,9 @@
       class="max-w-2xl px-6 mx-auto mb-8 py-4 bg-green-200 dark:bg-green-900 rounded-lg text-center"
     >
       <p class="text-green-800 dark:text-green-100 leading-relaxed">
-        {{ $t("hiring.thank_you_message") }}
+        We've received your application, thanks for taking the time to apply! We
+        will do our best to review your application as soon as possible but
+        please note that we receive a lot of applications.
       </p>
     </div>
 
@@ -14,17 +16,22 @@
       class="max-w-2xl px-6 mx-auto mb-8 py-4 bg-red-200 dark:bg-red-900 rounded-lg text-center"
     >
       <p class="text-red-800 dark:text-red-100 leading-relaxed">
-        {{ $t("hiring.applications_closed") }}
+        We're no longer accepting applications for this position. Check back
+        later for new opportunities.
       </p>
     </div>
 
     <div class="text-center px-6">
-      <h1
-        class="text-2xl font-medium sm:text-2xl md:text-4xl"
-        v-html="$t('hiring.title', tColorsRed)"
-      ></h1>
+      <h1 class="text-2xl font-medium sm:text-2xl md:text-4xl">
+        <span class="text-red-500 dark:text-red-600">
+          Come work for Simple Analytics
+        </span>
+      </h1>
 
-      <p class="mt-4 text-sm" v-html="$t('hiring.description')" />
+      <p
+        class="mt-4 text-sm"
+        v-html="`We're hiring a senior full-stack developer.`"
+      />
     </div>
 
     <div class="max-w-3xl px-6 mx-auto mt-8">
@@ -64,45 +71,59 @@
       <!-- First column -->
       <ul class="space-y-2 list-disc list-inside">
         <li>
-          <span v-html="$t('hiring.bullets.role', tColorsRed)" />
+          <span class="text-red-500 dark:text-red-600">Senior full-stack</span>
+          developer
+        </li>
+        <li>Node.js, Vue.js, Nuxt.js, Elasticsearch, ...</li>
+        <li>
+          Work
+          <span class="text-red-500 dark:text-red-600">remotely</span>
+          (or in Amsterdam)
         </li>
         <li>
-          <span v-html="$t('hiring.bullets.code', tColorsRed)" />
+          Small, passionate team (see
+          <a
+            href="https://1millionarr.substack.com/p/i-want-to-be-a-manager"
+            class="underline"
+            target="_blank"
+            >substack</a
+          >)
         </li>
         <li>
-          <span v-html="$t('hiring.bullets.remote', tColorsRed)" />
+          Build
+          <span class="text-red-500 dark:text-red-600">privacy-first</span>
+          products
         </li>
         <li>
-          <span v-html="$t('hiring.bullets.team', substackLink)" />
-        </li>
-        <li>
-          <span v-html="$t('hiring.bullets.privacy', tColorsRed)" />
-        </li>
-        <li>
-          <span v-html="$t('hiring.bullets.support', tColorsRed)" />
+          Help with
+          <span class="text-red-500 dark:text-red-600">customer support</span>
         </li>
       </ul>
 
       <!-- Second column -->
       <ul class="space-y-2 list-disc list-inside">
         <li>
-          <span v-html="$t('hiring.bullets.salary', tColorsRed)" />
+          Salary
+          <span class="text-red-500 dark:text-red-600">$5000</span>
+          a month
         </li>
         <li>
-          <span v-html="$t('hiring.bullets.macbook', tColorsRed)" />
+          New
+          <span class="text-red-500 dark:text-red-600">MacBook Pro</span>
+          for Docker
         </li>
         <li>
-          <span v-html="$t('hiring.bullets.fulltime', tColorsRed)" />
+          <span class="text-red-500 dark:text-red-600">5 days</span>
+          a week (optional 4 days)
         </li>
         <li>
-          <span v-html="$t('hiring.bullets.ai_tools', tColorsRed)" />
+          <span class="text-red-500 dark:text-red-600">AI tools</span>
+          are your best friend
         </li>
-        <li>
-          <span v-html="$t('hiring.bullets.communication')" />
-        </li>
+        <li>Screen recordings and Telegram</li>
         <li>
           <div class="inline-flex items-center gap-2">
-            <span v-html="$t('hiring.bullets.no_cables')" />
+            <span>Don't chew on our cables</span>
             <svg
               width="20"
               height="20"
@@ -139,28 +160,10 @@
           :class="{ 'opacity-50 cursor-not-allowed': isApplicationClosed }"
           @click.prevent="isApplicationClosed ? null : null"
         >
-          {{ $t("hiring.apply_button") }}
+          Apply now
         </a>
         <p class="mt-4 text-sm">
-          {{
-            isApplicationClosed
-              ? $t("hiring.applications_closed_short")
-              : $t("hiring.apply_until", [
-                  getApplicationDeadline().toLocaleDateString("en-US", {
-                    month: "long",
-                    day: "numeric",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  }),
-                  getApplicationDeadline().toLocaleString("en-US", {
-                    timeZone: "UTC",
-                    month: "long",
-                    day: "numeric",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  }),
-                ])
-          }}
+          {{ deadlineText }}
           <client-only v-if="!isApplicationClosed && timeLeft">
             <span
               class="ml-1 mt-4 inline-flex text-xs font-medium bg-slate-200 dark:bg-slate-800 rounded-full px-2 py-1"
@@ -221,6 +224,25 @@ const isApplicationClosed = computed(() => {
   return currentDate > applicationDeadline;
 });
 
+const deadlineText = computed(() => {
+  if (isApplicationClosed.value) return "Applications are now closed";
+
+  const localTime = getApplicationDeadline().toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  const utcTime = getApplicationDeadline().toLocaleString("en-US", {
+    timeZone: "UTC",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  return `Apply before ${localTime} (local time) ${utcTime} (UTC)`;
+});
+
 const currentTime = ref(new Date());
 
 const timeLeft = computed(() => {
@@ -258,10 +280,4 @@ onMounted(() => {
 onUnmounted(() => {
   if (timer) clearInterval(timer);
 });
-
-const tColorsRed = [`<span class='text-red-500 dark:text-red-600'>`, `</span>`];
-const substackLink = [
-  `<a href="https://1millionarr.substack.com/p/i-want-to-be-a-manager" class="underline" target="_blank">`,
-  `</a>`,
-];
 </script>

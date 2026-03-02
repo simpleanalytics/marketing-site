@@ -1,6 +1,6 @@
 export const sections = [
   {
-    titleTranslation: "resources.sections.alternatives.title",
+    title: "Alternatives",
     section: "resources-alternatives",
     iconSlug: "alternatives",
     type: "alternatives",
@@ -8,7 +8,7 @@ export const sections = [
     iconBackground: "bg-green-50 dark:bg-green-900",
   },
   {
-    titleTranslation: "resources.sections.comparisons.title",
+    title: "Comparisons",
     section: "resources-comparisons",
     iconSlug: "comparisons",
     type: "comparisons",
@@ -16,7 +16,7 @@ export const sections = [
     iconBackground: "bg-green-50 dark:bg-green-900",
   },
   {
-    titleTranslation: "resources.sections.analytics_review.title",
+    title: "Analytics Reviews",
     section: "resources-analytics-review",
     iconSlug: "analytics-review",
     type: "analytics-review",
@@ -24,7 +24,7 @@ export const sections = [
     iconBackground: "bg-green-50 dark:bg-green-900",
   },
   {
-    titleTranslation: "resources.sections.analytics_pricing.title",
+    title: "Analytics Pricing",
     section: "resources-analytics-pricing",
     iconSlug: "analytics-pricing",
     type: "analytics-pricing",

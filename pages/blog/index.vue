@@ -1,11 +1,9 @@
 <template>
   <div class="mb-20">
     <div class="text-center mx-4">
-      <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">
-        {{ $t("blog.title") }}.
-      </h1>
+      <h1 class="text-4xl font-medium sm:text-5xl md:text-6xl">Blog.</h1>
       <p class="mt-8 text-lg">
-        {{ $t("blog.description") }}
+        Follow our journey to fight for privacy & against Google Analytics.
       </p>
     </div>
 
@@ -19,7 +17,7 @@
         <div class="space-x-2">
           <NuxtLink
             class="text-orange-500 dark:text-orange-700 bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded-lg underline"
-            :to="`https://cms.simpleanalytics.com/admin/content-manager/collection-types/api::article.article?page=1&pageSize=50&sort=updatedAt:DESC&plugins[i18n][locale]=${locale}&filters[$and][0][articleType][$eq]=blog`"
+            :to="`https://cms.simpleanalytics.com/admin/content-manager/collection-types/api::article.article?page=1&pageSize=50&sort=updatedAt:DESC&plugins[i18n][locale]=en&filters[$and][0][articleType][$eq]=blog`"
             target="_blank"
             >Go to CMS</NuxtLink
           >
@@ -33,10 +31,10 @@
 
     <div class="max-w-7xl px-6 mx-auto mt-8">
       <p v-if="status === 'pending'" class="mt-5 text-lg text-center">
-        {{ $t("home.loading_posts") }}...
+        Loading posts...
       </p>
       <p v-else-if="!articles?.length" class="mt-5 text-lg text-center">
-        {{ $t("home.did_not_find_any_posts") }}.
+        Didn't find any posts.
       </p>
       <div v-else role="list" class="justify-center block sm:flex-wrap sm:flex">
         <article
@@ -57,12 +55,7 @@
           >
             <div>
               <NuxtLink
-                :to="
-                  localePath({
-                    name: 'blog-slug',
-                    params: { slug: post.slug },
-                  })
-                "
+                :to="`/blog/${post.slug}`"
                 :rel="post.publishedAt ? '' : 'nofollow'"
               >
                 <div
@@ -90,11 +83,7 @@
                   :src="`https://simpleanalytics.com/generate-image.png?title=${encodeURIComponent(
                     post.title,
                   )}&url=${encodeURIComponent(
-                    BASE_PRODUCTION_URL +
-                      localePath({
-                        name: 'blog-slug',
-                        params: { slug: post.slug },
-                      }),
+                    BASE_PRODUCTION_URL + '/blog/' + post.slug,
                   )}&author-slug=${post.authorSlug}`"
                   :alt="post.title"
                   style="aspect-ratio: 1200/628"
@@ -112,12 +101,7 @@
             <div class="px-6 py-4 mt-2 flex-grow flex flex-col">
               <h2 class="text-2xl font-semibold">
                 <NuxtLink
-                  :to="
-                    localePath({
-                      name: 'blog-slug',
-                      params: { slug: post.slug },
-                    })
-                  "
+                  :to="`/blog/${post.slug}`"
                   :rel="post.publishedAt ? '' : 'nofollow'"
                   class="dark:text-gray-300 text-gray-600"
                 >
@@ -126,12 +110,7 @@
               </h2>
               <NuxtLink
                 v-if="post.excerpt"
-                :to="
-                  localePath({
-                    name: 'blog-slug',
-                    params: { slug: post.slug },
-                  })
-                "
+                :to="`/blog/${post.slug}`"
                 :rel="post.publishedAt ? '' : 'nofollow'"
                 class="block mt-3 mb-8 leading-relaxed text-md text-gray-700 dark:text-gray-300"
               >
@@ -155,7 +134,7 @@
                     >{{ post.name }},</span
                   >
                   {{
-                    new Intl.DateTimeFormat($t("time.intl_locale"), {
+                    new Intl.DateTimeFormat("en-US", {
                       month: "short",
                       year: "numeric",
                       day: "numeric",
@@ -168,7 +147,7 @@
                     new Date(post.publishedAt) > Date.now() - 1555200000 // 18 days
                   "
                   class="text-sm whitespace-nowrap mx-2 font-normal bg-red-500 dark:bg-red-600 px-1 text-blue-100 dark:text-gray-700 rounded-md align-text-bottom"
-                  >{{ labelAgo($t, post.publishedAt) }}</span
+                  >{{ labelAgo(post.publishedAt) }}</span
                 >
 
                 <div class="ml-auto">
@@ -189,11 +168,7 @@
       >
         <NuxtLink
           v-if="currentPage > 1"
-          :to="
-            localePath({
-              query: currentPage === 2 ? {} : { page: currentPage - 1 },
-            })
-          "
+          :to="currentPage === 2 ? '/blog' : `/blog?page=${currentPage - 1}`"
           class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700"
         >
           Previous
@@ -203,7 +178,7 @@
         </span>
         <NuxtLink
           v-if="currentPage < totalPages"
-          :to="localePath({ query: { page: currentPage + 1 } })"
+          :to="`/blog?page=${currentPage + 1}`"
           class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700"
         >
           Next
@@ -220,9 +195,6 @@ import Avatar from "~/components/Avatar.vue";
 import { EyeSlashIcon, XCircleIcon } from "@heroicons/vue/24/outline";
 import { labelAgo } from "~/utils/blog";
 
-const i18n = useI18n();
-const { locale } = i18n;
-const localePath = useLocalePath();
 const config = useRuntimeConfig();
 const { BASE_PRODUCTION_URL } = config.public;
 const route = useRoute();
@@ -232,7 +204,6 @@ const isAdmin = useAdmin();
 const POSTS_PER_PAGE = 8; // 9 - 1 because one card is newsletter subscribe
 
 const { data: articleData, status } = await useArticle({
-  useLocale: true,
   routeName: "blog-slug",
   articleType: "blog",
   keys: ["coverImageWithText", "coverImageWithoutText"],

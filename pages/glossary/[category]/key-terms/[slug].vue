@@ -9,15 +9,9 @@
     <template #pretitle>
       <h2 class="text-2xl sm:text-2xl md:text-3xl text-gray-500">
         <NuxtLink
-          :to="
-            localePath({
-              name: 'glossary-category-key-terms',
-              params: { category: route.params.category },
-            })
-          "
+          :to="`/glossary/${route.params.category}/key-terms`"
           data-no-style
-          >{{ $t(category.titleTranslation) }}
-          {{ $t("glossary.key_terms_title") }}
+          >{{ category.title }} Key terms
         </NuxtLink>
       </h2>
     </template>
@@ -29,7 +23,6 @@ import { categories } from "@/data/glossary";
 import Article from "@/components/Article.vue";
 
 const route = useRoute();
-const localePath = useLocalePath();
 
 const category = computed(() => {
   const category = categories.find(

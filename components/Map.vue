@@ -1953,7 +1953,7 @@
     </svg>
 
     <p class="text-center text-xs mt-4 md:mt-0">
-      {{ $t("ga_countries.map_generated_with") }}
+      Map generated with
       <a
         rel="noopener noreferrer nofollow"
         target="_blank"

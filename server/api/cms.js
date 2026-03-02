@@ -681,16 +681,13 @@ export default defineEventHandler(async (event) => {
         }
       : {};
 
-  const userAgent = url.searchParams.get("userAgent");
   url.searchParams.delete("userAgent");
   const userPath = url.searchParams.get("userPath");
   url.searchParams.delete("userPath");
 
   const params = {
     ...qsParse(url.search.slice(1)),
-    locale: url.searchParams.has("locale")
-      ? url.searchParams.get("locale")
-      : "all",
+    locale: "all",
     sort: url.searchParams.has("sort")
       ? url.searchParams.get("sort")
       : "publishedAt:desc",

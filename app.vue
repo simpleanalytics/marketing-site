@@ -230,10 +230,7 @@
                   <div
                     class="flex items-center justify-between w-full md:w-auto"
                   >
-                    <NuxtLink
-                      :to="localePath({ name: 'index' })"
-                      class="flex items-center"
-                    >
+                    <NuxtLink to="/" class="flex items-center">
                       <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />
                       <span
                         class="sm:hidden lg:block ml-3 text-xl sm:text-2xl text-gray-500 dark:text-gray-400"
@@ -270,14 +267,14 @@
                       v-if="!item.popover && item.href"
                       class="font-medium text-gray-500 hover:text-gray-600"
                     >
-                      {{ $t(item.translation) }}
+                      {{ item.label }}
                     </ExternalLink>
                     <NuxtLink
                       v-else-if="!item.popover"
-                      :to="localePath({ name: item.to })"
+                      :to="{ name: item.to }"
                       class="font-medium text-gray-500 hover:text-gray-600"
                     >
-                      {{ $t(item.translation) }}
+                      {{ item.label }}
                     </NuxtLink>
                     <Popover class="relative z-[100]" v-slot="{ open }" v-else>
                       <PopoverButton
@@ -286,7 +283,7 @@
                           'group inline-flex items-center text-base font-medium text-gray-500 hover:text-gray-600',
                         ]"
                       >
-                        <span>{{ $t("nav.resources") }}</span>
+                        <span>Resources</span>
                         <ChevronDownIcon
                           :class="[
                             open ? 'text-gray-600' : 'text-gray-500',
@@ -319,18 +316,8 @@
                                 "
                                 v-for="item in resources"
                                 :key="item.name"
-                                :href="
-                                  !item.href
-                                    ? undefined
-                                    : /^https?:\/\//.test(item.href)
-                                      ? item.href
-                                      : localePath(item.href)
-                                "
-                                :to="
-                                  item.to
-                                    ? localePath({ name: item.to })
-                                    : undefined
-                                "
+                                :href="!item.href ? undefined : item.href"
+                                :to="item.to ? { name: item.to } : undefined"
                                 class="-m-3 p-3 rounded flex items-start hover:bg-blue-100 dark:hover:bg-gray-900 transition ease-in-out duration-150"
                               >
                                 <component
@@ -342,10 +329,10 @@
                                   <p
                                     class="text-base font-medium text-gray-900"
                                   >
-                                    {{ $t(item.name) }}
+                                    {{ item.name }}
                                   </p>
                                   <p class="mt-1 text-sm">
-                                    {{ $t(item.description) }}
+                                    {{ item.description }}
                                   </p>
                                 </div>
                               </PopoverButton>
@@ -358,25 +345,19 @@
                                 <h3
                                   class="text-sm tracking-wide font-medium uppercase"
                                 >
-                                  {{ $t("home.recent_blog_posts") }}
-                                  <span
-                                    v-if="i18n.locale.value !== 'en'"
-                                    class="lowercase text-gray-400 dark:text-gray-400"
-                                  >
-                                    {{ $t("home.in_english") }}
-                                  </span>
+                                  Recent blog posts
                                 </h3>
                                 <p
                                   v-if="status === 'pending'"
                                   class="mt-5 text-sm"
                                 >
-                                  {{ $t("home.loading_posts") }}...
+                                  Loading posts...
                                 </p>
                                 <p
                                   v-else-if="!recentPosts?.length"
                                   class="mt-5 text-sm"
                                 >
-                                  {{ $t("home.did_not_find_any_posts") }}...
+                                  Didn't find any posts...
                                 </p>
                                 <ul v-else role="list" class="mt-4 space-y-4">
                                   <li
@@ -387,19 +368,12 @@
                                   >
                                     <PopoverButton
                                       :as="MenuLink"
-                                      :href="
-                                        localePath({
-                                          name: 'blog-slug',
-                                          params: { slug: post.slug },
-                                        })
-                                      "
+                                      :href="`/blog/${post.slug}`"
                                       class="font-medium hover:text-gray-900 dark:hover:text-gray-500 transition ease-in-out duration-150"
                                     >
                                       <span
                                         class="inline-block text-sm bg-red-500 dark:bg-red-600 px-1 text-white dark:text-gray-700 rounded-md align-text-top mr-1"
-                                        >{{
-                                          labelAgo($t, post.publishedAt)
-                                        }}</span
+                                        >{{ labelAgo(post.publishedAt) }}</span
                                       >
                                       {{ post.title }}
                                     </PopoverButton>
@@ -409,10 +383,10 @@
                               <div class="mt-5 text-sm">
                                 <PopoverButton
                                   :as="MenuLink"
-                                  :href="localePath({ name: 'blog' })"
+                                  href="/blog"
                                   class="font-medium text-red-500 hover:text-red-500 transition ease-in-out duration-150"
                                 >
-                                  {{ $t("home.view_all_posts") }}
+                                  View all blog posts
                                   <span aria-hidden="true">&rarr;</span>
                                 </PopoverButton>
                               </div>
@@ -422,8 +396,6 @@
                       </transition>
                     </Popover>
                   </div>
-
-                  <LangSwitcher />
                 </div>
                 <div
                   class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0"
@@ -439,13 +411,13 @@
                     "
                     class="inline-flex items-center px-4 py-2 text-gray-500 dark:text-gray-400 dark:hover:text-gray-600"
                   >
-                    {{ $t("nav.login") }}
+                    Log in
                   </a>
                   <a
                     @click="navigateToWelcome($router, 'click_signup_top_nav')"
                     class="font-medium mx-3 button"
                   >
-                    {{ $t("nav.start_now") }}
+                    Start for free
                   </a>
                 </div>
               </nav>
@@ -487,18 +459,18 @@
                       <PopoverButton
                         :as="MenuLink"
                         v-if="item.mobile?.to || item.to"
-                        :to="localePath({ name: item.mobile?.to || item.to })"
+                        :to="{ name: item.mobile?.to || item.to }"
                         class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
                       >
-                        {{ $t(item.mobile?.translation || item.translation) }}
+                        {{ item.mobile?.label || item.label }}
                       </PopoverButton>
                       <PopoverButton
                         :as="MenuLink"
                         v-else
-                        :href="localePath(item.mobile?.href || item.href)"
+                        :href="item.mobile?.href || item.href"
                         class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
                       >
-                        {{ $t(item.mobile?.translation || item.translation) }}
+                        {{ item.mobile?.label || item.label }}
                       </PopoverButton>
                     </template>
                     <a
@@ -506,22 +478,8 @@
                         navigateToWelcome($router, 'click_signup_top_nav')
                       "
                       class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
-                      >{{ $t("nav.start_now") }}</a
+                      >Start for free</a
                     >
-                    <a
-                      @click="setLocale(switchTo)"
-                      v-if="switchTo"
-                      class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
-                    >
-                      Switch to English
-                    </a>
-                    <a
-                      v-if="switchTo !== 'en' && locale !== 'en'"
-                      @click="setLocale('nl')"
-                      class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-500 hover:text-gray-900 hover:bg-gray-50 dark:hover:bg-gray-300"
-                    >
-                      Switch to English
-                    </a>
                   </div>
                   <a
                     @click="
@@ -534,7 +492,7 @@
                     "
                     class="block w-full px-5 py-3 text-center font-medium text-red-500 bg-gray-50 hover:bg-gray-100 dark:bg-gray-500 dark:text-gray-100"
                   >
-                    {{ $t("nav.login") }}
+                    Log in
                   </a>
                 </div>
               </PopoverPanel>
@@ -566,18 +524,12 @@
         <div
           class="container px-3 sm:px-6 pt-10 pb-4 md:pt-12 md:pb-10 mx-auto"
         >
-          <p
-            class="text-center -mt-4 mb-8 flex justify-center items-center text-sm"
-            v-if="i18n.locale.value !== 'en'"
-          >
-            {{ $t("home.most_of_resources_are_english") }}
-          </p>
           <div class="grid lg:grid-cols-4 lg:grid-rows-3 md:grid-cols-2">
             <div class="mb-10 lg:mb-0 lg:row-span-2">
               <h5
                 class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
               >
-                {{ $t("home.footer.privacy") }}
+                Privacy
               </h5>
 
               <ul class="list-none mb-0">
@@ -589,7 +541,7 @@
                     <FingerPrintIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
-                    <span>{{ $t("home.footer.what_we_collect") }}</span>
+                    <span>What we collect</span>
                   </a>
                 </li>
                 <li>
@@ -600,7 +552,7 @@
                     <EyeSlashIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
-                    <span>{{ $t("home.footer.we_dont_track_you") }}</span>
+                    <span>We don't track you</span>
                   </a>
                 </li>
                 <li>
@@ -611,7 +563,7 @@
                     <ScaleIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
-                    <span>{{ $t("home.footer.privacy_policy") }}</span>
+                    <span>Privacy policy</span>
                   </a>
                 </li>
                 <li>
@@ -622,22 +574,18 @@
                     <BookOpenIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
-                    <span>{{ $t("home.footer.cookie_statement") }}</span>
+                    <span>Cookie statement</span>
                   </a>
                 </li>
                 <li>
                   <a
-                    :href="
-                      i18n.locale.value === 'nl'
-                        ? 'https://simpleanalytics.com/algemene-voorwaarden'
-                        : 'https://simpleanalytics.com/terms-of-service'
-                    "
+                    href="https://simpleanalytics.com/terms-of-service"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <NewspaperIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
-                    <span>{{ $t("home.footer.tos") }}</span>
+                    <span>Terms & conditions</span>
                   </a>
                 </li>
               </ul>
@@ -647,7 +595,7 @@
               <h5
                 class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
               >
-                {{ $t("home.footer.learn") }}
+                Learn
               </h5>
 
               <ul class="list-none mb-0">
@@ -659,7 +607,7 @@
                     <LifebuoyIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
-                    <span>{{ $t("home.footer.documentation") }}</span>
+                    <span>Documentation</span>
                   </a>
                 </li>
                 <li>
@@ -670,18 +618,18 @@
                     <UserGroupIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
-                    <span>{{ $t("home.footer.community") }}</span>
+                    <span>Community forum</span>
                   </a>
                 </li>
                 <li>
                   <NuxtLink
-                    :to="localePath({ name: 'blog' })"
+                    to="/blog"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <BookOpenIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
-                    <span>{{ $t("home.footer.blog") }}</span>
+                    <span>Blog</span>
                   </NuxtLink>
                 </li>
                 <!--
@@ -693,19 +641,19 @@
                     <MapPinIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
-                    <span>{{ $t("home.footer.roadmap") }}</span>
+                    <span>Roadmap</span>
                   </a>
                 </li>
                 -->
                 <li>
                   <NuxtLink
-                    :to="localePath({ name: 'pricing' })"
+                    to="/pricing"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <CreditCardIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
-                    <span>{{ $t("home.footer.pricing") }}</span>
+                    <span>Pricing</span>
                   </NuxtLink>
                 </li>
                 <li>
@@ -716,62 +664,62 @@
                     <ClipboardDocumentCheckIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
-                    <span>{{ $t("home.footer.status") }}</span>
+                    <span>Status</span>
                   </a>
                 </li>
                 <li>
                   <NuxtLink
-                    :to="localePath({ name: 'resources' })"
+                    to="/resources"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <BuildingLibraryIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
-                    <span>{{ $t("home.footer.resources") }}</span>
+                    <span>Resources</span>
                   </NuxtLink>
                 </li>
                 <li>
                   <NuxtLink
-                    :to="localePath({ name: 'guides' })"
+                    to="/guides"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <CursorArrowRippleIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
-                    <span>{{ $t("home.footer.guides") }}</span>
+                    <span>Guides</span>
                   </NuxtLink>
                 </li>
                 <li>
                   <NuxtLink
-                    :to="localePath({ name: 'case-studies' })"
+                    to="/case-studies"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <BriefcaseIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
-                    <span>{{ $t("home.footer.case_studies") }}</span>
+                    <span>Case studies</span>
                   </NuxtLink>
                 </li>
                 <li>
                   <NuxtLink
-                    :to="localePath({ name: 'utm-builder' })"
+                    to="/utm-builder"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <LinkIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
-                    <span>{{ $t("home.footer.utm_builder") }}</span>
+                    <span>UTM Builder</span>
                   </NuxtLink>
                 </li>
                 <li>
                   <NuxtLink
-                    :to="localePath({ name: 'press' })"
+                    to="/press"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <MicrophoneIcon
                       class="inline h-4 mr-2 stroke-gray-700 dark:stroke-gray-400 hover:group-hover:stroke-red-500 dark:hover:group-hover:stroke-gray-400"
                     />
-                    <span>{{ $t("home.footer.press") }}</span>
+                    <span>Press mentions</span>
                   </NuxtLink>
                 </li>
               </ul>
@@ -781,20 +729,13 @@
               <h5
                 class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
               >
-                {{ $t("home.footer.comparisons") }}
+                Comparisons
               </h5>
 
               <ul class="list-none mb-0">
                 <li>
                   <NuxtLink
-                    :to="
-                      localePath({
-                        name: 'blog-slug',
-                        params: {
-                          slug: 'why-simple-analytics-is-a-great-alternative-to-google-analytics',
-                        },
-                      })
-                    "
+                    to="/blog/why-simple-analytics-is-a-great-alternative-to-google-analytics"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <GoogleAnalyticsIcon
@@ -805,14 +746,7 @@
                 </li>
                 <li>
                   <NuxtLink
-                    :to="
-                      localePath({
-                        name: 'blog-slug',
-                        params: {
-                          slug: 'why-simple-analytics-is-a-great-alternative-to-matomo',
-                        },
-                      })
-                    "
+                    to="/blog/why-simple-analytics-is-a-great-alternative-to-matomo"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <MatomoIcon
@@ -823,14 +757,7 @@
                 </li>
                 <li>
                   <NuxtLink
-                    :to="
-                      localePath({
-                        name: 'blog-slug',
-                        params: {
-                          slug: 'why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics',
-                        },
-                      })
-                    "
+                    to="/blog/why-simple-analytics-is-a-great-alternative-to-cloudflare-web-analytics"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded hover:text-red-500 group"
                   >
                     <CloudflareIcon
@@ -846,25 +773,20 @@
               <h5
                 class="uppercase font-bold text-gray-600 dark:text-gray-400 px-3 mb-2 tracking-wide"
               >
-                {{ $t("home.recent_blog_posts") }}
+                Recent blog posts
               </h5>
 
               <p
                 v-if="status === 'pending'"
                 class="text-gray-600 dark:text-gray-400 py-3 px-3 block text-left"
               >
-                {{ $t("home.loading_posts") }}...
+                Loading posts...
               </p>
               <p
                 v-else-if="!recentPosts?.length"
                 class="text-gray-600 dark:text-gray-400 py-3 px-3 block text-left"
                 v-html="
-                  $t('home.could_not_connect', [
-                    `<a
-                      class='underline text-gray-600 dark:text-gray-400'
-                      href='/blog'>`,
-                    `</a>`,
-                  ])
+                  'Couldn\'t connect to <a class=\'underline text-gray-600 dark:text-gray-400\' href=\'/blog\'>our blog</a>.'
                 "
               ></p>
               <ul class="list-none flex flex-col space-y-2 -mb-2.5 mt-0" v-else>
@@ -873,18 +795,13 @@
                   :key="post.path"
                 >
                   <NuxtLink
-                    :to="
-                      localePath({
-                        name: 'blog-slug',
-                        params: { slug: post.slug },
-                      })
-                    "
+                    :to="`/blog/${post.slug}`"
                     class="text-gray-800 dark:text-gray-400 py-2 px-3 items-center dark:hover:bg-gray-600 dark:hover:text-gray-300 rounded-md block group text-left"
                   >
                     <span
-                      v-if="labelAgo($t, post.publishedAt)"
+                      v-if="labelAgo(post.publishedAt)"
                       class="inline-block text-sm bg-red-500 dark:bg-red-600 px-1 text-white rounded-md align-text-top mr-1"
-                      >{{ labelAgo($t, post.publishedAt) }}</span
+                      >{{ labelAgo(post.publishedAt) }}</span
                     >
                     <span
                       class="hover:group-hover:text-red-500 dark:hover:group-hover:text-gray-300"
@@ -920,7 +837,7 @@
                     class="text-gray-600 dark:text-gray-500 py-2 px-3 hover:text-red-500 dark:hover:text-gray-300 italic"
                     href="https://simpleanalytics.com/contact#details"
                   >
-                    {{ $t("home.footer.company_details") }}</a
+                    Company details</a
                   ></span
                 >
 
@@ -938,7 +855,6 @@
 </template>
 
 <script setup>
-import { useI18n } from "vue-i18n";
 import {
   Popover,
   PopoverButton,
@@ -989,24 +905,13 @@ const { BASE_URL, DASHBOARD_URL, NODE_ENV /*, CDN_URL*/ } = config.public;
 // See https://github.com/tailwindlabs/headlessui/issues/2913
 provideUseId(() => useId());
 
-const localePath = useLocalePath();
 const hideFoldIndicator = ref(false);
 
-const i18n = useI18n();
-const { locale, locales, getBrowserLocale, setLocale } = i18n;
-
-const switchTo = computed(() => {
-  const browserLocale = getBrowserLocale();
-  const found = locales.value.find(({ code }) => code === browserLocale);
-  const code = found?.code;
-  return code !== locale.value ? code : null;
-});
-
-const localeHead = useLocaleHead({
-  addDirAttribute: true,
-  identifierAttribute: "id",
-  addSeoAttributes: true,
-});
+const localeHead = {
+  htmlAttrs: { lang: "en", dir: "ltr" },
+  link: [],
+  meta: [],
+};
 
 const showOnPath = (path) => {
   return (
@@ -1028,32 +933,32 @@ watch(
 
 const resources = [
   {
-    name: "nav.resources_dropdown.blog.title",
-    description: "nav.resources_dropdown.blog.description",
+    name: "Blog",
+    description: "Read what is currently a hot topic in privacy land.",
     href: "/blog",
     icon: NewspaperIcon,
   },
   {
-    name: "nav.resources_dropdown.privacy.title",
-    description: "nav.resources_dropdown.privacy.description",
+    name: "Privacy and how we handle your data",
+    description: "Understand how we take your privacy seriously.",
     href: "https://docs.simpleanalytics.com/what-we-collect",
     icon: ScaleIcon,
   },
   {
-    name: "nav.resources_dropdown.api.title",
-    description: "nav.resources_dropdown.api.description",
+    name: "API & integrations",
+    description: "Find out how to integrate us with your current workflow.",
     href: "https://docs.simpleanalytics.com/api",
     icon: CommandLineIcon,
   },
   {
-    name: "nav.resources_dropdown.glossary.title",
-    description: "nav.resources_dropdown.glossary.description",
+    name: "Glossary",
+    description: "Learn about terms in our field.",
     to: "glossary",
     icon: AcademicCapIcon,
   },
   {
-    name: "nav.resources_dropdown.ga_countries.title",
-    description: "nav.resources_dropdown.ga_countries.description",
+    name: "Google Analytics illegal?",
+    description: "Countries where Google Analytics is illegal.",
     to: "google-analytics-countries",
     icon: GoogleAnalyticsIcon,
   },
@@ -1063,18 +968,18 @@ const defaultDescription =
   "Simple Analytics is the privacy-first Google Analytics alternative that is 100% GDPR compliant.";
 
 const navigation = [
-  { translation: "nav.pricing", to: "pricing" },
-  launchedAi({ NODE_ENV }) ? { translation: "nav.ai", to: "ai" } : null,
+  { label: "Pricing", to: "pricing" },
+  launchedAi({ NODE_ENV }) ? { label: "AI", to: "ai" } : null,
   {
-    translation: "nav.resources",
+    label: "Resources",
     popover: true,
     mobile: {
-      translation: "nav.blog",
+      label: "Blog",
       to: "blog",
     },
   },
-  { translation: "nav.docs", href: "https://docs.simpleanalytics.com" },
-  { translation: "nav.contact", href: "https://simpleanalytics.com/contact" },
+  { label: "Docs", href: "https://docs.simpleanalytics.com" },
+  { label: "Get in touch", href: "https://simpleanalytics.com/contact" },
 ].filter(Boolean);
 
 const scripts = [];
@@ -1162,7 +1067,6 @@ const { data: articlesData, status } = await useArticle({
   routeName: "blog-slug",
   articleType: "blog",
   limit: 3,
-  useLocale: true,
 });
 
 const recentPosts = computed(() => articlesData.value?.articles || []);

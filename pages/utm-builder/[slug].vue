@@ -5,11 +5,11 @@
         <h1
           class="text-4xl font-medium sm:text-5xl md:text-6xl md:leading-snug leading-relaxed"
         >
-          {{ $t(`utm_builder.sections.${type}.intro_title`) }}
+          {{ currentType?.introTitle }}
         </h1>
         <p
           class="mt-8 text-md leading-loose text-left"
-          v-html="$t(`utm_builder.sections.${type}.intro_text`)"
+          v-html="currentType?.introText"
         ></p>
       </div>
 
@@ -36,9 +36,12 @@ import { types } from "@/data/utmBuilders.js";
 const route = useRoute();
 const { slug } = route.params;
 
+const currentType = computed(() => {
+  return types.find(({ type }) => type === slug.toLowerCase());
+});
+
 const articleSlug = computed(() => {
-  const article = types.find(({ type }) => type === slug.toLowerCase());
-  return article?.articleSlug;
+  return currentType.value?.articleSlug;
 });
 
 const type = computed(() => {

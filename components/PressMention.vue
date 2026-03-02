@@ -15,7 +15,7 @@
 
     <div class="max-w-3xl px-6 mx-auto mt-10">
       <p
-        v-if="mention.video && mention.locale !== locale && locale === 'en'"
+        v-if="mention.video"
         class="mx-auto text-center block mb-6 px-4 py-2 rounded-lg bg-[#ffd9cb] dark:bg-[#592b1b]"
       >
         Video is in Dutch. Read the translated version below.
@@ -75,7 +75,6 @@
         <h2 class="mt-8 text-2xl font-medium">Listen</h2>
         <audio controls class="w-full mt-4">
           <source :src="mention.audio" type="audio/mpeg" />
-          {{ $t("common.browser_not_support_audio") }}
         </audio>
       </div>
 
@@ -92,14 +91,12 @@
 
 <script setup>
 import { pressMentions } from "~/data/press";
-import { useI18n } from "vue-i18n";
-const { t, locale } = useI18n();
 
 const { slug } = defineProps(["slug"]);
 
 const format = (date) => {
   if (!date) return null;
-  return new Intl.DateTimeFormat(t("time.intl_locale"), {
+  return new Intl.DateTimeFormat("en-US", {
     month: "short",
     year: "numeric",
     day: "numeric",

@@ -2,10 +2,7 @@
   <div class="-mt-28 flex lg:items-center flex-grow">
     <div class="flex flex-grow max-w-7xl mx-auto">
       <div class="w-1/2 ml-8 mr-12 hidden lg:block">
-        <NuxtLink
-          :to="localePath({ name: 'index' })"
-          class="items-center inline-flex mb-4"
-        >
+        <NuxtLink to="/" class="items-center inline-flex mb-4">
           <SimpleAnalyticsIcon class="h-5 w-auto sm:h-6" />
           <span
             class="sm:hidden lg:block ml-3 text-xl sm:text-2xl text-gray-500 dark:text-gray-400"
@@ -99,7 +96,6 @@ import { useSignupStore } from "~/stores/signup";
 import SignupStep3 from "~/components/SignupStep3.vue";
 import SimpleAnalyticsIcon from "~/components/images/SimpleAnalyticsIcon.vue";
 
-const localePath = useLocalePath();
 const signupStore = useSignupStore();
 const showConfetti = ref(false);
 
