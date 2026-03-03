@@ -993,12 +993,33 @@ const { DASHBOARD_URL } = config.public;
 
 // Translation lookup objects
 const pricingPlans = {
-  free: { title: "Free", description: "" },
-  simple: { title: "Simple", description: "" },
-  team: { title: "Team", description: "" },
-  starter: { title: "Starter", description: "" },
-  business: { title: "Business", description: "" },
-  enterprise: { title: "Enterprise", description: "" },
+  free: {
+    title: "Free",
+    description: "For hobby projects. Great to keep track of your projects.",
+  },
+  simple: {
+    title: "Simple",
+    description:
+      "For business owners. Get the insights you need to grow your business.",
+  },
+  team: {
+    title: "Team",
+    description:
+      "For teams. Collaborate to get the most out of your analytics data.",
+  },
+  starter: {
+    title: "Starter",
+    description: "Everything you need to get you started.",
+  },
+  business: {
+    title: "Business",
+    description: "Work together on growing your business.",
+  },
+  enterprise: {
+    title: "Enterprise",
+    description:
+      "For large organizations. Customized analytics that suits your organization.",
+  },
 };
 
 const pricingSections = {
