@@ -953,13 +953,13 @@ const resources = [
   {
     name: "Glossary",
     description: "Learn about terms in our field.",
-    to: "glossary",
+    href: "/glossaries",
     icon: AcademicCapIcon,
   },
   {
     name: "Google Analytics illegal?",
     description: "Countries where Google Analytics is illegal.",
-    to: "google-analytics-countries",
+    href: "/google-analytics-is-illegal-in-these-countries",
     icon: GoogleAnalyticsIcon,
   },
 ];
